@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const phones = await getCollection('phones');
+phones.sort((a, b) => a.data.year - b.data.year);
+
+// { 1999: [...], 2000: [...], ... }
+const byYear = Map.groupBy(phones, (p) => p.data.year);
+const years = [...byYear.keys()].sort((a, b) => a - b);
+---
+
+<Layout title="Мобільна Історія — таймлайн телефонів з 1998 року">
+  <p class="mb-10 max-w-2xl text-neutral-400">
+    Етапні мобільні телефони, що сформували індустрію — від буму масового GSM-зв'язку наприкінці
+    1990-х до сучасних смартфонів. Не повний каталог моделей, а підбірка тих, що справді щось
+    змінили.
+  </p>
+
+  <ol class="space-y-12">
+    {years.map((year) => (
+      <li>
+        <h2 class="mb-4 text-2xl font-bold text-orange-500">{year}</h2>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {byYear.get(year)!.map((phone) => (
+            <li>
+              <a
+                href={`/phones/${phone.id}/`}
+                class="block rounded-lg border border-neutral-800 bg-neutral-900 p-4 transition hover:border-orange-500"
+              >
+                <p class="text-sm text-neutral-500">{phone.data.brand}</p>
+                <p class="font-semibold">{phone.data.model}</p>
+                {phone.data.milestone && (
+                  <p class="mt-2 text-sm text-neutral-400">{phone.data.milestone}</p>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ol>
+</Layout>

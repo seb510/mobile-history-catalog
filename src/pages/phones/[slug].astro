@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const phones = await getCollection('phones');
+  return phones.map((phone) => ({
+    params: { slug: phone.id },
+    props: { phone },
+  }));
+}
+
+const { phone } = Astro.props;
+const { data } = phone;
+const { Content } = await render(phone);
+
+// Label, value pairs for the spec table — only the fields this particular phone actually has.
+const specs: [string, string][] = [
+  ['Рік', String(data.year)],
+  data.priceUsdAtLaunch != null && ['Ціна на старті', `$${data.priceUsdAtLaunch}`],
+  data.display?.sizeInches != null && ['Екран', `${data.display.sizeInches}"${data.display.type ? ` · ${data.display.type}` : ''}`],
+  data.chipset && ['Чипсет', data.chipset],
+  data.ramMb != null && ['RAM', data.ramMb >= 1024 ? `${data.ramMb / 1024} ГБ` : `${data.ramMb} МБ`],
+  data.storageMb != null && ['Пам\'ять', data.storageMb >= 1024 ? `${data.storageMb / 1024} ГБ` : `${data.storageMb} МБ`],
+  data.batteryMah != null && ['Акумулятор', `${data.batteryMah} мА·год`],
+  data.weightGrams != null && ['Вага', `${data.weightGrams} г`],
+  data.os && ['ОС', data.os],
+].filter((row): row is [string, string] => Boolean(row));
+---
+
+<Layout title={`${data.brand} ${data.model} (${data.year}) — Мобільна Історія`}>
+  <a href="/" class="mb-6 inline-block text-sm text-neutral-400 hover:text-neutral-100">← Таймлайн</a>
+
+  <p class="text-neutral-500">{data.brand}</p>
+  <h1 class="text-3xl font-bold">{data.model}</h1>
+  {data.milestone && <p class="mt-2 text-lg text-orange-500">{data.milestone}</p>}
+
+  {data.image && (
+    <figure class="mt-6">
+      <img src={data.image} alt={`${data.brand} ${data.model}`} class="max-h-96 rounded-lg" />
+      {data.imageCredit && <figcaption class="mt-1 text-xs text-neutral-500">{data.imageCredit}</figcaption>}
+    </figure>
+  )}
+
+  <div class="prose prose-invert mt-6 max-w-none">
+    <Content />
+  </div>
+
+  {specs.length > 0 && (
+    <table class="mt-8 w-full border-collapse text-sm">
+      <tbody>
+        {specs.map(([label, value]) => (
+          <tr class="border-t border-neutral-800">
+            <th class="w-40 py-2 text-left font-medium text-neutral-500">{label}</th>
+            <td class="py-2">{value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+</Layout>
