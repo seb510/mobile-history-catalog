@@ -1,0 +1,49 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<button
+  type="button"
+  class={`theme-toggle-btn flex h-8 w-8 items-center justify-center rounded-md border border-neutral-800 text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100 ${className}`}
+  aria-label="Перемкнути тему"
+>
+  <svg class="theme-icon-sun h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <circle cx="10" cy="10" r="3.5" />
+    <path d="M10 2.5v2M10 15.5v2M17.5 10h-2M4.5 10h-2M15.3 4.7l-1.4 1.4M6.1 13.9l-1.4 1.4M15.3 15.3l-1.4-1.4M6.1 6.1 4.7 4.7" />
+  </svg>
+  <svg class="theme-icon-moon hidden h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+    <path d="M17 10.8A7 7 0 0 1 9.2 3a7 7 0 1 0 7.8 7.8Z" />
+  </svg>
+</button>
+
+<script>
+  function currentTheme(): 'light' | 'dark' {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyIcons(theme: 'light' | 'dark') {
+    document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {
+      btn.querySelector('.theme-icon-sun')?.classList.toggle('hidden', theme === 'light');
+      btn.querySelector('.theme-icon-moon')?.classList.toggle('hidden', theme !== 'light');
+    });
+  }
+
+  function setTheme(theme: 'light' | 'dark') {
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {}
+    applyIcons(theme);
+  }
+
+  document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {
+    btn.addEventListener('click', () => setTheme(currentTheme() === 'light' ? 'dark' : 'light'));
+  });
+
+  applyIcons(currentTheme());
+</script>
