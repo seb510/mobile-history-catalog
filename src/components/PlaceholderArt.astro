@@ -1,7 +1,8 @@
 ---
-// Themed stand-in for phones without a sourced photo yet: a retro handset silhouette (echoing
-// LogoMark) with a faint signal/timeline motif, instead of a bare empty box. Scene-shaped, so it
-// fills a card or hero slot rather than sitting as a small centered icon.
+// Themed stand-in for phones without a sourced photo yet: the same pulse/signal-line language as
+// LogoMark, scaled into a scene — a soft glow, concentric signal rings, and scattered timeline
+// dots — rather than a bare empty box. Uses currentColor so it follows the surrounding text
+// color (and therefore the light/dark theme) instead of baking in fixed colors like the logo.
 interface Props {
   class?: string;
 }
@@ -10,27 +11,29 @@ const { class: className = 'h-full w-full' } = Astro.props;
 
 <svg viewBox="0 0 200 150" class={className} role="img" aria-hidden="true">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
-      <stop offset="0%" stop-color="currentColor" stop-opacity="0.18" />
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.2" />
       <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
     </radialGradient>
   </defs>
-  <circle cx="100" cy="68" r="58" fill="url(#glow)" />
+  <circle cx="100" cy="75" r="60" fill="url(#glow)" />
+  <circle cx="100" cy="75" r="42" stroke="currentColor" stroke-width="1" fill="none" opacity="0.15" />
+  <circle cx="100" cy="75" r="28" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2" />
 
-  <g stroke="currentColor" stroke-width="2" fill="none" opacity="0.45">
-    <path d="M128 40 a10 10 0 0 1 10 10" />
-    <path d="M132 32 a18 18 0 0 1 18 18" />
-    <path d="M136 24 a26 26 0 0 1 26 26" />
-  </g>
+  <circle cx="42" cy="42" r="2" fill="currentColor" opacity="0.3" />
+  <circle cx="33" cy="100" r="1.6" fill="currentColor" opacity="0.25" />
+  <circle cx="166" cy="104" r="2" fill="currentColor" opacity="0.3" />
+  <circle cx="158" cy="38" r="1.6" fill="currentColor" opacity="0.25" />
 
-  <circle cx="45" cy="50" r="3" fill="currentColor" opacity="0.35" />
-  <circle cx="34" cy="97" r="2" fill="currentColor" opacity="0.3" />
-  <circle cx="162" cy="107" r="3" fill="currentColor" opacity="0.35" />
-  <circle cx="151" cy="58" r="2" fill="currentColor" opacity="0.3" />
-
-  <rect x="80" y="30" width="40" height="92" rx="9" stroke="currentColor" stroke-width="3" fill="none" opacity="0.9" />
-  <rect x="93" y="36.3" width="14" height="3" rx="1.5" fill="currentColor" opacity="0.9" />
-  <rect x="88" y="90" width="6" height="16" rx="1.5" fill="currentColor" />
-  <rect x="97" y="80" width="6" height="26" rx="1.5" fill="currentColor" />
-  <rect x="106" y="86" width="6" height="20" rx="1.5" fill="currentColor" />
+  <path
+    d="M56 75h16l8-19 11 36 9-26 7 9h18"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+    opacity="0.85"
+  />
+  <circle cx="56" cy="75" r="2.5" fill="currentColor" opacity="0.6" />
+  <circle cx="126" cy="75" r="2.5" fill="currentColor" opacity="0.4" />
 </svg>

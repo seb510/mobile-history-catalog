@@ -11,6 +11,47 @@
   }
 }
 
+/* Light/dark theme toggle. The whole site is built on plain `neutral-*`/`orange-*` Tailwind
+   utilities (bg-neutral-950, text-neutral-400, …) — Tailwind v4 generates those utilities as
+   `var(--color-neutral-950)` etc., so instead of hand-writing a `dark:` variant on every class in
+   every component, we just redefine those CSS variables under a light condition. Dark is the
+   site's native/default look (every unprefixed utility already resolves to it); light is a
+   straight inversion of the neutral scale (950↔50, 900↔100, …), plus a slightly deeper orange so
+   accent text keeps enough contrast on a white background. Explicit `data-theme` always wins over
+   system preference, in both directions (set by ThemeToggle.astro + the inline script in
+   Layout.astro that applies a stored choice before first paint). */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-neutral-50: #0a0a0a;
+    --color-neutral-100: #171717;
+    --color-neutral-200: #262626;
+    --color-neutral-300: #404040;
+    --color-neutral-400: #525252;
+    --color-neutral-600: #a3a3a3;
+    --color-neutral-700: #d4d4d4;
+    --color-neutral-800: #e5e5e5;
+    --color-neutral-900: #f5f5f5;
+    --color-neutral-950: #fafafa;
+    --color-orange-400: #f97316;
+    --color-orange-500: #ea580c;
+  }
+}
+
+:root[data-theme="light"] {
+  --color-neutral-50: #0a0a0a;
+  --color-neutral-100: #171717;
+  --color-neutral-200: #262626;
+  --color-neutral-300: #404040;
+  --color-neutral-400: #525252;
+  --color-neutral-600: #a3a3a3;
+  --color-neutral-700: #d4d4d4;
+  --color-neutral-800: #e5e5e5;
+  --color-neutral-900: #f5f5f5;
+  --color-neutral-950: #fafafa;
+  --color-orange-400: #f97316;
+  --color-orange-500: #ea580c;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

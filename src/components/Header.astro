@@ -1,5 +1,6 @@
 ---
 import LogoMark from './LogoMark.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { LOCALES, localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
 
@@ -19,7 +20,7 @@ const navLinkClass = 'transition-colors duration-200 hover-desktop:text-neutral-
 <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/90 backdrop-blur">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
     <a href={localePath(locale, '/')} class="group flex items-center gap-2 text-neutral-100">
-      <LogoMark class="h-8 w-8 text-orange-500 transition-transform duration-200 group-hover-desktop:scale-110" />
+      <LogoMark class="h-8 w-8 transition-transform duration-200 group-hover-desktop:scale-110" />
       <span class="text-base font-bold tracking-tight sm:text-lg">{strings.siteName}</span>
     </a>
 
@@ -37,6 +38,7 @@ const navLinkClass = 'transition-colors duration-200 hover-desktop:text-neutral-
           </a>
         ))}
       </div>
+      <ThemeToggle />
     </nav>
 
     <button
@@ -65,6 +67,7 @@ const navLinkClass = 'transition-colors duration-200 hover-desktop:text-neutral-
             {LOCALE_LABEL[l]}
           </a>
         ))}
+        <ThemeToggle class="ml-auto" />
       </div>
     </nav>
   </div>

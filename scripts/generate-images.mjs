@@ -17,20 +17,36 @@ async function renderFavicons() {
 }
 
 function ogSvg({ siteName, tagline }) {
+  // Same badge + pulse-line glyph as LogoMark/favicon, scaled up, for one consistent brand mark
+  // across the header, the favicon, and this share image.
   return `
   <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="badge" x1="0" y1="0" x2="176" y2="176">
+        <stop offset="0" stop-color="#fb923c" />
+        <stop offset="1" stop-color="#c2410c" />
+      </linearGradient>
+      <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+        <stop offset="0%" stop-color="#f97316" stop-opacity="0.25" />
+        <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+      </radialGradient>
+      <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+        <circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" fill-opacity="0.04" />
+      </pattern>
+    </defs>
     <rect width="1200" height="630" fill="#0a0a0a" />
-    <rect x="0" y="0" width="1200" height="10" fill="#f97316" />
-    <g transform="translate(120,205)">
-      <rect x="9" y="3" width="90" height="126" rx="20" stroke="#f97316" stroke-width="9" fill="none" />
-      <rect x="54" y="25" width="18" height="7" rx="3.5" fill="#f97316" />
-      <rect x="36" y="88" width="15" height="30" rx="4.5" fill="#f97316" />
-      <rect x="55.5" y="67" width="15" height="51" rx="4.5" fill="#f97316" />
-      <rect x="75" y="79" width="15" height="39" rx="4.5" fill="#f97316" />
+    <rect width="1200" height="630" fill="url(#dots)" />
+    <rect x="0" y="0" width="1200" height="8" fill="#ea580c" />
+
+    <circle cx="208" cy="251" r="170" fill="url(#glow)" />
+    <g transform="translate(120,163)">
+      <rect width="176" height="176" rx="44" fill="url(#badge)" />
+      <path d="M33 90h22l14-36 19 69 17-47 14 25h25" stroke="#fff7ed" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
     </g>
-    <text x="300" y="300" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#fafafa">${siteName}</text>
-    <text x="300" y="350" font-family="Arial, sans-serif" font-size="30" fill="#a3a3a3">${tagline}</text>
-    <text x="300" y="400" font-family="Arial, sans-serif" font-size="22" fill="#f97316">1998 — ${new Date().getFullYear()}</text>
+
+    <text x="360" y="300" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#fafafa">${siteName}</text>
+    <text x="360" y="350" font-family="Arial, sans-serif" font-size="30" fill="#a3a3a3">${tagline}</text>
+    <text x="360" y="400" font-family="Arial, sans-serif" font-size="22" fill="#fb923c">1998 — ${new Date().getFullYear()}</text>
   </svg>`;
 }
 
