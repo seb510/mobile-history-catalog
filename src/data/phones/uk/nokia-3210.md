@@ -3,9 +3,16 @@ brand: Nokia
 model: "3210"
 year: 1999
 milestone: "Старт масового буму мобільного зв'язку"
+unitsSoldMillions: 160
 display:
-  type: "монохромний LCD"
-batteryMah: 900
+  type: "монохромний графічний LCD"
+battery:
+  mah: 650
+  removable: true
+network: "GSM 900/1800 (dual-band)"
+simType: "Mini-SIM"
+colors: ["Знімні панелі Xpress-on — кілька кольорів"]
+dimensionsMm: "123 × 46 × 25 мм"
 weightGrams: 146
 os: "власна (без назви)"
 ---

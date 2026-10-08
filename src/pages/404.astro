@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t } from '../lib/ui-strings';
+
+const locale = 'uk' as const;
+const strings = t(locale);
+---
+
+<Layout locale={locale} path="/404/" title={`${strings.notFound.title} — ${strings.siteName}`} description={strings.notFound.body}>
+  <div class="py-16 text-center">
+    <h1 class="text-3xl font-bold">404</h1>
+    <p class="mt-2 text-neutral-400">{strings.notFound.body}</p>
+    <a href="/" class="mt-6 inline-block text-orange-500 hover-desktop:underline">{strings.notFound.link}</a>
+  </div>
+</Layout>

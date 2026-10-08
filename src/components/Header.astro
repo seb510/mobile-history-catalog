@@ -1,0 +1,84 @@
+---
+import LogoMark from './LogoMark.astro';
+import { LOCALES, localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Props {
+  locale: Locale;
+  /** Unprefixed current path, e.g. "/", "/phones/nokia-3310/", "/about/". Used to build the
+   * language-switcher links and the nav "active" state. */
+  path: string;
+}
+const { locale, path } = Astro.props;
+const strings = t(locale);
+
+const LOCALE_LABEL: Record<Locale, string> = { uk: 'UK', ru: 'RU', en: 'EN' };
+const navLinkClass = 'transition-colors duration-200 hover-desktop:text-neutral-100';
+---
+
+<header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/90 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+    <a href={localePath(locale, '/')} class="group flex items-center gap-2 text-neutral-100">
+      <LogoMark class="h-8 w-8 text-orange-500 transition-transform duration-200 group-hover-desktop:scale-110" />
+      <span class="text-base font-bold tracking-tight sm:text-lg">{strings.siteName}</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm text-neutral-400 sm:flex">
+      <a href={localePath(locale, '/catalog/')} class={navLinkClass}>{strings.nav.catalog}</a>
+      <a href={localePath(locale, '/about/')} class={navLinkClass}>{strings.nav.about}</a>
+      <div class="flex items-center gap-1 border-l border-neutral-800 pl-4" aria-label={strings.langSwitcher}>
+        {LOCALES.map((l) => (
+          <a
+            href={l === locale ? undefined : localePath(l, path)}
+            aria-current={l === locale ? 'true' : undefined}
+            class={`rounded px-1.5 py-1 text-xs font-medium transition-colors duration-200 ${l === locale ? 'text-orange-500' : 'text-neutral-500 hover-desktop:text-neutral-100'}`}
+          >
+            {LOCALE_LABEL[l]}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="flex h-9 w-9 items-center justify-center rounded-md border border-neutral-800 text-neutral-300 sm:hidden"
+    >
+      <span class="sr-only">Menu</span>
+      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5"><path d="M2 5h16v1.5H2zM2 9.25h16v1.5H2zM2 13.5h16V15H2z"/></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out sm:hidden">
+    <nav class="overflow-hidden border-t border-neutral-800 px-4 py-4">
+      <a href={localePath(locale, '/catalog/')} class="block py-2 text-sm text-neutral-300">{strings.nav.catalog}</a>
+      <a href={localePath(locale, '/about/')} class="block py-2 text-sm text-neutral-300">{strings.nav.about}</a>
+      <div class="mt-2 flex items-center gap-3 border-t border-neutral-800 pt-3" aria-label={strings.langSwitcher}>
+        {LOCALES.map((l) => (
+          <a
+            href={l === locale ? undefined : localePath(l, path)}
+            aria-current={l === locale ? 'true' : undefined}
+            class={`text-sm font-medium ${l === locale ? 'text-orange-500' : 'text-neutral-400'}`}
+          >
+            {LOCALE_LABEL[l]}
+          </a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.contains('grid-rows-[1fr]');
+    menu?.classList.toggle('grid-rows-[0fr]', isOpen);
+    menu?.classList.toggle('opacity-0', isOpen);
+    menu?.classList.toggle('grid-rows-[1fr]', !isOpen);
+    menu?.classList.toggle('opacity-100', !isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

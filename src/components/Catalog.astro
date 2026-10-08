@@ -1,0 +1,125 @@
+---
+import PhoneCard from './PhoneCard.astro';
+import { getPhonesForLocale } from '../lib/phones';
+import { t } from '../lib/ui-strings';
+import type { Locale } from '../lib/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const strings = t(locale);
+
+const phones = await getPhonesForLocale(locale);
+phones.sort((a, b) => a.data.year - b.data.year);
+
+const brands = [...new Set(phones.map((p) => p.data.brand))].sort();
+const years = [...new Set(phones.map((p) => p.data.year))].sort((a, b) => a - b);
+const byYear = Map.groupBy(phones, (p) => p.data.year);
+---
+
+<div class="animate-fade-up mb-8 flex flex-col gap-3 sm:flex-row sm:items-center" data-filter-bar>
+  <input
+    type="search"
+    name="q"
+    placeholder={strings.filters.search}
+    data-filter="search"
+    class="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none sm:max-w-xs"
+  />
+  <select
+    name="brand"
+    data-filter="brand"
+    class="rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
+  >
+    <option value="">{strings.filters.brand}: {strings.filters.all}</option>
+    {brands.map((brand) => <option value={brand}>{brand}</option>)}
+  </select>
+  <select
+    name="year"
+    data-filter="year"
+    class="rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
+  >
+    <option value="">{strings.filters.year}: {strings.filters.all}</option>
+    {years.map((year) => <option value={year}>{year}</option>)}
+  </select>
+  <button
+    type="button"
+    data-filter-reset
+    hidden
+    class="text-sm text-neutral-500 underline transition-colors duration-200 hover-desktop:text-neutral-300"
+  >
+    {strings.filters.reset}
+  </button>
+  <p class="text-sm text-neutral-500 sm:ml-auto" data-filter-count></p>
+</div>
+
+<p class="hidden text-center text-neutral-500" data-filter-empty>{strings.filters.empty}</p>
+
+<ol class="space-y-12" data-catalog-list>
+  {years.map((year) => (
+    <li data-year-group={year}>
+      <h2 class="mb-4 text-2xl font-bold text-orange-500">{year}</h2>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {byYear.get(year)!.map((phone) => (
+          <li>
+            <PhoneCard phone={phone} locale={locale} />
+          </li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ol>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-filter-bar]');
+  const list = document.querySelector<HTMLElement>('[data-catalog-list]');
+  const empty = document.querySelector<HTMLElement>('[data-filter-empty]');
+  const count = document.querySelector<HTMLElement>('[data-filter-count]');
+  const resetBtn = document.querySelector<HTMLButtonElement>('[data-filter-reset]');
+  if (bar && list && empty && count) {
+    const searchInput = bar.querySelector<HTMLInputElement>('[data-filter="search"]')!;
+    const brandSelect = bar.querySelector<HTMLSelectElement>('[data-filter="brand"]')!;
+    const yearSelect = bar.querySelector<HTMLSelectElement>('[data-filter="year"]')!;
+    const cards = Array.from(list.querySelectorAll<HTMLElement>('[data-phone-card]'));
+    const groups = Array.from(list.querySelectorAll<HTMLElement>('[data-year-group]'));
+
+    const apply = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      const brand = brandSelect.value;
+      const year = yearSelect.value;
+      let visible = 0;
+
+      for (const card of cards) {
+        const matches =
+          (!q || card.dataset.search!.includes(q)) &&
+          (!brand || card.dataset.brand === brand) &&
+          (!year || card.dataset.year === year);
+        card.closest('li')!.hidden = !matches;
+        if (matches) visible++;
+      }
+
+      for (const group of groups) {
+        const anyVisible = Array.from(group.querySelectorAll<HTMLElement>('[data-phone-card]')).some(
+          (c) => !c.closest('li')!.hidden,
+        );
+        group.hidden = !anyVisible;
+      }
+
+      empty.classList.toggle('hidden', visible > 0);
+      list.hidden = visible === 0;
+      count.textContent = String(visible);
+      resetBtn!.hidden = !q && !brand && !year;
+    };
+
+    bar.addEventListener('input', apply);
+    bar.addEventListener('change', apply);
+    resetBtn?.addEventListener('click', () => {
+      searchInput.value = '';
+      brandSelect.value = '';
+      yearSelect.value = '';
+      apply();
+    });
+
+    apply();
+  }
+</script>

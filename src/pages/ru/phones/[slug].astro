@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PhoneDetail from '../../components/PhoneDetail.astro';
-import { getAllSlugs, getPhone } from '../../lib/phones';
-import { t } from '../../lib/ui-strings';
+import Layout from '../../../layouts/Layout.astro';
+import PhoneDetail from '../../../components/PhoneDetail.astro';
+import { getAllSlugs, getPhone } from '../../../lib/phones';
+import { t } from '../../../lib/ui-strings';
 
-const locale = 'uk' as const;
+const locale = 'ru' as const;
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -24,6 +24,6 @@ const description = data.milestone
 ---
 
 <Layout locale={locale} path={`/phones/${slug}/`} title={title} description={description} ogImage={data.image} type="article">
-  <a href="/catalog/" class="mb-6 inline-block text-sm text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100">{strings.backToTimeline}</a>
+  <a href="/ru/catalog/" class="mb-6 inline-block text-sm text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100">{strings.backToTimeline}</a>
   <PhoneDetail phone={phone} locale={locale} />
 </Layout>

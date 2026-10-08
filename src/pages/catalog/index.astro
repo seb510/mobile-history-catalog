@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Catalog from '../../components/Catalog.astro';
+import { t } from '../../lib/ui-strings';
+
+const locale = 'uk' as const;
+const strings = t(locale);
+---
+
+<Layout locale={locale} path="/catalog/" title={`${strings.nav.catalog} — ${strings.siteName}`} description={strings.footer.about}>
+  <h1 class="mb-6 text-3xl font-bold">{strings.nav.catalog}</h1>
+  <Catalog locale={locale} />
+</Layout>

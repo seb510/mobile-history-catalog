@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gen:images": "node scripts/generate-images.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.0.1",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@tailwindcss/typography": "^0.5.20",
+    "sharp": "^0.35.5",
     "typescript": "^6.0.3"
   }
 }

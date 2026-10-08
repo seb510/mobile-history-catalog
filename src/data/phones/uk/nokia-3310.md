@@ -3,9 +3,16 @@ brand: Nokia
 model: "3310"
 year: 2000
 milestone: "Легенда живучості — досі інтернет-мем"
+unitsSoldMillions: 126
 display:
-  type: "монохромний LCD"
-batteryMah: 900
+  type: "монохромний графічний LCD"
+battery:
+  mah: 900
+  removable: true
+network: "GSM 900/1800 (dual-band)"
+simType: "Mini-SIM"
+colors: ["Знімні панелі Xpress-on — кілька кольорів"]
+dimensionsMm: "113 × 48 × 22 мм"
 weightGrams: 133
 os: "власна (без назви)"
 ---

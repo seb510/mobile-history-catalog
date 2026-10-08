@@ -1,0 +1,78 @@
+---
+import PhoneCard from './PhoneCard.astro';
+import { getPhonesForLocale } from '../lib/phones';
+import { t } from '../lib/ui-strings';
+import { localePath, type Locale } from '../lib/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const strings = t(locale);
+
+const phones = await getPhonesForLocale(locale);
+const brandsCount = new Set(phones.map((p) => p.data.brand)).size;
+const minYear = Math.min(...phones.map((p) => p.data.year));
+const yearsSpan = new Date().getFullYear() - minYear + 1;
+
+const bestSellers = phones
+  .filter((p) => p.data.unitsSoldMillions != null)
+  .sort((a, b) => b.data.unitsSoldMillions! - a.data.unitsSoldMillions!)
+  .slice(0, 4);
+
+const stats = [
+  { value: phones.length, label: strings.hero.statsPhones },
+  { value: brandsCount, label: strings.hero.statsBrands },
+  { value: yearsSpan, label: strings.hero.statsYears },
+];
+---
+
+<section class="py-8 sm:py-14">
+  <p class="animate-fade-up inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-medium text-orange-400">
+    {strings.hero.eyebrow}
+  </p>
+  <h1 class="animate-fade-up mt-4 text-4xl font-bold tracking-tight sm:text-5xl" style="animation-delay:0.05s">
+    {strings.siteName}
+  </h1>
+  <p class="animate-fade-up mt-4 max-w-xl text-lg text-neutral-400" style="animation-delay:0.1s">
+    {strings.tagline}
+  </p>
+
+  <div class="animate-fade-up mt-6 flex flex-wrap gap-3" style="animation-delay:0.15s">
+    <a
+      href={localePath(locale, '/catalog/')}
+      class="rounded-md bg-orange-500 px-5 py-2.5 text-sm font-semibold text-neutral-950 transition-all duration-200 hover-desktop:-translate-y-0.5 hover-desktop:bg-orange-400 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/20"
+    >
+      {strings.hero.cta}
+    </a>
+    <a
+      href={localePath(locale, '/about/')}
+      class="rounded-md border border-neutral-700 px-5 py-2.5 text-sm font-semibold text-neutral-200 transition-colors duration-200 hover-desktop:border-neutral-500"
+    >
+      {strings.hero.ctaAbout}
+    </a>
+  </div>
+
+  <div class="animate-fade-up mt-10 flex max-w-md gap-8 border-t border-neutral-800 pt-6" style="animation-delay:0.2s">
+    {stats.map((stat) => (
+      <div>
+        <p class="text-2xl font-bold text-orange-500">{stat.value}</p>
+        <p class="text-xs text-neutral-500">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+{bestSellers.length > 0 && (
+  <section class="mt-6 border-t border-neutral-800 pt-10">
+    <h2 class="text-xl font-bold">{strings.hero.popularTitle}</h2>
+    <p class="mt-1 text-sm text-neutral-500">{strings.hero.popularSubtitle}</p>
+    <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {bestSellers.map((phone) => (
+        <li>
+          <PhoneCard phone={phone} locale={locale} badge={`${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

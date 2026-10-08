@@ -1,0 +1,31 @@
+---
+import { localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const strings = t(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 border-t border-neutral-800">
+  <div class="mx-auto max-w-5xl px-4 py-10 text-sm text-neutral-500">
+    <div class="flex flex-col gap-8 sm:flex-row sm:justify-between">
+      <div class="max-w-sm">
+        <p class="font-semibold text-neutral-300">{strings.siteName}</p>
+        <p class="mt-2">{strings.footer.about}</p>
+      </div>
+      <div class="flex flex-col gap-1">
+        <a href={localePath(locale, '/catalog/')} class="transition-colors duration-200 hover-desktop:text-neutral-200">{strings.nav.catalog}</a>
+        <a href={localePath(locale, '/about/')} class="transition-colors duration-200 hover-desktop:text-neutral-200">{strings.nav.about}</a>
+        <a href="https://github.com/seb510/mobile-history-catalog" class="transition-colors duration-200 hover-desktop:text-neutral-200">GitHub</a>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-col gap-2 border-t border-neutral-800 pt-6 text-xs text-neutral-600 sm:flex-row sm:justify-between">
+      <p>{strings.footer.inspiredBy}</p>
+      <p>© 1998–{year} {strings.siteName}</p>
+    </div>
+  </div>
+</footer>

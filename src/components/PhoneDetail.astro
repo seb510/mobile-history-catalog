@@ -1,0 +1,102 @@
+---
+import PlaceholderArt from './PlaceholderArt.astro';
+import { render, type CollectionEntry } from 'astro:content';
+import { t } from '../lib/ui-strings';
+import type { Locale } from '../lib/locales';
+
+interface Props {
+  phone: CollectionEntry<'phones'>;
+  locale: Locale;
+}
+const { phone, locale } = Astro.props;
+const { data } = phone;
+const strings = t(locale);
+const s = strings.specs;
+const u = strings.units;
+const { Content } = await render(phone);
+
+type Row = [string, string];
+type Group = { rows: Row[] };
+
+const groups: Group[] = [
+  {
+    rows: [
+      [s.year, String(data.year)],
+      data.priceUsdAtLaunch != null && [s.priceUsdAtLaunch, `$${data.priceUsdAtLaunch}`],
+      data.unitsSoldMillions != null && [s.unitsSoldMillions, String(data.unitsSoldMillions)],
+    ].filter((r): r is Row => Boolean(r)),
+  },
+  {
+    rows: [
+      data.display?.sizeInches != null && [s.display, `${data.display.sizeInches}"${data.display.type ? ` · ${data.display.type}` : ''}`],
+      data.display?.resolution && [s.resolution, data.display.resolution],
+    ].filter((r): r is Row => Boolean(r)),
+  },
+  {
+    rows: [
+      data.chipset && [s.chipset, data.chipset],
+      data.ramMb != null && [s.ram, data.ramMb >= 1024 ? `${data.ramMb / 1024} ${u.gb}` : `${data.ramMb} ${u.mb}`],
+      data.storageMb != null && [s.storage, data.storageMb >= 1024 ? `${data.storageMb / 1024} ${u.gb}` : `${data.storageMb} ${u.mb}`],
+      data.storageExpandable && [s.storageExpandable, data.storageExpandable],
+    ].filter((r): r is Row => Boolean(r)),
+  },
+  {
+    rows: [
+      data.camera?.rear && [s.camera, data.camera.rear],
+      data.camera?.front && [s.cameraFront, data.camera.front],
+    ].filter((r): r is Row => Boolean(r)),
+  },
+  {
+    rows: [
+      data.battery?.mah != null && [s.battery, `${data.battery.mah} ${u.mAh}`],
+      data.network && [s.network, data.network],
+      data.connectivity && data.connectivity.length > 0 && [s.connectivity, data.connectivity.join(', ')],
+      data.simType && [s.simType, data.simType],
+    ].filter((r): r is Row => Boolean(r)),
+  },
+  {
+    rows: [
+      data.os && [s.os, data.os],
+      data.dimensionsMm && [s.dimensions, data.dimensionsMm],
+      data.weightGrams != null && [s.weight, `${data.weightGrams} ${u.g}`],
+      data.colors && data.colors.length > 0 && [s.colors, data.colors.join(', ')],
+    ].filter((r): r is Row => Boolean(r)),
+  },
+].filter((g) => g.rows.length > 0);
+---
+
+<div class="grid gap-10 lg:grid-cols-[2fr_3fr]">
+  <div>
+    <div class="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-neutral-900">
+      {data.image ? (
+        <img src={data.image} alt={`${data.brand} ${data.model}`} class="h-full w-full object-cover" />
+      ) : (
+        <PlaceholderArt class="h-full w-full text-neutral-700" />
+      )}
+    </div>
+    {data.imageCredit && <p class="mt-2 text-xs text-neutral-500">{data.imageCredit}</p>}
+  </div>
+
+  <div>
+    <p class="text-neutral-500">{data.brand}</p>
+    <h1 class="text-3xl font-bold">{data.model}</h1>
+    {data.milestone && <p class="mt-2 text-lg text-orange-500">{data.milestone}</p>}
+
+    <div class="prose prose-invert mt-6 max-w-none prose-p:text-neutral-300">
+      <Content />
+    </div>
+
+    {groups.map((group) => (
+      <table class="mt-6 w-full border-collapse text-sm">
+        <tbody>
+          {group.rows.map(([label, value]) => (
+            <tr class="border-t border-neutral-800">
+              <th class="w-40 py-2 text-left font-medium text-neutral-500">{label}</th>
+              <td class="py-2">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ))}
+  </div>
+</div>

@@ -21,23 +21,44 @@ failing on a phone file is the equivalent of a failing test.
 
 ## Архітектура
 
-- `src/content.config.ts` — визначає колекцію `phones` (glob-завантажувач `src/data/phones/*.md`)
-  і Zod-схему для frontmatter. Єдине джерело правди про те, які поля в телефона є обов'язковими
-  (`brand`, `model`, `year`) проти опціональних (ціна, екран, чипсет, RAM/ROM, батарея, ОС, вага,
-  зображення). Додавання нового поля специфікацій означає: оновити схему тут **і**
-  `src/pages/phones/[slug].astro`, де будується масив `specs` для таблиці на сторінці телефону.
-- `src/pages/index.astro` — таймлайн: тягне всю колекцію `phones`, групує `Map.groupBy` по `year`,
-  рендерить картки-посилання на сторінки телефонів.
-- `src/pages/phones/[slug].astro` — динамічний роут, один на телефон. `getStaticPaths` мапить
-  кожен запис колекції на `{ slug: phone.id }`; `phone.id` — це ім'я файлу без розширення, тому
-  slug сторінки = ім'я markdown-файлу. Тіло markdown-файлу рендериться через `render(phone)` →
-  `<Content />`; specs-таблиця будується вручну з полів, які присутні (кожен рядок — умовний
-  `data.field != null && [...]`, відфільтрований наприкінці).
-- `src/layouts/Layout.astro` — єдиний layout, шапка сайту + `<slot />`. Нових layout'ів поки
-  немає — усі сторінки (головна й сторінки телефонів) використовують цей самий.
-- Стилізація — Tailwind v4 через Vite-плагін (`@tailwindcss/vite`, підключений в
-  `astro.config.mjs`), класи прямо в `.astro`-файлах, без окремого конфіг-файлу Tailwind. Темна
-  тема за дефолтом (`bg-neutral-950`), акцентний колір — orange-500.
+Сайт триязичний (uk/ru/en, uk — дефолт без префікса в URL, `/ru/*` і `/en/*` — префіксовані),
+через Astro-вбудований i18n-роутинг (`astro.config.mjs`, `i18n.routing.prefixDefaultLocale: false`).
+Оскільки Astro не перекладає content collections автоматично, кожен роут продубльовано вручну
+по локалі (`src/pages/phones/[slug].astro`, `src/pages/ru/phones/[slug].astro`,
+`src/pages/en/phones/[slug].astro` — і так само для `/`, `/catalog/`, `/about/`); кожен такий файл
+тонкий — просто фіксує `locale` і делегує рендер спільному компоненту. Додаючи нову сторінку,
+додавай усі 3 локальні варіанти одразу.
+
+- `src/content.config.ts` — колекція `phones`, glob-завантажувач `src/data/phones/*/*.md`
+  (локаль — перша директорія: `uk/nokia-3310.md`). Zod-схема в цьому файлі — єдине джерело правди
+  про обов'язкові (`brand`, `model`, `year`) проти опціональних специфікацій. Нове поле специфікації
+  означає: оновити схему тут **і** групи рядків у `src/components/PhoneDetail.astro`.
+- `src/lib/locales.ts` + `src/lib/phones.ts` — локаль-типи й fallback-ланцюжок (uk → ru → en для
+  ru-сторінок, en → uk → ru для en-сторінок; uk завжди має файл, тому для uk fallback не потрібен).
+  `getPhone(locale, slug)` і `getPhonesForLocale(locale)` — єдина точка доступу до контенту з
+  урахуванням fallback; не читай колекцію напряму в сторінках.
+- `src/lib/ui-strings.ts` — словник текстів інтерфейсу (нав, футер, фільтри, підписи специфікацій,
+  сторінка "Про проєкт") окремо від контенту телефонів, який живе в markdown. `src/lib/seo.ts` —
+  будує canonical/hreflang/og:locale для `<head>`.
+- `src/layouts/Layout.astro` — єдиний layout: повний SEO `<head>` (title/description/canonical/
+  hreflang на всі 3 локалі/OG/Twitter) + `Header` + `Footer`. Приймає `path` (без префікса локалі,
+  однаковий для всіх 3 мов) — з нього будуються canonical і перемикач мов.
+- `src/pages/index.astro` (+ ru/en) — hero-головна (`src/components/Hero.astro`): заголовок,
+  статистика каталогу, блок "найпопулярніші за продажами" (`unitsSoldMillions` у фронтматері —
+  заповнений лише для моделей із публічно відомими цифрами).
+- `src/pages/catalog/index.astro` (+ ru/en) — повний каталог з фільтрами (`src/components/
+  Catalog.astro`): бренд/рік/пошук, клієнтський vanilla JS (без React) фільтрує картки за
+  `data-*`-атрибутами й ховає порожні річні групи.
+- `src/pages/phones/[slug].astro` (+ ru/en) — `getStaticPaths` зі `getAllSlugs()` (слаги з uk-файлів
+  — вони завжди є), рендер через `src/components/PhoneDetail.astro`.
+- Картинка-заглушка (`src/components/PlaceholderArt.astro`) і лого (`src/components/LogoMark.astro`)
+  — оригінальна SVG-графіка (силует телефону + бари/сигнал), не прив'язана до жодного реального
+  бренду — навмисно, щоб уникнути питань авторського права. OG-зображення й favicon PNG —
+  `scripts/generate-images.mjs` (`npm run gen:images`), ганяти вручну після зміни лого/OG-шаблону,
+  результат комітиться як звичайний статичний asset.
+- Ховер-ефекти — лише на пристроях з мишкою: кастомний Tailwind-варіант `hover-desktop:`
+  (визначений у `src/styles/global.css` через `@custom-variant`, `@media (hover: hover) and
+  (pointer: fine)`) замість стандартного `hover:` для декоративних станів (не для `focus:`).
 - `@astrojs/react` підключений в `astro.config.mjs`, але жоден `.astro`-файл поки не імпортує
   React-компонент — інтеграція стоїть напоготові для майбутньої функції порівняння між епохами.
 - `CLAUDE.md` у корені — дублікат цього файлу (той самий контент, інший формат для агентів, що
@@ -45,12 +66,15 @@ failing on a phone file is the equivalent of a failing test.
 
 ## Дані
 
-Один телефон = один Markdown-файл у `src/data/phones/*.md`. Frontmatter — структуровані факти
-(перевіряються Zod-схемою в `src/content.config.ts`, помилка в полі ламає білд, а не рантайм);
-тіло файлу — історичний контекст у довільній формі. Slug сторінки = ім'я файлу без розширення.
+Один телефон = до 3 Markdown-файлів, по одному на локаль: `src/data/phones/<uk|ru|en>/<slug>.md`.
+`uk/<slug>.md` обов'язковий і курирується першим (найповніший); `ru`/`en` — опційні переклади
+(milestone-тег + тіло). Специфікації (frontmatter) дублюються в кожному файлі, а не виносяться в
+спільний — каталог малий і курований вручну, тож дублювання дешевше за крос-референсну систему.
+Slug = ім'я файлу без розширення, однакове в усіх трьох локалях (не перекладається).
 
 Зображення: `image` (шлях/URL) + обов'язковий `imageCredit`, коли потрібна атрибуція (Wikimedia
-Commons тощо) — ще не підібрано реальних фото для посівних записів, тільки текст/специфікації.
+Commons тощо) — ще не підібрано реальних фото для посівних записів; без `image` рендериться
+`PlaceholderArt`.
 
 ## Деплой
 

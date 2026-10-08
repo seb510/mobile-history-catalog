@@ -1,0 +1,43 @@
+---
+import PlaceholderArt from './PlaceholderArt.astro';
+import type { CollectionEntry } from 'astro:content';
+import { localePath, type Locale } from '../lib/locales';
+
+interface Props {
+  phone: CollectionEntry<'phones'>;
+  locale: Locale;
+  /** Optional corner tag, e.g. "126 млн шт." for the homepage's best-sellers section. */
+  badge?: string;
+}
+const { phone, locale, badge } = Astro.props;
+const { data } = phone;
+const slug = phone.id.split('/').slice(1).join('/');
+const searchKey = `${data.brand} ${data.model}`.toLowerCase();
+---
+
+<a
+  href={localePath(locale, `/phones/${slug}/`)}
+  data-phone-card
+  data-brand={data.brand}
+  data-year={data.year}
+  data-search={searchKey}
+  class="group flex flex-col overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 transition-all duration-200 hover-desktop:-translate-y-1 hover-desktop:border-orange-500 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/10"
+>
+  <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-neutral-800">
+    {data.image ? (
+      <img src={data.image} alt={`${data.brand} ${data.model}`} class="h-full w-full object-cover" loading="lazy" />
+    ) : (
+      <PlaceholderArt class="h-full w-full text-neutral-600 transition-colors duration-200 group-hover-desktop:text-orange-500/70" />
+    )}
+    {badge && (
+      <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold text-neutral-950">
+        {badge}
+      </span>
+    )}
+  </div>
+  <div class="flex flex-1 flex-col gap-1 p-4">
+    <p class="text-xs text-neutral-500">{data.brand} · {data.year}</p>
+    <p class="font-semibold leading-tight">{data.model}</p>
+    {data.milestone && <p class="mt-1 text-sm text-neutral-400">{data.milestone}</p>}
+  </div>
+</a>
