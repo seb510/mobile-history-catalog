@@ -55,11 +55,23 @@ failing on a phone file is the equivalent of a failing test.
   `data-*`-атрибутами й ховає порожні річні групи.
 - `src/pages/phones/[slug].astro` (+ ru/en) — `getStaticPaths` зі `getAllSlugs()` (слаги з uk-файлів
   — вони завжди є), рендер через `src/components/PhoneDetail.astro`.
-- Картинка-заглушка (`src/components/PlaceholderArt.astro`) і лого (`src/components/LogoMark.astro`)
-  — оригінальна SVG-графіка (силует телефону + бари/сигнал), не прив'язана до жодного реального
-  бренду — навмисно, щоб уникнути питань авторського права. OG-зображення й favicon PNG —
-  `scripts/generate-images.mjs` (`npm run gen:images`), ганяти вручну після зміни лого/OG-шаблону,
-  результат комітиться як звичайний статичний asset.
+- Лого (`src/components/LogoMark.astro`, статично продубльований у `public/favicon.svg` і
+  `scripts/generate-images.mjs`) і заглушка (`src/components/PlaceholderArt.astro`) — одна й та
+  сама оригінальна абстрактна мітка (значок-пульс у заокругленому "app icon" бейджі), не схожа на
+  жоден реальний бренд — навмисно, щоб уникнути питань авторського права. OG-зображення й favicon
+  PNG — `scripts/generate-images.mjs` (`npm run gen:images`), ганяти вручну після зміни
+  лого/OG-шаблону, результат комітиться як звичайний статичний asset. Міняючи лого, онови всі 3
+  місця (LogoMark, favicon.svg, ogSvg() у скрипті) однаковими координатами path, щоб мітка
+  лишалась однією й тією ж на всіх дотичних точках бренду.
+- Світла/темна тема — перемикач (`src/components/ThemeToggle.astro`) ставить `data-theme="light"|
+  "dark"` на `<html>` і зберігає вибір у `localStorage('theme')`; блокувальний inline-скрипт на
+  початку `<head>` в `Layout.astro` застосовує збережений вибір до першого рендеру (без цього —
+  спалах не тієї теми). Сам перемикач кольорів — **не** класи `dark:` на кожному елементі, а
+  інверсія CSS-змінних Tailwind-палітри (`--color-neutral-*`, `--color-orange-*`) у
+  `src/styles/global.css` під `[data-theme="light"]` / `@media (prefers-color-scheme: light)`:
+  існуючі класи (`bg-neutral-950`, `text-neutral-400` тощо) автоматично відображають правильну
+  тему без жодних змін у розмітці компонентів. Додаючи новий колір за межами `neutral`/`orange` —
+  додай його інверсію в той самий CSS-блок, а не `dark:`-варіант на елементі.
 - Ховер-ефекти — лише на пристроях з мишкою: кастомний Tailwind-варіант `hover-desktop:`
   (визначений у `src/styles/global.css` через `@custom-variant`, `@media (hover: hover) and
   (pointer: fine)`) замість стандартного `hover:` для декоративних станів (не для `focus:`).
@@ -76,9 +88,16 @@ failing on a phone file is the equivalent of a failing test.
 спільний — каталог малий і курований вручну, тож дублювання дешевше за крос-референсну систему.
 Slug = ім'я файлу без розширення, однакове в усіх трьох локалях (не перекладається).
 
-Зображення: `image` (шлях/URL) + обов'язковий `imageCredit`, коли потрібна атрибуція (Wikimedia
-Commons тощо) — ще не підібрано реальних фото для посівних записів; без `image` рендериться
-`PlaceholderArt`.
+Зображення: `image` + `imageCredit` + `imageSourceUrl`. Джерело — вільно ліцензовані фото з
+Wikimedia Commons (не press-кіти виробників — ті майже завжди copyrighted): відкрити сторінку
+File: на Commons, перевірити ліцензію (CC BY/BY-SA — ОК; "all rights reserved" — ні), узяти пряме
+посилання на `upload.wikimedia.org` (не сторінку File:) у форматі
+`.../commons/thumb/<a>/<ab>/<Назва.jpg>/960px-<Назва.jpg>` — Wikimedia віддає тільки
+"стандартні" ширини thumbnail'ів (960, 1280, 1920 px; повний список — commons "Common thumbnail
+sizes"), довільна ширина на кшталт `800px-` поверне 429/400. `imageCredit` — короткий підпис
+(автор + ліцензія), `imageSourceUrl` — посилання на саму сторінку File: (не на картинку) для
+перевірки; `PhoneDetail.astro` рендерить `imageCredit` як клікабельне посилання, коли
+`imageSourceUrl` заданий. Без `image` рендериться `PlaceholderArt`.
 
 ## Деплой
 

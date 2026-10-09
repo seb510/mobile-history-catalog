@@ -15,6 +15,9 @@ colors: ["Знімні панелі Xpress-on — кілька кольорів"
 dimensionsMm: "123 × 46 × 25 мм"
 weightGrams: 146
 os: "власна (без назви)"
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/MiNe-M_100-3345U.jpg/960px-MiNe-M_100-3345U.jpg"
+imageCredit: "Фото: MiNe, CC BY 2.0, через Wikimedia Commons"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:MiNe-M_100-3345U.jpg"
 ---
 
 Nokia 3210 вийшла у вересні 1999-го й стала одним із перших по-справжньому масових мобільних

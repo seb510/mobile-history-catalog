@@ -24,6 +24,9 @@ colors: ["Чорний"]
 dimensionsMm: "115 × 61 × 11.6 мм"
 weightGrams: 135
 os: "iPhone OS 1"
+image: "https://upload.wikimedia.org/wikipedia/commons/c/c7/IPhone_First_Generation_%28cropped%29.jpg"
+imageCredit: "Фото: Carl Berkeley, CC BY-SA 2.0, через Wikimedia Commons"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_First_Generation_(cropped).jpg"
 ---
 
 Представлений Стівом Джобсом у січні 2007-го, перший iPhone відмовився від фізичної клавіатури

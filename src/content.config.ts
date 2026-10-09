@@ -56,6 +56,9 @@ const phones = defineCollection({
     // Wikimedia Commons (or another free-licensed source) requires attribution — kept alongside
     // the image rather than hardcoded in a template, since the license/author differs per photo.
     imageCredit: z.string().optional(),
+    // Link the credit to the actual source (the Commons file page, not the raw image) so the
+    // license/author is independently verifiable — required when `imageCredit` is set.
+    imageSourceUrl: z.string().optional(),
   }),
 });
 

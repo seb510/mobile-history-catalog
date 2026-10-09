@@ -23,6 +23,9 @@ colors: ["Чорний", "Білий"]
 dimensionsMm: "117.7 × 55.7 × 17.1 мм"
 weightGrams: 158
 os: "Android 1.0"
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTC_Dream_%28front_view%29.jpg/960px-HTC_Dream_%28front_view%29.jpg"
+imageCredit: "Фото: Marcus Sümnick, CC BY 3.0, через Wikimedia Commons"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:HTC_Dream_(front_view).jpg"
 ---
 
 T-Mobile G1 (поза США — HTC Dream) вийшов восени 2008-го як перший телефон на щойно

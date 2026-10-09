@@ -15,6 +15,9 @@ colors: ["Знімні панелі Xpress-on — кілька кольорів"
 dimensionsMm: "113 × 48 × 22 мм"
 weightGrams: 133
 os: "власна (без назви)"
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/European_Nokia_3310.jpg/960px-European_Nokia_3310.jpg"
+imageCredit: "Фото: BosnaIHercegovinaYT, CC BY-SA 4.0, через Wikimedia Commons"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:European_Nokia_3310.jpg"
 ---
 
 Наступниця 3210, що перевершила її популярність і стала, мабуть, найвпізнаванішим кнопковим

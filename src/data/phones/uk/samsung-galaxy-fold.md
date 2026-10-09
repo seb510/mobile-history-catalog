@@ -24,6 +24,9 @@ colors: ["Сріблястий", "Чорний", "Зелений"]
 dimensionsMm: "Згорнутий: 160.9 × 62.8 × 17.1 мм; розгорнутий: 172.6 × 161.9 × 7.6 мм"
 weightGrams: 276
 os: "Android 9"
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Galaxy_Fold_-_5.jpg/960px-Galaxy_Fold_-_5.jpg"
+imageCredit: "Фото: KKPCW, CC BY-SA 4.0, через Wikimedia Commons"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Galaxy_Fold_-_5.jpg"
 ---
 
 Після понад десятиліття, коли форм-фактор смартфона залишався практично незмінним (прямокутна

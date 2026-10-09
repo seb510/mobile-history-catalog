@@ -21,6 +21,9 @@ colors: ["Сріблястий"]
 dimensionsMm: "98 × 53 × 13.9 мм"
 weightGrams: 95
 os: "власна (Motorola P2K)"
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Motorola_RAZR_V3-4899.jpg/960px-Motorola_RAZR_V3-4899.jpg"
+imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, через Wikimedia Commons"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3-4899.jpg"
 ---
 
 RAZR V3 зробила ставку не на функції, а на дизайн — корпус із алюмінію й скляна клавіатура

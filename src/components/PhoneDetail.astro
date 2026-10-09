@@ -74,7 +74,17 @@ const groups: Group[] = [
         <PlaceholderArt class="h-full w-full text-neutral-700" />
       )}
     </div>
-    {data.imageCredit && <p class="mt-2 text-xs text-neutral-500">{data.imageCredit}</p>}
+    {data.imageCredit && (
+      <p class="mt-2 text-xs text-neutral-500">
+        {data.imageSourceUrl ? (
+          <a href={data.imageSourceUrl} class="transition-colors duration-200 hover-desktop:text-neutral-300" target="_blank" rel="noopener noreferrer nofollow">
+            {data.imageCredit}
+          </a>
+        ) : (
+          data.imageCredit
+        )}
+      </p>
+    )}
   </div>
 
   <div>
