@@ -11,6 +11,16 @@ interface Props {
 const { locale } = Astro.props;
 const strings = t(locale);
 
+const phoneCountText = (count: number) => {
+  const forms = strings.brands.phoneCount;
+  if (locale === 'en') return count === 1 ? forms.one : forms.many;
+  const lastTwo = count % 100;
+  const last = count % 10;
+  if (last === 1 && lastTwo !== 11) return forms.one;
+  if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) return forms.few;
+  return forms.many;
+};
+
 const brands = await getBrandsForLocale(locale);
 const phones = await getPhonesForLocale(locale);
 const countByName = new Map<string, number>();
@@ -31,7 +41,7 @@ const sorted = brands.slice().sort((a, b) => a.data.name.localeCompare(b.data.na
         <BrandMark name={brand.data.name} logo={brand.data.logo} class="min-h-16 min-w-40" />
         <div class="w-full border-t border-neutral-800 pt-3">
           <p class="font-semibold tracking-tight text-neutral-100">{brand.data.name}</p>
-          <p class="mt-1 text-xs text-neutral-500">{countByName.get(brand.data.name) ?? 0} {strings.brands.phoneCount}</p>
+          <p class="mt-1 text-sm text-neutral-400"><span class="font-semibold text-neutral-200">{countByName.get(brand.data.name) ?? 0}</span> {phoneCountText(countByName.get(brand.data.name) ?? 0)}</p>
         </div>
       </a>
     </li>

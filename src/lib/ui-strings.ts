@@ -58,7 +58,7 @@ export const UI = {
     brands: {
       indexTitle: 'Бренди',
       indexSubtitle: 'Виробники, представлені в каталозі — коротка історія й усі їхні телефони.',
-      phoneCount: 'моделей у добірці',
+      phoneCount: { one: 'модель', few: 'моделі', many: 'моделей' },
       founded: 'Засновано',
       country: 'Країна',
       allPhones: 'Телефони бренду в каталозі',
@@ -148,7 +148,7 @@ export const UI = {
     brands: {
       indexTitle: 'Бренды',
       indexSubtitle: 'Производители, представленные в каталоге — краткая история и все их телефоны.',
-      phoneCount: 'моделей в подборке',
+      phoneCount: { one: 'модель', few: 'модели', many: 'моделей' },
       founded: 'Основан',
       country: 'Страна',
       allPhones: 'Телефоны бренда в каталоге',
@@ -237,7 +237,7 @@ export const UI = {
     brands: {
       indexTitle: 'Brands',
       indexSubtitle: 'Manufacturers featured in the catalog — a short history and all their phones.',
-      phoneCount: 'models featured',
+      phoneCount: { one: 'model', many: 'models' },
       founded: 'Founded',
       country: 'Country',
       allPhones: 'Phones from this brand in the catalog',

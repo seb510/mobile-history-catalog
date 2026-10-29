@@ -16,6 +16,15 @@ const strings = t(locale);
 const { Content } = await render(brand);
 
 const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand === data.name).sort((a, b) => a.data.year - b.data.year);
+const phoneCountText = (count: number) => {
+  const forms = strings.brands.phoneCount;
+  if (locale === 'en') return count === 1 ? forms.one : forms.many;
+  const lastTwo = count % 100;
+  const last = count % 10;
+  if (last === 1 && lastTwo !== 11) return forms.one;
+  if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) return forms.few;
+  return forms.many;
+};
 ---
 
 <div>
@@ -53,7 +62,7 @@ const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand ===
         )}
         <div class="min-w-28 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2">
           <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.nav.catalog}</p>
-          <p class="mt-1 font-semibold text-neutral-100">{phones.length} {strings.brands.phoneCount}</p>
+          <p class="mt-1 font-semibold text-neutral-100">{phones.length} {phoneCountText(phones.length)}</p>
         </div>
       </div>
     </div>
