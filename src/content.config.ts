@@ -65,6 +65,16 @@ const phones = defineCollection({
     // Link the credit to the actual source (the Commons file page, not the raw image) so the
     // license/author is independently verifiable — required when `imageCredit` is set.
     imageSourceUrl: z.string().optional(),
+    gallery: z
+      .array(
+        z.object({
+          image: z.string(),
+          alt: z.string(),
+          imageCredit: z.string(),
+          imageSourceUrl: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 

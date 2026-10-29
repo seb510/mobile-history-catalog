@@ -21,6 +21,15 @@ os: Proprietary Nokia platform (not Symbian)
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/European_Nokia_3310.jpg/960px-European_Nokia_3310.jpg
 imageCredit: "Фото: BosnaIHercegovinaYT, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:European_Nokia_3310.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Nokia_3310_-_Front.jpg/960px-Nokia_3310_-_Front.jpg
+    alt: Nokia 3310 front view
+    imageCredit: "Photo: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_3310_-_Front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Nokia_3310_-_Back.jpg/960px-Nokia_3310_-_Back.jpg
+    alt: Nokia 3310 back cover
+    imageCredit: "Photo: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_3310_-_Back.jpg
 chipset: Nokia MAD2 (DCT3)
 storageNote: "SIM phonebook: up to 250 entries, card-dependent; SMS and ringtone memory"
 storageExpandable: Not supported

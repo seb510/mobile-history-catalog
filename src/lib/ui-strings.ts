@@ -79,6 +79,7 @@ export const UI = {
     },
     catalog: { intro: 'Кожен рік — окрема сторінка історії. Знайди модель за назвою, брендом або роком.' },
     langSwitcher: 'Мова',
+    gallery: { label: 'Галерея фотографій', showImage: 'Показати зображення {index} з {count}' },
     units: { yes: 'Так', no: 'Ні', mm: 'мм', standardSim: 'Стандартна SIM (Mini-SIM)', mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
@@ -169,6 +170,7 @@ export const UI = {
     },
     catalog: { intro: 'Каждый год — отдельная страница истории. Найди модель по названию, бренду или году.' },
     langSwitcher: 'Язык',
+    gallery: { label: 'Галерея фотографий', showImage: 'Показать изображение {index} из {count}' },
     units: { yes: 'Да', no: 'Нет', mm: 'мм', standardSim: 'Стандартная SIM (Mini-SIM)', mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
@@ -258,6 +260,7 @@ export const UI = {
     },
     catalog: { intro: 'Each year marks a different chapter. Find a phone by model, brand, or year.' },
     langSwitcher: 'Language',
+    gallery: { label: 'Photo gallery', showImage: 'Show image {index} of {count}' },
     units: { yes: 'Yes', no: 'No', mm: 'mm', standardSim: 'Standard SIM (Mini-SIM)', mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
