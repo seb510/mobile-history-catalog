@@ -1,6 +1,7 @@
 ---
 import { localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
+import StructuredData from './StructuredData.astro';
 
 interface Item {
   label: string;
@@ -14,8 +15,16 @@ interface Props {
 
 const { locale, items } = Astro.props;
 const strings = t(locale);
+const schema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem', position: index + 1, name: item.label,
+    ...(item.path ? { item: new URL(localePath(locale, item.path), Astro.site).toString() } : {}),
+  })),
+};
 ---
 
+{items.length >= 2 && <StructuredData data={schema} />}
 <nav aria-label={strings.breadcrumbs.label} class="mb-5 text-xs text-neutral-400 sm:text-sm">
   <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
     {items.map((item, index) => (

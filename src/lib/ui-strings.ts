@@ -380,3 +380,8 @@ export const HOME_EDITORIAL = {
     ]
   }
 } as const;
+export const RELATED_PHONES = {
+  uk: { title: 'Інші телефони', compare: 'Порівняти характеристики' },
+  ru: { title: 'Другие телефоны', compare: 'Сравнить характеристики' },
+  en: { title: 'More phones from', compare: 'Compare specifications' },
+} as const;

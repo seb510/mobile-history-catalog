@@ -2,8 +2,14 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { alternateLinks, canonicalUrl, ogLocaleOf } from '../lib/seo';
+import { canonicalUrl, ogLocaleOf } from '../lib/seo';
 import type { Locale } from '../lib/locales';
+import { searchIdentity, searchEnabled } from '../lib/search-index';
+import { searchCopy } from '../lib/search-copy';
+import { getPhone } from '../lib/phones';
+import { getBrand } from '../lib/brands';
+import { t } from '../lib/ui-strings';
+import StructuredData from '../components/StructuredData.astro';
 
 interface Props {
   locale: Locale;
@@ -17,9 +23,43 @@ interface Props {
 }
 const { locale, path, title, description, ogImage = '/og-image.png', type = 'website' } = Astro.props;
 
-const canonical = canonicalUrl(Astro.site!, locale, path);
-const alternates = alternateLinks({ site: Astro.site!, path });
+const identity = await searchIdentity(Astro.site!, locale, path);
+const canonical = canonicalUrl(Astro.site!, identity.canonicalLocale, path);
+const alternates = path === '/404/' ? [] : identity.alternates;
 const absoluteOgImage = new URL(ogImage, Astro.site).toString();
+const strings = t(locale);
+const copy = searchCopy[locale];
+const staticCopy = copy[path as keyof typeof copy];
+let searchTitle = Array.isArray(staticCopy) ? `${staticCopy[0]} — ${strings.siteName}` : title;
+let searchDescription = Array.isArray(staticCopy) ? staticCopy[1] : description;
+const phoneMatch = path.match(/^\/phones\/([^/]+)\/$/);
+const brandMatch = path.match(/^\/brands\/([^/]+)\/$/);
+let subject: Record<string, unknown> | undefined;
+if (phoneMatch) {
+  const phone = await getPhone(locale, phoneMatch[1]);
+  if (phone) {
+    const name = `${phone.data.brand} ${phone.data.model}`;
+    searchTitle = `${name} (${phone.data.year}): ${copy.specs} — ${strings.siteName}`;
+    subject = { '@type': 'Thing', name, description: phone.data.milestone, image: phone.data.image };
+  }
+}
+if (brandMatch) {
+  const brand = await getBrand(locale, brandMatch[1]);
+  if (brand) {
+    searchTitle = `${brand.data.name}: ${copy.brand} — ${strings.siteName}`;
+    searchDescription = `${brand.data.name} — ${copy.brand}. ${strings.brands.indexSubtitle}`;
+  }
+}
+const noindex = !searchEnabled || path === '/404/';
+const pageType = path === '/about/' ? 'AboutPage' : path === '/catalog/' || path.startsWith('/brands/') ? 'CollectionPage' : 'WebPage';
+const siteId = new URL('/#website', Astro.site).toString();
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': siteId, url: new URL('/', Astro.site).toString(), name: t('uk').siteName, alternateName: ['Mobile History', t('ru').siteName], inLanguage: ['uk', 'ru', 'en'] },
+    { '@type': pageType, '@id': `${canonical}#webpage`, url: canonical, name: searchTitle, description: searchDescription, inLanguage: identity.canonicalLocale, isPartOf: { '@id': siteId }, ...(subject ? { about: subject } : {}) },
+  ],
+};
 ---
 
 <html lang={locale}>
@@ -36,9 +76,12 @@ const absoluteOgImage = new URL(ogImage, Astro.site).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{searchTitle}</title>
+    <meta name="description" content={searchDescription} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    {path !== '/404/' && <StructuredData data={schema} />}
 
     {alternates.map((alt) => (
       <link rel="alternate" hreflang={alt.locale} href={alt.href} />
@@ -49,15 +92,17 @@ const absoluteOgImage = new URL(ogImage, Astro.site).toString();
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <meta property="og:type" content={type} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={searchTitle} />
+    <meta property="og:description" content={searchDescription} />
+    <meta property="og:site_name" content={strings.siteName} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:alt" content={subject ? String(subject.name) : strings.siteName} />
     <meta property="og:locale" content={ogLocaleOf(locale)} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={searchTitle} />
+    <meta name="twitter:description" content={searchDescription} />
     <meta name="twitter:image" content={absoluteOgImage} />
   </head>
   <body class="flex min-h-screen flex-col bg-neutral-950 text-neutral-100 antialiased">

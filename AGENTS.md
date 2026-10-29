@@ -270,3 +270,7 @@ Nokia 3310 (2017), slug `nokia-3310-2017`, додана uk/ru/en як окрем
 ## Nokia N8, X7-00, 5700 XpressMusic
 
 На прохання користувача додано nokia-n8 (2010), nokia-x7 (2011, саме X7-00 Symbian Anna), nokia-5700 (2007), усі uk/ru/en із джерелами Nokia й вільними фото Commons. N8 має 16 ГБ mass memory окремо від ROM; X7 — 350 МБ внутрішньої пам’яті, картка 8 ГБ окремо, 1200 мА·год за Nokia, Full Focus без автофокуса. У 5700 поворотна основна камера також для відеодзвінків, аудіо 3,5 мм через AD-44. Непідтверджені поля не заповнювати припущеннями. Інвентаризація Nokia/Siemens тепер 27 моделей. Пуш виконує лише користувач.
+
+## SEO до публікації
+
+Правила й запуск: docs/seo.md. SITE_URL задає origin, SEO_INDEXABLE=true дозволяє індексацію лише для публічної збірки; за замовчуванням noindex і robots Disallow. Конфіг читає env через Vite loadEnv; приватні значення не передаються клієнту. src/lib/search-index.ts визначає фактичну мову контенту, canonical/hreflang і 117 адрес sitemap (після поточних 69 моделей). Fallback-контент не вважається перекладом; sitemap виключає fallback і 404. src/lib/search-copy.ts — локалізовані SEO-тексти; StructuredData.astro безпечно серіалізує JSON-LD. Не вигадувати рейтинги, Offer, авторів або дати. npm run audit:seo перевіряє dist після build. Перевірено обидва режими: 252 HTML / 117 canonical URL. Перед публікацією потрібні домен, production-перемикач, HTTP-редиректи/404 та Search Console; деплой і push агент не виконує.
