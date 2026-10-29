@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
-import type { t } from '../lib/ui-strings';
+import { COMPARE_QUICK, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
 
 type PhoneData = CollectionEntry<'phones'>['data'];
@@ -45,6 +45,7 @@ function matches(phone: ComparePhoneLite, query: string): boolean {
 export default function CompareIsland({ phones, locale, strings }: Props) {
   const [selected, setSelected] = useState<Record<Slot, string | null>>({ a: null, b: null });
   const [query, setQuery] = useState<Record<Slot, string>>({ a: '', b: '' });
+  const [ready, setReady] = useState(false);
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
   const suggestedMatchups = [
     { a: 'nokia-3210', b: 'nokia-3310', story: strings.compare.suggestions.gsmEra },
@@ -62,19 +63,21 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     const b = params.get('b');
     setSelected({
       a: a && bySlug.has(a) ? a : null,
-      b: b && bySlug.has(b) ? b : null,
+      b: b && b !== a && bySlug.has(b) ? b : null,
     });
+    setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    if (!ready) return;
     const params = new URLSearchParams();
     if (selected.a) params.set('a', selected.a);
     if (selected.b) params.set('b', selected.b);
     const qs = params.toString();
     const url = `${window.location.pathname}${qs ? `?${qs}` : ''}`;
     window.history.replaceState(null, '', url);
-  }, [selected.a, selected.b]);
+  }, [selected.a, selected.b, ready]);
 
   const select = (slot: Slot, slug: string) => {
     setSelected((prev) => ({ ...prev, [slot]: slug }));
@@ -82,6 +85,15 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   };
   const clear = (slot: Slot) => setSelected((prev) => ({ ...prev, [slot]: null }));
   const swap = () => setSelected((prev) => ({ a: prev.b, b: prev.a }));
+  const quickPhones = (other: string | null) => {
+    const curated = ['nokia-3310', 'nokia-n8', 'siemens-s65', 'motorola-razr-v3', 'apple-iphone', 'google-pixel-9'];
+    const opposite = other ? bySlug.get(other) : undefined;
+    const sameBrand = opposite ? phones.filter((p) => p.data.brand === opposite.data.brand && p.slug !== other)
+      .sort((a, b) => Math.abs(a.data.year - opposite.data.year) - Math.abs(b.data.year - opposite.data.year))
+      .slice(0, 2).map((p) => p.slug) : [];
+    return [...new Set([...sameBrand, ...curated])].filter((slug) => slug !== other && bySlug.has(slug))
+      .slice(0, 4).map((slug) => bySlug.get(slug)!);
+  };
 
   const phoneA = selected.a ? bySlug.get(selected.a) : undefined;
   const phoneB = selected.b ? bySlug.get(selected.b) : undefined;
@@ -102,6 +114,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           onSelect={(slug) => select('a', slug)}
           onClear={() => clear('a')}
           candidates={phones.filter((p) => p.slug !== selected.b && matches(p, query.a)).slice(0, 8)}
+          quickPhones={quickPhones(selected.b)}
           placeholder={strings.compare.pickA}
           locale={locale}
           strings={strings}
@@ -114,6 +127,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           onSelect={(slug) => select('b', slug)}
           onClear={() => clear('b')}
           candidates={phones.filter((p) => p.slug !== selected.a && matches(p, query.b)).slice(0, 8)}
+          quickPhones={quickPhones(selected.a)}
           placeholder={strings.compare.pickB}
           locale={locale}
           strings={strings}
@@ -177,6 +191,12 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                   <li key={`${first.slug}-${second.slug}`}>
                     <a
                       href={`?a=${encodeURIComponent(first.slug)}&b=${encodeURIComponent(second.slug)}`}
+                      onClick={(event) => {
+                        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                        event.preventDefault();
+                        setSelected({ a: first.slug, b: second.slug });
+                        setQuery({ a: '', b: '' });
+                      }}
                       className="block h-full rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors motion-ui hover-desktop:border-orange-500"
                     >
                       <span className="block text-xs text-neutral-500">{first.data.brand} · {first.data.year}</span>
@@ -205,12 +225,13 @@ interface PhoneSlotProps {
   onSelect: (slug: string) => void;
   onClear: () => void;
   candidates: ComparePhoneLite[];
+  quickPhones: ComparePhoneLite[];
   placeholder: string;
   locale: Locale;
   strings: Strings;
 }
 
-function PhoneSlot({ phone, query, onQueryChange, onSelect, onClear, candidates, placeholder, locale, strings }: PhoneSlotProps) {
+function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candidates, quickPhones, placeholder, locale, strings }: PhoneSlotProps) {
   if (phone) {
     const { data, slug } = phone;
     return (
@@ -252,14 +273,40 @@ function PhoneSlot({ phone, query, onQueryChange, onSelect, onClear, candidates,
   return (
     <div className="relative rounded-sm border border-neutral-800 bg-neutral-900 p-4">
       <input
+        id={`phone-search-${slot}`}
         type="search"
+        aria-label={placeholder}
+        aria-controls={`phone-results-${slot}`}
+        autoComplete="off"
         value={query}
         onChange={(e) => onQueryChange(e.target.value)}
         placeholder={placeholder}
         className="w-full rounded-sm border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none"
       />
+      {!query.trim() && quickPhones.length > 0 && (
+        <div className="mt-4">
+          <p className="mb-2 text-xs font-semibold tracking-wide text-neutral-400">{COMPARE_QUICK[locale].phones}</p>
+          <div className="flex flex-wrap gap-2">
+            {quickPhones.map((candidate) => (
+              <button key={candidate.slug} type="button" onClick={() => onSelect(candidate.slug)}
+                className="min-h-10 rounded-sm border border-neutral-700 px-3 py-2 text-left text-xs text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500">
+                {candidate.data.brand} {candidate.data.model}
+              </button>
+            ))}
+          </div>
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <span className="text-xs text-neutral-500">{COMPARE_QUICK[locale].brands}</span>
+            {['Nokia', 'Siemens', 'Samsung', 'Apple', 'Google'].map((brand) => (
+              <button key={brand} type="button" onClick={() => {
+                onQueryChange(brand);
+                document.getElementById(`phone-search-${slot}`)?.focus();
+              }} className="min-h-9 text-xs text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400">{brand}</button>
+            ))}
+          </div>
+        </div>
+      )}
       {query.trim() && (
-        <ul className="absolute top-full right-0 left-0 z-10 mt-1 max-h-72 overflow-y-auto rounded-sm border border-neutral-800 bg-neutral-900 shadow-lg">
+        <ul id={`phone-results-${slot}`} className="mt-3 max-h-72 overflow-y-auto rounded-sm border border-neutral-800 bg-neutral-900">
           {candidates.length === 0 ? (
             <li className="px-3 py-2 text-sm text-neutral-500">{strings.compare.noResults}</li>
           ) : (

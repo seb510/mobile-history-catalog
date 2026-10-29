@@ -385,3 +385,8 @@ export const RELATED_PHONES = {
   ru: { title: 'Другие телефоны', compare: 'Сравнить характеристики' },
   en: { title: 'More phones from', compare: 'Compare specifications' },
 } as const;
+export const COMPARE_QUICK = {
+  uk: { phones: 'Швидкий вибір', brands: 'Знайти за брендом:' },
+  ru: { phones: 'Быстрый выбор', brands: 'Найти по бренду:' },
+  en: { phones: 'Quick picks', brands: 'Browse by brand:' },
+} as const;
