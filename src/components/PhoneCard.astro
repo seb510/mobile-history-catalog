@@ -34,10 +34,17 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
         {badge}
       </span>
     )}
+    {data.priceUsdAtLaunch != null && (
+      <span class="absolute -top-1 -right-1 rotate-3 rounded border-2 border-neutral-950 bg-orange-500 px-1.5 py-0.5 text-xs font-bold text-neutral-950 shadow">
+        ${data.priceUsdAtLaunch}
+      </span>
+    )}
   </div>
   <div class="flex flex-1 flex-col gap-1 p-4">
     <p class="text-xs text-neutral-500">{data.brand} · {data.year}</p>
     <p class="font-semibold leading-tight">{data.model}</p>
-    {data.milestone && <p class="mt-1 text-sm text-neutral-400">{data.milestone}</p>}
+    {data.milestone && (
+      <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
+    )}
   </div>
 </a>
