@@ -59,7 +59,8 @@ failing on a phone file is the equivalent of a failing test.
   заповнений лише для моделей із публічно відомими цифрами).
 - `src/pages/catalog/index.astro` (+ ru/en) — повний каталог з фільтрами (`src/components/
   Catalog.astro`): бренд/рік/пошук, клієнтський vanilla JS (без React) фільтрує картки за
-  `data-*`-атрибутами й ховає порожні річні групи.
+  `data-*`-атрибутами й ховає порожні річні групи; річні групи зібрані у вертикальну часову
+  вісь із точками-роками.
 - `src/pages/phones/[slug].astro` (+ ru/en) — `getStaticPaths` зі `getAllSlugs()` (слаги з uk-файлів
   — вони завжди є), рендер через `src/components/PhoneDetail.astro`.
 - `src/pages/compare/index.astro` (+ ru/en) — порівняння двох телефонів пліч-о-пліч. Тонка сторінка
@@ -115,6 +116,8 @@ failing on a phone file is the equivalent of a failing test.
   редакційний акцент; використовуй журнальну сітку, сильні заголовки, тонкі розділювачі, стримані
   тіні й невеликі заокруглення. Під час дизайн-проходу працюй із наявними записами; нові моделі
   додавай після окремого запиту користувача.
+- Посилання в тексті Markdown стилізуй через `src/styles/global.css` як помаранчеві посилання з
+  підкресленням, щоб вони залишалися читабельними в обох темах навіть усередині `prose-invert`.
 - Ховер-ефекти — лише на пристроях з мишкою: кастомний Tailwind-варіант `hover-desktop:`
   (визначений у `src/styles/global.css` через `@custom-variant`, `@media (hover: hover) and
   (pointer: fine)`) замість стандартного `hover:` для декоративних станів (не для `focus:`).

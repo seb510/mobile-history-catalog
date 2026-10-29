@@ -54,6 +54,19 @@
   text-transform: uppercase;
 }
 
+.prose a {
+  color: var(--color-orange-500);
+  font-weight: 600;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .prose a:hover {
+    color: var(--color-orange-400);
+  }
+}
+
 /* Light/dark theme toggle. The whole site is built on plain `neutral-*`/`orange-*` Tailwind
    utilities (bg-neutral-950, text-neutral-400, …) — Tailwind v4 generates those utilities as
    `var(--color-neutral-950)` etc., so instead of hand-writing a `dark:` variant on every class in
