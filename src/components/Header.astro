@@ -20,10 +20,10 @@ const isActive = (target: string) =>
   (target === '/catalog/' && path.startsWith('/phones/'));
 const navLinkClass = (target: string) => {
   const active = isActive(target);
-  return `rounded-sm px-2.5 py-1.5 text-sm font-medium transition-colors duration-150 ${active ? 'bg-neutral-900 text-neutral-100' : 'text-neutral-400 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
+  return `rounded-sm px-2.5 py-1.5 text-sm font-medium transition-colors motion-ui ${active ? 'bg-neutral-900 text-neutral-100' : 'text-neutral-400 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
 };
 const mobileNavLinkClass = (target: string) =>
-  `flex min-h-10 items-center rounded-sm border px-3 text-sm transition-colors duration-150 ${isActive(target) ? 'border-orange-500/60 bg-neutral-900 text-neutral-100' : 'border-neutral-800 text-neutral-300 hover-desktop:border-neutral-700 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
+  `flex min-h-10 items-center rounded-sm border px-3 text-sm transition-colors motion-ui ${isActive(target) ? 'border-orange-500/60 bg-neutral-900 text-neutral-100' : 'border-neutral-800 text-neutral-300 hover-desktop:border-neutral-700 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
 ---
 
 <header class="sticky top-0 z-50 border-t-2 border-b border-t-orange-500 border-b-neutral-800 bg-neutral-950/95 backdrop-blur">
@@ -43,7 +43,7 @@ const mobileNavLinkClass = (target: string) =>
           l === locale ? (
             <span aria-current="page" class="rounded-sm bg-orange-500 px-1.5 py-1 text-[0.65rem] font-bold text-neutral-950">{LOCALE_LABEL[l]}</span>
           ) : (
-            <a href={localePath(l, path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors duration-150 hover-desktop:text-neutral-100">
+            <a href={localePath(l, path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors motion-ui hover-desktop:text-neutral-100">
               {LOCALE_LABEL[l]}
             </a>
           )
@@ -60,7 +60,7 @@ const mobileNavLinkClass = (target: string) =>
       aria-label={strings.menu.open}
       data-label-open={strings.menu.open}
       data-label-close={strings.menu.close}
-      class="flex h-9 w-9 items-center justify-center rounded-sm border border-neutral-700 text-neutral-200 transition-colors duration-150 hover-desktop:border-orange-500 hover-desktop:text-orange-500 md:hidden"
+      class="flex h-9 w-9 items-center justify-center rounded-sm border border-neutral-700 text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 md:hidden"
     >
       <span class="sr-only">{strings.menu.open}</span>
       <svg data-menu-icon viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M2 5h16v1.5H2zM2 9.25h16v1.5H2zM2 13.5h16V15H2z"/></svg>
@@ -68,7 +68,7 @@ const mobileNavLinkClass = (target: string) =>
     </button>
   </div>
 
-  <div id="mobile-menu" inert aria-hidden="true" class="pointer-events-none absolute top-[calc(100%+0.5rem)] right-4 z-50 max-h-0 w-[min(22rem,calc(100vw-2rem))] translate-y-1 overflow-hidden rounded-sm border border-neutral-800 bg-neutral-950 opacity-0 shadow-xl shadow-neutral-950/30 transition-[max-height,opacity,transform] duration-150 ease-out md:hidden">
+  <div id="mobile-menu" inert aria-hidden="true" class="pointer-events-none absolute top-[calc(100%+0.5rem)] right-4 z-50 max-h-0 w-[min(22rem,calc(100vw-2rem))] translate-y-1 overflow-hidden rounded-sm border border-neutral-800 bg-neutral-950 opacity-0 shadow-xl shadow-neutral-950/30 transition-[max-height,opacity,transform] motion-ui md:hidden">
     <nav class="grid grid-cols-2 gap-1.5 p-2">
       <a href={localePath(locale, '/catalog/')} class={mobileNavLinkClass('/catalog/')} aria-current={isActive('/catalog/') ? 'page' : undefined}>{strings.nav.catalog}</a>
       <a href={localePath(locale, '/brands/')} class={mobileNavLinkClass('/brands/')} aria-current={isActive('/brands/') ? 'page' : undefined}>{strings.nav.brands}</a>
@@ -79,7 +79,7 @@ const mobileNavLinkClass = (target: string) =>
           l === locale ? (
             <span aria-current="page" class="text-sm font-semibold text-orange-500">{LOCALE_LABEL[l]}</span>
           ) : (
-            <a href={localePath(l, path)} class="text-sm font-medium text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100">
+            <a href={localePath(l, path)} class="text-sm font-medium text-neutral-400 transition-colors motion-ui hover-desktop:text-neutral-100">
               {LOCALE_LABEL[l]}
             </a>
           )

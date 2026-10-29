@@ -14,6 +14,10 @@
 /* A warm ink-and-paper palette gives the interface an editorial technology-journal mood. The
    Tailwind neutral scale carries it consistently across cards, tables, forms, and both themes. */
 :root {
+  --motion-ui: 180ms;
+  --motion-image: 360ms;
+  --motion-enter: 440ms;
+  --motion-easing: cubic-bezier(0.22, 0.61, 0.36, 1);
   --color-neutral-50: #fbf8f2;
   --color-neutral-100: #f2eee6;
   --color-neutral-200: #ddd7cc;
@@ -27,6 +31,16 @@
   --color-neutral-950: #171512;
   --color-orange-400: #fb8748;
   --color-orange-500: #f97316;
+}
+
+@utility motion-ui {
+  transition-duration: var(--motion-ui) !important;
+  transition-timing-function: var(--motion-easing) !important;
+}
+
+@utility motion-image {
+  transition-duration: var(--motion-image) !important;
+  transition-timing-function: var(--motion-easing) !important;
 }
 
 ::selection {
@@ -59,6 +73,7 @@
   font-weight: 600;
   text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
   text-underline-offset: 0.2em;
+  transition: color var(--motion-ui) var(--motion-easing);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -127,7 +142,7 @@
   }
 
   .animate-fade-up {
-    animation: fade-up 0.6s ease-out both;
+    animation: fade-up var(--motion-enter) var(--motion-easing) both;
   }
 }
 

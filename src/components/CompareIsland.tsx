@@ -125,22 +125,22 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           <button
             type="button"
             onClick={swap}
-            className="mb-4 text-sm text-neutral-500 underline transition-colors duration-200 hover-desktop:text-neutral-300"
+            className="mb-4 text-sm text-neutral-500 underline transition-colors motion-ui hover-desktop:text-neutral-300"
           >
             {strings.compare.swap}
           </button>
-          <div className="overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm" role="table">
+          <div className="overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table">
             <div role="row" className="grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b-2 border-orange-500 bg-neutral-900 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)]">
-              <div role="columnheader" className="flex items-end px-2 py-3 text-[0.6rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3">
+              <div role="columnheader" className="flex items-end px-2 py-3 text-[0.6rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3 lg:text-xs">
                 {strings.compare.tableHead.characteristic}
               </div>
               <div role="columnheader" className="min-w-0 border-l border-neutral-700 px-2 py-3 sm:px-3">
-                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase">{phoneA.data.brand} · {phoneA.data.year}</span>
-                <span className="mt-1 block leading-tight font-bold text-neutral-100">{phoneA.data.model}</span>
+                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase lg:text-xs">{phoneA.data.brand} · {phoneA.data.year}</span>
+                <span className="mt-1 block leading-tight font-bold text-neutral-100 lg:text-lg">{phoneA.data.model}</span>
               </div>
               <div role="columnheader" className="min-w-0 border-l border-neutral-700 px-2 py-3 sm:px-3">
-                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase">{phoneB.data.brand} · {phoneB.data.year}</span>
-                <span className="mt-1 block leading-tight font-bold text-neutral-100">{phoneB.data.model}</span>
+                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase lg:text-xs">{phoneB.data.brand} · {phoneB.data.year}</span>
+                <span className="mt-1 block leading-tight font-bold text-neutral-100 lg:text-lg">{phoneB.data.model}</span>
               </div>
             </div>
             {groups.map((group, gi) => (
@@ -151,7 +151,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                     role="row"
                     className={`grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b border-neutral-700 last:border-b-0 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)] ${i % 2 === 1 ? 'bg-neutral-900/50' : ''}`}
                   >
-                    <div role="rowheader" className="border-r border-neutral-700 bg-neutral-900/70 px-2 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3">
+                    <div role="rowheader" className="border-r border-neutral-700 bg-neutral-900/70 px-2 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3 lg:text-xs">
                       {row.label}
                     </div>
                     <div role="cell" className="min-w-0 border-r border-neutral-700 px-2 py-3 leading-relaxed text-neutral-100 sm:px-3">
@@ -177,7 +177,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                   <li key={`${first.slug}-${second.slug}`}>
                     <a
                       href={`?a=${encodeURIComponent(first.slug)}&b=${encodeURIComponent(second.slug)}`}
-                      className="block h-full rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors duration-200 hover-desktop:border-orange-500"
+                      className="block h-full rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors motion-ui hover-desktop:border-orange-500"
                     >
                       <span className="block text-xs text-neutral-500">{first.data.brand} · {first.data.year}</span>
                       <span className="block font-semibold text-neutral-200">{first.data.model}</span>
@@ -240,7 +240,7 @@ function PhoneSlot({ phone, query, onQueryChange, onSelect, onClear, candidates,
           <button
             type="button"
             onClick={onClear}
-            className="shrink-0 text-xs text-neutral-500 underline transition-colors duration-200 hover-desktop:text-neutral-300"
+            className="shrink-0 text-xs text-neutral-500 underline transition-colors motion-ui hover-desktop:text-neutral-300"
           >
             {strings.compare.change}
           </button>
@@ -268,7 +268,7 @@ function PhoneSlot({ phone, query, onQueryChange, onSelect, onClear, candidates,
                 <button
                   type="button"
                   onClick={() => onSelect(p.slug)}
-                  className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-sm transition-colors duration-200 hover-desktop:bg-neutral-800"
+                  className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-sm transition-colors motion-ui hover-desktop:bg-neutral-800"
                 >
                   <span className="truncate">
                     {p.data.brand} {p.data.model}

@@ -9,11 +9,22 @@ const strings = t(locale);
 
 <Layout locale={locale} path="/about/" title={`${strings.about.title} — ${strings.siteName}`} description={strings.footer.about}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.about.title }]} />
-  <p class="editorial-kicker inline-block border-l-4 border-orange-500 py-1 pl-3 text-orange-500">
-    {strings.siteName}
-  </p>
-  <h1 class="page-title mt-4 border-l-4 border-orange-500 py-1 pl-4">{strings.about.title}</h1>
-  <div class="prose prose-invert mt-6 max-w-2xl rounded-sm border border-neutral-800 p-6 prose-p:text-neutral-300 prose-p:first:text-lg prose-p:first:text-neutral-100">
-    {strings.about.paragraphs.map((p) => <p>{p}</p>)}
+  <header class="max-w-3xl border-b border-neutral-800 pb-8">
+    <p class="editorial-kicker inline-block border-l-4 border-orange-500 py-1 pl-3 text-orange-500">
+      {strings.siteName}
+    </p>
+    <h1 class="page-title mt-4 border-l-4 border-orange-500 py-1 pl-4">{strings.about.title}</h1>
+    <p class="mt-6 max-w-2xl text-xl leading-relaxed text-neutral-200">{strings.about.intro}</p>
+  </header>
+  <div class="mt-8 grid max-w-5xl gap-x-10 gap-y-8 sm:grid-cols-2">
+    {strings.about.sections.map((section, index) => (
+      <section class="border-t border-neutral-800 pt-4">
+        <p class="editorial-kicker text-orange-500">{String(index + 1).padStart(2, '0')}</p>
+        <h2 class="mt-2 text-lg font-bold tracking-tight text-neutral-100">{section.title}</h2>
+        <div class="prose prose-invert mt-3 max-w-none prose-p:my-2 prose-p:text-sm prose-p:leading-relaxed prose-p:text-neutral-400">
+          {section.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+      </section>
+    ))}
   </div>
 </Layout>

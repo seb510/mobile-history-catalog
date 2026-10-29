@@ -77,11 +77,13 @@ export const UI = {
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
       title: 'Про проєкт',
-      paragraphs: [
-        'Мобільна Історія — таймлайн етапних мобільних телефонів, починаючи з 1998–1999 року (старт масового GSM-буму) і до сьогодні.',
-        'Це не повний каталог моделей — ми не конкуруємо з GSMArena. Це курований список телефонів, що реально щось змінили в індустрії чи в тому, як ми користуємося технікою.',
-        'Тон і формат натхненні українським журналом MobiLux (2004–2016).',
-        'Сестринський проєкт до Watchly — той самий автор і та сама філософія (легальні джерела даних), але інша архітектура: тут усе генерується статично, бо дані курируються вручну й не змінюються між білдами.',
+      intro: 'Історія мобільного зв’язку — через телефони, які змінили індустрію, звичні речі та наше уявлення про те, яким може бути пристрій у кишені.',
+      sections: [
+        { title: 'Відлік від GSM-буму', paragraphs: ['Таймлайн починається з 1998–1999 років — часу, коли мобільний зв’язок став масовим, — і простягається до сьогодні. Це погляд на кілька десятиліть змін через знакові пристрої.'] },
+        { title: 'Курований вибір', paragraphs: ['Тут не кожна модель і не повний перелік характеристик ринку. До каталогу потрапляють телефони, що вплинули на технології, дизайн, доступність зв’язку або спосіб користування мобільними пристроями.'] },
+        { title: 'Факти та зображення', paragraphs: ['Історичні твердження й характеристики звіряються з надійними джерелами; посилання на джерела зображень наведені біля самих фото. Для зображень ми віддаємо перевагу матеріалам із вільною ліцензією та вказуємо авторство й умови використання.'] },
+        { title: 'Порівняння крізь епохи', paragraphs: ['Обери два телефони, щоб побачити спільні характеристики в одному форматі. Набір полів стандартизований для всього каталогу, а невідомі або непідтверджені значення позначені тире — без здогадок.'] },
+        { title: 'Журнал і цифровий архів', paragraphs: ['Тон і формат натхненні українським журналом MobiLux (2004–2016): короткі історії, виразні моделі й увага до контексту. Проєкт створюється вручну українською, російською та англійською мовами й генерується як швидкий статичний сайт.'] },
       ],
     },
   },
@@ -158,11 +160,13 @@ export const UI = {
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
       title: 'О проекте',
-      paragraphs: [
-        'Мобильная История — таймлайн знаковых мобильных телефонов, начиная с 1998–1999 года (старт массового GSM-бума) и до сегодня.',
-        'Это не полный каталог моделей — мы не конкурируем с GSMArena. Это курированный список телефонов, которые реально что-то изменили в индустрии или в том, как мы пользуемся техникой.',
-        'Тон и формат вдохновлены украинским журналом MobiLux (2004–2016).',
-        'Сестринский проект к Watchly — тот же автор и та же философия (легальные источники данных), но другая архитектура: здесь всё генерируется статически, поскольку данные курируются вручную и не меняются между билдами.',
+      intro: 'История мобильной связи — через телефоны, которые изменили индустрию, повседневные привычки и наше представление об устройстве в кармане.',
+      sections: [
+        { title: 'Отсчёт с GSM-бума', paragraphs: ['Таймлайн начинается в 1998–1999 годах — когда мобильная связь стала массовой, — и продолжается до сегодня. Это взгляд на несколько десятилетий перемен через знаковые устройства.'] },
+        { title: 'Курированный выбор', paragraphs: ['Здесь нет каждой модели и полного перечня характеристик рынка. В каталог попадают телефоны, повлиявшие на технологии, дизайн, доступность связи или то, как мы пользуемся мобильными устройствами.'] },
+        { title: 'Факты и изображения', paragraphs: ['Исторические сведения и характеристики сверяются с надёжными источниками; ссылки на источники изображений находятся рядом с фотографиями. Мы отдаём предпочтение материалам со свободной лицензией и указываем авторство и условия использования.'] },
+        { title: 'Сравнение эпох', paragraphs: ['Выбери два телефона, чтобы увидеть общие характеристики в одном формате. Набор полей стандартизирован для всего каталога, а неизвестные или неподтверждённые значения обозначены тире — без догадок.'] },
+        { title: 'Журнал и цифровой архив', paragraphs: ['Тон и формат вдохновлены украинским журналом MobiLux (2004–2016): короткие истории, выразительные модели и внимание к контексту. Проект вручную ведётся на украинском, русском и английском и генерируется как быстрый статический сайт.'] },
       ],
     },
   },
@@ -238,11 +242,13 @@ export const UI = {
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
       title: 'About the project',
-      paragraphs: [
-        'Mobile History is a timeline of milestone mobile phones, starting from 1998–1999 (the beginning of the mass GSM boom) up to today.',
-        "It's not a full model catalog — we're not competing with GSMArena. It's a curated list of phones that actually changed the industry, or how we use technology.",
-        'The tone and format are inspired by the Ukrainian magazine MobiLux (2004–2016).',
-        "A sister project to Watchly — same author, same philosophy (legally sourced data), but a different architecture: everything here is statically generated, since the data is hand-curated and doesn't change between builds.",
+      intro: 'The history of mobile communication, told through the phones that changed the industry, everyday habits, and our idea of what a device in your pocket could be.',
+      sections: [
+        { title: 'Starting with the GSM boom', paragraphs: ['The timeline begins in 1998–1999, when mobile communication went mainstream, and continues to the present. It traces several decades of change through milestone devices.'] },
+        { title: 'A curated selection', paragraphs: ['This is not every model or a complete record of the market. The catalog focuses on phones that influenced technology, design, access to communication, or the way people use mobile devices.'] },
+        { title: 'Facts and images', paragraphs: ['Historical claims and specifications are checked against reliable sources; image-source links appear alongside the photos. We prefer freely licensed material and credit its creators and license terms.'] },
+        { title: 'Comparing eras', paragraphs: ['Choose two phones to see their shared specifications in one format. The catalog uses a consistent set of fields, and unknown or unverified values are marked with a dash rather than guessed.'] },
+        { title: 'A magazine and a digital archive', paragraphs: ['The tone and format take inspiration from Ukrainian magazine MobiLux (2004–2016): concise stories, distinctive devices, and historical context. The project is curated in Ukrainian, Russian, and English, then generated as a fast static site.'] },
       ],
     },
   },

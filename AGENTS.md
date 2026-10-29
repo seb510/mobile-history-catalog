@@ -131,6 +131,13 @@ failing on a phone file is the equivalent of a failing test.
   (визначений у `src/styles/global.css` через `@custom-variant`, `@media (hover: hover) and
   (pointer: fine)`) замість стандартного `hover:` для декоративних станів (не для `focus:`).
   Анімації та переходи мають поважати `prefers-reduced-motion`.
+- Спільна система руху визначена в `src/styles/global.css`: `--motion-ui`, `--motion-image`,
+  `--motion-enter` і `--motion-easing`; використовуй утиліти `motion-ui`/`motion-image` замість
+  випадкових `duration-*`. Рух має бути коротким і стриманим, а підйом карток — ледь помітним.
+- Таблиці характеристик і порівняння компактні на вузьких екранах, але на широких (`lg:`) мають
+  збільшений основний текст і читабельні підписи; зберігай цей адаптивний контраст при редагуванні.
+- Сторінка «Про проєкт» локалізована трьома мовами через `strings.about.intro` та `sections` у
+  `src/lib/ui-strings.ts`; якщо змінюється структура, онови всі три тонкі сторінки About.
 - `@astrojs/react` підключений в `astro.config.mjs`; `CompareIsland.tsx` (див. вище) — єдиний
   React-компонент у проєкті, рендериться лише на `/compare/`.
 - `CLAUDE.md` у корені — дублікат цього файлу (той самий контент, інший формат для агентів, що

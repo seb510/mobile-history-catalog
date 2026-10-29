@@ -22,7 +22,7 @@ const links = [
   <div class="mx-auto max-w-5xl px-4 py-10">
     <div class="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-12">
       <div class="max-w-md">
-        <a href={localePath(locale, '/')} class="inline-flex items-center gap-2 text-neutral-100 transition-colors duration-200 hover-desktop:text-orange-500">
+        <a href={localePath(locale, '/')} class="inline-flex items-center gap-2 text-neutral-100 transition-colors motion-ui hover-desktop:text-orange-500">
           <LogoMark class="h-8 w-8" />
           <span class="font-bold tracking-tight">{strings.siteName}</span>
         </a>
@@ -39,9 +39,9 @@ const links = [
                 href={href}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
-                class="group inline-flex items-center gap-2 text-neutral-300 transition-colors duration-200 hover-desktop:text-orange-500"
+                class="group inline-flex items-center gap-2 text-neutral-300 transition-colors motion-ui hover-desktop:text-orange-500"
               >
-                <span class="h-px w-3 bg-neutral-600 transition-colors duration-200 group-hover-desktop:bg-orange-500" aria-hidden="true"></span>
+                <span class="h-px w-3 bg-neutral-600 transition-colors motion-ui group-hover-desktop:bg-orange-500" aria-hidden="true"></span>
                 {label}
               </a>
             </li>

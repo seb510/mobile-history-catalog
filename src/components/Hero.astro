@@ -46,13 +46,13 @@ const stats = [
     <div class="animate-fade-up mt-7 flex flex-wrap gap-3" style="animation-delay:0.15s">
       <a
         href={localePath(locale, '/catalog/')}
-        class="rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-all duration-200 hover-desktop:-translate-y-0.5 hover-desktop:bg-orange-400 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/20"
+        class="rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-all motion-ui hover-desktop:-translate-y-0.5 hover-desktop:bg-orange-400 hover-desktop:shadow-md hover-desktop:shadow-orange-500/20"
       >
         {strings.hero.cta}
       </a>
       <a
         href={localePath(locale, '/about/')}
-        class="rounded-sm border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-200 transition-colors duration-200 hover-desktop:border-orange-500"
+        class="rounded-sm border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500"
       >
         {strings.hero.ctaAbout}
       </a>
@@ -68,7 +68,7 @@ const stats = [
       <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-6 sm:aspect-[5/3] lg:aspect-[4/3]">
         {coverPhone.data.image ? (
           <>
-            <img data-image-fallback src={coverPhone.data.image} alt={`${coverPhone.data.brand} ${coverPhone.data.model}`} class="h-full w-full object-contain transition-transform duration-500 group-hover-desktop:scale-[1.03]" fetchpriority="high" />
+            <img data-image-fallback src={coverPhone.data.image} alt={`${coverPhone.data.brand} ${coverPhone.data.model}`} class="h-full w-full object-contain transition-transform motion-image group-hover-desktop:scale-[1.02]" fetchpriority="high" />
             <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-6">
               <PlaceholderArt class="h-full w-full text-neutral-600" />
             </div>
@@ -86,7 +86,7 @@ const stats = [
           <h2 class="mt-1 text-2xl font-extrabold leading-none tracking-tight sm:text-3xl">{coverPhone.data.model}</h2>
           {coverPhone.data.milestone && <p class="mt-2 border-l-2 border-orange-500 pl-2 text-sm text-neutral-400">{coverPhone.data.milestone}</p>}
         </div>
-        <span class="hidden text-3xl text-orange-500 transition-transform group-hover-desktop:translate-x-1 sm:block" aria-hidden="true">→</span>
+        <span class="hidden text-3xl text-orange-500 transition-transform motion-ui group-hover-desktop:translate-x-0.5 sm:block" aria-hidden="true">→</span>
       </div>
     </a>
   )}

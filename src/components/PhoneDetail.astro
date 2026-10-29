@@ -44,7 +44,7 @@ const groups = buildSpecGroups(data, strings);
     {data.imageCredit && (
       <p class="mt-2 text-xs text-neutral-500">
         {data.imageSourceUrl ? (
-          <a href={data.imageSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors duration-200 hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
+          <a href={data.imageSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors motion-ui hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
             {data.imageCredit}
           </a>
         ) : (
@@ -63,7 +63,7 @@ const groups = buildSpecGroups(data, strings);
   </div>
 
   <div>
-    <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-neutral-500 transition-colors duration-200 hover-desktop:text-orange-500">
+    <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-neutral-500 transition-colors motion-ui hover-desktop:text-orange-500">
       {data.brand}
     </a>
     <h1 class="page-title mt-1">{data.model}</h1>
@@ -76,12 +76,12 @@ const groups = buildSpecGroups(data, strings);
     </div>
 
     <div class="mt-6 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
-      <table class="w-full border-collapse text-left text-sm">
+      <table class="w-full border-collapse text-left text-sm lg:text-base">
         {groups.map((group, gi) => (
           <tbody class:list={[gi > 0 && 'border-t-2 border-neutral-700']}>
             {group.rows.map(([label, value], i) => (
               <tr class:list={[i % 2 === 1 && 'bg-neutral-900/50', 'border-b border-neutral-700 last:border-b-0']}>
-                <th scope="row" class="w-[38%] border-r border-neutral-700 bg-neutral-900/70 px-3 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:w-40">
+                <th scope="row" class="w-[38%] border-r border-neutral-700 bg-neutral-900/70 px-3 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:w-40 lg:text-xs">
                   {label}
                 </th>
                 <td class="px-3 py-3 align-top leading-relaxed text-neutral-100">{value}</td>

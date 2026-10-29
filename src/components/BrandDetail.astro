@@ -23,7 +23,7 @@ const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand ===
   {data.logoCredit && (
     <p class="mt-2 text-xs text-neutral-500">
       {data.logoSourceUrl ? (
-        <a href={data.logoSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors duration-200 hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
+        <a href={data.logoSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors motion-ui hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
           {data.logoCredit}
         </a>
       ) : (
