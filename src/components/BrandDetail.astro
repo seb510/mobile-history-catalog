@@ -19,45 +19,53 @@ const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand ===
 ---
 
 <div>
-  <BrandMark name={data.name} logo={data.logo} />
-  {data.logoCredit && (
-    <p class="mt-2 text-xs text-neutral-500">
-      {data.logoSourceUrl ? (
-        <a href={data.logoSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors motion-ui hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
-          {data.logoCredit}
-        </a>
-      ) : (
-        data.logoCredit
-      )}
-    </p>
-  )}
-
-  <h1 class="page-title mt-6">{data.name}</h1>
-
-  {(data.founded != null || data.country) && (
-    <div class="mt-4 flex flex-wrap gap-3">
-      {data.founded != null && (
-        <div class="rounded-sm border border-neutral-800 px-3 py-2">
-          <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.founded}</p>
-          <p class="font-semibold">{data.founded}</p>
-        </div>
-      )}
-      {data.country && (
-        <div class="rounded-sm border border-neutral-800 px-3 py-2">
-          <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.country}</p>
-          <p class="font-semibold">{data.country}</p>
-        </div>
+  <header class="grid gap-6 border-b border-neutral-800 pb-8 sm:grid-cols-[minmax(12rem,0.8fr)_minmax(0,1.2fr)] sm:items-center sm:gap-10">
+    <div>
+      <BrandMark name={data.name} logo={data.logo} class="min-h-24 w-full max-w-xs px-8 py-6" />
+      {data.logoCredit && (
+        <p class="mt-2 max-w-xs text-xs leading-relaxed text-neutral-500">
+          {data.logoSourceUrl ? (
+            <a href={data.logoSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors motion-ui hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
+              {data.logoCredit}
+            </a>
+          ) : (
+            data.logoCredit
+          )}
+        </p>
       )}
     </div>
-  )}
 
-  <div class="prose prose-invert mt-6 max-w-2xl prose-p:text-neutral-300">
+    <div>
+      <p class="editorial-kicker mb-2 text-orange-500">{strings.nav.brands}</p>
+      <h1 class="page-title">{data.name}</h1>
+      <div class="mt-5 flex flex-wrap gap-2">
+        {data.founded != null && (
+          <div class="min-w-28 border-l-2 border-orange-500/70 bg-neutral-900/50 px-3 py-2">
+            <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.founded}</p>
+            <p class="mt-1 font-semibold text-neutral-100">{data.founded}</p>
+          </div>
+        )}
+        {data.country && (
+          <div class="min-w-28 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2">
+            <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.country}</p>
+            <p class="mt-1 font-semibold text-neutral-100">{data.country}</p>
+          </div>
+        )}
+        <div class="min-w-28 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2">
+          <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.nav.catalog}</p>
+          <p class="mt-1 font-semibold text-neutral-100">{phones.length} {strings.brands.phoneCount}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="prose prose-invert mt-7 max-w-3xl prose-p:text-neutral-300">
     <Content />
   </div>
 
   {phones.length > 0 && (
-    <div class="mt-10 border-t border-neutral-800 pt-8">
-      <h2 class="border-l-2 border-orange-500 pl-3 text-xl font-bold">{strings.brands.allPhones}</h2>
+    <div class="mt-12 border-t border-neutral-800 pt-8">
+      <h2 class="border-l-2 border-orange-500 pl-3 text-xl font-bold sm:text-2xl">{strings.brands.allPhones}</h2>
       <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {phones.map((phone) => (
           <li>

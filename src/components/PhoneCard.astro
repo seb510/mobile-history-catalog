@@ -46,7 +46,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
       </span>
     )}
   </div>
-  <div class="flex flex-1 flex-col gap-1 p-4">
+  <div class="flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
     <p class="editorial-kicker text-neutral-500">{data.brand} · {data.year}</p>
     <p class="text-lg font-bold leading-tight tracking-tight">{data.model}</p>
     {data.milestone && (

@@ -62,7 +62,7 @@ const absoluteOgImage = new URL(ogImage, Astro.site).toString();
   </head>
   <body class="flex min-h-screen flex-col bg-neutral-950 text-neutral-100 antialiased">
     <Header locale={locale} path={path} />
-    <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
+    <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
       <slot />
     </main>
     <Footer locale={locale} />

@@ -10,6 +10,10 @@ const strings = t(locale);
 
 <Layout locale={locale} path="/catalog/" title={`${strings.nav.catalog} — ${strings.siteName}`} description={strings.footer.about}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.catalog }]} />
-  <h1 class="page-title mb-6">{strings.nav.catalog}</h1>
+  <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
+    <p class="editorial-kicker mb-2 text-orange-500">1998 — {new Date().getFullYear()}</p>
+    <h1 class="page-title">{strings.nav.catalog}</h1>
+    <p class="mt-4 max-w-2xl leading-relaxed text-neutral-400">{strings.catalog.intro}</p>
+  </header>
   <Catalog locale={locale} />
 </Layout>

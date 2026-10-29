@@ -3,11 +3,13 @@ import BrandMark from './BrandMark.astro';
 import { getBrandsForLocale, slugOfBrand } from '../lib/brands';
 import { getPhonesForLocale } from '../lib/phones';
 import { localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+const strings = t(locale);
 
 const brands = await getBrandsForLocale(locale);
 const phones = await getPhonesForLocale(locale);
@@ -24,10 +26,13 @@ const sorted = brands.slice().sort((a, b) => a.data.name.localeCompare(b.data.na
     <li>
       <a
         href={localePath(locale, `/brands/${slugOfBrand(brand)}/`)}
-        class="group flex flex-col items-center gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-6 text-center transition-all motion-ui hover-desktop:-translate-y-0.5 hover-desktop:border-orange-500 hover-desktop:shadow-md hover-desktop:shadow-orange-500/10"
+        class="group flex flex-col items-center gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-5 text-center transition-all motion-ui hover-desktop:-translate-y-0.5 hover-desktop:border-orange-500 hover-desktop:shadow-md hover-desktop:shadow-orange-500/10 sm:p-6"
       >
-        <BrandMark name={brand.data.name} logo={brand.data.logo} />
-        <p class="text-sm text-neutral-500">{countByName.get(brand.data.name) ?? 0}</p>
+        <BrandMark name={brand.data.name} logo={brand.data.logo} class="min-h-16 min-w-40" />
+        <div class="w-full border-t border-neutral-800 pt-3">
+          <p class="font-semibold tracking-tight text-neutral-100">{brand.data.name}</p>
+          <p class="mt-1 text-xs text-neutral-500">{countByName.get(brand.data.name) ?? 0} {strings.brands.phoneCount}</p>
+        </div>
       </a>
     </li>
   ))}
