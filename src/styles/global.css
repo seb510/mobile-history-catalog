@@ -147,6 +147,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .motion-image,
+  .motion-ui {
+    transform: none !important;
+  }
+
   html {
     scroll-behavior: auto !important;
   }

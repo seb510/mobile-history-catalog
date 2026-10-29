@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PlaceholderArt from './PlaceholderArt.astro';
+import { localePath, type Locale } from '../lib/locales';
+import { slugOf } from '../lib/phones';
+import { HOME_EDITORIAL } from '../lib/ui-strings';
+
+interface Props {
+  phones: CollectionEntry<'phones'>[];
+  locale: Locale;
+}
+const { phones, locale } = Astro.props;
+const copy = HOME_EDITORIAL[locale];
+const compareUrl = `${localePath(locale, '/compare/')}?a=${slugOf(phones[0])}&b=${slugOf(phones[1])}`;
+---
+
+<section class="overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50 lg:grid lg:grid-cols-[0.85fr_1.15fr]" aria-labelledby="generation-title">
+  <div class="flex flex-col justify-center p-5 sm:p-8 lg:p-9">
+    <p class="editorial-kicker text-orange-500">{phones[0].data.year} → {phones[1].data.year}</p>
+    <h2 id="generation-title" class="mt-4 max-w-md text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl">{copy.compare}</h2>
+    <p class="mt-4 max-w-md text-base leading-relaxed text-neutral-400">{copy.text}</p>
+    <a href={compareUrl} class="mt-6 inline-flex min-h-11 items-center justify-between gap-4 self-start rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-colors motion-ui hover-desktop:bg-orange-400">
+      {copy.cta}<span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-2 divide-x divide-neutral-800 border-t border-neutral-800 lg:border-t-0 lg:border-l">
+    {phones.map((phone, index) => (
+      <a href={localePath(locale, `/phones/${slugOf(phone)}/`)} class="group focus-visible:-outline-offset-4 flex min-w-0 flex-col p-4 transition-colors motion-ui hover-desktop:bg-neutral-900 sm:p-6">
+        <p class="text-3xl font-extrabold leading-none tracking-tight text-orange-500 sm:text-4xl">{phone.data.year}</p>
+        <div class="relative my-5 flex h-44 items-center justify-center sm:my-6 sm:h-60 lg:h-64">
+          {phone.data.image ? (
+            <>
+              <img data-image-fallback src={phone.data.image} alt={`${phone.data.brand} ${phone.data.model}`} loading="lazy" class="h-full w-full object-contain transition-transform motion-image group-hover-desktop:scale-[1.02]" />
+              <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center">
+                <PlaceholderArt class="h-full w-full text-neutral-600" />
+              </div>
+            </>
+          ) : <PlaceholderArt class="h-full w-full text-neutral-600" />}
+        </div>
+        <div class="mt-auto border-t border-neutral-800 pt-4">
+          <p class="editorial-kicker text-neutral-500">{phone.data.brand}</p>
+          <h3 class="mt-2 min-h-12 text-lg font-bold leading-6 tracking-tight sm:text-xl">{phone.data.model}</h3>
+          <p class="mt-2 text-xs leading-relaxed text-neutral-400 sm:text-sm">{copy.pairNotes[index]}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Keep keyboard focus visible inside the section's clipped outer border. */
+  a:focus-visible {
+    outline-offset: -4px;
+  }
+</style>

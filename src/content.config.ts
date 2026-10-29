@@ -35,6 +35,8 @@ const phones = defineCollection({
     chipset: z.string().optional(),
     ramMb: z.number().optional(),
     storageMb: z.number().optional(),
+    storageNote: z.string().optional(),
+    charging: z.string().optional(),
     storageExpandable: z.string().optional(),
     camera: z
       .object({
@@ -45,6 +47,7 @@ const phones = defineCollection({
     battery: z
       .object({
         mah: z.number().optional(),
+        type: z.string().optional(),
         removable: z.boolean().optional(),
       })
       .optional(),

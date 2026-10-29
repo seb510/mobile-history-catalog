@@ -34,7 +34,7 @@ export const UI = {
     specs: {
       year: 'Рік', priceUsdAtLaunch: 'Ціна на старті', display: 'Екран', resolution: 'Роздільна здатність',
       chipset: 'Чипсет', ram: 'RAM', storage: 'Пам’ять', storageExpandable: 'Карта пам’яті',
-      camera: 'Камера', cameraFront: 'Фронтальна камера', battery: 'Акумулятор', network: 'Зв’язок',
+      camera: 'Камера', cameraFront: 'Фронтальна камера', battery: 'Акумулятор', batteryType: 'Тип акумулятора', batteryRemovable: 'Знімний акумулятор', charging: 'Заряджання', network: 'Зв’язок',
       connectivity: 'Підключення', os: 'ОС', dimensions: 'Габарити', weight: 'Вага', colors: 'Кольори', simType: 'SIM',
       unitsSoldMillions: 'Продано, млн шт.',
     },
@@ -79,7 +79,7 @@ export const UI = {
     },
     catalog: { intro: 'Кожен рік — окрема сторінка історії. Знайди модель за назвою, брендом або роком.' },
     langSwitcher: 'Мова',
-    units: { mm: 'мм', standardSim: 'Стандартна SIM (Mini-SIM)', mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
+    units: { yes: 'Так', no: 'Ні', mm: 'мм', standardSim: 'Стандартна SIM (Mini-SIM)', mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
       title: 'Про проєкт',
@@ -124,7 +124,7 @@ export const UI = {
     specs: {
       year: 'Год', priceUsdAtLaunch: 'Цена на старте', display: 'Экран', resolution: 'Разрешение',
       chipset: 'Чипсет', ram: 'RAM', storage: 'Память', storageExpandable: 'Карта памяти',
-      camera: 'Камера', cameraFront: 'Фронтальная камера', battery: 'Аккумулятор', network: 'Связь',
+      camera: 'Камера', cameraFront: 'Фронтальная камера', battery: 'Аккумулятор', batteryType: 'Тип аккумулятора', batteryRemovable: 'Съёмный аккумулятор', charging: 'Зарядка', network: 'Связь',
       connectivity: 'Подключение', os: 'ОС', dimensions: 'Габариты', weight: 'Вес', colors: 'Цвета', simType: 'SIM',
       unitsSoldMillions: 'Продано, млн шт.',
     },
@@ -169,7 +169,7 @@ export const UI = {
     },
     catalog: { intro: 'Каждый год — отдельная страница истории. Найди модель по названию, бренду или году.' },
     langSwitcher: 'Язык',
-    units: { mm: 'мм', standardSim: 'Стандартная SIM (Mini-SIM)', mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
+    units: { yes: 'Да', no: 'Нет', mm: 'мм', standardSim: 'Стандартная SIM (Mini-SIM)', mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
       title: 'О проекте',
@@ -213,7 +213,7 @@ export const UI = {
     specs: {
       year: 'Year', priceUsdAtLaunch: 'Launch price', display: 'Display', resolution: 'Resolution',
       chipset: 'Chipset', ram: 'RAM', storage: 'Storage', storageExpandable: 'Expandable storage',
-      camera: 'Camera', cameraFront: 'Front camera', battery: 'Battery', network: 'Network',
+      camera: 'Camera', cameraFront: 'Front camera', battery: 'Battery', batteryType: 'Battery type', batteryRemovable: 'Removable battery', charging: 'Charging', network: 'Network',
       connectivity: 'Connectivity', os: 'OS', dimensions: 'Dimensions', weight: 'Weight', colors: 'Colors', simType: 'SIM',
       unitsSoldMillions: 'Units sold, millions',
     },
@@ -258,7 +258,7 @@ export const UI = {
     },
     catalog: { intro: 'Each year marks a different chapter. Find a phone by model, brand, or year.' },
     langSwitcher: 'Language',
-    units: { mm: 'mm', standardSim: 'Standard SIM (Mini-SIM)', mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
+    units: { yes: 'Yes', no: 'No', mm: 'mm', standardSim: 'Standard SIM (Mini-SIM)', mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
       title: 'About the project',
@@ -293,7 +293,25 @@ export const HOME_EDITORIAL = {
     "compare": "26 років між дзвінками",
     "text": "Від кнопок і монохромного екрана до OLED та 5G. Порівняй два покоління й побач масштаб змін.",
     "cta": "Порівняти покоління",
-    "principles": "Історія має значення"
+    "principles": "Історія має значення",
+    "pairNotes": [
+      "Кнопки · GSM",
+      "Сенсорний екран · 5G"
+    ],
+    "principleItems": [
+      {
+        "title": "Знакові моделі",
+        "text": "Телефони, які змінили технології, дизайн і щоденні звички."
+      },
+      {
+        "title": "Факти з контекстом",
+        "text": "Що вмів пристрій — і чому це було важливо у його час."
+      },
+      {
+        "title": "Журнальний погляд",
+        "text": "Курована історія з увагою до деталей та відкритими джерелами."
+      }
+    ]
   },
   "ru": {
     "title": "Телефоны, которые изменили нашу жизнь",
@@ -308,7 +326,25 @@ export const HOME_EDITORIAL = {
     "compare": "26 лет между звонками",
     "text": "От кнопок и монохромного экрана до OLED и 5G. Сравни два поколения и увидишь масштаб перемен.",
     "cta": "Сравнить поколения",
-    "principles": "История имеет значение"
+    "principles": "История имеет значение",
+    "pairNotes": [
+      "Кнопки · GSM",
+      "Сенсорный экран · 5G"
+    ],
+    "principleItems": [
+      {
+        "title": "Знаковые модели",
+        "text": "Телефоны, изменившие технологии, дизайн и повседневные привычки."
+      },
+      {
+        "title": "Факты с контекстом",
+        "text": "Что умело устройство — и почему это было важно в своё время."
+      },
+      {
+        "title": "Журнальный взгляд",
+        "text": "Курированная история с вниманием к деталям и открытыми источниками."
+      }
+    ]
   },
   "en": {
     "title": "Phones that changed our lives",
@@ -323,6 +359,24 @@ export const HOME_EDITORIAL = {
     "compare": "26 years between calls",
     "text": "From buttons and a monochrome screen to OLED and 5G. Compare two generations to see how much changed.",
     "cta": "Compare generations",
-    "principles": "The history matters"
+    "principles": "The history matters",
+    "pairNotes": [
+      "Buttons · GSM",
+      "Touchscreen · 5G"
+    ],
+    "principleItems": [
+      {
+        "title": "Landmark phones",
+        "text": "Devices that changed technology, design, and everyday habits."
+      },
+      {
+        "title": "Facts in context",
+        "text": "What a phone could do — and why it mattered in its time."
+      },
+      {
+        "title": "An editorial eye",
+        "text": "A curated history with attention to detail and sources you can explore."
+      }
+    ]
   }
 } as const;

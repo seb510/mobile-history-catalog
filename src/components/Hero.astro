@@ -1,5 +1,6 @@
 ---
 import PhoneCard from './PhoneCard.astro';
+import GenerationComparison from './GenerationComparison.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { t, HOME_EDITORIAL } from '../lib/ui-strings';
@@ -67,7 +68,7 @@ const stats = [
   {coverPhone && (
     <a
       href={localePath(locale, `/phones/${slugOf(coverPhone)}/`)}
-      class="group block overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 transition-colors hover-desktop:border-orange-500"
+      class="group focus-visible:-outline-offset-4 block overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 transition-colors motion-ui hover-desktop:border-orange-500"
     >
       <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-6 sm:aspect-[5/3] lg:aspect-[4/3]">
         {coverPhone.data.image ? (
@@ -106,10 +107,11 @@ const stats = [
   </div>
 </section>
 
-<section class="py-9 sm:py-12" aria-labelledby="eras-title"><h2 id="eras-title" class="editorial-kicker mb-5 text-neutral-400">{copy.eras}</h2><ol class="grid grid-cols-2 gap-px border border-neutral-800 bg-neutral-800 lg:grid-cols-4">{eras.map((year,i) => <li class="bg-neutral-950"><a href={localePath(locale,'/catalog/') + '#year-' + year} class="block p-5 transition-colors motion-ui hover-desktop:bg-neutral-900"><p class="text-2xl font-extrabold tracking-tight text-orange-500">{ranges[i]}</p><p class="mt-4 text-sm font-semibold">{copy.labels[i]} ↗</p></a></li>)}</ol></section>
-{pair.every(Boolean) && <section class="grid overflow-hidden border border-neutral-800 bg-neutral-900/50 lg:grid-cols-2"><div class="flex flex-col justify-center p-6 sm:p-8"><p class="editorial-kicker text-orange-500">2000 → 2026</p><h2 class="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">{copy.compare}</h2><p class="mt-4 leading-relaxed text-neutral-400">{copy.text}</p><a href={localePath(locale,'/compare/') + '?a=nokia-3310&b=samsung-galaxy-s26-ultra'} class="mt-6 self-start rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-colors motion-ui hover-desktop:bg-orange-400">{copy.cta} →</a></div><div class="grid grid-cols-2 divide-x divide-neutral-800 border-t border-neutral-800 lg:border-t-0 lg:border-l">{pair.map(phone => phone && <a href={localePath(locale,'/phones/' + slugOf(phone) + '/')} class="min-w-0 p-4 sm:p-6"><p class="text-3xl font-extrabold text-neutral-500">{phone.data.year}</p><div class="relative my-4 flex h-40 items-center justify-center sm:h-52">{phone.data.image ? <><img data-image-fallback src={phone.data.image} alt={phone.data.brand + ' ' + phone.data.model} loading="lazy" class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</div><h3 class="text-lg font-bold">{phone.data.brand} {phone.data.model}</h3><p class="mt-2 text-sm leading-relaxed text-neutral-400">{phone.data.milestone}</p></a>)}</div></section>}
+<section class="py-9 sm:py-12" aria-labelledby="eras-title"><h2 id="eras-title" class="editorial-kicker mb-5 text-neutral-400">{copy.eras}</h2><ol class="grid grid-cols-2 gap-px border border-neutral-800 bg-neutral-800 lg:grid-cols-4">{eras.map((year,i) => <li class="bg-neutral-950"><a href={localePath(locale,'/catalog/') + '#year-' + year} class="block p-5 transition-colors motion-ui hover-desktop:bg-neutral-900"><p class="text-2xl font-extrabold tracking-tight text-orange-500">{ranges[i]}</p><p class="mt-4 text-sm font-semibold">{copy.labels[i]} <span aria-hidden="true">↗︎</span></p></a></li>)}</ol></section>
+{pair.every(Boolean) && <GenerationComparison phones={pair.filter((phone) => phone != null)} locale={locale} />}
+
 {bestSellers.length > 0 && (
-  <section class="pt-10 sm:pt-12">
+  <section class="pt-12 sm:pt-16">
     <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
       <div>
         <p class="editorial-kicker text-orange-500">{strings.hero.eyebrow}</p>
@@ -129,4 +131,4 @@ const stats = [
   </section>
 )}
 
-<section class="mt-12 border-y border-neutral-800 py-8 sm:mt-16"><div class="flex flex-wrap items-end justify-between gap-4"><h2 class="text-2xl font-extrabold sm:text-3xl">{copy.principles}</h2><a href={localePath(locale,'/about/')} class="text-sm font-semibold text-orange-500 underline underline-offset-4">{strings.hero.ctaAbout} →</a></div><div class="mt-7 grid gap-6 sm:grid-cols-3">{[strings.about.sections[1], strings.about.sections[2], strings.about.sections[5]].map((item,i) => <div class="border-t border-neutral-800 pt-4"><p class="editorial-kicker text-orange-500">0{i+1}</p><h3 class="mt-3 text-lg font-bold">{item.title}</h3><p class="mt-2 text-sm leading-relaxed text-neutral-400">{item.paragraphs[0]}</p></div>)}</div></section>
+<section class="mt-12 border-y border-neutral-800 py-8 sm:mt-16"><div class="flex flex-wrap items-end justify-between gap-4"><h2 class="text-2xl font-extrabold sm:text-3xl">{copy.principles}</h2><a href={localePath(locale,'/about/')} class="text-sm font-semibold text-orange-500 underline underline-offset-4">{strings.hero.ctaAbout} →</a></div><div class="mt-7 grid gap-6 sm:grid-cols-3">{copy.principleItems.map((item,i) => <div class="border-t border-neutral-800 pt-4"><p class="editorial-kicker text-orange-500">0{i+1}</p><h3 class="mt-3 text-lg font-bold">{item.title}</h3><p class="mt-2 text-sm leading-relaxed text-neutral-400">{item.text}</p></div>)}</div></section>
