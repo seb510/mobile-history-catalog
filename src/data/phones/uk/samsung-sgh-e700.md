@@ -3,6 +3,7 @@ brand: Samsung
 model: "SGH-E700"
 year: 2003
 milestone: "Перший Samsung із вбудованою антеною, «Benz Phone»"
+unitsSoldMillions: 10
 display:
   sizeInches: 1.8
   type: "кольоровий TFT (+ зовнішній OLED-дисплей)"
@@ -16,8 +17,8 @@ network: "GSM 900/1800 (dual-band)"
 connectivity: ["ІЧ-порт (IrDA)"]
 simType: "Mini-SIM"
 colors: ["Indigo Blue", "Metallic Silver", "Beaujolais Red", "Pearl White"]
-dimensionsMm: "90 × 45 × 23 мм"
-weightGrams: 85
+dimensionsMm: "87 × 45 × 23 мм"
+weightGrams: 94
 os: "власна (Samsung)"
 ---
 
