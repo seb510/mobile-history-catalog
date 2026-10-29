@@ -79,7 +79,14 @@ export const UI = {
     },
     catalog: { intro: 'Кожен рік — окрема сторінка історії. Знайди модель за назвою, брендом або роком.' },
     langSwitcher: 'Мова',
-    gallery: { label: 'Галерея фотографій', showImage: 'Показати зображення {index} з {count}' },
+    gallery: {
+      label: 'Галерея фотографій',
+      showImage: 'Показати зображення {index} з {count}',
+      open: 'Відкрити фото на весь екран',
+      close: 'Закрити повноекранний перегляд',
+      previous: 'Попереднє фото',
+      next: 'Наступне фото',
+    },
     units: { yes: 'Так', no: 'Ні', mm: 'мм', standardSim: 'Стандартна SIM (Mini-SIM)', mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
@@ -170,7 +177,14 @@ export const UI = {
     },
     catalog: { intro: 'Каждый год — отдельная страница истории. Найди модель по названию, бренду или году.' },
     langSwitcher: 'Язык',
-    gallery: { label: 'Галерея фотографий', showImage: 'Показать изображение {index} из {count}' },
+    gallery: {
+      label: 'Галерея фотографий',
+      showImage: 'Показать изображение {index} из {count}',
+      open: 'Открыть фото на весь экран',
+      close: 'Закрыть полноэкранный просмотр',
+      previous: 'Предыдущее фото',
+      next: 'Следующее фото',
+    },
     units: { yes: 'Да', no: 'Нет', mm: 'мм', standardSim: 'Стандартная SIM (Mini-SIM)', mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
@@ -260,7 +274,14 @@ export const UI = {
     },
     catalog: { intro: 'Each year marks a different chapter. Find a phone by model, brand, or year.' },
     langSwitcher: 'Language',
-    gallery: { label: 'Photo gallery', showImage: 'Show image {index} of {count}' },
+    gallery: {
+      label: 'Photo gallery',
+      showImage: 'Show image {index} of {count}',
+      open: 'View photo full screen',
+      close: 'Close full-screen view',
+      previous: 'Previous photo',
+      next: 'Next photo',
+    },
     units: { yes: 'Yes', no: 'No', mm: 'mm', standardSim: 'Standard SIM (Mini-SIM)', mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
