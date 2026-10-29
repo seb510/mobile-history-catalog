@@ -44,7 +44,7 @@ const groups = buildSpecGroups(data, strings);
     {data.imageCredit && (
       <p class="mt-2 text-xs text-neutral-500">
         {data.imageSourceUrl ? (
-          <a href={data.imageSourceUrl} class="transition-colors duration-200 hover-desktop:text-neutral-300" target="_blank" rel="noopener noreferrer nofollow">
+          <a href={data.imageSourceUrl} class="text-orange-500 underline decoration-current/45 underline-offset-2 transition-colors duration-200 hover-desktop:text-orange-400" target="_blank" rel="noopener noreferrer nofollow">
             {data.imageCredit}
           </a>
         ) : (
