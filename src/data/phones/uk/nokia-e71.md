@@ -10,18 +10,19 @@ display:
 chipset: "ARM11 (Freescale MXC300), 369 МГц"
 ramMb: 128
 storageMb: 110
-storageExpandable: "microSDHC, до 32 ГБ"
+storageExpandable: "microSD, до 8 ГБ за специфікацією Nokia"
 camera:
   rear: "3.2 МП, автофокус, LED-спалах"
   front: "для відеодзвінків"
 battery:
   mah: 1500
+  type: "Li-Po, BP-4L"
   removable: true
 network: "GSM 850/900/1800/1900 (quad-band) + UMTS/3G"
-connectivity: ["Wi-Fi 802.11b/g", "Bluetooth 2.0", "GPS (A-GPS)", "microUSB", "інфрачервоний порт"]
+connectivity: ["Wi-Fi 802.11b/g", "Bluetooth 2.0 + EDR / A2DP", "GPS (A-GPS)", "microUSB", "інфрачервоний порт", "аудіороз’єм 2,5 мм"]
 os: "Symbian OS 9.2, S60 3rd Edition FP1"
 dimensionsMm: "114 × 57 × 10 мм"
-weightGrams: 127
+weightGrams: 126
 colors: ["Сталевий сірий", "Білий", "Червоний", "Чорний"]
 simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nokia_E71.JPG/960px-Nokia_E71.JPG"
@@ -39,3 +40,6 @@ GPS, підтримка push-пошти, і водночас достатньо 
 купували й поза офісним середовищем. Ця універсальність зробила E71 одним із
 найдовгограючих бестселерів лінійки Eseries — телефоном, який в деяких країнах продавали
 роками після релізу наступника E72.
+
+Джерело: [Nokia E71 Data Sheet, 2008](https://media.corporate-ir.net/media_files/irol/10/107224/data_sheets/E7120data20sheet_Final100608.pdf).
+Ліміт карт пам’яті наведено за специфікацією виробника на старті, а не за неофіційними перевірками більших карт.

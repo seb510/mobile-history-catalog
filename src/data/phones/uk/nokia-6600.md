@@ -14,7 +14,8 @@ storageExpandable: "MMC, картка на 32 МБ у комплекті"
 camera:
   rear: "0.3 МП (VGA, 640 × 480), цифровий зум"
 battery:
-  mah: 1020
+  mah: 850
+  type: "Li-ion, BL-5C"
   removable: true
 network: "GSM 900/1800/1900 (tri-band)"
 connectivity: ["Bluetooth 1.1", "IrDA"]
@@ -40,3 +41,6 @@ imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_6600.jpg"
 6600 також запам'ятався як один із перших телефонів, через який масово поширювались мобільні
 віруси — Symbian-черв'як Cabir, що передавався через Bluetooth, вперше здобув популярність саме
 на цій моделі.
+
+Джерело характеристик: [сервісна документація Nokia 6600, NHL-10, 30.10.2003](https://www.mobilgyujtemeny.hu/letolt/Service%20manual/Nokia/nokia_6600_servicemanual_en.pdf).
+Штатна батарея на старті — BL-5C на 850 мА·год; пізніші акумулятори з такою самою назвою могли мати іншу ємність.
