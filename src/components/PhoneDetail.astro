@@ -2,6 +2,7 @@
 import PlaceholderArt from './PlaceholderArt.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import { t } from '../lib/ui-strings';
+import { buildSpecGroups } from '../lib/specs';
 import type { Locale } from '../lib/locales';
 
 interface Props {
@@ -12,56 +13,9 @@ const { phone, locale } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const s = strings.specs;
-const u = strings.units;
 const { Content } = await render(phone);
 
-type Row = [string, string];
-type Group = { rows: Row[] };
-
-const groups: Group[] = [
-  {
-    rows: [
-      [s.year, String(data.year)],
-      data.priceUsdAtLaunch != null && [s.priceUsdAtLaunch, `$${data.priceUsdAtLaunch}`],
-      data.unitsSoldMillions != null && [s.unitsSoldMillions, String(data.unitsSoldMillions)],
-    ].filter((r): r is Row => Boolean(r)),
-  },
-  {
-    rows: [
-      data.display?.sizeInches != null && [s.display, `${data.display.sizeInches}"${data.display.type ? ` · ${data.display.type}` : ''}`],
-      data.display?.resolution && [s.resolution, data.display.resolution],
-    ].filter((r): r is Row => Boolean(r)),
-  },
-  {
-    rows: [
-      data.chipset && [s.chipset, data.chipset],
-      data.ramMb != null && [s.ram, data.ramMb >= 1024 ? `${data.ramMb / 1024} ${u.gb}` : `${data.ramMb} ${u.mb}`],
-      data.storageMb != null && [s.storage, data.storageMb >= 1024 ? `${data.storageMb / 1024} ${u.gb}` : `${data.storageMb} ${u.mb}`],
-      data.storageExpandable && [s.storageExpandable, data.storageExpandable],
-    ].filter((r): r is Row => Boolean(r)),
-  },
-  {
-    rows: [
-      data.camera?.rear && [s.camera, data.camera.rear],
-      data.camera?.front && [s.cameraFront, data.camera.front],
-    ].filter((r): r is Row => Boolean(r)),
-  },
-  {
-    rows: [
-      data.battery?.mah != null && [s.battery, `${data.battery.mah} ${u.mAh}`],
-      data.network && [s.network, data.network],
-      data.connectivity && data.connectivity.length > 0 && [s.connectivity, data.connectivity.join(', ')],
-      data.simType && [s.simType, data.simType],
-    ].filter((r): r is Row => Boolean(r)),
-  },
-  {
-    rows: [
-      data.os && [s.os, data.os],
-      data.dimensionsMm && [s.dimensions, data.dimensionsMm],
-      data.weightGrams != null && [s.weight, `${data.weightGrams} ${u.g}`],
-    ].filter((r): r is Row => Boolean(r)),
-  },
-].filter((g) => g.rows.length > 0);
+const groups = buildSpecGroups(data, strings);
 ---
 
 <div class="grid gap-10 lg:grid-cols-[2fr_3fr]">

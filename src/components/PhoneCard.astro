@@ -2,6 +2,7 @@
 import PlaceholderArt from './PlaceholderArt.astro';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
+import { slugOf } from '../lib/phones';
 
 interface Props {
   phone: CollectionEntry<'phones'>;
@@ -11,7 +12,7 @@ interface Props {
 }
 const { phone, locale, badge } = Astro.props;
 const { data } = phone;
-const slug = phone.id.split('/').slice(1).join('/');
+const slug = slugOf(phone);
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 ---
 

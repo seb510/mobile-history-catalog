@@ -9,6 +9,11 @@ function splitId(id: string): { locale: string; slug: string } {
   return { locale, slug: rest.join('/') };
 }
 
+// Slug of a resolved phone entry (locale-independent), e.g. "nokia-3310" from id "uk/nokia-3310".
+export function slugOf(entry: PhoneEntry): string {
+  return splitId(entry.id).slug;
+}
+
 async function allPhones(): Promise<PhoneEntry[]> {
   return getCollection('phones');
 }

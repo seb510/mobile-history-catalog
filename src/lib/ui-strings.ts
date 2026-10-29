@@ -7,7 +7,7 @@ export const UI = {
   uk: {
     siteName: 'Мобільна Історія',
     tagline: 'Таймлайн етапних телефонів з 1998 року',
-    nav: { catalog: 'Каталог', about: 'Про проєкт' },
+    nav: { catalog: 'Каталог', compare: 'Порівняти', about: 'Про проєкт' },
     footer: {
       about:
         'Курований таймлайн мобільних телефонів, що реально змінили індустрію — не повний каталог моделей.',
@@ -32,6 +32,16 @@ export const UI = {
       camera: 'Камера', cameraFront: 'Фронтальна камера', battery: 'Акумулятор', network: 'Зв’язок',
       connectivity: 'Підключення', os: 'ОС', dimensions: 'Габарити', weight: 'Вага', colors: 'Кольори', simType: 'SIM',
       unitsSoldMillions: 'Продано, млн шт.',
+    },
+    compare: {
+      subtitle: 'Обери два телефони з каталогу, щоб порівняти їхні характеристики пліч-о-пліч.',
+      pickA: 'Оберіть перший телефон…',
+      pickB: 'Оберіть другий телефон…',
+      change: 'Змінити',
+      swap: 'Поміняти місцями',
+      noResults: 'Нічого не знайдено',
+      empty: 'Оберіть два телефони вище, щоб побачити порівняння.',
+      dash: '—',
     },
     hero: {
       eyebrow: '1998 — сьогодні',
@@ -61,7 +71,7 @@ export const UI = {
   ru: {
     siteName: 'Мобильная История',
     tagline: 'Таймлайн знаковых телефонов с 1998 года',
-    nav: { catalog: 'Каталог', about: 'О проекте' },
+    nav: { catalog: 'Каталог', compare: 'Сравнить', about: 'О проекте' },
     footer: {
       about:
         'Курированный таймлайн мобильных телефонов, которые реально изменили индустрию — не полный каталог моделей.',
@@ -86,6 +96,16 @@ export const UI = {
       camera: 'Камера', cameraFront: 'Фронтальная камера', battery: 'Аккумулятор', network: 'Связь',
       connectivity: 'Подключение', os: 'ОС', dimensions: 'Габариты', weight: 'Вес', colors: 'Цвета', simType: 'SIM',
       unitsSoldMillions: 'Продано, млн шт.',
+    },
+    compare: {
+      subtitle: 'Выбери два телефона из каталога, чтобы сравнить их характеристики бок о бок.',
+      pickA: 'Выберите первый телефон…',
+      pickB: 'Выберите второй телефон…',
+      change: 'Изменить',
+      swap: 'Поменять местами',
+      noResults: 'Ничего не найдено',
+      empty: 'Выберите два телефона выше, чтобы увидеть сравнение.',
+      dash: '—',
     },
     hero: {
       eyebrow: '1998 — сегодня',
@@ -115,7 +135,7 @@ export const UI = {
   en: {
     siteName: 'Mobile History',
     tagline: 'A timeline of milestone phones since 1998',
-    nav: { catalog: 'Catalog', about: 'About' },
+    nav: { catalog: 'Catalog', compare: 'Compare', about: 'About' },
     footer: {
       about: 'A curated timeline of mobile phones that actually changed the industry — not a full model catalog.',
       inspiredBy: 'Inspired by the format of MobiLux magazine (2004–2016)',
@@ -139,6 +159,16 @@ export const UI = {
       camera: 'Camera', cameraFront: 'Front camera', battery: 'Battery', network: 'Network',
       connectivity: 'Connectivity', os: 'OS', dimensions: 'Dimensions', weight: 'Weight', colors: 'Colors', simType: 'SIM',
       unitsSoldMillions: 'Units sold, millions',
+    },
+    compare: {
+      subtitle: 'Pick two phones from the catalog to compare their specs side by side.',
+      pickA: 'Pick the first phone…',
+      pickB: 'Pick the second phone…',
+      change: 'Change',
+      swap: 'Swap',
+      noResults: 'No matches',
+      empty: 'Pick two phones above to see the comparison.',
+      dash: '—',
     },
     hero: {
       eyebrow: '1998 — today',

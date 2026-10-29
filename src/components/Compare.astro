@@ -1,0 +1,22 @@
+---
+import CompareIsland from './CompareIsland.tsx';
+import { getPhonesForLocale, slugOf } from '../lib/phones';
+import { t } from '../lib/ui-strings';
+import type { Locale } from '../lib/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const strings = t(locale);
+
+const phones = await getPhonesForLocale(locale);
+phones.sort((a, b) => a.data.year - b.data.year || a.data.brand.localeCompare(b.data.brand));
+
+const lite = phones.map((phone) => ({
+  slug: slugOf(phone),
+  data: phone.data,
+}));
+---
+
+<CompareIsland client:load locale={locale} phones={lite} strings={strings} />

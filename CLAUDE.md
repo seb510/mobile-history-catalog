@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 **Мобільна Історія** — таймлайн етапних мобільних телефонів починаючи з 1998–1999 (старт масового
-GSM-буму) до сьогодні, з функцією порівняння між епохами (ще не реалізована — наступний крок).
+GSM-буму) до сьогодні, з функцією порівняння телефонів (`/compare/`, React-острівець) між епохами.
 Не повний каталог (не конкурує з GSMArena) — курований список моделей, що реально щось змінили.
 Натхнення тоном/форматом каталогу — український журнал MobiLux (2004–2016). Сестринський проєкт
 до [Watchly](../watchly) (той самий автор, та сама загальна філософія: легальні джерела даних,
@@ -36,7 +36,12 @@ failing on a phone file is the equivalent of a failing test.
 - `src/content.config.ts` — колекція `phones`, glob-завантажувач `src/data/phones/*/*.md`
   (локаль — перша директорія: `uk/nokia-3310.md`). Zod-схема в цьому файлі — єдине джерело правди
   про обов'язкові (`brand`, `model`, `year`) проти опціональних специфікацій. Нове поле специфікації
-  означає: оновити схему тут **і** групи рядків у `src/components/PhoneDetail.astro`.
+  означає: оновити схему тут **і** канонічний список полів `FIELDS` у `src/lib/specs.ts`.
+- `src/lib/specs.ts` — єдиний канонічний (упорядкований, згрупований) список полів специфікацій;
+  `buildSpecGroups(data, strings)` будує рядки для однієї сторінки телефону (`PhoneDetail.astro`,
+  пропускає відсутні поля), `buildCompareGroups(dataA, dataB, strings)` — для `/compare/` (рядок
+  лишається, якщо значення є хоч в одного з двох, інакше — "—"). Обидва споживача завжди лишаються
+  синхронізованими, бо беруть рядки з одного джерела.
 - `src/lib/locales.ts` + `src/lib/phones.ts` — локаль-типи й fallback-ланцюжок (uk → ru → en для
   ru-сторінок, en → uk → ru для en-сторінок; uk завжди має файл, тому для uk fallback не потрібен).
   `getPhone(locale, slug)` і `getPhonesForLocale(locale)` — єдина точка доступу до контенту з
@@ -55,6 +60,13 @@ failing on a phone file is the equivalent of a failing test.
   `data-*`-атрибутами й ховає порожні річні групи.
 - `src/pages/phones/[slug].astro` (+ ru/en) — `getStaticPaths` зі `getAllSlugs()` (слаги з uk-файлів
   — вони завжди є), рендер через `src/components/PhoneDetail.astro`.
+- `src/pages/compare/index.astro` (+ ru/en) — порівняння двох телефонів пліч-о-пліч. Тонка сторінка
+  делегує в `src/components/Compare.astro` (Astro, тягне `getPhonesForLocale` і передає слім-список
+  `{slug, data}` як серіалізовані props), що рендерить `src/components/CompareIsland.tsx`
+  (`client:load`) — єдиний React-компонент у проєкті: пошук-вибір телефону в кожен з двох слотів
+  (фільтрація по `brand model year`, виключає вже обраний у другому слоті телефон), стан вибору
+  синхронізується в URL (`?a=slug&b=slug`, `history.replaceState`) для share-посилань і
+  deep-linking, таблиця будується через `buildCompareGroups` з `src/lib/specs.ts`.
 - Лого (`src/components/LogoMark.astro`, статично продубльований у `public/favicon.svg` і
   `scripts/generate-images.mjs`) і заглушка (`src/components/PlaceholderArt.astro`) — одна й та
   сама оригінальна абстрактна мітка (значок-пульс у заокругленому "app icon" бейджі), не схожа на
@@ -75,8 +87,8 @@ failing on a phone file is the equivalent of a failing test.
 - Ховер-ефекти — лише на пристроях з мишкою: кастомний Tailwind-варіант `hover-desktop:`
   (визначений у `src/styles/global.css` через `@custom-variant`, `@media (hover: hover) and
   (pointer: fine)`) замість стандартного `hover:` для декоративних станів (не для `focus:`).
-- `@astrojs/react` підключений в `astro.config.mjs`, але жоден `.astro`-файл поки не імпортує
-  React-компонент — інтеграція стоїть напоготові для майбутньої функції порівняння між епохами.
+- `@astrojs/react` підключений в `astro.config.mjs`; `CompareIsland.tsx` (див. вище) — єдиний
+  React-компонент у проєкті, рендериться лише на `/compare/`.
 - `AGENTS.md` у корені — дублікат цього файлу (той самий контент, інший формат для агентів, що
   його читають). Синхронізуй зміни в обох, якщо редагуєш один.
 
