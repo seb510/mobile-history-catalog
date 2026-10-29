@@ -26,6 +26,15 @@ os: "Android 1.0"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTC_Dream_%28front_view%29.jpg/960px-HTC_Dream_%28front_view%29.jpg"
 imageCredit: "Фото: Marcus Sümnick, CC BY 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:HTC_Dream_(front_view).jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/HTC_Dream_%28right_side%29.jpg/960px-HTC_Dream_%28right_side%29.jpg
+    alt: Білий HTC Dream з відкритим слотом microSD
+    imageCredit: "Фото: Marcus Sümnick, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:HTC_Dream_(right_side).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/HTC_Dream_flipside.jpg/960px-HTC_Dream_flipside.jpg
+    alt: Задня сторона білого HTC Dream
+    imageCredit: "Фото: Marcus Sümnick, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:HTC_Dream_flipside.jpg
 ---
 
 T-Mobile G1 (поза США — HTC Dream) вийшов восени 2008-го як перший телефон на щойно

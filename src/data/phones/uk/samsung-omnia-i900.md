@@ -25,6 +25,15 @@ weightGrams: 127
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Samsung_i900_Omnia.jpg/960px-Samsung_i900_Omnia.jpg"
 imageCredit: "Фото: Umairanwer, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_i900_Omnia.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Samsung_Omnia_%28Black%29_-_Front.jpg/960px-Samsung_Omnia_%28Black%29_-_Front.jpg
+    alt: Чорний Samsung Omnia першого покоління спереду
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Omnia_(Black)_-_Front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Samsung_Omnia_%28Black%29_-_Front_%28splash_screen%29.jpg/960px-Samsung_Omnia_%28Black%29_-_Front_%28splash_screen%29.jpg
+    alt: Чорний Samsung Omnia першого покоління із заставкою на екрані
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Omnia_(Black)_-_Front_(splash_screen).jpg
 ---
 
 Omnia вийшла в середині 2008 року — рівно тоді, коли ринок почав звикати до думки, що сенсорний

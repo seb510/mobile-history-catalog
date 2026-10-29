@@ -27,6 +27,15 @@ os: Symbian^3
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nokia_N8.png/960px-Nokia_N8.png
 imageCredit: Dienthoaiquangcao68; Editor182 (crop), CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8.png
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Nokia_N8_%28double-sided_view%29.jpg/960px-Nokia_N8_%28double-sided_view%29.jpg
+    alt: Nokia N8 з обох боків
+    imageCredit: "Фото: Editor182, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8_(double-sided_view).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nokia_N8_%28front_view%29.jpg/960px-Nokia_N8_%28front_view%29.jpg
+    alt: Передня сторона Nokia N8
+    imageCredit: "Фото: Editor182, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8_(front_view).jpg
 milestone: Камерофон із 12 МП, ксеноновим спалахом і дебютом Symbian^3
 storageExpandable: microSD, до 32 ГБ
 camera:

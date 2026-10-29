@@ -18,6 +18,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Siemens_C55.jpg/960px-Siemens_C55.jpg"
 imageCredit: "Фото: Shadster, CC BY-SA 2.5, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_C55.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Siemens_C55_back.jpg/960px-Siemens_C55_back.jpg
+    alt: Задня сторона Siemens C55
+    imageCredit: "Фото: Nord794ub, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_C55_back.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Siemens_C55_front.jpg/960px-Siemens_C55_front.jpg
+    alt: Передня сторона Siemens C55
+    imageCredit: "Фото: Nord794ub, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_C55_front.jpg
 ---
 
 C55 — типовий представник «народного» сегмента Siemens: ані камери, ані кольорового екрана,

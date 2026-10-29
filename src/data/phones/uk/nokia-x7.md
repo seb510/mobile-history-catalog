@@ -24,6 +24,11 @@ os: Symbian Anna
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nokia_X7.jpg/960px-Nokia_X7.jpg
 imageCredit: NikitaNovozhilov, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_X7.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Beats_and_Nokia_x7-00.jpg/960px-Beats_and_Nokia_x7-00.jpg
+    alt: Nokia X7-00 поруч із навушниками Beats
+    imageCredit: "Фото: Nikita Novozhilov, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Beats_and_Nokia_x7-00.jpg
 milestone: Кутовий мультимедійний дизайн і нова Symbian Anna
 storageExpandable: microSD, до 32 ГБ; 8 ГБ у комплекті
 camera:

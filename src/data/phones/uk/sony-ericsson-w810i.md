@@ -23,6 +23,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sony_Ericsson_W810i-2177.jpg/960px-Sony_Ericsson_W810i-2177.jpg"
 imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2177.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Sony_Ericsson_W810i-2172.jpg/960px-Sony_Ericsson_W810i-2172.jpg
+    alt: Телефон Sony Ericsson W810i
+    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2172.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Sony_Ericsson_W810i-2173.jpg/960px-Sony_Ericsson_W810i-2173.jpg
+    alt: Sony Ericsson W810i з іншого ракурсу
+    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2173.jpg
 ---
 
 W810i — пряме продовження успіху W800i: той самий формфактор і впізнавана музична кнопка, але

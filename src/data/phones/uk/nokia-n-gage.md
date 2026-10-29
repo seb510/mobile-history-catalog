@@ -24,6 +24,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nokia-NGage-Front-Flat.jpg/960px-Nokia-NGage-Front-Flat.jpg"
 imageCredit: "Фото: Evan-Amos (Vanamo Media), суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia-NGage-Front-Flat.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/N-Gage.jpg/960px-N-Gage.jpg
+    alt: Ігровий телефон Nokia N-Gage
+    imageCredit: "Фото: clik!, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:N-Gage.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Nokia_N-Gage%2C_mk1_%2813335575393%29.jpg/960px-Nokia_N-Gage%2C_mk1_%2813335575393%29.jpg
+    alt: Nokia N-Gage першої ревізії
+    imageCredit: "Фото: Staffan Vilcans, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N-Gage,_mk1_(13335575393).jpg
 ---
 
 N-Gage намагався зробити те, що досі нікому не вдавалося, — сумістити повноцінну портативну

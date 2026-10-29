@@ -24,6 +24,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Motorola_Rokr_E1_-_2.jpg/960px-Motorola_Rokr_E1_-_2.jpg"
 imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_Rokr_E1_-_2.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Motorola_A1200_vs_Motorola_Rokr_E1.jpg/960px-Motorola_A1200_vs_Motorola_Rokr_E1.jpg
+    alt: Motorola ROKR E1 поруч із Motorola A1200
+    imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_A1200_vs_Motorola_Rokr_E1.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Motorola_Rokr_E1_-_1.jpg/960px-Motorola_Rokr_E1_-_1.jpg
+    alt: Телефон Motorola ROKR E1
+    imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Rokr_E1_-_1.jpg
 ---
 
 ROKR E1 був представлений у вересні 2005-го на одній сцені з iTunes 5 — спільний проєкт Motorola,

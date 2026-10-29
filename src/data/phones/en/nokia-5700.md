@@ -21,6 +21,15 @@ os: Symbian OS 9.2, S60 3rd Edition FP1
 image: https://upload.wikimedia.org/wikipedia/commons/7/79/Nokia_5700_XpressMusic.jpg
 imageCredit: 阿貴, CC BY-SA 3.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_XpressMusic.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Nokia_5700_%28666485189%29.jpg/960px-Nokia_5700_%28666485189%29.jpg
+    alt: Nokia 5700 XpressMusic, front view
+    imageCredit: "Photo: William J Sisti, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Nokia_5700_back_%28666495903%29.jpg/960px-Nokia_5700_back_%28666495903%29.jpg
+    alt: Back of the Nokia 5700
+    imageCredit: "Photo: William J Sisti, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_back_(666495903).jpg
 milestone: A twisting keypad switches between music, camera and calls
 storageExpandable: microSD, up to 2 GB
 camera:

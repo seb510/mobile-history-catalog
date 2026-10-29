@@ -29,6 +29,15 @@ simType: "Micro-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Samsung_Galaxy_S4.jpg/960px-Samsung_Galaxy_S4.jpg"
 imageCredit: "Фото: Kārlis Dambrāns, CC BY 2.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S4.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Presentation_of_Samsung_Galaxy_S4_%282013-03-14%29_01.jpg/960px-Presentation_of_Samsung_Galaxy_S4_%282013-03-14%29_01.jpg
+    alt: Samsung Galaxy S4 під час презентації в березні 2013 року
+    imageCredit: "Фото: Hi-Tech@Mail.ru, Олександр Бабулін та Олександр Побыванец, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Presentation_of_Samsung_Galaxy_S4_(2013-03-14)_01.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Cheero_powerbank_%26_Samsung_Galaxy_S4_20140910.jpg/960px-Cheero_powerbank_%26_Samsung_Galaxy_S4_20140910.jpg
+    alt: Samsung Galaxy S4 позаду зовнішнього акумулятора Cheero
+    imageCredit: "Фото: Japanexperterna, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Cheero_powerbank_%26_Samsung_Galaxy_S4_20140910.jpg
 ---
 
 Galaxy S4 продовжив формулу попередника — більший екран (5"), швидший процесор, кращу камеру

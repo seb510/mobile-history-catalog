@@ -12,6 +12,11 @@ ramMb: 12288
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pixel_9.jpg/960px-Pixel_9.jpg
 imageCredit: Miyako Fujimiya, CC0 1.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Pixel_9.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Camera_of_Google_Pixel_9_-_3.jpg/960px-Camera_of_Google_Pixel_9_-_3.jpg
+    alt: Задняя камера Google Pixel 9
+    imageCredit: "Фото: Kyu3a, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Camera_of_Google_Pixel_9_-_3.jpg
 storageMb: 131072
 battery:
   mah: 4700

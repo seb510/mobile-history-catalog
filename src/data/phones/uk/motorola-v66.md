@@ -17,6 +17,15 @@ os: "власна (Motorola)"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Motorola_V66_mobile_phone.jpg/960px-Motorola_V66_mobile_phone.jpg"
 imageCredit: "Фото: Mk2010, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_V66_mobile_phone.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Motorola_V66_ChampagneGold_bezel.jpg/960px-Motorola_V66_ChampagneGold_bezel.jpg
+    alt: Motorola V66 золотистого кольору, вигляд рамки
+    imageCredit: "Фото: Episteme, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_V66_ChampagneGold_bezel.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Motorola_V66_ChampagneGold_front.jpg/960px-Motorola_V66_ChampagneGold_front.jpg
+    alt: Motorola V66 золотистого кольору спереду
+    imageCredit: "Фото: Episteme, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_V66_ChampagneGold_front.jpg
 ---
 
 V66 продовжила лінію компактних розкладачок Motorola (V60, V70) у момент, коли саме такий формат —

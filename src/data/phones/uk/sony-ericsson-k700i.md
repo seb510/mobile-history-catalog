@@ -23,6 +23,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Sony_Ericsson_K700i.jpg/960px-Sony_Ericsson_K700i.jpg"
 imageCredit: "Фото: Jedyooo, суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_K700i.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sony_Ericsson_K700i_-_Front.jpg/960px-Sony_Ericsson_K700i_-_Front.jpg
+    alt: Передня сторона Sony Ericsson K700i
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_K700i_-_Front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Sony_Ericsson_K700i_back.JPG/960px-Sony_Ericsson_K700i_back.JPG
+    alt: Задня сторона Sony Ericsson K700i
+    imageCredit: "Фото: J Di, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_K700i_back.JPG
 ---
 
 K700i відкрив K-серію — лінійку, на яку Sony Ericsson робитиме основну ставку в камерофонах

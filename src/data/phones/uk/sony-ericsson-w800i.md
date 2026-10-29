@@ -24,6 +24,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Sony_Ericsson_W800i.jpg/960px-Sony_Ericsson_W800i.jpg"
 imageCredit: "Фото: 阿貴, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W800i.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Sony_Ericsson_W800i_-_Front.jpg/960px-Sony_Ericsson_W800i_-_Front.jpg
+    alt: Передня сторона Sony Ericsson W800i
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W800i_-_Front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Sony_Ericsson_W800i_-_Back.jpg/960px-Sony_Ericsson_W800i_-_Back.jpg
+    alt: Задня сторона Sony Ericsson W800i
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W800i_-_Back.jpg
 ---
 
 W800i відкрив лінійку Walkman — спробу Sony Ericsson перенести впізнаваність музичного бренду

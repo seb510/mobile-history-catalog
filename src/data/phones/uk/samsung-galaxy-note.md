@@ -28,6 +28,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Samsung_Galaxy_Note_(original).JPG/960px-Samsung_Galaxy_Note_(original).JPG"
 imageCredit: "Фото: Rwxrwxrwx, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Note_(original).JPG"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Samsung_Galaxy_Note.jpg/960px-Samsung_Galaxy_Note.jpg
+    alt: "Серія Samsung Galaxy Note: оригінал, Note II та Note III"
+    imageCredit: "Фото: 彭家杰, CC BY 2.5, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Note.jpg
 ---
 
 На момент анонсу восени 2011 року екран 5.3 дюйма здавався багатьом оглядачам абсурдно великим —

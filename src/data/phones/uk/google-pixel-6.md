@@ -9,6 +9,15 @@ os: Android 12
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Google_Pixel_6_Sorta_Seafoam_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_rear.jpg
 imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_rear.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
+    alt: Rear views of the Pixel 6 in Sorta Seafoam beside a Pixel 8 in Rose
+    imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Google_Pixel_6_Sorta_Seafoam_front.jpg/960px-Google_Pixel_6_Sorta_Seafoam_front.jpg
+    alt: Front of a Pixel 6 in Sorta Seafoam
+    imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_front.jpg
 display:
   sizeInches: 6.4
   resolution: 1080 × 2400

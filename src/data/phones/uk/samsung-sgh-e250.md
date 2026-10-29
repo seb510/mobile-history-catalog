@@ -24,6 +24,15 @@ os: "власна (Samsung)"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SamsungE250.JPG/960px-SamsungE250.JPG"
 imageCredit: "Фото: Triskaidekafil, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:SamsungE250.JPG"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Samsung_SGH-E250_%28Ebony_Black%29_-_Back_%28Closed%29.jpg/960px-Samsung_SGH-E250_%28Ebony_Black%29_-_Back_%28Closed%29.jpg
+    alt: Задня сторона чорного Samsung SGH-E250 із закритою кришкою
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_SGH-E250_(Ebony_Black)_-_Back_(Closed).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Samsung_SGH-E250_%28Ebony_Black%29_-_Back_%28Open%29.jpg/960px-Samsung_SGH-E250_%28Ebony_Black%29_-_Back_%28Open%29.jpg
+    alt: Задня сторона чорного Samsung SGH-E250 із відкритою кришкою
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_SGH-E250_(Ebony_Black)_-_Back_(Open).jpg
 ---
 
 E250 — типовий приклад телефону, який не намагався вразити специфікаціями, а просто влучив у

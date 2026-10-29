@@ -23,6 +23,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Siemens_CX65.png"
 imageCredit: "Фото: Suidpunt (обрізано Pozdrawiam), суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_CX65.png"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Siemens_CX65_-_Back.jpg/960px-Siemens_CX65_-_Back.jpg
+    alt: Задня сторона Siemens CX65
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Back.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Siemens_CX65_-_Bottom.jpg/960px-Siemens_CX65_-_Bottom.jpg
+    alt: Нижній торець Siemens CX65
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Bottom.jpg
 ---
 
 CX65 (внутрішня назва «Ulysses») анонсували в лютому 2004-го як середньостатистичний телефон

@@ -19,6 +19,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Ericsson_T68i_001.jpg/960px-Ericsson_T68i_001.jpg"
 imageCredit: "Фото: Norsk Telemuseum, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Ericsson_T68i_001.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Sony_Ericsson_T68i_%28Arctic_Blue%29_-_Back.jpg/960px-Sony_Ericsson_T68i_%28Arctic_Blue%29_-_Back.jpg
+    alt: Задня сторона Sony Ericsson T68i кольору Arctic Blue
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T68i_(Arctic_Blue)_-_Back.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sony_Ericsson_T68i_%28Arctic_Blue%29_-_Bottom.jpg/960px-Sony_Ericsson_T68i_%28Arctic_Blue%29_-_Bottom.jpg
+    alt: Нижній торець Sony Ericsson T68i кольору Arctic Blue
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T68i_(Arctic_Blue)_-_Bottom.jpg
 ---
 
 T68i сам камери не мав — зате першим у масовому сегменті отримав офіційний аксесуар CommuniCam

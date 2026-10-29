@@ -27,6 +27,15 @@ os: "Android 9"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Galaxy_Fold_-_5.jpg/960px-Galaxy_Fold_-_5.jpg"
 imageCredit: "Фото: KKPCW, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Galaxy_Fold_-_5.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Galaxy_Fold_-_1.jpg/960px-Galaxy_Fold_-_1.jpg
+    alt: Samsung Galaxy Fold, окремий ракурс
+    imageCredit: "Фото: KKPCW, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_Fold_-_1.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Samsung_Galaxy_Fold_in_Taidong%2CQingdao.jpg/960px-Samsung_Galaxy_Fold_in_Taidong%2CQingdao.jpg
+    alt: Galaxy Fold на вітрині магазину Samsung у Циндао
+    imageCredit: "Фото: qdjuncheng, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Fold_in_Taidong%2CQingdao.jpg
 ---
 
 Після понад десятиліття, коли форм-фактор смартфона залишався практично незмінним (прямокутна

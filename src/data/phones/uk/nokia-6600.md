@@ -27,6 +27,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nokia_6600.jpg/960px-Nokia_6600.jpg"
 imageCredit: "Фото: Chrattac, суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_6600.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Nokia_6600_front_side_back.jpg/960px-Nokia_6600_front_side_back.jpg
+    alt: Nokia 6600 спереду, збоку та ззаду
+    imageCredit: "Фото: Drummyfish, CC0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_6600_front_side_back.jpg
 ---
 
 До 6600 Symbian і платформа Series 60 існували переважно в нішевих чи дорогих моделях.

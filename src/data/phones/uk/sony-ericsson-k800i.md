@@ -25,6 +25,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/K800i-front.jpg/960px-K800i-front.jpg"
 imageCredit: "Фото: Asim18, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:K800i-front.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Backside_of_Sony_Ericsson_K800i_with_closed_camera_case.jpg/960px-Backside_of_Sony_Ericsson_K800i_with_closed_camera_case.jpg
+    alt: Задня панель Sony Ericsson K800i із закритою кришкою камери
+    imageCredit: "Фото: Frettie, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Backside_of_Sony_Ericsson_K800i_with_closed_camera_case.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Backside_of_Sony_Ericsson_K800i_with_opened_camera_case.jpg/960px-Backside_of_Sony_Ericsson_K800i_with_opened_camera_case.jpg
+    alt: Задня панель Sony Ericsson K800i з відкритою кришкою камери
+    imageCredit: "Фото: Frettie, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Backside_of_Sony_Ericsson_K800i_with_opened_camera_case.jpg
 ---
 
 K800i перейняв у Sony традицію бренду Cyber-shot із окремих фотоапаратів і першим приніс цю назву

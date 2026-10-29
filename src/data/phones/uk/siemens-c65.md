@@ -22,6 +22,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Siemens_C65.jpg"
 imageCredit: "Фото: Mc fps, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_C65.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Siemens_C65_mobile_phone.jpg/960px-Siemens_C65_mobile_phone.jpg
+    alt: Телефон Siemens C65
+    imageCredit: "Фото: Frugo84, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_C65_mobile_phone.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Siemens_mobile_phones_C65_-_01.jpg/960px-Siemens_mobile_phones_C65_-_01.jpg
+    alt: Siemens C65 серед телефонів серії C65
+    imageCredit: "Фото: Arths-at, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_mobile_phones_C65_-_01.jpg
 ---
 
 C65 анонсували одночасно з S65 і M65 в березні 2004-го як вхідну модель лінійки: той самий

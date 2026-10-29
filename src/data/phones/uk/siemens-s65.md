@@ -24,6 +24,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Siemens_S65.JPG"
 imageCredit: "Фото: Florian K, CC BY-SA 3.0 / GFDL, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_S65.JPG"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Siemens_S65_-_Back.jpg/960px-Siemens_S65_-_Back.jpg
+    alt: Задня сторона Siemens S65
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S65_-_Back.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Siemens_S65_-_Bottom.jpg/960px-Siemens_S65_-_Bottom.jpg
+    alt: Нижній торець Siemens S65
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S65_-_Bottom.jpg
 ---
 
 Анонсований у березні 2004 разом із молодшими M65 і C65, S65 став найтехнологічнішою моделлю

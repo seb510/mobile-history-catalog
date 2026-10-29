@@ -29,6 +29,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nokia_N95_Front_1.jpg/960px-Nokia_N95_Front_1.jpg"
 imageCredit: "Фото: Asim Saleem, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_N95_Front_1.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nokia_N95.png/960px-Nokia_N95.png
+    alt: Смартфон Nokia N95
+    imageCredit: "Фото: Steve Jurvetson, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N95.png
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Nokia_N95_%28529916865%29.jpg/960px-Nokia_N95_%28529916865%29.jpg
+    alt: Nokia N95 з висувною мультимедійною клавіатурою
+    imageCredit: "Фото: Stefan Ledwina, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N95_(529916865).jpg
 ---
 
 N95 Nokia свідомо називала не телефоном, а «мультимедійним комп'ютером» — і подвійний

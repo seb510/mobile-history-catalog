@@ -27,6 +27,11 @@ simType: Mini-SIM
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Siemens_SXG75.png/960px-Siemens_SXG75.png
 imageCredit: DireWolf (English Wikipedia), CC BY-SA 3.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_SXG75.png
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Siemens_SXG75_with_JTAG_Interface_04.jpg/960px-Siemens_SXG75_with_JTAG_Interface_04.jpg
+    alt: Siemens SXG75 із підключеним JTAG-інтерфейсом
+    imageCredit: "Фото: Лысенко Д.В., CC0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_SXG75_with_JTAG_Interface_04.jpg
 ---
 
 SXG75 став завершальною технологічною віхою Siemens Mobile у 2005 році: власний UMTS-телефон із GPS, QVGA-дисплеєм, двома камерами для фото й відеодзвінків та розширенням пам’яті RS-MMC. Він показував, яким міг бути наступний етап Siemens — мобільний інтернет, навігація й мультимедіа в одному апараті.

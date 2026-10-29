@@ -29,6 +29,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg/960px-Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg"
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_5800_XpressMusic_(Blue)_-_Front.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nokia_5800_XpressMusic_3Q.jpg/960px-Nokia_5800_XpressMusic_3Q.jpg
+    alt: Nokia 5800 XpressMusic під кутом
+    imageCredit: "Фото: Conrad Longmore, CC0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5800_XpressMusic_3Q.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Nokia_5800_XpressMusic_back.jpg/960px-Nokia_5800_XpressMusic_back.jpg
+    alt: Задня сторона Nokia 5800 XpressMusic
+    imageCredit: "Фото: puatron, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5800_XpressMusic_back.jpg
 ---
 
 5800 XpressMusic вийшов рівно тоді, коли iPhone уже рік показував, що сенсорний екран може

@@ -27,6 +27,15 @@ os: Symbian^3
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nokia_N8.png/960px-Nokia_N8.png
 imageCredit: Dienthoaiquangcao68; Editor182 (crop), CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8.png
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Nokia_N8_%28double-sided_view%29.jpg/960px-Nokia_N8_%28double-sided_view%29.jpg
+    alt: Nokia N8, front and back
+    imageCredit: "Photo: Editor182, public domain, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8_(double-sided_view).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nokia_N8_%28front_view%29.jpg/960px-Nokia_N8_%28front_view%29.jpg
+    alt: Front of the Nokia N8
+    imageCredit: "Photo: Editor182, public domain, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8_(front_view).jpg
 milestone: A 12 MP camera flagship with Xenon flash and Symbian^3
 storageExpandable: microSD, up to 32 GB
 camera:

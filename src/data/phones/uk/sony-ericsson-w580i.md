@@ -23,6 +23,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Sony_Ericsson_W580i.jpg/960px-Sony_Ericsson_W580i.jpg"
 imageCredit: "Фото: 阿貴, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W580i.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sony_Ericsson_W580i_%28Metro_Pink%29_-_Front_%28Closed%29.jpg/960px-Sony_Ericsson_W580i_%28Metro_Pink%29_-_Front_%28Closed%29.jpg
+    alt: Sony Ericsson W580i у складеному стані
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W580i_(Metro_Pink)_-_Front_(Closed).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sony_Ericsson_W580i_%28Metro_Pink%29_-_Front_%28Open%29.jpg/960px-Sony_Ericsson_W580i_%28Metro_Pink%29_-_Front_%28Open%29.jpg
+    alt: Sony Ericsson W580i у відкритому стані
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W580i_(Metro_Pink)_-_Front_(Open).jpg
 ---
 
 W580i переніс формулу Walkman у слайдер-корпус — на той час популярний формфактор серед молодіжних

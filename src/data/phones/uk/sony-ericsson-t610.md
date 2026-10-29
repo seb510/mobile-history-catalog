@@ -23,6 +23,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Sony_Ericsson_T610_%286144638049%29.jpg/960px-Sony_Ericsson_T610_%286144638049%29.jpg"
 imageCredit: "Фото: Tolbxela, CC BY 2.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg
+    alt: Передня сторона Sony Ericsson T610 кольору Aluminium Haze
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(Aluminium_Haze)_-_Front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Back.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Back.jpg
+    alt: Задня сторона Sony Ericsson T610 кольору Aluminium Haze
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(Aluminium_Haze)_-_Back.jpg
 ---
 
 T610 довів те, що T68i лише натякав: вбудована камера, навіть із мізерною роздільністю CIF,

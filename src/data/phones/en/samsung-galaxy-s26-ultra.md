@@ -19,6 +19,11 @@ weightGrams: 214
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Galaxy_S26_Ultra_-_2.jpg/960px-Galaxy_S26_Ultra_-_2.jpg
 imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_2.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg/960px-SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
+    alt: Samsung Galaxy S26 Ultra alongside Galaxy Buds4 Pro
+    imageCredit: "Photo: Dinkun Chen, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
 battery:
   mah: 5000
   removable: false

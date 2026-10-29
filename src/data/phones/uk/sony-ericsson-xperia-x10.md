@@ -26,6 +26,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sony_Ericsson_Xperia_X10_%28Luster_White%29_-_Front.jpg/960px-Sony_Ericsson_Xperia_X10_%28Luster_White%29_-_Front.jpg"
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_Xperia_X10_(Luster_White)_-_Front.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sony_Ericsson_XPERIA_X10.jpg/960px-Sony_Ericsson_XPERIA_X10.jpg
+    alt: Смартфон Sony Ericsson Xperia X10
+    imageCredit: "Фото: Kai Hendry, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_XPERIA_X10.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sony_Ericsson_Xperia_X10_%28Luster_White%29_-_Back.jpg/960px-Sony_Ericsson_Xperia_X10_%28Luster_White%29_-_Back.jpg
+    alt: Задня сторона Sony Ericsson Xperia X10 кольору Luster White
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_Xperia_X10_(Luster_White)_-_Back.jpg
 ---
 
 Xperia X10 став першим кроком Sony Ericsson у світ Android і водночас прощанням із десятиліттям

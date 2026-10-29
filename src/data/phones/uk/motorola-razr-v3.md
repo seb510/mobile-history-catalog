@@ -24,6 +24,11 @@ os: "власна (Motorola P2K)"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Motorola_RAZR_V3-4899.jpg/960px-Motorola_RAZR_V3-4899.jpg"
 imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3-4899.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/2005122901_Tastatur_Klapphandy_Motorola_Razr_V3_2005.jpg/960px-2005122901_Tastatur_Klapphandy_Motorola_Razr_V3_2005.jpg
+    alt: Відкритий Motorola RAZR V3 з видимою клавіатурою
+    imageCredit: "Фото: VSchagow, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:2005122901_Tastatur_Klapphandy_Motorola_Razr_V3_2005.jpg
 ---
 
 RAZR V3 зробила ставку не на функції, а на дизайн — корпус із алюмінію й скляна клавіатура

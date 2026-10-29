@@ -20,6 +20,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/0/07/Siemens_ME45.jpg"
 imageCredit: "Фото: JePe, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_ME45.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Siemens_mobiles_phones_ME45_-_01.jpg/960px-Siemens_mobiles_phones_ME45_-_01.jpg
+    alt: Телефон Siemens ME45
+    imageCredit: "Фото: Arths-at, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_mobiles_phones_ME45_-_01.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Siemens_mobiles_phones_ME45_-_02.jpg/960px-Siemens_mobiles_phones_ME45_-_02.jpg
+    alt: Siemens ME45 з іншого ракурсу
+    imageCredit: "Фото: Arths-at, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_mobiles_phones_ME45_-_02.jpg
 ---
 
 ME45 поєднав можливості бізнес-лінійки Siemens із корпусом для активного використання.

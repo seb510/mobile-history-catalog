@@ -8,6 +8,15 @@ os: Android 14
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Google_Pixel_8%2C_shown_in_Shibuya_Stream_2.jpg/960px-Google_Pixel_8%2C_shown_in_Shibuya_Stream_2.jpg
 imageCredit: Syced, CC0 1.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_8%2C_shown_in_Shibuya_Stream_2.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Google_Pixel_8_Rose_front.jpg/960px-Google_Pixel_8_Rose_front.jpg
+    alt: Вид спереди Pixel 8 в цвете Rose
+    imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_8_Rose_front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
+    alt: Вид сзади Pixel 8 в цвете Rose рядом с Pixel 6
+    imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
 display:
   sizeInches: 6.2
   resolution: 1080 × 2400

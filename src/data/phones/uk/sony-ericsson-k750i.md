@@ -24,6 +24,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/SEK750i.jpg/960px-SEK750i.jpg"
 imageCredit: "Фото: Heikoriffeler, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:SEK750i.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sony_Ericsson_K750i_%28284505649%29.jpg/960px-Sony_Ericsson_K750i_%28284505649%29.jpg
+    alt: Телефон Sony Ericsson K750i
+    imageCredit: "Фото: Cheon Fong Liew, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_K750i_(284505649).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Sony_Ericsson_K750i_-_Front.jpg/960px-Sony_Ericsson_K750i_-_Front.jpg
+    alt: Передня сторона Sony Ericsson K750i
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_K750i_-_Front.jpg
 ---
 
 K750i вийшов практично одночасно з W800i і ділив із ним ту саму апаратну платформу й 2-мегапіксельну

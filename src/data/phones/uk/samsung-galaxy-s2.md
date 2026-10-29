@@ -29,6 +29,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Samsung_Galaxy_S2_i9100.jpg/960px-Samsung_Galaxy_S2_i9100.jpg"
 imageCredit: "Фото: Florian Wicher, CC0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S2_i9100.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Samsung_Galaxy_S2%2C_Note_4%2C_Note_8%2C_S21_Ultra%2C_and_S24_Ultra.jpg/960px-Samsung_Galaxy_S2%2C_Note_4%2C_Note_8%2C_S21_Ultra%2C_and_S24_Ultra.jpg
+    alt: Samsung Galaxy S2 поруч із пізнішими телефонами Galaxy Note та Galaxy S
+    imageCredit: "Фото: Benlisquare, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S2,_Note_4,_Note_8,_S21_Ultra,_and_S24_Ultra.jpg
 ---
 
 Galaxy S II з'явився менш ніж через рік після оригінального Galaxy S і виправив майже всі його

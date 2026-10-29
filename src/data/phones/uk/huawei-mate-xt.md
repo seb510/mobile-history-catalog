@@ -21,6 +21,11 @@ weightGrams: 298
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Mate_XT_Ultimate_Design.jpg/960px-Huawei_Mate_XT_Ultimate_Design.jpg"
 imageCredit: "メイド理世, CC BY-SA 4.0, Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Huawei_Mate_XT_Ultimate_Design.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_Huawei_Store_%E8%8F%AF%E7%82%BA_Mate_XT_%E4%B8%89%E6%91%BA%E6%89%8B%E6%A9%9F_folding_smartphone_tablet_September_2024_R12S_01.jpg/960px-GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_Huawei_Store_%E8%8F%AF%E7%82%BA_Mate_XT_%E4%B8%89%E6%91%BA%E6%89%8B%E6%A9%9F_folding_smartphone_tablet_September_2024_R12S_01.jpg
+    alt: Задній бік Huawei Mate XT Ultimate Design у магазині Huawei в Гуанчжоу
+    imageCredit: "Фото: Ghaud Lnegauk, CC0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8A%B1%E5%9F%8E%E5%A4%A7%E9%81%93_HuaCheng_Avenue_GT_Land_%E6%98%A5%E5%BB%A3%E5%A0%B4_Spring_Plaza_mall_shop_Huawei_Store_%E8%8F%AF%E7%82%BA_Mate_XT_%E4%B8%89%E6%91%BA%E6%89%8B%E6%A9%9F_folding_smartphone_tablet_September_2024_R12S_01.jpg
 ---
 
 Mate XT розгортається не один, а два рази: з компактного телефона — у більший екран, а потім у

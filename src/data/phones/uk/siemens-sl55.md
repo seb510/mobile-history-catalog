@@ -21,6 +21,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Siemens_SL55_mobile_phone.jpg"
 imageCredit: "Фото: Coolgene, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_SL55_mobile_phone.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Siemens_SL55_closed.jpg/960px-Siemens_SL55_closed.jpg
+    alt: Siemens SL55 у складеному стані
+    imageCredit: "Фото: ThePinkFireman, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_SL55_closed.jpg
 ---
 
 SL55 — спроба Siemens вийти за межі образу «надійного, але нецікавого» виробника. Компактний

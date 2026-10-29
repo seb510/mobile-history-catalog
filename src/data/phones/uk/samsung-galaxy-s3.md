@@ -29,6 +29,11 @@ simType: "Micro-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg/960px-Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg"
 imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Front_of_Samsung_Galaxy_S_III.jpg/960px-Front_of_Samsung_Galaxy_S_III.jpg
+    alt: Білий Samsung Galaxy S III спереду
+    imageCredit: "Фото: YuMaNuMa, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Front_of_Samsung_Galaxy_S_III.jpg
 ---
 
 Galaxy S III вийшов у середині 2012 року на хвилі судового протистояння Samsung з Apple і став,

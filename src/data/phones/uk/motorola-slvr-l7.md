@@ -24,6 +24,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Motorola_SLVR_red_flickr_255478814.jpg/960px-Motorola_SLVR_red_flickr_255478814.jpg"
 imageCredit: "Фото: milkandmonsters (Flickr), CC BY 2.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_SLVR_red_flickr_255478814.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Motorola_SLVR_L7_flickr_214905784.jpg/960px-Motorola_SLVR_L7_flickr_214905784.jpg
+    alt: Телефон Motorola SLVR L7
+    imageCredit: "Фото: matalyn, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_SLVR_L7_flickr_214905784.jpg
 ---
 
 SLVR L7 переніс естетику RAZR — тонкий металізований корпус, плоску клавіатуру — у звичний формат

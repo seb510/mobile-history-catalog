@@ -22,6 +22,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Motorola_PEBL_U6_(Black)_-_Front_(Closed).jpg/960px-Motorola_PEBL_U6_(Black)_-_Front_(Closed).jpg"
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_PEBL_U6_(Black)_-_Front_(Closed).jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Motorola_PEBL_U6_%28Black%29_-_Back_%28Closed%29.jpg/960px-Motorola_PEBL_U6_%28Black%29_-_Back_%28Closed%29.jpg
+    alt: Чорний Motorola PEBL U6, задня сторона, телефон закритий
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_PEBL_U6_(Black)_-_Back_(Closed).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Motorola_PEBL_U6_%28Black%29_-_Back_%28Open%29.jpg/960px-Motorola_PEBL_U6_%28Black%29_-_Back_%28Open%29.jpg
+    alt: Чорний Motorola PEBL U6, задня сторона, телефон відкритий
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_PEBL_U6_(Black)_-_Back_(Open).jpg
 ---
 
 PEBL виділявся не специфікаціями, а формою: гладкий, безшовний корпус без гострих кутів, що

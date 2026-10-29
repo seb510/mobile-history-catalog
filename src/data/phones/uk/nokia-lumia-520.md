@@ -28,6 +28,15 @@ simType: "Micro-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Nokia_Lumia_520_Black.jpg/960px-Nokia_Lumia_520_Black.jpg"
 imageCredit: "Фото: JulianVilla26, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_Lumia_520_Black.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Nokia_Lumia_520_Black_back_view.jpg/960px-Nokia_Lumia_520_Black_back_view.jpg
+    alt: Чорна Nokia Lumia 520 ззаду
+    imageCredit: "Фото: JulianVilla26, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_Lumia_520_Black_back_view.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Nokia_Lumia_520_Black_buttons.jpg/960px-Nokia_Lumia_520_Black_buttons.jpg
+    alt: Кнопки чорної Nokia Lumia 520
+    imageCredit: "Фото: JulianVilla26, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_Lumia_520_Black_buttons.jpg
 ---
 
 Lumia 520 з'явився як найдешевша модель у лінійці Windows Phone 8 — близько $180 без

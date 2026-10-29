@@ -21,6 +21,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Siemens_S55_with_IQP-500.jpg"
 imageCredit: "Фото: hdEATH, CC BY-SA 3.0 / GFDL, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_S55_with_IQP-500.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Siemens_S55-7231.jpg/960px-Siemens_S55-7231.jpg
+    alt: Siemens S55
+    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S55-7231.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Siemens_S55-7232.jpg/960px-Siemens_S55-7232.jpg
+    alt: Siemens S55 з іншого ракурсу
+    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S55-7232.jpg
 ---
 
 S55 застав мобільну фотографію ще в підлітковому віці: власної камери в корпусі не було, але в

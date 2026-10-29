@@ -24,6 +24,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Motorola_RAZR_V3i_01.JPG/960px-Motorola_RAZR_V3i_01.JPG"
 imageCredit: "Фото: OptoScalpel, суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3i_01.JPG"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Motorola_RAZR_V3i_02.JPG/960px-Motorola_RAZR_V3i_02.JPG
+    alt: Телефон Motorola RAZR V3i
+    imageCredit: "Фото: OptoScalpel, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3i_02.JPG
 ---
 
 V3i взяла все, за що покупці любили оригінальну RAZR V3 — тонкий алюмінієвий корпус і статус

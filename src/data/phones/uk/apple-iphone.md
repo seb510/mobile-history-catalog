@@ -31,6 +31,15 @@ os: iPhone OS 1
 image: https://upload.wikimedia.org/wikipedia/commons/c/c7/IPhone_First_Generation_%28cropped%29.jpg
 imageCredit: "Фото: Carl Berkeley, CC BY-SA 2.0, через Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:IPhone_First_Generation_(cropped).jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/First_iPhone_Macworld_2007_DSCF1283.agr.jpg/960px-First_iPhone_Macworld_2007_DSCF1283.agr.jpg
+    alt: Перша публічна демонстрація iPhone на Macworld 2007
+    imageCredit: "Фото: Arnold Reinhold, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:First_iPhone_Macworld_2007_DSCF1283.agr.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/First_iPhone_Macworld_2007_DSCF1285.agr.jpg/960px-First_iPhone_Macworld_2007_DSCF1285.agr.jpg
+    alt: iPhone під час першої публічної демонстрації на Macworld 2007
+    imageCredit: "Фото: Arnold Reinhold, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:First_iPhone_Macworld_2007_DSCF1285.agr.jpg
 priceSourceUrl: https://www.apple.com/newsroom/2007/06/26AT-T-and-Apple-Announce-Simple-Affordable-Service-Plans-for-iPhone/
 priceContext: США, 4 ГБ; контракт AT&T на 2 роки
 ---

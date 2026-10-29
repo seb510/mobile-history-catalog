@@ -6,6 +6,15 @@ milestone: The first Pixel, with Google Assistant built in
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Google_Pixel_White_01.jpg/960px-Google_Pixel_White_01.jpg
 imageCredit: X-SHLIED, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_White_01.jpg
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Google_Pixel_and_Pixel_XL_smartphones_%2830155272575%29.jpg/960px-Google_Pixel_and_Pixel_XL_smartphones_%2830155272575%29.jpg
+    alt: Google Pixel and Pixel XL on display at a presentation
+    imageCredit: "Photo: Maurizio Pesce, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_and_Pixel_XL_smartphones_%2830155272575%29.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Google_Pixel_and_Pixel_XL_smartphones_%2830120254046%29.jpg/960px-Google_Pixel_and_Pixel_XL_smartphones_%2830120254046%29.jpg
+    alt: Rear panels of the Google Pixel and Pixel XL
+    imageCredit: "Photo: Maurizio Pesce, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_and_Pixel_XL_smartphones_%2830120254046%29.jpg
 display:
   sizeInches: 5
   resolution: 1920 × 1080

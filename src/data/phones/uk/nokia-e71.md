@@ -28,6 +28,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nokia_E71.JPG/960px-Nokia_E71.JPG"
 imageCredit: "Фото: Meno Keller, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_E71.JPG"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Nokia_E71_%28Grey_Steel%29_-_Front.jpg/960px-Nokia_E71_%28Grey_Steel%29_-_Front.jpg
+    alt: Передня сторона Nokia E71 кольору Grey Steel
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_E71_(Grey_Steel)_-_Front.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Nokia_E71_%28Grey_Steel%29_-_Back.jpg/960px-Nokia_E71_%28Grey_Steel%29_-_Back.jpg
+    alt: Задня сторона Nokia E71 кольору Grey Steel
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_E71_(Grey_Steel)_-_Back.jpg
 ---
 
 E71 узяв формулу бізнес-смартфона з повноцінною QWERTY-клавіатурою, яку до того експлуатував

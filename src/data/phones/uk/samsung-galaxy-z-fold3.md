@@ -24,6 +24,11 @@ simType: "Nano-SIM та eSIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Samsung_Galaxy_Z_Fold_3.jpg/960px-Samsung_Galaxy_Z_Fold_3.jpg"
 imageCredit: "Ka Kit Pang / Android Open Source Project, CC BY-SA 4.0, Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Z_Fold_3.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Samsung_Galaxy_Z_Fold_3_5G.jpg/960px-Samsung_Galaxy_Z_Fold_3_5G.jpg
+    alt: Samsung Galaxy Z Fold3 5G
+    imageCredit: "Фото: Ka Kit Pang / Google LLC, CC BY 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Z_Fold_3_5G.jpg
 ---
 
 Третє покоління Fold стало першим у лінійці Samsung із захистом від води IPX8. Компанія також

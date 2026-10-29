@@ -23,6 +23,11 @@ os: "власна (Samsung)"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Samsung_SGH-D500.jpg/960px-Samsung_SGH-D500.jpg"
 imageCredit: "Фото: Mahahahaneapneap, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_SGH-D500.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Samsung_SGH-D500.rueck.JPG/960px-Samsung_SGH-D500.rueck.JPG
+    alt: Задня сторона Samsung SGH-D500
+    imageCredit: "Фото: Mattes, суспільне надбання, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_SGH-D500.rueck.JPG
 ---
 
 D500 прийшов на зміну SGH-E800 і за лічені місяці після виходу зібрав нагороду «Best Mobile

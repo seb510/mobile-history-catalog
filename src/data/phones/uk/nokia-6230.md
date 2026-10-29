@@ -21,6 +21,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nokia_6230_%28Graphite%29_-_Front.jpg/960px-Nokia_6230_%28Graphite%29_-_Front.jpg"
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_6230_(Graphite)_-_Front.jpg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Nokia_6230_%282003%29.jpg/960px-Nokia_6230_%282003%29.jpg
+    alt: Телефон Nokia 6230 2003 року
+    imageCredit: "Фото: Santeri Viinamäki, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_6230_(2003).jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Nokia_6230_%28Graphite%29_-_Back.jpg/960px-Nokia_6230_%28Graphite%29_-_Back.jpg
+    alt: Задня сторона Nokia 6230 кольору Graphite
+    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_6230_(Graphite)_-_Back.jpg
 ---
 
 6230 не намагався вразити жодною окремою функцією — натомість зібрав усе, що на той момент

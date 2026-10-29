@@ -25,6 +25,15 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Nokia_7610.png/960px-Nokia_7610.png"
 imageCredit: "Фото: AnVuong1222004, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_7610.png"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Nokia_7610.jpg/960px-Nokia_7610.jpg
+    alt: Телефон Nokia 7610
+    imageCredit: "Фото: r3wind, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_7610.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nokia_7610_02.jpg/960px-Nokia_7610_02.jpg
+    alt: Інший ракурс Nokia 7610
+    imageCredit: "Фото: Калий, CC BY 2.5, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_7610_02.jpg
 ---
 
 7610 запам'ятався насамперед формою — асиметричний корпус із заокругленими «листками» навколо
