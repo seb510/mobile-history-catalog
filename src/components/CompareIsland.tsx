@@ -129,23 +129,36 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           >
             {strings.compare.swap}
           </button>
-          <div className="flex flex-col gap-3" role="table">
+          <div className="overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm" role="table">
+            <div role="row" className="grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b-2 border-orange-500 bg-neutral-900 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)]">
+              <div role="columnheader" className="flex items-end px-2 py-3 text-[0.6rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3">
+                {strings.compare.tableHead.characteristic}
+              </div>
+              <div role="columnheader" className="min-w-0 border-l border-neutral-700 px-2 py-3 sm:px-3">
+                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase">{phoneA.data.brand} · {phoneA.data.year}</span>
+                <span className="mt-1 block leading-tight font-bold text-neutral-100">{phoneA.data.model}</span>
+              </div>
+              <div role="columnheader" className="min-w-0 border-l border-neutral-700 px-2 py-3 sm:px-3">
+                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase">{phoneB.data.brand} · {phoneB.data.year}</span>
+                <span className="mt-1 block leading-tight font-bold text-neutral-100">{phoneB.data.model}</span>
+              </div>
+            </div>
             {groups.map((group, gi) => (
-              <div key={gi} className="divide-y divide-neutral-800 overflow-hidden rounded-sm border border-neutral-800 text-sm">
+              <div key={gi} role="rowgroup" className={gi > 0 ? 'border-t-2 border-neutral-700' : ''}>
                 {group.rows.map((row, i) => (
                   <div
                     key={row.label}
                     role="row"
-                    className={`grid grid-cols-[6rem_1fr_1fr] sm:grid-cols-[10rem_1fr_1fr] ${i % 2 === 1 ? 'bg-neutral-900/40' : ''}`}
+                    className={`grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b border-neutral-700 last:border-b-0 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)] ${i % 2 === 1 ? 'bg-neutral-900/50' : ''}`}
                   >
-                    <div role="rowheader" className="py-2.5 pl-3 text-left align-top text-xs font-semibold tracking-wide text-neutral-500 uppercase">
+                    <div role="rowheader" className="border-r border-neutral-700 bg-neutral-900/70 px-2 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3">
                       {row.label}
                     </div>
-                    <div role="cell" className="py-2.5 pr-3 text-neutral-200">
-                      {row.a ?? <span className="text-neutral-600">{strings.compare.dash}</span>}
+                    <div role="cell" className="min-w-0 border-r border-neutral-700 px-2 py-3 leading-relaxed text-neutral-100 sm:px-3">
+                      {row.a ?? <span className="text-neutral-500">{strings.compare.dash}</span>}
                     </div>
-                    <div role="cell" className="py-2.5 pr-3 text-neutral-200">
-                      {row.b ?? <span className="text-neutral-600">{strings.compare.dash}</span>}
+                    <div role="cell" className="min-w-0 px-2 py-3 leading-relaxed text-neutral-100 sm:px-3">
+                      {row.b ?? <span className="text-neutral-500">{strings.compare.dash}</span>}
                     </div>
                   </div>
                 ))}

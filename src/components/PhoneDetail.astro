@@ -75,21 +75,21 @@ const groups = buildSpecGroups(data, strings);
       <Content />
     </div>
 
-    <div class="mt-6 flex flex-col gap-3">
-      {groups.map((group) => (
-        <table class="w-full border-collapse overflow-hidden rounded-sm border border-neutral-800 text-sm">
-          <tbody class="divide-y divide-neutral-800">
+    <div class="mt-6 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
+      <table class="w-full border-collapse text-left text-sm">
+        {groups.map((group, gi) => (
+          <tbody class:list={[gi > 0 && 'border-t-2 border-neutral-700']}>
             {group.rows.map(([label, value], i) => (
-              <tr class:list={[i % 2 === 1 && 'bg-neutral-900/40']}>
-                <th class="w-40 py-2.5 pl-3 text-left align-top text-xs font-semibold tracking-wide text-neutral-500 uppercase">
+              <tr class:list={[i % 2 === 1 && 'bg-neutral-900/50', 'border-b border-neutral-700 last:border-b-0']}>
+                <th scope="row" class="w-[38%] border-r border-neutral-700 bg-neutral-900/70 px-3 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:w-40">
                   {label}
                 </th>
-                <td class="py-2.5 pr-3 text-neutral-200">{value}</td>
+                <td class="px-3 py-3 align-top leading-relaxed text-neutral-100">{value}</td>
               </tr>
             ))}
           </tbody>
-        </table>
-      ))}
+        ))}
+      </table>
     </div>
   </div>
 </div>

@@ -39,7 +39,8 @@ failing on a phone file is the equivalent of a failing test.
   `buildSpecGroups(data, strings)` будує рядки для однієї сторінки телефону (`PhoneDetail.astro`,
   пропускає відсутні поля), `buildCompareGroups(dataA, dataB, strings)` — для `/compare/` (рядок
   лишається, якщо значення є хоч в одного з двох, інакше — "—"). Обидва споживача завжди лишаються
-  синхронізованими, бо беруть рядки з одного джерела.
+  синхронізованими, бо беруть рядки з одного джерела. У таблицях групи полів відділені виразними
+  межами, назви характеристик мають окрему колонку, а таблиця порівняння показує моделі в заголовку.
 - `src/lib/locales.ts` + `src/lib/phones.ts` — локаль-типи й fallback-ланцюжок (uk → ru → en для
   ru-сторінок, en → uk → ru для en-сторінок; uk завжди має файл, тому для uk fallback не потрібен).
   `getPhone(locale, slug)` і `getPhonesForLocale(locale)` — єдина точка доступу до контенту з

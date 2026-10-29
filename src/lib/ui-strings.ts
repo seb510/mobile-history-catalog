@@ -38,6 +38,7 @@ export const UI = {
       unitsSoldMillions: 'Продано, млн шт.',
     },
     compare: {
+      tableHead: { characteristic: 'Характеристика' },
       subtitle: 'Обери два телефони з каталогу, щоб порівняти їхні характеристики пліч-о-пліч.',
       pickA: 'Оберіть перший телефон…',
       pickB: 'Оберіть другий телефон…',
@@ -118,6 +119,7 @@ export const UI = {
       unitsSoldMillions: 'Продано, млн шт.',
     },
     compare: {
+      tableHead: { characteristic: 'Характеристика' },
       subtitle: 'Выбери два телефона из каталога, чтобы сравнить их характеристики бок о бок.',
       pickA: 'Выберите первый телефон…',
       pickB: 'Выберите второй телефон…',
@@ -197,6 +199,7 @@ export const UI = {
       unitsSoldMillions: 'Units sold, millions',
     },
     compare: {
+      tableHead: { characteristic: 'Specification' },
       subtitle: 'Pick two phones from the catalog to compare their specs side by side.',
       pickA: 'Pick the first phone…',
       pickB: 'Pick the second phone…',
