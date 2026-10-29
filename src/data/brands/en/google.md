@@ -2,6 +2,9 @@
 name: Google
 founded: 1998
 country: United States
+logo: https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg
+logoCredit: Google LLC, public domain (PD-textlogo), Wikimedia Commons
+logoSourceUrl: https://commons.wikimedia.org/wiki/File:Google_2015_logo.svg
 ---
 
 Larry Page and Sergey Brin founded Google in 1998. The company grew from a search engine into a developer of services, Android, and its own devices.

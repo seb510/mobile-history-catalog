@@ -75,9 +75,9 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
           {byYear.get(year)!.length}
         </span>
       </div>
-      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {byYear.get(year)!.map((phone) => (
-          <li>
+          <li class="flex min-w-0">
             <PhoneCard phone={phone} locale={locale} />
           </li>
         ))}

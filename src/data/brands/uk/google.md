@@ -2,6 +2,9 @@
 name: Google
 founded: 1998
 country: США
+logo: https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg
+logoCredit: Google LLC, public domain (PD-textlogo), Wikimedia Commons
+logoSourceUrl: https://commons.wikimedia.org/wiki/File:Google_2015_logo.svg
 ---
 
 Google заснували Ларрі Пейдж і Сергій Брін у 1998 році. Компанія виросла з пошукової системи в розробника сервісів, Android та власних пристроїв.

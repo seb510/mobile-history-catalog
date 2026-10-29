@@ -1,6 +1,9 @@
 ---
 name: Huawei
 country: Китай
+logo: https://upload.wikimedia.org/wikipedia/commons/0/07/Huawei_wordmark.svg
+logoCredit: Huawei, public domain (PD-textlogo), Wikimedia Commons
+logoSourceUrl: https://commons.wikimedia.org/wiki/File:Huawei_wordmark.svg
 ---
 
 Huawei — китайська технологічна компанія, що вийшла на ринок смартфонів із серіями Ascend, а
