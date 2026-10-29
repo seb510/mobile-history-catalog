@@ -1,0 +1,14 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BrandsIndex from '../../../components/BrandsIndex.astro';
+import { t } from '../../../lib/ui-strings';
+
+const locale = 'en' as const;
+const strings = t(locale);
+---
+
+<Layout locale={locale} path="/brands/" title={`${strings.brands.indexTitle} — ${strings.siteName}`} description={strings.brands.indexSubtitle}>
+  <h1 class="mb-2 text-3xl font-bold">{strings.brands.indexTitle}</h1>
+  <p class="mb-6 text-neutral-400">{strings.brands.indexSubtitle}</p>
+  <BrandsIndex locale={locale} />
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BrandDetail from '../../../components/BrandDetail.astro';
+import { getAllBrandSlugs, getBrand } from '../../../lib/brands';
+import { t } from '../../../lib/ui-strings';
+
+const locale = 'ru' as const;
+
+export async function getStaticPaths() {
+  const slugs = await getAllBrandSlugs();
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const brand = await getBrand(locale, slug);
+if (!brand) return Astro.redirect('/404');
+
+const { data } = brand;
+const strings = t(locale);
+const title = `${data.name} — ${strings.siteName}`;
+const description = `${data.name}: ${strings.brands.allPhones.toLowerCase()}.`;
+---
+
+<Layout locale={locale} path={`/brands/${slug}/`} title={title} description={description}>
+  <a href="/ru/catalog/" class="mb-6 inline-block text-sm text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100">{strings.backToTimeline}</a>
+  <BrandDetail brand={brand} locale={locale} />
+</Layout>

@@ -1,0 +1,34 @@
+---
+import BrandMark from './BrandMark.astro';
+import { getBrandsForLocale, slugOfBrand } from '../lib/brands';
+import { getPhonesForLocale } from '../lib/phones';
+import { localePath, type Locale } from '../lib/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const brands = await getBrandsForLocale(locale);
+const phones = await getPhonesForLocale(locale);
+const countByName = new Map<string, number>();
+for (const phone of phones) {
+  countByName.set(phone.data.brand, (countByName.get(phone.data.brand) ?? 0) + 1);
+}
+
+const sorted = brands.slice().sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {sorted.map((brand) => (
+    <li>
+      <a
+        href={localePath(locale, `/brands/${slugOfBrand(brand)}/`)}
+        class="group flex flex-col items-center gap-3 rounded-lg border border-neutral-800 bg-neutral-900 p-6 text-center transition-all duration-200 hover-desktop:-translate-y-1 hover-desktop:border-orange-500 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/10"
+      >
+        <BrandMark name={brand.data.name} logo={brand.data.logo} />
+        <p class="text-sm text-neutral-500">{countByName.get(brand.data.name) ?? 0}</p>
+      </a>
+    </li>
+  ))}
+</ul>

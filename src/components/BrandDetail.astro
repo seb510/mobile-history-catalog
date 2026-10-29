@@ -1,0 +1,70 @@
+---
+import BrandMark from './BrandMark.astro';
+import PhoneCard from './PhoneCard.astro';
+import { render, type CollectionEntry } from 'astro:content';
+import { getPhonesForLocale } from '../lib/phones';
+import { t } from '../lib/ui-strings';
+import type { Locale } from '../lib/locales';
+
+interface Props {
+  brand: CollectionEntry<'brands'>;
+  locale: Locale;
+}
+const { brand, locale } = Astro.props;
+const { data } = brand;
+const strings = t(locale);
+const { Content } = await render(brand);
+
+const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand === data.name).sort((a, b) => a.data.year - b.data.year);
+---
+
+<div>
+  <BrandMark name={data.name} logo={data.logo} />
+  {data.logoCredit && (
+    <p class="mt-2 text-xs text-neutral-500">
+      {data.logoSourceUrl ? (
+        <a href={data.logoSourceUrl} class="transition-colors duration-200 hover-desktop:text-neutral-300" target="_blank" rel="noopener noreferrer nofollow">
+          {data.logoCredit}
+        </a>
+      ) : (
+        data.logoCredit
+      )}
+    </p>
+  )}
+
+  <h1 class="mt-6 text-3xl font-bold">{data.name}</h1>
+
+  {(data.founded != null || data.country) && (
+    <div class="mt-4 flex flex-wrap gap-3">
+      {data.founded != null && (
+        <div class="rounded-lg border border-neutral-800 px-3 py-2">
+          <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.founded}</p>
+          <p class="font-semibold">{data.founded}</p>
+        </div>
+      )}
+      {data.country && (
+        <div class="rounded-lg border border-neutral-800 px-3 py-2">
+          <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.country}</p>
+          <p class="font-semibold">{data.country}</p>
+        </div>
+      )}
+    </div>
+  )}
+
+  <div class="prose prose-invert mt-6 max-w-2xl prose-p:text-neutral-300">
+    <Content />
+  </div>
+
+  {phones.length > 0 && (
+    <div class="mt-10 border-t border-neutral-800 pt-8">
+      <h2 class="border-l-2 border-orange-500 pl-3 text-xl font-bold">{strings.brands.allPhones}</h2>
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {phones.map((phone) => (
+          <li>
+            <PhoneCard phone={phone} locale={locale} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</div>

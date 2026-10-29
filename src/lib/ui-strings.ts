@@ -7,7 +7,7 @@ export const UI = {
   uk: {
     siteName: 'Мобільна Історія',
     tagline: 'Таймлайн етапних телефонів з 1998 року',
-    nav: { catalog: 'Каталог', compare: 'Порівняти', about: 'Про проєкт' },
+    nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', about: 'Про проєкт' },
     footer: {
       about:
         'Курований таймлайн мобільних телефонів, що реально змінили індустрію — не повний каталог моделей.',
@@ -43,6 +43,13 @@ export const UI = {
       empty: 'Оберіть два телефони вище, щоб побачити порівняння.',
       dash: '—',
     },
+    brands: {
+      indexTitle: 'Бренди',
+      indexSubtitle: 'Виробники, представлені в каталозі — коротка історія й усі їхні телефони.',
+      founded: 'Засновано',
+      country: 'Країна',
+      allPhones: 'Телефони бренду в каталозі',
+    },
     hero: {
       eyebrow: '1998 — сьогодні',
       cta: 'Перейти до каталогу',
@@ -71,7 +78,7 @@ export const UI = {
   ru: {
     siteName: 'Мобильная История',
     tagline: 'Таймлайн знаковых телефонов с 1998 года',
-    nav: { catalog: 'Каталог', compare: 'Сравнить', about: 'О проекте' },
+    nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', about: 'О проекте' },
     footer: {
       about:
         'Курированный таймлайн мобильных телефонов, которые реально изменили индустрию — не полный каталог моделей.',
@@ -107,6 +114,13 @@ export const UI = {
       empty: 'Выберите два телефона выше, чтобы увидеть сравнение.',
       dash: '—',
     },
+    brands: {
+      indexTitle: 'Бренды',
+      indexSubtitle: 'Производители, представленные в каталоге — краткая история и все их телефоны.',
+      founded: 'Основан',
+      country: 'Страна',
+      allPhones: 'Телефоны бренда в каталоге',
+    },
     hero: {
       eyebrow: '1998 — сегодня',
       cta: 'Перейти в каталог',
@@ -135,7 +149,7 @@ export const UI = {
   en: {
     siteName: 'Mobile History',
     tagline: 'A timeline of milestone phones since 1998',
-    nav: { catalog: 'Catalog', compare: 'Compare', about: 'About' },
+    nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', about: 'About' },
     footer: {
       about: 'A curated timeline of mobile phones that actually changed the industry — not a full model catalog.',
       inspiredBy: 'Inspired by the format of MobiLux magazine (2004–2016)',
@@ -169,6 +183,13 @@ export const UI = {
       noResults: 'No matches',
       empty: 'Pick two phones above to see the comparison.',
       dash: '—',
+    },
+    brands: {
+      indexTitle: 'Brands',
+      indexSubtitle: 'Manufacturers featured in the catalog — a short history and all their phones.',
+      founded: 'Founded',
+      country: 'Country',
+      allPhones: 'Phones from this brand in the catalog',
     },
     hero: {
       eyebrow: '1998 — today',

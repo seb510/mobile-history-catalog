@@ -62,4 +62,22 @@ const phones = defineCollection({
   }),
 });
 
-export const collections = { phones };
+// One brand = up to 3 Markdown files, same locale convention as `phones`
+// (src/data/brands/<uk|ru|en>/<slug>.md). Body holds a short history blurb. `name` must match
+// the `brand` string used on phone entries exactly — it's how a brand page finds its phones.
+const brands = defineCollection({
+  loader: glob({ pattern: '*/*.md', base: './src/data/brands' }),
+  schema: z.object({
+    name: z.string(),
+    founded: z.number().int().optional(),
+    country: z.string().optional(),
+    // Wordmark logo — same Wikimedia Commons sourcing rules as phone `image` (see CLAUDE.md):
+    // only freely-licensed files (PD-textlogo / public domain), never a non-free/fair-use-only
+    // asset. Omit if no suitable free logo exists — the page falls back to a styled text badge.
+    logo: z.string().optional(),
+    logoCredit: z.string().optional(),
+    logoSourceUrl: z.string().optional(),
+  }),
+});
+
+export const collections = { phones, brands };

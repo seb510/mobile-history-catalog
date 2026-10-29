@@ -1,0 +1,20 @@
+---
+// Renders a brand's wordmark logo on a fixed light plate (logos are sourced as-is from Wikimedia
+// Commons and most carry their own fill color, sometimes near-black or white — a neutral white
+// background keeps them legible regardless of the site's light/dark theme). Falls back to a
+// styled text badge when no freely-licensed logo was found for this brand (see content.config.ts).
+interface Props {
+  name: string;
+  logo?: string;
+  class?: string;
+}
+const { name, logo, class: className = '' } = Astro.props;
+---
+
+<div class={`inline-flex items-center justify-center rounded-lg border border-neutral-800 bg-white px-6 py-4 ${className}`}>
+  {logo ? (
+    <img src={logo} alt={name} class="h-8 w-auto max-w-full object-contain sm:h-10" />
+  ) : (
+    <span class="text-xl font-bold tracking-tight text-black">{name}</span>
+  )}
+</div>

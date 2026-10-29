@@ -63,6 +63,27 @@ failing on a phone file is the equivalent of a failing test.
   (фільтрація по `brand model year`, виключає вже обраний у другому слоті телефон), стан вибору
   синхронізується в URL (`?a=slug&b=slug`, `history.replaceState`) для share-посилань і
   deep-linking, таблиця будується через `buildCompareGroups` з `src/lib/specs.ts`.
+- `src/pages/brands/index.astro` (+ ru/en) — грід усіх брендів (`src/components/BrandsIndex.astro`).
+  `src/pages/brands/[slug].astro` (+ ru/en) — сторінка бренду: коротка історія + вордмарк-лого +
+  всі телефони бренду, через `src/components/BrandDetail.astro`. Окрема content-колекція `brands`
+  (`src/content.config.ts`, `src/data/brands/<uk|ru|en>/<slug>.md`, той самий паттерн і fallback,
+  що й у `phones` — див. `src/lib/brands.ts`). Поле `name` у фронтматері бренду має **точно**
+  збігатися зі значенням `brand` на телефонах — по ньому `BrandDetail.astro` фільтрує телефони
+  бренду. `slugifyBrandName()` (з `lib/brands.ts`) робить slug прямо з `brand`-рядка телефону
+  (напр. "Sony Ericsson" → "sony-ericsson") — цим лінкується `PhoneDetail.astro` на сторінку
+  бренду без зайвого запиту колекції; slug файлу бренду мусить збігатися з цим виводом.
+- `src/components/BrandMark.astro` — лого бренду на **фіксовано білій** плашці (не залежить від
+  теми сайту): реальні вордмарки з Wikimedia Commons часто мають свій колір заливки (інколи
+  майже чорний або білий), тому на змінному фоні легко стають нечитабельними — консистентна біла
+  підкладка це знімає. Якщо вільного лого не знайдено — фолбек: `name` текстом, **обов'язково**
+  `text-black` (не `text-neutral-900`!), бо `neutral-*` у темі інвертується, а ця плашка — ні.
+  Лого — тільки з Wikimedia Commons, тільки з чіткою вільною ліцензією (`PD-textlogo`/public
+  domain — такі теги зазвичай мають прості текстові вордмарки; НЕ "non-free/fair use only",
+  той статус не дозволяє використання поза Wikipedia). Товарний знак лишається товарним знаком
+  навіть у суспільному надбанні з погляду авторського права — це нормально для номінативного,
+  неторгового використання (ідентифікація бренду в каталозі), але якщо для бренду немає чистого
+  текстового вордмарку (як у Apple — лого яблука, не текст) — просто лиши `logo` незаповненим
+  замість вигадувати URL.
 - Лого (`src/components/LogoMark.astro`, статично продубльований у `public/favicon.svg` і
   `scripts/generate-images.mjs`) і заглушка (`src/components/PlaceholderArt.astro`) — одна й та
   сама оригінальна абстрактна мітка (значок-пульс у заокругленому "app icon" бейджі), не схожа на
@@ -106,6 +127,10 @@ sizes"), довільна ширина на кшталт `800px-` поверне
 (автор + ліцензія), `imageSourceUrl` — посилання на саму сторінку File: (не на картинку) для
 перевірки; `PhoneDetail.astro` рендерить `imageCredit` як клікабельне посилання, коли
 `imageSourceUrl` заданий. Без `image` рендериться `PlaceholderArt`.
+
+Бренди — той самий паттерн у `src/data/brands/<uk|ru|en>/<slug>.md`: `name` (має збігатись із
+`brand` на телефонах), опційні `founded`/`country`, опційне лого (`logo`/`logoCredit`/
+`logoSourceUrl`, правила сорсингу — див. `BrandMark.astro` вище), тіло — коротка історія бренду.
 
 ## Деплой
 
