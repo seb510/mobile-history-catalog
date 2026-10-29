@@ -1,8 +1,6 @@
 ---
-// Themed stand-in for phones without a sourced photo yet: the same pulse/signal-line language as
-// LogoMark, scaled into a scene — a soft glow, concentric signal rings, and scattered timeline
-// dots — rather than a bare empty box. Uses currentColor so it follows the surrounding text
-// color (and therefore the light/dark theme) instead of baking in fixed colors like the logo.
+// Themed stand-in for phones without a sourced photo yet. It expands the site's timeline mark
+// into a quiet scene with dated milestones, a soft glow, and a few background points.
 interface Props {
   class?: string;
 }
@@ -17,23 +15,14 @@ const { class: className = 'h-full w-full' } = Astro.props;
     </radialGradient>
   </defs>
   <circle cx="100" cy="75" r="60" fill="url(#glow)" />
-  <circle cx="100" cy="75" r="42" stroke="currentColor" stroke-width="1" fill="none" opacity="0.15" />
-  <circle cx="100" cy="75" r="28" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2" />
-
   <circle cx="42" cy="42" r="2" fill="currentColor" opacity="0.3" />
   <circle cx="33" cy="100" r="1.6" fill="currentColor" opacity="0.25" />
   <circle cx="166" cy="104" r="2" fill="currentColor" opacity="0.3" />
   <circle cx="158" cy="38" r="1.6" fill="currentColor" opacity="0.25" />
 
-  <path
-    d="M56 75h16l8-19 11 36 9-26 7 9h18"
-    stroke="currentColor"
-    stroke-width="3"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    fill="none"
-    opacity="0.85"
-  />
-  <circle cx="56" cy="75" r="2.5" fill="currentColor" opacity="0.6" />
-  <circle cx="126" cy="75" r="2.5" fill="currentColor" opacity="0.4" />
+  <path d="M75 28v94" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.5" />
+  <circle cx="75" cy="43" r="6" fill="currentColor" opacity="0.75" />
+  <circle cx="75" cy="75" r="6" fill="currentColor" opacity="0.75" />
+  <circle cx="75" cy="107" r="6" fill="currentColor" opacity="0.75" />
+  <path d="M90 43h45M90 75h34M90 107h54" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.7" />
 </svg>

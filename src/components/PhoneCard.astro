@@ -22,11 +22,16 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
   data-brand={data.brand}
   data-year={data.year}
   data-search={searchKey}
-  class="group flex flex-col overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 transition-all duration-200 hover-desktop:-translate-y-1 hover-desktop:border-orange-500 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/10"
+  class="group flex flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 transition-all duration-200 hover-desktop:-translate-y-1 hover-desktop:border-orange-500 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/10"
 >
-  <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-neutral-800 p-3">
+  <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-3">
     {data.image ? (
-      <img src={data.image} alt={`${data.brand} ${data.model}`} class="h-full w-full object-contain" loading="lazy" />
+      <>
+        <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="h-full w-full object-contain" loading="lazy" />
+        <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-3">
+          <PlaceholderArt class="h-full w-full text-neutral-600 transition-colors duration-200 group-hover-desktop:text-orange-500/70" />
+        </div>
+      </>
     ) : (
       <PlaceholderArt class="h-full w-full text-neutral-600 transition-colors duration-200 group-hover-desktop:text-orange-500/70" />
     )}
@@ -42,8 +47,8 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     )}
   </div>
   <div class="flex flex-1 flex-col gap-1 p-4">
-    <p class="text-xs text-neutral-500">{data.brand} · {data.year}</p>
-    <p class="font-semibold leading-tight">{data.model}</p>
+    <p class="editorial-kicker text-neutral-500">{data.brand} · {data.year}</p>
+    <p class="text-lg font-bold leading-tight tracking-tight">{data.model}</p>
     {data.milestone && (
       <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
     )}

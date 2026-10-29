@@ -11,9 +11,12 @@ interface Props {
 const { name, logo, class: className = '' } = Astro.props;
 ---
 
-<div class={`inline-flex items-center justify-center rounded-lg border border-neutral-800 bg-white px-6 py-4 ${className}`}>
+<div class={`inline-flex items-center justify-center rounded-sm border border-neutral-800 bg-white px-6 py-4 ${className}`}>
   {logo ? (
-    <img src={logo} alt={name} class="h-8 w-auto max-w-full object-contain sm:h-10" />
+    <>
+      <img data-image-fallback src={logo} alt={name} class="h-8 w-auto max-w-full object-contain sm:h-10" />
+      <span data-image-fallback-text class="hidden text-xl font-bold tracking-tight text-black">{name}</span>
+    </>
   ) : (
     <span class="text-xl font-bold tracking-tight text-black">{name}</span>
   )}

@@ -14,10 +14,13 @@ const { locale, path } = Astro.props;
 const strings = t(locale);
 
 const LOCALE_LABEL: Record<Locale, string> = { uk: 'UK', ru: 'RU', en: 'EN' };
-const navLinkClass = 'transition-colors duration-200 hover-desktop:text-neutral-100';
+const navLinkClass = (target: string) => {
+  const active = path === target || (target !== '/' && path.startsWith(target));
+  return `relative py-1 transition-colors duration-200 after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:bg-orange-500 after:transition-transform ${active ? 'text-neutral-100 after:scale-x-100' : 'text-neutral-400 after:scale-x-0 hover-desktop:text-neutral-100 hover-desktop:after:scale-x-100'}`;
+};
 ---
 
-<header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/90 backdrop-blur">
+<header class="sticky top-0 z-50 border-t-2 border-b border-t-orange-500 border-b-neutral-800 bg-neutral-950/95 backdrop-blur">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
     <a href={localePath(locale, '/')} class="flex items-center gap-2 text-neutral-100">
       <LogoMark class="h-8 w-8" />
@@ -25,10 +28,10 @@ const navLinkClass = 'transition-colors duration-200 hover-desktop:text-neutral-
     </a>
 
     <nav class="hidden items-center gap-6 text-sm text-neutral-400 sm:flex">
-      <a href={localePath(locale, '/catalog/')} class={navLinkClass}>{strings.nav.catalog}</a>
-      <a href={localePath(locale, '/brands/')} class={navLinkClass}>{strings.nav.brands}</a>
-      <a href={localePath(locale, '/compare/')} class={navLinkClass}>{strings.nav.compare}</a>
-      <a href={localePath(locale, '/about/')} class={navLinkClass}>{strings.nav.about}</a>
+      <a href={localePath(locale, '/catalog/')} class={navLinkClass('/catalog/')} aria-current={path.startsWith('/catalog/') ? 'page' : undefined}>{strings.nav.catalog}</a>
+      <a href={localePath(locale, '/brands/')} class={navLinkClass('/brands/')} aria-current={path.startsWith('/brands/') ? 'page' : undefined}>{strings.nav.brands}</a>
+      <a href={localePath(locale, '/compare/')} class={navLinkClass('/compare/')} aria-current={path.startsWith('/compare/') ? 'page' : undefined}>{strings.nav.compare}</a>
+      <a href={localePath(locale, '/about/')} class={navLinkClass('/about/')} aria-current={path.startsWith('/about/') ? 'page' : undefined}>{strings.nav.about}</a>
       <div class="flex items-center gap-1 border-l border-neutral-800 pl-4" aria-label={strings.langSwitcher}>
         {LOCALES.map((l) => (
           <a

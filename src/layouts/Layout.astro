@@ -66,5 +66,8 @@ const absoluteOgImage = new URL(ogImage, Astro.site).toString();
       <slot />
     </main>
     <Footer locale={locale} />
+    <script>
+      import '../scripts/image-fallback';
+    </script>
   </body>
 </html>

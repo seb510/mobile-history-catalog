@@ -8,7 +8,7 @@ const strings = t(locale);
 ---
 
 <Layout locale={locale} path="/compare/" title={`${strings.nav.compare} — ${strings.siteName}`} description={strings.compare.subtitle}>
-  <h1 class="mb-2 text-3xl font-bold">{strings.nav.compare}</h1>
+  <h1 class="page-title mb-2">{strings.nav.compare}</h1>
   <p class="mb-6 text-neutral-400">{strings.compare.subtitle}</p>
   <Compare locale={locale} />
 </Layout>

@@ -41,6 +41,12 @@ export const UI = {
       swap: 'Поміняти місцями',
       noResults: 'Нічого не знайдено',
       empty: 'Оберіть два телефони вище, щоб побачити порівняння.',
+      suggestedTitle: 'Почни з цих історій',
+      suggestions: {
+        gsmEra: 'Від старту масового GSM до легенди кнопкових телефонів.',
+        touchSmartphones: 'Два ранні погляди на нову еру сенсорних смартфонів.',
+        foldingScreens: 'Як флагманська лінійка Samsung прийшла до складного екрана.',
+      },
       dash: '—',
     },
     brands: {
@@ -112,6 +118,12 @@ export const UI = {
       swap: 'Поменять местами',
       noResults: 'Ничего не найдено',
       empty: 'Выберите два телефона выше, чтобы увидеть сравнение.',
+      suggestedTitle: 'Начните с этих историй',
+      suggestions: {
+        gsmEra: 'От начала массового GSM до легенды кнопочных телефонов.',
+        touchSmartphones: 'Два ранних взгляда на новую эру сенсорных смартфонов.',
+        foldingScreens: 'Как флагманская линейка Samsung пришла к складному экрану.',
+      },
       dash: '—',
     },
     brands: {
@@ -182,6 +194,12 @@ export const UI = {
       swap: 'Swap',
       noResults: 'No matches',
       empty: 'Pick two phones above to see the comparison.',
+      suggestedTitle: 'Start with these stories',
+      suggestions: {
+        gsmEra: 'From mass-market GSM to a button-phone legend.',
+        touchSmartphones: 'Two early visions for the touchscreen smartphone era.',
+        foldingScreens: 'How Samsung’s flagship line led to a folding screen.',
+      },
       dash: '—',
     },
     brands: {

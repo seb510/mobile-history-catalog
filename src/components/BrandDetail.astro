@@ -32,18 +32,18 @@ const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand ===
     </p>
   )}
 
-  <h1 class="mt-6 text-3xl font-bold">{data.name}</h1>
+  <h1 class="page-title mt-6">{data.name}</h1>
 
   {(data.founded != null || data.country) && (
     <div class="mt-4 flex flex-wrap gap-3">
       {data.founded != null && (
-        <div class="rounded-lg border border-neutral-800 px-3 py-2">
+        <div class="rounded-sm border border-neutral-800 px-3 py-2">
           <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.founded}</p>
           <p class="font-semibold">{data.founded}</p>
         </div>
       )}
       {data.country && (
-        <div class="rounded-lg border border-neutral-800 px-3 py-2">
+        <div class="rounded-sm border border-neutral-800 px-3 py-2">
           <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.country}</p>
           <p class="font-semibold">{data.country}</p>
         </div>

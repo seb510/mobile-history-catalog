@@ -19,7 +19,7 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
 ---
 
 <div
-  class="animate-fade-up mb-8 flex flex-col gap-3 rounded-lg border border-neutral-800 bg-neutral-900/40 p-3 sm:flex-row sm:items-center"
+  class="animate-fade-up mb-8 flex flex-col gap-3 rounded-sm border border-neutral-800 bg-neutral-900/40 p-3 sm:flex-row sm:items-center"
   data-filter-bar
 >
   <input
@@ -27,12 +27,12 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
     name="q"
     placeholder={strings.filters.search}
     data-filter="search"
-    class="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none sm:max-w-xs"
+    class="w-full rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none sm:max-w-xs"
   />
   <select
     name="brand"
     data-filter="brand"
-    class="rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
+    class="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
   >
     <option value="">{strings.filters.brand}: {strings.filters.all}</option>
     {brands.map((brand) => <option value={brand}>{brand}</option>)}
@@ -40,7 +40,7 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
   <select
     name="year"
     data-filter="year"
-    class="rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
+    class="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
   >
     <option value="">{strings.filters.year}: {strings.filters.all}</option>
     {years.map((year) => <option value={year}>{year}</option>)}
@@ -54,7 +54,7 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
     {strings.filters.reset}
   </button>
   <p
-    class="rounded-full border border-neutral-700 px-2.5 py-1 text-xs font-semibold text-neutral-400 sm:ml-auto"
+    class="border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-500 sm:ml-auto"
     data-filter-count
   ></p>
 </div>
@@ -66,7 +66,7 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
     <li data-year-group={year}>
       <div class="mb-4 flex items-baseline gap-3 border-b border-neutral-800 pb-2">
         <h2 class="text-2xl font-bold text-orange-500">{year}</h2>
-        <span class="rounded-full border border-neutral-800 px-2 py-0.5 text-xs text-neutral-500">
+        <span class="border border-neutral-800 px-1.5 py-0.5 text-xs text-neutral-500">
           {byYear.get(year)!.length}
         </span>
       </div>

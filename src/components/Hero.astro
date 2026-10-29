@@ -1,6 +1,7 @@
 ---
 import PhoneCard from './PhoneCard.astro';
-import { getPhonesForLocale } from '../lib/phones';
+import PlaceholderArt from './PlaceholderArt.astro';
+import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { t } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 
@@ -19,6 +20,8 @@ const bestSellers = phones
   .filter((p) => p.data.unitsSoldMillions != null)
   .sort((a, b) => b.data.unitsSoldMillions! - a.data.unitsSoldMillions!)
   .slice(0, 4);
+const coverPhone = bestSellers[0];
+const otherBestSellers = coverPhone ? bestSellers.slice(1) : bestSellers;
 
 const stats = [
   { value: phones.length, label: strings.hero.statsPhones },
@@ -27,52 +30,95 @@ const stats = [
 ];
 ---
 
-<section class="py-8 sm:py-14">
-  <p class="animate-fade-up inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-medium text-orange-400">
-    {strings.hero.eyebrow}
-  </p>
-  <h1 class="animate-fade-up mt-4 text-4xl font-bold tracking-tight sm:text-5xl" style="animation-delay:0.05s">
-    {strings.siteName}
-  </h1>
-  <p class="animate-fade-up mt-4 max-w-xl text-lg text-neutral-400" style="animation-delay:0.1s">
-    {strings.tagline}
-  </p>
+<section class="border-b border-neutral-800 py-8 sm:py-14">
+  <div class="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1fr_0.82fr]">
+    <div>
+    <p class="editorial-kicker animate-fade-up mb-5 inline-flex items-center gap-2 text-orange-500">
+      <span class="h-2 w-2 bg-orange-500"></span>{strings.hero.eyebrow}
+    </p>
+    <h1 class="animate-fade-up max-w-xl text-5xl font-extrabold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl" style="animation-delay:0.05s">
+      {strings.siteName}
+    </h1>
+    <p class="animate-fade-up mt-5 max-w-lg text-lg leading-relaxed text-neutral-400" style="animation-delay:0.1s">
+      {strings.tagline}
+    </p>
 
-  <div class="animate-fade-up mt-6 flex flex-wrap gap-3" style="animation-delay:0.15s">
-    <a
-      href={localePath(locale, '/catalog/')}
-      class="rounded-md bg-orange-500 px-5 py-2.5 text-sm font-semibold text-neutral-950 transition-all duration-200 hover-desktop:-translate-y-0.5 hover-desktop:bg-orange-400 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/20"
-    >
-      {strings.hero.cta}
-    </a>
-    <a
-      href={localePath(locale, '/about/')}
-      class="rounded-md border border-neutral-700 px-5 py-2.5 text-sm font-semibold text-neutral-200 transition-colors duration-200 hover-desktop:border-neutral-500"
-    >
-      {strings.hero.ctaAbout}
-    </a>
+    <div class="animate-fade-up mt-7 flex flex-wrap gap-3" style="animation-delay:0.15s">
+      <a
+        href={localePath(locale, '/catalog/')}
+        class="rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-all duration-200 hover-desktop:-translate-y-0.5 hover-desktop:bg-orange-400 hover-desktop:shadow-lg hover-desktop:shadow-orange-500/20"
+      >
+        {strings.hero.cta}
+      </a>
+      <a
+        href={localePath(locale, '/about/')}
+        class="rounded-sm border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-200 transition-colors duration-200 hover-desktop:border-orange-500"
+      >
+        {strings.hero.ctaAbout}
+      </a>
+    </div>
+
   </div>
 
-  <div class="animate-fade-up mt-10 flex max-w-md gap-3" style="animation-delay:0.2s">
-    {stats.map((stat) => (
-      <div class="flex-1 rounded-lg border border-neutral-800 px-3 py-2.5">
-        <p class="text-2xl font-bold text-orange-500">{stat.value}</p>
-        <p class="text-xs tracking-wide text-neutral-500 uppercase">{stat.label}</p>
+  {coverPhone && (
+    <a
+      href={localePath(locale, `/phones/${slugOf(coverPhone)}/`)}
+      class="group block overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 transition-colors hover-desktop:border-orange-500"
+    >
+      <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-6 sm:aspect-[5/3] lg:aspect-[4/3]">
+        {coverPhone.data.image ? (
+          <>
+            <img data-image-fallback src={coverPhone.data.image} alt={`${coverPhone.data.brand} ${coverPhone.data.model}`} class="h-full w-full object-contain transition-transform duration-500 group-hover-desktop:scale-[1.03]" fetchpriority="high" />
+            <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-6">
+              <PlaceholderArt class="h-full w-full text-neutral-600" />
+            </div>
+          </>
+        ) : (
+          <PlaceholderArt class="h-full w-full text-neutral-600" />
+        )}
+        <span class="editorial-kicker absolute top-3 left-3 bg-orange-500 px-2 py-1 text-neutral-950">
+          #{1} · {coverPhone.data.unitsSoldMillions} {strings.hero.soldSuffix}
+        </span>
+      </div>
+      <div class="grid gap-2 p-4 sm:grid-cols-[1fr_auto] sm:items-end sm:p-5">
+        <div>
+          <p class="editorial-kicker text-neutral-500">{coverPhone.data.brand} · {coverPhone.data.year}</p>
+          <h2 class="mt-1 text-2xl font-extrabold leading-none tracking-tight sm:text-3xl">{coverPhone.data.model}</h2>
+          {coverPhone.data.milestone && <p class="mt-2 border-l-2 border-orange-500 pl-2 text-sm text-neutral-400">{coverPhone.data.milestone}</p>}
+        </div>
+        <span class="hidden text-3xl text-orange-500 transition-transform group-hover-desktop:translate-x-1 sm:block" aria-hidden="true">→</span>
+      </div>
+    </a>
+  )}
+  </div>
+
+  <div class="animate-fade-up mt-6 grid max-w-lg grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-3 lg:mt-8" style="animation-delay:0.2s">
+    {stats.map((stat, index) => (
+      <div class:list={[index === 0 ? 'pr-3' : 'px-3']}>
+        <p class="text-2xl font-extrabold tracking-tight text-orange-500">{stat.value}</p>
+        <p class="editorial-kicker mt-1 text-[0.6rem] text-neutral-500">{stat.label}</p>
       </div>
     ))}
   </div>
 </section>
 
 {bestSellers.length > 0 && (
-  <section class="mt-6 border-t border-neutral-800 pt-10">
-    <h2 class="border-l-2 border-orange-500 pl-3 text-xl font-bold">{strings.hero.popularTitle}</h2>
-    <p class="mt-1 pl-3 text-sm text-neutral-500">{strings.hero.popularSubtitle}</p>
-    <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {bestSellers.map((phone, i) => (
+  <section class="pt-10">
+    <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+      <div>
+        <p class="editorial-kicker text-orange-500">{strings.hero.eyebrow}</p>
+        <h2 class="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{strings.hero.popularTitle}</h2>
+      </div>
+      <p class="max-w-md text-sm text-neutral-500 sm:text-right">{strings.hero.popularSubtitle}</p>
+    </div>
+    {otherBestSellers.length > 0 && (
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {otherBestSellers.map((phone, i) => (
         <li>
-          <PhoneCard phone={phone} locale={locale} badge={`#${i + 1} · ${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
+          <PhoneCard phone={phone} locale={locale} badge={`#${i + 2} · ${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
         </li>
-      ))}
-    </ul>
+        ))}
+      </ul>
+    )}
   </section>
 )}

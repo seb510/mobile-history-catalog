@@ -11,6 +11,49 @@
   }
 }
 
+/* A warm ink-and-paper palette gives the interface an editorial technology-journal mood. The
+   Tailwind neutral scale carries it consistently across cards, tables, forms, and both themes. */
+:root {
+  --color-neutral-50: #fbf8f2;
+  --color-neutral-100: #f2eee6;
+  --color-neutral-200: #ddd7cc;
+  --color-neutral-300: #b9b1a5;
+  --color-neutral-400: #968e83;
+  --color-neutral-500: #766f65;
+  --color-neutral-600: #5c554c;
+  --color-neutral-700: #403b34;
+  --color-neutral-800: #302b25;
+  --color-neutral-900: #211e1a;
+  --color-neutral-950: #171512;
+  --color-orange-400: #fb8748;
+  --color-orange-500: #f97316;
+}
+
+::selection {
+  color: var(--color-neutral-950);
+  background: var(--color-orange-400);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-orange-500);
+  outline-offset: 3px;
+}
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.editorial-kicker {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 /* Light/dark theme toggle. The whole site is built on plain `neutral-*`/`orange-*` Tailwind
    utilities (bg-neutral-950, text-neutral-400, …) — Tailwind v4 generates those utilities as
    `var(--color-neutral-950)` etc., so instead of hand-writing a `dark:` variant on every class in
@@ -22,34 +65,36 @@
    Layout.astro that applies a stored choice before first paint). */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --color-neutral-50: #0a0a0a;
-    --color-neutral-100: #171717;
-    --color-neutral-200: #262626;
-    --color-neutral-300: #404040;
-    --color-neutral-400: #525252;
-    --color-neutral-600: #a3a3a3;
-    --color-neutral-700: #d4d4d4;
-    --color-neutral-800: #e5e5e5;
-    --color-neutral-900: #f5f5f5;
-    --color-neutral-950: #fafafa;
-    --color-orange-400: #f97316;
-    --color-orange-500: #ea580c;
+    --color-neutral-50: #17130f;
+    --color-neutral-100: #241f19;
+    --color-neutral-200: #382f25;
+    --color-neutral-300: #514639;
+    --color-neutral-400: #665b4e;
+    --color-neutral-500: #786e61;
+    --color-neutral-600: #978a78;
+    --color-neutral-700: #b9ad9b;
+    --color-neutral-800: #d8cebf;
+    --color-neutral-900: #eee7dc;
+    --color-neutral-950: #f7f2e8;
+    --color-orange-400: #dc5a22;
+    --color-orange-500: #bd4212;
   }
 }
 
 :root[data-theme="light"] {
-  --color-neutral-50: #0a0a0a;
-  --color-neutral-100: #171717;
-  --color-neutral-200: #262626;
-  --color-neutral-300: #404040;
-  --color-neutral-400: #525252;
-  --color-neutral-600: #a3a3a3;
-  --color-neutral-700: #d4d4d4;
-  --color-neutral-800: #e5e5e5;
-  --color-neutral-900: #f5f5f5;
-  --color-neutral-950: #fafafa;
-  --color-orange-400: #f97316;
-  --color-orange-500: #ea580c;
+  --color-neutral-50: #17130f;
+  --color-neutral-100: #241f19;
+  --color-neutral-200: #382f25;
+  --color-neutral-300: #514639;
+  --color-neutral-400: #665b4e;
+  --color-neutral-500: #786e61;
+  --color-neutral-600: #978a78;
+  --color-neutral-700: #b9ad9b;
+  --color-neutral-800: #d8cebf;
+  --color-neutral-900: #eee7dc;
+  --color-neutral-950: #f7f2e8;
+  --color-orange-400: #dc5a22;
+  --color-orange-500: #bd4212;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -8,7 +8,7 @@ const strings = t(locale);
 ---
 
 <Layout locale={locale} path="/brands/" title={`${strings.brands.indexTitle} — ${strings.siteName}`} description={strings.brands.indexSubtitle}>
-  <h1 class="mb-2 text-3xl font-bold">{strings.brands.indexTitle}</h1>
+  <h1 class="page-title mb-2">{strings.brands.indexTitle}</h1>
   <p class="mb-6 text-neutral-400">{strings.brands.indexSubtitle}</p>
   <BrandsIndex locale={locale} />
 </Layout>
