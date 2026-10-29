@@ -43,7 +43,7 @@ const mobileNavLinkClass = (target: string) =>
           l === locale ? (
             <span aria-current="page" class="rounded-sm bg-orange-500 px-1.5 py-1 text-[0.65rem] font-bold text-neutral-950">{LOCALE_LABEL[l]}</span>
           ) : (
-            <a href={localePath(l, path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors motion-ui hover-desktop:text-neutral-100">
+            <a href={localePath(l, path === '/404/' ? '/' : path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors motion-ui hover-desktop:text-neutral-100">
               {LOCALE_LABEL[l]}
             </a>
           )
@@ -79,7 +79,7 @@ const mobileNavLinkClass = (target: string) =>
           l === locale ? (
             <span aria-current="page" class="text-sm font-semibold text-orange-500">{LOCALE_LABEL[l]}</span>
           ) : (
-            <a href={localePath(l, path)} class="text-sm font-medium text-neutral-400 transition-colors motion-ui hover-desktop:text-neutral-100">
+            <a href={localePath(l, path === '/404/' ? '/' : path)} class="text-sm font-medium text-neutral-400 transition-colors motion-ui hover-desktop:text-neutral-100">
               {LOCALE_LABEL[l]}
             </a>
           )

@@ -1,32 +1,38 @@
 ---
 brand: Apple
-model: "iPhone (перше покоління)"
+model: iPhone (перше покоління)
 year: 2007
-milestone: "Злам парадигми — початок ери сенсорних смартфонів"
+milestone: Злам парадигми — початок ери сенсорних смартфонів
 priceUsdAtLaunch: 499
 unitsSoldMillions: 6.1
 display:
   sizeInches: 3.5
-  type: "кольоровий LCD, мультитач"
-  resolution: "320 × 480 px"
-chipset: "Samsung ARM11, ~412 МГц"
+  type: кольоровий LCD, мультитач
+  resolution: 320 × 480 px
+chipset: Samsung ARM11, ~412 МГц
 ramMb: 128
 storageMb: 4096
 camera:
-  rear: "2 МП, без автофокуса, без відео"
+  rear: 2 МП, без автофокуса, без відео
 battery:
   mah: 1400
   removable: false
-network: "2G (GSM/EDGE), без 3G"
-connectivity: ["Wi-Fi 802.11b/g", "Bluetooth 2.0", "USB (док-конектор)"]
-simType: "Mini-SIM"
-colors: ["Чорний"]
-dimensionsMm: "115 × 61 × 11.6 мм"
+network: 2G (GSM/EDGE), без 3G
+connectivity:
+  - Wi-Fi 802.11b/g
+  - Bluetooth 2.0
+  - USB (док-конектор)
+simType: Mini-SIM
+colors:
+  - Чорний
+dimensionsMm: 115 × 61 × 11.6 мм
 weightGrams: 135
-os: "iPhone OS 1"
-image: "https://upload.wikimedia.org/wikipedia/commons/c/c7/IPhone_First_Generation_%28cropped%29.jpg"
+os: iPhone OS 1
+image: https://upload.wikimedia.org/wikipedia/commons/c/c7/IPhone_First_Generation_%28cropped%29.jpg
 imageCredit: "Фото: Carl Berkeley, CC BY-SA 2.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_First_Generation_(cropped).jpg"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:IPhone_First_Generation_(cropped).jpg
+priceSourceUrl: https://www.apple.com/newsroom/2007/06/26AT-T-and-Apple-Announce-Simple-Affordable-Service-Plans-for-iPhone/
+priceContext: США, 4 ГБ; контракт AT&T на 2 роки
 ---
 
 Представлений Стівом Джобсом у січні 2007-го, перший iPhone відмовився від фізичної клавіатури
@@ -36,3 +42,6 @@ imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_First_Generation
 Телефон не мав 3G, копіпасту чи App Store (той з'явився лише у 2008-му), а продавався у версіях
 на 4 й 8 ГБ (пізніше додалась 16 ГБ). Та саме він задав напрямок, яким пішла вся індустрія: екран
 на весь корпус, мінімум фізичних кнопок, браузер, що реально показує повноцінні сторінки.
+
+
+[Стартова ціна — анонс Apple](https://www.apple.com/newsroom/2007/06/26AT-T-and-Apple-Announce-Simple-Affordable-Service-Plans-for-iPhone/).

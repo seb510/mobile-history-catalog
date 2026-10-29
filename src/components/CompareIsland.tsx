@@ -234,7 +234,7 @@ function PhoneSlot({ phone, query, onQueryChange, onSelect, onClear, candidates,
                 {data.brand} · {data.year}
               </p>
               <p className="truncate font-semibold leading-tight">{data.model}</p>
-              {data.priceUsdAtLaunch != null && <p className="mt-1 text-xs font-bold text-orange-500">${data.priceUsdAtLaunch}</p>}
+              {data.priceUsdAtLaunch != null && data.priceSourceUrl && <p className="mt-1 text-xs font-bold text-orange-500">${data.priceUsdAtLaunch} USD{data.priceContext && <span className="block font-normal">{data.priceContext}</span>}</p>}
             </div>
           </a>
           <button

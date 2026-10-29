@@ -1,0 +1,366 @@
+{
+  "date": "2026-10-29",
+  "method": "HEAD; availability at audit time, not a license review",
+  "results": [
+    {
+      "file": "phones/apple-iphone-12.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/IPhone_12_Black_256g.jpg/960px-IPhone_12_Black_256g.jpg",
+      "status": 200
+    },
+    {
+      "file": "phones/apple-iphone.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/IPhone_First_Generation_%28cropped%29.jpg",
+      "status": 200
+    },
+    {
+      "file": "phones/google-pixel-6.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Google_Pixel_6_Sorta_Seafoam_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_rear.jpg",
+      "status": 200
+    },
+    {
+      "file": "phones/google-pixel-8.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Google_Pixel_8%2C_shown_in_Shibuya_Stream_2.jpg/960px-Google_Pixel_8%2C_shown_in_Shibuya_Stream_2.jpg",
+      "status": 200
+    },
+    {
+      "file": "phones/google-pixel-9.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pixel_9.jpg/960px-Pixel_9.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/google-pixel.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Google_Pixel_White_01.jpg/960px-Google_Pixel_White_01.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/htc-dream.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTC_Dream_%28front_view%29.jpg/960px-HTC_Dream_%28front_view%29.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/huawei-mate-xt.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Mate_XT_Ultimate_Design.jpg/960px-Huawei_Mate_XT_Ultimate_Design.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-c350.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ITap_on_Motorola_C350.jpg/960px-ITap_on_Motorola_C350.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-defy.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Motorola_Defy.jpg/960px-Motorola_Defy.jpg",
+      "status": 200
+    },
+    {
+      "file": "phones/motorola-droid.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Motorola_Milestone.jpg/960px-Motorola_Milestone.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-moto-g.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Motorola_MotoG_front.jpg/960px-Motorola_MotoG_front.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-razr-v3.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Motorola_RAZR_V3-4899.jpg/960px-Motorola_RAZR_V3-4899.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-pebl-u6.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Motorola_PEBL_U6_(Black)_-_Front_(Closed).jpg/960px-Motorola_PEBL_U6_(Black)_-_Front_(Closed).jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-razr-v3i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Motorola_RAZR_V3i_01.JPG/960px-Motorola_RAZR_V3i_01.JPG",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-razr2-v8.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/RAZR2_V8.jpg/960px-RAZR2_V8.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-rokr-e1.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Motorola_Rokr_E1_-_2.jpg/960px-Motorola_Rokr_E1_-_2.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-slvr-l7.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Motorola_SLVR_red_flickr_255478814.jpg/960px-Motorola_SLVR_red_flickr_255478814.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/motorola-v66.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Motorola_V66_mobile_phone.jpg/960px-Motorola_V66_mobile_phone.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-1100.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nokia_1100_20140624.jpg/960px-Nokia_1100_20140624.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-3210.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/MiNe-M_100-3345U.jpg/960px-MiNe-M_100-3345U.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-3310.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/European_Nokia_3310.jpg/960px-European_Nokia_3310.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-5800-xpressmusic.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg/960px-Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-6230.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nokia_6230_%28Graphite%29_-_Front.jpg/960px-Nokia_6230_%28Graphite%29_-_Front.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-6600.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nokia_6600.jpg/960px-Nokia_6600.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-7610.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Nokia_7610.png/960px-Nokia_7610.png",
+      "status": 200
+    },
+    {
+      "file": "phones/nokia-e71.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nokia_E71.JPG/960px-Nokia_E71.JPG",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-lumia-520.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Nokia_Lumia_520_Black.jpg/960px-Nokia_Lumia_520_Black.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-n-gage.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nokia-NGage-Front-Flat.jpg/960px-Nokia-NGage-Front-Flat.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-n70.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Nokia_N70_2.jpg/960px-Nokia_N70_2.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/nokia-n95.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nokia_N95_Front_1.jpg/960px-Nokia_N95_Front_1.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-fold.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Galaxy_Fold_-_5.jpg/960px-Galaxy_Fold_-_5.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-note.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Samsung_Galaxy_Note_(original).JPG/960px-Samsung_Galaxy_Note_(original).JPG",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-s.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Samsung_i9000_galaxy_s.jpeg/960px-Samsung_i9000_galaxy_s.jpeg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-s2.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Samsung_Galaxy_S2_i9100.jpg/960px-Samsung_Galaxy_S2_i9100.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-s26-ultra.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Galaxy_S26_Ultra_-_2.jpg/960px-Galaxy_S26_Ultra_-_2.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-s3.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg/960px-Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-s4.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Samsung_Galaxy_S4.jpg/960px-Samsung_Galaxy_S4.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-galaxy-z-fold3.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Samsung_Galaxy_Z_Fold_3.jpg/960px-Samsung_Galaxy_Z_Fold_3.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-omnia-i900.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Samsung_i900_Omnia.jpg/960px-Samsung_i900_Omnia.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-sgh-d500.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Samsung_SGH-D500.jpg/960px-Samsung_SGH-D500.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-sgh-e250.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SamsungE250.JPG/960px-SamsungE250.JPG",
+      "status": 429
+    },
+    {
+      "file": "phones/samsung-sgh-u600.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Samsung_sgh_u600_zz.JPG/960px-Samsung_sgh_u600_zz.JPG",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-c55.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Siemens_C55.jpg/960px-Siemens_C55.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-c65.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Siemens_C65.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-cx65.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Siemens_CX65.png",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-m50.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Siemens_M50.jpg/960px-Siemens_M50.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-m65.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Siemens_M65.jpg/960px-Siemens_M65.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-me45.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Siemens_ME45.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-s55.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Siemens_S55_with_IQP-500.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-s65.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Siemens_S65.JPG",
+      "status": 200
+    },
+    {
+      "file": "phones/siemens-sl55.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Siemens_SL55_mobile_phone.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/siemens-sxg75.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Siemens_SXG75.png/960px-Siemens_SXG75.png",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-k700i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Sony_Ericsson_K700i.jpg/960px-Sony_Ericsson_K700i.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-k750i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/SEK750i.jpg/960px-SEK750i.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-k800i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/K800i-front.jpg/960px-K800i-front.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-k850i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Sony_Ericsson_K850i_%28Luminous_Green%29_-_Front.jpg/960px-Sony_Ericsson_K850i_%28Luminous_Green%29_-_Front.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-t610.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Sony_Ericsson_T610_%286144638049%29.jpg/960px-Sony_Ericsson_T610_%286144638049%29.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-t68i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Ericsson_T68i_001.jpg/960px-Ericsson_T68i_001.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-w580i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Sony_Ericsson_W580i.jpg/960px-Sony_Ericsson_W580i.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-w800i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Sony_Ericsson_W800i.jpg/960px-Sony_Ericsson_W800i.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-w810i.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sony_Ericsson_W810i-2177.jpg/960px-Sony_Ericsson_W810i-2177.jpg",
+      "status": 429
+    },
+    {
+      "file": "phones/sony-ericsson-xperia-x10.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sony_Ericsson_Xperia_X10_%28Luster_White%29_-_Front.jpg/960px-Sony_Ericsson_Xperia_X10_%28Luster_White%29_-_Front.jpg",
+      "status": 429
+    },
+    {
+      "file": "brands/apple.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Apple_Logo.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/google.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/htc.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Htc_new_logo.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/huawei.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Huawei_wordmark.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/motorola.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Motorola-Logo.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/nokia.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/samsung.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Samsung_wordmark.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/siemens.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Siemens_Mobile_Logo.svg",
+      "status": 429
+    },
+    {
+      "file": "brands/sony-ericsson.md",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Sony_Ericsson_wordmark.svg",
+      "status": 429
+    }
+  ]
+}

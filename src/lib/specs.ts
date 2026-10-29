@@ -17,12 +17,12 @@ interface FieldDef {
 
 const FIELDS: FieldDef[] = [
   { group: 0, label: (s) => s.year, value: (d) => String(d.year) },
-  { group: 0, label: (s) => s.priceUsdAtLaunch, value: (d) => (d.priceUsdAtLaunch != null ? `$${d.priceUsdAtLaunch}` : null) },
+  { group: 0, label: (s) => s.priceUsdAtLaunch, value: (d) => (d.priceUsdAtLaunch != null && d.priceSourceUrl ? `${d.priceUsdAtLaunch} USD${d.priceContext ? ` · ${d.priceContext}` : ''}` : null) },
   { group: 0, label: (s) => s.unitsSoldMillions, value: (d) => (d.unitsSoldMillions != null ? String(d.unitsSoldMillions) : null) },
   {
     group: 1,
     label: (s) => s.display,
-    value: (d) => (d.display?.sizeInches != null ? `${d.display.sizeInches}"${d.display.type ? ` · ${d.display.type}` : ''}` : null),
+    value: (d) => [d.display?.sizeInches != null ? `${d.display.sizeInches}"` : null, d.display?.type].filter(Boolean).join(' · ') || null,
   },
   { group: 1, label: (s) => s.resolution, value: (d) => d.display?.resolution ?? null },
   { group: 2, label: (s) => s.chipset, value: (d) => d.chipset ?? null },
@@ -42,9 +42,9 @@ const FIELDS: FieldDef[] = [
   { group: 4, label: (s) => s.battery, value: (d, u) => (d.battery?.mah != null ? `${d.battery.mah} ${u.mAh}` : null) },
   { group: 4, label: (s) => s.network, value: (d) => d.network ?? null },
   { group: 4, label: (s) => s.connectivity, value: (d) => (d.connectivity && d.connectivity.length > 0 ? d.connectivity.join(', ') : null) },
-  { group: 4, label: (s) => s.simType, value: (d) => d.simType ?? null },
+  { group: 4, label: (s) => s.simType, value: (d, u) => d.simType?.replace(/\bMini-SIM\b/g, u.standardSim) ?? null },
   { group: 5, label: (s) => s.os, value: (d) => d.os ?? null },
-  { group: 5, label: (s) => s.dimensions, value: (d) => d.dimensionsMm ?? null },
+  { group: 5, label: (s) => s.dimensions, value: (d, u) => d.dimensionsMm ? `${d.dimensionsMm.replace(/\s*(?:мм|mm)\s*$/i, '')} ${u.mm}` : null },
   { group: 5, label: (s) => s.weight, value: (d, u) => (d.weightGrams != null ? `${d.weightGrams} ${u.g}` : null) },
 ];
 

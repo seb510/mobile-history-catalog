@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 // One Markdown file per phone *per locale* (src/data/phones/<locale>/<slug>.md). `uk/<slug>.md`
@@ -18,6 +19,8 @@ const phones = defineCollection({
     // This is the one spec-adjacent field that's actually worth writing per-locale (it's prose).
     milestone: z.string().optional(),
     priceUsdAtLaunch: z.number().optional(),
+    priceSourceUrl: z.string().url().optional(),
+    priceContext: z.string().optional(),
     // Approximate global units sold, in millions — only documented for a handful of genuine
     // best-sellers (3310, RAZR V3, the original iPhone...). Powers the "most popular by sales"
     // section on the homepage; phones without a disclosed figure simply don't appear there.

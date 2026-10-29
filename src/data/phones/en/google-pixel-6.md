@@ -31,6 +31,8 @@ simType: Nano-SIM + eSIM
 camera:
   rear: 50 + 12 MP
   front: 8 MP
+priceSourceUrl: https://blog.google/products-and-platforms/devices/pixel/meet-pixel-6-pixel-6-pro/
+priceContext: US, base model
 ---
 
 Pixel 6 marked a turning point for the series with Google Tensor, Android 12, and a new horizontal camera bar. Computational photography, speech recognition, and on-device machine learning shaped its identity.
@@ -41,3 +43,6 @@ Source: [Google — Pixel 6](https://blog.google/products-and-platforms/devices/
 Storage is shown for the base configuration; a 256 GB version was also offered. Battery capacity is typical. Storage options and connectivity features vary by region.
 
 [Google — hardware specifications](https://support.google.com/pixelphone/answer/7158570?hl=en).
+
+
+[Launch price — original announcement](https://blog.google/products-and-platforms/devices/pixel/meet-pixel-6-pixel-6-pro/).

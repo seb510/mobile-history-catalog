@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import nodeCommonjs from './scripts/vite-node-commonjs.mjs';
 
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
@@ -21,6 +22,6 @@ export default defineConfig({
   integrations: [react()],
 
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss(), nodeCommonjs()],
+  },
 });

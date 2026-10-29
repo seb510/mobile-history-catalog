@@ -71,7 +71,7 @@ export const UI = {
       statsBrands: 'брендів',
       statsYears: 'років історії',
       popularTitle: 'Найпопулярніші за продажами',
-      popularSubtitle: 'Моделі з офіційно підтвердженими рекордними тиражами',
+      popularSubtitle: 'Моделі з публічно відомими оцінками продажів',
       soldSuffix: 'млн шт.',
       guideTitle: 'Як мандрувати таймлайном',
       guideCatalog: 'Шукай за роком, брендом або назвою моделі.',
@@ -79,7 +79,7 @@ export const UI = {
     },
     catalog: { intro: 'Кожен рік — окрема сторінка історії. Знайди модель за назвою, брендом або роком.' },
     langSwitcher: 'Мова',
-    units: { mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
+    units: { mm: 'мм', standardSim: 'Стандартна SIM (Mini-SIM)', mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
       title: 'Про проєкт',
@@ -161,7 +161,7 @@ export const UI = {
       statsBrands: 'брендов',
       statsYears: 'лет истории',
       popularTitle: 'Самые популярные по продажам',
-      popularSubtitle: 'Модели с официально подтверждёнными рекордными тиражами',
+      popularSubtitle: 'Модели с публично известными оценками продаж',
       soldSuffix: 'млн шт.',
       guideTitle: 'Как путешествовать по таймлайну',
       guideCatalog: 'Ищи по году, бренду или названию модели.',
@@ -169,7 +169,7 @@ export const UI = {
     },
     catalog: { intro: 'Каждый год — отдельная страница истории. Найди модель по названию, бренду или году.' },
     langSwitcher: 'Язык',
-    units: { mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
+    units: { mm: 'мм', standardSim: 'Стандартная SIM (Mini-SIM)', mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
       title: 'О проекте',
@@ -250,7 +250,7 @@ export const UI = {
       statsBrands: 'brands',
       statsYears: 'years of history',
       popularTitle: 'Most popular by sales',
-      popularSubtitle: 'Models with officially confirmed record-breaking sales figures',
+      popularSubtitle: 'Models with publicly reported sales estimates',
       soldSuffix: 'million units',
       guideTitle: 'Explore the timeline',
       guideCatalog: 'Search by model, brand, or year.',
@@ -258,7 +258,7 @@ export const UI = {
     },
     catalog: { intro: 'Each year marks a different chapter. Find a phone by model, brand, or year.' },
     langSwitcher: 'Language',
-    units: { mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
+    units: { mm: 'mm', standardSim: 'Standard SIM (Mini-SIM)', mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
       title: 'About the project',
@@ -290,7 +290,7 @@ export const HOME_EDITORIAL = {
       "Ера смартфонів",
       "Нові форми"
     ],
-    "compare": "Двадцять років між дзвінками",
+    "compare": "26 років між дзвінками",
     "text": "Від кнопок і монохромного екрана до OLED та 5G. Порівняй два покоління й побач масштаб змін.",
     "cta": "Порівняти покоління",
     "principles": "Історія має значення"
@@ -305,7 +305,7 @@ export const HOME_EDITORIAL = {
       "Эра смартфонов",
       "Новые формы"
     ],
-    "compare": "Двадцать лет между звонками",
+    "compare": "26 лет между звонками",
     "text": "От кнопок и монохромного экрана до OLED и 5G. Сравни два поколения и увидишь масштаб перемен.",
     "cta": "Сравнить поколения",
     "principles": "История имеет значение"
@@ -320,7 +320,7 @@ export const HOME_EDITORIAL = {
       "The smartphone era",
       "New forms"
     ],
-    "compare": "Twenty years between calls",
+    "compare": "26 years between calls",
     "text": "From buttons and a monochrome screen to OLED and 5G. Compare two generations to see how much changed.",
     "cta": "Compare generations",
     "principles": "The history matters"

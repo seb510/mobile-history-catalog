@@ -31,6 +31,8 @@ simType: Nano-SIM + eSIM
 camera:
   rear: 50 + 12 Мп
   front: 8 Мп
+priceSourceUrl: https://blog.google/products-and-platforms/devices/pixel/meet-pixel-6-pixel-6-pro/
+priceContext: США, базовая версия
 ---
 
 Pixel 6 стал поворотным поколением серии: Google представила собственную платформу Tensor, Android 12 и новую горизонтальную панель камер. Приоритетом стали вычислительная фотография, распознавание речи и машинное обучение непосредственно на устройстве.
@@ -41,3 +43,6 @@ Pixel 6 стал поворотным поколением серии: Google п
 Память указана для базовой конфигурации; также существовала версия с 256 ГБ. Ёмкость батареи — типичная. Доступность вариантов памяти и функций связи зависит от региона.
 
 [Google — hardware specifications](https://support.google.com/pixelphone/answer/7158570?hl=en).
+
+
+[Стартовая цена — анонс Google](https://blog.google/products-and-platforms/devices/pixel/meet-pixel-6-pixel-6-pro/).

@@ -26,6 +26,15 @@ colors:
 camera:
   rear: 50 + 48 MP
   front: 10.5 MP
+os: Android 14
+network: GSM, UMTS, LTE, 5G
+simType: Nano-SIM + eSIM
+connectivity:
+  - Wi-Fi 7 / Wi-Fi 6 (IN)
+  - Bluetooth 5.3
+  - NFC
+  - USB-C 3.2
+  - Qi
 ---
 
 Pixel 9 introduced a new design language for the 2024 generation: flat front and back surfaces, rounded corners, and a separate oval camera bar in place of the band that joined the frame. The familiar horizontal layout remained, now expressed as a distinct element.
