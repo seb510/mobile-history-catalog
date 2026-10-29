@@ -2,7 +2,7 @@
 import PhoneCard from './PhoneCard.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { t } from '../lib/ui-strings';
+import { t, HOME_EDITORIAL } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 
 interface Props {
@@ -20,8 +20,12 @@ const bestSellers = phones
   .filter((p) => p.data.unitsSoldMillions != null)
   .sort((a, b) => b.data.unitsSoldMillions! - a.data.unitsSoldMillions!)
   .slice(0, 4);
-const coverPhone = bestSellers[0];
-const otherBestSellers = coverPhone ? bestSellers.slice(1) : bestSellers;
+const coverPhone = phones.find(p => slugOf(p) === 'nokia-3310');
+const copy = HOME_EDITORIAL[locale];
+const eras = [1999, 2004, 2007, 2019];
+const ranges = ['1998–2002', '2003–2006', '2007–2018', '2019–…'];
+const pair = ['nokia-3310', 'apple-iphone-12'].map(slug => phones.find(p => slugOf(p) === slug));
+const otherBestSellers = bestSellers;
 
 const stats = [
   { value: phones.length, label: strings.hero.statsPhones },
@@ -37,7 +41,7 @@ const stats = [
       <span class="h-2 w-2 bg-orange-500"></span>{strings.hero.eyebrow}
     </p>
     <h1 class="animate-fade-up max-w-xl text-5xl font-extrabold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl" style="animation-delay:0.05s">
-      {strings.siteName}
+      {copy.title}
     </h1>
     <p class="animate-fade-up mt-5 max-w-lg text-lg leading-relaxed text-neutral-400" style="animation-delay:0.1s">
       {strings.tagline}
@@ -77,7 +81,7 @@ const stats = [
           <PlaceholderArt class="h-full w-full text-neutral-600" />
         )}
         <span class="editorial-kicker absolute top-3 left-3 bg-orange-500 px-2 py-1 text-neutral-950">
-          #{1} · {coverPhone.data.unitsSoldMillions} {strings.hero.soldSuffix}
+          {copy.cover}
         </span>
       </div>
       <div class="grid gap-2 p-4 sm:grid-cols-[1fr_auto] sm:items-end sm:p-5">
@@ -102,6 +106,8 @@ const stats = [
   </div>
 </section>
 
+<section class="py-9 sm:py-12" aria-labelledby="eras-title"><h2 id="eras-title" class="editorial-kicker mb-5 text-neutral-400">{copy.eras}</h2><ol class="grid grid-cols-2 gap-px border border-neutral-800 bg-neutral-800 lg:grid-cols-4">{eras.map((year,i) => <li class="bg-neutral-950"><a href={localePath(locale,'/catalog/') + '#year-' + year} class="block p-5 transition-colors motion-ui hover-desktop:bg-neutral-900"><p class="text-2xl font-extrabold tracking-tight text-orange-500">{ranges[i]}</p><p class="mt-4 text-sm font-semibold">{copy.labels[i]} ↗</p></a></li>)}</ol></section>
+{pair.every(Boolean) && <section class="grid overflow-hidden border border-neutral-800 bg-neutral-900/50 lg:grid-cols-2"><div class="flex flex-col justify-center p-6 sm:p-8"><p class="editorial-kicker text-orange-500">2000 → 2020</p><h2 class="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">{copy.compare}</h2><p class="mt-4 leading-relaxed text-neutral-400">{copy.text}</p><a href={localePath(locale,'/compare/') + '?a=nokia-3310&b=apple-iphone-12'} class="mt-6 self-start rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-colors motion-ui hover-desktop:bg-orange-400">{copy.cta} →</a></div><div class="grid grid-cols-2 divide-x divide-neutral-800 border-t border-neutral-800 lg:border-t-0 lg:border-l">{pair.map(phone => phone && <a href={localePath(locale,'/phones/' + slugOf(phone) + '/')} class="min-w-0 p-4 sm:p-6"><p class="text-3xl font-extrabold text-neutral-500">{phone.data.year}</p><div class="relative my-4 flex h-40 items-center justify-center sm:h-52">{phone.data.image ? <><img data-image-fallback src={phone.data.image} alt={phone.data.brand + ' ' + phone.data.model} loading="lazy" class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</div><h3 class="text-lg font-bold">{phone.data.brand} {phone.data.model}</h3><p class="mt-2 text-sm leading-relaxed text-neutral-400">{phone.data.milestone}</p></a>)}</div></section>}
 {bestSellers.length > 0 && (
   <section class="pt-10 sm:pt-12">
     <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
@@ -112,10 +118,10 @@ const stats = [
       <p class="max-w-md text-sm leading-relaxed text-neutral-400 sm:text-right">{strings.hero.popularSubtitle}</p>
     </div>
     {otherBestSellers.length > 0 && (
-      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {otherBestSellers.map((phone, i) => (
         <li>
-          <PhoneCard phone={phone} locale={locale} badge={`#${i + 2} · ${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
+          <PhoneCard phone={phone} locale={locale} badge={`#${i + 1} · ${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
         </li>
         ))}
       </ul>
@@ -123,25 +129,4 @@ const stats = [
   </section>
 )}
 
-<section class="mt-12 border-y border-neutral-800 py-7 sm:mt-16 sm:py-8" aria-labelledby="explore-title">
-  <div class="mb-5 flex items-baseline gap-3">
-    <span class="editorial-kicker text-orange-500" aria-hidden="true">→</span>
-    <h2 id="explore-title" class="text-xl font-bold tracking-tight sm:text-2xl">{strings.hero.guideTitle}</h2>
-  </div>
-  <div class="grid gap-3 sm:grid-cols-2 sm:gap-5">
-    <a href={localePath(locale, '/catalog/')} class="group flex items-start gap-4 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors motion-ui hover-desktop:border-orange-500/60 sm:p-5">
-      <span class="editorial-kicker mt-1 text-orange-500">01</span>
-      <span>
-        <span class="block font-semibold text-neutral-100">{strings.nav.catalog}</span>
-        <span class="mt-1 block text-sm leading-relaxed text-neutral-400">{strings.hero.guideCatalog}</span>
-      </span>
-    </a>
-    <a href={localePath(locale, '/compare/')} class="group flex items-start gap-4 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors motion-ui hover-desktop:border-orange-500/60 sm:p-5">
-      <span class="editorial-kicker mt-1 text-orange-500">02</span>
-      <span>
-        <span class="block font-semibold text-neutral-100">{strings.nav.compare}</span>
-        <span class="mt-1 block text-sm leading-relaxed text-neutral-400">{strings.hero.guideCompare}</span>
-      </span>
-    </a>
-  </div>
-</section>
+<section class="mt-12 border-y border-neutral-800 py-8 sm:mt-16"><div class="flex flex-wrap items-end justify-between gap-4"><h2 class="text-2xl font-extrabold sm:text-3xl">{copy.principles}</h2><a href={localePath(locale,'/about/')} class="text-sm font-semibold text-orange-500 underline underline-offset-4">{strings.hero.ctaAbout} →</a></div><div class="mt-7 grid gap-6 sm:grid-cols-3">{[strings.about.sections[1], strings.about.sections[2], strings.about.sections[5]].map((item,i) => <div class="border-t border-neutral-800 pt-4"><p class="editorial-kicker text-orange-500">0{i+1}</p><h3 class="mt-3 text-lg font-bold">{item.title}</h3><p class="mt-2 text-sm leading-relaxed text-neutral-400">{item.paragraphs[0]}</p></div>)}</div></section>

@@ -209,3 +209,13 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Головна: редакційна композиція
+
+Головна має куровану обкладинку Nokia 3310, стрічку епох з посиланнями на `#year-YYYY` каталогу, готове порівняння Nokia 3310 / iPhone 12, бестселери та принципи проєкту. Тексти трьох мов зберігаються в `HOME_EDITORIAL` у `src/lib/ui-strings.ts`.
+
+## Google Pixel
+
+Бренд Google (`google`) має локалізовані сторінки uk/ru/en. Курована добірка: Pixel (2016), Pixel 6 (2021), Pixel 8 (2023), Pixel 9 (2024, оновлення дизайну серії); усі чотири моделі перекладені трьома мовами, джерела Google наведені в текстах. Фото всіх чотирьох Pixel підключені з Wikimedia Commons із перевіреними ліцензіями CC BY-SA 4.0 / CC0, авторством і посиланнями на File-сторінки в усіх локалях. Лого Google поки використовує текстовий фолбек.
+
+Характеристики Pixel звірено з Google Pixel Phone Help (7158570; для Pixel 2016 — 16043605). `storageMb` описує базову конфігурацію; альтернативи та регіональні відмінності пояснюються в тексті. Ємність батареї — типова; ОС указана на старті.

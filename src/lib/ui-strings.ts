@@ -278,3 +278,51 @@ export const UI = {
 export function t(locale: Locale) {
   return UI[locale];
 }
+
+export const HOME_EDITORIAL = {
+  "uk": {
+    "title": "Телефони, що змінили наше життя",
+    "cover": "Герой епохи",
+    "eras": "Знайди свою епоху",
+    "labels": [
+      "Масовий GSM",
+      "Камера й музика",
+      "Ера смартфонів",
+      "Нові форми"
+    ],
+    "compare": "Двадцять років між дзвінками",
+    "text": "Від кнопок і монохромного екрана до OLED та 5G. Порівняй два покоління й побач масштаб змін.",
+    "cta": "Порівняти покоління",
+    "principles": "Історія має значення"
+  },
+  "ru": {
+    "title": "Телефоны, которые изменили нашу жизнь",
+    "cover": "Герой эпохи",
+    "eras": "Найди свою эпоху",
+    "labels": [
+      "Массовый GSM",
+      "Камера и музыка",
+      "Эра смартфонов",
+      "Новые формы"
+    ],
+    "compare": "Двадцать лет между звонками",
+    "text": "От кнопок и монохромного экрана до OLED и 5G. Сравни два поколения и увидишь масштаб перемен.",
+    "cta": "Сравнить поколения",
+    "principles": "История имеет значение"
+  },
+  "en": {
+    "title": "Phones that changed our lives",
+    "cover": "An icon of its era",
+    "eras": "Find your era",
+    "labels": [
+      "Mass-market GSM",
+      "Camera and music",
+      "The smartphone era",
+      "New forms"
+    ],
+    "compare": "Twenty years between calls",
+    "text": "From buttons and a monochrome screen to OLED and 5G. Compare two generations to see how much changed.",
+    "cta": "Compare generations",
+    "principles": "The history matters"
+  }
+} as const;

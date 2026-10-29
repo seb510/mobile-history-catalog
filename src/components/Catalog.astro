@@ -67,7 +67,7 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
 
 <ol class="relative space-y-12 border-l border-neutral-800 pl-6 sm:pl-7" data-catalog-list>
   {years.map((year) => (
-    <li data-year-group={year} class="relative">
+    <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-24">
       <div class="mb-4 flex items-baseline gap-3 border-b border-neutral-800 pb-2">
         <span class="absolute -left-7 top-2.5 h-2 w-2 rounded-full bg-orange-500 sm:-left-8" aria-hidden="true"></span>
         <h2 class="text-2xl font-extrabold tracking-tight text-orange-500">{year}</h2>
