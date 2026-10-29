@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PhoneDetail from '../../components/PhoneDetail.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getAllSlugs, getPhone } from '../../lib/phones';
+import { slugifyBrandName } from '../../lib/brands';
 import { t } from '../../lib/ui-strings';
 
 const locale = 'uk' as const;
@@ -24,6 +26,11 @@ const description = data.milestone
 ---
 
 <Layout locale={locale} path={`/phones/${slug}/`} title={title} description={description} ogImage={data.image} type="article">
-  <a href="/catalog/" class="mb-6 inline-block text-sm text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100">{strings.backToTimeline}</a>
+  <Breadcrumbs locale={locale} items={[
+    { label: strings.breadcrumbs.home, path: '/' },
+    { label: strings.nav.catalog, path: '/catalog/' },
+    { label: data.brand, path: `/brands/${slugifyBrandName(data.brand)}/` },
+    { label: data.model },
+  ]} />
   <PhoneDetail phone={phone} locale={locale} />
 </Layout>

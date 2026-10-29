@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Catalog from '../../../components/Catalog.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { t } from '../../../lib/ui-strings';
 
 const locale = 'en' as const;
@@ -8,6 +9,7 @@ const strings = t(locale);
 ---
 
 <Layout locale={locale} path="/catalog/" title={`${strings.nav.catalog} — ${strings.siteName}`} description={strings.footer.about}>
+  <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.catalog }]} />
   <h1 class="page-title mb-6">{strings.nav.catalog}</h1>
   <Catalog locale={locale} />
 </Layout>

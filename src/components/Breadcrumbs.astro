@@ -1,0 +1,41 @@
+---
+import { localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Item {
+  label: string;
+  path?: string;
+}
+
+interface Props {
+  locale: Locale;
+  items: Item[];
+}
+
+const { locale, items } = Astro.props;
+const strings = t(locale);
+---
+
+<nav aria-label={strings.breadcrumbs.label} class="mb-5 text-xs text-neutral-400 sm:text-sm">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {items.map((item, index) => (
+      <li class="inline-flex items-center gap-2">
+        {item.path ? (
+          <a
+            href={localePath(locale, item.path)}
+            class="underline decoration-neutral-600 underline-offset-4 transition-colors duration-200 hover-desktop:text-orange-500"
+          >
+            {item.label}
+          </a>
+        ) : (
+          <span aria-current="page" class="font-medium text-neutral-100">{item.label}</span>
+        )}
+        {index < items.length - 1 && (
+          <svg class="h-3 w-3 text-neutral-600" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

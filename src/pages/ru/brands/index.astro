@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import BrandsIndex from '../../../components/BrandsIndex.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { t } from '../../../lib/ui-strings';
 
 const locale = 'ru' as const;
@@ -8,6 +9,7 @@ const strings = t(locale);
 ---
 
 <Layout locale={locale} path="/brands/" title={`${strings.brands.indexTitle} — ${strings.siteName}`} description={strings.brands.indexSubtitle}>
+  <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.brands }]} />
   <h1 class="page-title mb-2">{strings.brands.indexTitle}</h1>
   <p class="mb-6 text-neutral-400">{strings.brands.indexSubtitle}</p>
   <BrandsIndex locale={locale} />

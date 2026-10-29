@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import BrandDetail from '../../../components/BrandDetail.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { getAllBrandSlugs, getBrand } from '../../../lib/brands';
 import { t } from '../../../lib/ui-strings';
 
@@ -22,6 +23,10 @@ const description = `${data.name}: ${strings.brands.allPhones.toLowerCase()}.`;
 ---
 
 <Layout locale={locale} path={`/brands/${slug}/`} title={title} description={description}>
-  <a href="/en/catalog/" class="mb-6 inline-block text-sm text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100">{strings.backToTimeline}</a>
+  <Breadcrumbs locale={locale} items={[
+    { label: strings.breadcrumbs.home, path: '/' },
+    { label: strings.nav.brands, path: '/brands/' },
+    { label: data.name },
+  ]} />
   <BrandDetail brand={brand} locale={locale} />
 </Layout>

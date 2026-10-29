@@ -66,6 +66,17 @@ const absoluteOgImage = new URL(ogImage, Astro.site).toString();
       <slot />
     </main>
     <Footer locale={locale} />
+    <script is:inline>
+      document.querySelectorAll('a[href]').forEach((link) => {
+        try {
+          const url = new URL(link.href, window.location.href);
+          if (url.origin !== window.location.origin && ['http:', 'https:'].includes(url.protocol)) {
+            link.target = '_blank';
+            link.relList.add('noopener', 'noreferrer');
+          }
+        } catch {}
+      });
+    </script>
     <script>
       import '../scripts/image-fallback';
     </script>

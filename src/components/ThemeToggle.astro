@@ -1,14 +1,19 @@
 ---
+import { t } from '../lib/ui-strings';
+import type { Locale } from '../lib/locales';
+
 interface Props {
+  locale: Locale;
   class?: string;
 }
-const { class: className = '' } = Astro.props;
+const { locale, class: className = '' } = Astro.props;
+const strings = t(locale);
 ---
 
 <button
   type="button"
   class={`theme-toggle-btn flex h-8 w-8 items-center justify-center rounded-md border border-neutral-800 text-neutral-400 transition-colors duration-200 hover-desktop:text-neutral-100 ${className}`}
-  aria-label="Перемкнути тему"
+  aria-label={strings.themeToggle}
 >
   <svg class="theme-icon-sun h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
     <circle cx="10" cy="10" r="3.5" />

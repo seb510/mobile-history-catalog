@@ -49,11 +49,19 @@ failing on a phone file is the equivalent of a failing test.
   `getPhone(locale, slug)` і `getPhonesForLocale(locale)` — єдина точка доступу до контенту з
   урахуванням fallback; не читай колекцію напряму в сторінках.
 - `src/lib/ui-strings.ts` — словник текстів інтерфейсу (нав, футер, фільтри, підписи специфікацій,
-  сторінка "Про проєкт") окремо від контенту телефонів, який живе в markdown. `src/lib/seo.ts` —
-  будує canonical/hreflang/og:locale для `<head>`.
+  крихти, мобільне меню й перемикач теми, сторінка "Про проєкт") окремо від контенту телефонів,
+  який живе в markdown. `src/lib/seo.ts` — будує canonical/hreflang/og:locale для `<head>`.
+- Inline-скрипт у `src/layouts/Layout.astro` призначає зовнішнім HTTP(S)-посиланням `target="_blank"`
+  і додає `rel="noopener noreferrer"`; внутрішні посилання лишаються в цій вкладці. Для статичних
+  зовнішніх посилань у компонентах також виставляй ці атрибути явно в розмітці.
+- `src/components/Breadcrumbs.astro` — спільна локалізована навігація для каталогу, брендів,
+  порівняння, сторінки про проєкт, сторінок телефонів і брендів та 404; посилання формуються через
+  `localePath()`, останній елемент позначається `aria-current="page"`.
 - `src/layouts/Layout.astro` — єдиний layout: повний SEO `<head>` (title/description/canonical/
   hreflang на всі 3 локалі/OG/Twitter) + `Header` + `Footer`. Приймає `path` (без префікса локалі,
-  однаковий для всіх 3 мов) — з нього будуються canonical і перемикач мов.
+  однаковий для всіх 3 мов) — з нього будуються canonical і перемикач мов. Header локалізує кнопки
+  меню й теми; мобільне меню недоступне Tab-навігації у згорнутому стані, закривається Escape.
+  Footer повторює бренд і основні маршрути та показує відомості про ліцензування контенту.
 - `src/pages/index.astro` (+ ru/en) — hero-головна (`src/components/Hero.astro`): заголовок,
   статистика каталогу, блок "найпопулярніші за продажами" (`unitsSoldMillions` у фронтматері —
   заповнений лише для моделей із публічно відомими цифрами).
@@ -125,6 +133,7 @@ failing on a phone file is the equivalent of a failing test.
 - Ховер-ефекти — лише на пристроях з мишкою: кастомний Tailwind-варіант `hover-desktop:`
   (визначений у `src/styles/global.css` через `@custom-variant`, `@media (hover: hover) and
   (pointer: fine)`) замість стандартного `hover:` для декоративних станів (не для `focus:`).
+  Анімації та переходи мають поважати `prefers-reduced-motion`.
 - `@astrojs/react` підключений в `astro.config.mjs`; `CompareIsland.tsx` (див. вище) — єдиний
   React-компонент у проєкті, рендериться лише на `/compare/`.
 - `AGENTS.md` у корені — дублікат цього файлу (той самий контент, інший формат для агентів, що

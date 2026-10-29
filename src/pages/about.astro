@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { t } from '../lib/ui-strings';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const locale = 'uk' as const;
 const strings = t(locale);
 ---
 
 <Layout locale={locale} path="/about/" title={`${strings.about.title} — ${strings.siteName}`} description={strings.footer.about}>
+  <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.about.title }]} />
   <p class="editorial-kicker inline-block border-l-4 border-orange-500 py-1 pl-3 text-orange-500">
     {strings.siteName}
   </p>

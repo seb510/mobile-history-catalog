@@ -7,8 +7,12 @@ export const UI = {
   uk: {
     siteName: 'Мобільна Історія',
     tagline: 'Таймлайн етапних телефонів з 1998 року',
+    breadcrumbs: { label: 'Навігаційний ланцюжок', home: 'Головна' },
     nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', about: 'Про проєкт' },
+    menu: { open: 'Відкрити меню', close: 'Закрити меню' },
+    themeToggle: 'Перемкнути тему',
     footer: {
+      navigation: 'Розділи',
       about:
         'Курований таймлайн мобільних телефонів, що реально змінили індустрію — не повний каталог моделей.',
       inspiredBy: 'Натхненно форматом журналу MobiLux (2004–2016)',
@@ -67,7 +71,6 @@ export const UI = {
       popularSubtitle: 'Моделі з офіційно підтвердженими рекордними тиражами',
       soldSuffix: 'млн шт.',
     },
-    backToTimeline: '← Таймлайн',
     langSwitcher: 'Мова',
     units: { mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
@@ -84,8 +87,12 @@ export const UI = {
   ru: {
     siteName: 'Мобильная История',
     tagline: 'Таймлайн знаковых телефонов с 1998 года',
+    breadcrumbs: { label: 'Навигационная цепочка', home: 'Главная' },
     nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', about: 'О проекте' },
+    menu: { open: 'Открыть меню', close: 'Закрыть меню' },
+    themeToggle: 'Переключить тему',
     footer: {
+      navigation: 'Разделы',
       about:
         'Курированный таймлайн мобильных телефонов, которые реально изменили индустрию — не полный каталог моделей.',
       inspiredBy: 'Вдохновлено форматом журнала MobiLux (2004–2016)',
@@ -144,7 +151,6 @@ export const UI = {
       popularSubtitle: 'Модели с официально подтверждёнными рекордными тиражами',
       soldSuffix: 'млн шт.',
     },
-    backToTimeline: '← Таймлайн',
     langSwitcher: 'Язык',
     units: { mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
@@ -161,8 +167,12 @@ export const UI = {
   en: {
     siteName: 'Mobile History',
     tagline: 'A timeline of milestone phones since 1998',
+    breadcrumbs: { label: 'Breadcrumb', home: 'Home' },
     nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', about: 'About' },
+    menu: { open: 'Open menu', close: 'Close menu' },
+    themeToggle: 'Toggle color theme',
     footer: {
+      navigation: 'Explore',
       about: 'A curated timeline of mobile phones that actually changed the industry — not a full model catalog.',
       inspiredBy: 'Inspired by the format of MobiLux magazine (2004–2016)',
       sisterProject: 'Sister project',
@@ -220,7 +230,6 @@ export const UI = {
       popularSubtitle: 'Models with officially confirmed record-breaking sales figures',
       soldSuffix: 'million units',
     },
-    backToTimeline: '← Timeline',
     langSwitcher: 'Language',
     units: { mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
