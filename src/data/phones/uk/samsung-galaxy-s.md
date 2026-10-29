@@ -29,6 +29,11 @@ simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Samsung_i9000_galaxy_s.jpeg/960px-Samsung_i9000_galaxy_s.jpeg"
 imageCredit: "Фото: Grobert, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_i9000_galaxy_s.jpeg"
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/8/82/Android_4.4.2%2C_CyanogenMod_11_installed_on_Samsung_Galaxy_S_I9000.png
+    alt: Samsung Galaxy S I9000 з Android 4.4.2 і CyanogenMod 11
+    imageCredit: "Фото: Amrith Raj, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Android_4.4.2,_CyanogenMod_11_installed_on_Samsung_Galaxy_S_I9000.png
 ---
 
 Перший Galaxy S вийшов влітку 2010 року як пряма відповідь Samsung на зростаючу популярність
