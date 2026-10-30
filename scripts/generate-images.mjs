@@ -17,7 +17,7 @@ async function renderFavicons() {
 }
 
 function ogSvg({ siteName, tagline }) {
-  // Same badge + timeline glyph as LogoMark/favicon, scaled up, for one consistent brand mark
+  // Same badge + keypad handset as LogoMark/favicon, scaled up, for one consistent brand mark
   // across the header, the favicon, and this share image.
   return `
   <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
@@ -39,14 +39,7 @@ function ogSvg({ siteName, tagline }) {
     <rect x="0" y="0" width="1200" height="8" fill="#ea580c" />
 
     <circle cx="208" cy="251" r="170" fill="url(#glow)" />
-    <g transform="translate(120,163)">
-      <rect width="176" height="176" rx="44" fill="url(#badge)" />
-      <path d="M55 36v104" stroke="#fff7ed" stroke-width="8.25" stroke-linecap="round" opacity="0.65" />
-      <circle cx="55" cy="47" r="12.375" fill="#fff7ed" />
-      <circle cx="55" cy="88" r="12.375" fill="#fff7ed" />
-      <circle cx="55" cy="129" r="12.375" fill="#fff7ed" />
-      <path d="M82.5 49.5h49.5M82.5 88h33M82.5 126.5h55" stroke="#fff7ed" stroke-width="9.625" stroke-linecap="round" />
-    </g>
+    ${faviconSvg.toString().replace('<svg ', '<svg x="120" y="163" width="176" height="176" ')}
 
     <text x="360" y="300" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#fafafa">${siteName}</text>
     <text x="360" y="350" font-family="Arial, sans-serif" font-size="30" fill="#a3a3a3">${tagline}</text>
@@ -55,7 +48,7 @@ function ogSvg({ siteName, tagline }) {
 }
 
 async function renderOg() {
-  const svg = ogSvg({ siteName: 'Мобільна Історія', tagline: 'Таймлайн етапних телефонів' });
+  const svg = ogSvg({ siteName: 'Мобільна Історія', tagline: 'Телефони з характером' });
   await sharp(Buffer.from(svg)).png().toFile(path.join(root, 'public/og-image.png'));
   console.log('og-image.png written');
 }

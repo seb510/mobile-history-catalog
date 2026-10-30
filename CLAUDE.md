@@ -100,16 +100,8 @@ failing on a phone file is the equivalent of a failing test.
   неторгового використання (ідентифікація бренду в каталозі), якщо для бренду немає перевіреного вільного файлу — лиши `logo` незаповненим.
   Для Apple на запит користувача використовується знак яблука з Commons (`Apple_Logo.svg`,
   PD-textlogo); для Huawei — `Huawei_wordmark.svg` (PD-textlogo).
-- Лого (`src/components/LogoMark.astro`, статично продубльований у `public/favicon.svg` і
-  `scripts/generate-images.mjs`) і заглушка (`src/components/PlaceholderArt.astro`) використовують
-  власну мову вертикальної часової шкали з трьома віхами — абстрактний знак, не схожий на реальний
-  бренд чи модель телефону. Зображення телефонів мають `data-image-fallback` і приховану
-  `PlaceholderArt`; спільний обробник `src/scripts/image-fallback.ts`, підключений у `Layout.astro`,
-  перемикає їх, якщо фото не завантажилось. Якщо не завантажився вордмарк у `BrandMark.astro`,
-  показується назва бренду текстом. OG-зображення й favicon PNG генеруються через
-  `scripts/generate-images.mjs` (`npm run gen:images`) після зміни лого або OG-шаблону й
-  комітяться як статичні assets. Міняючи знак, синхронізуй геометрію у `LogoMark.astro`,
-  `favicon.svg`, `ogSvg()` і в розширених заглушках `PlaceholderArt.astro` та `CompareIsland.tsx`.
+- Лого (`src/components/LogoMark.astro`, `public/favicon.svg`) — власний абстрактний кнопковий телефон: екран, навігаційна риска й сітка 3×3 клавіш на помаранчевій плашці. Це оригінальний знак, не копія моделі чи бренду. Назва лишається «Мобільна Історія», позиціонування — «Телефони з характером» (brandLine у ui-strings.ts; uk/ru/en).
+  `scripts/generate-images.mjs` використовує сам favicon.svg у OG-шаблоні; після зміни знака запускай gen:images і додавай PNG assets до коміту. Геометрію glyph синхронізуй також у PlaceholderArt.astro й PlaceholderIcon у CompareIsland.tsx. Зображення телефонів мають data-image-fallback і приховану заглушку; src/scripts/image-fallback.ts перемикає їх при помилці. BrandMark має власний текстовий fallback.
 - Світла/темна тема — перемикач (`src/components/ThemeToggle.astro`) ставить `data-theme="light"|
   "dark"` на `<html>` і зберігає вибір у `localStorage('theme')`; блокувальний inline-скрипт на
   початку `<head>` в `Layout.astro` застосовує збережений вибір до першого рендеру (без цього —
@@ -396,3 +388,12 @@ CompareIsland має дві колонки слотів також на мобі
 Каталог отримав три тематичні фільтри з RETRO_STORIES та посилання на повні добірки з Hero. URL підтримує story/q/brand/year, стан відновлюється при reload/popstate; невідомі значення story і select нормалізуються до повного набору. Теми поєднуються з наявними фільтрами, reset очищає їх усі. Лічильники біля років показують видимі моделі, а не початкову кількість групи. Тематичний опис і aria-current відображають вибір, рядки епох приховані під час фільтрації. Card має data-slug для точного зіставлення без парсингу URL. У About пояснено тематичну навігацію, збереження URL й скидання uk/ru/en. Канонічні сторінки й sitemap залишаються без query-варіантів.
 
 Ручна перевірка: /catalog/?story=character-2 → 5; + year=2005 → 2; reload відновлює 2; пошук ROKR → 1; reset → 69 і /catalog/. Початковий check/build/SEO-audit успішний. Нових моделей/залежностей, деплою чи push немає.
+
+
+## Айдентика і About — 2026-10-30
+
+Користувач обрав назву «Мобільна Історія — телефони з характером»: siteName збережено, brandLine локалізовано uk/ru/en і показано у footer, title назви header та OG. Новий власний знак кнопкового телефону замінив часову шкалу в LogoMark, favicon, заглушках Astro/React. OG бере геометрію безпосередньо з favicon.svg; PNG favicon-32, apple-touch-icon й og-image перегенеровано. Знак не наслідує конкретного виробника чи модель.
+
+About повністю переписано трьома мовами: значення характеру, критерії добору, MobiLux, три маршрути, порівняння, джерела й реальний стан перекладів. Спільний AboutPage.astro забезпечує одну структуру для трьох тонких маршрутів; логотип, короткий вступ і CTA до каталогу/порівняння. Нових моделей, залежностей, деплою й push немає. OG і uk About оглянуто візуально.
+
+Контроль айдентики: gen:images успішно; astro check — 0 помилок/попереджень і попередня підказка Zod; build — 252 HTML; SEO-audit — 117 canonical URL; diff --check чистий. Візуальна перевірка — OG і uk About на десктопі.

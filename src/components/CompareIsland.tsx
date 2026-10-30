@@ -22,17 +22,7 @@ type Slot = 'a' | 'b';
 
 function PlaceholderIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 200 150" className={className} role="img" aria-hidden="true">
-      <circle cx="42" cy="42" r="2" fill="currentColor" opacity="0.3" />
-      <circle cx="33" cy="100" r="1.6" fill="currentColor" opacity="0.25" />
-      <circle cx="166" cy="104" r="2" fill="currentColor" opacity="0.3" />
-      <circle cx="158" cy="38" r="1.6" fill="currentColor" opacity="0.25" />
-      <path d="M75 28v94" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-      <circle cx="75" cy="43" r="6" fill="currentColor" opacity="0.75" />
-      <circle cx="75" cy="75" r="6" fill="currentColor" opacity="0.75" />
-      <circle cx="75" cy="107" r="6" fill="currentColor" opacity="0.75" />
-      <path d="M90 43h45M90 75h34M90 107h54" stroke="currentColor" strokeWidth="4" strokeLinecap="round" opacity="0.7" />
-    </svg>
+    <svg viewBox="0 0 200 150" className={className} aria-hidden="true"><path d="M43 52h18M43 60h10M139 90h18M147 98h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".25" /><g transform="translate(52 27) scale(1.5)"><rect x="18" y="7" width="28" height="50" rx="7" fill="none" stroke="currentColor" strokeWidth="2.5" /><rect x="24" y="14" width="16" height="14" rx="2" fill="currentColor" opacity=".2" /><path d="M29 32h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><circle cx="25" cy="37" r="1.8" fill="currentColor" /><circle cx="32" cy="37" r="1.8" fill="currentColor" /><circle cx="39" cy="37" r="1.8" fill="currentColor" /><circle cx="25" cy="44" r="1.8" fill="currentColor" /><circle cx="32" cy="44" r="1.8" fill="currentColor" /><circle cx="39" cy="44" r="1.8" fill="currentColor" /><circle cx="25" cy="51" r="1.8" fill="currentColor" /><circle cx="32" cy="51" r="1.8" fill="currentColor" /><circle cx="39" cy="51" r="1.8" fill="currentColor" /></g></svg>
   );
 }
 

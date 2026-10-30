@@ -6,6 +6,7 @@ import type { Locale } from './locales';
 export const UI = {
   uk: {
     siteName: 'Мобільна Історія',
+    brandLine: 'Телефони з характером',
     tagline: 'Ретро-телефони з характером: незвичні форми, справжні кнопки й історії речей, які хотілося тримати в руках.',
     breadcrumbs: { label: 'Навігаційний ланцюжок', home: 'Головна' },
     nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', about: 'Про проєкт' },
@@ -91,20 +92,51 @@ export const UI = {
     units: { yes: 'Так', no: 'Ні', mm: 'мм', standardSim: 'Стандартна SIM (Mini-SIM)', mAh: 'мА·год', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
-      title: 'Про проєкт',
-      intro: 'Мобільна Історія — архів телефонів із власним обличчям. У центрі — кнопкова епоха, сміливий дизайн і повсякденні жести, які залишилися в пам’яті.',
-      sections: [
-        { title: 'Відлік від GSM-буму', paragraphs: ['Таймлайн починається з 1998–1999 років — часу, коли мобільний зв’язок став масовим, — і простягається до сьогодні. Це погляд на кілька десятиліть змін через знакові пристрої.'] },
-        { title: 'Курований вибір', paragraphs: ['Головний критерій — характер: виразний корпус, механізм, клавіатура, матеріали або особливий спосіб користування. Технічна першість і продажі додають контекст, але самі по собі не визначають добір. Сенсорні моделі залишаються продовженням історії, а не її центром.'] },
-        { title: 'Факти та зображення', paragraphs: ['Історичні твердження й характеристики звіряються з надійними джерелами; посилання на джерела зображень наведені біля самих фото. Для зображень ми віддаємо перевагу матеріалам із вільною ліцензією та вказуємо авторство й умови використання.'] },
-        { title: 'Порівняння крізь епохи', paragraphs: ['На сторінці «Порівняти» обери два телефони, щоб побачити спільні характеристики поруч. Невідомі або непідтверджені значення позначені як «Дані невідомі», а вибір зберігається в адресі сторінки — ним можна поділитися або повернутися пізніше.'] },
-        { title: 'Як користуватися таймлайном', paragraphs: ['Почни з тематичної добірки про механіку, музику або незвичний дизайн. У каталозі поєднуй тему з пошуком за назвою, брендом і роком. Вибір зберігається в адресі — посилання можна надіслати або відкрити пізніше. «Скинути фільтри» повертає повний каталог. Сторінки брендів збирають моделі виробника в одному місці.'] },
-        { title: 'Журнал і цифровий архів', paragraphs: ['Тон і формат натхненні українським журналом MobiLux (2004–2016): короткі історії, виразні моделі й увага до контексту. Проєкт створюється вручну українською, російською та англійською мовами й генерується як швидкий статичний сайт.'] },
-      ],
+      "title": "Про проєкт",
+      "intro": "Мобільна Історія — телефони з характером. Архів кнопкової епохи, коли розкладачку впізнавали за силуетом, музичний телефон — за окремою кнопкою, а власний апарат обирали ще й за відчуттям у руці.",
+      "sections": [
+        {
+          "title": "Що для нас означає характер",
+          "paragraphs": [
+            "Форма корпусу, хід клавіш, шарнір, джойстик, матеріали й кольори. Нас цікавить, як ці деталі визначали досвід: відкрити кришку, висунути клавіатуру, повернути музичний блок або написати SMS навпомацки."
+          ]
+        },
+        {
+          "title": "Як ми обираємо телефони",
+          "paragraphs": [
+            "Добір ручний: виразний дизайн, особлива механіка чи сценарій користування мають значення поряд з історичним контекстом. Рекорд продажів або технічна першість самі по собі не визначають місце в архіві. У центрі — ретро; сучасні сенсорні та складані моделі продовжують історію."
+          ]
+        },
+        {
+          "title": "Журнальний погляд",
+          "paragraphs": [
+            "Нас надихає український журнал MobiLux (2004–2016): сильна обкладинка, помітна типографіка, коротка історія й технічний портрет. Відлік каталогу починається з 1998–1999 років, часу масового GSM-буму. Знак проєкту — власний абстрактний телефон з екраном і клавіатурою."
+          ]
+        },
+        {
+          "title": "Три маршрути архівом",
+          "paragraphs": [
+            "«Механіка характеру», «Музика в кишені» та «Дизайн без правил» допомагають знайти спільну ідею в телефонах різних брендів. На головній — герої добірок, у каталозі — повні списки. Поєднуй тему з пошуком, брендом і роком; вибір зберігається в адресі."
+          ]
+        },
+        {
+          "title": "Порівнюй характери",
+          "paragraphs": [
+            "Постав поруч дві моделі, щоб дослідити габарити, вагу, екран і можливості у контексті їхнього часу. «Дані невідомі» означає пропуск або непідтверджене значення; «Немає» — явно зазначену відсутність функції. Кнопка копіювання зберігає посилання на вибрану пару."
+          ]
+        },
+        {
+          "title": "Ностальгія з джерелами",
+          "paragraphs": [
+            "Історії та характеристики перевіряємо за анонсами, інструкціями й іншими надійними джерелами. Посилання в описі не означає автоматичної перевірки кожного поля; прогалини залишаємо відкритими. Фото використовуємо з вільними ліцензіями й атрибуцією, без підтвердженого зображення показуємо заглушку. Тексти інтерфейсу доступні українською, російською й англійською; частина історій у перекладах поки використовує український текст."
+          ]
+        }
+      ]
     },
   },
   ru: {
     siteName: 'Мобильная История',
+    brandLine: 'Телефоны с характером',
     tagline: 'Ретро-телефоны с характером: необычные формы, настоящие кнопки и истории вещей, которые хотелось держать в руках.',
     breadcrumbs: { label: 'Навигационная цепочка', home: 'Главная' },
     nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', about: 'О проекте' },
@@ -190,20 +222,51 @@ export const UI = {
     units: { yes: 'Да', no: 'Нет', mm: 'мм', standardSim: 'Стандартная SIM (Mini-SIM)', mAh: 'мА·ч', gb: 'ГБ', mb: 'МБ', g: 'г' },
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
-      title: 'О проекте',
-      intro: 'Мобильная История — архив телефонов со своим лицом. В центре — кнопочная эпоха, смелый дизайн и повседневные жесты, которые остались в памяти.',
-      sections: [
-        { title: 'Отсчёт с GSM-бума', paragraphs: ['Таймлайн начинается в 1998–1999 годах — когда мобильная связь стала массовой, — и продолжается до сегодня. Это взгляд на несколько десятилетий перемен через знаковые устройства.'] },
-        { title: 'Курированный выбор', paragraphs: ['Главный критерий — характер: выразительный корпус, механизм, клавиатура, материалы или особый способ использования. Техническое первенство и продажи добавляют контекст, но сами по себе не определяют отбор. Сенсорные модели продолжают историю, а не становятся её центром.'] },
-        { title: 'Факты и изображения', paragraphs: ['Исторические сведения и характеристики сверяются с надёжными источниками; ссылки на источники изображений находятся рядом с фотографиями. Мы отдаём предпочтение материалам со свободной лицензией и указываем авторство и условия использования.'] },
-        { title: 'Сравнение эпох', paragraphs: ['На странице «Сравнить» выбери два телефона, чтобы увидеть общие характеристики рядом. Неизвестные или неподтверждённые значения обозначены как «Данные неизвестны», а выбор сохраняется в адресе страницы — ссылкой можно поделиться или вернуться позже.'] },
-        { title: 'Как пользоваться таймлайном', paragraphs: ['Начни с тематической подборки о механике, музыке или необычном дизайне. В каталоге сочетай тему с поиском по названию, брендом и годом. Выбор сохраняется в адресе — ссылкой можно поделиться или открыть её позже. «Сбросить фильтры» возвращает полный каталог. Страницы брендов собирают модели производителя в одном месте.'] },
-        { title: 'Журнал и цифровой архив', paragraphs: ['Тон и формат вдохновлены украинским журналом MobiLux (2004–2016): короткие истории, выразительные модели и внимание к контексту. Проект вручную ведётся на украинском, русском и английском и генерируется как быстрый статический сайт.'] },
-      ],
+      "title": "О проекте",
+      "intro": "Мобильная История — телефоны с характером. Архив кнопочной эпохи, когда раскладушку узнавали по силуэту, музыкальный телефон — по отдельной кнопке, а свой аппарат выбирали ещё и по ощущению в руке.",
+      "sections": [
+        {
+          "title": "Что для нас означает характер",
+          "paragraphs": [
+            "Форма корпуса, ход клавиш, шарнир, джойстик, материалы и цвета. Нас интересует, как эти детали определяли опыт: открыть крышку, выдвинуть клавиатуру, повернуть музыкальный блок или написать SMS на ощупь."
+          ]
+        },
+        {
+          "title": "Как мы выбираем телефоны",
+          "paragraphs": [
+            "Отбор ручной: выразительный дизайн, особая механика или сценарий использования важны вместе с историческим контекстом. Рекорд продаж или техническое первенство сами по себе не определяют место в архиве. В центре — ретро; современные сенсорные и складные модели продолжают историю."
+          ]
+        },
+        {
+          "title": "Журнальный взгляд",
+          "paragraphs": [
+            "Нас вдохновляет украинский журнал MobiLux (2004–2016): сильная обложка, заметная типографика, короткая история и технический портрет. Отсчёт каталога начинается с 1998–1999 годов, времени массового GSM-бума. Знак проекта — собственный абстрактный телефон с экраном и клавиатурой."
+          ]
+        },
+        {
+          "title": "Три маршрута по архиву",
+          "paragraphs": [
+            "«Механика характера», «Музыка в кармане» и «Дизайн без правил» помогают найти общую идею у телефонов разных брендов. На главной — герои подборок, в каталоге — полные списки. Сочетай тему с поиском, брендом и годом; выбор сохраняется в адресе."
+          ]
+        },
+        {
+          "title": "Сравнивай характеры",
+          "paragraphs": [
+            "Поставь рядом две модели, чтобы изучить размеры, вес, экран и возможности в контексте их времени. «Данные неизвестны» означает пропуск или неподтверждённое значение; «Нет» — явно указанное отсутствие функции. Кнопка копирования сохраняет ссылку на выбранную пару."
+          ]
+        },
+        {
+          "title": "Ностальгия с источниками",
+          "paragraphs": [
+            "Истории и характеристики проверяем по анонсам, инструкциям и другим надёжным источникам. Ссылка в описании не означает автоматической проверки каждого поля; пробелы оставляем открытыми. Для фото используем свободные лицензии и атрибуцию; без подтверждённого изображения показываем заглушку. Интерфейс доступен на украинском, русском и английском; часть историй в переводах пока использует украинский текст."
+          ]
+        }
+      ]
     },
   },
   en: {
     siteName: 'Mobile History',
+    brandLine: 'Phones with character',
     tagline: 'Retro phones with character: distinctive shapes, real buttons and the stories of objects you wanted to hold.',
     breadcrumbs: { label: 'Breadcrumb', home: 'Home' },
     nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', about: 'About' },
@@ -288,16 +351,46 @@ export const UI = {
     units: { yes: 'Yes', no: 'No', mm: 'mm', standardSim: 'Standard SIM (Mini-SIM)', mAh: 'mAh', gb: 'GB', mb: 'MB', g: 'g' },
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
-      title: 'About the project',
-      intro: 'Mobile History is an archive of phones with a character of their own. At its heart are the button-phone era, bold design and everyday gestures that stayed with us.',
-      sections: [
-        { title: 'Starting with the GSM boom', paragraphs: ['The timeline begins in 1998–1999, when mobile communication went mainstream, and continues to the present. It traces several decades of change through milestone devices.'] },
-        { title: 'A curated selection', paragraphs: ['The main criterion is character: a distinctive body, mechanism, keypad, materials or way of using a phone. Technical firsts and sales add context, but do not determine selection alone. Touchscreen models continue the story rather than take centre stage.'] },
-        { title: 'Facts and images', paragraphs: ['Historical claims and specifications are checked against reliable sources; image-source links appear alongside the photos. We prefer freely licensed material and credit its creators and license terms.'] },
-        { title: 'Comparing eras', paragraphs: ['Choose two phones on the Compare page to see their specifications side by side. Unknown or unverified values are marked as “Unknown”, and your selection stays in the page URL so you can share it or return later.'] },
-        { title: 'Using the timeline', paragraphs: ['Start with a collection about mechanics, music or unusual design. Combine a theme with model search, brand and year filters in the catalog. Your selection stays in the URL, ready to share or revisit. Reset filters to return to the full catalog. Brand pages bring each manufacturer’s featured phones together.'] },
-        { title: 'A magazine and a digital archive', paragraphs: ['The tone and format take inspiration from Ukrainian magazine MobiLux (2004–2016): concise stories, distinctive devices, and historical context. The project is curated in Ukrainian, Russian, and English, then generated as a fast static site.'] },
-      ],
+      "title": "About",
+      "intro": "Mobile History — phones with character. An archive of the button-phone era, when a clamshell was recognised by its silhouette, a music phone by its dedicated key, and a handset was chosen for how it felt in your hand.",
+      "sections": [
+        {
+          "title": "What character means to us",
+          "paragraphs": [
+            "Body shapes, key travel, hinges, joysticks, materials and colours. We explore how these details shaped everyday use: flipping a phone open, sliding out a keypad, twisting a music block or typing an SMS by touch."
+          ]
+        },
+        {
+          "title": "How we choose phones",
+          "paragraphs": [
+            "Selection is manual: distinctive design, mechanics or ways of using a phone matter alongside historical context. Sales records and technical firsts alone do not determine a place in the archive. Retro phones are at its heart; modern touchscreen and folding models continue the story."
+          ]
+        },
+        {
+          "title": "A magazine perspective",
+          "paragraphs": [
+            "We take inspiration from Ukrainian magazine MobiLux (2004–2016): a strong cover, expressive typography, a concise story and a technical portrait. The catalog begins in 1998–1999, around the mass GSM boom. Our original mark is an abstract handset with a screen and keypad."
+          ]
+        },
+        {
+          "title": "Three routes through the archive",
+          "paragraphs": [
+            "Mechanical character, Music in your pocket and Design without rules reveal shared ideas across brands. The homepage presents lead models; the catalog contains the complete collections. Combine a theme with search, brand and year filters; your selection stays in the URL."
+          ]
+        },
+        {
+          "title": "Compare their character",
+          "paragraphs": [
+            "Place two models side by side to explore size, weight, displays and capabilities in the context of their time. “Unknown” marks a missing or unconfirmed value; “None” indicates an explicitly absent feature. The copy button saves a link to your selected pair."
+          ]
+        },
+        {
+          "title": "Nostalgia with sources",
+          "paragraphs": [
+            "We check stories and specifications against announcements, manuals and other reliable sources. A link in a story does not mean every field has been verified; gaps remain visible. Photos use free licences and attribution, with a placeholder when no verified image is available. The interface is available in Ukrainian, Russian and English; some stories still fall back to Ukrainian."
+          ]
+        }
+      ]
     },
   },
 } as const satisfies Record<Locale, unknown>;
