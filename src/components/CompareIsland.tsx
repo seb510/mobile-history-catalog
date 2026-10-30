@@ -276,10 +276,21 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
         id={`phone-search-${slot}`}
         type="search"
         aria-label={placeholder}
-        aria-controls={`phone-results-${slot}`}
+        aria-controls={query.trim() ? `phone-results-${slot}` : undefined}
         autoComplete="off"
         value={query}
         onChange={(e) => onQueryChange(e.target.value)}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') onQueryChange('');
+          if (event.key === 'Enter' && query.trim() && candidates[0]) {
+            event.preventDefault();
+            onSelect(candidates[0].slug);
+          }
+          if (event.key === 'ArrowDown' && query.trim() && candidates.length > 0) {
+            event.preventDefault();
+            document.querySelector<HTMLButtonElement>(`#phone-results-${slot} button`)?.focus();
+          }
+        }}
         placeholder={placeholder}
         className="w-full rounded-sm border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none"
       />
