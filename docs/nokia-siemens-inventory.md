@@ -9,7 +9,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | Nokia 1100 | chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.type, connectivity | fallback uk | є | не задана |
 | Nokia 3210 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.type, connectivity | fallback uk | є | не задана |
-| Nokia 3250 | camera.front | fallback uk | заглушка | не задана |
+| Nokia 3250 | camera.front | ru, en | є | не задана |
 | Nokia 3310 (2017) | chipset, battery.type | ru, en | є | не задана |
 | Nokia 3310 | ramMb | ru, en | є | не задана |
 | Nokia 5700 XpressMusic | chipset, ramMb, storage | ru, en | є | не задана |
@@ -19,23 +19,23 @@
 | Nokia 7610 | camera.front, battery.type | fallback uk | є | прихована: без джерела |
 | Nokia E71 | — | fallback uk | є | не задана |
 | Nokia Lumia 520 | camera.front, battery.type | fallback uk | є | прихована: без джерела |
-| Nokia Lumia 620 | — | fallback uk | є | є джерело |
+| Nokia Lumia 620 | — | ru, en | є | є джерело |
 | Nokia N-Gage | ramMb, camera.rear, camera.front, battery.type | fallback uk | є | прихована: без джерела |
 | Nokia N70 | storage, battery.type | fallback uk | є | не задана |
-| Nokia N76 | — | fallback uk | є | не задана |
-| Nokia N79 | — | fallback uk | є | не задана |
+| Nokia N76 | — | ru, en | є | не задана |
+| Nokia N79 | — | ru, en | є | не задана |
 | Nokia N8 | — | ru, en | є | не задана |
-| Nokia N81 | — | fallback uk | є | є джерело |
-| Nokia N82 | — | fallback uk | є | не задана |
-| Nokia N86 8MP | — | fallback uk | є | не задана |
+| Nokia N81 | — | ru, en | є | є джерело |
+| Nokia N82 | — | ru, en | є | не задана |
+| Nokia N86 8MP | — | ru, en | є | не задана |
 | Nokia N95 | battery.type | fallback uk | є | прихована: без джерела |
-| Nokia N96 | — | fallback uk | є | не задана |
+| Nokia N96 | — | ru, en | є | не задана |
 | Nokia X7-00 | chipset, ramMb | ru, en | є | не задана |
-| Siemens A65 | chipset, ramMb, storageExpandable, camera.rear, camera.front, connectivity, os | fallback uk | є | не задана |
+| Siemens A65 | chipset, ramMb, storageExpandable, camera.rear, camera.front, connectivity, os | ru, en | є | не задана |
 | Siemens C55 | chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.type, connectivity | fallback uk | є | не задана |
 | Siemens C65 | chipset, ramMb, storageExpandable, camera.front, battery.type | fallback uk | є | не задана |
 | Siemens CX65 | chipset, ramMb, storageExpandable, camera.front, battery.type | fallback uk | є | не задана |
-| Siemens CX75 | chipset, ramMb, camera.front, battery.type | fallback uk | є | не задана |
+| Siemens CX75 | chipset, ramMb, camera.front, battery.type | ru, en | є | не задана |
 | Siemens M50 | chipset, ramMb, storageExpandable, camera.rear, camera.front, battery.type, connectivity | fallback uk | є | не задана |
 | Siemens M65 | chipset, ramMb, storage, storageExpandable, camera.front, battery.type | fallback uk | є | не задана |
 | Siemens ME45 | chipset, ramMb, storage, storageExpandable, camera.rear, camera.front | fallback uk | є | не задана |
