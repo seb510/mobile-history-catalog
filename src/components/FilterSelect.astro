@@ -4,7 +4,7 @@ const { name, label, all, search, empty, options } = Astro.props;
 const id = `catalog-${name}`;
 const entries = options.map((option) => typeof option === 'string' ? { value: option, label: option } : option);
 ---
-<div class="filter-select" data-select>
+<div class="filter-select" data-select data-select-name={name}>
   <label class="filter-label" for={`${id}-native`}>{label}</label>
   <select id={`${id}-native`} name={name} data-filter={name} data-select-native aria-label={label}>
     <option value="">{all}</option>

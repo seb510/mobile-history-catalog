@@ -13,6 +13,11 @@ interface Props {
 const { locale } = Astro.props;
 const strings = t(locale);
 const editorial = DESIGN_EDITORIAL[locale];
+const controls = {
+  uk: { active: 'Активні фільтри', remove: 'Прибрати фільтр', empty: 'Спробуй прибрати одну з умов або повернути весь каталог.' },
+  ru: { active: 'Активные фильтры', remove: 'Убрать фильтр', empty: 'Попробуй убрать одно из условий или вернуться ко всему каталогу.' },
+  en: { active: 'Active filters', remove: 'Remove filter', empty: 'Remove a condition or return to the full catalog.' },
+}[locale];
 const stories = RETRO_STORIES.map((story, index) => ({ ...story, ...HOME_EDITORIAL[locale].themes[index] }));
 
 const phones = await getPhonesForLocale(locale);
@@ -27,7 +32,11 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 ---
 
 <section class="catalog-tools mb-8" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
-  <div class="catalog-filter-grid">
+  <button type="button" class="catalog-filter-toggle" data-filter-toggle aria-expanded="true" aria-controls="catalog-filter-fields catalog-filter-stories" hidden>
+    <span>{editorial.filters} <span data-active-count class="ml-1 text-orange-500"></span></span>
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6" /></svg>
+  </button>
+  <div id="catalog-filter-fields" class="catalog-filter-grid">
     <div class="catalog-search">
       <label class="filter-label" for="catalog-search">{editorial.modelSearch}</label>
       <div class="catalog-search-field">
@@ -39,18 +48,23 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     <FilterSelect name="year" label={strings.filters.year} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={years.map(String)} />
     <FilterSelect name="form" label={strings.specs.formFactor} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={FORM_FACTORS.filter((value) => phones.some((phone) => phone.data.formFactor === value)).map((value) => ({ value, label: strings.formFactors[value] }))} />
   </div>
-  <nav class="catalog-stories mt-4 flex flex-wrap gap-2" aria-label={RETRO_DISCOVERY[locale].collections}>
+  <nav id="catalog-filter-stories" class="catalog-stories mt-4 flex flex-wrap gap-2" aria-label={RETRO_DISCOVERY[locale].collections}>
     <a href={localePath(locale, '/catalog/')} data-story-filter="" aria-current="true">{strings.filters.all}</a>
     {stories.map((story) => <a href={localePath(locale, '/catalog/') + '?story=' + story.id} data-story-filter={story.id}>{story.title}<span class="ml-2 text-neutral-500">{story.slugs.length}</span></a>)}
   </nav>
   <p data-story-description hidden class="mt-3 text-sm leading-relaxed text-neutral-400"></p>
   <div class="catalog-filter-meta">
-    <p data-filter-count data-count-label={strings.filters.shownCount} role="status" aria-live="polite"></p>
+    <p data-filter-count data-count-label={strings.filters.shownCount} role="status" aria-live="polite">{phones.length} {strings.filters.shownCount}</p>
     <button type="button" data-filter-reset hidden>{strings.filters.reset} <span aria-hidden="true">×</span></button>
   </div>
+  <div data-active-filters data-remove-label={controls.remove} role="group" aria-label={controls.active} class="catalog-active-filters" hidden></div>
 </section>
 
-<p class="hidden text-center text-neutral-500" data-filter-empty>{strings.filters.empty}</p>
+<div class="hidden text-center text-neutral-400" data-filter-empty>
+  <p class="text-lg font-bold text-neutral-100">{strings.filters.empty}</p>
+  <p class="mt-2 text-sm leading-relaxed">{controls.empty}</p>
+  <button class="control-button mt-5 text-sm" type="button" data-empty-reset>{strings.filters.reset}</button>
+</div>
 
 <ol class="catalog-timeline relative space-y-8 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
   {years.map((year) => (
@@ -96,6 +110,18 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     const stories: { id: string; slugs: string[]; text: string }[] = JSON.parse(bar.dataset.stories!);
     const storyLinks = Array.from(bar.querySelectorAll<HTMLAnchorElement>('[data-story-filter]'));
     const description = bar.querySelector<HTMLElement>('[data-story-description]')!;
+    const activeFilters = bar.querySelector<HTMLElement>('[data-active-filters]')!;
+    const toggle = bar.querySelector<HTMLButtonElement>('[data-filter-toggle]')!;
+    toggle.hidden = false;
+    const mobileFilters = window.matchMedia('(max-width: 639px)');
+    const setExpanded = (expanded: boolean) => {
+      bar.dataset.expanded = String(expanded);
+      toggle.setAttribute('aria-expanded', String(expanded));
+      if (!expanded) document.dispatchEvent(new CustomEvent('catalog-select-open', { detail: null }));
+    };
+    setExpanded(!mobileFilters.matches);
+    mobileFilters.addEventListener('change', () => setExpanded(!mobileFilters.matches));
+    toggle.addEventListener('click', () => setExpanded(bar.dataset.expanded !== 'true'));
     let activeStory = '';
 
     const apply = () => {
@@ -128,6 +154,23 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       list.hidden = visible === 0;
       count.textContent = `${visible} ${count.dataset.countLabel}`;
       resetBtn!.hidden = !q && !brand && !year && !story && !form;
+      const conditions = [
+        { key: 'q', value: searchInput.value.trim(), label: searchInput.labels?.[0]?.textContent ?? '' },
+        ...[brandSelect, yearSelect, formSelect].map((select) => ({ key: select.name, value: select.value ? select.selectedOptions[0].textContent! : '', label: select.getAttribute('aria-label') ?? '' })),
+        { key: 'story', value: story ? storyLinks.find((link) => link.dataset.storyFilter === story.id)?.textContent?.replace(/\d+\s*$/, '').trim() ?? '' : '', label: '' },
+      ].filter((condition) => condition.value);
+      activeFilters.replaceChildren(...conditions.map((condition) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.clearFilter = condition.key;
+        button.textContent = `${condition.label ? condition.label + ': ' : ''}${condition.value}`;
+        button.setAttribute('aria-label', `${activeFilters.dataset.removeLabel}: ${button.textContent}`);
+        const cross = document.createElement('span');
+        cross.setAttribute('aria-hidden', 'true'); cross.textContent = '×'; button.append(cross);
+        return button;
+      }));
+      activeFilters.hidden = conditions.length === 0;
+      toggle.querySelector('[data-active-count]')!.textContent = conditions.length ? `(${conditions.length})` : '';
       description.hidden = !story;
       description.textContent = story?.text ?? '';
       storyLinks.forEach((link) => {
@@ -145,13 +188,27 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 
     bar.addEventListener('input', apply);
     bar.addEventListener('change', apply);
+    activeFilters.addEventListener('click', (event) => {
+      const button = (event.target as Element).closest<HTMLButtonElement>('[data-clear-filter]');
+      if (!button) return;
+      const index = Array.from(activeFilters.children).indexOf(button);
+      const key = button.dataset.clearFilter;
+      if (key === 'q') searchInput.value = '';
+      else if (key === 'story') activeStory = '';
+      else {
+        const select = [brandSelect, yearSelect, formSelect].find((select) => select.name === key);
+        if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); }
+      }
+      apply();
+      (activeFilters.querySelectorAll<HTMLButtonElement>('button')[Math.min(index, activeFilters.children.length - 1)] ?? searchInput).focus();
+    });
     storyLinks.forEach((link) => link.addEventListener('click', (event) => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       activeStory = link.dataset.storyFilter!;
       apply();
     }));
-    resetBtn?.addEventListener('click', () => {
+    const clearAll = () => {
       searchInput.value = '';
       brandSelect.value = '';
       yearSelect.value = '';
@@ -161,7 +218,10 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       yearSelect.dispatchEvent(new Event('change', { bubbles: true }));
       formSelect.dispatchEvent(new Event('change', { bubbles: true }));
       apply();
-    });
+      searchInput.focus();
+    };
+    resetBtn?.addEventListener('click', clearAll);
+    empty.querySelector('[data-empty-reset]')?.addEventListener('click', clearAll);
 
     const restore = () => {
       const params = new URLSearchParams(window.location.search);
@@ -176,6 +236,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       apply();
     };
     window.addEventListener('popstate', restore);
+    window.addEventListener('pageshow', (event) => { if (event.persisted) restore(); });
     restore();
   }
 </script>
