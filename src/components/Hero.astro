@@ -120,7 +120,7 @@ const stats = [
       <p class="max-w-md text-sm leading-relaxed text-neutral-400 sm:text-right">{strings.hero.popularSubtitle}</p>
     </div>
     {otherBestSellers.length > 0 && (
-      <ul class="mt-6 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <ul class="mt-6 grid grid-cols-2 gap-4 lg:auto-rows-fr lg:items-stretch lg:grid-cols-4">
         {otherBestSellers.map((phone, i) => (
         <li class="flex min-w-0">
           <PhoneCard phone={phone} locale={locale} badge={`#${i + 1} · ${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />

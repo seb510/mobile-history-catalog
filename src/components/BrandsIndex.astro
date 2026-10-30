@@ -31,7 +31,7 @@ for (const phone of phones) {
 const sorted = brands.slice().sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 
-<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+<ul class="grid auto-rows-fr items-stretch grid-cols-2 gap-4 lg:grid-cols-4">
   {sorted.map((brand) => (
     <li class="flex">
       <a

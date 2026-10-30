@@ -47,20 +47,20 @@ const phoneCountText = (count: number) => {
     <div>
       <p class="editorial-kicker mb-2 text-orange-500">{strings.nav.brands}</p>
       <h1 class="page-title">{data.name}</h1>
-      <div class="mt-5 flex flex-wrap gap-2">
+      <div class="mt-5 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
         {data.founded != null && (
-          <div class="min-w-28 border-l-2 border-orange-500/70 bg-neutral-900/50 px-3 py-2">
+          <div class="min-w-0 border-l-2 border-orange-500/70 bg-neutral-900/50 px-3 py-2 sm:min-w-28">
             <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.founded}</p>
             <p class="mt-1 font-semibold text-neutral-100">{data.founded}</p>
           </div>
         )}
         {data.country && (
-          <div class="min-w-28 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2">
+          <div class="min-w-0 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2 sm:min-w-28">
             <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.brands.country}</p>
             <p class="mt-1 font-semibold text-neutral-100">{data.country}</p>
           </div>
         )}
-        <div class="min-w-28 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2">
+        <div class="min-w-0 border-l-2 border-neutral-700 bg-neutral-900/50 px-3 py-2 sm:min-w-28">
           <p class="text-xs tracking-wide text-neutral-500 uppercase">{strings.nav.catalog}</p>
           <p class="mt-1 font-semibold text-neutral-100">{phones.length} {phoneCountText(phones.length)}</p>
         </div>
@@ -75,7 +75,7 @@ const phoneCountText = (count: number) => {
   {phones.length > 0 && (
     <div class="mt-12 border-t border-neutral-800 pt-8">
       <h2 class="border-l-2 border-orange-500 pl-3 text-xl font-bold sm:text-2xl">{strings.brands.allPhones}</h2>
-      <ul class="mt-6 grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="mt-6 grid grid-cols-2 items-stretch gap-4 lg:auto-rows-fr lg:grid-cols-4">
         {phones.map((phone) => (
           <li class="flex min-w-0">
             <PhoneCard phone={phone} locale={locale} />
