@@ -4,7 +4,6 @@ model: "Galaxy Note"
 year: 2011
 formFactor: candybar
 milestone: "Популяризував великі смартфони з екраном 5.3\" і S Pen"
-unitsSoldMillions: 10
 display:
   sizeInches: 5.3
   type: "Super AMOLED (PenTile)"

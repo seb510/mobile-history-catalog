@@ -4,7 +4,6 @@ model: "SGH-E700"
 year: 2003
 formFactor: clamshell
 milestone: "Перший Samsung із вбудованою антеною"
-unitsSoldMillions: 10
 display:
   sizeInches: 1.8
   type: "кольоровий TFT (+ зовнішній OLED-дисплей)"

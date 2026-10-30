@@ -4,7 +4,6 @@ model: "3210"
 year: 1999
 formFactor: candybar
 milestone: "Старт масового буму мобільного зв'язку"
-unitsSoldMillions: 160
 display:
   type: "монохромний графічний LCD"
 battery:

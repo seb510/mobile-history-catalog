@@ -3,8 +3,7 @@ brand: Nokia
 model: "1100"
 year: 2003
 formFactor: candybar
-milestone: "Найбільш продана модель телефону в історії"
-unitsSoldMillions: 250
+milestone: "Доступний телефон для нових користувачів мобільного зв’язку"
 display:
   type: "монохромний графічний LCD"
   resolution: "96 × 65 px"

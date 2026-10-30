@@ -5,7 +5,6 @@ year: 2007
 formFactor: slider
 milestone: "Подвійний слайдер із GPS і 5-мегапіксельною камерою"
 priceUsdAtLaunch: 730
-unitsSoldMillions: 10
 display:
   sizeInches: 2.6
   type: "TFT LCD"

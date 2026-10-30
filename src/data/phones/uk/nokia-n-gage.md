@@ -5,7 +5,6 @@ year: 2003
 formFactor: candybar
 milestone: "Гейм-телефон, що став культовим попри комерційний провал"
 priceUsdAtLaunch: 299
-unitsSoldMillions: 3
 display:
   sizeInches: 2.1
   type: "TFT, 4096 кольорів"

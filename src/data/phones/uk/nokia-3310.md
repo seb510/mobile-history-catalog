@@ -4,7 +4,6 @@ model: "3310"
 year: 2000
 formFactor: candybar
 milestone: Легенда живучості — досі інтернет-мем
-unitsSoldMillions: 126
 display:
   type: монохромний графічний LCD
   resolution: 84 × 48

@@ -5,7 +5,6 @@ year: 2008
 formFactor: candybar
 milestone: "Перший масовий сенсорний телефон Nokia"
 priceUsdAtLaunch: 400
-unitsSoldMillions: 8
 display:
   sizeInches: 3.2
   type: "резистивний тач-TFT, 16.7 млн кольорів"

@@ -5,7 +5,6 @@ year: 2007
 formFactor: candybar
 milestone: Злам парадигми — початок ери сенсорних смартфонів
 priceUsdAtLaunch: 499
-unitsSoldMillions: 6.1
 display:
   sizeInches: 3.5
   type: кольоровий LCD, мультитач

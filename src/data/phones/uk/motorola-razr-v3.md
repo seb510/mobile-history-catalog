@@ -5,7 +5,6 @@ year: 2004
 formFactor: clamshell
 milestone: "Тонка металева розкладачка з упізнаваною пласкою клавіатурою"
 priceUsdAtLaunch: 500
-unitsSoldMillions: 130
 display:
   sizeInches: 2.2
   type: "кольоровий TFT"
