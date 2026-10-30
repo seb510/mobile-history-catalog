@@ -33,10 +33,10 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Nokia_Lumia_62
 imageCredit: "Фото: ShubSergeyKlavd, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_Lumia_620.JPG"
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nokia_Lumia_620.jpg/960px-Nokia_Lumia_620.jpg
-    alt: Біла Nokia Lumia 620 спереду
-    imageCredit: "Фото: ShubSergeyKlavd, CC BY-SA 3.0, Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_Lumia_620.jpg
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Lumia_620_by_mikosoft.jpg/960px-Lumia_620_by_mikosoft.jpg
+    alt: Бірюзова Nokia Lumia 620 з головним екраном Windows Phone
+    imageCredit: "Фото: Mikosoft, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Lumia_620_by_mikosoft.jpg
 ---
 
 Nokia представила Lumia 620 5 грудня 2012 року на конференції LeWeb як третій і на той момент найдоступніший власний смартфон на Windows Phone 8 — компактну альтернативу середній Lumia 820 і флагманській Lumia 920. Перші продажі почалися на початку 2013-го в Азії та Африці, згодом — у Європі та інших регіонах; орієнтовна роздрібна ціна становила близько $249 без контракту й субсидій.
