@@ -39,8 +39,8 @@ network: GSM/EDGE 850/900/1800/1900, WCDMA 850/900/1700/1900/2100 (HSPA)
 simType: Mini-SIM
 ---
 
-X7-00 focused on entertainment, with a 4-inch AMOLED screen, stainless-steel body and distinctive angled corners. Preinstalled games reinforced that positioning. It launched with Symbian Anna, bringing changes to the interface, browser and on-screen keyboard.
+X7-00 focused on entertainment, with a 4-inch AMOLED screen, stainless-steel body and distinctive angled corners. Preinstalled games reinforced that positioning. It was introduced alongside Symbian Anna, which brought new icons, a faster browser and portrait QWERTY input. Nokia planned to begin X7 sales in Q2 2011.
 
 This is the 2011 X7-00, separate from the later Android Nokia X7. Its 350 MB internal storage excludes the bundled 8 GB card; Full Focus is fixed focus, not autofocus. Battery capacity follows Nokia’s specification: 1200 mAh.
 
-Sources: [Nokia — X7-00 specifications](https://cdn.cnetcontent.com/ea/b4/eab425e4-669e-4e65-958a-52d757cd218a.pdf), [Nokia — launch](https://blogs.windows.com/devices/2011/04/12/launch-nokia-x7/).
+Sources: [Nokia — X7-00 specifications](https://cdn.cnetcontent.com/ea/b4/eab425e4-669e-4e65-958a-52d757cd218a.pdf), [Nokia — launch](https://blogs.windows.com/devices/2011/04/12/launch-nokia-x7/), [Nokia — Symbian Anna](https://blogs.windows.com/devices/2011/04/12/announcing-symbian-anna-aka-pr2/).

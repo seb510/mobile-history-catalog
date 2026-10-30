@@ -39,8 +39,8 @@ network: GSM/EDGE 850/900/1800/1900, WCDMA 850/900/1700/1900/2100 (HSPA)
 simType: Mini-SIM
 ---
 
-X7-00 був ставкою Nokia на розваги: 4-дюймовий AMOLED, корпус із нержавіючої сталі та виразні скошені кути. Попередньо встановлені ігри підкреслювали мультимедійне позиціонування. Модель вийшла разом із Symbian Anna — оновленням інтерфейсу, браузера й екранної клавіатури.
+X7-00 був ставкою Nokia на розваги: 4-дюймовий AMOLED, корпус із нержавіючої сталі та виразні скошені кути. Попередньо встановлені ігри підкреслювали мультимедійне позиціонування. Модель представили разом із Symbian Anna — оновленням із новими іконками, швидшим браузером і портретною QWERTY-клавіатурою. Продажі X7 планували розпочати у II кварталі 2011 року.
 
 Це X7-00 2011 року, а не пізніша Android-модель Nokia X7. Внутрішні 350 МБ не включають комплектну картку 8 ГБ; Full Focus не означає автофокус. Ємність батареї наведено за специфікацією Nokia — 1200 мА·год.
 
-Джерела: [Nokia — X7-00 specifications](https://cdn.cnetcontent.com/ea/b4/eab425e4-669e-4e65-958a-52d757cd218a.pdf), [Nokia — launch](https://blogs.windows.com/devices/2011/04/12/launch-nokia-x7/).
+Джерела: [Nokia — X7-00 specifications](https://cdn.cnetcontent.com/ea/b4/eab425e4-669e-4e65-958a-52d757cd218a.pdf), [Nokia — launch](https://blogs.windows.com/devices/2011/04/12/launch-nokia-x7/), [Nokia — Symbian Anna](https://blogs.windows.com/devices/2011/04/12/announcing-symbian-anna-aka-pr2/).
