@@ -94,6 +94,23 @@
   letter-spacing: -.02em;
 }
 .cover-year { font-size: clamp(3.5rem, 8vw, 6rem); line-height: .85; letter-spacing: -.07em; }
+.editorial-card .card-copy { transition: background-color var(--motion-ui) var(--motion-easing); }
+@media (hover: hover) and (pointer: fine) {
+  .primary-cta:hover { background-color: var(--color-orange-400); }
+  .editorial-card:hover .card-copy { background-color: color-mix(in srgb, var(--color-neutral-800) 55%, var(--color-neutral-900)); }
+}
+.catalog-card .phone-card-art { aspect-ratio: 8 / 5; padding: .875rem; }
+.catalog-card .card-copy { min-height: 8rem; padding: .875rem; }
+.catalog-card .editorial-kicker { font-size: .625rem; letter-spacing: .08em; }
+.catalog-card .editorial-kicker > span:last-child { display: none; }
+.catalog-card .card-title { font-size: 1.0625rem; line-height: 1.25; min-height: 2.5em; overflow-wrap: anywhere; }
+.catalog-card .card-title + p { font-size: .8125rem; line-height: 1.5; }
+@media (max-width: 639px) {
+  .catalog-card .phone-card-art { aspect-ratio: 5 / 4; padding: .75rem; }
+  .catalog-card .card-copy { padding: .75rem; }
+  .catalog-card .card-title { font-size: 1rem; }
+  .catalog-card .card-title + p { font-size: .75rem; }
+}
 .compare-overview-row { display: grid; grid-template-columns: 6.5rem minmax(0,1fr) minmax(0,1fr); gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--color-neutral-800); overflow-wrap: anywhere; }
 .compare-overview-row:last-child { border-bottom: 0; }
 .compare-change { min-height: 2.75rem; }

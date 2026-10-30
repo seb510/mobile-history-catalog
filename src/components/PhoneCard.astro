@@ -10,8 +10,9 @@ interface Props {
   locale: Locale;
   /** Optional corner tag, e.g. "126 млн шт." for the homepage's best-sellers section. */
   badge?: string;
+  compact?: boolean;
 }
-const { phone, locale, badge } = Astro.props;
+const { phone, locale, badge, compact = false } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const slug = slugOf(phone);
@@ -24,18 +25,18 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
   data-brand={data.brand}
   data-year={data.year}
   data-search={searchKey}
-  class="group flex min-w-0 flex-1 flex-col self-stretch overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 transition-all motion-ui hover-desktop:-translate-y-0.5 hover-desktop:border-orange-500 hover-desktop:shadow-md hover-desktop:shadow-orange-500/10"
+  class:list={['editorial-card group flex min-w-0 flex-1 flex-col self-stretch overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 motion-ui', compact && 'catalog-card']}
 >
   <div class="phone-card-art relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-5">
     {data.image ? (
       <>
-        <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="relative h-full w-full object-contain transition-transform motion-image group-hover-desktop:scale-[1.025]" loading="lazy" decoding="async" />
+        <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="relative h-full w-full object-contain" loading="lazy" decoding="async" />
         <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-3">
-          <PlaceholderArt class="h-full w-full text-neutral-600 transition-colors motion-ui group-hover-desktop:text-orange-500/70" />
+          <PlaceholderArt class="h-full w-full text-neutral-600" />
         </div>
       </>
     ) : (
-      <PlaceholderArt class="h-full w-full text-neutral-600 transition-colors motion-ui group-hover-desktop:text-orange-500/70" />
+      <PlaceholderArt class="h-full w-full text-neutral-600" />
     )}
     {badge && (
       <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold text-neutral-950">
@@ -43,13 +44,13 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
       </span>
     )}
   </div>
-  <div class="flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
+  <div class="card-copy flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
     <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
-    <p class="mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
+    <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
     {data.milestone && (
       <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
     )}
-    {data.priceUsdAtLaunch != null && data.priceSourceUrl && (
+    {!compact && data.priceUsdAtLaunch != null && data.priceSourceUrl && (
       <p class="mt-auto flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-neutral-800 pt-3 text-xs text-neutral-400">
         <span>{strings.specs.priceUsdAtLaunch}{data.priceContext && <span class="mt-1 block text-xs font-normal">{data.priceContext}</span>}</span>
         <span class="text-sm font-semibold tabular-nums text-neutral-200">${data.priceUsdAtLaunch} USD</span>

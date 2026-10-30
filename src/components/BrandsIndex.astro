@@ -36,11 +36,11 @@ const sorted = brands.slice().sort((a, b) => a.data.name.localeCompare(b.data.na
     <li class="flex">
       <a
         href={localePath(locale, `/brands/${slugOfBrand(brand)}/`)}
-        class="group flex h-full w-full flex-col items-center gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-5 text-center transition-all motion-ui hover-desktop:-translate-y-0.5 hover-desktop:border-orange-500 hover-desktop:shadow-md hover-desktop:shadow-orange-500/10 sm:p-6"
+        class="editorial-card group flex h-full w-full flex-col items-center gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-5 text-center motion-ui sm:p-6"
       >
         <BrandMark name={brand.data.name} logo={brand.data.logo} class="h-20 w-full min-w-0 shrink-0" />
-        <div class="w-full border-t border-neutral-800 pt-3">
-          <p class="font-semibold tracking-tight text-neutral-100">{brand.data.name}</p>
+        <div class="card-copy w-full border-t border-neutral-800 pt-3">
+          <p class="card-title font-semibold tracking-tight text-neutral-100">{brand.data.name}</p>
           <p class="mt-1 text-sm text-neutral-400"><span class="font-semibold text-neutral-200">{countByName.get(brand.data.name) ?? 0}</span> {phoneCountText(countByName.get(brand.data.name) ?? 0)}</p>
         </div>
       </a>
