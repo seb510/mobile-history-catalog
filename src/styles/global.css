@@ -43,6 +43,14 @@
   transition-timing-function: var(--motion-easing) !important;
 }
 
+.site-header {
+  transition: transform var(--motion-ui) var(--motion-easing);
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
 ::selection {
   color: var(--color-neutral-950);
   background: var(--color-orange-400);

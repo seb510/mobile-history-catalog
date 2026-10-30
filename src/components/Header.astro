@@ -26,7 +26,7 @@ const mobileNavLinkClass = (target: string) =>
   `flex min-h-10 items-center rounded-sm border px-3 text-sm transition-colors motion-ui ${isActive(target) ? 'border-orange-500/60 bg-neutral-900 text-neutral-100' : 'border-neutral-800 text-neutral-300 hover-desktop:border-neutral-700 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
 ---
 
-<header class="sticky top-0 z-50 border-t-2 border-b border-t-orange-500 border-b-neutral-800 bg-neutral-950/95 backdrop-blur">
+<header id="site-header" class="site-header sticky top-0 z-50 border-t-2 border-b border-t-orange-500 border-b-neutral-800 bg-neutral-950/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
     <a href={localePath(locale, '/')} class="flex min-w-0 items-center gap-2 text-neutral-100">
       <LogoMark class="h-7 w-7 shrink-0" />
@@ -91,10 +91,15 @@ const mobileNavLinkClass = (target: string) =>
 </header>
 
 <script>
+  const header = document.getElementById('site-header');
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const setHeaderHidden = (hidden: boolean) => {
+    header?.classList.toggle('is-hidden', hidden);
+  };
   const setMenuOpen = (open: boolean) => {
     if (!toggle || !menu) return;
+    if (open) setHeaderHidden(false);
     menu.classList.toggle('pointer-events-none', !open);
     menu.classList.toggle('max-h-0', !open);
     menu.classList.toggle('opacity-0', !open);
@@ -136,4 +141,28 @@ const mobileNavLinkClass = (target: string) =>
   window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
     if (event.matches) setMenuOpen(false);
   });
+
+  let previousScrollY = window.scrollY;
+  window.addEventListener(
+    'scroll',
+    () => {
+      const currentScrollY = Math.max(0, window.scrollY);
+      if (Math.abs(currentScrollY - previousScrollY) < 4) return;
+
+      if (
+        currentScrollY === 0 ||
+        toggle?.getAttribute('aria-expanded') === 'true' ||
+        header?.contains(document.activeElement)
+      ) {
+        setHeaderHidden(false);
+      } else {
+        setHeaderHidden(currentScrollY > previousScrollY);
+      }
+
+      previousScrollY = currentScrollY;
+    },
+    { passive: true },
+  );
+
+  header?.addEventListener('focusin', () => setHeaderHidden(false));
 </script>
