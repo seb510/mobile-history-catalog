@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "W580i"
 year: 2007
+formFactor: slider
 milestone: "Слайдер Walkman із Shake control і крокоміром"
 display:
   sizeInches: 2.0

@@ -2,6 +2,7 @@
 brand: Siemens
 model: M50
 year: 2002
+formFactor: candybar
 milestone: "Перший масовий телефон Siemens із підтримкою Java"
 display:
   type: "монохромний STN"

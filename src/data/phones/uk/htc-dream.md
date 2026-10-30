@@ -2,6 +2,7 @@
 brand: HTC
 model: "Dream (T-Mobile G1)"
 year: 2008
+formFactor: slider
 milestone: "Перший комерційний телефон на Android"
 display:
   sizeInches: 3.2

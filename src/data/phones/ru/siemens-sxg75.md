@@ -2,6 +2,7 @@
 brand: Siemens
 model: SXG75
 year: 2005
+formFactor: candybar
 milestone: Финальный собственный UMTS-телефон Siemens перед эпохой BenQ-Siemens
 display:
   sizeInches: 2.2

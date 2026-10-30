@@ -2,6 +2,7 @@
 brand: Motorola
 model: "RAZR V3i"
 year: 2006
+formFactor: clamshell
 milestone: "Покращена RAZR V3 — із камерою й кращим плеєром"
 priceUsdAtLaunch: 299
 display:

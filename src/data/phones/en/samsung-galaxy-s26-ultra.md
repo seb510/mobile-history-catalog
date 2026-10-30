@@ -2,6 +2,7 @@
 brand: Samsung
 model: Galaxy S26 Ultra
 year: 2026
+formFactor: candybar
 milestone: Built-in Privacy Display to limit side viewing
 display:
   sizeInches: 6.9

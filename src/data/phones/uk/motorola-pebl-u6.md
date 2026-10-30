@@ -2,6 +2,7 @@
 brand: Motorola
 model: "PEBL U6"
 year: 2005
+formFactor: clamshell
 milestone: "Знаковий дизайн у формі гладкого камінця"
 display:
   sizeInches: 1.8

@@ -2,6 +2,7 @@
 brand: Nokia
 model: "N-Gage"
 year: 2003
+formFactor: candybar
 milestone: "Гейм-телефон, що став культовим попри комерційний провал"
 priceUsdAtLaunch: 299
 unitsSoldMillions: 3

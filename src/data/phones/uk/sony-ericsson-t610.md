@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "T610"
 year: 2003
+formFactor: candybar
 milestone: "Камера, MMS і скандинавський дизайн в алюмінієвому корпусі"
 display:
   sizeInches: 1.8

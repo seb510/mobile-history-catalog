@@ -2,6 +2,7 @@
 brand: Siemens
 model: C65
 year: 2004
+formFactor: candybar
 milestone: "Бюджетний 'молодший брат' серії S65/M65/CX65"
 display:
   type: "кольоровий CSTN, 65K кольорів"

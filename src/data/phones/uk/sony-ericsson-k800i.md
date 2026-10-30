@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "K800i"
 year: 2006
+formFactor: candybar
 milestone: "Cyber-shot у телефоні: ксеноновий спалах, автофокус і BestPic"
 display:
   sizeInches: 2.0

@@ -2,6 +2,7 @@
 brand: Motorola
 model: "C350"
 year: 2003
+formFactor: candybar
 milestone: "Кольоровий екран і змінні панелі в базовій C-серії"
 display:
   type: "CSTN, 4096 кольорів"

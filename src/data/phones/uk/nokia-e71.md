@@ -2,6 +2,7 @@
 brand: Nokia
 model: "E71"
 year: 2008
+formFactor: candybar
 milestone: "Культовий бізнес-смартфон із QWERTY-клавіатурою"
 display:
   sizeInches: 2.36

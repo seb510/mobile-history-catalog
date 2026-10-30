@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "K700i"
 year: 2004
+formFactor: candybar
 milestone: "VGA-камера, MP3 і FM-радіо в компактному моноблоці"
 display:
   sizeInches: 1.78

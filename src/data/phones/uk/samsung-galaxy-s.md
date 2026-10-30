@@ -2,6 +2,7 @@
 brand: Samsung
 model: "Galaxy S"
 year: 2010
+formFactor: candybar
 milestone: "Перший Galaxy S — початок флагманської лінії Samsung"
 priceUsdAtLaunch: 399
 unitsSoldMillions: 25

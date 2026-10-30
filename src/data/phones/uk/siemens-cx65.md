@@ -2,6 +2,7 @@
 brand: Siemens
 model: CX65
 year: 2004
+formFactor: candybar
 milestone: "Середній клас із рекордно великим на той час 2.1″ дисплеєм"
 display:
   sizeInches: 2.1

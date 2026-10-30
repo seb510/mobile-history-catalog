@@ -12,11 +12,12 @@ type Strings = ReturnType<typeof t>;
 interface FieldDef {
   group: number;
   label: (s: Strings['specs']) => string;
-  value: (data: PhoneData, u: Strings['units']) => string | null;
+  value: (data: PhoneData, u: Strings['units'], strings: Strings) => string | null;
 }
 
 const FIELDS: FieldDef[] = [
   { group: 0, label: (s) => s.year, value: (d) => String(d.year) },
+  { group: 0, label: (s) => s.formFactor, value: (d, _u, s) => d.formFactor ? s.formFactors[d.formFactor] : null },
   { group: 0, label: (s) => s.priceUsdAtLaunch, value: (d) => (d.priceUsdAtLaunch != null && d.priceSourceUrl ? `${d.priceUsdAtLaunch} USD${d.priceContext ? ` · ${d.priceContext}` : ''}` : null) },
   { group: 0, label: (s) => s.unitsSoldMillions, value: (d) => (d.unitsSoldMillions != null ? String(d.unitsSoldMillions) : null) },
   {
@@ -59,7 +60,7 @@ export function buildSpecGroups(data: PhoneData, strings: Strings): SpecGroup[] 
   let lastGroup = -1;
   let current: SpecGroup | undefined;
   for (const field of FIELDS) {
-    const value = field.value(data, strings.units);
+    const value = field.value(data, strings.units, strings);
     if (value == null) continue;
     if (field.group !== lastGroup || !current) {
       current = { rows: [] };
@@ -83,8 +84,8 @@ export function buildCompareGroups(dataA: PhoneData, dataB: PhoneData, strings: 
   let lastGroup = -1;
   let current: CompareGroup | undefined;
   for (const field of FIELDS) {
-    const a = field.value(dataA, strings.units);
-    const b = field.value(dataB, strings.units);
+    const a = field.value(dataA, strings.units, strings);
+    const b = field.value(dataB, strings.units, strings);
     if (a == null && b == null) continue;
     if (field.group !== lastGroup || !current) {
       current = { rows: [] };

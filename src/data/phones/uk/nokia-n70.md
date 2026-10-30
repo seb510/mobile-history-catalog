@@ -2,6 +2,7 @@
 brand: Nokia
 model: "N70"
 year: 2005
+formFactor: candybar
 milestone: "Початок Nseries: 3G, дві камери й зсувна шторка для зйомки"
 display:
   sizeInches: 2.1

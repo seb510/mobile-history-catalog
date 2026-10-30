@@ -2,6 +2,7 @@
 brand: Samsung
 model: "Galaxy Fold"
 year: 2019
+formFactor: foldable
 milestone: "Перший складаний смартфон Samsung: телефон і великий екран"
 priceUsdAtLaunch: 1980
 display:

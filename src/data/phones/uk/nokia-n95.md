@@ -2,6 +2,7 @@
 brand: Nokia
 model: "N95"
 year: 2007
+formFactor: slider
 milestone: "Подвійний слайдер із GPS і 5-мегапіксельною камерою"
 priceUsdAtLaunch: 730
 unitsSoldMillions: 10

@@ -2,6 +2,7 @@
 brand: Samsung
 model: Galaxy S26 Ultra
 year: 2026
+formFactor: candybar
 milestone: Перший смартфон із вбудованим Privacy Display
 display:
   sizeInches: 6.9

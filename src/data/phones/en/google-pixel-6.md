@@ -2,6 +2,7 @@
 brand: Google
 model: Pixel 6
 year: 2021
+formFactor: candybar
 milestone: The first Google Tensor and a distinctive camera bar
 priceUsdAtLaunch: 599
 chipset: Google Tensor

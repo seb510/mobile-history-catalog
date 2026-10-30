@@ -2,6 +2,7 @@
 brand: Nokia
 model: "Lumia 520"
 year: 2013
+formFactor: candybar
 milestone: "Доступна Windows Phone 8 із чутливим екраном і сервісами Nokia"
 priceUsdAtLaunch: 180
 unitsSoldMillions: 12

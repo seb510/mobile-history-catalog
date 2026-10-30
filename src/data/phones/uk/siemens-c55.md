@@ -2,6 +2,7 @@
 brand: Siemens
 model: C55
 year: 2002
+formFactor: candybar
 milestone: "Монохромний Siemens із записом власних рингтонів і Java"
 display:
   type: "монохромний графічний LCD"

@@ -2,6 +2,7 @@
 brand: Siemens
 model: M65
 year: 2004
+formFactor: candybar
 milestone: "Мультимедійний Siemens для активного використання з металевою рамкою"
 display:
   sizeInches: 2.1

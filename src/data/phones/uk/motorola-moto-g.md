@@ -2,6 +2,7 @@
 brand: Motorola
 model: "Moto G"
 year: 2013
+formFactor: candybar
 milestone: "Доступний Android із HD-екраном за $179 без контракту"
 priceUsdAtLaunch: 179
 display:

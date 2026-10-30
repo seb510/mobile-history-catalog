@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "T68i"
 year: 2002
+formFactor: candybar
 milestone: "Кольоровий екран, MMS і зовнішня камера CommuniCam"
 display:
   resolution: "101 × 80 px"

@@ -2,6 +2,7 @@
 brand: Siemens
 model: SL55
 year: 2003
+formFactor: slider
 milestone: "Компактний іміджевий слайдер у кольорах Ruby та Titan"
 display:
   type: "кольоровий CSTN, 4096 кольорів"

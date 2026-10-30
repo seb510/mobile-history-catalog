@@ -2,6 +2,7 @@
 brand: Samsung
 model: "Galaxy S III"
 year: 2012
+formFactor: candybar
 milestone: "HD-екран і Smart Stay: нові сценарії флагманського Android"
 priceUsdAtLaunch: 599
 unitsSoldMillions: 40

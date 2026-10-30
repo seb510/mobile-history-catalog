@@ -2,6 +2,7 @@
 brand: Samsung
 model: "SGH-E250"
 year: 2006
+formFactor: slider
 milestone: "Мультимедійний слайдер із microSD, Bluetooth і FM-радіо"
 display:
   sizeInches: 2.0

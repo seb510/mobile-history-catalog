@@ -2,6 +2,7 @@
 brand: Samsung
 model: "Omnia i900"
 year: 2008
+formFactor: candybar
 milestone: "Windows Mobile 6.1 і віджети в сенсорному смартфоні"
 display:
   sizeInches: 3.2

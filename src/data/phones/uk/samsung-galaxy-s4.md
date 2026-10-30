@@ -2,6 +2,7 @@
 brand: Samsung
 model: "Galaxy S4"
 year: 2013
+formFactor: candybar
 milestone: "Full HD AMOLED, Air Gesture і нові сценарії керування"
 priceUsdAtLaunch: 649
 display:

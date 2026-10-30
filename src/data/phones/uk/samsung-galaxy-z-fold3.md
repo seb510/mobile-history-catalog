@@ -2,6 +2,7 @@
 brand: Samsung
 model: Galaxy Z Fold3 5G
 year: 2021
+formFactor: foldable
 milestone: "Перший водостійкий складаний смартфон Samsung; підтримка S Pen"
 display:
   sizeInches: 7.6

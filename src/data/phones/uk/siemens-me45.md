@@ -2,6 +2,7 @@
 brand: Siemens
 model: ME45
 year: 2001
+formFactor: candybar
 milestone: "Захищений бізнес-телефон із GPRS та інфрачервоним портом"
 display:
   type: "монохромний графічний LCD"

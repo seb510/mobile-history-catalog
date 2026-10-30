@@ -2,6 +2,7 @@
 brand: Nokia
 model: "6230"
 year: 2004
+formFactor: candybar
 milestone: "Класичний бізнес-телефон із EDGE, Bluetooth і музикою на MMC"
 display:
   type: "TFT, 65 536 кольорів"

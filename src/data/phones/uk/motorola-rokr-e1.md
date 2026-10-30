@@ -2,6 +2,7 @@
 brand: Motorola
 model: "ROKR E1"
 year: 2005
+formFactor: candybar
 milestone: "Перший телефон з офіційною підтримкою iTunes"
 priceUsdAtLaunch: 249.99
 display:

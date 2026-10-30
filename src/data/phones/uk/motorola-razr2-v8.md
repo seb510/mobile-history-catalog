@@ -2,6 +2,7 @@
 brand: Motorola
 model: "RAZR2 V8"
 year: 2007
+formFactor: clamshell
 milestone: "Флагман другого покоління RAZR на платформі MOTOMAGX"
 priceUsdAtLaunch: 399.99
 display:

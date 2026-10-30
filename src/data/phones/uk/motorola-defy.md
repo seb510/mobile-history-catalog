@@ -2,6 +2,7 @@
 brand: Motorola
 model: "Defy"
 year: 2010
+formFactor: candybar
 milestone: "Android-смартфон із захистом від пилу й води для щоденного використання"
 priceUsdAtLaunch: 249.99
 display:

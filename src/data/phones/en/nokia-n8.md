@@ -2,6 +2,7 @@
 brand: Nokia
 model: N8
 year: 2010
+formFactor: candybar
 display:
   sizeInches: 3.5
   type: AMOLED

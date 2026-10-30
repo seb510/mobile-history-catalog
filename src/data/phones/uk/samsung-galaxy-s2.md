@@ -2,6 +2,7 @@
 brand: Samsung
 model: "Galaxy S II"
 year: 2011
+formFactor: candybar
 milestone: "Один із найуспішніших Android-флагманів 2011 року"
 priceUsdAtLaunch: 549
 unitsSoldMillions: 40

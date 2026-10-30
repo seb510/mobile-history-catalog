@@ -2,6 +2,7 @@
 brand: Apple
 model: iPhone 12
 year: 2020
+formFactor: candybar
 milestone: "5G і MagSafe в базовій лінійці iPhone"
 display:
   sizeInches: 6.1

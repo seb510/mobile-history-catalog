@@ -2,6 +2,7 @@
 brand: Nokia
 model: "3310"
 year: 2000
+formFactor: candybar
 milestone: A durability legend and an icon of the button-phone era
 unitsSoldMillions: 126
 display:

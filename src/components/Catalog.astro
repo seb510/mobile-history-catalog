@@ -4,6 +4,7 @@ import FilterSelect from './FilterSelect.astro';
 import { getPhonesForLocale } from '../lib/phones';
 import { t, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
+import { FORM_FACTORS } from '../lib/form-factors';
 import { localePath, type Locale } from '../lib/locales';
 
 interface Props {
@@ -36,6 +37,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     </div>
     <FilterSelect name="brand" label={strings.filters.brand} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={brands} />
     <FilterSelect name="year" label={strings.filters.year} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={years.map(String)} />
+    <FilterSelect name="form" label={strings.specs.formFactor} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={FORM_FACTORS.filter((value) => phones.some((phone) => phone.data.formFactor === value)).map((value) => ({ value, label: strings.formFactors[value] }))} />
   </div>
   <nav class="catalog-stories mt-4 flex flex-wrap gap-2" aria-label={RETRO_DISCOVERY[locale].collections}>
     <a href={localePath(locale, '/catalog/')} data-story-filter="" aria-current="true">{strings.filters.all}</a>
@@ -88,6 +90,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     const searchInput = bar.querySelector<HTMLInputElement>('[data-filter="search"]')!;
     const brandSelect = bar.querySelector<HTMLSelectElement>('[data-filter="brand"]')!;
     const yearSelect = bar.querySelector<HTMLSelectElement>('[data-filter="year"]')!;
+    const formSelect = bar.querySelector<HTMLSelectElement>('[data-filter="form"]')!;
     const cards = Array.from(list.querySelectorAll<HTMLElement>('[data-phone-card]'));
     const groups = Array.from(list.querySelectorAll<HTMLElement>('[data-year-group]'));
     const stories: { id: string; slugs: string[]; text: string }[] = JSON.parse(bar.dataset.stories!);
@@ -99,6 +102,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       const q = searchInput.value.trim().toLowerCase();
       const brand = brandSelect.value;
       const year = yearSelect.value;
+      const form = formSelect.value;
       const story = stories.find((item) => item.id === activeStory);
       let visible = 0;
 
@@ -106,7 +110,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
         const matches =
           (!q || card.dataset.search!.includes(q)) &&
           (!brand || card.dataset.brand === brand) &&
-          (!year || card.dataset.year === year) &&
+          (!year || card.dataset.year === year) && (!form || card.dataset.form === form) &&
           (!story || story.slugs.includes(card.dataset.slug!));
         card.closest('li')!.hidden = !matches;
         if (matches) visible++;
@@ -123,16 +127,16 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       empty.classList.toggle('hidden', visible > 0);
       list.hidden = visible === 0;
       count.textContent = `${visible} ${count.dataset.countLabel}`;
-      resetBtn!.hidden = !q && !brand && !year && !story;
+      resetBtn!.hidden = !q && !brand && !year && !story && !form;
       description.hidden = !story;
       description.textContent = story?.text ?? '';
       storyLinks.forEach((link) => {
         if (link.dataset.storyFilter === activeStory) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');
       });
-      list.querySelectorAll<HTMLElement>('[data-era-heading]').forEach((heading) => { heading.hidden = Boolean(q || brand || year || story); });
+      list.querySelectorAll<HTMLElement>('[data-era-heading]').forEach((heading) => { heading.hidden = Boolean(q || brand || year || story || form); });
       const url = new URL(window.location.href);
-      for (const [key, value] of [['q', searchInput.value.trim()], ['brand', brand], ['year', year], ['story', activeStory]]) {
+      for (const [key, value] of [['q', searchInput.value.trim()], ['brand', brand], ['year', year], ['story', activeStory], ['form', form]]) {
         if (value) url.searchParams.set(key, value);
         else url.searchParams.delete(key);
       }
@@ -151,9 +155,11 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       searchInput.value = '';
       brandSelect.value = '';
       yearSelect.value = '';
+      formSelect.value = '';
       activeStory = '';
       brandSelect.dispatchEvent(new Event('change', { bubbles: true }));
       yearSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      formSelect.dispatchEvent(new Event('change', { bubbles: true }));
       apply();
     });
 
@@ -162,9 +168,11 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       searchInput.value = params.get('q') ?? '';
       brandSelect.value = params.get('brand') ?? '';
       yearSelect.value = params.get('year') ?? '';
+      formSelect.value = params.get('form') ?? '';
       activeStory = stories.some((story) => story.id === params.get('story')) ? params.get('story')! : '';
       brandSelect.dispatchEvent(new Event('change', { bubbles: true }));
       yearSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      formSelect.dispatchEvent(new Event('change', { bubbles: true }));
       apply();
     };
     window.addEventListener('popstate', restore);

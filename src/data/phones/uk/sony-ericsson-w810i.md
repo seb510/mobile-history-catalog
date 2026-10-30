@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "W810i"
 year: 2006
+formFactor: candybar
 milestone: "Продовження лінійки Walkman, тепер із EDGE"
 display:
   sizeInches: 1.9

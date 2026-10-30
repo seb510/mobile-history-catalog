@@ -2,6 +2,7 @@
 brand: Motorola
 model: "RAZR V3"
 year: 2004
+formFactor: clamshell
 milestone: "Тонка металева розкладачка з упізнаваною пласкою клавіатурою"
 priceUsdAtLaunch: 500
 unitsSoldMillions: 130

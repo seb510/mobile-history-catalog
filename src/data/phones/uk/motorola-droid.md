@@ -2,6 +2,7 @@
 brand: Motorola
 model: "Droid (Milestone)"
 year: 2009
+formFactor: slider
 milestone: "Перший масовий Android-смартфон, що запустив епоху Droid"
 priceUsdAtLaunch: 199.99
 display:

@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "Xperia X10"
 year: 2010
+formFactor: candybar
 milestone: "Перший Android-телефон Sony Ericsson"
 display:
   sizeInches: 4.0

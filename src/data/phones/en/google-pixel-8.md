@@ -2,6 +2,7 @@
 brand: Google
 model: Pixel 8
 year: 2023
+formFactor: candybar
 milestone: Seven years of OS and security updates
 chipset: Google Tensor G3
 os: Android 14

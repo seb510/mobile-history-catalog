@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "K850i"
 year: 2007
+formFactor: candybar
 milestone: "Флагманський Cyber-shot з 5 МП і ксеноном"
 display:
   sizeInches: 2.2

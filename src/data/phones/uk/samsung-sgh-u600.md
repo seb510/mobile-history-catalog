@@ -2,6 +2,7 @@
 brand: Samsung
 model: "SGH-U600"
 year: 2007
+formFactor: slider
 milestone: "Один з найтонших слайдерів свого часу (10.9 мм)"
 display:
   sizeInches: 2.2

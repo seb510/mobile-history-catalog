@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "W800i"
 year: 2005
+formFactor: candybar
 milestone: "Перший телефон під брендом Walkman"
 display:
   sizeInches: 1.8

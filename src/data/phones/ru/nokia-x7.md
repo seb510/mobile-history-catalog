@@ -2,6 +2,7 @@
 brand: Nokia
 model: X7-00
 year: 2011
+formFactor: candybar
 display:
   sizeInches: 4
   type: AMOLED

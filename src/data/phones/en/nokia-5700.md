@@ -2,6 +2,7 @@
 brand: Nokia
 model: 5700 XpressMusic
 year: 2007
+formFactor: swivel
 display:
   sizeInches: 2.2
   type: TFT LCD

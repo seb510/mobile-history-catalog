@@ -32,7 +32,9 @@ export const UI = {
       reset: 'Скинути фільтри',
       shownCount: 'у добірці',
     },
+    formFactors: {"candybar":"Моноблок","clamshell":"Розкладачка","slider":"Слайдер","swivel":"Поворотний корпус","foldable":"Складаний екран"},
     specs: {
+      formFactor: "Конструкція",
       year: 'Рік', priceUsdAtLaunch: 'Ціна на старті', display: 'Екран', resolution: 'Роздільна здатність',
       chipset: 'Чипсет', ram: 'RAM', storage: 'Пам’ять', storageExpandable: 'Карта пам’яті',
       camera: 'Камера', cameraFront: 'Фронтальна камера', battery: 'Акумулятор', batteryType: 'Тип акумулятора', batteryRemovable: 'Знімний акумулятор', charging: 'Заряджання', network: 'Зв’язок',
@@ -116,7 +118,7 @@ export const UI = {
         {
           "title": "Три маршрути архівом",
           "paragraphs": [
-            "«Механіка характеру», «Музика в кишені» та «Дизайн без правил» допомагають знайти спільну ідею в телефонах різних брендів. На головній — герої добірок, у каталозі — повні списки. Поєднуй тему з пошуком, брендом і роком; вибір зберігається в адресі."
+            "«Механіка характеру», «Музика в кишені» та «Дизайн без правил» допомагають знайти спільну ідею в телефонах різних брендів. На головній — герої добірок, у каталозі — повні списки. Поєднуй тему з пошуком, брендом, роком і конструкцією; вибір зберігається в адресі."
           ]
         },
         {
@@ -162,7 +164,9 @@ export const UI = {
       reset: 'Сбросить фильтры',
       shownCount: 'в подборке',
     },
+    formFactors: {"candybar":"Моноблок","clamshell":"Раскладушка","slider":"Слайдер","swivel":"Поворотный корпус","foldable":"Складной экран"},
     specs: {
+      formFactor: "Конструкция",
       year: 'Год', priceUsdAtLaunch: 'Цена на старте', display: 'Экран', resolution: 'Разрешение',
       chipset: 'Чипсет', ram: 'RAM', storage: 'Память', storageExpandable: 'Карта памяти',
       camera: 'Камера', cameraFront: 'Фронтальная камера', battery: 'Аккумулятор', batteryType: 'Тип аккумулятора', batteryRemovable: 'Съёмный аккумулятор', charging: 'Зарядка', network: 'Связь',
@@ -246,7 +250,7 @@ export const UI = {
         {
           "title": "Три маршрута по архиву",
           "paragraphs": [
-            "«Механика характера», «Музыка в кармане» и «Дизайн без правил» помогают найти общую идею у телефонов разных брендов. На главной — герои подборок, в каталоге — полные списки. Сочетай тему с поиском, брендом и годом; выбор сохраняется в адресе."
+            "«Механика характера», «Музыка в кармане» и «Дизайн без правил» помогают найти общую идею у телефонов разных брендов. На главной — герои подборок, в каталоге — полные списки. Сочетай тему с поиском, брендом, годом и конструкцией; выбор сохраняется в адресе."
           ]
         },
         {
@@ -291,7 +295,9 @@ export const UI = {
       reset: 'Reset filters',
       shownCount: 'in this selection',
     },
+    formFactors: {"candybar":"Candybar","clamshell":"Clamshell","slider":"Slider","swivel":"Swivel body","foldable":"Foldable screen"},
     specs: {
+      formFactor: "Form factor",
       year: 'Year', priceUsdAtLaunch: 'Launch price', display: 'Display', resolution: 'Resolution',
       chipset: 'Chipset', ram: 'RAM', storage: 'Storage', storageExpandable: 'Expandable storage',
       camera: 'Camera', cameraFront: 'Front camera', battery: 'Battery', batteryType: 'Battery type', batteryRemovable: 'Removable battery', charging: 'Charging', network: 'Network',
@@ -375,7 +381,7 @@ export const UI = {
         {
           "title": "Three routes through the archive",
           "paragraphs": [
-            "Mechanical character, Music in your pocket and Design without rules reveal shared ideas across brands. The homepage presents lead models; the catalog contains the complete collections. Combine a theme with search, brand and year filters; your selection stays in the URL."
+            "Mechanical character, Music in your pocket and Design without rules reveal shared ideas across brands. The homepage presents lead models; the catalog contains the complete collections. Combine a theme with search, brand, year and form factor filters; your selection stays in the URL."
           ]
         },
         {

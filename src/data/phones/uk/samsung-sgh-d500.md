@@ -2,6 +2,7 @@
 brand: Samsung
 model: "SGH-D500"
 year: 2004
+formFactor: slider
 milestone: "Популяризував слайдер як форм-фактор у масовому сегменті"
 unitsSoldMillions: 10
 display:

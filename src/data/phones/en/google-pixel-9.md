@@ -2,6 +2,7 @@
 brand: Google
 model: Pixel 9
 year: 2024
+formFactor: candybar
 milestone: "A redesigned Pixel: flat sides and a separate oval camera bar"
 display:
   sizeInches: 6.3

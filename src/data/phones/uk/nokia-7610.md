@@ -2,6 +2,7 @@
 brand: Nokia
 model: "7610"
 year: 2004
+formFactor: candybar
 milestone: "Перший мегапіксельний камерофон Nokia з асиметричним дизайном"
 priceUsdAtLaunch: 600
 display:

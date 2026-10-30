@@ -2,6 +2,7 @@
 brand: Sony Ericsson
 model: "K750i"
 year: 2005
+formFactor: candybar
 milestone: "Камерофон із автофокусом і активною кришкою об’єктива"
 display:
   sizeInches: 1.8

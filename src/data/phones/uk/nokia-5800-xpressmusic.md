@@ -2,6 +2,7 @@
 brand: Nokia
 model: "5800 XpressMusic"
 year: 2008
+formFactor: candybar
 milestone: "Перший масовий сенсорний телефон Nokia"
 priceUsdAtLaunch: 400
 unitsSoldMillions: 8

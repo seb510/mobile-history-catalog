@@ -2,6 +2,7 @@
 brand: Siemens
 model: SK65
 year: 2004
+formFactor: swivel
 milestone: "Бізнес-телефон із поворотною QWERTY-клавіатурою x2type"
 display:
   sizeInches: 2

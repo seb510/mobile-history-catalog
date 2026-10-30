@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { FORM_FACTORS } from './lib/form-factors';
 
 // One Markdown file per phone *per locale* (src/data/phones/<locale>/<slug>.md). `uk/<slug>.md`
 // is required — it's the base language every entry is curated in first; `ru/<slug>.md` and
@@ -14,6 +15,7 @@ const phones = defineCollection({
     brand: z.string(),
     model: z.string(),
     year: z.number().int().min(1998).max(new Date().getFullYear() + 1),
+    formFactor: z.enum(FORM_FACTORS).optional(),
     // A short tag for why this model is on a "milestone" timeline, not a full spec sheet —
     // e.g. "перший масовий GSM-телефон", "перший Android". Optional: not every entry needs one.
     // This is the one spec-adjacent field that's actually worth writing per-locale (it's prose).

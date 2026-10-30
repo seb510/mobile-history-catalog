@@ -2,6 +2,7 @@
 brand: Siemens
 model: S55
 year: 2002
+formFactor: candybar
 milestone: "Один із перших телефонів зі зйомним камерамодулем"
 display:
   type: "кольоровий CSTN, 256 кольорів"

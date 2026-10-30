@@ -2,6 +2,7 @@
 brand: Siemens
 model: S65
 year: 2004
+formFactor: candybar
 milestone: "Фотофлагман Siemens — 1.3 Мп камера й картка пам'яті"
 display:
   sizeInches: 2.1

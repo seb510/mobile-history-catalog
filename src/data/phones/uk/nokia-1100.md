@@ -2,6 +2,7 @@
 brand: Nokia
 model: "1100"
 year: 2003
+formFactor: candybar
 milestone: "Найбільш продана модель телефону в історії"
 unitsSoldMillions: 250
 display:

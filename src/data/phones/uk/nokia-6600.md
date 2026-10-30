@@ -2,6 +2,7 @@
 brand: Nokia
 model: "6600"
 year: 2003
+formFactor: candybar
 milestone: "Перший масовий Symbian-смартфон Series 60"
 priceUsdAtLaunch: 700
 display:

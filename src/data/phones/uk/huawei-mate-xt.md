@@ -2,6 +2,7 @@
 brand: Huawei
 model: Mate XT Ultimate Design
 year: 2024
+formFactor: foldable
 milestone: "Перший серійний смартфон із тристулковим екраном"
 display:
   sizeInches: 10.2

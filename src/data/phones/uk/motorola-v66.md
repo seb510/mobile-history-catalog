@@ -2,6 +2,7 @@
 brand: Motorola
 model: "V66"
 year: 2001
+formFactor: clamshell
 milestone: "Компактна розкладачка з iTAP і голосовими нотатками"
 display:
   type: "монохромний графічний (Optimax)"

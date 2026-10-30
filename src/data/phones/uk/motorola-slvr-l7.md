@@ -2,6 +2,7 @@
 brand: Motorola
 model: "SLVR L7"
 year: 2005
+formFactor: candybar
 milestone: "Ультратонкий бар-телефон, що продовжив мову дизайну RAZR"
 priceUsdAtLaunch: 299
 display:
