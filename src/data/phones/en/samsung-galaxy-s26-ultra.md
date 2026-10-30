@@ -44,6 +44,11 @@ priceSourceUrl: https://news.samsung.com/us/samsung-unveils-galaxy-s26-series-mo
 priceContext: US, base 12/256 GB model
 ---
 
+Privacy Display addresses messages, passwords and phone use on public transport or in crowded places. Samsung explains that it changes how pixels distribute light to restrict side viewing. It can be configured for sensitive input or particular notifications; switching it off restores a shared viewing experience.
+
+It does not guarantee that information becomes invisible: Samsung notes that angle, brightness and surroundings affect the result. In this timeline, it represents a display development beyond resolution and refresh rate: control over who can see the image. That hardware capability is distinct from software AI features.
+
+
 Galaxy S26 Ultra introduced Samsung’s built-in Privacy Display. Samsung says it can restrict side viewing without a separate privacy film, making privacy a property of the screen itself.
 
 Memory figures describe the base 12/256 GB model. Other configurations include 12/512 GB and 16 GB/1 TB, subject to market availability. Typical battery capacity is 5000 mAh; rated minimum is 4855 mAh. 60 W and 25 W are maximum charging rates with compatible chargers. SIM and connectivity refer to SM-S948B: Samsung UK lists Bluetooth 6.0, while a general Samsung DE comparison lists 5.4. No final global sales figure is supplied without a source.
