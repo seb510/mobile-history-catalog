@@ -6,7 +6,7 @@ import type { Locale } from './locales';
 export const UI = {
   uk: {
     siteName: 'Мобільна Історія',
-    tagline: 'Від початку масового GSM до сьогодні — історії телефонів, що змінили наш зв’язок.',
+    tagline: 'Ретро-телефони з характером: незвичні форми, справжні кнопки й історії речей, які хотілося тримати в руках.',
     breadcrumbs: { label: 'Навігаційний ланцюжок', home: 'Головна' },
     nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', about: 'Про проєкт' },
     menu: { open: 'Відкрити меню', close: 'Закрити меню' },
@@ -14,7 +14,7 @@ export const UI = {
     footer: {
       navigation: 'Розділи',
       about:
-        'Курований таймлайн мобільних телефонів, що реально змінили індустрію — не повний каталог моделей.',
+        'Курований архів ретро-телефонів із характером — дизайн, механіка й спогади кнопкової епохи.',
       inspiredBy: 'Натхненно форматом журналу MobiLux (2004–2016)',
       sisterProject: 'Сестринський проєкт',
       rights: 'Контент ліцензується вільно, де це можливо — атрибуція зображень вказана на сторінках телефонів.',
@@ -78,7 +78,7 @@ export const UI = {
       guideCatalog: 'Шукай за роком, брендом або назвою моделі.',
       guideCompare: 'Обери два телефони й порівняй різні епохи.',
     },
-    catalog: { intro: 'Кожен рік — окрема сторінка історії. Знайди модель за назвою, брендом або роком.' },
+    catalog: { intro: 'Розкладачки, слайдери, музичні телефони й незвичні клавіатури. Знайди свій характер за моделлю, брендом або роком.' },
     langSwitcher: 'Мова',
     gallery: {
       label: 'Галерея фотографій',
@@ -92,12 +92,12 @@ export const UI = {
     notFound: { title: 'Сторінку не знайдено', body: 'Такого телефону в каталозі немає.', link: 'Повернутись на таймлайн' },
     about: {
       title: 'Про проєкт',
-      intro: 'Історія мобільного зв’язку — через телефони, які змінили індустрію, звичні речі та наше уявлення про те, яким може бути пристрій у кишені.',
+      intro: 'Мобільна Історія — архів телефонів із власним обличчям. У центрі — кнопкова епоха, сміливий дизайн і повсякденні жести, які залишилися в пам’яті.',
       sections: [
         { title: 'Відлік від GSM-буму', paragraphs: ['Таймлайн починається з 1998–1999 років — часу, коли мобільний зв’язок став масовим, — і простягається до сьогодні. Це погляд на кілька десятиліть змін через знакові пристрої.'] },
-        { title: 'Курований вибір', paragraphs: ['Тут не кожна модель і не повний перелік характеристик ринку. До каталогу потрапляють телефони, що вплинули на технології, дизайн, доступність зв’язку або спосіб користування мобільними пристроями.'] },
+        { title: 'Курований вибір', paragraphs: ['Головний критерій — характер: виразний корпус, механізм, клавіатура, матеріали або особливий спосіб користування. Технічна першість і продажі додають контекст, але самі по собі не визначають добір. Сенсорні моделі залишаються продовженням історії, а не її центром.'] },
         { title: 'Факти та зображення', paragraphs: ['Історичні твердження й характеристики звіряються з надійними джерелами; посилання на джерела зображень наведені біля самих фото. Для зображень ми віддаємо перевагу матеріалам із вільною ліцензією та вказуємо авторство й умови використання.'] },
-        { title: 'Порівняння крізь епохи', paragraphs: ['На сторінці «Порівняти» обери два телефони, щоб побачити спільні характеристики поруч. Невідомі або непідтверджені значення позначені тире, а вибір зберігається в адресі сторінки — ним можна поділитися або повернутися пізніше.'] },
+        { title: 'Порівняння крізь епохи', paragraphs: ['На сторінці «Порівняти» обери два телефони, щоб побачити спільні характеристики поруч. Невідомі або непідтверджені значення позначені як «Дані невідомі», а вибір зберігається в адресі сторінки — ним можна поділитися або повернутися пізніше.'] },
         { title: 'Як користуватися таймлайном', paragraphs: ['У каталозі можна шукати за назвою, відфільтрувати моделі за брендом і роком та відкривати окремі історії телефонів. Сторінки брендів збирають моделі виробника в одному місці.'] },
         { title: 'Журнал і цифровий архів', paragraphs: ['Тон і формат натхненні українським журналом MobiLux (2004–2016): короткі історії, виразні моделі й увага до контексту. Проєкт створюється вручну українською, російською та англійською мовами й генерується як швидкий статичний сайт.'] },
       ],
@@ -105,7 +105,7 @@ export const UI = {
   },
   ru: {
     siteName: 'Мобильная История',
-    tagline: 'От начала массового GSM до сегодня — истории телефонов, изменивших нашу связь.',
+    tagline: 'Ретро-телефоны с характером: необычные формы, настоящие кнопки и истории вещей, которые хотелось держать в руках.',
     breadcrumbs: { label: 'Навигационная цепочка', home: 'Главная' },
     nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', about: 'О проекте' },
     menu: { open: 'Открыть меню', close: 'Закрыть меню' },
@@ -113,7 +113,7 @@ export const UI = {
     footer: {
       navigation: 'Разделы',
       about:
-        'Курированный таймлайн мобильных телефонов, которые реально изменили индустрию — не полный каталог моделей.',
+        'Курированный архив ретро-телефонов с характером — дизайн, механика и воспоминания кнопочной эпохи.',
       inspiredBy: 'Вдохновлено форматом журнала MobiLux (2004–2016)',
       sisterProject: 'Сестринский проект',
       rights: 'Контент лицензируется свободно, где это возможно — атрибуция изображений указана на страницах телефонов.',
@@ -177,7 +177,7 @@ export const UI = {
       guideCatalog: 'Ищи по году, бренду или названию модели.',
       guideCompare: 'Выбери два телефона и сравни разные эпохи.',
     },
-    catalog: { intro: 'Каждый год — отдельная страница истории. Найди модель по названию, бренду или году.' },
+    catalog: { intro: 'Раскладушки, слайдеры, музыкальные телефоны и необычные клавиатуры. Найди свой характер по модели, бренду или году.' },
     langSwitcher: 'Язык',
     gallery: {
       label: 'Галерея фотографий',
@@ -191,12 +191,12 @@ export const UI = {
     notFound: { title: 'Страница не найдена', body: 'Такого телефона в каталоге нет.', link: 'Вернуться на таймлайн' },
     about: {
       title: 'О проекте',
-      intro: 'История мобильной связи — через телефоны, которые изменили индустрию, повседневные привычки и наше представление об устройстве в кармане.',
+      intro: 'Мобильная История — архив телефонов со своим лицом. В центре — кнопочная эпоха, смелый дизайн и повседневные жесты, которые остались в памяти.',
       sections: [
         { title: 'Отсчёт с GSM-бума', paragraphs: ['Таймлайн начинается в 1998–1999 годах — когда мобильная связь стала массовой, — и продолжается до сегодня. Это взгляд на несколько десятилетий перемен через знаковые устройства.'] },
-        { title: 'Курированный выбор', paragraphs: ['Здесь нет каждой модели и полного перечня характеристик рынка. В каталог попадают телефоны, повлиявшие на технологии, дизайн, доступность связи или то, как мы пользуемся мобильными устройствами.'] },
+        { title: 'Курированный выбор', paragraphs: ['Главный критерий — характер: выразительный корпус, механизм, клавиатура, материалы или особый способ использования. Техническое первенство и продажи добавляют контекст, но сами по себе не определяют отбор. Сенсорные модели продолжают историю, а не становятся её центром.'] },
         { title: 'Факты и изображения', paragraphs: ['Исторические сведения и характеристики сверяются с надёжными источниками; ссылки на источники изображений находятся рядом с фотографиями. Мы отдаём предпочтение материалам со свободной лицензией и указываем авторство и условия использования.'] },
-        { title: 'Сравнение эпох', paragraphs: ['На странице «Сравнить» выбери два телефона, чтобы увидеть общие характеристики рядом. Неизвестные или неподтверждённые значения обозначены тире, а выбор сохраняется в адресе страницы — ссылкой можно поделиться или вернуться позже.'] },
+        { title: 'Сравнение эпох', paragraphs: ['На странице «Сравнить» выбери два телефона, чтобы увидеть общие характеристики рядом. Неизвестные или неподтверждённые значения обозначены как «Данные неизвестны», а выбор сохраняется в адресе страницы — ссылкой можно поделиться или вернуться позже.'] },
         { title: 'Как пользоваться таймлайном', paragraphs: ['В каталоге можно искать по названию, фильтровать модели по бренду и году, а затем открывать отдельные истории телефонов. Страницы брендов собирают модели производителя в одном месте.'] },
         { title: 'Журнал и цифровой архив', paragraphs: ['Тон и формат вдохновлены украинским журналом MobiLux (2004–2016): короткие истории, выразительные модели и внимание к контексту. Проект вручную ведётся на украинском, русском и английском и генерируется как быстрый статический сайт.'] },
       ],
@@ -204,14 +204,14 @@ export const UI = {
   },
   en: {
     siteName: 'Mobile History',
-    tagline: 'From mass-market GSM to today: stories of phones that changed how we connect.',
+    tagline: 'Retro phones with character: distinctive shapes, real buttons and the stories of objects you wanted to hold.',
     breadcrumbs: { label: 'Breadcrumb', home: 'Home' },
     nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', about: 'About' },
     menu: { open: 'Open menu', close: 'Close menu' },
     themeToggle: 'Toggle color theme',
     footer: {
       navigation: 'Explore',
-      about: 'A curated timeline of mobile phones that actually changed the industry — not a full model catalog.',
+      about: 'A curated archive of retro phones with character: design, mechanics and memories from the button-phone era.',
       inspiredBy: 'Inspired by the format of MobiLux magazine (2004–2016)',
       sisterProject: 'Sister project',
       rights: 'Content is freely licensed where possible — image attribution is listed on each phone page.',
@@ -275,7 +275,7 @@ export const UI = {
       guideCatalog: 'Search by model, brand, or year.',
       guideCompare: 'Pick two phones to compare different eras.',
     },
-    catalog: { intro: 'Each year marks a different chapter. Find a phone by model, brand, or year.' },
+    catalog: { intro: 'Clamshells, sliders, music phones and unexpected keypads. Find your favourite by model, brand or year.' },
     langSwitcher: 'Language',
     gallery: {
       label: 'Photo gallery',
@@ -289,12 +289,12 @@ export const UI = {
     notFound: { title: 'Page not found', body: 'There is no such phone in the catalog.', link: 'Back to the timeline' },
     about: {
       title: 'About the project',
-      intro: 'The history of mobile communication, told through the phones that changed the industry, everyday habits, and our idea of what a device in your pocket could be.',
+      intro: 'Mobile History is an archive of phones with a character of their own. At its heart are the button-phone era, bold design and everyday gestures that stayed with us.',
       sections: [
         { title: 'Starting with the GSM boom', paragraphs: ['The timeline begins in 1998–1999, when mobile communication went mainstream, and continues to the present. It traces several decades of change through milestone devices.'] },
-        { title: 'A curated selection', paragraphs: ['This is not every model or a complete record of the market. The catalog focuses on phones that influenced technology, design, access to communication, or the way people use mobile devices.'] },
+        { title: 'A curated selection', paragraphs: ['The main criterion is character: a distinctive body, mechanism, keypad, materials or way of using a phone. Technical firsts and sales add context, but do not determine selection alone. Touchscreen models continue the story rather than take centre stage.'] },
         { title: 'Facts and images', paragraphs: ['Historical claims and specifications are checked against reliable sources; image-source links appear alongside the photos. We prefer freely licensed material and credit its creators and license terms.'] },
-        { title: 'Comparing eras', paragraphs: ['Choose two phones on the Compare page to see their specifications side by side. Unknown or unverified values are marked with a dash, and your selection stays in the page URL so you can share it or return later.'] },
+        { title: 'Comparing eras', paragraphs: ['Choose two phones on the Compare page to see their specifications side by side. Unknown or unverified values are marked as “Unknown”, and your selection stays in the page URL so you can share it or return later.'] },
         { title: 'Using the timeline', paragraphs: ['Search the catalog by model, filter by brand and year, then open a phone’s story for its context and specifications. Brand pages bring each manufacturer’s featured phones together.'] },
         { title: 'A magazine and a digital archive', paragraphs: ['The tone and format take inspiration from Ukrainian magazine MobiLux (2004–2016): concise stories, distinctive devices, and historical context. The project is curated in Ukrainian, Russian, and English, then generated as a fast static site.'] },
       ],
@@ -308,103 +308,154 @@ export function t(locale: Locale) {
 
 export const HOME_EDITORIAL = {
   "uk": {
-    "title": "Телефони, що змінили наше життя",
-    "cover": "Герой епохи",
-    "eras": "Знайди свою епоху",
+    "title": "Коли телефони мали власне обличчя",
+    "cover": "Ікона кнопкової епохи",
+    "eras": "Не лише роки. Характери.",
     "labels": [
-      "Масовий GSM",
-      "Камера й музика",
-      "Ера смартфонів",
-      "Нові форми"
+      "Кнопкова класика",
+      "Механіка й музика",
+      "Перехідна епоха",
+      "Історія триває"
     ],
-    "compare": "26 років між дзвінками",
-    "text": "Від кнопок і монохромного екрана до OLED та 5G. Порівняй два покоління й побач масштаб змін.",
-    "cta": "Порівняти покоління",
-    "principles": "Історія має значення",
+    "compare": "Два характери однієї епохи",
+    "text": "Тонка розкладачка RAZR V3 і подвійний слайдер Nokia N95. Дві відповіді на питання, яким може бути телефон у кишені.",
+    "cta": "Порівняти характери",
+    "principles": "Зберігаємо характер епохи",
     "pairNotes": [
-      "Кнопки · GSM",
-      "Сенсорний екран · 5G"
+      "Метал · пласка клавіатура · розкладачка",
+      "Подвійний слайдер · камера · музика"
     ],
     "principleItems": [
       {
-        "title": "Знакові моделі",
-        "text": "Телефони, які змінили технології, дизайн і щоденні звички."
+        "title": "Форма має значення",
+        "text": "Клавіатури, шарніри, матеріали й кольори, за якими телефон упізнавали здалеку."
       },
       {
-        "title": "Факти з контекстом",
-        "text": "Що вмів пристрій — і чому це було важливо у його час."
+        "title": "Речі та спогади",
+        "text": "Відкрити кришку, перемкнути трек, набрати SMS. Історія через повсякденні жести."
       },
       {
-        "title": "Журнальний погляд",
-        "text": "Курована історія з увагою до деталей та відкритими джерелами."
+        "title": "Ностальгія з фактами",
+        "text": "Любов до ретро — з перевіреними джерелами, фотографіями й технічним контекстом."
       }
-    ]
+    ],
+    "themes": [
+      {
+        "title": "Механіка характеру",
+        "text": "Повернути, розкрити, висунути: конструкція була частиною взаємодії."
+      },
+      {
+        "title": "Музика в кишені",
+        "text": "Окремі кнопки, улюблений плеєр і власна добірка композицій."
+      },
+      {
+        "title": "Дизайн без правил",
+        "text": "Асиметрія, несподівані форми й телефони, які важко сплутати."
+      }
+    ],
+    "modernTitle": "Історія триває",
+    "modernText": "Сенсорні й складані моделі теж є в архіві — як продовження історії форми та взаємодії.",
+    "modernLink": "Після кнопкової епохи"
   },
   "ru": {
-    "title": "Телефоны, которые изменили нашу жизнь",
-    "cover": "Герой эпохи",
-    "eras": "Найди свою эпоху",
+    "title": "Когда у телефонов было своё лицо",
+    "cover": "Икона кнопочной эпохи",
+    "eras": "Не только годы. Характеры.",
     "labels": [
-      "Массовый GSM",
-      "Камера и музыка",
-      "Эра смартфонов",
-      "Новые формы"
+      "Кнопочная классика",
+      "Механика и музыка",
+      "Переходная эпоха",
+      "История продолжается"
     ],
-    "compare": "26 лет между звонками",
-    "text": "От кнопок и монохромного экрана до OLED и 5G. Сравни два поколения и увидишь масштаб перемен.",
-    "cta": "Сравнить поколения",
-    "principles": "История имеет значение",
+    "compare": "Два характера одной эпохи",
+    "text": "Тонкая раскладушка RAZR V3 и двойной слайдер Nokia N95. Два ответа на вопрос, каким может быть телефон в кармане.",
+    "cta": "Сравнить характеры",
+    "principles": "Сохраняем характер эпохи",
     "pairNotes": [
-      "Кнопки · GSM",
-      "Сенсорный экран · 5G"
+      "Металл · плоская клавиатура · раскладушка",
+      "Двойной слайдер · камера · музыка"
     ],
     "principleItems": [
       {
-        "title": "Знаковые модели",
-        "text": "Телефоны, изменившие технологии, дизайн и повседневные привычки."
+        "title": "Форма имеет значение",
+        "text": "Клавиатуры, шарниры, материалы и цвета, по которым телефон узнавали издалека."
       },
       {
-        "title": "Факты с контекстом",
-        "text": "Что умело устройство — и почему это было важно в своё время."
+        "title": "Вещи и воспоминания",
+        "text": "Открыть крышку, переключить трек, набрать SMS. История через повседневные жесты."
       },
       {
-        "title": "Журнальный взгляд",
-        "text": "Курированная история с вниманием к деталям и открытыми источниками."
+        "title": "Ностальгия с фактами",
+        "text": "Любовь к ретро — с проверенными источниками, фотографиями и техническим контекстом."
       }
-    ]
+    ],
+    "themes": [
+      {
+        "title": "Механика характера",
+        "text": "Повернуть, раскрыть, сдвинуть: конструкция была частью взаимодействия."
+      },
+      {
+        "title": "Музыка в кармане",
+        "text": "Отдельные кнопки, любимый плеер и собственная подборка композиций."
+      },
+      {
+        "title": "Дизайн без правил",
+        "text": "Асимметрия, неожиданные формы и телефоны, которые сложно перепутать."
+      }
+    ],
+    "modernTitle": "История продолжается",
+    "modernText": "Сенсорные и складные модели тоже есть в архиве — как продолжение истории формы и взаимодействия.",
+    "modernLink": "После кнопочной эпохи"
   },
   "en": {
-    "title": "Phones that changed our lives",
-    "cover": "An icon of its era",
-    "eras": "Find your era",
+    "title": "When phones had a character of their own",
+    "cover": "An icon of the button-phone era",
+    "eras": "Beyond years. Into character.",
     "labels": [
-      "Mass-market GSM",
-      "Camera and music",
-      "The smartphone era",
-      "New forms"
+      "Button-phone classics",
+      "Mechanics and music",
+      "A time of transition",
+      "The story continues"
     ],
-    "compare": "26 years between calls",
-    "text": "From buttons and a monochrome screen to OLED and 5G. Compare two generations to see how much changed.",
-    "cta": "Compare generations",
-    "principles": "The history matters",
+    "compare": "Two characters from one era",
+    "text": "The slim RAZR V3 clamshell and the Nokia N95 dual slider. Two different answers to what a phone in your pocket could be.",
+    "cta": "Compare their character",
+    "principles": "Preserving the character of an era",
     "pairNotes": [
-      "Buttons · GSM",
-      "Touchscreen · 5G"
+      "Metal · flat keypad · clamshell",
+      "Dual slider · camera · music"
     ],
     "principleItems": [
       {
-        "title": "Landmark phones",
-        "text": "Devices that changed technology, design, and everyday habits."
+        "title": "Form matters",
+        "text": "Keypads, hinges, materials and colours that made a phone recognisable from afar."
       },
       {
-        "title": "Facts in context",
-        "text": "What a phone could do — and why it mattered in its time."
+        "title": "Objects and memories",
+        "text": "Flip it open, skip a track, type an SMS. History through everyday gestures."
       },
       {
-        "title": "An editorial eye",
-        "text": "A curated history with attention to detail and sources you can explore."
+        "title": "Nostalgia with evidence",
+        "text": "A love of retro phones, grounded in sources, photographs and technical context."
       }
-    ]
+    ],
+    "themes": [
+      {
+        "title": "Mechanical character",
+        "text": "Twist, flip, slide: the construction was part of the interaction."
+      },
+      {
+        "title": "Music in your pocket",
+        "text": "Dedicated buttons, a favourite player and a collection of your own."
+      },
+      {
+        "title": "Design without rules",
+        "text": "Asymmetry, unexpected shapes and phones you could never mistake for another."
+      }
+    ],
+    "modernTitle": "The story continues",
+    "modernText": "Touchscreen and folding models remain in the archive as the next chapter in form and interaction.",
+    "modernLink": "Beyond the button-phone era"
   }
 } as const;
 export const RELATED_PHONES = {
