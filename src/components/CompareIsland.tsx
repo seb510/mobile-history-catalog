@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
-import { COMPARE_QUICK, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
+import { COMPARE_QUICK, COMPARE_DESIGN, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
 
 type PhoneData = CollectionEntry<'phones'>['data'];
@@ -40,6 +40,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'manual'>('idle');
   const [shareUrl, setShareUrl] = useState('');
   const editorial = DESIGN_EDITORIAL[locale];
+  const design = COMPARE_DESIGN[locale];
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
   const suggestedMatchups = [
     { a: 'nokia-3210', b: 'nokia-3310', story: strings.compare.suggestions.gsmEra },
@@ -85,6 +86,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     setSelected({ a: null, b: null });
     setQuery({ a: '', b: '' });
     setDifferencesOnly(false);
+    requestAnimationFrame(() => document.getElementById('phone-search-a')?.focus());
   };
   const copyLink = async () => {
     const url = window.location.href;
@@ -116,6 +118,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
   const highlights = groups.flatMap((group) => group.rows).filter((row) =>
     [strings.specs.display, strings.specs.camera, strings.specs.weight].some((label) => label === row.label) && row.a && row.b);
+  const visibleGroups = groups.map((group) => ({ ...group, rows: group.rows.filter((row) => !differencesOnly || row.a !== row.b) })).filter((group) => group.rows.length);
+  const rowCount = visibleGroups.reduce((count, group) => count + group.rows.length, 0);
 
   return (
     <div>
@@ -150,8 +154,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
       {phoneA && phoneB ? (
         <div className="mt-6">
-          {highlights.length > 0 && <section className="mb-6 border-y border-neutral-800 py-5" aria-labelledby="compare-overview">
-            <h2 id="compare-overview" className="section-label mb-4">{editorial.overview}</h2>
+          {highlights.length > 0 && <details className="compare-summary mb-5 border-y border-neutral-800">
+            <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold text-neutral-300">{editorial.overview}</summary>
             <div className="compare-overview">
               <div className="compare-overview-row text-xs font-semibold text-neutral-500"><span aria-hidden="true"></span><span>{phoneA.data.model}</span><span>{phoneB.data.model}</span></div>
               {highlights.map((row) => <div key={row.label} className="compare-overview-row">
@@ -160,7 +164,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                 <p className="min-w-0 text-sm text-neutral-200">{row.b}</p>
               </div>)}
             </div>
-          </section>}
+          </details>}
           <div className="compare-actions mb-4 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
@@ -172,45 +176,51 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
               <path d="M4 7h15l-3-3M20 17H5l3 3" />
             </svg>
+            <span>{strings.compare.swap}</span>
           </button>
           <button type="button" className="control-button compare-action-icon" title={editorial.differences} aria-label={editorial.differences} aria-pressed={differencesOnly} onClick={() => setDifferencesOnly(!differencesOnly)}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
               <path d="M4 5h16l-6.5 7.2V19l-3 1v-7.8L4 5Z" />
             </svg>
+            <span>{editorial.differences}</span>
           </button>
           <button type="button" className="control-button compare-action-icon" title={editorial.copyLink} aria-label={editorial.copyLink} onClick={copyLink}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
               <rect x="8" y="8" width="12" height="12" rx="1.5" />
               <path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8" />
             </svg>
+            <span>{editorial.copyLink}</span>
           </button>
           <button type="button" className="control-button compare-action-icon" title={strings.compare.reset} aria-label={strings.compare.reset} onClick={resetComparison}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
               <path d="M4 7v5h5M5.2 12a7 7 0 1 0 2-5" />
             </svg>
+            <span>{strings.compare.reset}</span>
           </button>
           </div>
           <p role="status" className="text-sm text-orange-500">{copyState === 'copied' ? editorial.copied : copyState === 'manual' ? editorial.manualCopy : ''}</p>
           {copyState === 'manual' && <input readOnly aria-label={editorial.copyLink} value={shareUrl} onFocus={(event) => event.target.select()} className="mb-4 w-full rounded-sm border border-neutral-700 bg-neutral-900 p-3 text-base" />}
           <p className="mb-3 text-xs text-neutral-500">{editorial.differenceNote}</p>
           <p className="mb-4 text-xs leading-relaxed text-neutral-500">{editorial.dataNote}</p>
-          <div className="compare-table rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table">
+          <p className="mb-3 text-xs tabular-nums text-neutral-500" role="status">{design.rows.replace('{count}', String(rowCount))}</p>
+          {rowCount === 0 && <p className="mb-4 border border-neutral-700 p-4 text-sm text-neutral-300">{design.identical}</p>}
+          <div className="compare-table rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table" aria-label={`${phoneA.data.brand} ${phoneA.data.model} / ${phoneB.data.brand} ${phoneB.data.model}`}>
             <div role="row" className="compare-table-head grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b-2 border-orange-500 bg-neutral-900 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)]">
               <div role="columnheader" className="flex items-end px-2 py-3 text-[0.6rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3 lg:text-xs">
                 {strings.compare.tableHead.characteristic}
               </div>
               <div role="columnheader" className="min-w-0 border-l border-neutral-700 px-2 py-3 sm:px-3">
-                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase lg:text-xs">{phoneA.data.brand} · {phoneA.data.year}</span>
+                <span className="block text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase lg:text-xs">A · {phoneA.data.brand} · {phoneA.data.year}</span>
                 <span className="mt-1 block leading-tight font-bold text-neutral-100 lg:text-lg">{phoneA.data.model}</span>
               </div>
               <div role="columnheader" className="min-w-0 border-l border-neutral-700 px-2 py-3 sm:px-3">
-                <span className="block truncate text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase lg:text-xs">{phoneB.data.brand} · {phoneB.data.year}</span>
+                <span className="block text-[0.6rem] font-semibold tracking-wide text-neutral-400 uppercase lg:text-xs">B · {phoneB.data.brand} · {phoneB.data.year}</span>
                 <span className="mt-1 block leading-tight font-bold text-neutral-100 lg:text-lg">{phoneB.data.model}</span>
               </div>
             </div>
-            {groups.filter((group) => !differencesOnly || group.rows.some((row) => row.a !== row.b)).map((group, gi) => (
+            {visibleGroups.map((group, gi) => (
               <div key={gi} role="rowgroup" className={gi > 0 ? 'border-t-2 border-neutral-700' : ''}>
-                {group.rows.filter((row) => !differencesOnly || row.a !== row.b).map((row, i) => (
+                {group.rows.map((row, i) => (
                   <div
                     key={row.label}
                     role="row"
@@ -286,7 +296,8 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
   if (phone) {
     const { data, slug } = phone;
     return (
-      <div className="compare-selected rounded-sm border border-neutral-800 bg-neutral-900 p-3 sm:p-4">
+      <div className="compare-selected rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-3 sm:p-5">
+        <p className="editorial-kicker mb-3 text-orange-500">{slot === 'a' ? COMPARE_DESIGN[locale].first : COMPARE_DESIGN[locale].second}</p>
         <div className="flex items-start justify-between gap-2">
           <a id={`phone-selected-${slot}`} href={localePath(locale, `/phones/${slug}/`)} className="flex min-w-0 gap-2 sm:gap-3">
             <div className="compare-slot-image relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-sm border border-neutral-800 bg-neutral-950 p-1.5">
@@ -305,7 +316,8 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
               <p className="text-xs text-neutral-500">
                 {data.brand} · {data.year}
               </p>
-              <p className="mt-1 break-words font-bold leading-tight">{data.model}</p>
+              <p className="mt-1 break-words text-lg font-extrabold leading-tight sm:text-2xl">{data.model}</p>
+              {data.formFactor && <p className="mt-2 text-xs text-neutral-400">{strings.formFactors[data.formFactor]}</p>}
             </div>
           </a>
           <button

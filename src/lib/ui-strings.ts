@@ -601,3 +601,8 @@ export const CHROME_COPY = {
   ru: { archive: 'Об архиве', note: 'Выбираем модели по характеру дизайна и опыту использования.', approach: 'Отбор моделей и источники' },
   en: { archive: 'About the archive', note: 'Models selected for distinctive design and the experience of using them.', approach: 'Selection and sources' },
 } as const;
+export const COMPARE_DESIGN = {
+  uk: { first: 'Телефон A', second: 'Телефон B', rows: 'Характеристик: {count}', identical: 'У заповнених характеристиках відмінностей немає.' },
+  ru: { first: 'Телефон A', second: 'Телефон B', rows: 'Характеристик: {count}', identical: 'В заполненных характеристиках различий нет.' },
+  en: { first: 'Phone A', second: 'Phone B', rows: 'Specifications: {count}', identical: 'There are no differences in the recorded specifications.' },
+} as const;
