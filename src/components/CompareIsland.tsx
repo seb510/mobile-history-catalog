@@ -47,6 +47,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const [query, setQuery] = useState<Record<Slot, string>>({ a: '', b: '' });
   const [ready, setReady] = useState(false);
   const [differencesOnly, setDifferencesOnly] = useState(false);
+  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'manual'>('idle');
+  const [shareUrl, setShareUrl] = useState('');
   const editorial = DESIGN_EDITORIAL[locale];
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
   const suggestedMatchups = [
@@ -79,14 +81,26 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     const qs = params.toString();
     const url = `${window.location.pathname}${qs ? `?${qs}` : ''}`;
     window.history.replaceState(null, '', url);
+    setCopyState('idle');
   }, [selected.a, selected.b, ready]);
 
   const select = (slot: Slot, slug: string) => {
     setSelected((prev) => ({ ...prev, [slot]: slug }));
     setQuery((prev) => ({ ...prev, [slot]: '' }));
+    requestAnimationFrame(() => document.getElementById(`phone-selected-${slot}`)?.focus());
   };
   const clear = (slot: Slot) => setSelected((prev) => ({ ...prev, [slot]: null }));
   const swap = () => setSelected((prev) => ({ a: prev.b, b: prev.a }));
+  const copyLink = async () => {
+    const url = window.location.href;
+    setShareUrl(url);
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopyState('copied');
+    } catch {
+      setCopyState('manual');
+    }
+  };
   const quickPhones = (other: string | null) => {
     const curated = ['nokia-3310', 'nokia-n8', 'siemens-s65', 'motorola-razr-v3', 'apple-iphone', 'google-pixel-9'];
     const opposite = other ? bySlug.get(other) : undefined;
@@ -110,7 +124,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
   return (
     <div>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="compare-slots grid grid-cols-2 items-stretch gap-3 sm:gap-4">
         <PhoneSlot
           slot="a"
           phone={phoneA}
@@ -143,13 +157,12 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
         <div className="mt-6">
           {highlights.length > 0 && <section className="mb-6 border-y border-neutral-800 py-5" aria-labelledby="compare-overview">
             <h2 id="compare-overview" className="section-label mb-4">{editorial.overview}</h2>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {highlights.map((row) => <div key={row.label} className="rounded-sm border border-neutral-800 bg-neutral-900/50 p-4">
-                <p className="editorial-kicker mb-3 text-neutral-500">{row.label}</p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="min-w-0"><p className="text-xs text-neutral-500">{phoneA.data.model}</p><p className="mt-1 break-words text-sm font-semibold text-neutral-100">{row.a}</p></div>
-                  <div className="min-w-0 border-l border-neutral-800 pl-3"><p className="text-xs text-neutral-500">{phoneB.data.model}</p><p className="mt-1 break-words text-sm font-semibold text-neutral-100">{row.b}</p></div>
-                </div>
+            <div className="compare-overview">
+              <div className="compare-overview-row text-xs font-semibold text-neutral-500"><span aria-hidden="true"></span><span>{phoneA.data.model}</span><span>{phoneB.data.model}</span></div>
+              {highlights.map((row) => <div key={row.label} className="compare-overview-row">
+                <p className="text-xs font-semibold text-neutral-500">{row.label}</p>
+                <p className="min-w-0 text-sm text-neutral-200">{row.a}</p>
+                <p className="min-w-0 text-sm text-neutral-200">{row.b}</p>
               </div>)}
             </div>
           </section>}
@@ -162,8 +175,12 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
             {strings.compare.swap}
           </button>
           <button type="button" className="control-button text-sm" aria-pressed={differencesOnly} onClick={() => setDifferencesOnly(!differencesOnly)}>{editorial.differences}</button>
+          <button type="button" className="control-button text-sm" onClick={copyLink}>{editorial.copyLink}</button>
           </div>
+          <p role="status" className="text-sm text-orange-500">{copyState === 'copied' ? editorial.copied : copyState === 'manual' ? editorial.manualCopy : ''}</p>
+          {copyState === 'manual' && <input readOnly aria-label={editorial.copyLink} value={shareUrl} onFocus={(event) => event.target.select()} className="mb-4 w-full rounded-sm border border-neutral-700 bg-neutral-900 p-3 text-base" />}
           <p className="mb-3 text-xs text-neutral-500">{editorial.differenceNote}</p>
+          <p className="mb-4 text-xs leading-relaxed text-neutral-500">{editorial.dataNote}</p>
           <div className="compare-table rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table">
             <div role="row" className="compare-table-head grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b-2 border-orange-500 bg-neutral-900 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)]">
               <div role="columnheader" className="flex items-end px-2 py-3 text-[0.6rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3 lg:text-xs">
@@ -190,10 +207,10 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                       {row.label}
                     </div>
                     <div role="cell" className="min-w-0 border-r border-neutral-700 px-2 py-3 leading-relaxed text-neutral-100 sm:px-3">
-                      {row.a ?? <span className="text-neutral-500">{strings.compare.dash}</span>}
+                      {row.a ?? <span className="text-xs text-neutral-500">{editorial.unknown}</span>}
                     </div>
                     <div role="cell" className="min-w-0 px-2 py-3 leading-relaxed text-neutral-100 sm:px-3">
-                      {row.b ?? <span className="text-neutral-500">{strings.compare.dash}</span>}
+                      {row.b ?? <span className="text-xs text-neutral-500">{editorial.unknown}</span>}
                     </div>
                   </div>
                 ))}
@@ -256,10 +273,10 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
   if (phone) {
     const { data, slug } = phone;
     return (
-      <div className="rounded-sm border border-neutral-800 bg-neutral-900 p-4">
+      <div className="compare-selected rounded-sm border border-neutral-800 bg-neutral-900 p-3 sm:p-4">
         <div className="flex items-start justify-between gap-2">
-          <a href={localePath(locale, `/phones/${slug}/`)} className="flex min-w-0 gap-3">
-            <div className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-md border border-neutral-800 bg-neutral-950 p-1.5">
+          <a id={`phone-selected-${slot}`} href={localePath(locale, `/phones/${slug}/`)} className="flex min-w-0 gap-2 sm:gap-3">
+            <div className="compare-slot-image relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-sm border border-neutral-800 bg-neutral-950 p-1.5">
               {data.image ? (
                 <>
                   <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} className="h-full w-full object-contain" />
@@ -275,14 +292,13 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
               <p className="text-xs text-neutral-500">
                 {data.brand} · {data.year}
               </p>
-              <p className="truncate font-semibold leading-tight">{data.model}</p>
-              {data.priceUsdAtLaunch != null && data.priceSourceUrl && <p className="mt-1 text-xs font-bold text-orange-500">${data.priceUsdAtLaunch} USD{data.priceContext && <span className="block font-normal">{data.priceContext}</span>}</p>}
+              <p className="mt-1 break-words font-bold leading-tight">{data.model}</p>
             </div>
           </a>
           <button
             type="button"
-            onClick={onClear}
-            className="shrink-0 text-xs text-neutral-500 underline transition-colors motion-ui hover-desktop:text-neutral-300"
+            onClick={() => { onClear(); requestAnimationFrame(() => document.getElementById(`phone-search-${slot}`)?.focus()); }}
+            className="compare-change shrink-0 text-xs text-orange-500 underline underline-offset-4 transition-colors motion-ui hover-desktop:text-orange-400"
           >
             {strings.compare.change}
           </button>
@@ -292,7 +308,10 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
   }
 
   return (
-    <div className="relative rounded-sm border border-neutral-800 bg-neutral-900 p-4">
+    <div className="relative min-w-0 rounded-sm border border-neutral-800 bg-neutral-900 p-3 sm:p-4">
+      <label htmlFor={`phone-search-${slot}`} className="filter-label">{placeholder}</label>
+      <div className="catalog-search-field">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
       <input
         id={`phone-search-${slot}`}
         type="search"
@@ -313,12 +332,13 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
           }
         }}
         placeholder={placeholder}
-        className="w-full rounded-sm border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none"
+        className="w-full text-base text-neutral-100 placeholder:text-neutral-500"
       />
+      </div>
       {!query.trim() && quickPhones.length > 0 && (
         <div className="mt-4">
           <p className="mb-2 text-xs font-semibold tracking-wide text-neutral-400">{COMPARE_QUICK[locale].phones}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="compare-quick flex flex-wrap gap-2">
             {quickPhones.map((candidate) => (
               <button key={candidate.slug} type="button" onClick={() => onSelect(candidate.slug)}
                 className="min-h-10 rounded-sm border border-neutral-700 px-3 py-2 text-left text-xs text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500">
@@ -326,19 +346,30 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
               </button>
             ))}
           </div>
-          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
-            <span className="text-xs text-neutral-500">{COMPARE_QUICK[locale].brands}</span>
+          <details className="mt-3">
+            <summary className="min-h-11 cursor-pointer text-xs leading-11 text-neutral-500">{COMPARE_QUICK[locale].brands}</summary>
+            <div className="flex flex-wrap gap-x-3 gap-y-2">
             {['Nokia', 'Siemens', 'Samsung', 'Apple', 'Google'].map((brand) => (
               <button key={brand} type="button" onClick={() => {
                 onQueryChange(brand);
                 document.getElementById(`phone-search-${slot}`)?.focus();
               }} className="min-h-9 text-xs text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400">{brand}</button>
             ))}
-          </div>
+            </div>
+          </details>
         </div>
       )}
       {query.trim() && (
-        <ul id={`phone-results-${slot}`} className="mt-3 max-h-72 overflow-y-auto rounded-sm border border-neutral-800 bg-neutral-900">
+        <ul id={`phone-results-${slot}`} className="mt-3 max-h-72 overflow-y-auto rounded-sm border border-neutral-800 bg-neutral-900" onKeyDown={(event) => {
+          const items = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('button'));
+          const index = items.indexOf(document.activeElement as HTMLButtonElement);
+          if (event.key === 'Escape') { event.preventDefault(); onQueryChange(''); document.getElementById(`phone-search-${slot}`)?.focus(); }
+          if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
+            event.preventDefault();
+            const next = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (index + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+            items[next]?.focus();
+          }
+        }}>
           {candidates.length === 0 ? (
             <li className="px-3 py-2 text-sm text-neutral-500">{strings.compare.noResults}</li>
           ) : (
@@ -347,9 +378,9 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
                 <button
                   type="button"
                   onClick={() => onSelect(p.slug)}
-                  className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-sm transition-colors motion-ui hover-desktop:bg-neutral-800"
+                  className="flex min-h-11 w-full items-center justify-between gap-2 px-3 py-2 text-left text-sm transition-colors motion-ui hover-desktop:bg-neutral-800"
                 >
-                  <span className="truncate">
+                  <span className="min-w-0 break-words">
                     {p.data.brand} {p.data.model}
                   </span>
                   <span className="shrink-0 text-xs text-neutral-500">{p.data.year}</span>
