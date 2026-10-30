@@ -5,6 +5,7 @@ import PlaceholderArt from './PlaceholderArt.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { t, HOME_EDITORIAL } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
+import { RETRO_STORIES } from '../lib/editorial-stories';
 
 interface Props {
   locale: Locale;
@@ -24,8 +25,7 @@ const bestSellers = phones
 const coverPhone = phones.find(p => slugOf(p) === 'motorola-razr-v3');
 const copy = HOME_EDITORIAL[locale];
 const pair = ['motorola-razr-v3', 'nokia-n95'].map(slug => phones.find(p => slugOf(p) === slug));
-const themeSlugs = [['nokia-5700', 'siemens-sl55'], ['sony-ericsson-w800i', 'motorola-rokr-e1'], ['nokia-7610', 'motorola-pebl-u6']];
-const themes = copy.themes.map((theme, index) => ({ ...theme, id: `character-${index + 1}`, phones: themeSlugs[index].flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); return phone ? [phone] : []; }) }));
+const themes = copy.themes.map((theme, index) => ({ ...theme, id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); return phone ? [phone] : []; }) }));
 const otherBestSellers = bestSellers;
 
 const stats = [

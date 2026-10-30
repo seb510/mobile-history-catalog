@@ -463,6 +463,11 @@ export const RELATED_PHONES = {
   ru: { title: 'Другие телефоны', compare: 'Сравнить характеристики' },
   en: { title: 'More phones from', compare: 'Compare specifications' },
 } as const;
+export const RETRO_DISCOVERY = {
+  uk: { collections: 'Дослідити тему', related: 'Споріднені характери', note: 'Продовжуй знайомство з телефонами через спільні ідеї дизайну й досвід користування.' },
+  ru: { collections: 'Исследовать тему', related: 'Родственные характеры', note: 'Продолжай знакомство с телефонами через общие идеи дизайна и опыт использования.' },
+  en: { collections: 'Explore the theme', related: 'More phones with character', note: 'Keep exploring phones through shared design ideas and ways of using them.' },
+} as const;
 export const COMPARE_QUICK = {
   uk: { phones: 'Швидкий вибір', brands: 'Знайти за брендом:' },
   ru: { phones: 'Быстрый выбор', brands: 'Найти по бренду:' },
