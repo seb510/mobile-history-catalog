@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
 import { COMPARE_QUICK, COMPARE_DESIGN, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
+import { readFavorites, toggleFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
 
 type PhoneData = CollectionEntry<'phones'>['data'];
 type Strings = ReturnType<typeof t>;
@@ -39,6 +40,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const [differencesOnly, setDifferencesOnly] = useState(false);
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'manual'>('idle');
   const [shareUrl, setShareUrl] = useState('');
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const editorial = DESIGN_EDITORIAL[locale];
   const design = COMPARE_DESIGN[locale];
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
@@ -62,6 +64,13 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     });
     setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setFavorites(readFavorites());
+    const onFavoritesChanged = () => setFavorites(readFavorites());
+    document.addEventListener(FAVORITES_CHANGED_EVENT, onFavoritesChanged);
+    return () => document.removeEventListener(FAVORITES_CHANGED_EVENT, onFavoritesChanged);
   }, []);
 
   useEffect(() => {
@@ -136,6 +145,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           placeholder={strings.compare.pickA}
           locale={locale}
           strings={strings}
+          isFavorite={phoneA ? favorites.has(phoneA.slug) : false}
+          onToggleFavorite={() => phoneA && setFavorites(toggleFavorite(phoneA.slug))}
         />
         <PhoneSlot
           slot="b"
@@ -148,6 +159,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           quickPhones={quickPhones(selected.a)}
           placeholder={strings.compare.pickB}
           locale={locale}
+          isFavorite={phoneB ? favorites.has(phoneB.slug) : false}
+          onToggleFavorite={() => phoneB && setFavorites(toggleFavorite(phoneB.slug))}
           strings={strings}
         />
       </div>
@@ -290,13 +303,26 @@ interface PhoneSlotProps {
   placeholder: string;
   locale: Locale;
   strings: Strings;
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
 }
 
-function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candidates, quickPhones, placeholder, locale, strings }: PhoneSlotProps) {
+function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candidates, quickPhones, placeholder, locale, strings, isFavorite, onToggleFavorite }: PhoneSlotProps) {
   if (phone) {
     const { data, slug } = phone;
     return (
-      <div className="compare-selected rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-3 sm:p-5">
+      <div className="compare-selected relative rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-3 sm:p-5">
+        <button
+          type="button"
+          onClick={onToggleFavorite}
+          aria-pressed={isFavorite}
+          aria-label={isFavorite ? strings.favorites.remove : strings.favorites.add}
+          className="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-300 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 sm:right-3 sm:top-3"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[16px] w-[16px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 20.5s-7.3-4.5-9.8-8.9C.8 7.9 2.8 4.8 6 4.8c1.9 0 3.4 1 6 3.5 2.6-2.5 4.1-3.5 6-3.5 3.2 0 5.2 3.1 3.8 6.8-2.5 4.4-9.8 8.9-9.8 8.9Z" />
+          </svg>
+        </button>
         <p className="editorial-kicker mb-3 text-orange-500">{slot === 'a' ? COMPARE_DESIGN[locale].first : COMPARE_DESIGN[locale].second}</p>
         <div className="flex items-start justify-between gap-2">
           <a id={`phone-selected-${slot}`} href={localePath(locale, `/phones/${slug}/`)} className="flex min-w-0 gap-2 sm:gap-3">
