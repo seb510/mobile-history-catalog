@@ -53,8 +53,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
   const suggestedMatchups = [
     { a: 'nokia-3210', b: 'nokia-3310', story: strings.compare.suggestions.gsmEra },
-    { a: 'apple-iphone', b: 'htc-dream', story: strings.compare.suggestions.touchSmartphones },
-    { a: 'samsung-galaxy-s', b: 'samsung-galaxy-z-fold3', story: strings.compare.suggestions.foldingScreens },
+    { a: 'sony-ericsson-w800i', b: 'motorola-rokr-e1', story: strings.compare.suggestions.musicPhones },
+    { a: 'motorola-razr-v3', b: 'nokia-n95', story: strings.compare.suggestions.mechanics },
   ].flatMap(({ a, b, story }) => {
     const first = bySlug.get(a);
     const second = bySlug.get(b);
@@ -107,9 +107,9 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     }
   };
   const quickPhones = (other: string | null) => {
-    const curated = ['nokia-3310', 'nokia-n8', 'siemens-s65', 'motorola-razr-v3', 'apple-iphone', 'google-pixel-9'];
+    const curated = ['nokia-3310', 'motorola-razr-v3', 'sony-ericsson-w800i', 'siemens-sl55', 'nokia-7610', 'nokia-n95'];
     const opposite = other ? bySlug.get(other) : undefined;
-    const sameBrand = opposite ? phones.filter((p) => p.data.brand === opposite.data.brand && p.slug !== other)
+    const sameBrand = opposite ? phones.filter((p) => p.data.year <= 2007 && p.data.brand === opposite.data.brand && p.slug !== other)
       .sort((a, b) => Math.abs(a.data.year - opposite.data.year) - Math.abs(b.data.year - opposite.data.year))
       .slice(0, 2).map((p) => p.slug) : [];
     return [...new Set([...sameBrand, ...curated])].filter((slug) => slug !== other && bySlug.has(slug))
@@ -372,7 +372,7 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
           <details className="mt-3">
             <summary className="min-h-11 cursor-pointer text-xs leading-11 text-neutral-500">{COMPARE_QUICK[locale].brands}</summary>
             <div className="flex flex-wrap gap-x-3 gap-y-2">
-            {['Nokia', 'Siemens', 'Samsung', 'Apple', 'Google'].map((brand) => (
+            {['Nokia', 'Siemens', 'Motorola', 'Sony Ericsson', 'Samsung'].map((brand) => (
               <button key={brand} type="button" onClick={() => {
                 onQueryChange(brand);
                 document.getElementById(`phone-search-${slot}`)?.focus();
