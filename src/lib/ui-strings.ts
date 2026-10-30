@@ -414,3 +414,27 @@ export const COMPARE_QUICK = {
   ru: { phones: 'Быстрый выбор', brands: 'Найти по бренду:' },
   en: { phones: 'Quick picks', brands: 'Browse by brand:' },
 } as const;
+// Shared editorial labels for the catalog, detail pages and comparison tools.
+export const DESIGN_EDITORIAL = {
+  uk: {
+    filters: 'Фільтри', modelSearch: 'Пошук', optionSearch: 'Знайти у списку…', selectEmpty: 'Нічого не знайдено', active: 'Ваш вибір', years: 'Перейти до року', allYears: 'Усі роки',
+    story: 'Історія моделі', specs: 'Технічний портрет', earlier: 'Раніше', contemporary: 'Того самого року', later: 'Пізніше',
+    overview: 'Коротко про відмінності', differences: 'Лише відмінності', differenceNote: 'Виділено різні значення. Більше не завжди означає краще.',
+    eras: ['Початок масового GSM', 'Камера стає звичною', 'Музика в кишені', 'Сенсорний перелом', 'Великі екрани, нові звички', 'Екран змінює форму'],
+    eraNotes: ['Дзвінки, SMS і впізнавані корпуси.', 'Кольорові екрани, перші кадри та MMS.', 'Плеєри й камерофони знаходять власний характер.', 'Смартфон стає поверхнею для дотику.', 'Застосунки, стилуси й щоденне життя онлайн.', 'Складані конструкції відкривають нові сценарії.'],
+  },
+  ru: {
+    filters: 'Фильтры', modelSearch: 'Поиск', optionSearch: 'Найти в списке…', selectEmpty: 'Ничего не найдено', active: 'Ваш выбор', years: 'Перейти к году', allYears: 'Все годы',
+    story: 'История модели', specs: 'Технический портрет', earlier: 'Раньше', contemporary: 'В том же году', later: 'Позже',
+    overview: 'Коротко об отличиях', differences: 'Только отличия', differenceNote: 'Выделены разные значения. Больше не всегда означает лучше.',
+    eras: ['Начало массового GSM', 'Камера становится привычной', 'Музыка в кармане', 'Сенсорный перелом', 'Большие экраны, новые привычки', 'Экран меняет форму'],
+    eraNotes: ['Звонки, SMS и узнаваемые корпуса.', 'Цветные экраны, первые кадры и MMS.', 'Плееры и камерофоны обретают свой характер.', 'Смартфон становится поверхностью для касания.', 'Приложения, стилусы и повседневная жизнь онлайн.', 'Складные конструкции открывают новые сценарии.'],
+  },
+  en: {
+    filters: 'Filters', modelSearch: 'Search', optionSearch: 'Search options…', selectEmpty: 'No options found', active: 'Your selection', years: 'Jump to a year', allYears: 'All years',
+    story: 'The story', specs: 'Technical portrait', earlier: 'Earlier', contemporary: 'The same year', later: 'Later',
+    overview: 'Differences at a glance', differences: 'Differences only', differenceNote: 'Different values are highlighted. Bigger does not always mean better.',
+    eras: ['The mass GSM era', 'The camera becomes familiar', 'Music in your pocket', 'The touch turning point', 'Bigger screens, new habits', 'The screen changes shape'],
+    eraNotes: ['Calls, SMS and distinctive shapes.', 'Colour screens, first photos and MMS.', 'Music phones and camera phones find their identity.', 'The smartphone becomes a surface for touch.', 'Apps, pens and everyday life online.', 'Folding designs open up new ways to use a phone.'],
+  },
+} as const;

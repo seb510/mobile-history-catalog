@@ -1,7 +1,7 @@
 ---
 import PlaceholderArt from './PlaceholderArt.astro';
 import { render, type CollectionEntry } from 'astro:content';
-import { t, RELATED_PHONES } from '../lib/ui-strings';
+import { t, RELATED_PHONES, DESIGN_EDITORIAL } from '../lib/ui-strings';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { buildSpecGroups } from '../lib/specs';
 import { slugifyBrandName } from '../lib/brands';
@@ -14,6 +14,7 @@ interface Props {
 const { phone, locale } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
+const editorial = DESIGN_EDITORIAL[locale];
 const s = strings.specs;
 const { Content } = await render(phone);
 
@@ -30,6 +31,19 @@ const related = (await getPhonesForLocale(locale))
   .slice(0, 3);
 ---
 
+<header class="phone-cover mb-8 flex items-end justify-between gap-4 border-b border-neutral-800 pb-6">
+  <div class="min-w-0">
+    <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-orange-500 hover-desktop:text-orange-400">{data.brand}</a>
+    <h1 class="page-title mt-2">{data.model}</h1>
+    {data.milestone && <p class="mt-4 max-w-2xl border-l-2 border-orange-500 pl-3 text-base text-neutral-300 sm:text-lg">{data.milestone}</p>}
+    <nav class="mt-5 flex flex-wrap gap-2" aria-label={data.model}>
+      <a class="control-button text-xs" href="#phone-story">{editorial.story}</a>
+      <a class="control-button text-xs" href="#phone-specs">{editorial.specs}</a>
+    </nav>
+  </div>
+  <span class="cover-year hidden shrink-0 font-extrabold tabular-nums text-neutral-600 sm:block">{data.year}</span>
+  <span class="editorial-kicker shrink-0 self-start text-orange-500 sm:hidden">{data.year}</span>
+</header>
 <div class="grid gap-10 lg:grid-cols-[2fr_3fr]">
   <div class="lg:sticky lg:top-20 lg:self-start">
     <div data-phone-gallery>
@@ -176,19 +190,13 @@ const related = (await getPhonesForLocale(locale))
   </div>
 
   <div>
-    <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-neutral-500 transition-colors motion-ui hover-desktop:text-orange-500">
-      {data.brand}
-    </a>
-    <h1 class="page-title mt-1">{data.model}</h1>
-    {data.milestone && (
-      <p class="mt-3 border-l-2 border-orange-500 py-0.5 pl-3 text-lg text-orange-500">{data.milestone}</p>
-    )}
-
-    <div lang={phone.id.split('/')[0]} class="prose prose-invert mt-6 max-w-none prose-p:text-neutral-300">
+    <h2 id="phone-story" class="section-label scroll-mt-24">{editorial.story}</h2>
+    <div lang={phone.id.split('/')[0]} class="phone-story prose prose-invert mt-4 max-w-none prose-p:text-neutral-300">
       <Content />
     </div>
 
-    <div class="mt-6 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
+    <h2 id="phone-specs" class="section-label mt-10 scroll-mt-24">{editorial.specs}</h2>
+    <div class="mt-4 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
       <table class="w-full border-collapse text-left text-sm lg:text-base">
         {groups.map((group, gi) => (
           <tbody class:list={[gi > 0 && 'border-t-2 border-neutral-700']}>
@@ -213,6 +221,7 @@ const related = (await getPhonesForLocale(locale))
     <ul class="mt-4 grid gap-3 sm:grid-cols-3">
       {related.map((candidate) => (
         <li class="min-w-0 rounded-sm border border-neutral-800 bg-neutral-900 p-4">
+          <p class="editorial-kicker mb-3 text-neutral-500">{candidate.data.year < data.year ? editorial.earlier : candidate.data.year > data.year ? editorial.later : editorial.contemporary}</p>
           <a class="font-semibold text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, `/phones/${slugOf(candidate)}/`)}>{candidate.data.brand} {candidate.data.model}</a>
           <p class="mt-1 text-sm text-neutral-400">{candidate.data.year}</p>
           <a class="mt-3 inline-block text-sm text-neutral-300 underline underline-offset-4 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(phone)}&b=${slugOf(candidate)}`)}>{RELATED_PHONES[locale].compare}</a>

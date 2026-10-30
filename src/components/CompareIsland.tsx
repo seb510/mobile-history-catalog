@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
-import { COMPARE_QUICK, type t } from '../lib/ui-strings';
+import { COMPARE_QUICK, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
 
 type PhoneData = CollectionEntry<'phones'>['data'];
@@ -46,6 +46,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const [selected, setSelected] = useState<Record<Slot, string | null>>({ a: null, b: null });
   const [query, setQuery] = useState<Record<Slot, string>>({ a: '', b: '' });
   const [ready, setReady] = useState(false);
+  const [differencesOnly, setDifferencesOnly] = useState(false);
+  const editorial = DESIGN_EDITORIAL[locale];
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
   const suggestedMatchups = [
     { a: 'nokia-3210', b: 'nokia-3310', story: strings.compare.suggestions.gsmEra },
@@ -103,6 +105,9 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     return buildCompareGroups(phoneA.data, phoneB.data, strings);
   }, [phoneA, phoneB, strings]);
 
+  const highlights = groups.flatMap((group) => group.rows).filter((row) =>
+    [strings.specs.display, strings.specs.camera, strings.specs.weight].some((label) => label === row.label) && row.a && row.b);
+
   return (
     <div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -136,15 +141,31 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
       {phoneA && phoneB ? (
         <div className="mt-6">
+          {highlights.length > 0 && <section className="mb-6 border-y border-neutral-800 py-5" aria-labelledby="compare-overview">
+            <h2 id="compare-overview" className="section-label mb-4">{editorial.overview}</h2>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {highlights.map((row) => <div key={row.label} className="rounded-sm border border-neutral-800 bg-neutral-900/50 p-4">
+                <p className="editorial-kicker mb-3 text-neutral-500">{row.label}</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="min-w-0"><p className="text-xs text-neutral-500">{phoneA.data.model}</p><p className="mt-1 break-words text-sm font-semibold text-neutral-100">{row.a}</p></div>
+                  <div className="min-w-0 border-l border-neutral-800 pl-3"><p className="text-xs text-neutral-500">{phoneB.data.model}</p><p className="mt-1 break-words text-sm font-semibold text-neutral-100">{row.b}</p></div>
+                </div>
+              </div>)}
+            </div>
+          </section>}
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <button
             type="button"
             onClick={swap}
-            className="mb-4 text-sm text-neutral-500 underline transition-colors motion-ui hover-desktop:text-neutral-300"
+            className="control-button text-sm"
           >
             {strings.compare.swap}
           </button>
-          <div className="overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table">
-            <div role="row" className="grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b-2 border-orange-500 bg-neutral-900 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)]">
+          <button type="button" className="control-button text-sm" aria-pressed={differencesOnly} onClick={() => setDifferencesOnly(!differencesOnly)}>{editorial.differences}</button>
+          </div>
+          <p className="mb-3 text-xs text-neutral-500">{editorial.differenceNote}</p>
+          <div className="compare-table rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table">
+            <div role="row" className="compare-table-head grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b-2 border-orange-500 bg-neutral-900 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)]">
               <div role="columnheader" className="flex items-end px-2 py-3 text-[0.6rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3 lg:text-xs">
                 {strings.compare.tableHead.characteristic}
               </div>
@@ -157,13 +178,13 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                 <span className="mt-1 block leading-tight font-bold text-neutral-100 lg:text-lg">{phoneB.data.model}</span>
               </div>
             </div>
-            {groups.map((group, gi) => (
+            {groups.filter((group) => !differencesOnly || group.rows.some((row) => row.a !== row.b)).map((group, gi) => (
               <div key={gi} role="rowgroup" className={gi > 0 ? 'border-t-2 border-neutral-700' : ''}>
-                {group.rows.map((row, i) => (
+                {group.rows.filter((row) => !differencesOnly || row.a !== row.b).map((row, i) => (
                   <div
                     key={row.label}
                     role="row"
-                    className={`grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b border-neutral-700 last:border-b-0 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)] ${i % 2 === 1 ? 'bg-neutral-900/50' : ''}`}
+                    className={`compare-spec-row grid grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,1fr)] border-b border-neutral-700 last:border-b-0 sm:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1fr)] ${i % 2 === 1 ? 'bg-neutral-900/50' : ''} ${row.a != null && row.b != null && row.a !== row.b ? 'compare-different' : ''}`}
                   >
                     <div role="rowheader" className="border-r border-neutral-700 bg-neutral-900/70 px-2 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:px-3 lg:text-xs">
                       {row.label}

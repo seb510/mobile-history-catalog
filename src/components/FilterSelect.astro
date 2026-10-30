@@ -1,0 +1,102 @@
+---
+interface Props { name: string; label: string; all: string; search: string; empty: string; options: string[] }
+const { name, label, all, search, empty, options } = Astro.props;
+const id = `catalog-${name}`;
+---
+<div class="filter-select" data-select>
+  <label class="filter-label" for={`${id}-native`}>{label}</label>
+  <select id={`${id}-native`} name={name} data-filter={name} data-select-native aria-label={label}>
+    <option value="">{all}</option>
+    {options.map((value) => <option value={value}>{value}</option>)}
+  </select>
+  <div data-select-custom hidden>
+    <button type="button" class="filter-select-trigger" data-select-trigger aria-label={label} aria-haspopup="listbox" aria-expanded="false" aria-controls={`${id}-options`}>
+      <span data-select-value>{all}</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+    </button>
+    <div class="filter-select-popup" data-select-popup hidden>
+      <input type="search" class="filter-select-search" data-select-search aria-label={`${search}: ${label}`} placeholder={search} autocomplete="off" />
+      <div id={`${id}-options`} role="listbox" aria-label={label} class="filter-select-list">
+        {['', ...options].map((value) => <button type="button" role="option" tabindex="-1" aria-selected={value === '' ? 'true' : 'false'} data-value={value}><span>{value || all}</span><span class="select-check" aria-hidden="true">✓</span></button>)}
+      </div>
+      <p data-select-empty hidden class="px-3 py-4 text-sm text-neutral-500">{empty}</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-select]').forEach((root) => {
+    const native = root.querySelector<HTMLSelectElement>('[data-select-native]')!;
+    const custom = root.querySelector<HTMLElement>('[data-select-custom]')!;
+    const trigger = root.querySelector<HTMLButtonElement>('[data-select-trigger]')!;
+    const label = root.querySelector<HTMLLabelElement>('label')!;
+    const value = root.querySelector<HTMLElement>('[data-select-value]')!;
+    const popup = root.querySelector<HTMLElement>('[data-select-popup]')!;
+    const search = root.querySelector<HTMLInputElement>('[data-select-search]')!;
+    const empty = root.querySelector<HTMLElement>('[data-select-empty]')!;
+    const options = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="option"]'));
+    const visible = () => options.filter((option) => !option.hidden);
+    const close = (restore = false) => {
+      popup.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      if (restore) trigger.focus();
+    };
+    const filter = () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      options.forEach((option) => { option.hidden = !option.querySelector('span')!.textContent!.toLocaleLowerCase().includes(query); });
+      empty.hidden = visible().length > 0;
+    };
+    const open = () => {
+      document.dispatchEvent(new CustomEvent('catalog-select-open', { detail: root }));
+      search.value = '';
+      filter();
+      popup.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+      search.focus();
+    };
+    const sync = () => {
+      value.textContent = native.selectedOptions[0].textContent;
+      trigger.setAttribute('aria-label', `${label.textContent}: ${value.textContent}`);
+      options.forEach((option) => option.setAttribute('aria-selected', String(option.dataset.value === native.value)));
+    };
+    native.hidden = true;
+    custom.hidden = false;
+    trigger.id = `${native.id}-button`;
+    label.htmlFor = trigger.id;
+    trigger.addEventListener('click', () => popup.hidden ? open() : close());
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault(); event.stopPropagation(); open();
+        (options.find((option) => option.dataset.value === native.value) ?? options[0]).focus();
+      }
+    });
+    search.addEventListener('input', filter);
+    root.addEventListener('keydown', (event) => {
+      if (popup.hidden) return;
+      if (event.key === 'Tab') { close(true); return; }
+      if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); close(true); }
+      const items = visible();
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const index = items.indexOf(document.activeElement as HTMLButtonElement);
+        const next = index < 0 ? (event.key === 'ArrowDown' ? 0 : items.length - 1)
+          : (index + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+        items[next]?.focus();
+      }
+      if (document.activeElement !== search && (event.key === 'Home' || event.key === 'End')) {
+        event.preventDefault(); items[event.key === 'Home' ? 0 : items.length - 1]?.focus();
+      }
+      if (document.activeElement === search && event.key === 'Enter') { event.preventDefault(); items[0]?.click(); }
+    });
+    options.forEach((option) => option.addEventListener('click', () => {
+      native.value = option.dataset.value!;
+      native.dispatchEvent(new Event('change', { bubbles: true }));
+      close(true);
+    }));
+    native.addEventListener('change', sync);
+    document.addEventListener('pointerdown', (event) => { if (!root.contains(event.target as Node)) close(); });
+    root.addEventListener('focusout', (event) => { if (!root.contains(event.relatedTarget as Node)) close(); });
+    document.addEventListener('catalog-select-open', (event) => { if ((event as CustomEvent).detail !== root) close(); });
+    sync();
+  });
+</script>

@@ -26,10 +26,10 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
   data-search={searchKey}
   class="group flex min-w-0 flex-1 flex-col self-stretch overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 transition-all motion-ui hover-desktop:-translate-y-0.5 hover-desktop:border-orange-500 hover-desktop:shadow-md hover-desktop:shadow-orange-500/10"
 >
-  <div class="relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-3">
+  <div class="phone-card-art relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-5">
     {data.image ? (
       <>
-        <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="h-full w-full object-contain" loading="lazy" />
+        <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="relative h-full w-full object-contain transition-transform motion-image group-hover-desktop:scale-[1.025]" loading="lazy" decoding="async" />
         <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-3">
           <PlaceholderArt class="h-full w-full text-neutral-600 transition-colors motion-ui group-hover-desktop:text-orange-500/70" />
         </div>
@@ -44,8 +44,8 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     )}
   </div>
   <div class="flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
-    <p class="editorial-kicker text-neutral-500">{data.brand} · {data.year}</p>
-    <p class="text-lg font-bold leading-tight tracking-tight">{data.model}</p>
+    <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
+    <p class="mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
     {data.milestone && (
       <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
     )}

@@ -1,7 +1,8 @@
 ---
 import PhoneCard from './PhoneCard.astro';
+import FilterSelect from './FilterSelect.astro';
 import { getPhonesForLocale } from '../lib/phones';
-import { t } from '../lib/ui-strings';
+import { t, DESIGN_EDITORIAL } from '../lib/ui-strings';
 import type { Locale } from '../lib/locales';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 }
 const { locale } = Astro.props;
 const strings = t(locale);
+const editorial = DESIGN_EDITORIAL[locale];
 
 const phones = await getPhonesForLocale(locale);
 phones.sort((a, b) => a.data.year - b.data.year);
@@ -16,58 +18,41 @@ phones.sort((a, b) => a.data.year - b.data.year);
 const brands = [...new Set(phones.map((p) => p.data.brand))].sort();
 const years = [...new Set(phones.map((p) => p.data.year))].sort((a, b) => a - b);
 const byYear = Map.groupBy(phones, (p) => p.data.year);
+const eraStarts = [1998, 2002, 2005, 2007, 2011, 2019];
+const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
+  year === years.find((candidate) => candidate >= start && candidate < (eraStarts[index + 1] ?? Infinity)));
 ---
 
-<div
-    class="animate-fade-up mb-8 flex flex-col gap-3 rounded-sm border border-neutral-800 bg-neutral-900/60 p-3 sm:flex-row sm:items-center sm:p-4"
-  data-filter-bar
->
-  <input
-    type="search"
-    name="q"
-    placeholder={strings.filters.search}
-    data-filter="search"
-    aria-label={strings.filters.search}
-    class="w-full rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none sm:max-w-xs"
-  />
-  <select
-    name="brand"
-    data-filter="brand"
-    aria-label={strings.filters.brand}
-    class="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
-  >
-    <option value="">{strings.filters.brand}: {strings.filters.all}</option>
-    {brands.map((brand) => <option value={brand}>{brand}</option>)}
-  </select>
-  <select
-    name="year"
-    data-filter="year"
-    aria-label={strings.filters.year}
-    class="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 focus:border-orange-500 focus:outline-none"
-  >
-    <option value="">{strings.filters.year}: {strings.filters.all}</option>
-    {years.map((year) => <option value={year}>{year}</option>)}
-  </select>
-  <button
-    type="button"
-    data-filter-reset
-    hidden
-    class="text-sm text-neutral-500 underline transition-colors motion-ui hover-desktop:text-neutral-300"
-  >
-    {strings.filters.reset}
-  </button>
-  <p
-    class="border border-neutral-700 px-2.5 py-1.5 text-xs font-semibold text-neutral-400 sm:ml-auto"
-    data-filter-count
-    data-count-label={strings.filters.shownCount}
-  ></p>
-</div>
+<section class="catalog-tools mb-8" data-filter-bar aria-label={editorial.filters}>
+  <div class="catalog-filter-grid">
+    <div class="catalog-search">
+      <label class="filter-label" for="catalog-search">{editorial.modelSearch}</label>
+      <div class="catalog-search-field">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+        <input id="catalog-search" type="search" name="q" placeholder={strings.filters.search} data-filter="search" autocomplete="off" />
+      </div>
+    </div>
+    <FilterSelect name="brand" label={strings.filters.brand} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={brands} />
+    <FilterSelect name="year" label={strings.filters.year} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={years.map(String)} />
+  </div>
+  <div class="catalog-filter-meta">
+    <p data-filter-count data-count-label={strings.filters.shownCount} role="status" aria-live="polite"></p>
+    <button type="button" data-filter-reset hidden>{strings.filters.reset} <span aria-hidden="true">×</span></button>
+  </div>
+</section>
 
 <p class="hidden text-center text-neutral-500" data-filter-empty>{strings.filters.empty}</p>
 
 <ol class="relative space-y-12 border-l border-neutral-800 pl-6 sm:pl-7" data-catalog-list>
   {years.map((year) => (
     <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-24">
+      {eraForYear(year) >= 0 && (
+        <div data-era-heading class="era-heading mb-6 border-t border-orange-500/50 pt-5">
+          <p class="editorial-kicker text-orange-500">{eraStarts[eraForYear(year)]} — {eraStarts[eraForYear(year) + 1] ? eraStarts[eraForYear(year) + 1] - 1 : new Date().getFullYear()}</p>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{editorial.eras[eraForYear(year)]}</h2>
+          <p class="mt-2 text-sm text-neutral-400">{editorial.eraNotes[eraForYear(year)]}</p>
+        </div>
+      )}
       <div class="mb-4 flex items-baseline gap-3 border-b border-neutral-800 pb-2">
         <span class="absolute -left-7 top-2.5 h-2 w-2 rounded-full bg-orange-500 sm:-left-8" aria-hidden="true"></span>
         <h2 class="text-2xl font-extrabold tracking-tight text-orange-500">{year}</h2>
@@ -125,6 +110,7 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
       list.hidden = visible === 0;
       count.textContent = `${visible} ${count.dataset.countLabel}`;
       resetBtn!.hidden = !q && !brand && !year;
+      list.querySelectorAll<HTMLElement>('[data-era-heading]').forEach((heading) => { heading.hidden = Boolean(q || brand || year); });
     };
 
     bar.addEventListener('input', apply);
@@ -133,6 +119,8 @@ const byYear = Map.groupBy(phones, (p) => p.data.year);
       searchInput.value = '';
       brandSelect.value = '';
       yearSelect.value = '';
+      brandSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      yearSelect.dispatchEvent(new Event('change', { bubbles: true }));
       apply();
     });
 
