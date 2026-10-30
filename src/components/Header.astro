@@ -22,6 +22,7 @@ const links = [
   { path: '/catalog/', label: strings.nav.catalog },
   { path: '/brands/', label: strings.nav.brands },
   { path: '/compare/', label: strings.nav.compare },
+  { path: '/favorites/', label: strings.nav.favorites },
   { path: '/about/', label: strings.nav.about },
 ];
 ---
@@ -34,7 +35,12 @@ const links = [
     </a>
 
     <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
-      {links.map((link) => <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>{link.label}</a>)}
+      {links.map((link) => (
+        <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>
+          {link.label}
+          {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count ml-1.5"></span>}
+        </a>
+      ))}
       <div role="group" class="ml-2 flex items-center gap-0.5 rounded-sm border border-neutral-800 bg-neutral-900/50 p-0.5" aria-label={strings.langSwitcher}>
         {LOCALES.map((l) => (
           l === locale ? (
@@ -76,6 +82,7 @@ const links = [
         {links.map((link, index) => <a class="mobile-nav-link" href={localePath(locale, link.path)} aria-current={isActive(link.path) ? 'page' : undefined}>
           <span aria-hidden="true" class="text-xs tabular-nums text-neutral-500">0{index + 1}</span>
           <span>{link.label}</span>
+          {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count"></span>}
           <span aria-hidden="true" class="ml-auto text-neutral-500">→</span>
         </a>)}
       </nav>

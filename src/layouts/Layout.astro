@@ -50,7 +50,7 @@ if (brandMatch) {
     searchDescription = `${brand.data.name} — ${copy.brand}. ${strings.brands.indexSubtitle}`;
   }
 }
-const noindex = !searchEnabled || path === '/404/';
+const noindex = !searchEnabled || path === '/404/' || path === '/favorites/';
 const pageType = path === '/about/' ? 'AboutPage' : path === '/catalog/' || path.startsWith('/brands/') ? 'CollectionPage' : 'WebPage';
 const siteId = new URL('/#website', Astro.site).toString();
 const schema = {
@@ -124,6 +124,7 @@ const schema = {
     </script>
     <script>
       import '../scripts/image-fallback';
+      import '../scripts/favorites';
     </script>
   </body>
 </html>

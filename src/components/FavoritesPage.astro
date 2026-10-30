@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import PhoneCard from './PhoneCard.astro';
+import FilterSelect from './FilterSelect.astro';
+import { getPhonesForLocale, slugOf } from '../lib/phones';
+import { t } from '../lib/ui-strings';
+import { localePath, type Locale } from '../lib/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const strings = t(locale);
+const phoneCount = strings.brands.phoneCount;
+
+const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b.data.year);
+---
+
+<Layout locale={locale} path="/favorites/" title={`${strings.nav.favorites} — ${strings.siteName}`} description={strings.favorites.intro}>
+  <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.favorites }]} />
+  <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
+    <h1 class="page-title">{strings.nav.favorites}</h1>
+    <p class="mt-4 max-w-2xl leading-relaxed text-neutral-400">{strings.favorites.intro}</p>
+    <p class="mt-2 text-sm text-neutral-500">{strings.favorites.storageNote}</p>
+  </header>
+
+  <div data-favorites-empty class="text-center text-neutral-400">
+    <p class="text-lg font-bold text-neutral-100">{strings.favorites.emptyTitle}</p>
+    <p class="mt-2 text-sm leading-relaxed">{strings.favorites.emptyBody}</p>
+    <a class="primary-cta mt-5 inline-flex min-h-11 items-center rounded-sm bg-orange-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition-colors motion-ui" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} →</a>
+  </div>
+
+  <div data-favorites-toolbar hidden class="mb-4 flex flex-wrap items-center justify-between gap-3">
+    <p
+      data-favorites-count
+      data-one={phoneCount.one}
+      data-few={'few' in phoneCount ? phoneCount.few : phoneCount.many}
+      data-many={phoneCount.many}
+      data-locale={locale}
+      data-suffix={strings.favorites.inCollection}
+      role="status"
+      class="text-sm text-neutral-400"
+    ></p>
+    <div class="w-full sm:w-56">
+      <FilterSelect
+        name="sort"
+        label={strings.favorites.sortLabel}
+        all={strings.favorites.sortNewest}
+        options={[{ value: 'year-asc', label: strings.favorites.sortOldest }]}
+      />
+    </div>
+  </div>
+
+  <ul data-favorites-list hidden class="grid grid-cols-2 items-stretch gap-4 lg:auto-rows-fr lg:grid-cols-4">
+    {phones.map((phone) => (
+      <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} class="flex min-w-0" hidden>
+        <PhoneCard phone={phone} locale={locale} />
+      </li>
+    ))}
+  </ul>
+</Layout>
+
+<script>
+  import { readFavorites, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
+
+  const empty = document.querySelector<HTMLElement>('[data-favorites-empty]');
+  const toolbar = document.querySelector<HTMLElement>('[data-favorites-toolbar]');
+  const list = document.querySelector<HTMLUListElement>('[data-favorites-list]');
+  const count = document.querySelector<HTMLElement>('[data-favorites-count]');
+  const sortSelect = document.querySelector<HTMLSelectElement>('[data-filter="sort"]');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-favorite-item]'));
+
+  function wordFor(n: number): string {
+    if (!count) return '';
+    const { one, few, many, locale } = count.dataset as Record<string, string>;
+    if (locale === 'en') return n === 1 ? one : many;
+    const lastTwo = n % 100;
+    const last = n % 10;
+    if (last === 1 && lastTwo !== 11) return one;
+    if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) return few ?? many;
+    return many;
+  }
+
+  function applySort() {
+    if (!list || !sortSelect) return;
+    const direction = sortSelect.value === 'year-asc' ? 1 : -1;
+    const sorted = items.slice().sort((a, b) => direction * (Number(a.dataset.year) - Number(b.dataset.year)));
+    for (const item of sorted) list.append(item);
+  }
+
+  function render() {
+    if (!empty || !toolbar || !list || !count) return;
+    const favorites = readFavorites();
+    let visible = 0;
+    for (const item of items) {
+      const active = favorites.has(item.dataset.slug!);
+      item.hidden = !active;
+      if (active) visible++;
+    }
+    empty.hidden = visible > 0;
+    toolbar.hidden = visible === 0;
+    list.hidden = visible === 0;
+    count.textContent = `${visible} ${wordFor(visible)} ${count.dataset.suffix}`;
+    applySort();
+  }
+
+  sortSelect?.addEventListener('change', applySort);
+  render();
+  document.addEventListener(FAVORITES_CHANGED_EVENT, render);
+  window.addEventListener('pageshow', (event) => { if (event.persisted) render(); });
+</script>

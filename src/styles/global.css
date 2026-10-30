@@ -114,6 +114,26 @@
   color: var(--color-orange-500);
   background: color-mix(in srgb, var(--color-orange-500) 8%, var(--color-neutral-950));
 }
+.favorite-toggle[aria-pressed="true"] svg { fill: currentColor; }
+.favorite-toggle-icon[aria-pressed="true"] {
+  border-color: var(--color-orange-500);
+  color: var(--color-orange-500);
+  background: color-mix(in srgb, var(--color-orange-500) 12%, var(--color-neutral-950));
+}
+.favorite-toggle-bare[aria-pressed="true"] { color: var(--color-orange-500); }
+.favorite-count {
+  display: inline-flex;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-orange-500);
+  color: var(--color-neutral-950);
+  font-size: .6875rem;
+  font-weight: 700;
+  padding-inline: .25rem;
+}
 .section-label {
   border-left: 2px solid var(--color-orange-500);
   padding-left: .75rem;
