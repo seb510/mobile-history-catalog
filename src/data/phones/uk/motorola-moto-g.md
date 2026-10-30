@@ -2,9 +2,8 @@
 brand: Motorola
 model: "Moto G"
 year: 2013
-milestone: "Бюджетний бестселер, що відродив Motorola на ринку смартфонів"
+milestone: "Доступний Android із HD-екраном за $179 без контракту"
 priceUsdAtLaunch: 179
-unitsSoldMillions: 100
 display:
   sizeInches: 4.5
   type: "IPS, Corning Gorilla Glass 3"
@@ -30,14 +29,10 @@ imageCredit: "Фото: Rüdiger müller, CC BY-SA 4.0, через Wikimedia Com
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_MotoG_front.jpg"
 ---
 
-Moto G зробила те, що здавалося неможливим у 2013-му: за 179 доларів без контракту покупець
-отримував екран Full HD-якості з захисним склом, пристойну камеру й чистий, швидкий Android —
-без компромісів, типових для бюджетного сегмента того часу. Це був перший великий продукт
-Motorola під крилом Google, спрямований не на флагманську боротьбу з iPhone, а на ринки, де ціна
-важила більше за бренд.
+Moto G представили 13 листопада 2013 року як доступний Android-смартфон. У США розблокована версія з 8 ГБ коштувала $179 без контракту, з 16 ГБ — $199. Це важливий контекст ціни: покупка не вимагала операторської субсидії.
 
-Саме Moto G, а не жоден флагман, повернула Motorola комерційну значущість після років втрати
-позицій: лінійка стала головним джерелом продажів компанії на роки вперед.
+Snapdragon 400 працював із 4,5-дюймовим HD-екраном 1280 × 720 — не Full HD. На старті встановлювали Android 4.3, а Motorola обіцяла оновлення до 4.4. Змінні панелі Shells додавали кольору стриманому корпусу; камери на 5 і 1,3 МП показували межі доступного класу.
 
-Орієнтовні 100 млн проданих одиниць стосуються всієї лінійки Moto G за кілька поколінь станом на
-2020 рік, а не лише оригінальної моделі 2013 року.
+У таймлайні Moto G представляє розвиток смартфонів через нижчу ціну входу, а не лише через найдорожчі компоненти. [Порівняйте його з Defy](/compare/?a=motorola-defy&b=motorola-moto-g), щоб простежити зміну платформи та пріоритетів Motorola.
+
+Джерела: [анонс Motorola](https://www.prnewswire.com/news-releases/introducing-moto-g-an-exceptional-phone-at-an-exceptional-price-231737611.html), [опис конфігурацій Qualcomm](https://www.qualcomm.com/news/onq/2013/11/introducing-moto-g-exceptional-phone-exceptional-price).
