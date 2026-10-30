@@ -93,6 +93,7 @@ export const UI = {
       sortLabel: 'Сортувати за роком',
       sortNewest: 'Спочатку нові',
       sortOldest: 'Спочатку старі',
+      comparePair: 'Порівняти ці дві моделі',
     },
     langSwitcher: 'Мова',
     gallery: {
@@ -237,6 +238,7 @@ export const UI = {
       sortLabel: 'Сортировать по году',
       sortNewest: 'Сначала новые',
       sortOldest: 'Сначала старые',
+      comparePair: 'Сравнить эти две модели',
     },
     langSwitcher: 'Язык',
     gallery: {
@@ -380,6 +382,7 @@ export const UI = {
       sortLabel: 'Sort by year',
       sortNewest: 'Newest first',
       sortOldest: 'Oldest first',
+      comparePair: 'Compare these two phones',
     },
     langSwitcher: 'Language',
     gallery: {

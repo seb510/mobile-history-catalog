@@ -13,6 +13,7 @@ interface Props {
 const { locale } = Astro.props;
 const strings = t(locale);
 const phoneCount = strings.brands.phoneCount;
+const comparePath = localePath(locale, '/compare/');
 
 const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b.data.year);
 ---
@@ -32,16 +33,27 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   </div>
 
   <div data-favorites-toolbar hidden class="mb-4 flex flex-wrap items-center justify-between gap-3">
-    <p
-      data-favorites-count
-      data-one={phoneCount.one}
-      data-few={'few' in phoneCount ? phoneCount.few : phoneCount.many}
-      data-many={phoneCount.many}
-      data-locale={locale}
-      data-suffix={strings.favorites.inCollection}
-      role="status"
-      class="text-sm text-neutral-400"
-    ></p>
+    <div class="flex flex-wrap items-center gap-3">
+      <p
+        data-favorites-count
+        data-one={phoneCount.one}
+        data-few={'few' in phoneCount ? phoneCount.few : phoneCount.many}
+        data-many={phoneCount.many}
+        data-locale={locale}
+        data-suffix={strings.favorites.inCollection}
+        role="status"
+        class="text-sm text-neutral-400"
+      ></p>
+      <a
+        data-favorites-compare-cta
+        data-compare-base={comparePath}
+        hidden
+        href={comparePath}
+        class="text-sm font-semibold text-orange-500 underline underline-offset-4 transition-colors motion-ui hover-desktop:text-orange-400"
+      >
+        {strings.favorites.comparePair} →
+      </a>
+    </div>
     <div class="w-full sm:w-56">
       <FilterSelect
         name="sort"
@@ -68,6 +80,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const toolbar = document.querySelector<HTMLElement>('[data-favorites-toolbar]');
   const list = document.querySelector<HTMLUListElement>('[data-favorites-list]');
   const count = document.querySelector<HTMLElement>('[data-favorites-count]');
+  const compareCta = document.querySelector<HTMLAnchorElement>('[data-favorites-compare-cta]');
   const sortSelect = document.querySelector<HTMLSelectElement>('[data-filter="sort"]');
   const items = Array.from(document.querySelectorAll<HTMLElement>('[data-favorite-item]'));
 
@@ -102,6 +115,15 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     toolbar.hidden = visible === 0;
     list.hidden = visible === 0;
     count.textContent = `${visible} ${wordFor(visible)} ${count.dataset.suffix}`;
+    if (compareCta) {
+      if (favorites.size === 2) {
+        const [a, b] = favorites;
+        compareCta.href = `${compareCta.dataset.compareBase}?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
+        compareCta.hidden = false;
+      } else {
+        compareCta.hidden = true;
+      }
+    }
     applySort();
   }
 
