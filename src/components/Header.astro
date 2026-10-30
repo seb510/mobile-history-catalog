@@ -18,26 +18,23 @@ const isActive = (target: string) =>
   path === target ||
   (target !== '/' && path.startsWith(target)) ||
   (target === '/catalog/' && path.startsWith('/phones/'));
-const navLinkClass = (target: string) => {
-  const active = isActive(target);
-  return `rounded-sm px-2.5 py-1.5 text-sm font-medium transition-colors motion-ui ${active ? 'bg-neutral-900 text-neutral-100' : 'text-neutral-400 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
-};
-const mobileNavLinkClass = (target: string) =>
-  `flex min-h-10 items-center rounded-sm border px-3 text-sm transition-colors motion-ui ${isActive(target) ? 'border-orange-500/60 bg-neutral-900 text-neutral-100' : 'border-neutral-800 text-neutral-300 hover-desktop:border-neutral-700 hover-desktop:bg-neutral-900 hover-desktop:text-neutral-100'}`;
+const links = [
+  { path: '/catalog/', label: strings.nav.catalog },
+  { path: '/brands/', label: strings.nav.brands },
+  { path: '/compare/', label: strings.nav.compare },
+  { path: '/about/', label: strings.nav.about },
+];
 ---
 
 <header id="site-header" class="site-header sticky top-0 z-50 border-t-2 border-b border-t-orange-500 border-b-neutral-800 bg-neutral-950/95 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 h-14 sm:px-6">
     <a href={localePath(locale, '/')} class="flex min-w-0 items-center gap-2 text-neutral-100">
       <LogoMark class="h-7 w-7 shrink-0" />
       <span class="truncate text-sm font-bold tracking-tight sm:text-base" title={`${strings.siteName} — ${strings.brandLine}`}>{strings.siteName}</span>
     </a>
 
-    <nav class="hidden items-center gap-1 md:flex">
-      <a href={localePath(locale, '/catalog/')} class={navLinkClass('/catalog/')} aria-current={isActive('/catalog/') ? 'page' : undefined}>{strings.nav.catalog}</a>
-      <a href={localePath(locale, '/brands/')} class={navLinkClass('/brands/')} aria-current={isActive('/brands/') ? 'page' : undefined}>{strings.nav.brands}</a>
-      <a href={localePath(locale, '/compare/')} class={navLinkClass('/compare/')} aria-current={isActive('/compare/') ? 'page' : undefined}>{strings.nav.compare}</a>
-      <a href={localePath(locale, '/about/')} class={navLinkClass('/about/')} aria-current={isActive('/about/') ? 'page' : undefined}>{strings.nav.about}</a>
+    <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
+      {links.map((link) => <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>{link.label}</a>)}
       <div role="group" class="ml-2 flex items-center gap-0.5 rounded-sm border border-neutral-800 bg-neutral-900/50 p-0.5" aria-label={strings.langSwitcher}>
         {LOCALES.map((l) => (
           l === locale ? (
@@ -49,7 +46,7 @@ const mobileNavLinkClass = (target: string) =>
           )
         ))}
       </div>
-      <ThemeToggle locale={locale} class="ml-1 h-8 w-8 rounded-sm" />
+      <ThemeToggle locale={locale} class="ml-1 h-11 w-11 rounded-sm" />
     </nav>
 
     <button
@@ -60,61 +57,79 @@ const mobileNavLinkClass = (target: string) =>
       aria-label={strings.menu.open}
       data-label-open={strings.menu.open}
       data-label-close={strings.menu.close}
-      class="flex h-9 w-9 items-center justify-center rounded-sm border border-neutral-700 text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 md:hidden"
+      class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 lg:hidden"
     >
       <span class="sr-only">{strings.menu.open}</span>
-      <svg data-menu-icon viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M2 5h16v1.5H2zM2 9.25h16v1.5H2zM2 13.5h16V15H2z"/></svg>
-      <svg data-close-icon viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" class="hidden h-5 w-5" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16" stroke-linecap="round" /></svg>
+      <span class="menu-control-face">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6" aria-hidden="true">
+          <path class="menu-line-first" d="M4 8h16" />
+          <path class="menu-line-last" d="M4 16h16" />
+        </svg>
+      </span>
     </button>
   </div>
 
-  <div id="mobile-menu" inert aria-hidden="true" class="pointer-events-none absolute top-[calc(100%+0.5rem)] right-4 z-50 max-h-0 w-[min(22rem,calc(100vw-2rem))] translate-y-1 overflow-hidden rounded-sm border border-neutral-800 bg-neutral-950 opacity-0 shadow-xl shadow-neutral-950/30 transition-[max-height,opacity,transform] motion-ui md:hidden">
-    <nav class="grid grid-cols-2 gap-1.5 p-2">
-      <a href={localePath(locale, '/catalog/')} class={mobileNavLinkClass('/catalog/')} aria-current={isActive('/catalog/') ? 'page' : undefined}>{strings.nav.catalog}</a>
-      <a href={localePath(locale, '/brands/')} class={mobileNavLinkClass('/brands/')} aria-current={isActive('/brands/') ? 'page' : undefined}>{strings.nav.brands}</a>
-      <a href={localePath(locale, '/compare/')} class={mobileNavLinkClass('/compare/')} aria-current={isActive('/compare/') ? 'page' : undefined}>{strings.nav.compare}</a>
-      <a href={localePath(locale, '/about/')} class={mobileNavLinkClass('/about/')} aria-current={isActive('/about/') ? 'page' : undefined}>{strings.nav.about}</a>
-      <div role="group" class="col-span-2 mt-1 flex items-center gap-3 border-t border-neutral-800 px-1 pt-2" aria-label={strings.langSwitcher}>
-        {LOCALES.map((l) => (
-          l === locale ? (
-            <span aria-current="page" class="text-sm font-semibold text-orange-500">{LOCALE_LABEL[l]}</span>
-          ) : (
-            <a href={localePath(l, path === '/404/' ? '/' : path)} class="text-sm font-medium text-neutral-400 transition-colors motion-ui hover-desktop:text-neutral-100">
-              {LOCALE_LABEL[l]}
-            </a>
-          )
-        ))}
-        <ThemeToggle locale={locale} class="ml-auto h-8 w-8 rounded-sm" />
+  <div id="mobile-menu" hidden inert aria-hidden="true" class="mobile-menu-panel lg:hidden">
+    <div class="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
+      <p class="editorial-kicker border-b border-neutral-800 py-4 text-orange-500">{strings.brandLine}</p>
+      <nav aria-label={strings.footer.navigation}>
+        {links.map((link, index) => <a class="mobile-nav-link" href={localePath(locale, link.path)} aria-current={isActive(link.path) ? 'page' : undefined}>
+          <span aria-hidden="true" class="text-xs tabular-nums text-neutral-500">0{index + 1}</span>
+          <span>{link.label}</span>
+          <span aria-hidden="true" class="ml-auto text-neutral-500">→</span>
+        </a>)}
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4">
+        <div role="group" class="flex gap-1" aria-label={strings.langSwitcher}>
+          {LOCALES.map((l) => l === locale
+            ? <span aria-current="page" class="flex h-11 min-w-11 items-center justify-center rounded-sm border border-orange-500 text-sm font-bold text-orange-500">{LOCALE_LABEL[l]}</span>
+            : <a href={localePath(l, path === '/404/' ? '/' : path)} class="flex h-11 min-w-11 items-center justify-center rounded-sm border border-neutral-800 text-sm text-neutral-300 hover-desktop:border-orange-500">{LOCALE_LABEL[l]}</a>)}
+        </div>
+        <ThemeToggle locale={locale} class="h-11 w-11 rounded-sm" />
       </div>
-    </nav>
+    </div>
   </div>
 </header>
+<div id="menu-backdrop" class="menu-backdrop lg:hidden" hidden aria-hidden="true"></div>
 
 <script>
   const header = document.getElementById('site-header');
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('menu-backdrop');
+  let menuRevision = 0;
   const setHeaderHidden = (hidden: boolean) => {
     header?.classList.toggle('is-hidden', hidden);
     document.documentElement.dataset.headerHidden = String(hidden);
   };
   const setMenuOpen = (open: boolean) => {
-    if (!toggle || !menu) return;
+    if (!toggle || !menu || !backdrop) return;
+    if (toggle.getAttribute('aria-expanded') === String(open)) return;
+    const revision = ++menuRevision;
     if (open) setHeaderHidden(false);
-    menu.classList.toggle('pointer-events-none', !open);
-    menu.classList.toggle('max-h-0', !open);
-    menu.classList.toggle('opacity-0', !open);
-    menu.classList.toggle('max-h-[24rem]', open);
-    menu.classList.toggle('opacity-100', open);
-    menu.classList.toggle('translate-y-1', !open);
-    menu.classList.toggle('translate-y-0', open);
     menu.inert = !open;
     menu.setAttribute('aria-hidden', String(!open));
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? toggle.dataset.labelClose! : toggle.dataset.labelOpen!);
     toggle.querySelector('.sr-only')!.textContent = open ? toggle.dataset.labelClose! : toggle.dataset.labelOpen!;
-    toggle.querySelector('[data-menu-icon]')?.classList.toggle('hidden', open);
-    toggle.querySelector('[data-close-icon]')?.classList.toggle('hidden', !open);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motion = getComputedStyle(document.documentElement);
+    const duration = reduced ? 0 : parseFloat(motion.getPropertyValue('--motion-ui')) || 180;
+    const easing = motion.getPropertyValue('--motion-easing').trim() || 'ease-out';
+    const transitions = [menu, backdrop].map((element) => {
+      const wasHidden = element.hidden;
+      const current = getComputedStyle(element);
+      const from = { opacity: wasHidden ? '0' : current.opacity, transform: wasHidden && element === menu ? 'translateY(-10px)' : current.transform };
+      element.getAnimations().forEach((animation) => animation.cancel());
+      element.hidden = false;
+      return element.animate([from, { opacity: open ? '1' : '0', transform: !open && element === menu ? 'translateY(-10px)' : 'none' }], { duration, easing, fill: 'both' });
+    });
+    Promise.all(transitions.map((animation) => animation.finished)).then(() => {
+      if (revision !== menuRevision) return;
+      menu.hidden = !open;
+      backdrop.hidden = !open;
+      transitions.forEach((animation) => animation.cancel());
+    }).catch(() => { /* A newer toggle owns the interrupted transition. */ });
   };
 
   toggle?.addEventListener('click', () => {
@@ -139,8 +154,15 @@ const mobileNavLinkClass = (target: string) =>
     }
   });
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
     if (event.matches) setMenuOpen(false);
+  });
+
+  menu?.addEventListener('click', (event) => {
+    if ((event.target as Element).closest('a')) setMenuOpen(false);
+  });
+  header?.addEventListener('focusout', (event) => {
+    if (event.relatedTarget instanceof Node && !header.contains(event.relatedTarget)) setMenuOpen(false);
   });
 
   let previousScrollY = window.scrollY;
@@ -148,16 +170,16 @@ const mobileNavLinkClass = (target: string) =>
     'scroll',
     () => {
       const currentScrollY = Math.max(0, window.scrollY);
-      if (Math.abs(currentScrollY - previousScrollY) < 4) return;
+      if (Math.abs(currentScrollY - previousScrollY) < 12) return;
 
       if (
-        currentScrollY === 0 ||
+        currentScrollY < 96 ||
         toggle?.getAttribute('aria-expanded') === 'true' ||
         header?.contains(document.activeElement)
       ) {
         setHeaderHidden(false);
       } else {
-        setHeaderHidden(currentScrollY > previousScrollY);
+        setHeaderHidden(window.matchMedia('(min-width: 1024px)').matches && currentScrollY > previousScrollY);
       }
 
       previousScrollY = currentScrollY;

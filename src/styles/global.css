@@ -50,6 +50,26 @@
 .site-header.is-hidden {
   transform: translateY(-100%);
 }
+.header-nav-link { display: inline-flex; position: relative; min-height: 2.75rem; align-items: center; padding: .5rem .75rem; font-size: .875rem; color: var(--color-neutral-400); transition: color var(--motion-ui) var(--motion-easing); }
+.header-nav-link[aria-current] { color: var(--color-neutral-100); font-weight: 700; }
+.header-nav-link[aria-current]::after { content: ''; position: absolute; height: 2px; background: var(--color-orange-500); bottom: 0; left: .75rem; right: .75rem; }
+.mobile-menu-panel { position: absolute; inset: 100% 0 auto; max-height: calc(100dvh - 3.75rem); overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--color-neutral-700); border-bottom: 1px solid var(--color-neutral-600); background: var(--color-neutral-900); box-shadow: 0 16px 40px #0006; }
+.mobile-menu-panel[hidden] { display: none; }
+.menu-backdrop { position: fixed; inset: 0; z-index: 40; background: #0008; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.menu-backdrop[hidden] { display: none; }
+.mobile-nav-link { display: flex; align-items: center; gap: 1rem; min-height: 3.25rem; border-bottom: 1px solid var(--color-neutral-800); color: var(--color-neutral-200); font-size: 1.0625rem; font-weight: 600; }
+.mobile-nav-link[aria-current] { color: var(--color-orange-500); }
+.menu-control-face { display: flex; width: 2rem; height: 2rem; align-items: center; justify-content: center; border: 1px solid var(--color-neutral-700); border-radius: 2px; transition: border-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing); }
+.menu-line-first { transform-origin: 12px 8px; }
+.menu-line-last { transform-origin: 12px 16px; }
+.menu-line-first, .menu-line-last { transition: transform var(--motion-ui) var(--motion-easing); }
+.menu-toggle[aria-expanded="true"] .menu-line-first { transform: translateY(4px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-line-last { transform: translateY(-4px) rotate(-45deg); }
+.menu-toggle[aria-expanded="true"] .menu-control-face { border-color: var(--color-orange-500); color: var(--color-orange-500); }
+@media (hover: hover) and (pointer: fine) {
+  .header-nav-link:hover, .mobile-nav-link:hover { color: var(--color-orange-500); }
+  .menu-toggle:hover .menu-control-face { border-color: var(--color-orange-500); color: var(--color-orange-500); }
+}
 
 ::selection {
   color: var(--color-neutral-950);

@@ -596,3 +596,8 @@ export const DESIGN_EDITORIAL = {
     eraNotes: ['SMS, interchangeable covers and shapes you recognised from afar.', 'Clamshells, sliders, joysticks and first photographs.', 'Dedicated music keys, players and collections of your own.', 'Dual sliders and QWERTY coexist with early touchscreen models.', 'Touch platforms change interaction while familiar names return.', 'Modern models continue the story of form alongside the retro archive.'],
   },
 } as const;
+export const CHROME_COPY = {
+  uk: { archive: 'Про архів', note: 'Добираємо моделі за характером дизайну та досвідом користування.', approach: 'Добір моделей і джерела' },
+  ru: { archive: 'Об архиве', note: 'Выбираем модели по характеру дизайна и опыту использования.', approach: 'Отбор моделей и источники' },
+  en: { archive: 'About the archive', note: 'Models selected for distinctive design and the experience of using them.', approach: 'Selection and sources' },
+} as const;
