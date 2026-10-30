@@ -96,6 +96,7 @@ const mobileNavLinkClass = (target: string) =>
   const menu = document.getElementById('mobile-menu');
   const setHeaderHidden = (hidden: boolean) => {
     header?.classList.toggle('is-hidden', hidden);
+    document.documentElement.dataset.headerHidden = String(hidden);
   };
   const setMenuOpen = (open: boolean) => {
     if (!toggle || !menu) return;

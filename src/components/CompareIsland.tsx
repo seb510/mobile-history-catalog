@@ -91,6 +91,11 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   };
   const clear = (slot: Slot) => setSelected((prev) => ({ ...prev, [slot]: null }));
   const swap = () => setSelected((prev) => ({ a: prev.b, b: prev.a }));
+  const resetComparison = () => {
+    setSelected({ a: null, b: null });
+    setQuery({ a: '', b: '' });
+    setDifferencesOnly(false);
+  };
   const copyLink = async () => {
     const url = window.location.href;
     setShareUrl(url);
@@ -124,7 +129,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
   return (
     <div>
-      <div className="compare-slots grid grid-cols-2 items-stretch gap-3 sm:gap-4">
+      <div className={`compare-slots grid items-stretch gap-3 sm:grid-cols-2 sm:gap-4 ${phoneA && phoneB ? 'grid-cols-2' : 'grid-cols-1'}`}>
         <PhoneSlot
           slot="a"
           phone={phoneA}
@@ -166,16 +171,34 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
               </div>)}
             </div>
           </section>}
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="compare-actions mb-4 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
             onClick={swap}
-            className="control-button text-sm"
+            className="control-button compare-action-icon"
+            title={strings.compare.swap}
+            aria-label={strings.compare.swap}
           >
-            {strings.compare.swap}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+              <path d="M4 7h15l-3-3M20 17H5l3 3" />
+            </svg>
           </button>
-          <button type="button" className="control-button text-sm" aria-pressed={differencesOnly} onClick={() => setDifferencesOnly(!differencesOnly)}>{editorial.differences}</button>
-          <button type="button" className="control-button text-sm" onClick={copyLink}>{editorial.copyLink}</button>
+          <button type="button" className="control-button compare-action-icon" title={editorial.differences} aria-label={editorial.differences} aria-pressed={differencesOnly} onClick={() => setDifferencesOnly(!differencesOnly)}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+              <path d="M4 5h16l-6.5 7.2V19l-3 1v-7.8L4 5Z" />
+            </svg>
+          </button>
+          <button type="button" className="control-button compare-action-icon" title={editorial.copyLink} aria-label={editorial.copyLink} onClick={copyLink}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+              <rect x="8" y="8" width="12" height="12" rx="1.5" />
+              <path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8" />
+            </svg>
+          </button>
+          <button type="button" className="control-button compare-action-icon" title={strings.compare.reset} aria-label={strings.compare.reset} onClick={resetComparison}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+              <path d="M4 7v5h5M5.2 12a7 7 0 1 0 2-5" />
+            </svg>
+          </button>
           </div>
           <p role="status" className="text-sm text-orange-500">{copyState === 'copied' ? editorial.copied : copyState === 'manual' ? editorial.manualCopy : ''}</p>
           {copyState === 'manual' && <input readOnly aria-label={editorial.copyLink} value={shareUrl} onFocus={(event) => event.target.select()} className="mb-4 w-full rounded-sm border border-neutral-700 bg-neutral-900 p-3 text-base" />}
