@@ -22,6 +22,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 <a
   href={localePath(locale, `/phones/${slug}/`)}
   data-phone-card
+  data-slug={slug}
   data-brand={data.brand}
   data-year={data.year}
   data-search={searchKey}

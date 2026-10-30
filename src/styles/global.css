@@ -274,6 +274,9 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 .filter-select-list button:focus-visible { outline-offset: -2px; background: var(--color-neutral-900); }
 .catalog-filter-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.75rem; margin-top: .5rem; color: var(--color-neutral-500); font-size: .8125rem; }
 .catalog-filter-meta button { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; color: var(--color-orange-500); cursor: pointer; }
+.catalog-stories a { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem .75rem; border: 1px solid var(--color-neutral-800); border-radius: 2px; font-size: .75rem; color: var(--color-neutral-400); transition: border-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing); }
+.catalog-stories a[aria-current] { color: var(--color-orange-500); border-color: var(--color-orange-500); background: var(--color-neutral-900); }
+@media (hover: hover) and (pointer: fine) { .catalog-stories a:hover { border-color: var(--color-orange-500); color: var(--color-orange-500); } }
 [data-year-group] { scroll-margin-top: 5rem; }
 @media (max-width: 639px) {
  .catalog-filter-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .875rem; }
