@@ -31,7 +31,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   year === years.find((candidate) => candidate >= start && candidate < (eraStarts[index + 1] ?? Infinity)));
 ---
 
-<section class="catalog-tools mb-8" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
+<section class="catalog-tools mb-5" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
   <button type="button" class="catalog-filter-toggle" data-filter-toggle aria-expanded="true" aria-controls="catalog-filter-fields catalog-filter-stories" hidden>
     <span>{editorial.filters} <span data-active-count class="ml-1 text-orange-500"></span></span>
     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6" /></svg>
@@ -48,15 +48,17 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     <FilterSelect name="year" label={strings.filters.year} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={years.map(String)} />
     <FilterSelect name="form" label={strings.specs.formFactor} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={FORM_FACTORS.filter((value) => phones.some((phone) => phone.data.formFactor === value)).map((value) => ({ value, label: strings.formFactors[value] }))} />
   </div>
-  <nav id="catalog-filter-stories" class="catalog-stories mt-4 flex flex-wrap gap-2" aria-label={RETRO_DISCOVERY[locale].collections}>
-    <a href={localePath(locale, '/catalog/')} data-story-filter="" aria-current="true">{strings.filters.all}</a>
-    {stories.map((story) => <a href={localePath(locale, '/catalog/') + '?story=' + story.id} data-story-filter={story.id}>{story.title}<span class="ml-2 text-neutral-500">{story.slugs.length}</span></a>)}
-  </nav>
-  <p data-story-description hidden class="mt-3 text-sm leading-relaxed text-neutral-400"></p>
-  <div class="catalog-filter-meta">
-    <p data-filter-count data-count-label={strings.filters.shownCount} role="status" aria-live="polite">{phones.length} {strings.filters.shownCount}</p>
-    <button type="button" data-filter-reset hidden>{strings.filters.reset} <span aria-hidden="true">×</span></button>
+  <div class="catalog-filter-footer">
+    <nav id="catalog-filter-stories" class="catalog-stories flex flex-wrap gap-2" aria-label={RETRO_DISCOVERY[locale].collections}>
+      <a href={localePath(locale, '/catalog/')} data-story-filter="" aria-current="true">{strings.filters.all}</a>
+      {stories.map((story) => <a href={localePath(locale, '/catalog/') + '?story=' + story.id} data-story-filter={story.id}>{story.title}<span class="ml-2 text-neutral-500">{story.slugs.length}</span></a>)}
+    </nav>
+    <div class="catalog-filter-meta">
+      <p data-filter-count data-count-label={strings.filters.shownCount} role="status" aria-live="polite">{phones.length} {strings.filters.shownCount}</p>
+      <button type="button" data-filter-reset hidden>{strings.filters.reset} <span aria-hidden="true">×</span></button>
+    </div>
   </div>
+  <p data-story-description hidden class="mt-3 text-sm leading-relaxed text-neutral-400"></p>
   <div data-active-filters data-remove-label={controls.remove} role="group" aria-label={controls.active} class="catalog-active-filters" hidden></div>
 </section>
 
@@ -66,7 +68,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   <button class="control-button mt-5 text-sm" type="button" data-empty-reset>{strings.filters.reset}</button>
 </div>
 
-<ol class="catalog-timeline relative space-y-8 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
+<ol class="catalog-timeline relative space-y-6 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
   {years.map((year) => (
     <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-24">
       {eraForYear(year) >= 0 && (
