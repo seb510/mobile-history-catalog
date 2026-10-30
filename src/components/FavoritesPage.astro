@@ -59,7 +59,11 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
         name="sort"
         label={strings.favorites.sortLabel}
         all={strings.favorites.sortNewest}
-        options={[{ value: 'year-asc', label: strings.favorites.sortOldest }]}
+        defaultValue="year-asc"
+        options={[
+          { value: 'year-asc', label: strings.favorites.sortOldest },
+          { value: 'year-desc', label: strings.favorites.sortNewest },
+        ]}
       />
     </div>
   </div>
