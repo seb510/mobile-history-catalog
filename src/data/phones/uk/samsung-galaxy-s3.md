@@ -2,9 +2,9 @@
 brand: Samsung
 model: "Galaxy S III"
 year: 2012
-milestone: "Найбільш продаваний Android-телефон свого часу"
+milestone: "HD-екран і Smart Stay: нові сценарії флагманського Android"
 priceUsdAtLaunch: 599
-unitsSoldMillions: 80
+unitsSoldMillions: 40
 display:
   sizeInches: 4.8
   type: "HD Super AMOLED, Gorilla Glass 2"
@@ -36,12 +36,10 @@ gallery:
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Front_of_Samsung_Galaxy_S_III.jpg
 ---
 
-Galaxy S III вийшов у середині 2012 року на хвилі судового протистояння Samsung з Apple і став,
-мабуть, найважливішою перемогою Samsung у цій боротьбі за ринок — не в залі суду, а на полицях
-магазинів. Чотириядерний процесор, великий 4.8-дюймовий AMOLED-екран і програмні фішки на кшталт
-Smart Stay (екран не гасне, поки дивишся на нього) зробили модель комерційним феноменом.
+Galaxy S III представили 3 травня 2012 року. Поряд із 4,8-дюймовим HD Super AMOLED та Android 4.0 Samsung зробила акцент на взаємодії: округлий корпус і програмні функції мали зробити смартфон зручним у повсякденних ситуаціях.
 
-Понад 20 млн проданих одиниць за перші 100 днів і орієнтовно понад 80 млн за весь час продажів
-(цифра стосується всієї лінійки варіантів GT-I9300, а не лише однієї конфігурації) зробили S III
-на той момент найбільш продаваним Android-телефоном в історії — рекорд, який у 2013 році побив
-уже його наступник, Galaxy S4.
+Smart Stay використовував фронтальну камеру, щоб визначати погляд на екран і підтримувати підсвічування. Direct Call дозволяв перейти від повідомлення до дзвінка, піднісши апарат до вуха. Такі функції показували інший напрям конкуренції: виробники пропонували власні сценарії поверх спільної платформи Android.
+
+6 вересня 2012 року Samsung повідомила про 20 млн проданих апаратів за 100 днів; пізніша ретроспектива називає понад 40 млн за сім місяців. Обидві цифри прив’язані до періоду, а не описують остаточний тираж. [Порівняйте S III із S4](/compare/?a=samsung-galaxy-s3&b=samsung-galaxy-s4), де програмний акцент став ще помітнішим.
+
+Джерела: [анонс Galaxy S III](https://news.samsung.com/global/samsung-introduces-the-galaxy-s-iii-the-smartphone-designed-for-humans-and-inspired-by-nature), [20 млн за 100 днів](https://news.samsung.com/global/samsung-galaxy-s-iii-reaches-20-million-sales-milestone-in-record-time), [пізніший підсумок Samsung](https://news.samsung.com/global/from-zero-to-infinity-the-five-year-journey-of-the-samsung-galaxy-s).

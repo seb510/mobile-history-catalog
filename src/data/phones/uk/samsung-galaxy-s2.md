@@ -4,7 +4,7 @@ model: "Galaxy S II"
 year: 2011
 milestone: "Один із найуспішніших Android-флагманів 2011 року"
 priceUsdAtLaunch: 549
-unitsSoldMillions: 40.2
+unitsSoldMillions: 40
 display:
   sizeInches: 4.3
   type: "Super AMOLED Plus"
@@ -36,11 +36,10 @@ gallery:
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S2,_Note_4,_Note_8,_S21_Ultra,_and_S24_Ultra.jpg
 ---
 
-Galaxy S II з'явився менш ніж через рік після оригінального Galaxy S і виправив майже всі його
-слабкі місця: швидший двоядерний процесор, тонший (8.49 мм) і легший корпус, покращену камеру.
-У 2011 році це був один з найтонших смартфонів на ринку, і за багатьма оглядами того часу —
-технічно сильніший за iPhone 4 у суто апаратних характеристиках.
+Galaxy S II анонсували 13 лютого 2011 року на Mobile World Congress у Барселоні. Samsung поєднала двоядерну платформу, екран Super AMOLED Plus на 4,3 дюйма та Android 2.3 у корпусі завтовшки 8,49 мм. Останнє число стосується представленого GT-I9100: параметри регіональних версій могли відрізнятися.
 
-Комерційний успіх моделі (понад 40 млн проданих одиниць за різними варіантами GT-I9100) закріпив
-за Samsung статус головного виробника Android-флагманів і показав індустрії, що річний цикл
-оновлення флагманської лінійки може працювати так само ефективно, як в Apple.
+Камера на 8 МП підтримувала запис Full HD, фронтальна мала 2 МП. Окрім мультимедіа, виробник приділяв увагу корпоративним сценаріям — пошті, захисту даних та доступу до робочих систем. У розвитку Android це приклад переходу від окремої успішної моделі до щорічно оновлюваної флагманської серії.
+
+За ретроспективою Samsung, світові продажі S II досягли 40 млн за перші 20 місяців. Це проміжна віха, не остаточний тираж. [Порівняння з Galaxy S](/compare/?a=samsung-galaxy-s&b=samsung-galaxy-s2) показує зміни між першими поколіннями.
+
+Джерела: [Samsung — початковий анонс GT-I9100](https://www.samsungmobilepress.com/articles/samsung-announces-the-galaxy-s-ii-worlds-thinnest-smartphone-that-will-let-you-experience-more-with-less), [історія серії та продажі](https://news.samsung.com/global/from-zero-to-infinity-the-five-year-journey-of-the-samsung-galaxy-s).

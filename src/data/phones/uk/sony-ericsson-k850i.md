@@ -1,7 +1,7 @@
 ---
 brand: Sony Ericsson
 model: "K850i"
-year: 2008
+year: 2007
 milestone: "Флагманський Cyber-shot з 5 МП і ксеноном"
 display:
   sizeInches: 2.2
@@ -14,12 +14,12 @@ storageExpandable: "Memory Stick Micro (M2)"
 battery:
   mah: 930
   removable: true
-network: "GSM 900/1800/1900 + HSDPA 3.6 Мбіт/с"
+network: "GSM 850/900/1800/1900, GPRS/EDGE + HSDPA"
 connectivity: ["Bluetooth 2.0", "USB"]
 os: "власна (Sony Ericsson)"
 dimensionsMm: "103 × 48.5 × 18 мм"
 weightGrams: 118
-colors: ["Luminous Green", "Titanium"]
+colors: ["Luminous Green", "Velvet Blue"]
 simType: "Mini-SIM"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Sony_Ericsson_K850i_%28Luminous_Green%29_-_Front.jpg/960px-Sony_Ericsson_K850i_%28Luminous_Green%29_-_Front.jpg"
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
@@ -35,11 +35,10 @@ gallery:
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson-K850i.JPG
 ---
 
-K850i підняв камерофони Cyber-shot до 5 мегапікселів і зберіг ксеноновий спалах, а разом з ним —
-характерну «синю кришку», що від'їжджала й відкривала об'єктив, одночасно вмикаючи камеру. На
-піку популярності камерофонів, перед масовим переходом на сенсорні смартфони, це був один із
-найсильніших аргументів за Sony Ericsson серед тих, кому важлива якість фото.
+K850i розвинув Cyber-shot до 5-мегапіксельної камери з автофокусом і ксеноновим спалахом. Sony Ericsson анонсувала модель у Берліні 14 червня 2007 року, запланувавши доступність на початок четвертого кварталу. Це представник покоління 2007 року, а не дебют 2008-го.
 
-Підтримка HSDPA додавала практичної швидкості мобільного інтернету, але головною причиною купити
-K850i лишалася саме камера — на той час одна з найкращих серед телефонів без претензії на
-смартфонний статус.
+Камера мала автоматичну шторку: вона відкривалася після натискання кнопки камери. Окремий перемикач обирав фото, відео або перегляд, а підсвічені позначки на клавіатурі показували додаткові функції в режимі знімання. BestPic робив серію з дев’яти кадрів для подальшого вибору, Photo fix коригував освітлення знімка.
+
+Медіабраузер об’єднав фотографії, відео, музику й подкасти; автоматичний поворот допомагав переглядати кадри. HSDPA доповнював камеру можливістю завантажувати матеріали в мережу. [Порівняння з K800i](/compare/?a=sony-ericsson-k800i&b=sony-ericsson-k850i) показує розвиток Cyber-shot через роздільність, керування та роботу з медіа — без твердження, що якість визначають лише мегапікселі.
+
+Джерело: [анонс Sony Ericsson K850 від 14 червня 2007 року](https://www.webwire.com/ViewPressRel.asp?aId=39511).
