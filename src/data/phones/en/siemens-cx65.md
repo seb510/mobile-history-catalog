@@ -25,10 +25,15 @@ weightGrams: 90
 colors:
   - Cool Silver
 simType: Mini-SIM
-image: /images/phones/siemens-cx65/front.webp
-imageCredit: Beamish4 · CC BY-SA 4.0 · Wikimedia Commons
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Front.jpg
+image: /images/phones/siemens-cx65/clock-front.webp
+imageCredit: Suidpunt · Pozdrawiam (crop) · Public domain · Wikimedia Commons
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65.png
 gallery:
+  - image: /images/phones/siemens-cx65/front.webp
+    alt: A surviving CX65 from the front, showing key details and signs of everyday use.
+    caption: A surviving CX65 from the front, showing key details and signs of everyday use.
+    imageCredit: Beamish4 · CC BY-SA 4.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Front.jpg
   - image: /images/phones/siemens-cx65/back.webp
     alt: Siemens CX65 camera and rear cover
     caption: An integrated VGA camera, unlike A65’s separate camera accessory.
@@ -39,7 +44,7 @@ gallery:
     caption: A proprietary charging and accessory connector, before universal USB-C.
     imageCredit: Beamish4 · CC BY-SA 4.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Bottom.jpg
-imageCaption: CX65 with its joystick and distinctive silver keys. The photograph retains the handset’s visible wear.
+imageCaption: "CX65 photographed in 2005: silver keys, a joystick and the clock with a network name on its screen."
 ---
 
 The 2004 CX65 retained a familiar keypad body while adding a larger display area and a joystick. Silver key inserts and interchangeable CLIPIt covers give it a recognisable face even with the screen switched off.

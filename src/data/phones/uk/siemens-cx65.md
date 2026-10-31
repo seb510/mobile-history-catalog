@@ -25,10 +25,15 @@ weightGrams: 90
 colors:
   - Cool Silver
 simType: Mini-SIM
-image: /images/phones/siemens-cx65/front.webp
-imageCredit: Beamish4 · CC BY-SA 4.0 · Wikimedia Commons
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Front.jpg
+image: /images/phones/siemens-cx65/clock-front.webp
+imageCredit: Suidpunt · Pozdrawiam (crop) · Public domain · Wikimedia Commons
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65.png
 gallery:
+  - image: /images/phones/siemens-cx65/front.webp
+    alt: "Збережений CX65 спереду: деталі клавіш і сліди повсякденного користування."
+    caption: "Збережений CX65 спереду: деталі клавіш і сліди повсякденного користування."
+    imageCredit: Beamish4 · CC BY-SA 4.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Front.jpg
   - image: /images/phones/siemens-cx65/back.webp
     alt: Камера та задня кришка Siemens CX65
     caption: VGA-камера вже в корпусі, на відміну від окремого фотомодуля A65.
@@ -39,7 +44,7 @@ gallery:
     caption: Фірмовий роз’єм для заряджання й аксесуарів — ще до епохи універсального USB-C.
     imageCredit: Beamish4 · CC BY-SA 4.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX65_-_Bottom.jpg
-imageCaption: CX65 із джойстиком та характерними сріблястими клавішами. На фото збережені сліди користування корпусом.
+imageCaption: "CX65 на фото 2005 року: сріблясті клавіші, джойстик і годинник із назвою оператора на екрані."
 ---
 
 У CX65 2004 року Siemens зберегла знайому кнопкову форму, але додала відчутно більшу поверхню екрана й джойстик у центрі керування. Сріблясті вставки на клавішах і змінні CLIPIt-панелі дозволяють упізнати цю модель навіть без увімкненого дисплея.

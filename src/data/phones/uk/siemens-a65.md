@@ -38,6 +38,11 @@ gallery:
     caption: "Бічний профіль Siemens A65: заокруглена передня панель і задня кришка."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
+  - image: /images/phones/siemens-a65/front.webp
+    alt: "A65 у сріблястому корпусі: справжнє фото збереженого телефона. Екран вимкнений."
+    caption: "A65 у сріблястому корпусі: справжнє фото збереженого телефона. Екран вимкнений."
+    imageCredit: Ulli1105 · CC BY 3.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_A65.jpg
 ---
 
 A65 — простий Siemens 2004 року, в якому характер відчувається в округлому корпусі, великій навігаційній клавіші та дугах цифрових кнопок. Кольоровий екран 101 × 80 і поліфонічні мелодії робили навіть базові дзвінки та повідомлення частиною нової, більш особистої мобільної культури.

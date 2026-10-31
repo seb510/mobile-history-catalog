@@ -33,3 +33,18 @@ After the owner reported permission from Mobile Phone Museum, the active SXG75 m
 ## Powered-on photographs retained
 
 Following the owner’s request, the earlier DireWolf SXG75 photograph is restored as the fourth frame alongside three museum photographs, in all three locales. Its Commons credit and software-modded status-icon disclosure remain attached to that frame. Museum main photography is unchanged. The old A65 photograph has its screen off and is not presented as a powered-on example.
+
+
+## A65 original photograph restored
+
+At the owner’s explicit request, the Ulli1105 A65 photograph (CC BY 3.0, source documented above) is restored as frame four in uk/ru/en, alongside three museum views. Its caption explicitly identifies the screen as off. Its original author, license and Commons source remain attached to the frame.
+
+
+## CX75 photography update
+
+Main: `siemens-cx75/silver-front.webp`, Андрей Фаридович, [public-domain source](https://commons.wikimedia.org/wiki/File:Siemens_CX75_model.jpg), original https://upload.wikimedia.org/wikipedia/commons/4/4b/Siemens_CX75_model.jpg (254 × 472). Gallery retains Monoklon CC0 and adds `powered-on.webp`, Bozi7, [CC BY-SA 3.0 source](https://commons.wikimedia.org/wiki/File:Siemens_CX75.JPG), original https://upload.wikimedia.org/wikipedia/commons/d/dc/Siemens_CX75.JPG. Downloads succeeded on 31 October 2026, superseding the earlier failed download note. WebP quality 90, no resize, crop, retouching or AI. Credits and captions synchronized uk/ru/en.
+
+
+## CX65 photography update
+
+Main: `siemens-cx65/clock-front.webp`, [Commons File:Siemens_CX65.png](https://commons.wikimedia.org/wiki/File:Siemens_CX65.png), original https://upload.wikimedia.org/wikipedia/commons/9/9d/Siemens_CX65.png (400 × 650). Suidpunt photograph dated 14 August 2005, existing crop credited by Commons to Pozdrawiam, public domain. WebP quality 90 without further cropping, resizing, retouching or AI. The clock and network name are present in the original photograph. The three existing Beamish4 CC BY-SA 4.0 photographs remain as gallery views, making four frames in total. Credits and captions synchronized uk/ru/en.

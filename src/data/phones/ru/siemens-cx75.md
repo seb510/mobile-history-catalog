@@ -28,10 +28,21 @@ colors:
   - Titan Grey
   - Sand Silver
 simType: Mini-SIM
-image: /images/phones/siemens-cx75/front.webp
-imageCredit: Monoklon · CC0 · Wikimedia Commons
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:CX75_Siemens.jpg
-imageCaption: CX75 с джойстиком в круглом обрамлении и диагональными клавишами. Оригинальное фото со следами использования.
+image: /images/phones/siemens-cx75/silver-front.webp
+imageCredit: Андрей Фаридович · Public domain · Wikimedia Commons
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX75_model.jpg
+imageCaption: "Серебристый CX75 спереди: круглый джойстик и диагональные клавиши."
+gallery:
+  - image: /images/phones/siemens-cx75/front.webp
+    alt: Прежний фронтальный снимок CX75 с часами на экране и следами использования.
+    caption: Прежний фронтальный снимок CX75 с часами на экране и следами использования.
+    imageCredit: Monoklon · CC0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:CX75_Siemens.jpg
+  - image: /images/phones/siemens-cx75/powered-on.webp
+    alt: "CX75 с включённым цветным экраном: обои, оператор и подписи программных клавиш."
+    caption: "CX75 с включённым цветным экраном: обои, оператор и подписи программных клавиш."
+    imageCredit: Bozi7 · CC BY-SA 3.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX75.JPG
 ---
 
 CX75 2005 года продолжает знакомую идею Siemens с джойстиком, но выглядит плотнее и более мультимедийно. Круглое обрамление управления и диагональные кнопки создают собственный ритм передней панели.

@@ -665,3 +665,10 @@ export const MUSEUM_PHOTO_LABEL = {
   ru: 'Фото: Mobile Phone Museum',
   en: 'Photo: Mobile Phone Museum',
 };
+
+
+export const HOME_SIEMENS_JOURNEY = {
+  uk: { title: 'Чотири кроки Siemens', intro: 'Від простих дзвінків до фото, музики й навігації — простеж зміни в корпусах і щоденних можливостях чотирьох моделей.', steps: ['Дзвінки й мелодії', 'Камера та джойстик', 'Фото й музика', 'Відеодзвінки та GPS'], compare: 'Порівняти початок і фінал', brand: 'Історія Siemens' },
+  ru: { title: 'Четыре шага Siemens', intro: 'От простых звонков до фото, музыки и навигации — проследи изменения в корпусах и повседневных возможностях четырёх моделей.', steps: ['Звонки и мелодии', 'Камера и джойстик', 'Фото и музыка', 'Видеозвонки и GPS'], compare: 'Сравнить начало и финал', brand: 'История Siemens' },
+  en: { title: 'Four steps through Siemens', intro: 'From simple calls to photography, music and navigation: trace the changing shapes and everyday possibilities of four handsets.', steps: ['Calls and ringtones', 'Camera and joystick', 'Photos and music', 'Video calls and GPS'], compare: 'Compare the first and last', brand: 'The Siemens story' },
+} as const;

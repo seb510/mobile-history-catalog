@@ -28,10 +28,21 @@ colors:
   - Titan Grey
   - Sand Silver
 simType: Mini-SIM
-image: /images/phones/siemens-cx75/front.webp
-imageCredit: Monoklon · CC0 · Wikimedia Commons
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:CX75_Siemens.jpg
-imageCaption: CX75 with a circular joystick surround and diagonal keys. The original photograph retains visible wear.
+image: /images/phones/siemens-cx75/silver-front.webp
+imageCredit: Андрей Фаридович · Public domain · Wikimedia Commons
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX75_model.jpg
+imageCaption: Silver CX75 from the front, showing its round joystick and diagonal keys.
+gallery:
+  - image: /images/phones/siemens-cx75/front.webp
+    alt: The previous front photograph of CX75, with the screen clock and signs of use.
+    caption: The previous front photograph of CX75, with the screen clock and signs of use.
+    imageCredit: Monoklon · CC0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:CX75_Siemens.jpg
+  - image: /images/phones/siemens-cx75/powered-on.webp
+    alt: "CX75 with its colour screen on: wallpaper, network name and soft-key labels."
+    caption: "CX75 with its colour screen on: wallpaper, network name and soft-key labels."
+    imageCredit: Bozi7 · CC BY-SA 3.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX75.JPG
 ---
 
 The 2005 CX75 continues Siemens’ familiar joystick design in a denser, more multimedia-focused body. Its circular control surround and diagonal keys give the front a rhythm of its own.

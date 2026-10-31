@@ -38,6 +38,11 @@ gallery:
     caption: The side profile of Siemens A65, showing the rounded front and rear cover.
     imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
+  - image: /images/phones/siemens-a65/front.webp
+    alt: "A65 in a silver housing: an actual photograph of a surviving handset. The screen is off."
+    caption: "A65 in a silver housing: an actual photograph of a surviving handset. The screen is off."
+    imageCredit: Ulli1105 · CC BY 3.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_A65.jpg
 ---
 
 The A65 is a straightforward Siemens from 2004, with a rounded shell, broad navigation key and curved rows of number keys. A 101 × 80 colour display and polyphonic ringtones gave ordinary calls and messages a more personal identity.
