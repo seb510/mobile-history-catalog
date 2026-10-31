@@ -33,6 +33,9 @@ for (const url of urls) {
   if (titles.has(page?.title)) issues.push(`${pathname}: duplicate indexable title`);
   titles.add(page?.title);
 }
+// /favorites/ (personal localStorage data) and /search/ (query-param results) are always noindex,
+// regardless of SEO_INDEXABLE — same as 404 — because they are excluded from indexablePaths().
+const alwaysNoindex = (pathname) => pathname.includes('404') || /\/(favorites|search)\/$/.test(pathname);
 for (const [pathname, page] of pages) {
   if (pathname.includes('404') && !page.robots?.includes('noindex')) issues.push(`${pathname}: error page must be noindex`);
   for (const alt of page.alternates) {
@@ -45,7 +48,7 @@ const enabled = loadEnv('production', process.cwd(), '').SEO_INDEXABLE === 'true
 const robotsTxt = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
 if (enabled ? !robotsTxt.includes('Sitemap:') || robotsTxt.includes('Disallow: /') : !robotsTxt.includes('Disallow: /')) issues.push('robots.txt does not match indexing mode');
 for (const [pathname, page] of pages) {
-  if (enabled && !pathname.includes('404') ? page.robots?.includes('noindex') : !page.robots?.includes('noindex')) issues.push(`${pathname}: incorrect robots mode`);
+  if (enabled && !alwaysNoindex(pathname) ? page.robots?.includes('noindex') : !page.robots?.includes('noindex')) issues.push(`${pathname}: incorrect robots mode`);
 }
 if (issues.length) { console.error(issues.join('\n')); process.exitCode = 1; }
 else console.log(`SEO audit passed: ${pages.size} HTML pages, ${urls.length} canonical sitemap URLs, indexing ${enabled ? 'enabled' : 'disabled'}.`);
