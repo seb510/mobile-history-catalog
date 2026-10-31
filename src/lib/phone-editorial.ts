@@ -10,6 +10,16 @@ type Editorial = { points: [string, string, string]; next: string; note: string 
 // Editorial observations distilled from the sources linked in each phone's history.
 // These are curated reading routes, not an automatic similarity ranking.
 export const PHONE_EDITORIAL: Record<string, Record<Locale, Editorial>> = {
+  'nokia-6233': {
+    uk: { points: ['QVGA-екран і камера 2 МП поєднують мультимедіа зі звичною цифровою клавіатурою.', 'Два стереодинаміки винесені на корпус, а microSD зберігає музику й фото.', 'WCDMA 2100 додає 3G до моноблочного формату Series 40.'], next: 'nokia-n70', note: 'Два 3G-телефони 2005 року з камерою 2 МП: порівняй формат Series 40 із Symbian та дві різні конструкції камери.' },
+    ru: { points: ['QVGA-экран и камера 2 МП сочетают мультимедиа с привычной цифровой клавиатурой.', 'Два стереодинамика вынесены на корпус, а microSD хранит музыку и фотографии.', 'WCDMA 2100 добавляет 3G к моноблочному формату Series 40.'], next: 'nokia-n70', note: 'Два 3G-телефона 2005 года с камерой 2 МП: сравни формат Series 40 с Symbian и две разные конструкции камеры.' },
+    en: { points: ['A QVGA screen and 2 MP camera bring multimedia to a familiar keypad layout.', 'Two stereo speakers sit on the body, while microSD stores music and photos.', 'WCDMA 2100 adds 3G to the Series 40 candybar format.'], next: 'nokia-n70', note: 'Two 2005 3G phones with 2 MP cameras: compare Series 40 with Symbian and two different camera designs.' },
+  },
+  'siemens-c30': {
+    uk: { points: ['EasyClick дозволяє замінити передню частину, клавіатуру й кришку батареї.', 'GSM 900/1800 і компактна цифрова клавіатура зосереджені на базових телефонних сценаріях.', 'Корпус завдовжки 124 мм важить 110 г.'], next: 'siemens-me45', note: 'Порівняй простий моноблок C30 із захищеним корпусом ME45 наступного року.' },
+    ru: { points: ['EasyClick позволяет заменить переднюю часть, клавиатуру и крышку батареи.', 'GSM 900/1800 и компактная цифровая клавиатура сосредоточены на базовых телефонных сценариях.', 'Корпус длиной 124 мм весит 110 г.'], next: 'siemens-me45', note: 'Сравни простой моноблок C30 с защищённым корпусом ME45 следующего года.' },
+    en: { points: ['EasyClick lets owners replace the front section, keypad and battery cover.', 'GSM 900/1800 and a compact number pad focus on essential phone use.', 'The 124 mm handset weighs 110 g.'], next: 'siemens-me45', note: 'Compare the straightforward C30 candybar with the protected body of the following year’s ME45.' },
+  },
   'siemens-a65': {
     uk: { points: ['Великий навігаційний блок і вигнуті ряди клавіш задають округлий силует.', 'Кольоровий екран, мелодії та Java-ігри персоналізують простий телефон.', 'QuickPic Camera під’єднується як окремий аксесуар; вбудованої камери немає.'], next: 'siemens-cx65', note: 'Від базового A65 до CX65: камера переходить у корпус, а керування отримує джойстик.' },
     ru: { points: ['Крупная навигационная клавиша и изогнутые ряды кнопок задают округлый силуэт.', 'Цветной экран, мелодии и Java-игры персонализируют простой телефон.', 'QuickPic Camera подключается отдельно; встроенной камеры нет.'], next: 'siemens-cx65', note: 'От базового A65 к CX65: камера переходит в корпус, а управление получает джойстик.' },
