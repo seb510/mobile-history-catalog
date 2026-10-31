@@ -32,7 +32,7 @@ export const UI = {
       reset: 'Скинути фільтри',
       shownCount: 'у добірці',
     },
-    formFactors: {"candybar":"Моноблок","clamshell":"Розкладачка","slider":"Слайдер","swivel":"Поворотний корпус","foldable":"Складаний екран"},
+    formFactors: {"candybar":"Моноблок","clamshell":"Розкладачка","slider":"Слайдер","swivel":"Поворотний корпус","foldable":"Складаний екран","fold-out-keyboard":"Розкладна клавіатура"},
     specs: {
       formFactor: "Конструкція",
       year: 'Рік', priceUsdAtLaunch: 'Ціна на старті', display: 'Екран', resolution: 'Роздільна здатність',
@@ -177,7 +177,7 @@ export const UI = {
       reset: 'Сбросить фильтры',
       shownCount: 'в подборке',
     },
-    formFactors: {"candybar":"Моноблок","clamshell":"Раскладушка","slider":"Слайдер","swivel":"Поворотный корпус","foldable":"Складной экран"},
+    formFactors: {"candybar":"Моноблок","clamshell":"Раскладушка","slider":"Слайдер","swivel":"Поворотный корпус","foldable":"Складной экран","fold-out-keyboard":"Раскладная клавиатура"},
     specs: {
       formFactor: "Конструкция",
       year: 'Год', priceUsdAtLaunch: 'Цена на старте', display: 'Экран', resolution: 'Разрешение',
@@ -321,7 +321,7 @@ export const UI = {
       reset: 'Reset filters',
       shownCount: 'in this selection',
     },
-    formFactors: {"candybar":"Candybar","clamshell":"Clamshell","slider":"Slider","swivel":"Swivel body","foldable":"Foldable screen"},
+    formFactors: {"candybar":"Candybar","clamshell":"Clamshell","slider":"Slider","swivel":"Swivel body","foldable":"Foldable screen","fold-out-keyboard":"Fold-out keyboard"},
     specs: {
       formFactor: "Form factor",
       year: 'Year', priceUsdAtLaunch: 'Launch price', display: 'Display', resolution: 'Resolution',
