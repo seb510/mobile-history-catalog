@@ -650,3 +650,8 @@ export const FINAL_DESIGN_COPY = {
   ru: { sales: 'История в цифрах', salesNote: 'Публично задокументированный тираж одной из моделей архива. Это не рейтинг всех телефонов.', loading: 'Открываем избранное…', noScript: 'Включи JavaScript, чтобы увидеть сохранённые в этом браузере телефоны.' },
   en: { sales: 'History in numbers', salesNote: 'Publicly documented sales for one model in the archive. This is not a ranking of all phones.', loading: 'Opening your favorites…', noScript: 'Enable JavaScript to see the phones saved in this browser.' },
 } as const;
+export const CATALOG_POSITION = {
+  uk: { label: 'Поточний рік каталогу', filters: 'До фільтрів' },
+  ru: { label: 'Текущий год каталога', filters: 'К фильтрам' },
+  en: { label: 'Current catalog year', filters: 'Back to filters' },
+} as const;

@@ -2,7 +2,7 @@
 import PhoneCard from './PhoneCard.astro';
 import FilterSelect from './FilterSelect.astro';
 import { getPhonesForLocale } from '../lib/phones';
-import { t, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY } from '../lib/ui-strings';
+import { t, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, CATALOG_POSITION } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 import { FORM_FACTORS } from '../lib/form-factors';
 import { localePath, type Locale } from '../lib/locales';
@@ -31,7 +31,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   year === years.find((candidate) => candidate >= start && candidate < (eraStarts[index + 1] ?? Infinity)));
 ---
 
-<section class="catalog-tools mb-5" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
+<section id="catalog-filters" class="catalog-tools mb-5 scroll-mt-20" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
   <button type="button" class="catalog-filter-toggle" data-filter-toggle aria-expanded="true" aria-controls="catalog-filter-fields catalog-filter-stories" hidden>
     <span>{editorial.filters} <span data-active-count class="ml-1 text-orange-500"></span></span>
     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6" /></svg>
@@ -68,6 +68,20 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   <button class="control-button mt-5 text-sm" type="button" data-empty-reset>{strings.filters.reset}</button>
 </div>
 
+<nav data-catalog-position class="catalog-position" hidden aria-label={CATALOG_POSITION[locale].label}
+  data-locale={locale} data-count-one={strings.brands.phoneCount.one}
+  data-count-few={'few' in strings.brands.phoneCount ? strings.brands.phoneCount.few : strings.brands.phoneCount.many}
+  data-count-many={strings.brands.phoneCount.many}>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+    <div class="flex min-w-0 items-baseline gap-3">
+      <span class="editorial-kicker text-neutral-500">{strings.filters.year}</span>
+      <strong data-current-year class="text-xl font-extrabold tabular-nums text-orange-500"></strong>
+      <span data-current-year-count class="truncate text-xs text-neutral-400"></span>
+    </div>
+    <a href="#catalog-filters" class="inline-flex min-h-11 shrink-0 items-center gap-2 text-xs font-semibold text-neutral-300 hover-desktop:text-orange-500">{CATALOG_POSITION[locale].filters}<span aria-hidden="true">↑</span></a>
+  </div>
+</nav>
+
 <ol class="catalog-timeline relative space-y-6 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
   {years.map((year) => (
     <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-24">
@@ -78,14 +92,14 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
           <p class="mt-2 text-sm text-neutral-400">{editorial.eraNotes[eraForYear(year)]}</p>
         </div>
       )}
-      <div class="mb-4 flex items-baseline gap-3 border-b border-neutral-800 pb-2">
+      <div data-year-heading class="mb-3 flex items-baseline gap-3 border-b border-neutral-800 pb-2">
         <span class="absolute -left-5 top-2.5 h-2 w-2 rounded-full bg-orange-500 sm:-left-7" aria-hidden="true"></span>
         <h2 class="text-2xl font-extrabold tracking-tight text-orange-500">{year}</h2>
         <span data-year-count class="border border-neutral-800 px-1.5 py-0.5 text-xs text-neutral-500">
           {byYear.get(year)!.length}
         </span>
       </div>
-      <ul class="grid grid-cols-2 auto-rows-fr items-stretch gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <ul class="grid grid-cols-2 auto-rows-fr items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 xl:grid-cols-5">
         {byYear.get(year)!.map((phone) => (
           <li class="flex min-w-0">
             <PhoneCard phone={phone} locale={locale} compact />
@@ -97,6 +111,8 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 </ol>
 
 <script>
+  import { initCatalogPosition } from '../scripts/catalog-position';
+  const position = initCatalogPosition();
   const bar = document.querySelector<HTMLElement>('[data-filter-bar]');
   const list = document.querySelector<HTMLElement>('[data-catalog-list]');
   const empty = document.querySelector<HTMLElement>('[data-filter-empty]');
@@ -186,6 +202,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
         else url.searchParams.delete(key);
       }
       window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+      position?.refresh();
     };
 
     bar.addEventListener('input', apply);
