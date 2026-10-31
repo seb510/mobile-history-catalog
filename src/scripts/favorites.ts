@@ -66,4 +66,7 @@ if (typeof document !== 'undefined') {
   document.addEventListener(FAVORITES_CHANGED_EVENT, syncAll);
   syncAll();
   window.addEventListener('pageshow', (event) => { if (event.persisted) syncAll(); });
+  window.addEventListener('storage', (event) => {
+    if (event.key === STORAGE_KEY || event.key === null) document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT));
+  });
 }

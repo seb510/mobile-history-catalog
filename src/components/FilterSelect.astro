@@ -1,24 +1,24 @@
 ---
-interface Props { name: string; label: string; all: string; search?: string; empty?: string; options: (string | { value: string; label: string })[]; defaultValue?: string }
-const { name, label, all, search, empty, options, defaultValue = '' } = Astro.props;
+interface Props { name: string; label: string; all: string; search?: string; empty?: string; options: (string | { value: string; label: string })[]; defaultValue?: string; allowEmpty?: boolean }
+const { name, label, all, search, empty, options, defaultValue = '', allowEmpty = true } = Astro.props;
 const id = `catalog-${name}`;
 const entries = options.map((option) => typeof option === 'string' ? { value: option, label: option } : option);
+const choices = [...(allowEmpty ? [{ value: '', label: all }] : []), ...entries];
 ---
 <div class="filter-select" data-select data-select-name={name}>
   <label class="filter-label" for={`${id}-native`}>{label}</label>
   <select id={`${id}-native`} name={name} data-filter={name} data-select-native aria-label={label}>
-    <option value="" selected={defaultValue === ''}>{all}</option>
-    {entries.map((option) => <option value={option.value} selected={option.value === defaultValue}>{option.label}</option>)}
+    {choices.map((option) => <option value={option.value} selected={option.value === defaultValue}>{option.label}</option>)}
   </select>
   <div data-select-custom hidden>
     <button type="button" class="filter-select-trigger" data-select-trigger aria-label={label} aria-haspopup="listbox" aria-expanded="false" aria-controls={`${id}-options`}>
-      <span data-select-value>{all}</span>
+      <span data-select-value>{choices.find((option) => option.value === defaultValue)?.label ?? choices[0]?.label}</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
     </button>
     <div class="filter-select-popup" data-select-popup hidden>
       {search && <input type="search" class="filter-select-search" data-select-search aria-label={`${search}: ${label}`} placeholder={search} autocomplete="off" />}
       <div id={`${id}-options`} role="listbox" aria-label={label} class="filter-select-list">
-        {[{ value: '', label: all }, ...entries].map((option) => <button type="button" role="option" tabindex="-1" aria-selected={option.value === defaultValue ? 'true' : 'false'} data-value={option.value}><span>{option.label}</span><span class="select-check" aria-hidden="true">✓</span></button>)}
+        {choices.map((option) => <button type="button" role="option" tabindex="-1" aria-selected={option.value === defaultValue ? 'true' : 'false'} data-value={option.value}><span>{option.label}</span><span class="select-check" aria-hidden="true">✓</span></button>)}
       </div>
       {search && <p data-select-empty hidden class="px-3 py-4 text-sm text-neutral-500">{empty}</p>}
     </div>

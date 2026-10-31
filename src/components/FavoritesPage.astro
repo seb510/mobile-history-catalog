@@ -4,7 +4,7 @@ import Breadcrumbs from './Breadcrumbs.astro';
 import PhoneCard from './PhoneCard.astro';
 import FilterSelect from './FilterSelect.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { t } from '../lib/ui-strings';
+import { t, FINAL_DESIGN_COPY } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
 }
 const { locale } = Astro.props;
 const strings = t(locale);
+const copy = FINAL_DESIGN_COPY[locale];
 const phoneCount = strings.brands.phoneCount;
 const comparePath = localePath(locale, '/compare/');
 
@@ -26,13 +27,16 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     <p class="mt-2 text-sm text-neutral-500">{strings.favorites.storageNote}</p>
   </header>
 
-  <div data-favorites-empty class="text-center text-neutral-400">
-    <p class="text-lg font-bold text-neutral-100">{strings.favorites.emptyTitle}</p>
+  <p data-favorites-loading role="status" class="py-8 text-sm text-neutral-500">{copy.loading}</p>
+  <noscript><style is:inline>[data-favorites-loading] { display: none; }</style><p class="mb-6 border border-neutral-700 p-4 text-sm text-neutral-300">{copy.noScript}</p></noscript>
+  <div data-favorites-empty hidden class="favorites-empty rounded-sm border border-neutral-800 bg-neutral-900/40 px-5 py-10 text-center text-neutral-400 sm:py-12">
+    <svg aria-hidden="true" viewBox="0 0 24 24" class="mx-auto mb-4 h-8 w-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-9-5.5-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-9 11-9 11Z" /></svg>
+    <h2 class="text-xl font-bold text-neutral-100">{strings.favorites.emptyTitle}</h2>
     <p class="mt-2 text-sm leading-relaxed">{strings.favorites.emptyBody}</p>
     <a class="primary-cta mt-5 inline-flex min-h-11 items-center rounded-sm bg-orange-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition-colors motion-ui" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} →</a>
   </div>
 
-  <div data-favorites-toolbar hidden class="mb-4 flex flex-wrap items-center justify-between gap-3">
+  <div data-favorites-toolbar hidden class="favorites-toolbar mb-5 flex flex-wrap items-center justify-between gap-4 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-4">
     <div class="flex flex-wrap items-center gap-3">
       <p
         data-favorites-count
@@ -42,14 +46,14 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
         data-locale={locale}
         data-suffix={strings.favorites.inCollection}
         role="status"
-        class="text-sm text-neutral-400"
+        class="text-sm font-semibold tabular-nums text-neutral-200"
       ></p>
       <a
         data-favorites-compare-cta
         data-compare-base={comparePath}
         hidden
         href={comparePath}
-        class="text-sm font-semibold text-orange-500 underline underline-offset-4 transition-colors motion-ui hover-desktop:text-orange-400"
+        class="inline-flex min-h-11 items-center text-sm font-semibold text-orange-500 underline underline-offset-4 transition-colors motion-ui hover-desktop:text-orange-400"
       >
         {strings.favorites.comparePair} →
       </a>
@@ -60,6 +64,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
         label={strings.favorites.sortLabel}
         all={strings.favorites.sortNewest}
         defaultValue="year-asc"
+        allowEmpty={false}
         options={[
           { value: 'year-asc', label: strings.favorites.sortOldest },
           { value: 'year-desc', label: strings.favorites.sortNewest },
@@ -68,10 +73,10 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     </div>
   </div>
 
-  <ul data-favorites-list hidden class="grid grid-cols-2 items-stretch gap-4 lg:auto-rows-fr lg:grid-cols-4">
+  <ul data-favorites-list hidden class="grid auto-rows-fr grid-cols-2 items-stretch gap-3 sm:grid-cols-3 lg:grid-cols-4">
     {phones.map((phone) => (
       <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} class="flex min-w-0" hidden>
-        <PhoneCard phone={phone} locale={locale} />
+        <PhoneCard phone={phone} locale={locale} compact />
       </li>
     ))}
   </ul>
@@ -81,6 +86,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   import { readFavorites, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
 
   const empty = document.querySelector<HTMLElement>('[data-favorites-empty]');
+  const loading = document.querySelector<HTMLElement>('[data-favorites-loading]');
   const toolbar = document.querySelector<HTMLElement>('[data-favorites-toolbar]');
   const list = document.querySelector<HTMLUListElement>('[data-favorites-list]');
   const count = document.querySelector<HTMLElement>('[data-favorites-count]');
@@ -108,20 +114,24 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 
   function render() {
     if (!empty || !toolbar || !list || !count) return;
+    const focusedItem = document.activeElement?.closest<HTMLElement>('[data-favorite-item]');
+    const previousIndex = focusedItem ? Array.from(list.children).filter((item) => !(item as HTMLElement).hidden).indexOf(focusedItem) : -1;
     const favorites = readFavorites();
+    const visibleSlugs: string[] = [];
     let visible = 0;
     for (const item of items) {
       const active = favorites.has(item.dataset.slug!);
       item.hidden = !active;
-      if (active) visible++;
+      if (active) { visible++; visibleSlugs.push(item.dataset.slug!); }
     }
     empty.hidden = visible > 0;
     toolbar.hidden = visible === 0;
     list.hidden = visible === 0;
     count.textContent = `${visible} ${wordFor(visible)} ${count.dataset.suffix}`;
+    if (loading) loading.hidden = true;
     if (compareCta) {
-      if (favorites.size === 2) {
-        const [a, b] = favorites;
+      if (visibleSlugs.length === 2) {
+        const [a, b] = visibleSlugs;
         compareCta.href = `${compareCta.dataset.compareBase}?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
         compareCta.hidden = false;
       } else {
@@ -129,6 +139,11 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       }
     }
     applySort();
+    if (focusedItem?.hidden) {
+      const remaining = Array.from(list.children).filter((item) => !(item as HTMLElement).hidden);
+      const next = remaining[Math.min(Math.max(previousIndex, 0), remaining.length - 1)];
+      (next?.querySelector<HTMLButtonElement>('[data-favorite-toggle]') ?? empty.querySelector<HTMLAnchorElement>('a'))?.focus();
+    }
   }
 
   sortSelect?.addEventListener('change', applySort);

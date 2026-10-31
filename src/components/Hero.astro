@@ -3,7 +3,7 @@ import PhoneCard from './PhoneCard.astro';
 import GenerationComparison from './GenerationComparison.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { t, HOME_EDITORIAL } from '../lib/ui-strings';
+import { t, HOME_EDITORIAL, FINAL_DESIGN_COPY } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 
@@ -27,6 +27,8 @@ const copy = HOME_EDITORIAL[locale];
 const pair = ['motorola-razr-v3', 'nokia-n95'].map(slug => phones.find(p => slugOf(p) === slug));
 const themes = copy.themes.map((theme, index) => ({ ...theme, id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); return phone ? [phone] : []; }) }));
 const otherBestSellers = bestSellers;
+const reviewCopy = FINAL_DESIGN_COPY[locale];
+const singleSeller = bestSellers.length === 1;
 
 const stats = [
   { value: phones.length, label: strings.hero.statsPhones },
@@ -35,29 +37,29 @@ const stats = [
 ];
 ---
 
-<section class="border-b border-neutral-800 py-8 sm:py-14">
+<section class="home-cover border-b border-neutral-800 py-4 sm:py-10">
   <div class="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1fr_0.82fr]">
     <div>
     <p class="editorial-kicker animate-fade-up mb-5 inline-flex items-center gap-2 text-orange-500">
       <span class="h-2 w-2 bg-orange-500"></span>{strings.hero.eyebrow}
     </p>
-    <h1 class="animate-fade-up max-w-xl text-5xl font-extrabold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl" style="animation-delay:0.05s">
+    <h1 class="animate-fade-up max-w-xl text-[2.5rem] font-extrabold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl" style="animation-delay:0.05s">
       {copy.title}
     </h1>
-    <p class="animate-fade-up mt-5 max-w-lg text-lg leading-relaxed text-neutral-400" style="animation-delay:0.1s">
+    <p class="animate-fade-up mt-4 max-w-lg text-base leading-relaxed text-neutral-400 sm:mt-5 sm:text-lg" style="animation-delay:0.1s">
       {strings.tagline}
     </p>
 
-    <div class="animate-fade-up mt-7 flex flex-wrap gap-3" style="animation-delay:0.15s">
+    <div class="animate-fade-up mt-6 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:gap-3" style="animation-delay:0.15s">
       <a
         href={localePath(locale, '/catalog/')}
-        class="primary-cta rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-colors motion-ui"
+        class="primary-cta inline-flex min-h-11 items-center justify-center rounded-sm bg-orange-500 px-3 py-3 text-center text-sm font-bold text-neutral-950 transition-colors motion-ui sm:px-5"
       >
         {strings.hero.cta}
       </a>
       <a
         href={localePath(locale, '/about/')}
-        class="rounded-sm border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500"
+        class="inline-flex min-h-11 items-center justify-center rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5"
       >
         {strings.hero.ctaAbout}
       </a>
@@ -123,19 +125,19 @@ const stats = [
 </section>)}
 
 {bestSellers.length > 0 && (
-  <section class="pt-12 sm:pt-16">
+  <section class:list={['pt-10 sm:pt-14', singleSeller && 'sales-feature']}>
     <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
       <div>
         <p class="editorial-kicker text-orange-500">{strings.hero.eyebrow}</p>
-        <h2 class="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{strings.hero.popularTitle}</h2>
+        <h2 class="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{singleSeller ? reviewCopy.sales : strings.hero.popularTitle}</h2>
       </div>
-      <p class="max-w-md text-sm leading-relaxed text-neutral-400 sm:text-right">{strings.hero.popularSubtitle}</p>
+      <p class="max-w-md text-sm leading-relaxed text-neutral-400 sm:text-right">{singleSeller ? reviewCopy.salesNote : strings.hero.popularSubtitle}</p>
     </div>
     {otherBestSellers.length > 0 && (
-      <ul class="mt-6 grid grid-cols-2 gap-4 lg:auto-rows-fr lg:items-stretch lg:grid-cols-4">
+      <ul class:list={['mt-6 grid gap-4', singleSeller ? 'grid-cols-1' : 'grid-cols-2 lg:auto-rows-fr lg:items-stretch lg:grid-cols-4']}>
         {otherBestSellers.map((phone, i) => (
         <li class="flex min-w-0">
-          <PhoneCard phone={phone} locale={locale} badge={`#${i + 1} · ${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
+          <PhoneCard phone={phone} locale={locale} badge={`${singleSeller ? '' : `#${i + 1} · `}${phone.data.unitsSoldMillions} ${strings.hero.soldSuffix}`} />
         </li>
         ))}
       </ul>

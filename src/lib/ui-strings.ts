@@ -645,3 +645,8 @@ export const COMPARE_DESIGN = {
   ru: { first: 'Телефон A', second: 'Телефон B', rows: 'Характеристик: {count}', identical: 'В заполненных характеристиках различий нет.' },
   en: { first: 'Phone A', second: 'Phone B', rows: 'Specifications: {count}', identical: 'There are no differences in the recorded specifications.' },
 } as const;
+export const FINAL_DESIGN_COPY = {
+  uk: { sales: 'Історія в цифрах', salesNote: 'Публічно задокументований тираж однієї з моделей архіву. Це не рейтинг усіх телефонів.', loading: 'Відкриваємо обране…', noScript: 'Увімкни JavaScript, щоб побачити збережені в цьому браузері телефони.' },
+  ru: { sales: 'История в цифрах', salesNote: 'Публично задокументированный тираж одной из моделей архива. Это не рейтинг всех телефонов.', loading: 'Открываем избранное…', noScript: 'Включи JavaScript, чтобы увидеть сохранённые в этом браузере телефоны.' },
+  en: { sales: 'History in numbers', salesNote: 'Publicly documented sales for one model in the archive. This is not a ranking of all phones.', loading: 'Opening your favorites…', noScript: 'Enable JavaScript to see the phones saved in this browser.' },
+} as const;
