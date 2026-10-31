@@ -16,7 +16,7 @@ const compareUrl = `${localePath(locale, '/compare/')}?a=${slugOf(phones[0])}&b=
 
 <section class="overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50 lg:grid lg:grid-cols-[0.85fr_1.15fr]" aria-labelledby="generation-title">
   <div class="flex flex-col justify-center p-5 sm:p-8 lg:p-9">
-    <p class="editorial-kicker text-orange-500">{phones[0].data.year} → {phones[1].data.year}</p>
+    <p class="editorial-kicker text-orange-500">{phones[0].data.year === phones[1].data.year ? phones[0].data.year : `${phones[0].data.year} → ${phones[1].data.year}`}</p>
     <h2 id="generation-title" class="mt-4 max-w-md text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl">{copy.compare}</h2>
     <p class="mt-4 max-w-md text-base leading-relaxed text-neutral-400">{copy.text}</p>
     <a href={compareUrl} class="primary-cta mt-6 inline-flex min-h-11 items-center justify-between gap-4 self-start rounded-sm bg-orange-500 px-5 py-3 text-sm font-bold text-neutral-950 transition-colors motion-ui">

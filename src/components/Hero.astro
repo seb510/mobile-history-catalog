@@ -3,7 +3,7 @@ import PhoneCard from './PhoneCard.astro';
 import GenerationComparison from './GenerationComparison.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { t, HOME_EDITORIAL, HOME_SIEMENS_JOURNEY } from '../lib/ui-strings';
+import { t, HOME_EDITORIAL, HOME_SIEMENS_JOURNEY, HOME_COVER_REFRESH } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 
@@ -20,8 +20,9 @@ const yearsSpan = new Date().getFullYear() - minYear + 1;
 
 const coverPhone = phones.find(p => slugOf(p) === 'motorola-razr-v3');
 const copy = HOME_EDITORIAL[locale];
-const pair = ['motorola-razr-v3', 'sony-ericsson-k750i'].map(slug => phones.find(p => slugOf(p) === slug));
-const themes = copy.themes.map((theme, index) => ({ ...theme, id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); return phone ? [phone] : []; }) }));
+const coverCopy = HOME_COVER_REFRESH[locale];
+const pair = ['nokia-3250', 'sony-ericsson-k750i'].map(slug => phones.find(p => slugOf(p) === slug));
+const themes = copy.themes.map((theme, index) => ({ ...theme, text: coverCopy.themes[index], id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); if (phone && slug === 'nokia-n95') { const view = phone.data.gallery?.find(image => image.image.includes('media-and-camera')); if (view) return [{ ...phone, data: { ...phone.data, image: view.image, imageCaption: view.caption, imageCredit: view.imageCredit, imageSourceUrl: view.imageSourceUrl } }]; } return phone ? [phone] : []; }) }));
 const journeyCopy = HOME_SIEMENS_JOURNEY[locale];
 const journeyPhones = ['siemens-a65', 'siemens-cx65', 'siemens-cx75', 'siemens-sxg75'].flatMap(slug => { const phone = phones.find(p => slugOf(p) === slug); return phone ? [phone] : []; });
 
@@ -42,7 +43,7 @@ const stats = [
       {copy.title}
     </h1>
     <p class="animate-fade-up mt-4 max-w-lg text-base leading-relaxed text-neutral-400 sm:mt-5 sm:text-lg" style="animation-delay:0.1s">
-      {strings.tagline}
+      {coverCopy.intro}
     </p>
 
     <div class="animate-fade-up mt-6 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:gap-3" style="animation-delay:0.15s">
@@ -62,38 +63,16 @@ const stats = [
 
   </div>
 
-  {coverPhone && (
-    <a
-      href={localePath(locale, `/phones/${slugOf(coverPhone)}/`)}
-      class="editorial-card group focus-visible:-outline-offset-4 block overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 motion-ui"
-    >
-      <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-6 sm:aspect-[5/3] lg:aspect-[4/3]">
-        {coverPhone.data.image ? (
-          <>
-            <img data-image-fallback src={coverPhone.data.image} alt={`${coverPhone.data.brand} ${coverPhone.data.model}`} class="h-full w-full object-contain" fetchpriority="high" />
-            <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-6">
-              <PlaceholderArt class="h-full w-full text-neutral-600" />
-            </div>
-          </>
-        ) : (
-          <PlaceholderArt class="h-full w-full text-neutral-600" />
-        )}
-        <span class="editorial-kicker absolute top-3 left-3 bg-orange-500 px-2 py-1 text-neutral-950">
-          {copy.cover}
-        </span>
-      </div>
-      <div class="card-copy grid gap-2 p-4 sm:grid-cols-[1fr_auto] sm:items-end sm:p-5">
-        <div>
-          <p class="editorial-kicker text-neutral-500">{coverPhone.data.brand} · {coverPhone.data.year}</p>
-          <h2 class="card-title mt-1 text-2xl font-extrabold leading-none tracking-tight sm:text-3xl">{coverPhone.data.model}</h2>
-          {coverPhone.data.milestone && <p class="mt-2 border-l-2 border-orange-500 pl-2 text-sm text-neutral-400">{coverPhone.data.milestone}</p>}
-        </div>
-        <span class="hidden text-3xl text-orange-500 sm:block" aria-hidden="true">→</span>
-      </div>
-    </a>
-  )}
+  {coverPhone && <a href={localePath(locale, '/phones/motorola-razr-v3/')} class="home-cover-feature editorial-card group block overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900 focus-visible:-outline-offset-4 motion-ui">
+    <div class="flex items-center justify-between gap-3 border-b border-neutral-800 px-5 py-3"><span class="editorial-kicker text-orange-500">{coverCopy.feature}</span><span class="text-sm font-bold tabular-nums text-neutral-400">2004</span></div>
+    <div class="grid grid-cols-[1.2fr_.8fr] items-end gap-2 bg-neutral-800/50 px-4 pt-5 sm:px-6">
+      {[{image:coverPhone.data.image,label:coverCopy.open}, {image:coverPhone.data.gallery?.find(image=>image.image.includes('museum-closed'))?.image,label:coverCopy.closed}].map((view,index)=><div class="min-w-0"><div class:list={['relative flex items-center justify-center',index===0?'h-60 sm:h-80':'h-44 sm:h-60']}>{view.image ? <><img data-image-fallback src={view.image} alt={'Motorola RAZR V3 — '+view.label} width="400" height="600" fetchpriority={index===0?'high':'auto'} class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</div><p class="py-3 text-center text-[0.65rem] uppercase tracking-widest text-neutral-500">{view.label}</p></div>)}
+    </div>
+    <div class="card-copy border-t border-neutral-800 p-5"><p class="editorial-kicker text-neutral-500">Motorola</p><div class="mt-2 flex items-center justify-between gap-3"><h2 class="card-title text-3xl font-extrabold tracking-tight sm:text-4xl">RAZR V3</h2><span class="text-3xl text-orange-500" aria-hidden="true">↗</span></div><p class="mt-3 text-sm font-semibold text-orange-500">{coverCopy.story}</p></div>
+  </a>}
   </div>
 
+  <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-neutral-400">{coverCopy.details.map(detail=><li class="flex items-center gap-2"><span class="h-1 w-1 bg-orange-500" aria-hidden="true"></span>{detail}</li>)}</ul>
   <div class="animate-fade-up mt-6 grid max-w-lg grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-3 lg:mt-8" style="animation-delay:0.2s">
     {stats.map((stat, index) => (
       <div class:list={[index === 0 ? 'pr-3' : 'px-3']}>

@@ -59,3 +59,33 @@ Museum views may be complemented by existing licensed photographs showing a powe
 ## Card presentation update
 
 The owner explicitly requested removing repeated museum links from summary cards on 31 October 2026. PhoneCard now links directly to the model detail without a separate credit link or reserved credit spacer. Full per-image attribution remains on the detail page, gallery and full-screen viewer. Comparison-slot and related-phone credits were not changed by this card update.
+
+
+## Homepage museum asset provenance
+
+| Local path under public/images/phones/ | Original image |
+| --- | --- |
+| motorola-razr-v3/museum-open.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/2880ae9a-60d5-4a67-9258-fca65e704f54_large.png |
+| motorola-razr-v3/museum-closed.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/967a1d62-6d97-41f0-bf14-1213ac398e05_large.png |
+| motorola-razr-v3/museum-side.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/b4f941ff-9f58-4135-8ccd-a3183e89c447_large.png |
+| sony-ericsson-w800i/museum-front.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/5e8cd855-3520-467c-b7ec-5a1aa663fbad_large.png |
+| sony-ericsson-w800i/museum-back.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/0db02101-5927-4dd2-ae9f-d5fdd0bf83b1_large.png |
+| motorola-rokr-e1/museum-front.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/e281c225-b5fe-436c-af8e-9b3c55564bd2_large.png |
+| motorola-rokr-e1/museum-back.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/4dce7664-1453-4eb5-bc52-7d177bad9f28_large.png |
+| motorola-pebl-u6/museum-closed.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/789d8610-e65f-4b47-86bb-d97c42895040_large.png |
+| motorola-pebl-u6/museum-open.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/2bf17cd4-c10f-4c8a-a0bf-68ea75b4d76e_large.png |
+
+Museum files preserve their 400 × 600 dimensions. Full per-frame credits remain on model pages and full-screen galleries. Summary-card credits are omitted per the owner’s earlier explicit presentation request. PEBL images show a burgundy colour variant; captions identify it. See docs/home-photography-refresh.md for Commons images and earlier views.
+
+
+## Nokia 3250
+
+Model source: https://www.mobilephonemuseum.com/phone-detail/3250
+
+| Asset under public/images/phones/nokia-3250/ | Original |
+| --- | --- |
+| museum-music.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/e702ce78-c53b-4cb0-9fc0-a7405ba3b948_large.png |
+| museum-front.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/7809c80f-824d-44e9-aa9e-e013d0654dcc_large.png |
+| museum-side.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/edf0c0a3-7f69-415f-8bf3-f895413cc8aa_large.png |
+
+400 × 600 originals, quality-90 WebP, no resize, crop, retouching or AI. Fourth frame three-modes.webp is Nanami Kamimura’s existing composite, CC BY-SA 3.0, source https://commons.wikimedia.org/wiki/File:Nokia_3250.JPG and original https://upload.wikimedia.org/wikipedia/commons/b/b9/Nokia_3250.JPG (726 × 327), same conversion. All captions and credits synchronized uk/ru/en; technical data unchanged.

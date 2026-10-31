@@ -456,11 +456,11 @@ export const HOME_EDITORIAL = {
       "Історія триває"
     ],
     "compare": "Два характери однієї епохи",
-    "text": "Тонка металева розкладачка RAZR V3 і камерофон Sony Ericsson K750i. Виразна форма та захоплення мобільною фотографією — два характери середини нульових.",
+    "text": "Nokia 3250 із поворотним музичним блоком і камерофон Sony Ericsson K750i: два погляди на мультимедійний телефон 2005 року.",
     "cta": "Порівняти характери",
     "principles": "Зберігаємо характер епохи",
     "pairNotes": [
-      "Метал · пласка клавіатура · розкладачка",
+      "Твіст-механізм · музичні клавіші · microSD",
       "Автофокус · кришка об’єктива · камерофон"
     ],
     "principleItems": [
@@ -506,11 +506,11 @@ export const HOME_EDITORIAL = {
       "История продолжается"
     ],
     "compare": "Два характера одной эпохи",
-    "text": "Тонкая металлическая раскладушка RAZR V3 и камерофон Sony Ericsson K750i. Выразительная форма и увлечение мобильной фотографией — два характера середины нулевых.",
+    "text": "Nokia 3250 с поворотным музыкальным блоком и камерофон Sony Ericsson K750i: два взгляда на мультимедийный телефон 2005 года.",
     "cta": "Сравнить характеры",
     "principles": "Сохраняем характер эпохи",
     "pairNotes": [
-      "Металл · плоская клавиатура · раскладушка",
+      "Твист-механизм · музыкальные клавиши · microSD",
       "Автофокус · крышка объектива · камерофон"
     ],
     "principleItems": [
@@ -556,11 +556,11 @@ export const HOME_EDITORIAL = {
       "The story continues"
     ],
     "compare": "Two characters from one era",
-    "text": "The slim metal RAZR V3 clamshell and the Sony Ericsson K750i camera phone. Expressive form and a passion for mobile photography: two characters from the mid-2000s.",
+    "text": "The Nokia 3250 with its rotating music module and the Sony Ericsson K750i camera phone: two takes on the multimedia handset in 2005.",
     "cta": "Compare their character",
     "principles": "Preserving the character of an era",
     "pairNotes": [
-      "Metal · flat keypad · clamshell",
+      "Twist mechanism · music keys · microSD",
       "Autofocus · lens cover · camera phone"
     ],
     "principleItems": [
@@ -671,4 +671,66 @@ export const HOME_SIEMENS_JOURNEY = {
   uk: { title: 'Чотири кроки Siemens', intro: 'Від простих дзвінків до фото, музики й навігації — простеж зміни в корпусах і щоденних можливостях чотирьох моделей.', steps: ['Дзвінки й мелодії', 'Камера та джойстик', 'Фото й музика', 'Відеодзвінки та GPS'], compare: 'Порівняти початок і фінал', brand: 'Історія Siemens' },
   ru: { title: 'Четыре шага Siemens', intro: 'От простых звонков до фото, музыки и навигации — проследи изменения в корпусах и повседневных возможностях четырёх моделей.', steps: ['Звонки и мелодии', 'Камера и джойстик', 'Фото и музыка', 'Видеозвонки и GPS'], compare: 'Сравнить начало и финал', brand: 'История Siemens' },
   en: { title: 'Four steps through Siemens', intro: 'From simple calls to photography, music and navigation: trace the changing shapes and everyday possibilities of four handsets.', steps: ['Calls and ringtones', 'Camera and joystick', 'Photos and music', 'Video calls and GPS'], compare: 'Compare the first and last', brand: 'The Siemens story' },
+} as const;
+
+
+export const GALLERY_INTERACTION = {
+  uk: { zoomIn: 'Збільшити 2×', zoomOut: 'Умістити фото', swipe: 'Гортай фото свайпом ліворуч або праворуч.' },
+  ru: { zoomIn: 'Увеличить 2×', zoomOut: 'Уместить фото', swipe: 'Листай фото свайпом влево или вправо.' },
+  en: { zoomIn: 'Zoom in 2×', zoomOut: 'Fit photo', swipe: 'Swipe left or right to browse photos.' },
+} as const;
+
+
+export const HOME_COVER_REFRESH = {
+  "uk": {
+    "intro": "Пам’ятаєш клацання кришки, джойстик під пальцем і перший трек у навушниках? Збираємо телефони, які впізнавали за силуетом — і любили за відчуття.",
+    "open": "Розкритий",
+    "closed": "Закритий",
+    "feature": "Форма, яку пам’ятають",
+    "story": "Роздивитися RAZR V3",
+    "details": [
+      "Металевий корпус",
+      "Пласкі клавіші",
+      "Жест розкриття"
+    ],
+    "themes": [
+      "Поворотний блок Nokia 5700 і подвійний слайдер N95: механізм змінює те, як ти слухаєш музику, фотографуєш і набираєш номер.",
+      "Біло-помаранчевий Walkman і сріблястий ROKR з iTunes. Два способи взяти улюблені треки із собою ще до стримінгу.",
+      "Асиметричні клавіші Nokia 7610 та округлий PEBL. Тут корпус — головна причина зупинитися й роздивитися телефон."
+    ]
+  },
+  "ru": {
+    "intro": "Помнишь щелчок крышки, джойстик под пальцем и первый трек в наушниках? Собираем телефоны, которые узнавали по силуэту и любили за ощущения.",
+    "open": "Открытый",
+    "closed": "Закрытый",
+    "feature": "Форма, которую помнят",
+    "story": "Рассмотреть RAZR V3",
+    "details": [
+      "Металлический корпус",
+      "Плоские клавиши",
+      "Жест раскрытия"
+    ],
+    "themes": [
+      "Поворотный блок Nokia 5700 и двойной слайдер N95: механизм меняет то, как ты слушаешь музыку, фотографируешь и набираешь номер.",
+      "Бело-оранжевый Walkman и серебристый ROKR с iTunes. Два способа взять любимые треки с собой ещё до стриминга.",
+      "Асимметричные клавиши Nokia 7610 и округлый PEBL. Здесь корпус — главная причина остановиться и рассмотреть телефон."
+    ]
+  },
+  "en": {
+    "intro": "Remember the click of a flip, a joystick under your thumb and that first track through your headphones? An archive of phones recognised by their silhouette and remembered for how they felt.",
+    "open": "Open",
+    "closed": "Closed",
+    "feature": "A shape worth remembering",
+    "story": "Explore the RAZR V3",
+    "details": [
+      "Metal body",
+      "Flat keys",
+      "The flip-open gesture"
+    ],
+    "themes": [
+      "The rotating keypad of Nokia 5700 and the dual slider of N95: mechanics change how you listen, take photos and dial a number.",
+      "An orange-and-white Walkman and a silver ROKR with iTunes. Two ways to carry your favourite tracks before streaming.",
+      "The asymmetric keys of Nokia 7610 and the rounded PEBL. Here, the body itself is a reason to stop and take a closer look."
+    ]
+  }
 } as const;

@@ -1,31 +1,42 @@
 ---
 brand: Motorola
-model: "ROKR E1"
+model: ROKR E1
 year: 2005
 formFactor: candybar
-milestone: "Перший телефон з офіційною підтримкою iTunes"
+milestone: Перший телефон з офіційною підтримкою iTunes
 priceUsdAtLaunch: 249.99
 display:
   sizeInches: 1.9
-  type: "TFT, 262K кольорів"
-  resolution: "176 × 220 px"
+  type: TFT, 262K кольорів
+  resolution: 176 × 220 px
 storageMb: 5
-storageExpandable: "microSD (TransFlash) до 512 МБ — картка в комплекті (залежно від оператора)"
+storageExpandable: microSD (TransFlash) до 512 МБ — картка в комплекті (залежно від оператора)
 camera:
-  rear: "0.3 МП (VGA)"
+  rear: 0.3 МП (VGA)
 battery:
   mah: 830
   removable: true
-network: "GSM 850/1800/1900 (США) / 900/1800/1900 (інші регіони)"
-connectivity: ["Bluetooth"]
-os: "власна (Motorola P2K)"
-dimensionsMm: "108 × 46 × 20.3 мм"
+network: GSM 850/1800/1900 (США) / 900/1800/1900 (інші регіони)
+connectivity:
+  - Bluetooth
+os: власна (Motorola P2K)
+dimensionsMm: 108 × 46 × 20.3 мм
 weightGrams: 107
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Motorola_Rokr_E1_-_2.jpg/960px-Motorola_Rokr_E1_-_2.jpg"
-imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_Rokr_E1_-_2.jpg"
+simType: Mini-SIM
+image: /images/phones/motorola-rokr-e1/museum-front.webp
+imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/motorola-rokr-e1
 gallery:
+  - image: /images/phones/motorola-rokr-e1/museum-back.webp
+    alt: "Задня сторона ROKR E1: камера та знімна кришка."
+    caption: "Задня сторона ROKR E1: камера та знімна кришка."
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/motorola-rokr-e1
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Motorola_Rokr_E1_-_2.jpg/960px-Motorola_Rokr_E1_-_2.jpg
+    alt: "Motorola ROKR E1: попередній авторський кадр"
+    caption: "Motorola ROKR E1: попередній авторський кадр."
+    imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, через Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Rokr_E1_-_2.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Motorola_A1200_vs_Motorola_Rokr_E1.jpg/960px-Motorola_A1200_vs_Motorola_Rokr_E1.jpg
     alt: Motorola ROKR E1 поруч із Motorola A1200
     imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, Wikimedia Commons"
@@ -34,6 +45,7 @@ gallery:
     alt: Телефон Motorola ROKR E1
     imageCredit: "Фото: Diego Salatino, CC BY-SA 4.0, Wikimedia Commons"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Rokr_E1_-_1.jpg
+imageCaption: "ROKR E1: сріблястий корпус і клавіша запуску музичного плеєра."
 ---
 
 7 вересня 2005 року Apple, Motorola й Cingular представили ROKR як перший телефон із iTunes. Це була спроба перенести знайому користувачам iPod бібліотеку на пристрій, який уже лежав у кишені для дзвінків. Виділена музична клавіша дозволяла переходити між телефоном і програвачем.

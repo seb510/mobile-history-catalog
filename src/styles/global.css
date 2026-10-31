@@ -201,6 +201,9 @@ html[data-header-hidden="true"] .catalog-position { top: 0; }
 
 .phone-story > p:first-child { font-size: 1.125rem; line-height: 1.8; color: var(--color-neutral-200); }
 html:has([data-gallery-dialog][open]) { overflow: hidden; }
+  [data-gallery-open], [data-gallery-surface] { touch-action: pan-y pinch-zoom; }
+  [data-gallery-surface].gallery-zoomed { touch-action: none; cursor: grab; }
+  [data-gallery-surface].gallery-zoomed:active { cursor: grabbing; }
 [data-gallery-credit] { overflow-wrap: anywhere; }
 @media (max-width: 639px) {
   .phone-story > p:first-child { font-size: 1rem; line-height: 1.75; }

@@ -20,25 +20,20 @@ connectivity:
   - FM
 os: Symbian OS 9.2, S60 3rd Edition FP1
 image: /images/phones/nokia-5700/front-cutout-v1.webp
-imageCredit: "William J Sisti · CC BY-SA 2.0 · AI-processed adaptation of the original"
+imageCredit: William J Sisti · CC BY-SA 2.0 · AI-processed adaptation of the original
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
-imageCaption: "A keypad for calls. Twist the lower block to reveal another side of this XpressMusic."
+imageCaption: A keypad for calls. Twist the lower block to reveal another side of this XpressMusic.
 gallery:
   - image: /images/phones/nokia-5700/music-2007.webp
-    alt: "Nokia 5700 in music mode"
-    caption: "One twist replaces the number keys with dedicated music controls."
-    imageCredit: "William J Sisti · CC BY-SA 2.0 · Wikimedia Commons"
+    alt: Nokia 5700 in music mode
+    caption: One twist replaces the number keys with dedicated music controls.
+    imageCredit: William J Sisti · CC BY-SA 2.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_front_music_(666493751).jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/7/79/Nokia_5700_XpressMusic.jpg
-    alt: "Nokia 5700 XpressMusic in red and white"
-    caption: "Another colour variant of the Nokia 5700 XpressMusic."
-    imageCredit: "阿貴 · CC BY-SA 3.0 · Wikimedia Commons"
+    alt: Nokia 5700 XpressMusic in red and white
+    caption: Another colour variant of the Nokia 5700 XpressMusic.
+    imageCredit: 阿貴 · CC BY-SA 3.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_XpressMusic.jpg
-  - image: /images/phones/nokia-5700/front-original-2007.webp
-    alt: "Original Nokia 5700 photograph from 2007"
-    caption: "The photographer’s 2007 frame without AI processing — the original for comparison."
-    imageCredit: "William J Sisti · CC BY-SA 2.0 · Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
 milestone: A twisting keypad switches between music, camera and calls
 storageExpandable: microSD, up to 2 GB
 camera:

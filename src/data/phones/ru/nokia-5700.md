@@ -20,25 +20,20 @@ connectivity:
   - FM
 os: Symbian OS 9.2, S60 3rd Edition FP1
 image: /images/phones/nokia-5700/front-cutout-v1.webp
-imageCredit: "William J Sisti · CC BY-SA 2.0 · обработка ИИ по оригиналу"
+imageCredit: William J Sisti · CC BY-SA 2.0 · обработка ИИ по оригиналу
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
-imageCaption: "Клавиатура для звонков. Поворот нижнего блока открывает другой характер этого XpressMusic."
+imageCaption: Клавиатура для звонков. Поворот нижнего блока открывает другой характер этого XpressMusic.
 gallery:
   - image: /images/phones/nokia-5700/music-2007.webp
-    alt: "Музыкальный режим Nokia 5700"
-    caption: "Один поворот — и вместо цифр под пальцами клавиши музыкального плеера."
-    imageCredit: "William J Sisti · CC BY-SA 2.0 · Wikimedia Commons"
+    alt: Музыкальный режим Nokia 5700
+    caption: Один поворот — и вместо цифр под пальцами клавиши музыкального плеера.
+    imageCredit: William J Sisti · CC BY-SA 2.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_front_music_(666493751).jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/7/79/Nokia_5700_XpressMusic.jpg
-    alt: "Nokia 5700 XpressMusic в красно-белом корпусе"
-    caption: "Другой вариант расцветки Nokia 5700 XpressMusic."
-    imageCredit: "阿貴 · CC BY-SA 3.0 · Wikimedia Commons"
+    alt: Nokia 5700 XpressMusic в красно-белом корпусе
+    caption: Другой вариант расцветки Nokia 5700 XpressMusic.
+    imageCredit: 阿貴 · CC BY-SA 3.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_XpressMusic.jpg
-  - image: /images/phones/nokia-5700/front-original-2007.webp
-    alt: "Оригинальное фото Nokia 5700 2007 года"
-    caption: "Авторский кадр 2007 года без ИИ-обработки — оригинал для сравнения."
-    imageCredit: "William J Sisti · CC BY-SA 2.0 · Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
 milestone: Поворотная клавиатура переключает музыку, камеру и звонки
 storageExpandable: microSD, до 2 ГБ
 camera:

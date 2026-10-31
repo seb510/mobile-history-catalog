@@ -6,33 +6,57 @@ formFactor: swivel
 milestone: "A twisting swivel body: one mechanism switches between keypad, camera and music keys"
 display:
   sizeInches: 2.1
-  type: "TFT, 256K colours"
-  resolution: "176 × 208 px"
-chipset: "ARM9, 235 MHz"
+  type: TFT, 256K colours
+  resolution: 176 × 208 px
+chipset: ARM9, 235 MHz
 ramMb: 64
 storageMb: 10
-storageExpandable: "microSD, up to 2 GB per spec"
+storageExpandable: microSD, up to 2 GB per spec
 camera:
-  rear: "2 MP, digital zoom"
+  rear: 2 MP, digital zoom
 battery:
   mah: 1100
-  type: "BP-6M"
+  type: BP-6M
   removable: true
-network: "GSM 900/1800/1900 (tri-band), GPRS/EDGE"
-connectivity: ["Bluetooth 1.2", "USB (Pop-Port)", "stereo FM radio"]
-os: "Symbian OS 9.1, Series 60 3rd Edition"
-dimensionsMm: "103.8 × 50 × 19.8 mm"
+network: GSM 900/1800/1900 (tri-band), GPRS/EDGE
+connectivity:
+  - Bluetooth 1.2
+  - USB (Pop-Port)
+  - stereo FM radio
+os: Symbian OS 9.1, Series 60 3rd Edition
+dimensionsMm: 103.8 × 50 × 19.8 mm
 weightGrams: 130
-colors: ["Black", "Green", "Pink", "Silver"]
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Nokia_3250.JPG/960px-Nokia_3250.JPG"
-imageCredit: "Photo: Nanami Kamimura, CC BY-SA 3.0, via Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_3250.JPG"
+colors:
+  - Black
+  - Green
+  - Pink
+  - Silver
+simType: Mini-SIM
+image: /images/phones/nokia-3250/museum-music.webp
+imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/3250
+imageCaption: "3250 in its music position: rotating the lower module brings the player keys to the front."
+gallery:
+  - image: /images/phones/nokia-3250/museum-front.webp
+    alt: Nokia 3250 in its regular position with the numeric keypad.
+    caption: Nokia 3250 in its regular position with the numeric keypad.
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/3250
+  - image: /images/phones/nokia-3250/museum-side.webp
+    alt: Nokia 3250 from the side, showing the camera on the rotating lower module.
+    caption: Nokia 3250 from the side, showing the camera on the rotating lower module.
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/3250
+  - image: /images/phones/nokia-3250/three-modes.webp
+    alt: "Original composite: camera, numeric keypad and music player — three positions of Nokia 3250."
+    caption: "Original composite: camera, numeric keypad and music player — three positions of Nokia 3250."
+    imageCredit: Nanami Kamimura · CC BY-SA 3.0 · Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_3250.JPG
 ---
 
 Nokia unveiled the 3250 on 26 September 2005 as the first phone under its new XpressMusic music sub-brand. Its defining feature was a rotating lower module: twisting it 90° exposed the camera lens, 180° revealed dedicated music-player keys, while the default position kept a regular numeric keypad.
 
-The mechanism made the use case physically tangible: for calls or texts the phone stayed a plain candybar, for photography it twisted into “camera mode,” and for music it rotated the other way (the photo above shows all three positions). Hidden under the cover were a 2-megapixel camera with digital zoom and support for the MP3, WMA, M4A and AAC formats.
+The mechanism made the use case physically tangible: for calls or texts the phone stayed a plain candybar, for photography it twisted into “camera mode,” and for music it rotated the other way (the gallery composite shows all three positions). Hidden under the cover were a 2-megapixel camera with digital zoom and support for the MP3, WMA, M4A and AAC formats.
 
 10 MB of built-in storage was complemented by a microSD slot (up to 2 GB per spec); a 512 MB card shipped in the box. Nokia claimed up to 10 hours of music playback, and the room for roughly 750 songs on the largest card available at the time depended on bitrate and file format.
 

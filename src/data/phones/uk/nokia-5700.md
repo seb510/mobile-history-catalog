@@ -20,25 +20,20 @@ connectivity:
   - FM
 os: Symbian OS 9.2, S60 3rd Edition FP1
 image: /images/phones/nokia-5700/front-cutout-v1.webp
-imageCredit: "William J Sisti · CC BY-SA 2.0 · обробка ШІ за оригіналом"
+imageCredit: William J Sisti · CC BY-SA 2.0 · обробка ШІ за оригіналом
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
-imageCaption: "Клавіатура для дзвінків. Поворот нижнього блока відкриває інший характер цього XpressMusic."
+imageCaption: Клавіатура для дзвінків. Поворот нижнього блока відкриває інший характер цього XpressMusic.
 gallery:
   - image: /images/phones/nokia-5700/music-2007.webp
-    alt: "Музичний режим Nokia 5700"
-    caption: "Один поворот — і замість цифр під пальцями клавіші музичного плеєра."
-    imageCredit: "William J Sisti · CC BY-SA 2.0 · Wikimedia Commons"
+    alt: Музичний режим Nokia 5700
+    caption: Один поворот — і замість цифр під пальцями клавіші музичного плеєра.
+    imageCredit: William J Sisti · CC BY-SA 2.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_front_music_(666493751).jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/7/79/Nokia_5700_XpressMusic.jpg
-    alt: "Nokia 5700 XpressMusic у червоно-білому корпусі"
-    caption: "Інше кольорове виконання Nokia 5700 XpressMusic."
-    imageCredit: "阿貴 · CC BY-SA 3.0 · Wikimedia Commons"
+    alt: Nokia 5700 XpressMusic у червоно-білому корпусі
+    caption: Інше кольорове виконання Nokia 5700 XpressMusic.
+    imageCredit: 阿貴 · CC BY-SA 3.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_XpressMusic.jpg
-  - image: /images/phones/nokia-5700/front-original-2007.webp
-    alt: "Оригінальне фото Nokia 5700 2007 року"
-    caption: "Авторський кадр 2007 року без ШІ-обробки — оригінал для порівняння."
-    imageCredit: "William J Sisti · CC BY-SA 2.0 · Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
 milestone: Поворотна клавіатура перемикає музику, камеру й дзвінки
 storageExpandable: microSD, до 2 ГБ
 camera:
