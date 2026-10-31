@@ -456,12 +456,12 @@ export const HOME_EDITORIAL = {
       "Історія триває"
     ],
     "compare": "Два характери однієї епохи",
-    "text": "Тонка розкладачка RAZR V3 і подвійний слайдер Nokia N95. Дві відповіді на питання, яким може бути телефон у кишені.",
+    "text": "Тонка металева розкладачка RAZR V3 і камерофон Sony Ericsson K750i. Виразна форма та захоплення мобільною фотографією — два характери середини нульових.",
     "cta": "Порівняти характери",
     "principles": "Зберігаємо характер епохи",
     "pairNotes": [
       "Метал · пласка клавіатура · розкладачка",
-      "Подвійний слайдер · камера · музика"
+      "Автофокус · кришка об’єктива · камерофон"
     ],
     "principleItems": [
       {
@@ -506,12 +506,12 @@ export const HOME_EDITORIAL = {
       "История продолжается"
     ],
     "compare": "Два характера одной эпохи",
-    "text": "Тонкая раскладушка RAZR V3 и двойной слайдер Nokia N95. Два ответа на вопрос, каким может быть телефон в кармане.",
+    "text": "Тонкая металлическая раскладушка RAZR V3 и камерофон Sony Ericsson K750i. Выразительная форма и увлечение мобильной фотографией — два характера середины нулевых.",
     "cta": "Сравнить характеры",
     "principles": "Сохраняем характер эпохи",
     "pairNotes": [
       "Металл · плоская клавиатура · раскладушка",
-      "Двойной слайдер · камера · музыка"
+      "Автофокус · крышка объектива · камерофон"
     ],
     "principleItems": [
       {
@@ -556,12 +556,12 @@ export const HOME_EDITORIAL = {
       "The story continues"
     ],
     "compare": "Two characters from one era",
-    "text": "The slim RAZR V3 clamshell and the Nokia N95 dual slider. Two different answers to what a phone in your pocket could be.",
+    "text": "The slim metal RAZR V3 clamshell and the Sony Ericsson K750i camera phone. Expressive form and a passion for mobile photography: two characters from the mid-2000s.",
     "cta": "Compare their character",
     "principles": "Preserving the character of an era",
     "pairNotes": [
       "Metal · flat keypad · clamshell",
-      "Dual slider · camera · music"
+      "Autofocus · lens cover · camera phone"
     ],
     "principleItems": [
       {
@@ -655,3 +655,8 @@ export const CATALOG_POSITION = {
   ru: { label: 'Текущий год каталога', filters: 'К фильтрам' },
   en: { label: 'Current catalog year', filters: 'Back to filters' },
 } as const;
+export const SPEC_VARIANT_NOTE = {
+  uk: 'Спільні характеристики наведено один раз. У рядках із відмінностями помаранчевим позначено версію {model}.',
+  ru: 'Общие характеристики приведены один раз. В строках с отличиями оранжевым отмечена версия {model}.',
+  en: 'Shared specifications appear once. Where values differ, the {model} version is marked in orange.',
+};

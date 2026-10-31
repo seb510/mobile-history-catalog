@@ -227,6 +227,14 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
   .control-button:hover { border-color: var(--color-orange-500); color: var(--color-orange-500); }
 }
 
+.phone-story :is(h2, h3, h4) { color: var(--color-neutral-100); }
+.phone-story table { table-layout: fixed; width: 100%; color: var(--color-neutral-200); font-size: .875rem; }
+.phone-story :is(th, td) { padding: .75rem; border: 1px solid var(--color-neutral-700); overflow-wrap: anywhere; }
+.phone-story th { color: var(--color-neutral-100); background: var(--color-neutral-800); }
+.phone-story th:first-child, .phone-story td:first-child { width: 36%; }
+.phone-story tbody tr:nth-child(even) { background: var(--color-neutral-900); }
+@media (min-width: 1024px) { .phone-story table { font-size: 1rem; } }
+
 .prose a {
   color: var(--color-orange-500);
   font-weight: 600;

@@ -9,9 +9,7 @@ import { FORM_FACTORS } from './lib/form-factors';
 // (identical across locales — duplicated per file rather than cross-referenced, since the
 // catalog is small and hand-curated); the Markdown body holds the localized written history.
 // Validated at build time: a typo'd field fails the build instead of silently breaking a page.
-const phones = defineCollection({
-  loader: glob({ pattern: '*/*.md', base: './src/data/phones' }),
-  schema: z.object({
+const phoneSchema = z.object({
     brand: z.string(),
     model: z.string(),
     year: z.number().int().min(1998).max(new Date().getFullYear() + 1),
@@ -67,6 +65,7 @@ const phones = defineCollection({
     // Link the credit to the actual source (the Commons file page, not the raw image) so the
     // license/author is independently verifiable — required when `imageCredit` is set.
     imageSourceUrl: z.string().optional(),
+    imageCaption: z.string().optional(),
     gallery: z
       .array(
         z.object({
@@ -74,9 +73,20 @@ const phones = defineCollection({
           alt: z.string(),
           imageCredit: z.string(),
           imageSourceUrl: z.string(),
+          caption: z.string().optional(),
         }),
       )
       .optional(),
+  });
+
+const phones = defineCollection({
+  loader: glob({ pattern: '*/*.md', base: './src/data/phones' }),
+  schema: phoneSchema.extend({
+    // A family variant decorates existing canonical spec rows, without a catalog entry.
+    specVariant: z.object({
+      model: z.string(),
+      specs: phoneSchema.pick({ display: true, storageMb: true, battery: true, weightGrams: true }).partial(),
+    }).optional(),
   }),
 });
 

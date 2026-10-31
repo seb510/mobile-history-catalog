@@ -1,11 +1,11 @@
 ---
 import PlaceholderArt from './PlaceholderArt.astro';
 import { render, type CollectionEntry } from 'astro:content';
-import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY } from '../lib/ui-strings';
+import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, SPEC_VARIANT_NOTE } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 import { PHONE_EDITORIAL, PHONE_EDITORIAL_LABELS } from '../lib/phone-editorial';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { buildSpecGroups } from '../lib/specs';
+import { buildCompareGroups } from '../lib/specs';
 import { slugifyBrandName } from '../lib/brands';
 import { localePath, type Locale } from '../lib/locales';
 
@@ -20,10 +20,11 @@ const editorial = DESIGN_EDITORIAL[locale];
 const s = strings.specs;
 const { Content } = await render(phone);
 
-const groups = buildSpecGroups(data, strings);
+const variantData = data.specVariant ? { ...data, ...data.specVariant.specs } : data;
+const groups = buildCompareGroups(data, variantData, strings);
 const images = [
   ...(data.image
-    ? [{ image: data.image, imageCredit: data.imageCredit, imageSourceUrl: data.imageSourceUrl, alt: `${data.brand} ${data.model}` }]
+    ? [{ image: data.image, imageCredit: data.imageCredit, imageSourceUrl: data.imageSourceUrl, alt: `${data.brand} ${data.model}`, caption: data.imageCaption }]
     : []),
   ...(data.gallery ?? []),
 ];
@@ -109,7 +110,8 @@ const related = allPhones
             <button
               type="button"
               data-gallery-thumb
-              aria-label={strings.gallery.showImage.replace('{index}', String(index + 1)).replace('{count}', String(images.length))}
+              aria-label={strings.gallery.showImage.replace('{index}', String(index + 1)).replace('{count}', String(images.length)) + (image.caption ? ` — ${image.caption}` : '')}
+              title={image.caption}
               aria-pressed={index === 0 ? 'true' : 'false'}
               class:list={[
                 'h-16 w-16 overflow-hidden rounded-sm border bg-neutral-900 p-1 transition-colors motion-ui',
@@ -121,6 +123,7 @@ const related = allPhones
           ))}
         </div>
       )}
+      {images.map((image, index) => image.caption && <p data-gallery-caption={index} class:list={['mt-4 border-l-2 border-orange-500 pl-3 text-sm leading-relaxed text-neutral-200', index > 0 && 'hidden']}>{image.caption}</p>)}
       {images.map((image, index) => (
         image.imageCredit && (
           <p data-gallery-credit={index} class:list={['mt-2 text-xs text-neutral-500', index > 0 && 'hidden']}>
@@ -189,6 +192,7 @@ const related = allPhones
               )}
             </div>
             <div class="min-h-12 px-4 pb-4 text-center text-xs text-neutral-400">
+              {images.map((image, index) => image.caption && <p data-gallery-lightbox-caption={index} class:list={['mx-auto mb-2 max-w-2xl text-sm leading-relaxed text-neutral-200', index > 0 && 'hidden']}>{image.caption}</p>)}
               {images.map((image, index) => (
                 image.imageCredit && (
                   <p data-gallery-lightbox-credit data-gallery-lightbox-credit-index={index} class:list={[index > 0 && 'hidden']}>
@@ -238,16 +242,24 @@ const related = allPhones
     </div>
 
     <h2 id="phone-specs" class="section-label mt-10 scroll-mt-24">{editorial.specs}</h2>
+    {data.specVariant && <p class="mt-3 text-sm leading-relaxed text-neutral-400">{SPEC_VARIANT_NOTE[locale].replace('{model}', data.specVariant.model)}</p>}
     <div class="mt-4 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
       <table class="w-full border-collapse text-left text-sm lg:text-base">
         {groups.map((group, gi) => (
           <tbody class:list={[gi > 0 && 'border-t-2 border-neutral-700']}>
-            {group.rows.map(([label, value], i) => (
+            {group.rows.map(({ label, a, b }, i) => (
               <tr class:list={[i % 2 === 1 && 'bg-neutral-900/50', 'border-b border-neutral-700 last:border-b-0']}>
                 <th scope="row" class="w-[38%] border-r border-neutral-700 bg-neutral-900/70 px-3 py-3 text-left align-top text-[0.65rem] leading-snug font-bold tracking-wide text-neutral-400 uppercase sm:w-40 lg:text-xs">
                   {label}
                 </th>
-                <td class="px-3 py-3 align-top leading-relaxed text-neutral-100">{value}</td>
+                <td class="px-3 py-3 align-top leading-relaxed text-neutral-100">
+                  {data.specVariant && a !== b ? (
+                    <div class="grid gap-2">
+                      {a && <div class="flex flex-wrap items-baseline gap-x-2"><span class="text-[0.65rem] font-bold tracking-wide text-neutral-500">{data.model}</span><span>{a}</span></div>}
+                      <div class="border-l-2 border-orange-500 pl-2"><span class="block text-[0.65rem] font-bold tracking-wide text-orange-500">{data.specVariant.model}</span><span>{b ?? '—'}</span></div>
+                    </div>
+                  ) : a}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -300,6 +312,8 @@ const related = allPhones
     const lightboxSlides = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-lightbox-slide]'));
     const thumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]'));
     const credits = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-credit]'));
+    const captions = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-caption]'));
+    const lightboxCaptions = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-lightbox-caption]'));
     const lightboxCredits = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-lightbox-credit]'));
     const dialog = gallery.querySelector<HTMLDialogElement>('[data-gallery-dialog]');
     const openButton = gallery.querySelector<HTMLButtonElement>('[data-gallery-open]');
@@ -315,6 +329,8 @@ const related = allPhones
       slides.forEach((slide, slideIndex) => slide.classList.toggle('hidden', slideIndex !== index));
       lightboxSlides.forEach((slide, slideIndex) => slide.classList.toggle('hidden', slideIndex !== index));
       credits.forEach((credit) => credit.classList.toggle('hidden', Number(credit.dataset.galleryCredit) !== index));
+      captions.forEach((caption) => caption.classList.toggle('hidden', Number(caption.dataset.galleryCaption) !== index));
+      lightboxCaptions.forEach((caption) => caption.classList.toggle('hidden', Number(caption.dataset.galleryLightboxCaption) !== index));
       lightboxCredits.forEach((credit) =>
         credit.classList.toggle('hidden', Number(credit.dataset.galleryLightboxCreditIndex) !== index),
       );

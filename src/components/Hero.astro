@@ -24,7 +24,7 @@ const bestSellers = phones
   .slice(0, 4);
 const coverPhone = phones.find(p => slugOf(p) === 'motorola-razr-v3');
 const copy = HOME_EDITORIAL[locale];
-const pair = ['motorola-razr-v3', 'nokia-n95'].map(slug => phones.find(p => slugOf(p) === slug));
+const pair = ['motorola-razr-v3', 'sony-ericsson-k750i'].map(slug => phones.find(p => slugOf(p) === slug));
 const themes = copy.themes.map((theme, index) => ({ ...theme, id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); return phone ? [phone] : []; }) }));
 const otherBestSellers = bestSellers;
 const reviewCopy = FINAL_DESIGN_COPY[locale];
