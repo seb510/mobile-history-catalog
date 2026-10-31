@@ -187,13 +187,23 @@ sizes"), довільна ширина на кшталт `800px-` поверне
 Builds, як у Watchly. `npx wrangler deploy --dry-run` локально підтверджує валідність конфігу (714
 файлів із `dist/`, без bindings) без фактичного деплою.
 
+**Відомий гачок (2026-10-31):** перший реальний деплой через Workers Builds упав. `npx wrangler deploy`
+(4.156.0) має увімкнене за замовчуванням "autoconfig" — виявляє фреймворк (тут: Astro) без Cloudflare-
+адаптера й сам запускає `astro add cloudflare`, що додає `@astrojs/cloudflare` і пересобирає сайт через
+workerd-рантайм для "generating static routes"; саме там падає (`Uncaught TypeError... Received
+'undefined'` у `chunks/react_Drpegsay.mjs` — несумісність адаптера з React-чанком у CI). Це суперечить
+навмисному рішенню тримати сайт чисто статичним (без Worker-коду/адаптера). Виправлення: **Deploy
+command** у налаштуваннях Workers-проєкту в дешборді Cloudflare має бути `npx wrangler deploy
+--autoconfig=false`, а не просто `npx wrangler deploy`. Локально `--autoconfig=false` підтверджено
+(знову читає `dist/` напряму, без спроби додати адаптер).
+
 Залишається виконати користувачем (агент не запускає деплой і не пушить): створити Workers-проєкт
 "mobile-history-catalog" у дешборді Cloudflare, підключити GitHub-репозиторій (`seb510/mobile-history-catalog`)
-для Workers Builds (build command `npm run build`, deploy — `npx wrangler deploy`), задати build-змінні
-середовища `SITE_URL` і `SEO_INDEXABLE` (перша збірка може лишити `SEO_INDEXABLE=false`, доки не
-вирішено питання індексації — див. "SEO до публікації" нижче; `SITE_URL` — реальний `*.workers.dev`
-або кастомний домен, після першого деплою стає відомий), після чого запустити деплой і за потреби
-`git push`.
+для Workers Builds (build command `npm run build`, deploy — `npx wrangler deploy --autoconfig=false`
+— див. гачок вище), задати build-змінні середовища `SITE_URL` і `SEO_INDEXABLE` (перша збірка може
+лишити `SEO_INDEXABLE=false`, доки не вирішено питання індексації — див. "SEO до публікації" нижче;
+`SITE_URL` — реальний `*.workers.dev` або кастомний домен, після першого деплою стає відомий), після
+чого запустити деплой і за потреби `git push`.
 
 ## Development
 
