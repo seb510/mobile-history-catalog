@@ -1,5 +1,6 @@
 ---
 import LogoMark from './LogoMark.astro';
+import GlobalSearch from './GlobalSearch.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import { LOCALES, localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
@@ -34,45 +35,47 @@ const links = [
       <span class="truncate text-sm font-bold tracking-tight sm:text-base" title={`${strings.siteName} — ${strings.brandLine}`}>{strings.siteName}</span>
     </a>
 
-    <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
-      {links.map((link) => (
-        <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>
-          {link.label}
-          {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count ml-1.5"></span>}
-        </a>
-      ))}
-      <div role="group" class="ml-2 flex items-center gap-0.5 rounded-sm border border-neutral-800 bg-neutral-900/50 p-0.5" aria-label={strings.langSwitcher}>
-        {LOCALES.map((l) => (
-          l === locale ? (
-            <span aria-current="page" class="rounded-sm bg-orange-500 px-1.5 py-1 text-[0.65rem] font-bold text-neutral-950">{LOCALE_LABEL[l]}</span>
-          ) : (
-            <a href={localePath(l, path === '/404/' ? '/' : path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors motion-ui hover-desktop:text-neutral-100">
-              {LOCALE_LABEL[l]}
-            </a>
-          )
+    <div class="header-actions flex items-center gap-1">
+      <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
+        {links.map((link) => (
+          <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>
+            {link.label}
+            {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count ml-1.5"></span>}
+          </a>
         ))}
-      </div>
-      <ThemeToggle locale={locale} class="ml-1 h-11 w-11 rounded-sm" />
-    </nav>
-
-    <button
-      id="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      aria-label={strings.menu.open}
-      data-label-open={strings.menu.open}
-      data-label-close={strings.menu.close}
-      class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 lg:hidden"
-    >
-      <span class="sr-only">{strings.menu.open}</span>
-      <span class="menu-control-face">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6" aria-hidden="true">
-          <path class="menu-line-first" d="M4 8h16" />
-          <path class="menu-line-last" d="M4 16h16" />
-        </svg>
-      </span>
-    </button>
+        <div role="group" class="ml-2 flex items-center gap-0.5 rounded-sm border border-neutral-800 bg-neutral-900/50 p-0.5" aria-label={strings.langSwitcher}>
+          {LOCALES.map((l) => (
+            l === locale ? (
+              <span aria-current="page" class="rounded-sm bg-orange-500 px-1.5 py-1 text-[0.65rem] font-bold text-neutral-950">{LOCALE_LABEL[l]}</span>
+            ) : (
+              <a href={localePath(l, path === '/404/' ? '/' : path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors motion-ui hover-desktop:text-neutral-100">
+                {LOCALE_LABEL[l]}
+              </a>
+            )
+          ))}
+        </div>
+        <ThemeToggle locale={locale} class="ml-1 h-11 w-11 rounded-sm" />
+      </nav>
+      <GlobalSearch locale={locale} />
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={strings.menu.open}
+        data-label-open={strings.menu.open}
+        data-label-close={strings.menu.close}
+        class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 lg:hidden"
+      >
+        <span class="sr-only">{strings.menu.open}</span>
+        <span class="menu-control-face">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6" aria-hidden="true">
+            <path class="menu-line-first" d="M4 8h16" />
+            <path class="menu-line-last" d="M4 16h16" />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>
 
   <div id="mobile-menu" hidden inert aria-hidden="true" class="mobile-menu-panel lg:hidden">

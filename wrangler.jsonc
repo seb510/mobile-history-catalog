@@ -1,0 +1,16 @@
+// Cloudflare Workers deploy (Workers Builds runs `npm run build`, then `npx wrangler deploy`).
+// The entire site is static — every route is pre-rendered HTML (uk/ru/en), so Cloudflare serves
+// `dist/` as assets directly and no Worker code runs for any request. Unlike Watchly, there is no
+// SPA route needing a worker/index.js exception: every page, including 404, is already static HTML.
+{
+  // Must match the project (Worker) name in the Cloudflare dashboard, or the build fails.
+  "name": "mobile-history-catalog",
+  "compatibility_date": "2026-10-31",
+  "assets": {
+    "directory": "./dist",
+    // dist/404.html (and localized ru/en 404 pages) is served with a real 404 status for any
+    // unmatched path — this is a multi-page static site, not an SPA, so no "single-page-application"
+    // fallback-to-200 behavior is wanted here.
+    "not_found_handling": "404-page"
+  }
+}

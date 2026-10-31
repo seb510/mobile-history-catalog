@@ -1,0 +1,48 @@
+---
+import { localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const strings = t(locale);
+const search = strings.search;
+---
+
+<section
+  class="phone-search-results"
+  data-phone-search-results
+  data-locale={locale}
+  data-index-url="/search-index.json"
+  data-phone-path-prefix={locale === 'uk' ? '' : `/${locale}`}
+>
+  <form class="global-search-form search-page-form" action={localePath(locale, '/search/')} method="get" data-search-page-form>
+    <label class="sr-only" for={`search-page-input-${locale}`}>{search.label}</label>
+    <input
+      id={`search-page-input-${locale}`}
+      class="global-search-input"
+      type="search"
+      name="q"
+      minlength="3"
+      placeholder={search.placeholder}
+      autocomplete="off"
+      data-search-page-input
+      data-hint={search.hint}
+      data-min-chars={search.minChars}
+      data-loading={search.loading}
+      data-error={search.error}
+      data-no-results={search.noResults}
+      data-found={search.found}
+      data-result-one={search.resultOne}
+      data-result-few={search.resultFew}
+      data-result-many={search.resultMany}
+      required
+    />
+    <button class="control-button global-search-submit" type="submit">{search.submit}</button>
+  </form>
+  <p class="global-search-status" data-search-page-status role="status" aria-live="polite">{search.minChars}</p>
+  <p class="search-page-empty" data-search-page-empty hidden>{search.noResults}</p>
+  <ol class="search-page-results" data-search-page-list></ol>
+</section>

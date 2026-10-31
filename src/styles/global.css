@@ -50,6 +50,50 @@
 .site-header.is-hidden {
   transform: translateY(-100%);
 }
+.global-info-bar { padding: .5rem 0 0; color: var(--color-neutral-500); font-size: .75rem; }
+.clock-main, .clock-weather { display: flex; align-items: center; gap: .5rem; min-width: 0; }
+.clock-time { color: var(--color-neutral-200); font-weight: 700; font-variant-numeric: tabular-nums; }
+.clock-date { white-space: nowrap; }
+.clock-weather { gap: .375rem; border-left: 1px solid var(--color-neutral-800); padding-left: .625rem; }
+.weather-icon { width: 1rem; height: 1rem; flex: none; color: var(--color-orange-400); }
+.weather-icon .weather-symbol-hidden { display: none; }
+.weather-temp { color: var(--color-neutral-200); font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.weather-city { overflow: hidden; max-width: 8rem; text-overflow: ellipsis; white-space: nowrap; }
+.weather-credit { color: var(--color-neutral-500); font-size: .625rem; white-space: nowrap; text-decoration: underline; text-underline-offset: 2px; }
+.weather-unavailable { color: var(--color-neutral-500); white-space: nowrap; }
+.weather-unavailable[hidden], [data-weather-value][hidden] { display: none; }
+.header-actions { display: flex; flex: none; align-items: center; gap: .25rem; }
+.global-search { display: flex; flex: none; }
+.global-search-toggle { display: flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; color: var(--color-neutral-300); }
+.search-control-face { display: flex; width: 2rem; height: 2rem; align-items: center; justify-content: center; border: 1px solid var(--color-neutral-700); border-radius: 2px; transition: border-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing); }
+.search-control-face svg { width: 1.25rem; height: 1.25rem; }
+.global-search-toggle.is-open .search-control-face { border-color: var(--color-orange-500); color: var(--color-orange-500); }
+.global-search-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .625rem; }
+.global-search-panel { position: absolute; inset: 100% 0 auto; z-index: 60; max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--color-neutral-800); border-bottom: 1px solid var(--color-neutral-700); background: var(--color-neutral-950); box-shadow: 0 16px 40px #0006; }
+.global-search-panel[hidden] { display: none; }
+.global-search-input { width: 100%; min-width: 0; min-height: 2.75rem; border: 1px solid var(--color-neutral-700); border-radius: 2px; background: var(--color-neutral-900); padding: .625rem .75rem; color: var(--color-neutral-100); font-size: 1rem; }
+.global-search-input::placeholder { color: var(--color-neutral-500); }
+.global-search-input:focus { border-color: var(--color-orange-500); outline: none; }
+.global-search-submit { min-height: 2.75rem; white-space: nowrap; }
+.global-search-status { margin-top: .625rem; color: var(--color-neutral-500); font-size: .75rem; }
+.global-search-suggestions { margin-top: 1rem; }
+.global-search-suggestions[hidden] { display: none; }
+.global-search-suggestion-list { display: grid; gap: .375rem; }
+.phone-search-suggestion { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); min-height: 2.75rem; align-items: baseline; gap: .375rem .625rem; border-top: 1px solid var(--color-neutral-800); padding: .625rem .25rem; color: var(--color-neutral-200); }
+.phone-search-result-meta { color: var(--color-neutral-500); font-size: .75rem; }
+.phone-search-result-title { font-weight: 700; }
+.phone-search-suggestion .phone-search-result-meta { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.phone-search-suggestion .phone-search-result-title { overflow-wrap: anywhere; text-align: right; }
+.phone-search-suggestion .phone-search-result-description { grid-column: 1 / -1; }
+.phone-search-results { max-width: 56rem; }
+.search-page-form { max-width: 48rem; }
+.search-page-results { display: grid; grid-template-columns: minmax(0, 1fr); gap: .625rem; margin-top: 1.5rem; }
+.search-page-results:empty { display: none; }
+.search-page-results > li { min-width: 0; }
+.phone-search-result { display: grid; gap: .375rem; min-height: 6rem; border: 1px solid var(--color-neutral-800); border-radius: 2px; background: var(--color-neutral-900); padding: 1rem; transition: border-color var(--motion-ui) var(--motion-easing), background-color var(--motion-ui) var(--motion-easing); }
+.phone-search-result-description { display: -webkit-box; overflow: hidden; color: var(--color-neutral-400); font-size: .875rem; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.search-page-empty { margin-top: 1.5rem; color: var(--color-neutral-400); }
+.search-page-empty[hidden] { display: none; }
 .header-nav-link { display: inline-flex; position: relative; min-height: 2.75rem; align-items: center; padding: .5rem .75rem; font-size: .875rem; color: var(--color-neutral-400); transition: color var(--motion-ui) var(--motion-easing); }
 .header-nav-link[aria-current] { color: var(--color-neutral-100); font-weight: 700; }
 .header-nav-link[aria-current]::after { content: ''; position: absolute; height: 2px; background: var(--color-orange-500); bottom: 0; left: .75rem; right: .75rem; }
@@ -69,6 +113,22 @@
 @media (hover: hover) and (pointer: fine) {
   .header-nav-link:hover, .mobile-nav-link:hover { color: var(--color-orange-500); }
   .menu-toggle:hover .menu-control-face { border-color: var(--color-orange-500); color: var(--color-orange-500); }
+  .global-search-toggle:hover .search-control-face { border-color: var(--color-orange-500); color: var(--color-orange-500); }
+  .phone-search-suggestion:hover, .phone-search-result:hover { border-color: var(--color-orange-500); }
+  .phone-search-result:hover { background: var(--color-neutral-800); }
+}
+@media (min-width: 640px) {
+  .search-page-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1200px) {
+  .global-search { position: relative; }
+  .global-search-panel { inset: calc(100% + .5rem) 0 auto auto; width: min(24rem, calc(100vw - 2rem)); max-height: min(65vh, 36rem); }
+}
+@media (max-width: 639px) {
+  .global-search-form .global-search-submit { padding-inline: .75rem; }
+  .global-info-bar .clock-date { display: none; }
+  .global-info-bar .weather-city { max-width: 4.75rem; }
+  .global-info-bar .weather-credit { font-size: .5625rem; }
 }
 
 ::selection {

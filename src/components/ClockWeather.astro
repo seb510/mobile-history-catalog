@@ -1,0 +1,127 @@
+---
+import type { Locale } from '../lib/locales';
+
+const { locale } = Astro.props as { locale: Locale };
+const city = { uk: 'Хмельницький', ru: 'Хмельницкий', en: 'Khmelnytskyi' }[locale];
+const label = {
+  uk: 'Місцевий час і погода у Хмельницькому',
+  ru: 'Местное время и погода в Хмельницком',
+  en: 'Local time and weather in Khmelnytskyi',
+}[locale];
+const unavailable = {
+  uk: 'Погода недоступна',
+  ru: 'Погода недоступна',
+  en: 'Weather unavailable',
+}[locale];
+const forecastParams = new URLSearchParams({
+  latitude: '49.4229',
+  longitude: '26.9871',
+  daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max',
+  timezone: 'Europe/Kyiv',
+  forecast_days: '3',
+});
+const forecastUrl = `https://open-meteo.com/en/docs?${forecastParams}`;
+---
+
+<div class="global-info-bar" data-clock-weather data-locale={locale}>
+  <div class="mx-auto flex max-w-6xl items-center justify-end gap-2 px-4 sm:px-6">
+    <div class="clock-main">
+      <time class="clock-time" data-local-clock>--:--:--</time>
+      <time class="clock-date" data-local-date>---</time>
+    </div>
+    <a class="clock-weather" href={forecastUrl} target="_blank" rel="noopener noreferrer" aria-label={`${label} — прогноз на 3 дні, Open-Meteo`}>
+      <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <g data-weather-symbol="sun" class="weather-symbol-hidden"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></g>
+        <g data-weather-symbol="cloud" class="weather-symbol-hidden"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.5 4.25 4.25 0 0 0 7 18Z" /></g>
+        <g data-weather-symbol="rain" class="weather-symbol-hidden"><path d="M7 14h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 5.5 4.25 4.25 0 0 0 7 14Zm1 3-1 2m6-2-1 2m6-2-1 2" /></g>
+        <g data-weather-symbol="snow" class="weather-symbol-hidden"><path d="M7 13h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 4.5 4.25 4.25 0 0 0 7 13Zm1 4h.01M12 19h.01M17 17h.01" /></g>
+        <g data-weather-symbol="storm" class="weather-symbol-hidden"><path d="M7 14h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 5.5 4.25 4.25 0 0 0 7 14Zm6-1-3 5h3l-1 4 4-6h-3l1-3" /></g>
+        <g data-weather-symbol="fog" class="weather-symbol-hidden"><path d="M7 12h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 3.5 4.25 4.25 0 0 0 7 12Zm-3 4h16m-14 4h12" /></g>
+      </svg>
+      <span class="weather-temp" data-weather-value>…</span>
+      <span class="weather-city">{city}</span>
+      <span class="weather-unavailable" data-weather-unavailable hidden>{unavailable}</span>
+      <span class="weather-credit">Open-Meteo</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  const widget = document.querySelector<HTMLElement>('[data-clock-weather]');
+
+  if (widget) {
+    const locale = widget.dataset.locale ?? 'uk';
+    const clock = widget.querySelector<HTMLTimeElement>('[data-local-clock]');
+    const date = widget.querySelector<HTMLTimeElement>('[data-local-date]');
+    const value = widget.querySelector<HTMLElement>('[data-weather-value]');
+    const unavailable = widget.querySelector<HTMLElement>('[data-weather-unavailable]');
+    const symbols = [...widget.querySelectorAll<SVGGElement>('[data-weather-symbol]')];
+    const timeFormatter = new Intl.DateTimeFormat(locale, {
+      timeZone: 'Europe/Kyiv',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23',
+    });
+    const dateFormatter = new Intl.DateTimeFormat(locale, {
+      timeZone: 'Europe/Kyiv',
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+    });
+
+    const updateClock = () => {
+      const now = new Date();
+      if (clock) {
+        clock.dateTime = now.toISOString();
+        clock.textContent = timeFormatter.format(now);
+      }
+      if (date) {
+        date.dateTime = now.toISOString().slice(0, 10);
+        date.textContent = dateFormatter.format(now);
+      }
+    };
+
+    const showWeather = (code: number, temperature: number) => {
+      if (!value || !unavailable) return;
+      value.hidden = false;
+      value.textContent = `${Math.round(temperature)}°C`;
+      unavailable.hidden = true;
+      const symbol =
+        code >= 95 ? 'storm' :
+        code >= 71 && code <= 86 ? 'snow' :
+        code >= 51 && code <= 82 ? 'rain' :
+        code === 45 || code === 48 ? 'fog' :
+        code === 0 || code === 1 ? 'sun' : 'cloud';
+      symbols.forEach((item) => item.classList.toggle('weather-symbol-hidden', item.dataset.weatherSymbol !== symbol));
+    };
+
+    const loadWeather = async () => {
+      try {
+        const params = new URLSearchParams({
+          latitude: '49.4229',
+          longitude: '26.9871',
+          current: 'temperature_2m,weather_code',
+          timezone: 'Europe/Kyiv',
+        });
+        const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
+        if (!response.ok) throw new Error(`Weather request failed: ${response.status}`);
+        const data = await response.json();
+        const temperature = data.current?.temperature_2m;
+        const code = data.current?.weather_code;
+        if (typeof temperature !== 'number' || typeof code !== 'number') {
+          throw new Error('Weather response is missing current conditions');
+        }
+        showWeather(code, temperature);
+      } catch {
+        if (value) value.hidden = true;
+        if (unavailable) unavailable.hidden = false;
+      }
+    };
+
+    updateClock();
+    window.setInterval(updateClock, 1000);
+    void loadWeather();
+    window.setInterval(() => { void loadWeather(); }, 30 * 60 * 1000);
+  }
+</script>

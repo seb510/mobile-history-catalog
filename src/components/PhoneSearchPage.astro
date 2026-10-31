@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import PhoneSearchResults from './PhoneSearchResults.astro';
+import type { Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const strings = t(locale);
+---
+
+<Layout
+  locale={locale}
+  path="/search/"
+  title={`${strings.search.pageTitle} — ${strings.siteName}`}
+  description={strings.search.subtitle}
+>
+  <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.search.pageTitle }]} />
+  <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
+    <p class="editorial-kicker mb-2 text-orange-500">{strings.nav.catalog}</p>
+    <h1 class="page-title">{strings.search.pageTitle}</h1>
+    <p class="mt-4 max-w-2xl leading-relaxed text-neutral-400">{strings.search.subtitle}</p>
+  </header>
+  <PhoneSearchResults locale={locale} />
+</Layout>

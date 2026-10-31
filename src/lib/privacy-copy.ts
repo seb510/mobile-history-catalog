@@ -23,8 +23,8 @@ export const PRIVACY_COPY = {
         "За згодою сайт запам’ятовує тему оформлення. Обране зберігає лише слаги телефонів після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
       ],
       [
-        "Зовнішні фото й посилання",
-        "Частина фотографій завантажується з Wikimedia та інших джерел, указаних у кредитах: під час запиту їхні сервери отримують IP-адресу й технічні дані браузера. Локальні фото не створюють такого запиту до музею чи Commons. Перехід за зовнішнім посиланням відкриває інший сайт із власною політикою."
+        "Зовнішні сервіси, фото й посилання",
+        "Поточна погода для Хмельницького завантажується з Open-Meteo; сервіс отримує IP-адресу й технічні дані браузера, але координати міста задані на сайті й геолокація не запитується. Частина фотографій завантажується з Wikimedia та інших джерел, указаних у кредитах: їхні сервери також отримують IP-адресу й технічні дані браузера. Локальні фото не створюють такого запиту до музею чи Commons. Перехід за зовнішнім посиланням відкриває інший сайт із власною політикою."
       ],
       [
         "Технічні запити та підстави",
@@ -87,8 +87,8 @@ export const PRIVACY_COPY = {
         "Тема запоминается с согласия. Избранное хранит только слаги телефонов после прямого действия; эти данные не отправляются владельцу сайта. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
       ],
       [
-        "Внешние изображения и ссылки",
-        "Часть фото загружается с Wikimedia и других источников, указанных в подписях: серверы получают IP-адрес и технические данные браузера. Локальные фото не создают запрос к музею или Commons. Внешняя ссылка открывает сайт с собственной политикой."
+        "Внешние сервисы, изображения и ссылки",
+        "Текущая погода для Хмельницкого загружается из Open-Meteo; сервис получает IP-адрес и технические данные браузера, но координаты города заданы на сайте, геолокация не запрашивается. Часть фотографий загружается с Wikimedia и других источников, указанных в подписях: их серверы также получают IP-адрес и технические данные браузера. Локальные фото не создают запрос к музею или Commons. Внешняя ссылка открывает сайт с собственной политикой."
       ],
       [
         "Технические запросы и основания",
@@ -151,8 +151,8 @@ export const PRIVACY_COPY = {
         "Theme storage requires consent. Favorites store only phone slugs following your direct action; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
       ],
       [
-        "External images and links",
-        "Some photographs load from Wikimedia and other credited sources: their servers receive your IP address and browser technical information. Locally hosted photos do not request the museum or Commons. External links open sites with their own privacy policies."
+        "External services, images and links",
+        "Current weather for Khmelnytskyi is fetched from Open-Meteo; the service receives your IP address and browser technical information, but the city coordinates are fixed by the site and geolocation is not requested. Some photographs load from Wikimedia and other credited sources: their servers also receive your IP address and browser technical information. Locally hosted photos do not request the museum or Commons. External links open sites with their own privacy policies."
       ],
       [
         "Technical requests and legal bases",

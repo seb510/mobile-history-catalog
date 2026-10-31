@@ -1,0 +1,75 @@
+---
+import { localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const search = t(locale).search;
+---
+
+<div
+  class="global-search"
+  data-global-search
+  data-locale={locale}
+  data-index-url="/search-index.json"
+  data-phone-path-prefix={locale === 'uk' ? '' : `/${locale}`}
+>
+  <button
+    type="button"
+    class="global-search-toggle"
+    aria-label={search.open}
+    title={search.open}
+    aria-expanded="false"
+    aria-controls="global-search-panel"
+    data-search-toggle
+  >
+    <span class="sr-only">{search.open}</span>
+    <span class="search-control-face">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="6.4" />
+        <path d="m15.5 15.5 5 5" stroke-linecap="round" />
+      </svg>
+    </span>
+  </button>
+
+  <div id="global-search-panel" class="global-search-panel" data-search-panel hidden>
+    <div class="global-search-panel-content mx-auto max-w-6xl px-4 py-4 sm:px-6 sm:py-5">
+      <form class="global-search-form" action={localePath(locale, '/search/')} method="get" data-global-search-form>
+        <label class="sr-only" for={`global-search-input-${locale}`}>{search.label}</label>
+        <input
+          id={`global-search-input-${locale}`}
+          class="global-search-input"
+          type="search"
+          name="q"
+          minlength="3"
+          placeholder={search.placeholder}
+          autocomplete="off"
+          data-search-input
+          data-hint={search.hint}
+          data-min-chars={search.minChars}
+          data-loading={search.loading}
+          data-error={search.error}
+          data-no-results={search.noResults}
+          data-found={search.found}
+          data-result-one={search.resultOne}
+          data-result-few={search.resultFew}
+          data-result-many={search.resultMany}
+          required
+        />
+        <button class="control-button global-search-submit" type="submit">{search.submit}</button>
+      </form>
+      <p class="global-search-status" data-search-status role="status" aria-live="polite">{search.hint}</p>
+      <div class="global-search-suggestions" data-suggestions-region hidden>
+        <p class="editorial-kicker mb-2 text-neutral-500">{search.quickResults}</p>
+        <ul class="global-search-suggestion-list" data-search-suggestions></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import '../scripts/phone-search';
+</script>
