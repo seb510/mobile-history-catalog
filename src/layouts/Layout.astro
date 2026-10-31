@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PrivacyNotice from '../components/PrivacyNotice.astro';
 import { canonicalUrl, ogLocaleOf } from '../lib/seo';
 import type { Locale } from '../lib/locales';
 import { searchIdentity, searchEnabled } from '../lib/search-index';
@@ -68,7 +69,9 @@ const schema = {
       // Apply a stored theme choice before first paint, so there's no flash of the wrong theme.
       // No stored choice = no attribute set = CSS falls through to the prefers-color-scheme rule.
       try {
-        var stored = localStorage.getItem('theme');
+        var choice = JSON.parse(localStorage.getItem('mobile-history:privacy') || 'null');
+        var valid = choice?.version === 1 && choice.theme === true && typeof choice.at === 'number' && choice.at <= Date.now() && Date.now() - choice.at < 15552000000;
+        var stored = valid ? localStorage.getItem('theme') : null;
         if (stored === 'light' || stored === 'dark') document.documentElement.dataset.theme = stored;
       } catch (e) {}
     </script>
@@ -111,6 +114,7 @@ const schema = {
       <slot />
     </main>
     <Footer locale={locale} />
+    <PrivacyNotice locale={locale} path={path} />
     <script is:inline>
       document.querySelectorAll('a[href]').forEach((link) => {
         try {

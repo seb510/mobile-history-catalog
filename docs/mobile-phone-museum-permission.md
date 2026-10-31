@@ -54,3 +54,8 @@ All four originals are 400 × 600 pixels. WebP quality 90, no resizing, cropping
 ## Mixed-source galleries
 
 Museum views may be complemented by existing licensed photographs showing a powered-on phone. SXG75 now includes the DireWolf Commons photograph as frame four, with its own CC BY-SA 3.0 credit and software-modded icon disclosure. Attribution follows each active frame; the Commons photograph must not be credited to the museum.
+
+
+## Card presentation update
+
+The owner explicitly requested removing repeated museum links from summary cards on 31 October 2026. PhoneCard now links directly to the model detail without a separate credit link or reserved credit spacer. Full per-image attribution remains on the detail page, gallery and full-screen viewer. Comparison-slot and related-phone credits were not changed by this card update.

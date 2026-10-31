@@ -27,9 +27,10 @@ const strings = t(locale);
 </button>
 
 <script>
+  import { privacyChoice } from '../lib/privacy';
   function currentTheme(): 'light' | 'dark' {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') return stored;
+    const current = document.documentElement.dataset.theme;
+    if (current === 'light' || current === 'dark') return current;
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
@@ -43,7 +44,7 @@ const strings = t(locale);
   function setTheme(theme: 'light' | 'dark') {
     document.documentElement.dataset.theme = theme;
     try {
-      localStorage.setItem('theme', theme);
+      if (privacyChoice() === true) localStorage.setItem('theme', theme);
     } catch {}
     applyIcons(theme);
   }

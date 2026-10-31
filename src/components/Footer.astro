@@ -2,6 +2,7 @@
 import { localePath, type Locale } from '../lib/locales';
 import { t, CHROME_COPY } from '../lib/ui-strings';
 import LogoMark from './LogoMark.astro';
+import { PRIVACY_COPY } from '../lib/privacy-copy';
 
 interface Props {
   locale: Locale;
@@ -9,6 +10,7 @@ interface Props {
 const { locale } = Astro.props;
 const strings = t(locale);
 const copy = CHROME_COPY[locale];
+const privacy = PRIVACY_COPY[locale];
 const year = new Date().getFullYear();
 const links = [
   { href: localePath(locale, '/catalog/'), label: strings.nav.catalog },
@@ -55,6 +57,11 @@ const links = [
       </div>
     </div>
 
+    <nav aria-label={privacy.settings} class="mt-7 flex flex-wrap gap-x-6 gap-y-2 border-t border-neutral-800 pt-4 text-xs text-neutral-400">
+      <a class="inline-flex min-h-11 items-center underline underline-offset-4 hover-desktop:text-orange-500" href={localePath(locale, '/privacy/')}>{privacy.privacy}</a>
+      <a class="inline-flex min-h-11 items-center underline underline-offset-4 hover-desktop:text-orange-500" href={localePath(locale, '/cookies/')}>{privacy.cookies}</a>
+      <button type="button" data-privacy-open class="min-h-11 underline underline-offset-4 hover-desktop:text-orange-500">{privacy.settings}</button>
+    </nav>
     <div class="mt-8 flex flex-col gap-3 border-t border-neutral-800 pt-5 text-xs text-neutral-500 sm:flex-row sm:items-start sm:justify-between">
       <p class="max-w-2xl leading-relaxed">{strings.footer.rights}</p>
       <p class="shrink-0">© {year} {strings.siteName}</p>

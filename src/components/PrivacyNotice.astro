@@ -1,0 +1,49 @@
+---
+import { PRIVACY_COPY } from '../lib/privacy-copy';
+import { localePath, type Locale } from '../lib/locales';
+const { locale, path } = Astro.props as { locale: Locale; path: string };
+const copy = PRIVACY_COPY[locale];
+---
+<section data-privacy-notice data-policy-page={path === '/privacy/' || path === '/cookies/'} hidden aria-labelledby="privacy-notice-title" class="privacy-notice fixed inset-x-3 bottom-3 z-40 mx-auto max-w-3xl rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-950 p-5 shadow-xl sm:inset-x-6 sm:p-6">
+  <h2 id="privacy-notice-title" class="text-xl font-extrabold">{copy.title}</h2>
+  <p class="mt-2 text-sm leading-relaxed text-neutral-300">{copy.intro}</p>
+  <div class="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm text-orange-500 underline underline-offset-4">
+    <a href={localePath(locale, '/privacy/')}>{copy.privacy}</a>
+    <a href={localePath(locale, '/cookies/')}>{copy.cookies}</a>
+  </div>
+  <div class="mt-4 grid gap-2 sm:grid-cols-2">
+    <button type="button" data-privacy-choice="reject" class="control-button min-h-11 justify-center text-sm">{copy.reject}</button>
+    <button type="button" data-privacy-choice="accept" class="control-button min-h-11 justify-center text-sm">{copy.accept}</button>
+  </div>
+</section>
+<style>
+  .privacy-notice[hidden] { display: none; }
+  .privacy-notice { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+</style>
+<script>
+  import { privacyChoice, PRIVACY_KEY } from '../lib/privacy';
+  const notice = document.querySelector<HTMLElement>('[data-privacy-notice]');
+  let opener: HTMLElement | null = null;
+  function close() { if (notice) notice.hidden = true; opener?.focus(); }
+  if (notice && notice.dataset.policyPage !== 'true') notice.hidden = privacyChoice() !== null;
+  document.addEventListener('click', (event) => {
+    const target = event.target as Element;
+    const open = target.closest<HTMLElement>('[data-privacy-open]');
+    if (open && notice) {
+      opener = open; notice.hidden = false;
+      notice.querySelector<HTMLButtonElement>('[data-privacy-choice]')?.focus();
+    }
+    const choice = target.closest<HTMLElement>('[data-privacy-choice]');
+    if (!choice) return;
+    const allowed = choice.dataset.privacyChoice === 'accept';
+    try {
+      localStorage.setItem(PRIVACY_KEY, JSON.stringify({ version: 1, theme: allowed, at: Date.now() }));
+      if (!allowed) localStorage.removeItem('theme');
+      else if (document.documentElement.dataset.theme) localStorage.setItem('theme', document.documentElement.dataset.theme);
+    } catch {}
+    close();
+  });
+  window.addEventListener('storage', (event) => {
+    if (notice && (event.key === PRIVACY_KEY || event.key === null)) notice.hidden = privacyChoice() !== null || notice.dataset.policyPage === 'true';
+  });
+</script>

@@ -23,7 +23,7 @@ export async function searchIdentity(site: URL, locale: Locale, path: string) {
 }
 
 export async function indexablePaths(site: URL) {
-  const paths = ['/', '/catalog/', '/brands/', '/compare/', '/about/',
+  const paths = ['/', '/catalog/', '/brands/', '/compare/', '/about/', '/privacy/', '/cookies/',
     ...(await getAllSlugs()).map((slug) => `/phones/${slug}/`),
     ...(await getAllBrandSlugs()).map((slug) => `/brands/${slug}/`)];
   const urls: string[] = [];
