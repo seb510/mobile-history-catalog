@@ -660,3 +660,8 @@ export const SPEC_VARIANT_NOTE = {
   ru: 'Общие характеристики приведены один раз. В строках с отличиями оранжевым отмечена версия {model}.',
   en: 'Shared specifications appear once. Where values differ, the {model} version is marked in orange.',
 };
+export const MUSEUM_PHOTO_LABEL = {
+  uk: 'Фото: Mobile Phone Museum',
+  ru: 'Фото: Mobile Phone Museum',
+  en: 'Photo: Mobile Phone Museum',
+};

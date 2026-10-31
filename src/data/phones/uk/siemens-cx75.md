@@ -3,43 +3,45 @@ brand: Siemens
 model: CX75
 year: 2005
 formFactor: candybar
-milestone: "Наступник CX65: Bluetooth, картка пам'яті й 1.3-мегапіксельна камера"
+milestone: Мегапіксельна камера, Bluetooth і музика на RS-MMC
 display:
   sizeInches: 1.9
-  type: "TFT, 256K кольорів"
-  resolution: "132 × 176 px"
+  type: TFT, 256K кольорів
+  resolution: 132 × 176 px
 storageMb: 14
-storageExpandable: "RS-MMC"
+storageExpandable: RS-MMC
 camera:
-  rear: "1.3 Мп, цифровий зум ×5, відео у форматі VGA"
+  rear: 1,3 МП, цифровий зум, відео; зовнішній спалах як аксесуар
 battery:
   mah: 750
+  type: Li-ion
   removable: true
-network: "GSM 900/1800/1900 (тризонний), GPRS Class 10"
-connectivity: ["Bluetooth 1.2", "IrDA", "USB (власний роз'єм)"]
-os: "власна (Siemens)"
-dimensionsMm: "112 × 48 × 19 мм"
-weightGrams: 98
+network: GSM 900/1800/1900, GPRS
+connectivity:
+  - Bluetooth
+  - Інфрапорт
+  - USB через фірмовий роз’єм
+os: власна (Siemens)
+dimensionsMm: 111.7 × 48 × 19.5
+weightGrams: 102
 colors:
-  - "Титановий сірий «Titan Grey»"
-  - "Пісочний сріблястий «Sand Silver»"
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Siemens_CX75.JPG/960px-Siemens_CX75.JPG"
-imageCredit: "Фото: Bozi7, CC BY-SA 3.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_CX75.JPG"
-gallery:
-  - image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/CX75_Siemens.jpg/960px-CX75_Siemens.jpg"
-    alt: "Siemens CX75, інший ракурс"
-    imageCredit: "Фото: Monoklon, суспільне надбання (CC0), через Wikimedia Commons"
-    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:CX75_Siemens.jpg"
+  - Titan Grey
+  - Sand Silver
+simType: Mini-SIM
+image: /images/phones/siemens-cx75/front.webp
+imageCredit: Monoklon · CC0 · Wikimedia Commons
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:CX75_Siemens.jpg
+imageCaption: "Передня панель CX75: джойстик у круглому обрамленні й діагональні клавіші. Оригінальне фото зі слідами користування."
 ---
 
-Siemens показала CX75 на CeBIT 9 березня 2005 року серед кількох нових моделей, а у продаж телефон надійшов із червня того ж року в двох кольорах — «Titan Grey» та «Sand Silver». У лінійці він став прямим наступником CX65 (2004): той самий розмір екрана 132 × 176 px, але помітно оновлена начинка.
+CX75 2005 року продовжує знайому ідею Siemens із джойстиком, але виглядає щільнішим і більш мультимедійним. Кругле обрамлення керування та діагональні клавіші створюють власний ритм передньої панелі — він не зводиться до збільшення цифр у специфікації.
 
-Камера зросла з 0.3-мегапіксельної VGA в CX65 до 1.3 Мп із 5-кратним цифровим зумом і відеозаписом; цифрове наближення тут не варто плутати з оптичним — роздільна здатність кадру при зумі зменшується. CX75 також вперше в цій лінійці отримав слот розширення пам’яті RS-MMC і Bluetooth 1.2 — обох можливостей у CX65 не було, він обмежувався інфрачервоним портом.
+Після CX65 головні зміни відчуваються у файлах і зв’язках: камера 1,3 МП, Bluetooth та картка RS-MMC. Музику й знімки вже не треба вміщувати лише у вбудовану пам’ять. Медіапрогравач, теми й завантажувані застосунки підтримували персоналізацію.
 
-Телефон орієнтувався на розваги: попередньо встановлені ігри, змінні «скіни» для оформлення меню, фоторедактор і MP3-програвач при 14 МБ вбудованої пам’яті (плюс картка пам’яті для музики й фото). Таке поєднання відрізняло CX75 від ділового позиціонування деяких конкурентів того року — акцент робився на мультимедіа й кастомізацію, а не на корпоративні функції.
+Інструкція розділяє фото й відео та не підтверджує колишній запис про VGA-відеозйомку. Тому в характеристиках залишено відеозапис без вигаданої роздільності. Спалах, як і раніше, належить до аксесуарів.
 
-Джерела: [Siemens CX75 — технічні характеристики, GSMArena](https://www.gsmarena.com/siemens_cx75-1099.php), [CeBIT 2005: нові телефони Siemens — архівна тема esato.com](https://www.esato.com/archive/t.php/t-85906).
+Розміри 111,7 × 48 × 19,5 мм і вагу 102 г наведено за розділом Product data інструкції Siemens. Далі SXG75 змінює масштаб: QVGA-екран, UMTS, друга камера й GPS.
 
-[Порівняти CX65 і CX75](/compare/?a=siemens-cx65&b=siemens-cx75).
+[Далі цією лінією: SXG75](/phones/siemens-sxg75/) · [Порівняти](/compare/?a=siemens-cx75&b=siemens-sxg75)
+
+Джерела: [Siemens — CX75 User’s Guide](https://fcc.report/FCC-ID/PWX-CX75/550006.pdf).

@@ -10,6 +10,26 @@ type Editorial = { points: [string, string, string]; next: string; note: string 
 // Editorial observations distilled from the sources linked in each phone's history.
 // These are curated reading routes, not an automatic similarity ranking.
 export const PHONE_EDITORIAL: Record<string, Record<Locale, Editorial>> = {
+  'siemens-a65': {
+    uk: { points: ['Великий навігаційний блок і вигнуті ряди клавіш задають округлий силует.', 'Кольоровий екран, мелодії та Java-ігри персоналізують простий телефон.', 'QuickPic Camera під’єднується як окремий аксесуар; вбудованої камери немає.'], next: 'siemens-cx65', note: 'Від базового A65 до CX65: камера переходить у корпус, а керування отримує джойстик.' },
+    ru: { points: ['Крупная навигационная клавиша и изогнутые ряды кнопок задают округлый силуэт.', 'Цветной экран, мелодии и Java-игры персонализируют простой телефон.', 'QuickPic Camera подключается отдельно; встроенной камеры нет.'], next: 'siemens-cx65', note: 'От базового A65 к CX65: камера переходит в корпус, а управление получает джойстик.' },
+    en: { points: ['A broad navigation key and curved rows of buttons define the rounded shape.', 'A colour screen, ringtones and Java games personalise a simple phone.', 'QuickPic Camera connects separately; there is no built-in camera.'], next: 'siemens-cx65', note: 'From A65 to CX65: the camera moves inside the body and a joystick takes over navigation.' },
+  },
+  'siemens-cx65': {
+    uk: { points: ['Джойстик і сріблясті вставки на клавішах створюють упізнаване обличчя.', 'Змінні CLIPIt-панелі дозволяють змінювати вигляд корпуса.', 'Вбудована VGA-камера пов’язана з MMS, відео та оформленням екрана.'], next: 'siemens-cx75', note: 'Від CX65 до CX75: той самий формат екрана, але мегапіксельна камера, Bluetooth і RS-MMC.' },
+    ru: { points: ['Джойстик и серебристые вставки кнопок создают узнаваемое лицо.', 'Сменные панели CLIPIt меняют внешний вид корпуса.', 'Встроенная VGA-камера связана с MMS, видео и оформлением экрана.'], next: 'siemens-cx75', note: 'От CX65 к CX75: тот же формат экрана, но мегапиксельная камера, Bluetooth и RS-MMC.' },
+    en: { points: ['A joystick and silver key inserts give the front a recognisable face.', 'Replaceable CLIPIt covers change the shell’s appearance.', 'An integrated VGA camera connects photography to MMS, video and wallpaper.'], next: 'siemens-cx75', note: 'From CX65 to CX75: the same display format, but a megapixel camera, Bluetooth and RS-MMC.' },
+  },
+  'siemens-cx75': {
+    uk: { points: ['Кругле обрамлення джойстика та діагональні клавіші формують передню панель.', 'RS-MMC дає окреме місце для музики, фото та відео.', 'Bluetooth доповнює інфрапорт і кабельне перенесення файлів.'], next: 'siemens-sxg75', note: 'Від мультимедійного CX75 до SXG75: більший QVGA-екран, UMTS і GPS.' },
+    ru: { points: ['Круглое обрамление джойстика и диагональные клавиши формируют переднюю панель.', 'RS-MMC даёт отдельное место для музыки, фотографий и видео.', 'Bluetooth дополняет инфракрасный порт и кабельную передачу файлов.'], next: 'siemens-sxg75', note: 'От мультимедийного CX75 к SXG75: более крупный QVGA-экран, UMTS и GPS.' },
+    en: { points: ['A circular joystick surround and diagonal keys define the front.', 'RS-MMC gives music, photographs and videos their own storage.', 'Bluetooth complements infrared and cable file transfers.'], next: 'siemens-sxg75', note: 'From CX75 to SXG75: a larger QVGA display, UMTS and GPS.' },
+  },
+  'siemens-sxg75': {
+    uk: { points: ['Широка передня панель поєднує QVGA-екран із цифровою клавіатурою.', 'Друга камера й UMTS додають сценарій відеодзвінків.', 'GPS, медіапрогравач і RS-MMC збирають кілька кишенькових функцій разом.'], next: 'siemens-cx75', note: 'Поглянь назад на CX75: як змінюються масштаб корпуса та можливості на фінальному етапі Siemens.' },
+    ru: { points: ['Широкая передняя панель объединяет QVGA-экран с цифровой клавиатурой.', 'Вторая камера и UMTS добавляют видеозвонки.', 'GPS, медиаплеер и RS-MMC объединяют несколько карманных функций.'], next: 'siemens-cx75', note: 'Взгляд назад на CX75: как меняются масштаб корпуса и возможности в завершающий период Siemens.' },
+    en: { points: ['A broad front combines a QVGA display with a physical number keypad.', 'A second camera and UMTS introduce video calls.', 'GPS, a media player and RS-MMC bring several pocket functions together.'], next: 'siemens-cx75', note: 'Look back at CX75 to see how body scale and capabilities change in Siemens’ closing period.' },
+  },
   'sony-ericsson-w550i': {
     uk: { points: ['Поворотна передня панель відкриває клавіатуру; змінні Style-Up-панелі додають кольору.', 'Окремі музичні клавіші та стереодинаміки підкреслюють характер Walkman.', 'Горизонтальні ігри використовують кнопки з обох боків екрана.'], next: 'nokia-5700', note: 'Дві музичні механіки: W550i повертає передню панель, а Nokia 5700 — нижній блок.' },
     ru: { points: ['Поворотная передняя панель открывает клавиатуру; сменные панели Style-Up меняют цвет.', 'Отдельные музыкальные клавиши и стереодинамики подчёркивают характер Walkman.', 'В горизонтальных играх используются кнопки по обеим сторонам экрана.'], next: 'nokia-5700', note: 'Две музыкальные механики: W550i поворачивает переднюю панель, а Nokia 5700 — нижний блок.' },

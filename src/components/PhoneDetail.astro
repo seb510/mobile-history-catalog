@@ -7,6 +7,7 @@ import { PHONE_EDITORIAL, PHONE_EDITORIAL_LABELS } from '../lib/phone-editorial'
 import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { buildCompareGroups } from '../lib/specs';
 import { slugifyBrandName } from '../lib/brands';
+import { museumImageCredit } from '../lib/image-attribution';
 import { localePath, type Locale } from '../lib/locales';
 
 interface Props {
@@ -297,6 +298,7 @@ const related = allPhones
             </span>
             <span class="min-w-0">{candidate.data.brand} {candidate.data.model}</span>
           </a>
+          {museumImageCredit(candidate.data, locale) && <a href={candidate.data.imageSourceUrl} target="_blank" rel="noopener noreferrer" class="mt-2 text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2">{museumImageCredit(candidate.data, locale)!.label}</a>}
           <p class="mt-1 text-sm text-neutral-400">{candidate.data.year}</p>
           {candidate.data.milestone && <p class="mt-2 mb-4 line-clamp-2 text-sm text-neutral-400">{candidate.data.milestone}</p>}
           <a class="mt-auto inline-block pt-3 text-sm text-neutral-300 underline underline-offset-4 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(phone)}&b=${slugOf(candidate)}`)}>{RELATED_PHONES[locale].compare}</a>

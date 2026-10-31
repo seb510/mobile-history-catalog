@@ -3,32 +3,49 @@ brand: Siemens
 model: A65
 year: 2004
 formFactor: candybar
-milestone: "Бюджетная A-серия Siemens: камера — лишь отдельный аксессуар"
+milestone: Простые звонки, цветные меню и камера как отдельный аксессуар
 display:
-  type: "CSTN, 4096 цветов"
-  resolution: "101 × 80 px"
+  type: CSTN, 4096 цветов
+  resolution: 101 × 80 px
 storageMb: 1.5
 battery:
   mah: 700
   removable: true
-  type: "Li-Ion (EBA-510)"
-network: "GSM 900/1800/1900 (трёхдиапазонный), GPRS Class 8"
-dimensionsMm: "101 × 45 × 19 мм"
-weightGrams: 75
+network: GSM 900/1800/1900, GPRS Class 8
+weightGrams: 85
 colors:
-  - "Чёрный «Black Pepper»"
-  - "Серебристый «Sparkling Silver»"
-  - "Серебристый «Mystery Silver»"
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Siemens_A65.jpg/960px-Siemens_A65.jpg"
-imageCredit: "Фото: Ulli1105, CC BY 3.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_A65.jpg"
+  - Black Pepper
+  - Sparkling Silver
+  - Mystery Silver
+simType: Mini-SIM
+image: /images/phones/siemens-a65/museum-front.webp
+imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
+camera:
+  rear: Встроенной нет; опциональная QuickPic Camera IQP-500
+connectivity:
+  - Кабельные данные через аксессуары DCA-500 / DCA-510
+os: собственная (Siemens)
+imageCaption: "A65 спереди: округлый корпус, крупная навигационная клавиша и изогнутые ряды кнопок."
+gallery:
+  - image: /images/phones/siemens-a65/museum-back.webp
+    alt: Задняя крышка A65 с логотипом Siemens. Встроенной камеры у этой модели нет.
+    caption: Задняя крышка A65 с логотипом Siemens. Встроенной камеры у этой модели нет.
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
+  - image: /images/phones/siemens-a65/museum-side.webp
+    alt: "Боковой профиль Siemens A65: закруглённая передняя панель и задняя крышка."
+    caption: "Боковой профиль Siemens A65: закруглённая передняя панель и задняя крышка."
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
 ---
 
-Siemens анонсировала A65 (кодовое имя Puma) 17 июля 2004 года, а продажи начались в сентябре того же года. Телефон продолжал бюджетную A-серию как наследник A60: простые звонки и SMS, загружаемые игры и мелодии, компактный лёгкий корпус на 75 г.
+A65 — простой Siemens 2004 года с округлым корпусом, большой навигационной клавишей и дугами цифровых кнопок. Цветной экран 101 × 80 и полифонические мелодии делали даже обычные звонки и сообщения частью более личной мобильной культуры.
 
-Главная особенность — камера была не встроенной, а отдельным аксессуаром, который подключался к телефону: разрешение VGA (640 × 480) со вспышкой. Это позволяло продавать базовый аппарат дешевле, а покупателю — докупить функцию фото лишь при необходимости. По отзывам тогдашних владельцев, такой модуль стоил сравнительно недорого, хотя кадр приходилось компоновать через отдельный видоискатель на самом аксессуаре, а не через экран телефона.
+Встроенной камеры нет. Siemens предлагала отдельный аксессуар QuickPic Camera IQP-500. В отличие от CX65, фотография ещё не была постоянной частью самого телефона.
 
-Памяти в телефоне было немного — 1,5 МБ и без слота для карты, на 50 контактов в записной книжке. Связь ограничивалась GSM с GPRS Class 8, без Bluetooth; зато поддерживались Java-приложения и MMS, что на тот момент не было типичным для самого дешёвого сегмента. Позже в том же 2004-м появился ещё более дешёвый вариант A62 — без Java и MMS, а A65 в линейке сменила модель AX75.
+GPRS, MMS и загружаемые Java-приложения расширяли возможности, но небольшая память заставляла выбирать игры, картинки и звуки. Следующий шаг этой линии — CX65 со встроенной камерой, более крупным экраном и джойстиком.
 
-Источники: [Siemens A65 — технические характеристики, GSMArena](https://www.gsmarena.com/siemens_a65-849.php), [Siemens A65 — история модели, Legacy Portable Computing Wiki](https://lpcwiki.miraheze.org/wiki/Siemens_A65).
+[Дальше по этой линии: CX65](/ru/phones/siemens-cx65/) · [Сравнить](/ru/compare/?a=siemens-a65&b=siemens-cx65)
+
+Источники: [Siemens — A65 User’s Guide](https://www.manualslib.com/manual/152396/Siemens-A65.html), [Siemens — A65 technical information](https://www.manualslib.com/manual/2120476/Siemens-A65-Puma.html?page=9).

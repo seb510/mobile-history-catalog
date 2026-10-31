@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
 import { slugOf } from '../lib/phones';
 import { t } from '../lib/ui-strings';
+import { museumImageCredit } from '../lib/image-attribution';
 
 interface Props {
   phone: CollectionEntry<'phones'>;
@@ -17,6 +18,7 @@ const { data } = phone;
 const strings = t(locale);
 const slug = slugOf(phone);
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
+const sourceCredit = museumImageCredit(data, locale);
 ---
 
 <div class="relative flex min-w-0 flex-1 self-stretch">
@@ -59,8 +61,10 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
         <span class="text-sm font-semibold tabular-nums text-neutral-200">${data.priceUsdAtLaunch} USD</span>
       </p>
     )}
+    {sourceCredit && <span aria-hidden="true" class="mt-auto block h-8 shrink-0"></span>}
   </div>
 </a>
+  {sourceCredit && <a href={sourceCredit.href} target="_blank" rel="noopener noreferrer" class="absolute bottom-3 left-4 right-4 z-10 text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2 hover-desktop:text-orange-400">{sourceCredit.label}</a>}
   <button
     type="button"
     data-favorite-toggle

@@ -3,32 +3,49 @@ brand: Siemens
 model: A65
 year: 2004
 formFactor: candybar
-milestone: "Siemens' budget A-series: the camera was a separate accessory"
+milestone: Simple calls, colour menus and a camera sold as an accessory
 display:
-  type: "CSTN, 4,096 colours"
-  resolution: "101 × 80 px"
+  type: CSTN, 4096 colours
+  resolution: 101 × 80 px
 storageMb: 1.5
 battery:
   mah: 700
   removable: true
-  type: "Li-Ion (EBA-510)"
-network: "GSM 900/1800/1900 (tri-band), GPRS Class 8"
-dimensionsMm: "101 × 45 × 19 mm"
-weightGrams: 75
+network: GSM 900/1800/1900, GPRS Class 8
+weightGrams: 85
 colors:
-  - "Black \"Black Pepper\""
-  - "Silver \"Sparkling Silver\""
-  - "Silver \"Mystery Silver\""
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Siemens_A65.jpg/960px-Siemens_A65.jpg"
-imageCredit: "Photo: Ulli1105, CC BY 3.0, via Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_A65.jpg"
+  - Black Pepper
+  - Sparkling Silver
+  - Mystery Silver
+simType: Mini-SIM
+image: /images/phones/siemens-a65/museum-front.webp
+imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
+camera:
+  rear: No built-in camera; optional QuickPic Camera IQP-500
+connectivity:
+  - Cable data via DCA-500 / DCA-510 accessories
+os: proprietary (Siemens)
+imageCaption: "A65 from the front: a rounded body, broad navigation key and curved rows of number keys."
+gallery:
+  - image: /images/phones/siemens-a65/museum-back.webp
+    alt: The A65 rear cover with the Siemens logo. This model has no built-in camera.
+    caption: The A65 rear cover with the Siemens logo. This model has no built-in camera.
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
+  - image: /images/phones/siemens-a65/museum-side.webp
+    alt: The side profile of Siemens A65, showing the rounded front and rear cover.
+    caption: The side profile of Siemens A65, showing the rounded front and rear cover.
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/a65
 ---
 
-Siemens announced the A65 (codename Puma) on 17 July 2004, with sales starting that September. The phone continued the budget A-series as the successor to the A60: plain calls and texts, downloadable games and ringtones, a compact, light 75 g body.
+The A65 is a straightforward Siemens from 2004, with a rounded shell, broad navigation key and curved rows of number keys. A 101 × 80 colour display and polyphonic ringtones gave ordinary calls and messages a more personal identity.
 
-Its defining feature was a camera that wasn't built in at all, but a separate accessory that clipped onto the phone: VGA resolution (640 × 480) with a flash. This let the base handset sell cheaper, with the photo function as an optional add-on. By contemporary owners' accounts, the module itself was fairly inexpensive, though framing a shot meant using a separate viewfinder on the accessory itself rather than the phone's screen.
+There is no built-in camera. Siemens listed the optional QuickPic Camera IQP-500 as a separate accessory. Unlike the CX65, photography was not yet a permanent part of the handset.
 
-Memory was scarce — 1.5 MB with no card slot, and room for 50 contacts. Connectivity was limited to GSM with GPRS Class 8 and no Bluetooth; it did, however, support Java apps and MMS, which wasn't typical for the cheapest segment at the time. Later in 2004 an even more basic A62 arrived without Java or MMS, while the A65 itself was succeeded in the lineup by the AX75.
+GPRS, MMS and downloadable Java applications broadened its role, but limited storage made users choose which games, pictures and sounds to keep. The next step in this reading route is CX65, with an integrated camera, a larger screen and a joystick.
 
-Sources: [Siemens A65 — technical specifications, GSMArena](https://www.gsmarena.com/siemens_a65-849.php), [Siemens A65 — model history, Legacy Portable Computing Wiki](https://lpcwiki.miraheze.org/wiki/Siemens_A65).
+[Continue this route: CX65](/en/phones/siemens-cx65/) · [Compare](/en/compare/?a=siemens-a65&b=siemens-cx65)
+
+Sources: [Siemens — A65 User’s Guide](https://www.manualslib.com/manual/152396/Siemens-A65.html), [Siemens — A65 technical information](https://www.manualslib.com/manual/2120476/Siemens-A65-Puma.html?page=9).

@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
 import { COMPARE_QUICK, COMPARE_DESIGN, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
+import { museumImageCredit } from '../lib/image-attribution';
 import { readFavorites, toggleFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
 
 type PhoneData = CollectionEntry<'phones'>['data'];
@@ -310,6 +311,7 @@ interface PhoneSlotProps {
 function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candidates, quickPhones, placeholder, locale, strings, isFavorite, onToggleFavorite }: PhoneSlotProps) {
   if (phone) {
     const { data, slug } = phone;
+    const sourceCredit = museumImageCredit(data, locale);
     return (
       <div className="compare-selected relative rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-3 sm:p-5">
         <button
@@ -354,6 +356,7 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
             {strings.compare.change}
           </button>
         </div>
+        {sourceCredit && <a href={sourceCredit.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2 hover-desktop:text-orange-400">{sourceCredit.label}</a>}
       </div>
     );
   }
