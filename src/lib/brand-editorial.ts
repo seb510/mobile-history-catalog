@@ -3,10 +3,12 @@ import type { Locale } from './locales';
 // Editorial descriptions of the archive's selection, not claims about every phone a brand made.
 export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
   uk: {
+    Alcatel: 'Найдоступніший сегмент One Touch — ціна понад усе.',
     Apple: 'Від першого iPhone до звичних жестів сенсорної епохи.',
     Google: 'Камерна планка, колір і впізнаваний силует Pixel.',
     HTC: 'Висувна клавіатура на початку історії Android.',
     Huawei: 'Складаний екран як наступний експеримент із формою.',
+    LG: 'Практичні розкладачки масового бюджетного сегмента.',
     Motorola: 'Метал RAZR, округлий PEBL і музичний ROKR.',
     Nokia: 'Від знайомих клавіш до сміливих механізмів Nseries.',
     Samsung: 'Компактні розкладачки, тонкі слайдери й нові форми екрана.',
@@ -14,10 +16,12 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
     'Sony Ericsson': 'Камерний хват, помаранчевий Walkman і музика в кишені.',
   },
   ru: {
+    Alcatel: 'Самый доступный сегмент One Touch — цена превыше всего.',
     Apple: 'От первого iPhone до привычных жестов сенсорной эпохи.',
     Google: 'Планка камер, цвет и узнаваемый силуэт Pixel.',
     HTC: 'Выдвижная клавиатура в начале истории Android.',
     Huawei: 'Складной экран как следующий эксперимент с формой.',
+    LG: 'Практичные раскладушки массового бюджетного сегмента.',
     Motorola: 'Металл RAZR, округлый PEBL и музыкальный ROKR.',
     Nokia: 'От знакомых клавиш до смелых механизмов Nseries.',
     Samsung: 'Компактные раскладушки, тонкие слайдеры и новые формы экрана.',
@@ -25,10 +29,12 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
     'Sony Ericsson': 'Камерный хват, оранжевый Walkman и музыка в кармане.',
   },
   en: {
+    Alcatel: 'The most affordable tier of One Touch — price above all.',
     Apple: 'From the first iPhone to the familiar gestures of the touch era.',
     Google: 'Camera bars, colour and the recognisable Pixel silhouette.',
     HTC: 'A sliding keyboard at the beginning of Android.',
     Huawei: 'A folding display as the next experiment in form.',
+    LG: 'Practical clamshells for the mass budget segment.',
     Motorola: 'RAZR metal, the rounded PEBL and the musical ROKR.',
     Nokia: 'From familiar keypads to bold Nseries mechanisms.',
     Samsung: 'Compact clamshells, slim sliders and new display forms.',

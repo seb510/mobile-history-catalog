@@ -209,6 +209,12 @@ command** у налаштуваннях Workers-проєкту в дешборд
 `SITE_URL` — реальний `*.workers.dev` або кастомний домен, після першого деплою стає відомий), після
 чого запустити деплой і за потреби `git push`.
 
+**Деплой виконано (підтверджено 2026-11-05):** сайт живий на
+`https://mobile-history-catalog.nikolaysebistiyan.workers.dev/`. Перевірено сторінку
+`/phones/sony-ericsson-k750i/` — характеристики, галерея з 5 фото, усі редакційні блоки й атрибуції
+рендеряться коректно, без заглушок чи помилок. SEO_INDEXABLE на проді не перевірявся в цьому проході
+(лишається питання "SEO до публікації" нижче).
+
 ## Development
 
 When starting the dev server, use background mode:
@@ -800,3 +806,44 @@ Motorola Signature 27 на офіційній сторінці ще з реєс�
 BRAND_ROUTES оновлено: нові моделі стають завершальним епізодом відповідних брендів. HTC/Huawei тепер мають по дві моделі, тому спільний BrandMilestones показує хронологію й порівняння автоматично. Весь каталог доступний через getPhonesForLocale, нової схеми/JS немає. Первинні джерела і критерії — docs/brand-flagships-2026-11-05.md. Без commit/push/deploy.
 
 Перевірка цього проходу: 18 нових зібраних сторінок містять історію й технічний портрет; 97 uk-моделей. Astro check: 0 errors / 0 warnings, 3 наявні hints. Build: 348 сторінок. SEO audit passed: 209 canonical sitemap URLs, indexing disabled. У браузері перевірено HTC (2 моделі, хронологія й порівняння), Nokia 9 із фото/кредитом і React-порівняння Xperia arc S / Fold8 Ultra (14 характеристик, без console errors).
+
+## Деплой підтверджено живим — 2026-11-05
+
+Сайт перевірено на проді: `https://mobile-history-catalog.nikolaysebistiyan.workers.dev/`. Сторінка
+`/phones/sony-ericsson-k750i/` рендериться коректно (характеристики, 5 фото в галереї, усі
+редакційні блоки, атрибуції) — без заглушок чи помилок. `robots.txt` (`Disallow: /`) і
+`<meta name="robots" content="noindex, follow">` на кожній сторінці підтверджують, що білд
+задеплоєно з `SEO_INDEXABLE=false`, як і задумано до вирішення питання публічної індексації.
+
+## LG, Alcatel та ще шість моделей — 2026-11-05
+
+За проханням користувача додано 8 нових моделей (по 3 локалі кожна — 24 файли) і 2 нові бренди
+(LG, Alcatel — по 3 локалі, 6 файлів): LG C1300 (2005), Alcatel One Touch 155 (2004), Siemens C72
+(2005), Siemens CX70 Emoty (2004), Nokia 5130 XpressMusic (2009), Huawei U9508 (2012), Huawei
+P smart+ (2018), Apple iPhone 13 Pro (2021). Каталог тепер 105 uk-моделей, 48 окремих ru/en, 11
+брендів. Sony Ericsson K750i з початкового запиту користувача пропущено — вже був у каталозі.
+
+Дослідження й написання виконано паралельно чотирма fork-агентами (по 2 моделі кожен) через
+WebSearch/WebFetch з офіційними джерелами, GSMArena, Wikipedia, Phone Scoop, PhoneDB тощо;
+непідтверджені характеристики свідомо не заповнені. Важливе уточнення одного з агентів: Huawei
+U9508 — це НЕ Ascend D1 Quad (той має позначення U9500/U9510), а Huawei Honor 2 (Honor Quad),
+перший чотириядерний Android-телефон суббренду Honor під Huawei; `brand` лишається "Huawei",
+`model` — "Honor 2". Для Huawei P smart+ взято оригінальну версію 2018 року (ребрендинг Nova 3i),
+не плутати з P smart+ 2019.
+
+Фото: Siemens C72 (Kyores, CC BY-SA 3.0), Nokia 5130 (Niklas Bildhauer, CC BY-SA 3.0), Apple
+iPhone 13 Pro (SimonWaldherr і Hajoon0102, CC BY-SA 4.0, 2 фото) — усі локальні WebP з Wikimedia
+Commons, без кадрування/ретуші/ШІ. Без фото лишились: LG C1300, Alcatel One Touch 155, Siemens
+CX70 Emoty, Huawei U9508, Huawei P smart+ — ні вільного Commons-фото точної моделі, ні сторінки на
+mobilephonemuseum.com не знайдено (перевірено пошуком); стандартна заглушка PlaceholderArt, фото
+іншої моделі/варіанта не підставлялось. Для LG і Alcatel додано вордмарк-лого PD-textlogo з
+Commons та записи в `BRAND_NOTES` (`src/lib/brand-editorial.ts`); `BRAND_ROUTES` для них не
+потрібен — по 1 моделі на бренд, BrandMilestones автоматично не показує хронологію/порівняння.
+
+Один із чотирьох агентів під час резюме спершу повернув фіктивний результат без реальної роботи;
+після повторного запиту сам виправився й виконав дослідження коректно — фінальний build/check це
+підтвердив.
+
+Перевірка: `astro check` — 0 errors / 0 warnings (3 наявні hints); `npm run build` — 378 сторінок;
+`audit:seo` — 239 canonical URL, indexing disabled. Усі локальні фото перевірені на диску. Без
+commit/push/deploy — рішення лишається за користувачем.
