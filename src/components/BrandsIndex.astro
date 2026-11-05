@@ -4,12 +4,14 @@ import { getBrandsForLocale, slugOfBrand } from '../lib/brands';
 import { getPhonesForLocale } from '../lib/phones';
 import { localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
+import { BRAND_EDITION, BRAND_NOTES } from '../lib/brand-editorial';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const strings = t(locale);
+const copy = BRAND_EDITION[locale];
 
 const phoneCountText = (count: number) => {
   const forms = strings.brands.phoneCount;
@@ -29,21 +31,56 @@ for (const phone of phones) {
 }
 
 const sorted = brands.slice().sort((a, b) => a.data.name.localeCompare(b.data.name));
+const yearsByName = new Map<string, number[]>();
+for (const phone of phones) {
+  const years = yearsByName.get(phone.data.brand) ?? [];
+  years.push(phone.data.year);
+  yearsByName.set(phone.data.brand, years);
+}
+const yearRange = (name: string) => {
+  const years = yearsByName.get(name);
+  if (!years?.length) return null;
+  const first = Math.min(...years), last = Math.max(...years);
+  return first === last ? `${first}` : `${first}–${last}`;
+};
 ---
 
-<ul class="grid auto-rows-fr items-stretch grid-cols-2 gap-4 lg:grid-cols-4">
+<div class="mb-7 max-w-3xl">
+  <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">{copy.title}</h2>
+</div>
+<ul class="brand-index-grid grid auto-rows-fr items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
   {sorted.map((brand) => (
     <li class="flex">
       <a
         href={localePath(locale, `/brands/${slugOfBrand(brand)}/`)}
-        class="editorial-card group flex h-full w-full flex-col items-center gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-5 text-center motion-ui sm:p-6"
+        class="brand-index-card editorial-card group flex h-full min-w-0 w-full flex-col rounded-sm border border-neutral-800 bg-neutral-900 p-5 motion-ui sm:p-6"
       >
         <BrandMark name={brand.data.name} logo={brand.data.logo} class="h-20 w-full min-w-0 shrink-0" />
-        <div class="card-copy w-full border-t border-neutral-800 pt-3">
-          <p class="card-title font-semibold tracking-tight text-neutral-100">{brand.data.name}</p>
-          <p class="mt-1 text-sm text-neutral-400"><span class="font-semibold text-neutral-200">{countByName.get(brand.data.name) ?? 0}</span> {phoneCountText(countByName.get(brand.data.name) ?? 0)}</p>
+        <div class="card-copy mt-5 flex w-full flex-1 flex-col border-t border-neutral-800 pt-4">
+          <h3 class="card-title text-xl font-bold tracking-tight text-neutral-100">{brand.data.name}</h3>
+          <p class="brand-index-note mt-2 text-sm leading-relaxed text-neutral-400">{BRAND_NOTES[locale][brand.data.name]}</p>
+          <div class="mt-auto flex flex-wrap items-end justify-between gap-3 pt-5 text-sm">
+            <div>
+              <p class="text-xs text-neutral-500">{copy.archiveYears}</p>
+              <p class="mt-1 font-semibold tabular-nums text-neutral-200">{yearRange(brand.data.name) ?? '—'}</p>
+            </div>
+            <p class="text-neutral-400"><span class="font-semibold text-neutral-200">{countByName.get(brand.data.name) ?? 0}</span> {phoneCountText(countByName.get(brand.data.name) ?? 0)}</p>
+          </div>
+          <p class="mt-4 flex items-center justify-between border-t border-neutral-800 pt-3 text-sm font-semibold text-orange-500"><span>{copy.open}</span><span aria-hidden="true">→</span></p>
         </div>
       </a>
     </li>
   ))}
 </ul>
+
+<style>
+  .brand-index-note { min-height: 3em; }
+  .brand-index-card:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
+  @media (max-width: 639px) {
+    .brand-index-card { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; padding: 1rem; }
+    .brand-index-card > :global(div:first-child) { height: 5rem; padding: .5rem; }
+    .brand-index-card :global(.card-copy) { margin-top: 0; border-top: 0; padding-top: 0; }
+    .brand-index-card :global(.card-copy > p:last-child) { margin-top: .75rem; }
+    .brand-index-note { min-height: 0; }
+  }
+</style>

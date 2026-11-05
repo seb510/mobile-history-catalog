@@ -2,18 +2,19 @@
 import Layout from '../../../layouts/Layout.astro';
 import BrandsIndex from '../../../components/BrandsIndex.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { BRAND_EDITION } from '../../../lib/brand-editorial';
 import { t } from '../../../lib/ui-strings';
 
 const locale = 'en' as const;
 const strings = t(locale);
 ---
 
-<Layout locale={locale} path="/brands/" title={`${strings.brands.indexTitle} — ${strings.siteName}`} description={strings.brands.indexSubtitle}>
+<Layout locale={locale} path="/brands/" title={`${strings.brands.indexTitle} — ${strings.siteName}`} description={BRAND_EDITION[locale].intro}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.brands }]} />
   <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
     <p class="editorial-kicker mb-2 text-orange-500">{strings.siteName}</p>
     <h1 class="page-title">{strings.brands.indexTitle}</h1>
-    <p class="mt-4 max-w-2xl leading-relaxed text-neutral-400">{strings.brands.indexSubtitle}</p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-neutral-400">{BRAND_EDITION[locale].intro}</p>
   </header>
   <BrandsIndex locale={locale} />
 </Layout>
