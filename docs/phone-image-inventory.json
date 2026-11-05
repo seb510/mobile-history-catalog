@@ -3,8 +3,8 @@
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
     "models": 89,
-    "localPrimary": 29,
-    "remotePrimary": 59,
+    "localPrimary": 31,
+    "remotePrimary": 57,
     "missingPrimary": [
       "samsung-sgh-e700"
     ],
@@ -301,8 +301,8 @@
     {
       "slug": "nokia-n79",
       "primary": "remote",
-      "frames": 1,
-      "remoteFrames": 1,
+      "frames": 3,
+      "remoteFrames": 3,
       "issues": []
     },
     {
@@ -314,9 +314,9 @@
     },
     {
       "slug": "nokia-n81",
-      "primary": "remote",
-      "frames": 1,
-      "remoteFrames": 1,
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -356,9 +356,9 @@
     },
     {
       "slug": "nokia-x7",
-      "primary": "remote",
+      "primary": "local",
       "frames": 2,
-      "remoteFrames": 2,
+      "remoteFrames": 0,
       "issues": []
     },
     {

@@ -1,74 +1,22 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BrandMark from './BrandMark.astro';
-import PhoneCard from './PhoneCard.astro';
-import PlaceholderArt from './PlaceholderArt.astro';
 import { localePath, type Locale } from '../lib/locales';
 import { slugOf } from '../lib/phones';
-import { BRAND_EDITION, SIEMENS_SELECTION, SIEMENS_TIMELINE } from '../lib/brand-editorial';
+import { BRAND_EDITION, SIEMENS_TIMELINE } from '../lib/brand-editorial';
 
-interface Props { brand: CollectionEntry<'brands'>; phones: CollectionEntry<'phones'>[]; locale: Locale }
-const { brand, phones, locale } = Astro.props;
+interface Props { phones: CollectionEntry<'phones'>[]; locale: Locale }
+const { phones, locale } = Astro.props;
 const labels = BRAND_EDITION[locale];
 const copy = labels.siemens;
-const cover = phones.find(phone => slugOf(phone) === 'siemens-sk65');
 const select = (slugs: readonly string[]) => slugs.flatMap(slug => {
   const phone = phones.find(phone => slugOf(phone) === slug);
   return phone ? [phone] : [];
 });
-const selected = select(SIEMENS_SELECTION);
 const timeline = select(SIEMENS_TIMELINE);
-const years = phones.map(phone => phone.data.year);
-const range = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
 ---
 
-<header class="siemens-cover">
-  <div class="siemens-cover-copy">
-    <p class="editorial-kicker text-orange-500">{copy.kicker}</p>
-    <h1 class="page-title mt-3">Siemens</h1>
-    <h2 class="mt-5 max-w-lg text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">{copy.title}</h2>
-    <p class="mt-5 max-w-xl leading-relaxed text-neutral-400">{copy.intro}</p>
-    <a class="siemens-jump mt-6 inline-flex min-h-11 items-center gap-4 border-b border-orange-500 py-2 font-semibold text-orange-500 motion-ui" href="#brand-collection">{copy.all}<span aria-hidden="true">↓</span></a>
-    <div class="mt-8 flex flex-wrap items-center gap-5 border-t border-neutral-800 pt-5">
-      <div class="min-w-0 max-w-40">
-        <BrandMark name={brand.data.name} logo={brand.data.logo} class="h-16 w-40" />
-        {brand.data.logoCredit && brand.data.logoSourceUrl && <a class="mt-2 block text-xs text-neutral-500 underline underline-offset-2" href={brand.data.logoSourceUrl} target="_blank" rel="noopener noreferrer">{brand.data.logoCredit}</a>}
-      </div>
-      <div>
-        <p class="text-xs text-neutral-500">{labels.archiveYears}</p>
-        <p class="mt-1 text-xl font-semibold tabular-nums">{range}</p>
-      </div>
-    </div>
-  </div>
-  {cover && <figure class="siemens-cover-art">
-    <p class="editorial-kicker border-b border-neutral-700 px-5 py-4 text-neutral-400">{copy.cover}</p>
-    <a class="siemens-cover-photo relative flex items-center justify-center p-7" href={localePath(locale, `/phones/${slugOf(cover)}/`)} aria-label={`Siemens ${cover.data.model}`}>
-      {cover.data.image && <img data-image-fallback src={cover.data.image} alt={`Siemens ${cover.data.model}`} class="h-full w-full object-contain" loading="eager" decoding="async" />}
-      <div data-image-fallback-placeholder class:list={['absolute inset-0 flex items-center justify-center p-7', cover.data.image && 'hidden']}><PlaceholderArt class="h-full w-full text-neutral-600" /></div>
-    </a>
-    <figcaption class="border-t border-neutral-700 px-5 py-4">
-      <p class="font-semibold">{copy.coverText}</p>
-      {cover.data.imageCredit && cover.data.imageSourceUrl && <a class="mt-2 block text-xs leading-relaxed text-orange-500 underline underline-offset-2" href={cover.data.imageSourceUrl} target="_blank" rel="noopener noreferrer">{cover.data.imageCredit}</a>}
-    </figcaption>
-  </figure>}
-</header>
-
-<section class="brand-edition-section" aria-labelledby="brand-start">
-  <div class="mb-6 max-w-2xl">
-    <p class="editorial-kicker mb-2 text-orange-500">01 / Siemens</p>
-    <h2 id="brand-start" class="text-2xl font-bold tracking-tight sm:text-3xl">{copy.start}</h2>
-    <p class="mt-3 leading-relaxed text-neutral-400">{copy.startIntro}</p>
-  </div>
-  <ol class="grid gap-5 sm:grid-cols-3">
-    {selected.map((phone, index) => <li class="flex min-w-0 flex-col">
-      <p class="mb-3 border-t border-neutral-700 pt-3 text-sm"><span class="mr-3 text-orange-500">0{index + 1}</span>{copy.roles[index]}</p>
-      <PhoneCard phone={phone} locale={locale} />
-    </li>)}
-  </ol>
-</section>
-
 <section class="brand-edition-section" aria-labelledby="brand-timeline">
-  <p class="editorial-kicker mb-2 text-orange-500">02 / Siemens</p>
+  <p class="editorial-kicker mb-2 text-orange-500">01 / Siemens</p>
   <h2 id="brand-timeline" class="text-2xl font-bold tracking-tight sm:text-3xl">{copy.timeline}</h2>
   <p class="mt-3 max-w-2xl leading-relaxed text-neutral-400">{copy.timelineIntro}</p>
   <ol class="siemens-timeline mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -90,27 +38,8 @@ const range = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '
 </aside>
 
 <style>
-  .siemens-cover { display: grid; gap: 2rem; padding: .5rem 0 2.5rem; }
-  .siemens-cover-copy { min-width: 0; align-self: center; }
-  .siemens-cover-art { min-width: 0; overflow: hidden; border: 1px solid var(--color-neutral-700); border-top: 3px solid var(--color-orange-500); border-radius: 2px; background: var(--color-neutral-900); }
-  .siemens-cover-photo { height: clamp(16rem, 36vw, 25rem); background: var(--color-neutral-800); }
-  .siemens-cover-photo { overflow: hidden; }
-  .siemens-cover-photo img { transform: scale(1.6); }
   .brand-edition-section { margin-top: 2.5rem; border-top: 1px solid var(--color-neutral-800); padding-top: 2rem; }
   a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
-  @media (min-width: 768px) { .siemens-cover { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3rem; } .brand-edition-section { margin-top: 3.5rem; padding-top: 2.5rem; } }
-  @media (max-width: 767px) {
-    .siemens-cover { grid-template-areas: 'kicker' 'name' 'heading' 'art' 'intro' 'jump' 'meta'; gap: 1rem; }
-    .siemens-cover-copy { display: contents; }
-    .siemens-cover-copy > p:first-child { grid-area: kicker; }
-    .siemens-cover-copy > h1 { grid-area: name; margin-top: 0; }
-    .siemens-cover-copy > h2 { grid-area: heading; margin-top: 0; font-size: 1.75rem; }
-    .siemens-cover-copy > p:not(:first-child) { grid-area: intro; margin-top: 0; }
-    .siemens-cover-copy > a { grid-area: jump; justify-self: start; margin-top: 0; }
-    .siemens-cover-copy > div { grid-area: meta; margin-top: 0; }
-    .siemens-cover-art { grid-area: art; }
-    .siemens-cover-photo { height: 16rem; }
-    .siemens-cover-photo img { transform: scale(1.9); }
-  }
+  @media (min-width: 768px) { .brand-edition-section { margin-top: 3.5rem; padding-top: 2.5rem; } }
   @media (max-width: 639px) { .siemens-timeline { gap: 1rem; } .siemens-timeline li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); column-gap: 1rem; border-top-width: 1px; padding-top: .75rem; } .siemens-timeline li > p:first-child { grid-row: span 2; align-self: center; font-size: 1.75rem; } .siemens-timeline a { margin-top: 0; } .siemens-timeline li > p:last-child { margin-top: 0; } }
 </style>

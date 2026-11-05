@@ -1,33 +1,53 @@
 ---
 brand: Nokia
-model: "N79"
+model: N79
 year: 2008
 formFactor: candybar
-milestone: "An Nseries candybar with swappable colour covers and a 5MP Carl Zeiss camera"
+milestone: An Nseries candybar with swappable colour covers and a 5MP Carl Zeiss camera
 display:
   sizeInches: 2.4
-  resolution: "240 × 320 px"
-chipset: "ARM11, 369 MHz"
+  resolution: 240 × 320 px
+chipset: ARM11, 369 MHz
 ramMb: 128
 storageMb: 83
-storageExpandable: "microSDHC, up to 32 GB"
+storageExpandable: microSDHC, up to 32 GB
 camera:
-  rear: "5 MP, autofocus, Carl Zeiss Tessar, dual LED flash, 20x digital zoom"
-  front: "CIF camera for video calls"
+  rear: 5 MP, autofocus, Carl Zeiss Tessar, dual LED flash, 20x digital zoom
+  front: CIF camera for video calls
 battery:
   mah: 1200
-  type: "Li-Ion (BL-6F)"
+  type: Li-Ion (BL-6F)
   removable: true
-network: "GSM 850/900/1800/1900 (quad-band), EGSM 900 + UMTS 900/2100 with HSDPA"
-connectivity: ["Wi-Fi 802.11b/g", "Bluetooth 2.0", "GPS (A-GPS)", "Micro-USB 2.0", "FM radio (receiver and transmitter)"]
-os: "Symbian OS 9.3, S60 3rd Edition Feature Pack 2"
-dimensionsMm: "110 × 49 × 15 mm"
+network: GSM 850/900/1800/1900 (quad-band), EGSM 900 + UMTS 900/2100 with HSDPA
+connectivity:
+  - Wi-Fi 802.11b/g
+  - Bluetooth 2.0
+  - GPS (A-GPS)
+  - Micro-USB 2.0
+  - FM radio (receiver and transmitter)
+os: Symbian OS 9.3, S60 3rd Edition Feature Pack 2
+dimensionsMm: 110 × 49 × 15 mm
 weightGrams: 97
-colors: ["Canvas White", "Seal Grey", "Petrol Black"]
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nokia_N79_%282009-07-21%29.jpg/960px-Nokia_N79_%282009-07-21%29.jpg"
+colors:
+  - Canvas White
+  - Seal Grey
+  - Petrol Black
+simType: Mini-SIM
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nokia_N79_%282009-07-21%29.jpg/960px-Nokia_N79_%282009-07-21%29.jpg
 imageCredit: "Photo: ALE STAL (Alessandro Mantegani), public domain, via Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_N79_(2009-07-21).jpg"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N79_(2009-07-21).jpg
+imageCaption: A powered-on N79 in hand. This particular unit carries TIM operator branding.
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/4/47/NokiaN79.jpg
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:NokiaN79.jpg
+    imageCredit: Sujith Sreedhar · CC BY-SA 3.0 · Wikimedia Commons
+    caption: N79 displaying its Symbian menu. The original photograph is oriented horizontally.
+    alt: N79 displaying its Symbian menu. The original photograph is oriented horizontally.
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Nokia_N796.JPG/960px-Nokia_N796.JPG
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N796.JPG
+    imageCredit: Vera de Kok · CC BY-SA 3.0 · Wikimedia Commons
+    caption: An N79 after repair, connected by cable and showing the Nokia startup screen.
+    alt: An N79 after repair, connected by cable and showing the Nokia startup screen.
 ---
 
 Nokia announced the N79 on 25 August 2008, with retail availability following in October at a launch estimate of €350 before tax and carrier subsidy. The N79 replaced the earlier N78 in the Nseries line-up and was positioned as a sleeker, more compact alternative to the flagship N85 of the same generation.

@@ -1,33 +1,53 @@
 ---
 brand: Nokia
-model: "N79"
+model: N79
 year: 2008
 formFactor: candybar
-milestone: "Моноблок Nseries зі змінними кольоровими панелями й 5-мегапіксельною Carl Zeiss камерою"
+milestone: Моноблок Nseries зі змінними кольоровими панелями й 5-мегапіксельною Carl Zeiss камерою
 display:
   sizeInches: 2.4
-  resolution: "240 × 320 px"
-chipset: "ARM11, 369 МГц"
+  resolution: 240 × 320 px
+chipset: ARM11, 369 МГц
 ramMb: 128
 storageMb: 83
-storageExpandable: "microSDHC, до 32 ГБ"
+storageExpandable: microSDHC, до 32 ГБ
 camera:
-  rear: "5 МП, автофокус, Carl Zeiss Tessar, подвійний LED-спалах, 20-кратний цифровий зум"
-  front: "CIF-камера для відеодзвінків"
+  rear: 5 МП, автофокус, Carl Zeiss Tessar, подвійний LED-спалах, 20-кратний цифровий зум
+  front: CIF-камера для відеодзвінків
 battery:
   mah: 1200
-  type: "Li-Ion (BL-6F)"
+  type: Li-Ion (BL-6F)
   removable: true
-network: "GSM 850/900/1800/1900 (quad-band), EGSM 900 + UMTS 900/2100 з HSDPA"
-connectivity: ["Wi-Fi 802.11b/g", "Bluetooth 2.0", "GPS (A-GPS)", "Micro-USB 2.0", "FM-радіо (приймач і передавач)"]
-os: "Symbian OS 9.3, S60 3rd Edition Feature Pack 2"
-dimensionsMm: "110 × 49 × 15 мм"
+network: GSM 850/900/1800/1900 (quad-band), EGSM 900 + UMTS 900/2100 з HSDPA
+connectivity:
+  - Wi-Fi 802.11b/g
+  - Bluetooth 2.0
+  - GPS (A-GPS)
+  - Micro-USB 2.0
+  - FM-радіо (приймач і передавач)
+os: Symbian OS 9.3, S60 3rd Edition Feature Pack 2
+dimensionsMm: 110 × 49 × 15 мм
 weightGrams: 97
-colors: ["Canvas White", "Seal Grey", "Petrol Black"]
-simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nokia_N79_%282009-07-21%29.jpg/960px-Nokia_N79_%282009-07-21%29.jpg"
+colors:
+  - Canvas White
+  - Seal Grey
+  - Petrol Black
+simType: Mini-SIM
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nokia_N79_%282009-07-21%29.jpg/960px-Nokia_N79_%282009-07-21%29.jpg
 imageCredit: "Фото: ALE STAL (Alessandro Mantegani), суспільне надбання, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_N79_(2009-07-21).jpg"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N79_(2009-07-21).jpg
+imageCaption: N79 у руці з увімкненим екраном. На цьому екземплярі видно брендування оператора TIM.
+gallery:
+  - image: https://upload.wikimedia.org/wikipedia/commons/4/47/NokiaN79.jpg
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:NokiaN79.jpg
+    imageCredit: Sujith Sreedhar · CC BY-SA 3.0 · Wikimedia Commons
+    caption: N79 з відкритим меню Symbian. Оригінальний кадр має горизонтальну орієнтацію.
+    alt: N79 з відкритим меню Symbian. Оригінальний кадр має горизонтальну орієнтацію.
+  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Nokia_N796.JPG/960px-Nokia_N796.JPG
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N796.JPG
+    imageCredit: Vera de Kok · CC BY-SA 3.0 · Wikimedia Commons
+    caption: N79 після ремонту, під’єднаний кабелем, із заставкою запуску Nokia.
+    alt: N79 після ремонту, під’єднаний кабелем, із заставкою запуску Nokia.
 ---
 
 Nokia анонсувала N79 25 серпня 2008 року, а в продаж модель вийшла в жовтні за стартовою оцінкою €350 без податків і операторської субсидії. N79 заміняла в лінійці Nseries попередню N78 й позиціонувалася як стильніша, компактніша альтернатива флагманській N85 того ж покоління.

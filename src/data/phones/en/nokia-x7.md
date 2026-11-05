@@ -22,14 +22,15 @@ connectivity:
   - 3.5 mm
   - FM
 os: Symbian Anna
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nokia_X7.jpg/960px-Nokia_X7.jpg
+image: /images/phones/nokia-x7/commons-front.webp
 imageCredit: NikitaNovozhilov, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_X7.jpg
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Beats_and_Nokia_x7-00.jpg/960px-Beats_and_Nokia_x7-00.jpg
-    alt: Nokia X7-00 alongside Beats headphones
-    imageCredit: "Photo: Nikita Novozhilov, CC BY 2.0, Wikimedia Commons"
+  - image: /images/phones/nokia-x7/headphones.webp
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Beats_and_Nokia_x7-00.jpg
+    imageCredit: Nikita Novozhilov · CC BY 2.0 · Wikimedia Commons
+    caption: "X7-00 beside Beats headphones: a real music setup, not the contents of its retail box."
+    alt: "X7-00 beside Beats headphones: a real music setup, not the contents of its retail box."
 milestone: Angular entertainment design meets Symbian Anna
 storageExpandable: microSD, up to 32 GB; 8 GB included
 camera:
@@ -38,6 +39,7 @@ camera:
 charging: Wired, Micro-USB
 network: GSM/EDGE 850/900/1800/1900, WCDMA 850/900/1700/1900/2100 (HSPA)
 simType: Mini-SIM
+imageCaption: A powered-on X7-00 showing its angular corners and metal edges. The clock and screen styling in this photograph do not demonstrate the factory Symbian Anna interface.
 ---
 
 X7-00 focused on entertainment, with a 4-inch AMOLED screen, stainless-steel body and distinctive angled corners. Preinstalled games reinforced that positioning. It was introduced alongside Symbian Anna, which brought new icons, a faster browser and portrait QWERTY input. Nokia planned to begin X7 sales in Q2 2011.
