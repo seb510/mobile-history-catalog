@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "processing": "WebP 90; resized within 1440×1440 without enlargement; no crop, retouch or AI",
+  "images": [
+    {
+      "slug": "nokia-n90",
+      "local": "/images/phones/nokia-n90/camera.webp",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/71/Nokia_N90_Camera_flickr_178946625.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nokia_N90_Camera_flickr_178946625.jpg",
+      "artist": "benkay",
+      "license": "CC BY-SA 2.0",
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "slug": "nokia-n90",
+      "local": "/images/phones/nokia-n90/open.webp",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Nokia_N90_Open_flickr_178946286.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nokia_N90_Open_flickr_178946286.jpg",
+      "artist": "benkay",
+      "license": "CC BY-SA 2.0",
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "slug": "nokia-8800",
+      "status": 429,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Nokia_8800.jpg"
+    }
+  ]
+}

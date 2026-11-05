@@ -19,17 +19,25 @@ dimensionsMm: "101 × 42 × 18 мм"
 weightGrams: 85
 colors: ["Блакитний «Arctic Blue»", "Сріблястий «Sterling Silver»"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Siemens_S55_with_IQP-500.jpg"
-imageCredit: "Фото: hdEATH, CC BY-SA 3.0 / GFDL, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_S55_with_IQP-500.jpg"
+image: /images/phones/siemens-s55/museum-front.webp
+imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/siemens-s55
+imageCaption: "Синьо-сріблястий S55: овальна рамка екрана, навігаційний блок і цифрова клавіатура. Камера QuickPic була окремим аксесуаром — її видно в наступному кадрі."
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Siemens_S55-7231.jpg/960px-Siemens_S55-7231.jpg
-    alt: Siemens S55
-    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+  - image: /images/phones/siemens-s55/commons-main.webp
+    alt: Siemens S55 поруч зі знімною камерою QuickPic IQP-500
+    caption: "Справжній кадр 2005 року: телефон і окрема камера QuickPic IQP-500 поруч. Камера не вбудована в корпус."
+    imageCredit: "Фото: hdEATH, CC BY-SA 3.0 / GFDL, через Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S55_with_IQP-500.jpg
+  - image: /images/phones/siemens-s55/commons-view-1.webp
+    alt: Siemens S55 спереду зі слідами користування та пошкодженими клавішами
+    caption: "Детальний фронтальний ракурс уживаного екземпляра: на корпусі видно знос, окремі клавіші пошкоджені."
+    imageCredit: "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S55-7231.jpg
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Siemens_S55-7232.jpg/960px-Siemens_S55-7232.jpg
-    alt: Siemens S55 з іншого ракурсу
-    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+  - image: /images/phones/siemens-s55/commons-view-2.webp
+    alt: Задня кришка Siemens S55
+    caption: "Задня сторона того самого вживаного екземпляра: форма кришки та матеріали корпуса."
+    imageCredit: "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_S55-7232.jpg
 ---
 

@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-05",
+  "processing": "WebP 90, source dimensions retained, no crop, retouch or AI",
+  "results": [
+    {
+      "slug": "siemens-s55",
+      "frame": 0,
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Siemens_S55_with_IQP-500.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Siemens_S55_with_IQP-500.jpg",
+      "credit": "Фото: hdEATH, CC BY-SA 3.0 / GFDL, через Wikimedia Commons",
+      "local": "/images/phones/siemens-s55/commons-main.webp",
+      "width": 800,
+      "height": 552,
+      "bytes": 73038
+    },
+    {
+      "slug": "siemens-s55",
+      "frame": 1,
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Siemens_S55-7231.jpg/960px-Siemens_S55-7231.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Siemens_S55-7231.jpg",
+      "credit": "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons",
+      "local": "/images/phones/siemens-s55/commons-view-1.webp",
+      "width": 960,
+      "height": 1440,
+      "bytes": 346040
+    },
+    {
+      "slug": "siemens-s55",
+      "frame": 2,
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Siemens_S55-7232.jpg/960px-Siemens_S55-7232.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Siemens_S55-7232.jpg",
+      "credit": "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons",
+      "local": "/images/phones/siemens-s55/commons-view-2.webp",
+      "width": 960,
+      "height": 1517,
+      "bytes": 298388
+    },
+    {
+      "slug": "siemens-s65",
+      "frame": 0,
+      "status": 429,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Siemens_S65.JPG"
+    }
+  ]
+}

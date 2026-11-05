@@ -89,3 +89,8 @@ Model source: https://www.mobilephonemuseum.com/phone-detail/3250
 | museum-side.webp | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/edf0c0a3-7f69-415f-8bf3-f895413cc8aa_large.png |
 
 400 × 600 originals, quality-90 WebP, no resize, crop, retouching or AI. Fourth frame three-modes.webp is Nanami Kamimura’s existing composite, CC BY-SA 3.0, source https://commons.wikimedia.org/wiki/File:Nokia_3250.JPG and original https://upload.wikimedia.org/wikipedia/commons/b/b9/Nokia_3250.JPG (726 × 327), same conversion. All captions and credits synchronized uk/ru/en; technical data unchanged.
+
+
+## Siemens S55 — 2026-11-05
+
+Main image: public/images/phones/siemens-s55/museum-front.webp. Model source: https://www.mobilephonemuseum.com/phone-detail/siemens-s55 . Original: https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/48a40af7-0c25-4746-848f-4fc0a5827528_large.png . Downloaded 400 × 600; WebP 90 with transparency and dimensions preserved, no cropping, retouching, upscaling or AI. Used as fallback because the detailed Commons front view has damaged keys and the accessory photograph is less suitable for the cover. The three independent Commons photographs remain in the gallery with their own authors, licenses and source links. Museum credit is visible on detail/gallery/lightbox under the established permission and presentation rules.
