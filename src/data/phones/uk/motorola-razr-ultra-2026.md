@@ -9,6 +9,10 @@ battery: {"mah":5000,"removable":false}
 colors: ["PANTONE Orient Blue","PANTONE Cocoa"]
 milestone: "Новий жест RAZR: складаний екран, Alcantara й дерев’яний шпон"
 camera: {"rear":"50 Мп основна OIS + 50 Мп надширококутна / Macro Vision"}
+image: /images/phones/motorola-razr-ultra-2026/commons-back.webp
+imageCredit: "Maksdroider, CC BY 4.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Razr_70_Ultra_back.jpg
+imageCaption: "Задня панель razr ultra (міжнародна razr 70 ultra) у кольорі PANTONE Orient Blue з текстурою Alcantara."
 ---
 
 razr ultra повертає компактний жест розкладачки у сенсорну епоху. У закритому стані зовнішній чотиридюймовий екран дозволяє відповідати й працювати з програмами; всередині розкривається семидюймовий дисплей.

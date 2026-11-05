@@ -9,6 +9,10 @@ battery: {"mah":5000,"removable":false}
 colors: ["PANTONE Orient Blue","PANTONE Cocoa"]
 milestone: "A new RAZR gesture with a folding display, Alcantara and wood veneer"
 camera: {"rear":"50 MP main OIS + 50 MP ultrawide / Macro Vision"}
+image: /images/phones/motorola-razr-ultra-2026/commons-back.webp
+imageCredit: "Maksdroider, CC BY 4.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Razr_70_Ultra_back.jpg
+imageCaption: "The razr ultra's back panel (sold internationally as the razr 70 ultra) in PANTONE Orient Blue with its Alcantara texture."
 ---
 
 razr ultra brings the compact flip gesture into the touchscreen era. Its four-inch cover screen runs apps while closed; a seven-inch display opens inside.

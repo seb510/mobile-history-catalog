@@ -886,3 +886,21 @@ Motorola C350 — головне фото замінено з Commons (iTAP-ск
 canonical URL, indexing disabled. Усі нові WebP конвертовані через sharp, quality 90, без
 кадрування/ретуші/масштабування понад вихідний розмір джерела. Push і коміт — за запитом
 користувача.
+
+## Фото для решти каталогу без зображень — 2026-11-05
+
+З 4 моделей усього каталогу без фото (Samsung SGH-E700, HTC U24 pro, Huawei Mate XT 2, Motorola
+razr ultra 2026) знайдено одне: Motorola razr ultra 2026 має вільне CC BY 4.0 фото на Wikimedia
+Commons (`Motorola_Razr_70_Ultra_back.jpg`, Maksdroider, червень 2026) — знято на виставковому
+стенді (сигналізаційна бирка на корпусі), показує синю панель Alcantara (PANTONE Orient Blue), що
+збігається з описом у тексті запису. Додано як головне фото в uk/ru/en, WebP без масштабування
+(джерело вже ≤1440px).
+
+Решта три підтверджені відсутніми повторно: Samsung SGH-E700 (сторінка музею існує, але всі
+image-поля в обох product-записах null — перевірено напряму через `_next/data` API), HTC U24 pro й
+Huawei Mate XT 2 — ні на Commons (лише лого/нерелевантні файли), ні в музеї (сторінок немає). Mate
+XT 2 не плутати з оригінальним Mate XT (2024) — для того є ціла категорія Commons, але це інша
+модель, не наш каталожний запис.
+
+Перевірка: `astro check` — 0 errors/0 warnings; `npm run build` — 378 сторінок; `audit:seo` — 239
+canonical URL. Push і коміт — за запитом користувача.
