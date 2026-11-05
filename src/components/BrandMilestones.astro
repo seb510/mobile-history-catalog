@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { localePath, type Locale } from '../lib/locales';
+import { slugOf } from '../lib/phones';
+import { BRAND_EDITION, BRAND_PAGE, BRAND_ROUTES } from '../lib/brand-editorial';
+
+interface Props { name: string; phones: CollectionEntry<'phones'>[]; locale: Locale }
+const { name, phones, locale } = Astro.props;
+const copy = BRAND_PAGE[locale];
+const siemens = name === 'Siemens' ? BRAND_EDITION[locale].siemens : null;
+const timeline = (BRAND_ROUTES[name] ?? []).flatMap(slug => {
+  const phone = phones.find(phone => slugOf(phone) === slug);
+  return phone ? [phone] : [];
+});
+const pairSlugs = name === 'Siemens' ? ['siemens-a65', 'siemens-sxg75'] : [timeline[0] && slugOf(timeline[0]), timeline.at(-1) && slugOf(timeline.at(-1)!)];
+const pair = pairSlugs.flatMap(slug => { const phone = phones.find(p => slugOf(p) === slug); return phone ? [phone] : []; });
+---
+{timeline.length > 1 && <section class="brand-milestones" aria-labelledby="brand-timeline">
+  <div class="mb-6 grid gap-3 lg:grid-cols-2 lg:items-end">
+    <h2 id="brand-timeline" class="text-2xl font-bold tracking-tight sm:text-3xl">{siemens?.timeline ?? copy.timeline}</h2>
+    <p class="text-sm leading-relaxed text-neutral-400">{siemens?.timelineIntro ?? copy.timelineIntro}</p>
+  </div>
+  <ol class:list={['grid gap-4 sm:grid-cols-2', timeline.length > 2 && 'lg:grid-cols-4']}>
+    {timeline.map((phone, index) => <li class="min-w-0">
+      <a class="brand-milestone editorial-card flex h-full flex-col border-t-2 border-neutral-700 py-4 motion-ui" href={localePath(locale, `/phones/${slugOf(phone)}/`)}>
+        <p class="text-3xl font-extrabold tabular-nums text-neutral-500">{phone.data.year}</p>
+        <h3 class="card-title mt-3 flex min-h-11 items-center justify-between gap-3 text-lg font-bold">{phone.data.model}<span class="text-sm text-orange-500" aria-hidden="true">→</span></h3>
+        <p class="mt-1 text-sm leading-relaxed text-neutral-400">{siemens?.events[index] ?? phone.data.milestone}</p>
+      </a>
+    </li>)}
+  </ol>
+  {pair.length === 2 && <aside class="mt-7 grid gap-4 border border-neutral-700 bg-neutral-900 p-5 lg:grid-cols-[1fr_auto] lg:items-center">
+    <div>
+      <p class="editorial-kicker mb-2 text-orange-500">{pair[0].data.model} / {pair[1].data.model}</p>
+      <h3 class="text-xl font-bold">{siemens?.compare ?? copy.compare}</h3>
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">{siemens?.compareText ?? copy.compareIntro}</p>
+    </div>
+    <a class="inline-flex min-h-11 items-center justify-between gap-5 border border-neutral-600 px-4 py-3 text-sm font-semibold motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(pair[0])}&b=${slugOf(pair[1])}`)}>{siemens?.compareAction ?? copy.compareAction}<span aria-hidden="true">→</span></a>
+  </aside>}
+</section>}
+<style>
+  .brand-milestones { margin-top: 2.5rem; border-top: 1px solid var(--color-neutral-800); padding-top: 2rem; }
+  a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
+</style>

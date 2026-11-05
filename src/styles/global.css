@@ -205,10 +205,12 @@
   letter-spacing: -.02em;
 }
 .cover-year { font-size: clamp(3.5rem, 8vw, 6rem); line-height: .85; letter-spacing: -.07em; }
-.editorial-card .card-copy { transition: background-color var(--motion-ui) var(--motion-easing); }
+.editorial-card { transition: border-color var(--motion-ui) var(--motion-easing); }
+.editorial-card .card-title { transition: color var(--motion-ui) var(--motion-easing); }
 @media (hover: hover) and (pointer: fine) {
   .primary-cta:hover { background-color: var(--color-orange-400); }
-  .editorial-card:hover .card-copy { background-color: color-mix(in srgb, var(--color-neutral-800) 55%, var(--color-neutral-900)); }
+  .editorial-card:hover { border-color: var(--color-orange-500); }
+  .editorial-card:hover .card-title { color: var(--color-orange-500); }
 }
 .catalog-card .phone-card-art { aspect-ratio: 8 / 5; padding: .875rem; }
 .catalog-card .card-copy { min-height: 8rem; padding: .875rem; }

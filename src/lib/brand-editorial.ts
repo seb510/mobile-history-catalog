@@ -39,6 +39,24 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
 
 export const SIEMENS_TIMELINE = ['siemens-s55', 'siemens-sl55', 'siemens-sk65', 'siemens-sxg75'] as const;
 
+export const BRAND_ROUTES: Record<string, readonly string[]> = {
+  Apple: ['apple-iphone', 'apple-iphone-12'],
+  Google: ['google-pixel', 'google-pixel-6', 'google-pixel-8', 'google-pixel-9'],
+  HTC: ['htc-dream'],
+  Huawei: ['huawei-mate-xt'],
+  Motorola: ['motorola-v66', 'motorola-razr-v3', 'motorola-pebl-u6', 'motorola-rokr-e1'],
+  Nokia: ['nokia-3310', 'nokia-7610', 'nokia-n95', 'nokia-n8'],
+  Samsung: ['samsung-sgh-e700', 'samsung-sgh-d500', 'samsung-sgh-u600', 'samsung-galaxy-fold'],
+  Siemens: SIEMENS_TIMELINE,
+  'Sony Ericsson': ['sony-ericsson-t68i', 'sony-ericsson-s700i', 'sony-ericsson-w800i', 'sony-ericsson-k800i'],
+};
+
+export const BRAND_PAGE = {
+  uk: { about: 'Про виробника', selection: 'У нашому архіві', range: 'Охоплення добірки', forms: 'Форми корпуса', first: 'Перший рік у добірці', last: 'Останній рік у добірці', all: 'Усі моделі', timeline: 'Характер у різні роки', timelineIntro: 'Кілька епізодів із представлених моделей — не повна історія виробника.', compare: 'Два погляди одного бренду', compareIntro: 'Різні форми та можливості. Подивись, як змінювався досвід користування.', compareAction: 'Порівняти моделі', collection: 'Моделі в архіві', collectionIntro: 'Усі представлені телефони бренду, впорядковані за роком анонсу.' },
+  ru: { about: 'О производителе', selection: 'В нашем архиве', range: 'Охват подборки', forms: 'Формы корпуса', first: 'Первый год в подборке', last: 'Последний год в подборке', all: 'Все модели', timeline: 'Характер в разные годы', timelineIntro: 'Несколько эпизодов из представленных моделей, а не полная история производителя.', compare: 'Два взгляда одного бренда', compareIntro: 'Разные формы и возможности. Посмотри, как менялся опыт использования.', compareAction: 'Сравнить модели', collection: 'Модели в архиве', collectionIntro: 'Все представленные телефоны бренда, по году анонса.' },
+  en: { about: 'About the manufacturer', selection: 'In our archive', range: 'Selection coverage', forms: 'Body designs', first: 'Earliest year in the selection', last: 'Latest year in the selection', all: 'All models', timeline: 'Character through the years', timelineIntro: 'A few episodes from the phones in our selection, rather than a complete company history.', compare: 'Two approaches, one brand', compareIntro: 'Different shapes and capabilities. Explore how the experience of using a phone changed.', compareAction: 'Compare the models', collection: 'Models in the archive', collectionIntro: 'Every phone from this brand in the archive, ordered by announcement year.' },
+} as const;
+
 export const BRAND_EDITION = {
   uk: {
     archiveYears: 'Роки в архіві', open: 'Дослідити бренд',
