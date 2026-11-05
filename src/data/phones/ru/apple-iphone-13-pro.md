@@ -2,6 +2,7 @@
 brand: Apple
 model: iPhone 13 Pro
 year: 2021
+dateAdded: "2026-11-05"
 formFactor: candybar
 milestone: "ProMotion 120 Гц приходит в Pro-линейку iPhone"
 priceUsdAtLaunch: 999

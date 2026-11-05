@@ -45,6 +45,18 @@ export async function getAllSlugs(): Promise<string[]> {
   return [...slugs];
 }
 
+const NEW_BADGE_WINDOW_MS = 14 * 24 * 60 * 60 * 1000;
+
+// Whether a phone's `dateAdded` falls within the "Нове" badge window — a couple of weeks from
+// curation, not from the phone's release year. Static build, so "now" is build time; a site that
+// isn't rebuilt for 14+ days just keeps showing it a little longer, which is fine for this scale.
+export function isRecentlyAdded(dateAdded: string | undefined): boolean {
+  if (!dateAdded) return false;
+  const added = new Date(dateAdded).getTime();
+  if (Number.isNaN(added)) return false;
+  return Date.now() - added < NEW_BADGE_WINDOW_MS;
+}
+
 // Single phone, following the fallback chain for `locale`. Returns null if even the uk file
 // (which every phone must have) is missing — meaning the slug doesn't exist at all.
 export async function getPhone(locale: Locale, slug: string): Promise<PhoneEntry | null> {

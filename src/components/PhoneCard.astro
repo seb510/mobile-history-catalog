@@ -2,7 +2,7 @@
 import PlaceholderArt from './PlaceholderArt.astro';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
-import { slugOf } from '../lib/phones';
+import { slugOf, isRecentlyAdded } from '../lib/phones';
 import { t } from '../lib/ui-strings';
 
 interface Props {
@@ -16,6 +16,7 @@ const { phone, locale, badge, compact = false } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const slug = slugOf(phone);
+const isNew = isRecentlyAdded(data.dateAdded);
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 ---
 
@@ -41,9 +42,13 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     ) : (
       <PlaceholderArt class="h-full w-full text-neutral-600" />
     )}
-    {badge && (
+    {badge ? (
       <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold text-neutral-950">
         {badge}
+      </span>
+    ) : isNew && (
+      <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-neutral-950">
+        {strings.newBadge}
       </span>
     )}
   </div>

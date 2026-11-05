@@ -15,9 +15,15 @@ simType: "Mini-SIM"
 dimensionsMm: "101 × 42 × 19 мм"
 weightGrams: 80
 os: "власна (Motorola)"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ITap_on_Motorola_C350.jpg/960px-ITap_on_Motorola_C350.jpg"
-imageCredit: "Фото: Grawity, CC BY-SA 3.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:ITap_on_Motorola_C350.jpg"
+image: "/images/phones/motorola-c350/own-kyivstar.webp"
+imageCredit: "Фото: особистий архів"
+imageCaption: "Увімкнений C350 із зареєстрованою SIM-карткою оператора Kyivstar."
+gallery:
+  - image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ITap_on_Motorola_C350.jpg/960px-ITap_on_Motorola_C350.jpg"
+    alt: "Екран Motorola C350 з увімкненим предиктивним набором iTAP."
+    caption: "Предиктивний набір тексту iTAP на екрані."
+    imageCredit: "Фото: Grawity, CC BY-SA 3.0, через Wikimedia Commons"
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:ITap_on_Motorola_C350.jpg"
 ---
 
 C350 представляє повсякденний бік мобільної історії 2003 року: невеликий кольоровий екран, фізична клавіатура та увага до повідомлень. Зовнішність можна було змінювати — інструкція Motorola окремо пояснює заміну панелей і клавіатури. Персоналізація починалася з самого корпусу, а не лише із заставки на екрані.

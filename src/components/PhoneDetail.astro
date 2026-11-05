@@ -4,7 +4,7 @@ import { render, type CollectionEntry } from 'astro:content';
 import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, SPEC_VARIANT_NOTE, GALLERY_INTERACTION } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 import { PHONE_EDITORIAL, PHONE_EDITORIAL_LABELS } from '../lib/phone-editorial';
-import { getPhonesForLocale, slugOf } from '../lib/phones';
+import { getPhonesForLocale, slugOf, isRecentlyAdded } from '../lib/phones';
 import { buildCompareGroups } from '../lib/specs';
 import { slugifyBrandName } from '../lib/brands';
 import { museumImageCredit } from '../lib/image-attribution';
@@ -17,6 +17,7 @@ interface Props {
 const { phone, locale } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
+const isNew = isRecentlyAdded(data.dateAdded);
 const galleryCopy = GALLERY_INTERACTION[locale];
 const editorial = DESIGN_EDITORIAL[locale];
 const s = strings.specs;
@@ -50,6 +51,7 @@ const related = allPhones
   <div class="min-w-0">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
       <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-orange-500 hover-desktop:text-orange-400">{data.brand}</a>
+      {isNew && <span class="rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-neutral-950">{strings.newBadge}</span>}
       <button
         type="button"
         data-favorite-toggle

@@ -21,6 +21,10 @@ const phoneSchema = z.object({
     priceUsdAtLaunch: z.number().optional(),
     priceSourceUrl: z.string().url().optional(),
     priceContext: z.string().optional(),
+    // When this entry was added to the catalog (not the phone's release year) — powers the
+    // "Нове" badge for a couple of weeks after curation. Set only on freshly added entries;
+    // omit once the badge window has passed rather than leaving a stale date around.
+    dateAdded: z.string().date().optional(),
     // Approximate global units sold, in millions — only documented for a handful of genuine
     // best-sellers (3310, RAZR V3, the original iPhone...). Powers the "most popular by sales"
     // section on the homepage; phones without a disclosed figure simply don't appear there.
@@ -72,7 +76,10 @@ const phoneSchema = z.object({
           image: z.string(),
           alt: z.string(),
           imageCredit: z.string(),
-          imageSourceUrl: z.string(),
+          // Optional, unlike the top-level field's comment implies for Commons sourcing — an
+          // owner-submitted personal photo has no external page to link, and the gallery credit
+          // template already renders plain text when this is absent (see PhoneDetail.astro).
+          imageSourceUrl: z.string().optional(),
           caption: z.string().optional(),
         }),
       )

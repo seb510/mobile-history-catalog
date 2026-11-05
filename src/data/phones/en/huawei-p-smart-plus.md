@@ -2,6 +2,7 @@
 brand: Huawei
 model: P smart+
 year: 2018
+dateAdded: "2026-11-05"
 formFactor: candybar
 milestone: "The European name for the Nova 3i: dual cameras in a budget phone"
 display:
@@ -26,6 +27,14 @@ dimensionsMm: "157.6 × 75.2 × 7.6 mm"
 weightGrams: 169
 colors: ["Black", "Iris Purple"]
 simType: "Dual SIM (hybrid slot with microSD)"
+image: /images/phones/huawei-p-smart-plus/press-purple.webp
+imageCredit: "Official Huawei press render of the Nova 3i (the same device under its Asian name)"
+imageCaption: "Nova 3i / P smart+ in Iris Purple: back and front panels."
+gallery:
+  - image: /images/phones/huawei-p-smart-plus/press-black.webp
+    alt: "Huawei Nova 3i / P smart+ in black, official press render."
+    caption: "The same device in black."
+    imageCredit: "Official Huawei press render of the Nova 3i (the same device under its Asian name)"
 ---
 
 The P smart+ was the European name for a phone sold in Asia and the Middle East as the Huawei
@@ -39,5 +48,9 @@ camera. At launch, that was a notable set of capabilities for a mid-range phone.
 
 European sales opened at roughly €299. No separate USD price was officially announced, since the
 launch price was only given in euros for the European market.
+
+The photo is an official Huawei marketing render issued under the Asian name Nova 3i; since it's
+the same hardware as the P smart+, it correctly depicts the device, just under its other market
+name.
 
 Sources: [HuaweiCentral — European P Smart+ announcement for August 2](https://www.huaweicentral.com/huawei-nova-3i-will-be-launched-as-huawei-p-smart-plus-in-europe-will-be-unveiled-on-aug-2/), [Notebookcheck — Huawei P Smart Plus (2018) review](https://www.notebookcheck.net/Huawei-P-Smart-Plus-2018-Smartphone-Review.402551.0.html), [GSMArena — Huawei P Smart+ is the Nova 3i for the European market](https://m.gsmarena.com/huawei_p_smart_is_the_nova_3i_for_the_european_market-news-32649.php).

@@ -2,6 +2,7 @@
 brand: Apple
 model: iPhone 13 Pro
 year: 2021
+dateAdded: "2026-11-05"
 formFactor: candybar
 milestone: "ProMotion's 120Hz display reaches the Pro iPhone line"
 priceUsdAtLaunch: 999

@@ -7,6 +7,7 @@ export const UI = {
   uk: {
     siteName: 'Мобільна Історія',
     brandLine: 'Телефони з характером',
+    newBadge: 'Нове',
     tagline: 'Ретро-телефони з характером: незвичні форми, справжні кнопки й історії речей, які хотілося тримати в руках.',
     breadcrumbs: { label: 'Навігаційний ланцюжок', home: 'Головна' },
     nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', favorites: 'Обране', about: 'Про проєкт' },
@@ -172,6 +173,7 @@ export const UI = {
   ru: {
     siteName: 'Мобильная История',
     brandLine: 'Телефоны с характером',
+    newBadge: 'Новое',
     tagline: 'Ретро-телефоны с характером: необычные формы, настоящие кнопки и истории вещей, которые хотелось держать в руках.',
     breadcrumbs: { label: 'Навигационная цепочка', home: 'Главная' },
     nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', favorites: 'Избранное', about: 'О проекте' },
@@ -337,6 +339,7 @@ export const UI = {
   en: {
     siteName: 'Mobile History',
     brandLine: 'Phones with character',
+    newBadge: 'New',
     tagline: 'Retro phones with character: distinctive shapes, real buttons and the stories of objects you wanted to hold.',
     breadcrumbs: { label: 'Breadcrumb', home: 'Home' },
     nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', favorites: 'Favorites', about: 'About' },

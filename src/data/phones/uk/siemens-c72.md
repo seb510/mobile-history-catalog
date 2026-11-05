@@ -2,6 +2,7 @@
 brand: Siemens
 model: C72
 year: 2005
+dateAdded: "2026-11-05"
 formFactor: candybar
 milestone: Бюджетний наступник C65 з вбудованою VGA-камерою
 display: {"resolution":"128 × 128 px","type":"CSTN, 65K кольорів"}

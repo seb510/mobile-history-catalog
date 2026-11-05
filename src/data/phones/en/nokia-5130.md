@@ -2,6 +2,7 @@
 brand: Nokia
 model: 5130 XpressMusic
 year: 2009
+dateAdded: "2026-11-05"
 formFactor: candybar
 milestone: "A budget XpressMusic candybar with dedicated player keys"
 display: {"sizeInches":2,"resolution":"240 × 320 px"}
@@ -17,6 +18,17 @@ simType: "Mini-SIM"
 image: /images/phones/nokia-5130/commons-front.webp
 imageCredit: "Niklas Bildhauer (Gerolsteiner91), CC BY-SA 3.0, Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5130XpressMusic.jpg
+gallery:
+  - image: /images/phones/nokia-5130/museum-back.webp
+    alt: "The back cover of the Nokia 5130 XpressMusic, with its 2-megapixel camera."
+    caption: "The back cover of the Nokia 5130 XpressMusic, with its 2-megapixel camera."
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5130-xpressmusic
+  - image: /images/phones/nokia-5130/museum-side.webp
+    alt: "The side edge with dedicated music player control keys."
+    caption: "The side edge with dedicated music player control keys."
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5130-xpressmusic
 ---
 
 The 5130 XpressMusic is a budget entry in Nokia's music sub-brand: dedicated player keys (play/pause, track skip) sit below the screen, and two built-in loudspeakers let you listen without headphones. It's the same idea as the XpressMusic flagships, just in a plain candybar body with no slider or swivel mechanism.

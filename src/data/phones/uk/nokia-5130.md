@@ -2,6 +2,7 @@
 brand: Nokia
 model: 5130 XpressMusic
 year: 2009
+dateAdded: "2026-11-05"
 formFactor: candybar
 milestone: "Бюджетний моноблок XpressMusic із виділеними клавішами плеєра"
 display: {"sizeInches":2,"resolution":"240 × 320 px"}
@@ -17,6 +18,17 @@ simType: "Mini-SIM"
 image: /images/phones/nokia-5130/commons-front.webp
 imageCredit: "Niklas Bildhauer (Gerolsteiner91), CC BY-SA 3.0, Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5130XpressMusic.jpg
+gallery:
+  - image: /images/phones/nokia-5130/museum-back.webp
+    alt: "Задня кришка Nokia 5130 XpressMusic із 2-мегапіксельною камерою."
+    caption: "Задня кришка Nokia 5130 XpressMusic із 2-мегапіксельною камерою."
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5130-xpressmusic
+  - image: /images/phones/nokia-5130/museum-side.webp
+    alt: "Бічна грань із виділеними клавішами керування музичним плеєром."
+    caption: "Бічна грань із виділеними клавішами керування музичним плеєром."
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5130-xpressmusic
 ---
 
 5130 XpressMusic — бюджетний представник музичного суббренду Nokia: під екраном розміщені окремі виділені клавіші керування плеєром (пуск/пауза, перемикання треків), а два вбудовані динаміки дозволяють слухати музику без навушників. Це той самий принцип, що й у флагманів XpressMusic, але в простому моноблоковому корпусі без слайдера чи поворотного механізму.
