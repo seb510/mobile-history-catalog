@@ -71,6 +71,9 @@
 .global-search-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .625rem; }
 .global-search-panel { position: absolute; inset: 100% 0 auto; z-index: 60; max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--color-neutral-800); border-bottom: 1px solid var(--color-neutral-700); background: var(--color-neutral-950); box-shadow: 0 16px 40px #0006; }
 .global-search-panel[hidden] { display: none; }
+.search-backdrop { position: fixed; inset: 0; z-index: 40; background: #0007; }
+.search-backdrop[hidden], .search-control-face svg[hidden] { display: none; }
+.global-search-all { display: flex; min-height: 2.75rem; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .75rem; border-top: 1px solid var(--color-neutral-700); padding-top: .5rem; color: var(--color-orange-500); font-size: .875rem; font-weight: 600; }
 .global-search-input { width: 100%; min-width: 0; min-height: 2.75rem; border: 1px solid var(--color-neutral-700); border-radius: 2px; background: var(--color-neutral-900); padding: .625rem .75rem; color: var(--color-neutral-100); font-size: 1rem; }
 .global-search-input::placeholder { color: var(--color-neutral-500); }
 .global-search-input:focus { border-color: var(--color-orange-500); outline: none; }
@@ -235,7 +238,10 @@ html[data-header-hidden="true"] .catalog-position { top: 0; }
 .compare-action-icon svg { flex-shrink: 0; }
 .compare-change { min-height: 2.75rem; }
 .compare-selected { display: flex; flex-direction: column; min-width: 0; }
-.compare-selected > div { flex: 1; }
+.compare-selected > div:not(.compare-slot-footer) { flex: 1; }
+.compare-slot-footer { flex: none; display: grid; grid-template-rows: 2.75rem auto; align-items: start; border-top: 1px solid var(--color-neutral-700); padding-top: .25rem; }
+.compare-slot-footer .compare-change { justify-self: start; text-align: left; }
+.compare-slot-credit { display: flex; align-items: flex-start; min-height: 2rem; overflow-wrap: anywhere; }
 .compare-selected > div > a { flex: 1; }
 .compare-slot-image { width: 6rem; height: 8rem; }
 .compare-summary summary::marker { color: var(--color-orange-500); }

@@ -18,7 +18,7 @@ colors:
 dimensionsMm: 113 × 48 × 22 мм
 weightGrams: 133
 os: Собственная платформа Nokia (не Symbian)
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/European_Nokia_3310.jpg/960px-European_Nokia_3310.jpg
+image: /images/phones/nokia-3310/commons-main.webp
 imageCredit: "Фото: BosnaIHercegovinaYT, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:European_Nokia_3310.jpg
 gallery:

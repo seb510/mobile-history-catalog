@@ -22,9 +22,10 @@ os: "власна (Motorola P2K)"
 dimensionsMm: "98 × 53 × 13.9 мм"
 weightGrams: 100
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Motorola_RAZR_V3i_01.JPG/960px-Motorola_RAZR_V3i_01.JPG"
+image: "/images/phones/motorola-razr-v3i/commons-main.webp"
 imageCredit: "Фото: OptoScalpel, суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3i_01.JPG"
+imageCaption: "Відкритий RAZR V3i збоку: тонка кришка, підсвічена пласка клавіатура та шарнір розкладачки."
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Motorola_RAZR_V3i_02.JPG/960px-Motorola_RAZR_V3i_02.JPG
     alt: Телефон Motorola RAZR V3i

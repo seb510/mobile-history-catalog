@@ -138,6 +138,8 @@ function initializeGlobalSearch(root: HTMLElement): void {
   const status = root.querySelector<HTMLElement>('[data-search-status]');
   const suggestionsRegion = root.querySelector<HTMLElement>('[data-suggestions-region]');
   const suggestions = root.querySelector<HTMLUListElement>('[data-search-suggestions]');
+  const allResults = root.querySelector<HTMLAnchorElement>('[data-search-all]');
+  const backdrop = document.querySelector<HTMLElement>('[data-search-backdrop]');
   const locale = root.dataset.locale as Locale | undefined;
   if (!toggle || !panel || !form || !input || !status || !suggestionsRegion || !suggestions || !locale) return;
 
@@ -148,12 +150,25 @@ function initializeGlobalSearch(root: HTMLElement): void {
       if (menuToggle?.getAttribute('aria-expanded') === 'true') menuToggle.click();
     }
     panel.hidden = !open;
+    if (backdrop) backdrop.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
+    const label = open ? toggle.dataset.labelClose : toggle.dataset.labelOpen;
+    if (label) {
+      toggle.setAttribute('aria-label', label);
+      toggle.title = label;
+      const text = toggle.querySelector('.sr-only');
+      if (text) text.textContent = label;
+    }
+    root.querySelector('[data-search-icon]')?.classList.toggle('hidden', open);
+    root.querySelector('[data-search-close-icon]')?.classList.toggle('hidden', !open);
     toggle.classList.toggle('is-open', open);
     if (open && !wasOpen) input.focus();
   };
 
   toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  root.addEventListener('focusout', (event) => {
+    if (event.relatedTarget instanceof Node && !root.contains(event.relatedTarget)) setOpen(false);
+  });
   document.addEventListener('pointerdown', (event) => {
     if (event.target instanceof Node && !root.contains(event.target)) setOpen(false);
   });
@@ -189,6 +204,11 @@ function initializeGlobalSearch(root: HTMLElement): void {
           ? countMessage(input, matches.length, locale)
           : input.dataset.noResults ?? '';
         if (!matches.length) return;
+        if (allResults) {
+          const url = new URL(form.action);
+          url.searchParams.set('q', query);
+          allResults.href = url.toString();
+        }
         suggestionsRegion.hidden = false;
         matches.slice(0, 5).forEach((phone) => {
           const item = document.createElement('li');

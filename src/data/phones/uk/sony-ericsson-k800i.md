@@ -23,9 +23,10 @@ dimensionsMm: "106 × 47 × 18 мм"
 weightGrams: 115
 colors: ["Velvet Black"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/K800i-front.jpg/960px-K800i-front.jpg"
+image: "/images/phones/sony-ericsson-k800i/commons-main.webp"
 imageCredit: "Фото: Asim18, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:K800i-front.jpg"
+imageCaption: "Чорний K800i у фронтальному ракурсі: цифрова клавіатура, джойстик і окремі кнопки під екраном. Екран вимкнений."
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Backside_of_Sony_Ericsson_K800i_with_closed_camera_case.jpg/960px-Backside_of_Sony_Ericsson_K800i_with_closed_camera_case.jpg
     alt: Задня панель Sony Ericsson K800i із закритою кришкою камери

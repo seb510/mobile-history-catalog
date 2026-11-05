@@ -19,9 +19,10 @@ dimensionsMm: "103 × 44 × 20 мм"
 weightGrams: 97
 colors: ["Сріблястий", "Графітовий"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nokia_6230_%28Graphite%29_-_Front.jpg/960px-Nokia_6230_%28Graphite%29_-_Front.jpg"
+image: "/images/phones/nokia-6230/commons-main.webp"
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_6230_(Graphite)_-_Front.jpg"
+imageCaption: "Nokia 6230 у руці з увімкненим екраном. На дисплеї видно операторське оформлення IDEA; це конкретний екземпляр, а не універсальне оформлення моделі."
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Nokia_6230_%282003%29.jpg/960px-Nokia_6230_%282003%29.jpg
     alt: Телефон Nokia 6230 2003 року

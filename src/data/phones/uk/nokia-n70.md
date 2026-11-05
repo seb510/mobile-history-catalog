@@ -23,9 +23,10 @@ os: "Symbian OS 8.1a, Series 60 2nd Edition FP3"
 dimensionsMm: "108.8 × 53 × 21.8 мм"
 weightGrams: 126
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Nokia_N70_2.jpg/960px-Nokia_N70_2.jpg"
+image: "/images/phones/nokia-n70/commons-main.webp"
 imageCredit: "Фото: Dhn610, суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_N70_2.jpg"
+imageCaption: "Nokia N70 у руці з увімкненим екраном і підсвіченими клавішами. На корпусі цього екземпляра є брендування Vodafone."
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nokia_N70.JPG/960px-Nokia_N70.JPG
     alt: Телефон Nokia N70

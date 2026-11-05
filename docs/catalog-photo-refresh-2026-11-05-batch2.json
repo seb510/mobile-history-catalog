@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-05",
+  "processing": "WebP quality 90, original dimensions, no crop, retouch or AI; original attribution retained",
+  "results": [
+    {
+      "slug": "sony-ericsson-w810i",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sony_Ericsson_W810i-2177.jpg/960px-Sony_Ericsson_W810i-2177.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2177.jpg",
+      "credit": "Фото: Raimond Spekking, CC BY-SA 4.0, через Wikimedia Commons",
+      "local": "/images/phones/sony-ericsson-w810i/commons-main.webp",
+      "width": 960,
+      "height": 540,
+      "bytes": 52878,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "sony-ericsson-k800i",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/K800i-front.jpg/960px-K800i-front.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:K800i-front.jpg",
+      "credit": "Фото: Asim18, CC BY-SA 3.0, через Wikimedia Commons",
+      "local": "/images/phones/sony-ericsson-k800i/commons-main.webp",
+      "width": 960,
+      "height": 1440,
+      "bytes": 101826,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "motorola-razr-v3i",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Motorola_RAZR_V3i_01.JPG/960px-Motorola_RAZR_V3i_01.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3i_01.JPG",
+      "credit": "Фото: OptoScalpel, суспільне надбання, через Wikimedia Commons",
+      "local": "/images/phones/motorola-razr-v3i/commons-main.webp",
+      "width": 960,
+      "height": 720,
+      "bytes": 111780,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "siemens-m65",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Siemens_M65.jpg/960px-Siemens_M65.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Siemens_M65.jpg",
+      "credit": "Фото: Monoklon, CC BY-SA 3.0, через Wikimedia Commons",
+      "local": "/images/phones/siemens-m65/commons-main.webp",
+      "width": 960,
+      "height": 1977,
+      "bytes": 491606,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "nokia-6230",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nokia_6230_%28Graphite%29_-_Front.jpg/960px-Nokia_6230_%28Graphite%29_-_Front.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nokia_6230_(Graphite)_-_Front.jpg",
+      "credit": "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons",
+      "local": "/images/phones/nokia-6230/commons-main.webp",
+      "width": 960,
+      "height": 1282,
+      "bytes": 341478,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "nokia-n70",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Nokia_N70_2.jpg/960px-Nokia_N70_2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nokia_N70_2.jpg",
+      "credit": "Фото: Dhn610, суспільне надбання, через Wikimedia Commons",
+      "local": "/images/phones/nokia-n70/commons-main.webp",
+      "width": 960,
+      "height": 720,
+      "bytes": 145256,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "samsung-sgh-d500",
+      "status": 429
+    }
+  ]
+}

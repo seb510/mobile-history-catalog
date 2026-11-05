@@ -21,18 +21,21 @@ os: "власна (Sony Ericsson)"
 dimensionsMm: "100 × 46 × 19.5 мм"
 weightGrams: 99
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sony_Ericsson_W810i-2177.jpg/960px-Sony_Ericsson_W810i-2177.jpg"
-imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2177.jpg"
+image: /images/phones/sony-ericsson-w810i/front.webp
+imageCredit: "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2172.jpg
+imageCaption: "Обличчя Walkman: помаранчева музична клавіша, круглий навігаційний блок і цифрова клавіатура. На справжньому екземплярі видно сліди користування; екран вимкнений."
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Sony_Ericsson_W810i-2172.jpg/960px-Sony_Ericsson_W810i-2172.jpg
-    alt: Телефон Sony Ericsson W810i
-    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2172.jpg
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Sony_Ericsson_W810i-2173.jpg/960px-Sony_Ericsson_W810i-2173.jpg
-    alt: Sony Ericsson W810i з іншого ракурсу
-    imageCredit: "Фото: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons"
+  - image: /images/phones/sony-ericsson-w810i/back.webp
+    alt: Задня сторона Sony Ericsson W810i з камерою та логотипом Walkman
+    caption: "Камерний бік: 2-мегапіксельний модуль, підсвічування й помаранчевий знак Walkman."
+    imageCredit: "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2173.jpg
+  - image: /images/phones/sony-ericsson-w810i/commons-main.webp
+    alt: Sony Ericsson W810i у низькому бічному ракурсі
+    caption: "Товщина корпуса, роз’єми й логотип Walkman — деталі, які не видно спереду."
+    imageCredit: "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W810i-2177.jpg
 ---
 
 W810i продовжив формулу Walkman після W800i: кнопковий телефон, музичний плеєр і камера в одному корпусі. Зміни зв’язку включали чотири діапазони GSM та EDGE. Останній прискорював передавання даних у сумісній мережі, але не перетворював модель на 3G-телефон.

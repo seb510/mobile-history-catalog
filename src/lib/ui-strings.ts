@@ -13,6 +13,8 @@ export const UI = {
     menu: { open: 'Відкрити меню', close: 'Закрити меню' },
     search: {
       open: 'Відкрити пошук телефонів',
+      close: 'Закрити пошук телефонів',
+      allResults: 'Усі результати пошуку',
       label: 'Пошук телефонів',
       placeholder: 'Назва моделі, бренд або рік…',
       submit: 'Шукати',
@@ -176,6 +178,8 @@ export const UI = {
     menu: { open: 'Открыть меню', close: 'Закрыть меню' },
     search: {
       open: 'Открыть поиск телефонов',
+      close: 'Закрыть поиск телефонов',
+      allResults: 'Все результаты поиска',
       label: 'Поиск телефонов',
       placeholder: 'Название модели, бренд или год…',
       submit: 'Искать',
@@ -339,6 +343,8 @@ export const UI = {
     menu: { open: 'Open menu', close: 'Close menu' },
     search: {
       open: 'Open phone search',
+      close: 'Close phone search',
+      allResults: 'All search results',
       label: 'Search phones',
       placeholder: 'Model, brand, or year…',
       submit: 'Search',

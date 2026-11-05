@@ -348,6 +348,8 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
               {data.formFactor && <p className="mt-2 text-xs text-neutral-400">{strings.formFactors[data.formFactor]}</p>}
             </div>
           </a>
+        </div>
+        <div className="compare-slot-footer mt-3">
           <button
             type="button"
             onClick={() => { onClear(); requestAnimationFrame(() => document.getElementById(`phone-search-${slot}`)?.focus()); }}
@@ -355,8 +357,10 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
           >
             {strings.compare.change}
           </button>
+          <div className="compare-slot-credit">
+            {sourceCredit && <a href={sourceCredit.href} target="_blank" rel="noopener noreferrer" className="inline-block text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2 hover-desktop:text-orange-400">{sourceCredit.label}</a>}
+          </div>
         </div>
-        {sourceCredit && <a href={sourceCredit.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2 hover-desktop:text-orange-400">{sourceCredit.label}</a>}
       </div>
     );
   }

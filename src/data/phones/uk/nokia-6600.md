@@ -25,7 +25,7 @@ dimensionsMm: "109 × 58 × 24 мм"
 weightGrams: 125
 colors: ["Чорний", "Срібний"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nokia_6600.jpg/960px-Nokia_6600.jpg"
+image: "/images/phones/nokia-6600/commons-main.webp"
 imageCredit: "Фото: Chrattac, суспільне надбання, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_6600.jpg"
 gallery:

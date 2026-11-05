@@ -21,7 +21,7 @@ dimensionsMm: "102 × 44 × 19 мм"
 weightGrams: 95
 colors: ["Aluminium Haze", "Abyss Blue", "Volcanic Red"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Sony_Ericsson_T610_%286144638049%29.jpg/960px-Sony_Ericsson_T610_%286144638049%29.jpg"
+image: "/images/phones/sony-ericsson-t610/commons-main.webp"
 imageCredit: "Фото: Tolbxela, CC BY 2.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg"
 gallery:

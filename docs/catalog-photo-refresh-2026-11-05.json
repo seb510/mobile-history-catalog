@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-05",
+  "processing": "WebP quality 90, original dimensions, no crop, retouch or AI; original attribution retained",
+  "results": [
+    {
+      "slug": "nokia-3310",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/European_Nokia_3310.jpg/960px-European_Nokia_3310.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:European_Nokia_3310.jpg",
+      "credit": "Фото: BosnaIHercegovinaYT, CC BY-SA 4.0, через Wikimedia Commons",
+      "local": "/images/phones/nokia-3310/commons-main.webp",
+      "width": 960,
+      "height": 2237,
+      "bytes": 624350,
+      "localesUpdated": 3
+    },
+    {
+      "slug": "nokia-3210",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/MiNe-M_100-3345U.jpg/960px-MiNe-M_100-3345U.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:MiNe-M_100-3345U.jpg",
+      "credit": "Фото: MiNe, CC BY 2.0, через Wikimedia Commons",
+      "local": "/images/phones/nokia-3210/commons-main.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 182004,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "nokia-6600",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nokia_6600.jpg/960px-Nokia_6600.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nokia_6600.jpg",
+      "credit": "Фото: Chrattac, суспільне надбання, через Wikimedia Commons",
+      "local": "/images/phones/nokia-6600/commons-main.webp",
+      "width": 960,
+      "height": 1293,
+      "bytes": 250592,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "sony-ericsson-t610",
+      "status": 200,
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Sony_Ericsson_T610_%286144638049%29.jpg/960px-Sony_Ericsson_T610_%286144638049%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg",
+      "credit": "Фото: Tolbxela, CC BY 2.0, через Wikimedia Commons",
+      "local": "/images/phones/sony-ericsson-t610/commons-main.webp",
+      "width": 960,
+      "height": 697,
+      "bytes": 75156,
+      "localesUpdated": 1
+    },
+    {
+      "slug": "samsung-sgh-d500",
+      "status": 429
+    }
+  ]
+}

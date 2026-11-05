@@ -25,13 +25,16 @@ const search = t(locale).search;
     aria-expanded="false"
     aria-controls="global-search-panel"
     data-search-toggle
+    data-label-open={search.open}
+    data-label-close={search.close}
   >
     <span class="sr-only">{search.open}</span>
     <span class="search-control-face">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+      <svg data-search-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
         <circle cx="10.8" cy="10.8" r="6.4" />
         <path d="m15.5 15.5 5 5" stroke-linecap="round" />
       </svg>
+      <svg data-search-close-icon class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round" /></svg>
     </span>
   </button>
 
@@ -65,6 +68,7 @@ const search = t(locale).search;
       <div class="global-search-suggestions" data-suggestions-region hidden>
         <p class="editorial-kicker mb-2 text-neutral-500">{search.quickResults}</p>
         <ul class="global-search-suggestion-list" data-search-suggestions></ul>
+        <a data-search-all class="global-search-all" href={localePath(locale, '/search/')}>{search.allResults} <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
