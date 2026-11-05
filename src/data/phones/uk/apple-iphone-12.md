@@ -18,14 +18,10 @@ dimensionsMm: "146,7 × 71,5 × 7,4 мм"
 weightGrams: 164
 colors: ["Чорний", "Білий", "Синій", "Зелений", "(PRODUCT)RED"]
 simType: "Nano-SIM та eSIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/IPhone_12_Black_256g.jpg/960px-IPhone_12_Black_256g.jpg"
-imageCredit: "茅野ふたば, CC BY-SA 4.0, Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_12_Black_256g.jpg"
+image: /images/phones/apple-iphone-12/red-back.webp
+imageCredit: Aerous · CC BY-SA 4.0 · Wikimedia Commons
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:A_red_iPhone_12.jpg
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/A_red_iPhone_12.jpg/960px-A_red_iPhone_12.jpg
-    alt: Red iPhone 12
-    imageCredit: "Photo: Aerous, CC BY-SA 4.0, Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:A_red_iPhone_12.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/IPhone_12_-_2.jpg/960px-IPhone_12_-_2.jpg
     alt: Side view of an iPhone 12 on display at an electronics store in Nagoya
     imageCredit: "Photo: KKPCW, CC BY-SA 4.0, Wikimedia Commons"

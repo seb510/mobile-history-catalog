@@ -13,7 +13,7 @@ display:
 chipset: ARM11, 369 MHz
 ramMb: 96
 storageMb: 12
-storageExpandable: microSD (standard N81)
+storageExpandable: microSD; 2 GB card included with standard N81
 camera:
   rear: 2 MP, 1600 × 1200 px
   front: CIF camera for video calls

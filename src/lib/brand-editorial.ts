@@ -40,8 +40,8 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
 export const SIEMENS_TIMELINE = ['siemens-s55', 'siemens-sl55', 'siemens-sk65', 'siemens-sxg75'] as const;
 
 export const BRAND_ROUTES: Record<string, readonly string[]> = {
-  Apple: ['apple-iphone', 'apple-iphone-12'],
-  Google: ['google-pixel', 'google-pixel-6', 'google-pixel-8', 'google-pixel-9'],
+  Apple: ['apple-iphone', 'apple-iphone-12', 'apple-iphone-18-pro'],
+  Google: ['google-pixel', 'google-pixel-6', 'google-pixel-9', 'google-pixel-11-pro'],
   HTC: ['htc-dream'],
   Huawei: ['huawei-mate-xt'],
   Motorola: ['motorola-v66', 'motorola-razr-v3', 'motorola-pebl-u6', 'motorola-rokr-e1'],

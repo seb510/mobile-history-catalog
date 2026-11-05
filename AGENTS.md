@@ -766,3 +766,18 @@ BrandMilestones.astro замінив SiemensBrandStory.astro. BRAND_ROUTES ви�
 Ховер .editorial-card більше не змінює background .card-copy: прибрано прямокутні плашки в індексі брендів, PhoneCard та GenerationComparison головної. Є лише зміна рамки й кольору card-title в @media (hover: hover) and (pointer: fine), без трансформацій і з motion-ui; focus-visible зберігається. Перевірка реального наведення в браузері: Motorola та Nokia 3250 на головній мали :hover=true, background card-copy залишився rgba(0,0,0,0).
 
 Перевірено Google desktop світла/темна, індекс і головну при наведенні, Motorola en на 320 px (305/305 без overflow, усі 11 моделей), одиночну HTC. Перехід Google → «Моноблок» застосував brand=Google і form=candybar, показав 4 моделі. Статично перевірено 27 зібраних сторінок: manufacturer/aside наявні, кількість PhoneCard точно відповідає бренду, немає cover/start, хронологія лише коли моделей >1. Astro check: 0 errors / 0 warnings (3 hints), build: 324 сторінки; SEO audit passed: 185 canonical sitemap URLs, indexing disabled. Моделей 89; дані/фотографії не змінено. Без commit/push/deploy.
+
+
+## Сучасне продовження та уточнення N81 — 2026-11-05
+
+На прямий запит користувача додано Pixel 11 Pro та iPhone 18 Pro (2026), uk/ru/en; каталог 91 модель. Офіційні Google Store specs / Apple specs і Newsroom перевірені 5 листопада 2026. Це компактні Pro, не XL/Max; сучасна гілка не змінює ретро-позиціонування головної. Pixel: базові 256 ГБ / 12 ГБ RAM, альтернативи пояснені; battery typical, dual eSIM позначено US. Непідтверджені параметри не додано. BRAND_ROUTES враховує нові моделі.
+
+iPhone 12 отримав локальне головне фото Aerous (A_red_iPhone_12.jpg, CC BY-SA 4.0) замість чорного апарата в торговій плівці; дубль червоного фото з gallery прибрано, бічний кадр збережено. iPhone 18 Pro: локальне rear.webp, 茅野ふたば, CC BY-SA 4.0. Обидва WebP вписані в 1440 px без кадрування, ретуші чи ШІ. Pixel 11 Pro: вільна схема Mliu92 (CC BY-SA 4.0), явно позначена як малюнок, не фото. Commons-категорія містила лише схеми; локальне завантаження зупинено після HTTP 429, використовується перевірений original SVG URL з fallback. Джерела — docs/modern-additions-2026-11-05.md.
+
+N81: 12 МБ часто фігурує в довідниках як користувацька пам’ять, але в перевіреній первинній інструкції Nokia число не підтверджене. storageMb: 12 прибрано в трьох локалях, замінено storageNote з поясненням користувацької пам’яті / microSD. Це не твердження про 128 МБ чипа чи RAM. specVariant N81 8GB з 8192 МБ окремого mass storage збережено. Додане пояснення невизначеності; не заміняти число іншим без підтвердження.
+
+Перевірка: astro check — 0 errors / 0 warnings (3 наявні hints); build — 330 сторінок; SEO audit passed — 191 canonical URL, indexing disabled. Нові записи присутні в трьох локалях. Без commit/push/deploy.
+
+Уточнення користувача: для стандартної N81 повернуто storageMb: 12 в uk/ru/en; попередній storageNote і додатковий абзац із застереженням прибрано. Це замінює попереднє рішення про вилучення числа. N81 8GB лишається 8192 МБ, microSD і RAM не змінені.
+
+На уточнення користувача в рядку storageExpandable стандартної N81 зазначено комплектну microSD на 2 ГБ (uk/ru/en). 12 МБ вбудованої пам’яті не сумуються з карткою; N81 8GB без слота лишається без змін.
