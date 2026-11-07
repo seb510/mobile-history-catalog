@@ -4,6 +4,7 @@ import PlaceholderArt from './PlaceholderArt.astro';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
 import { slugOf, isRecentlyAdded } from '../lib/phones';
+import { buildSpecGroups } from '../lib/specs';
 import { t } from '../lib/ui-strings';
 
 interface Props {
@@ -12,12 +13,15 @@ interface Props {
   /** Optional corner tag, e.g. "126 млн шт." for the homepage's best-sellers section. */
   badge?: string;
   compact?: boolean;
+  showcase?: boolean;
 }
-const { phone, locale, badge, compact = false } = Astro.props;
+const { phone, locale, badge, compact = false, showcase = false } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const slug = slugOf(phone);
 const isNew = isRecentlyAdded(data.dateAdded);
+const showcaseRows = showcase ? buildSpecGroups(data, strings).flatMap(group => group.rows).filter(([label]) => new Set<string>([strings.specs.formFactor, strings.specs.display, strings.specs.weight]).has(label)) : [];
+const showcaseAction = {uk:'Роздивитися модель',ru:'Рассмотреть модель',en:'Explore the model'}[locale];
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 ---
 
@@ -61,6 +65,10 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     {data.milestone && (
       <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
     )}
+    {showcase && <>
+      <dl class="mt-4 grid gap-3 border-t border-neutral-700 pt-4 sm:grid-cols-3">{showcaseRows.map(([label,value])=><div class="min-w-0"><dt class="text-xs text-neutral-500">{label}</dt><dd class="mt-1 text-sm font-semibold leading-relaxed text-neutral-200">{value}</dd></div>)}</dl>
+      <span class="mt-4 inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-orange-500">{showcaseAction}<span aria-hidden="true">→</span></span>
+    </>}
     {!compact && data.priceUsdAtLaunch != null && data.priceSourceUrl && (
       <p class="mt-auto flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-neutral-800 pt-3 text-xs text-neutral-400">
         <span>{strings.specs.priceUsdAtLaunch}{data.priceContext && <span class="mt-1 block text-xs font-normal">{data.priceContext}</span>}</span>

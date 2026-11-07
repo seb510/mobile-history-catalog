@@ -15,3 +15,9 @@ export const PHONE_VIDEO_LABELS = {
  ru: { nav:'Видео', available:'Есть видео', badge:'Видео' },
  en: { nav:'Video', available:'Video available', badge:'Video' },
 } satisfies Record<Locale, {nav:string; available:string; badge:string}>;
+
+export const HOME_VIDEO_DISCOVERY = {
+ uk: { title:'Телефони в дії', count:'Моделей із відео: {count}' },
+ ru: { title:'Телефоны в действии', count:'Моделей с видео: {count}' },
+ en: { title:'Phones in action', count:'Models with video: {count}' },
+};

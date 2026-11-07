@@ -1,7 +1,8 @@
 ---
 import type { Locale } from '../lib/locales';
+import PlaceholderArt from './PlaceholderArt.astro';
 import { PHONE_VIDEOS } from '../lib/phone-videos';
-const { locale, slug } = Astro.props as { locale: Locale; slug: string };
+const { locale, slug, poster } = Astro.props as { locale: Locale; slug: string; poster?: { image?: string; imageCredit?: string; imageSourceUrl?: string } };
 const video = PHONE_VIDEOS[slug];
 const c = {
  uk: { title:'Телефон у дії', subtitle:'Огляд своєї епохи',  consent:'Натискаючи «Дивитися відео», ти дозволяєш YouTube (Google) отримати IP-адресу й дані браузера та використовувати власне сховище для цього перегляду.', load:'Дивитися відео', remove:'Вимкнути плеєр', source:'PhoneArena · Дивитися на YouTube ↗', fallback:'Якщо вбудований перегляд недоступний, відкрий відео на YouTube.',   },
@@ -14,9 +15,10 @@ const c = {
  <h2 id="phone-video-title" class="mt-2 text-xl font-bold">{c.title}</h2>
  <p class="mt-2 text-sm leading-relaxed text-neutral-300">{video.description[locale]}</p>
  <div class="video-surface mt-4" data-video-surface data-title={`${video.author}: ${video.label}`}>
-  <button type="button" class="video-cover" data-video-load aria-describedby={`video-consent-${slug}`} aria-label={`${c.load}: ${video.label}`}><span aria-hidden="true" class="video-play">▷</span><span class="text-sm font-semibold">{c.load}</span><span class="text-xs tracking-widest">{video.label}</span></button>
+  <button type="button" class="video-cover" data-video-load aria-describedby={`video-consent-${slug}`} aria-label={`${c.load}: ${video.label}`}><span class="video-cover-photo" aria-hidden="true">{poster?.image ? <><img data-image-fallback src={poster.image} alt="" loading="lazy" decoding="async" /><span data-image-fallback-placeholder class="hidden"><PlaceholderArt class="h-full w-full text-neutral-600" /></span></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</span><span class="video-cover-copy"><span class="text-xs tracking-widest">{video.label}</span><span aria-hidden="true" class="video-play">▷</span><span class="text-sm font-semibold">{c.load}</span></span></button>
  </div>
  <div data-video-consent>
+  {poster?.imageCredit && <p class="mt-2 text-[0.65rem] leading-relaxed text-neutral-500">{({uk:"Фото обкладинки: ",ru:"Фото обложки: ",en:"Cover photo: "}[locale])}{poster.imageSourceUrl ? <a href={poster.imageSourceUrl} target="_blank" rel="noopener noreferrer" class="text-orange-500 underline underline-offset-2">{poster.imageCredit}</a> : poster.imageCredit}</p>}
   <p id={`video-consent-${slug}`} class="mt-3 text-xs leading-relaxed text-neutral-400">{c.consent}</p>
  </div>
  <div class="video-actions">
@@ -53,9 +55,13 @@ const c = {
 .video-actions a { overflow-wrap:anywhere; }
 @media (max-width:639px) { .video-actions { align-items:stretch; flex-direction:column; gap:.5rem; } .video-actions a { padding-block:.375rem; } }
 .video-surface { min-height:200px; aspect-ratio:16/9; width:100%; position:relative; border:1px solid var(--color-neutral-700); background:var(--color-neutral-950); }
-.video-cover { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.625rem; width:100%; padding:1rem; cursor:pointer; text-align:center; color:var(--color-neutral-400); background:radial-gradient(ellipse at center,var(--color-neutral-800),transparent 80%); }
+.video-cover { position:absolute; inset:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; justify-content:center; gap:1rem; width:100%; padding:1.25rem; cursor:pointer; text-align:center; color:var(--color-neutral-400); background:radial-gradient(ellipse at center,var(--color-neutral-800),transparent 80%); }
 .video-cover:focus-visible { outline:2px solid var(--color-orange-500); outline-offset:-4px; }
 @media (hover:hover) and (pointer:fine) { .video-cover:hover { color:var(--color-orange-500); } }
+.video-cover-photo { display:flex; height:100%; min-height:0; align-items:center; justify-content:center; }
+.video-cover-photo img, .video-cover-photo > span { width:100%; height:100%; object-fit:contain; max-height:250px; }
+.video-cover-copy { display:flex; min-width:0; flex-direction:column; align-items:center; gap:1rem; }
+@media (max-width:639px) { .video-cover { gap:.75rem; padding:1rem; } .video-cover-photo img { max-height:170px; } .video-cover-copy { gap:.625rem; } .video-cover-copy > span:first-child { font-size:.625rem; letter-spacing:.08em; } }
 .video-play { font-size:3rem; color:var(--color-orange-500); line-height:1; }
 .video-surface :global(iframe) { width:100%; height:100%; position:absolute; inset:0; border:0; }
 </style>

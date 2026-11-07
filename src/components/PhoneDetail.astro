@@ -245,7 +245,7 @@ const related = allPhones
         </li>)}
       </ol>
     </section>}
-    {PHONE_VIDEOS[slugOf(phone)] && <PhoneVideo locale={locale} slug={slugOf(phone)} />}
+    {PHONE_VIDEOS[slugOf(phone)] && <PhoneVideo locale={locale} slug={slugOf(phone)} poster={data} />}
     <h2 id="phone-story" class="section-label scroll-mt-24">{editorial.story}</h2>
     <div lang={phone.id.split('/')[0]} class="phone-story prose prose-invert mt-4 max-w-none prose-p:text-neutral-300">
       <Content />
