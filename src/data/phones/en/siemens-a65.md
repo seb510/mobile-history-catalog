@@ -47,9 +47,10 @@ gallery:
 
 The A65 is a straightforward Siemens from 2004, with a rounded shell, broad navigation key and curved rows of number keys. A 101 × 80 colour display and polyphonic ringtones gave ordinary calls and messages a more personal identity.
 
-There is no built-in camera. Siemens listed the optional QuickPic Camera IQP-500 as a separate accessory. Unlike the CX65, photography was not yet a permanent part of the handset.
+- **Camera.** There is no built-in camera. Siemens listed the optional QuickPic Camera IQP-500 as a separate accessory. Unlike the CX65, photography was not yet a permanent part of the handset.
+- **Everyday use.** GPRS, MMS and downloadable Java applications broadened its role, but limited storage made users choose which games, pictures and sounds to keep.
 
-GPRS, MMS and downloadable Java applications broadened its role, but limited storage made users choose which games, pictures and sounds to keep. The next step in this reading route is CX65, with an integrated camera, a larger screen and a joystick.
+The next step in this reading route is CX65, with an integrated camera, a larger screen and a joystick.
 
 [Continue this route: CX65](/en/phones/siemens-cx65/) · [Compare](/en/compare/?a=siemens-a65&b=siemens-cx65)
 

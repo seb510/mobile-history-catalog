@@ -47,11 +47,13 @@ gallery:
 imageCaption: "CX65 photographed in 2005: silver keys, a joystick and the clock with a network name on its screen."
 ---
 
-The 2004 CX65 retained a familiar keypad body while adding a larger display area and a joystick. Silver key inserts and interchangeable CLIPIt covers give it a recognisable face even with the screen switched off.
+The 2004 CX65 retained a familiar keypad body while adding a larger display area and a joystick.
 
-Moving on from A65, the camera no longer needs a separate module: a VGA sensor is built in. Pictures could become wallpaper or a screensaver, while photographs and short videos could be sent in messages.
+- **Design.** Silver key inserts and interchangeable CLIPIt covers give it a recognisable face even with the screen switched off.
+- **Camera.** Moving on from A65, the camera no longer needs a separate module: a VGA sensor is built in. Pictures could become wallpaper or a screensaver, while photographs and short videos could be sent in messages.
+- **Files and applications.** Infrared, cable transfer, an organiser and Java applications rounded out daily use.
 
-Flash remained an accessory. The guide warns that digital zoom can lower image resolution; it is not optical zoom. Infrared, cable transfer, an organiser and Java applications rounded out daily use.
+Flash remained an accessory. The guide warns that digital zoom can lower image resolution; it is not optical zoom.
 
 CX75 marks the next step: the same 132 × 176 display format, now with a megapixel camera, Bluetooth and removable storage.
 
