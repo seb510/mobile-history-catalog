@@ -5,7 +5,7 @@ export const PRIVACY_COPY = {
     "cookies": "Cookies і локальне зберігання",
     "settings": "Налаштування приватності",
     "title": "Твій вибір зберігання",
-    "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему оформлення між відвідуваннями? Обране зберігається окремо лише після натискання серця.",
+    "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему оформлення між відвідуваннями? «Мої телефони» зберігає моделі лише після натискання «Я мав цей телефон».",
     "accept": "Дозволити збереження теми",
     "reject": "Не зберігати тему",
     "updated": "Оновлено 7 листопада 2026",
@@ -20,7 +20,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Налаштування у браузері",
-        "За згодою сайт запам’ятовує тему оформлення. Обране зберігає лише слаги телефонів після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
+        "За згодою сайт запам’ятовує тему оформлення. «Мої телефони» зберігає лише слаги позначених моделей після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
       ],
       [
         "Зовнішні сервіси, фото й посилання",
@@ -28,11 +28,11 @@ export const PRIVACY_COPY = {
       ],
       [
         "Технічні запити та підстави",
-        "Для доставки сторінок сервер отримує IP-адресу, URL та технічні заголовки. Надання запитаної сторінки й безпека ґрунтуються на законному інтересі; необов’язкове збереження теми — на згоді. Обране — локальна функція, яку ти прямо запитуєш. Налаштування журналів та строки їх зберігання залежать від остаточного хостингу й мають бути уточнені перед публікацією."
+        "Для доставки сторінок сервер отримує IP-адресу, URL та технічні заголовки. Надання запитаної сторінки й безпека ґрунтуються на законному інтересі; необов’язкове збереження теми — на згоді. «Мої телефони» — локальна функція, яку ти прямо запитуєш. Налаштування журналів та строки їх зберігання залежать від остаточного хостингу й мають бути уточнені перед публікацією."
       ],
       [
         "Твої права",
-        "Можна відкликати згоду у футері, видалити Обране повторним натисканням серця або очистити дані сайту у браузері. Для запиту доступу, виправлення, видалення, обмеження, перенесення чи заперечення щодо даних, які обробляє власник, напиши на email вище. Можна звернутися зі скаргою до наглядового органу із захисту даних у своїй країні. Сайт не ухвалює автоматизованих рішень і не продає персональні дані."
+        "Можна відкликати згоду у футері, прибрати моделі з «Моїх телефонів» повторним натисканням позначки або очистити дані сайту у браузері. Для запиту доступу, виправлення, видалення, обмеження, перенесення чи заперечення щодо даних, які обробляє власник, напиши на email вище. Можна звернутися зі скаргою до наглядового органу із захисту даних у своїй країні. Сайт не ухвалює автоматизованих рішень і не продає персональні дані."
       ]
     ],
     "cookieIntro": "Сам сайт не встановлює HTTP-cookies. Після окремого дозволу зовнішній плеєр YouTube може використовувати власні cookies або сховище за правилами Google. Він використовує localStorage — сховище лише цього браузера. Правила доступу до пристрою стосуються і такого зберігання.",
@@ -51,9 +51,15 @@ export const PRIVACY_COPY = {
       ],
       [
         "mobile-history:favorites",
-        "Слаги телефонів в Обраному",
+        "Старі слаги «Обраного» для окремого підтвердження володіння",
         "До видалення моделей чи очищення даних",
-        "Лише після прямого запиту — натискання серця"
+        "Старі збереження; не додаються автоматично до «Моїх телефонів»"
+      ],
+      [
+        "mobile-history:owned-phones",
+        "Слаги телефонів, якими ти користувався",
+        "До видалення моделей чи очищення даних",
+        "Лише після натискання «Я мав цей телефон»"
       ]
     ],
     "headers": [
@@ -62,14 +68,14 @@ export const PRIVACY_COPY = {
       "Термін",
       "Умова"
     ],
-    "manage": "Відмовитися або відкликати згоду можна без втрати доступу до каталогу. Тема працює й без збереження. Відмова видаляє збережену тему, але не Обране. Зміна вибору діє для цього браузера; очищення даних скидає його. Нові аналітичні чи рекламні сервіси потребуватимуть окремого оновлення правил і механізму згоди."
+    "manage": "Відмовитися або відкликати згоду можна без втрати доступу до каталогу. Тема працює й без збереження. Відмова видаляє збережену тему, але не «Мої телефони». Зміна вибору діє для цього браузера; очищення даних скидає його. Нові аналітичні чи рекламні сервіси потребуватимуть окремого оновлення правил і механізму згоди."
   },
   "ru": {
     "privacy": "Политика конфиденциальности",
     "cookies": "Cookies и локальное хранение",
     "settings": "Настройки приватности",
     "title": "Твой выбор хранения",
-    "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему между посещениями? Избранное сохраняется отдельно только после нажатия сердца.",
+    "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему между посещениями? «Мои телефоны» сохраняет модели только после нажатия «У меня был этот телефон».",
     "accept": "Разрешить сохранение темы",
     "reject": "Не сохранять тему",
     "updated": "Обновлено 7 ноября 2026",
@@ -84,7 +90,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Данные браузера",
-        "Тема запоминается с согласия. Избранное хранит только слаги телефонов после прямого действия; эти данные не отправляются владельцу сайта. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
+        "Тема запоминается с согласия. «Мои телефоны» хранит только слаги отмеченных моделей после прямого действия; эти данные не отправляются владельцу сайта. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
       ],
       [
         "Внешние сервисы, изображения и ссылки",
@@ -92,11 +98,11 @@ export const PRIVACY_COPY = {
       ],
       [
         "Технические запросы и основания",
-        "Для доставки страниц сервер получает IP-адрес, URL и технические заголовки. Доставка запрошенной страницы и безопасность основаны на законном интересе; необязательное сохранение темы — на согласии. Избранное — прямо запрошенная локальная функция. Настройки журналов и сроки хранения зависят от окончательного хостинга и должны быть уточнены перед публикацией."
+        "Для доставки страниц сервер получает IP-адрес, URL и технические заголовки. Доставка запрошенной страницы и безопасность основаны на законном интересе; необязательное сохранение темы — на согласии. «Мои телефоны» — прямо запрошенная локальная функция. Настройки журналов и сроки хранения зависят от окончательного хостинга и должны быть уточнены перед публикацией."
       ],
       [
         "Твои права",
-        "Согласие можно отозвать в футере, Избранное удалить повторным нажатием сердца или очистить данные сайта в браузере. Для доступа, исправления, удаления, ограничения, переноса или возражения в отношении данных, обрабатываемых владельцем, напиши на email выше. Можно подать жалобу в надзорный орган по защите данных своей страны. Сайт не принимает автоматизированных решений и не продаёт персональные данные."
+        "Согласие можно отозвать в футере, убрать модели из «Моих телефонов» повторным нажатием отметки или очистить данные сайта в браузере. Для доступа, исправления, удаления, ограничения, переноса или возражения в отношении данных, обрабатываемых владельцем, напиши на email выше. Можно подать жалобу в надзорный орган по защите данных своей страны. Сайт не принимает автоматизированных решений и не продаёт персональные данные."
       ]
     ],
     "cookieIntro": "Сам сайт не устанавливает HTTP-cookies. После отдельного разрешения внешний плеер YouTube может использовать собственные cookies или хранилище по правилам Google. Он использует localStorage — хранилище этого браузера. Правила доступа к устройству относятся и к этому хранению.",
@@ -115,9 +121,15 @@ export const PRIVACY_COPY = {
       ],
       [
         "mobile-history:favorites",
-        "Слаги телефонов в Избранном",
+        "Старые слаги «Избранного» для отдельного подтверждения владения",
         "До удаления моделей или очистки данных",
-        "Только после прямого запроса — нажатия сердца"
+        "Старые сохранения; не добавляются автоматически в «Мои телефоны»"
+      ],
+      [
+        "mobile-history:owned-phones",
+        "Слаги телефонов, которыми ты пользовался",
+        "До удаления моделей или очистки данных",
+        "Только после нажатия «У меня был этот телефон»"
       ]
     ],
     "headers": [
@@ -126,14 +138,14 @@ export const PRIVACY_COPY = {
       "Срок",
       "Условие"
     ],
-    "manage": "Отказ или отзыв согласия не ограничивает доступ к каталогу. Тема работает без сохранения. Отказ удаляет сохранённую тему, но не Избранное. Выбор относится к этому браузеру; очистка данных его сбрасывает. Новые аналитические или рекламные сервисы потребуют обновления правил и механизма согласия."
+    "manage": "Отказ или отзыв согласия не ограничивает доступ к каталогу. Тема работает без сохранения. Отказ удаляет сохранённую тему, но не «Мои телефоны». Выбор относится к этому браузеру; очистка данных его сбрасывает. Новые аналитические или рекламные сервисы потребуют обновления правил и механизма согласия."
   },
   "en": {
     "privacy": "Privacy policy",
     "cookies": "Cookies and local storage",
     "settings": "Privacy settings",
     "title": "Your storage choice",
-    "intro": "No advertising or analytics trackers. May we remember your theme between visits? Favorites are saved separately only when you press a heart.",
+    "intro": "No advertising or analytics trackers. May we remember your theme between visits? My phones stores models only after you select “I had this phone”.",
     "accept": "Allow theme storage",
     "reject": "Do not store theme",
     "updated": "Updated 7 November 2026",
@@ -148,7 +160,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Browser preferences",
-        "Theme storage requires consent. Favorites store only phone slugs following your direct action; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
+        "Theme storage requires consent. My phones stores only model slugs following your direct action; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
       ],
       [
         "External services, images and links",
@@ -156,11 +168,11 @@ export const PRIVACY_COPY = {
       ],
       [
         "Technical requests and legal bases",
-        "To deliver pages, the server receives your IP address, URL and technical headers. Delivering requested content and security rely on legitimate interests; optional theme storage relies on consent. Favorites are an explicitly requested local function. Log settings and retention depend on the final hosting configuration and must be confirmed before publication."
+        "To deliver pages, the server receives your IP address, URL and technical headers. Delivering requested content and security rely on legitimate interests; optional theme storage relies on consent. My phones is an explicitly requested local function. Log settings and retention depend on the final hosting configuration and must be confirmed before publication."
       ],
       [
         "Your rights",
-        "Withdraw consent in the footer, remove Favorites by pressing their hearts again, or clear site data in your browser. For access, rectification, erasure, restriction, portability or objections concerning data processed by the owner, use the email above. You may complain to your national data protection authority. The site makes no automated decisions and does not sell personal data."
+        "Withdraw consent in the footer, remove models from My phones by pressing their marks again, or clear site data in your browser. For access, rectification, erasure, restriction, portability or objections concerning data processed by the owner, use the email above. You may complain to your national data protection authority. The site makes no automated decisions and does not sell personal data."
       ]
     ],
     "cookieIntro": "The site itself sets no HTTP cookies. After separate permission, the external YouTube player may use its own cookies or storage under Google’s policies. It uses localStorage in this browser. Device-storage rules also apply to this technology.",
@@ -179,9 +191,15 @@ export const PRIVACY_COPY = {
       ],
       [
         "mobile-history:favorites",
-        "Slugs of favorite phones",
+        "Legacy Favorites slugs awaiting separate ownership confirmation",
         "Until removal or site-data deletion",
-        "Only on direct request — pressing a heart"
+        "Legacy saves; not automatically added to My phones"
+      ],
+      [
+        "mobile-history:owned-phones",
+        "Slugs of phones you used to own",
+        "Until models are removed or browser data is cleared",
+        "Only after choosing “I had this phone”"
       ]
     ],
     "headers": [
@@ -190,6 +208,6 @@ export const PRIVACY_COPY = {
       "Retention",
       "Condition"
     ],
-    "manage": "Rejecting or withdrawing consent does not restrict the catalog. Theme switching works without storage. Rejection deletes the saved theme, not Favorites. The choice applies to this browser; clearing site data resets it. Adding analytics or advertising will require updated policies and a separate consent implementation."
+    "manage": "Rejecting or withdrawing consent does not restrict the catalog. Theme switching works without storage. Rejection deletes the saved theme, not My phones. The choice applies to this browser; clearing site data resets it. Adding analytics or advertising will require updated policies and a separate consent implementation."
   }
 } as const;

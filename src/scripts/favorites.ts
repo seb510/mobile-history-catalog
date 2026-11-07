@@ -1,4 +1,5 @@
-const STORAGE_KEY = 'mobile-history:favorites';
+const STORAGE_KEY = 'mobile-history:owned-phones';
+const LEGACY_KEY = 'mobile-history:favorites';
 export const FAVORITES_CHANGED_EVENT = 'favorites-changed';
 
 export function readFavorites(): Set<string> {
@@ -11,11 +12,20 @@ export function readFavorites(): Set<string> {
   }
 }
 
-function writeFavorites(favorites: Set<string>): void {
+export function readLegacyFavorites(): Set<string> {
+ try { const value=JSON.parse(localStorage.getItem(LEGACY_KEY)||'[]'); return new Set(Array.isArray(value)?value.filter(v=>typeof v==='string'):[]); } catch { return new Set(); }
+}
+export function dismissLegacyFavorite(slug: string): void {
+ const pending=readLegacyFavorites(); pending.delete(slug);
+ try { if(pending.size)localStorage.setItem(LEGACY_KEY,JSON.stringify([...pending]));else localStorage.removeItem(LEGACY_KEY); } catch {}
+ document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT));
+}
+function writeFavorites(favorites: Set<string>): boolean {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([...favorites]));
+    return true;
   } catch {
-    // Private mode or storage disabled — favorites just won't persist across page loads.
+    return false; // Keep legacy data if the ownership record could not be saved.
   }
 }
 
@@ -26,7 +36,8 @@ export function toggleFavorite(slug: string): Set<string> {
   const favorites = readFavorites();
   if (favorites.has(slug)) favorites.delete(slug);
   else favorites.add(slug);
-  writeFavorites(favorites);
+  const saved = writeFavorites(favorites);
+  if (saved && favorites.has(slug)) dismissLegacyFavorite(slug);
   document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT, { detail: { slugs: [...favorites] } }));
   return favorites;
 }
@@ -35,6 +46,7 @@ function syncButton(button: HTMLButtonElement, active: boolean): void {
   button.setAttribute('aria-pressed', String(active));
   const label = active ? button.dataset.labelRemove! : button.dataset.labelAdd!;
   button.setAttribute('aria-label', label);
+  button.title = label;
   const text = button.querySelector<HTMLElement>('[data-favorite-label]');
   if (text) text.textContent = label;
 }
@@ -67,6 +79,6 @@ if (typeof document !== 'undefined') {
   syncAll();
   window.addEventListener('pageshow', (event) => { if (event.persisted) syncAll(); });
   window.addEventListener('storage', (event) => {
-    if (event.key === STORAGE_KEY || event.key === null) document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT));
+    if (event.key === STORAGE_KEY || event.key === LEGACY_KEY || event.key === null) document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT));
   });
 }

@@ -319,10 +319,10 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
           onClick={onToggleFavorite}
           aria-pressed={isFavorite}
           aria-label={isFavorite ? strings.favorites.remove : strings.favorites.add}
-          className="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-300 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 sm:right-3 sm:top-3"
+          className="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-300 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 sm:right-3 sm:top-3"
         >
           <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[16px] w-[16px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 20.5s-7.3-4.5-9.8-8.9C.8 7.9 2.8 4.8 6 4.8c1.9 0 3.4 1 6 3.5 2.6-2.5 4.1-3.5 6-3.5 3.2 0 5.2 3.1 3.8 6.8-2.5 4.4-9.8 8.9-9.8 8.9Z" />
+            <path d="M8 2.5h8a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2Z M10 5h4 M10 12l2 2 4-4 M11 18h2" />
           </svg>
         </button>
         <p className="editorial-kicker mb-3 text-orange-500">{slot === 'a' ? COMPARE_DESIGN[locale].first : COMPARE_DESIGN[locale].second}</p>

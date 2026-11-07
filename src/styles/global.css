@@ -177,7 +177,7 @@
   color: var(--color-orange-500);
   background: color-mix(in srgb, var(--color-orange-500) 8%, var(--color-neutral-950));
 }
-.favorite-toggle[aria-pressed="true"] svg { fill: currentColor; }
+.favorite-toggle[aria-pressed="true"] svg { stroke-width: 2.2; }
 .favorite-toggle-icon[aria-pressed="true"] {
   border-color: var(--color-orange-500);
   color: var(--color-orange-500);
@@ -471,3 +471,5 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 .catalog-year-index nav { display: flex; flex-wrap: wrap; gap: .375rem; padding-bottom: .75rem; }
 .catalog-year-index a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; min-width: 3.25rem; padding: .5rem .625rem; border: 1px solid var(--color-neutral-800); border-radius: 2px; color: var(--color-neutral-300); background: var(--color-neutral-900); font-size: .8125rem; font-variant-numeric: tabular-nums; transition: border-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing); }
 @media (hover: hover) and (pointer: fine) { .catalog-year-index a:hover { border-color: var(--color-orange-500); color: var(--color-orange-500); } }
+
+[data-legacy-section][hidden], [data-legacy-item][hidden], [data-favorite-item][hidden], [data-favorites-list][hidden] { display:none; }

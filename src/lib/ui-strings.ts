@@ -10,7 +10,7 @@ export const UI = {
     newBadge: 'Нове',
     tagline: 'Ретро-телефони з характером: незвичні форми, справжні кнопки й історії речей, які хотілося тримати в руках.',
     breadcrumbs: { label: 'Навігаційний ланцюжок', home: 'Головна' },
-    nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', favorites: 'Обране', about: 'Про проєкт' },
+    nav: { catalog: 'Каталог', compare: 'Порівняти', brands: 'Бренди', favorites: 'Мої телефони', about: 'Про проєкт' },
     menu: { open: 'Відкрити меню', close: 'Закрити меню' },
     search: {
       open: 'Відкрити пошук телефонів',
@@ -104,13 +104,13 @@ export const UI = {
     },
     catalog: { intro: 'Розкладачки, слайдери, музичні телефони й незвичні клавіатури. Знайди свій характер за моделлю, брендом або роком.' },
     favorites: {
-      intro: 'Телефони, які ти додав до обраного кнопкою-сердечком на картці чи сторінці моделі.',
-      add: 'Додати в обране',
-      remove: 'Прибрати з обраного',
-      emptyTitle: 'Обране порожнє',
-      emptyBody: 'Познач телефони сердечком на картці або сторінці моделі — вони з’являться тут.',
-      storageNote: 'Обране зберігається лише в цьому браузері, без акаунту й синхронізації між пристроями.',
-      inCollection: 'у обраному',
+      intro: 'Телефони, якими ти користувався. Твоя особиста історія, впорядкована за роками виходу моделей, а не роками володіння.',
+      add: 'Я мав цей телефон',
+      remove: 'Був у мене · прибрати',
+      emptyTitle: 'Твоя історія ще порожня',
+      emptyBody: 'Познач «Я мав цей телефон» на картці або сторінці моделі — він з’явиться у твоїй хронології.',
+      storageNote: 'Історія зберігається лише в цьому браузері, без акаунту й синхронізації між пристроями.',
+      inCollection: 'у твоїй історії',
       sortLabel: 'Сортувати за роком',
       sortNewest: 'Спочатку нові',
       sortOldest: 'Спочатку старі',
@@ -176,7 +176,7 @@ export const UI = {
     newBadge: 'Новое',
     tagline: 'Ретро-телефоны с характером: необычные формы, настоящие кнопки и истории вещей, которые хотелось держать в руках.',
     breadcrumbs: { label: 'Навигационная цепочка', home: 'Главная' },
-    nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', favorites: 'Избранное', about: 'О проекте' },
+    nav: { catalog: 'Каталог', compare: 'Сравнить', brands: 'Бренды', favorites: 'Мои телефоны', about: 'О проекте' },
     menu: { open: 'Открыть меню', close: 'Закрыть меню' },
     search: {
       open: 'Открыть поиск телефонов',
@@ -270,13 +270,13 @@ export const UI = {
     },
     catalog: { intro: 'Раскладушки, слайдеры, музыкальные телефоны и необычные клавиатуры. Найди свой характер по модели, бренду или году.' },
     favorites: {
-      intro: 'Телефоны, которые ты добавил в избранное кнопкой-сердечком на карточке или странице модели.',
-      add: 'Добавить в избранное',
-      remove: 'Убрать из избранного',
-      emptyTitle: 'Избранное пусто',
-      emptyBody: 'Отметь телефоны сердечком на карточке или странице модели — они появятся здесь.',
-      storageNote: 'Избранное хранится только в этом браузере, без аккаунта и синхронизации между устройствами.',
-      inCollection: 'в избранном',
+      intro: 'Телефоны, которыми ты пользовался. Личная история по годам выхода моделей, а не годам владения.',
+      add: 'У меня был этот телефон',
+      remove: 'Был у меня · убрать',
+      emptyTitle: 'Твоя история пока пуста',
+      emptyBody: 'Отметь «У меня был этот телефон» на карточке или странице модели — он появится в твоей хронологии.',
+      storageNote: 'История хранится только в этом браузере, без аккаунта и синхронизации между устройствами.',
+      inCollection: 'в твоей истории',
       sortLabel: 'Сортировать по году',
       sortNewest: 'Сначала новые',
       sortOldest: 'Сначала старые',
@@ -342,7 +342,7 @@ export const UI = {
     newBadge: 'New',
     tagline: 'Retro phones with character: distinctive shapes, real buttons and the stories of objects you wanted to hold.',
     breadcrumbs: { label: 'Breadcrumb', home: 'Home' },
-    nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', favorites: 'Favorites', about: 'About' },
+    nav: { catalog: 'Catalog', compare: 'Compare', brands: 'Brands', favorites: 'My phones', about: 'About' },
     menu: { open: 'Open menu', close: 'Close menu' },
     search: {
       open: 'Open phone search',
@@ -435,13 +435,13 @@ export const UI = {
     },
     catalog: { intro: 'Clamshells, sliders, music phones and unexpected keypads. Find your favourite by model, brand or year.' },
     favorites: {
-      intro: 'Phones you’ve saved with the heart button on a card or phone page.',
-      add: 'Add to favorites',
-      remove: 'Remove from favorites',
-      emptyTitle: 'Your favorites are empty',
-      emptyBody: 'Tap the heart on a card or phone page to save it here.',
-      storageNote: 'Favorites are stored only in this browser, with no account or sync across devices.',
-      inCollection: 'saved',
+      intro: 'Phones you used to own. Your personal history is ordered by model release year, not the years you owned them.',
+      add: 'I had this phone',
+      remove: 'I had it · remove',
+      emptyTitle: 'Your story is empty',
+      emptyBody: 'Choose “I had this phone” on a card or model page to add it to your timeline.',
+      storageNote: 'Your history is stored only in this browser, with no account or sync across devices.',
+      inCollection: 'in your story',
       sortLabel: 'Sort by year',
       sortNewest: 'Newest first',
       sortOldest: 'Oldest first',
@@ -709,9 +709,9 @@ export const COMPARE_DESIGN = {
   en: { first: 'Phone A', second: 'Phone B', rows: 'Specifications: {count}', identical: 'There are no differences in the recorded specifications.' },
 } as const;
 export const FINAL_DESIGN_COPY = {
-  uk: { sales: 'Історія в цифрах', salesNote: 'Публічно задокументований тираж однієї з моделей архіву. Це не рейтинг усіх телефонів.', loading: 'Відкриваємо обране…', noScript: 'Увімкни JavaScript, щоб побачити збережені в цьому браузері телефони.' },
-  ru: { sales: 'История в цифрах', salesNote: 'Публично задокументированный тираж одной из моделей архива. Это не рейтинг всех телефонов.', loading: 'Открываем избранное…', noScript: 'Включи JavaScript, чтобы увидеть сохранённые в этом браузере телефоны.' },
-  en: { sales: 'History in numbers', salesNote: 'Publicly documented sales for one model in the archive. This is not a ranking of all phones.', loading: 'Opening your favorites…', noScript: 'Enable JavaScript to see the phones saved in this browser.' },
+  uk: { sales: 'Історія в цифрах', salesNote: 'Публічно задокументований тираж однієї з моделей архіву. Це не рейтинг усіх телефонів.', loading: 'Відкриваємо твою історію…', noScript: 'Увімкни JavaScript, щоб побачити збережені в цьому браузері телефони.' },
+  ru: { sales: 'История в цифрах', salesNote: 'Публично задокументированный тираж одной из моделей архива. Это не рейтинг всех телефонов.', loading: 'Открываем твою историю…', noScript: 'Включи JavaScript, чтобы увидеть сохранённые в этом браузере телефоны.' },
+  en: { sales: 'History in numbers', salesNote: 'Publicly documented sales for one model in the archive. This is not a ranking of all phones.', loading: 'Opening your phone history…', noScript: 'Enable JavaScript to see the phones saved in this browser.' },
 } as const;
 export const CATALOG_POSITION = {
   uk: { label: 'Поточний рік каталогу', filters: 'До фільтрів', years: 'Перейти до року', jump: 'Моделі за роками' },
@@ -797,3 +797,9 @@ export const HOME_COVER_REFRESH = {
     ]
   }
 } as const;
+
+export const OWNED_PHONE_COPY = {
+ uk:{legacyTitle:'Раніше збережені моделі',legacyIntro:'Це твоє попереднє «Обране». Познач «Я мав цей телефон» лише для моделей, якими ти користувався. Решту можна прибрати з цього списку.',dismiss:'Прибрати зі старого списку',year:'Рік виходу'},
+ ru:{legacyTitle:'Ранее сохранённые модели',legacyIntro:'Это прежнее «Избранное». Отметь «У меня был этот телефон» только для моделей, которыми ты пользовался. Остальные можно убрать из этого списка.',dismiss:'Убрать из старого списка',year:'Год выхода'},
+ en:{legacyTitle:'Previously saved models',legacyIntro:'These are your former Favorites. Choose “I had this phone” only for models you actually used. You can dismiss the others from this list.',dismiss:'Dismiss from the old list',year:'Release year'},
+};
