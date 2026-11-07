@@ -50,9 +50,11 @@ gallery:
 
 After the compact A65 and CX65, the SXG75 has a different scale: a broad front, a 240 × 320 display and a visible front camera. A physical number keypad remains, but it now serves several new uses.
 
-UMTS enables video calls, the main camera offers 2 MP, and GPS introduces navigation. A receiver, navigation software and available services are separate things; GPS hardware does not promise that any map or route will work without additional conditions.
+- **Video calls and photography.** UMTS enables video calls, the main camera offers 2 MP, and GPS introduces navigation.
+- **Photos, video and music.** Photographs, videos and music can also live on RS-MMC.
+- **Navigation.** A receiver, navigation software and available services are separate things; GPS hardware does not promise that any map or route will work without additional conditions.
 
-Photographs, videos and music can also live on RS-MMC. The guide lists cards up to 256 MB: a documented limit, not a guarantee for larger cards. Conflicting user-storage figures are deliberately left unfilled.
+The guide lists cards up to 256 MB: a documented limit, not a guarantee for larger cards. Conflicting user-storage figures are deliberately left unfilled.
 
 SXG75 belongs to the closing period of Siemens Mobile before BenQ-Siemens. Its story is the attempt to unite 3G, photography and navigation in a keypad Siemens, rather than an unqualified claim to be the last phone bearing that name.
 

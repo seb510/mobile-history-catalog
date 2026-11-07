@@ -45,9 +45,10 @@ gallery:
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_CX75.JPG
 ---
 
-The 2005 CX75 continues Siemens’ familiar joystick design in a denser, more multimedia-focused body. Its circular control surround and diagonal keys give the front a rhythm of its own.
+The 2005 CX75 continues Siemens’ familiar joystick design in a denser, more multimedia-focused body.
 
-Compared with CX65, the key changes concern files and connections: a 1.3 MP camera, Bluetooth and RS-MMC storage. Music and photographs no longer have to fit solely in built-in memory. A media player, themes and downloadable applications supported personalisation.
+- **Design.** Its circular control surround and diagonal keys give the front a rhythm of its own.
+- **Music and files.** Compared with CX65, the key changes concern files and connections: a 1.3 MP camera, Bluetooth and RS-MMC storage. Music and photographs no longer have to fit solely in built-in memory. A media player, themes and downloadable applications supported personalisation.
 
 The guide does not substantiate the previous VGA-video claim, so video recording is listed without an invented resolution. Flash is an accessory. Dimensions of 111.7 × 48 × 19.5 mm and a weight of 102 g follow Siemens’ Product data section.
 

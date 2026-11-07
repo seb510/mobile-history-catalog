@@ -49,11 +49,15 @@ gallery:
 imageCaption: "Open RAZR V3: a flat metal keypad and a large inner display."
 ---
 
-The 2004 RAZR V3 made its thin body central to the phone's character. Motorola's historical timeline describes it as a 13.9 mm metal clamshell using aluminium and a nickel-plated keypad. The keys were metal, not glass; their flat surface and blue backlighting became distinctive parts of the design.
+The 2004 RAZR V3 made its thin body central to the phone's character.
+
+- **Body.** Motorola's historical timeline describes it as a 13.9 mm metal clamshell using aluminium and a nickel-plated keypad.
+- **Keypad.** The keys were metal, not glass; their flat surface and blue backlighting became distinctive parts of the design.
+- **The opening gesture.** But the V3 was memorable for more than its feature list—the opening gesture and the feel of its materials made it a personal accessory.
+
+Conventional phone features remained part of the concept: a large inner display for its form factor, a smaller outer screen, a camera and Bluetooth.
 
 Speaking to Design Week, Motorola design chief Paul Pierce explained that the team wanted to make the phone smaller without sacrificing usability. Limited space called for a different keypad construction and different body materials. The outer glass and an inner magnesium element served purposes distinct from the metal key panel.
-
-Conventional phone features remained part of the concept: a large inner display for its form factor, a smaller outer screen, a camera and Bluetooth. But the V3 was memorable for more than its feature list—the opening gesture and the feel of its materials made it a personal accessory.
 
 In the timeline, the V3 represents an era when the shape of a handset could be as distinctive as today's interfaces. Alongside the music-focused ROKR E1, it shows two Motorola directions in the mid-2000s: expressive industrial design and attempts to bring new services to an ordinary phone.
 
