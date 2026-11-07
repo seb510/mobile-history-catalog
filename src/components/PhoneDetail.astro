@@ -231,7 +231,7 @@ const related = allPhones
   </div>
 
   <div class="min-w-0">
-    <nav class:list={['mb-6 grid gap-2', PHONE_VIDEOS[slugOf(phone)] ? 'grid-cols-3' : 'grid-cols-2']} aria-label={data.model}>
+    <nav class:list={['phone-section-nav mb-6 grid gap-2', PHONE_VIDEOS[slugOf(phone)] ? 'grid-cols-3' : 'grid-cols-2']} aria-label={data.model}>
       <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-story">{editorial.story}</a>
       {PHONE_VIDEOS[slugOf(phone)] && <a class="control-button min-h-11 px-2 text-center text-xs leading-snug" href="#phone-video"><svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg>{PHONE_VIDEO_LABELS[locale].nav}</a>}
       <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-specs">{editorial.specs}</a>

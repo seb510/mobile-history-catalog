@@ -479,3 +479,18 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 @media (hover: hover) and (pointer: fine) { .catalog-year-index a:hover { border-color: var(--color-orange-500); color: var(--color-orange-500); } }
 
 [data-legacy-section][hidden], [data-legacy-item][hidden], [data-favorite-item][hidden], [data-favorites-list][hidden] { display:none; }
+
+/* Keep the next section within reach while reading a long mobile story. */
+@media (max-width: 1023px) {
+  .phone-section-nav {
+    position: sticky;
+    top: calc(3.5rem + 3px);
+    z-index: 25;
+    padding-block: .625rem;
+    border-bottom: 1px solid var(--color-neutral-700);
+    background: var(--color-neutral-950);
+  }
+  .phone-section-nav .control-button { min-height: 2.75rem; }
+  html[data-header-hidden="true"] .phone-section-nav { top: 0; }
+  #phone-story, #phone-video, #phone-specs { scroll-margin-top: 9rem; }
+}
