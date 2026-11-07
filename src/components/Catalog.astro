@@ -82,9 +82,16 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   </div>
 </nav>
 
+<details class="catalog-year-index" data-year-index>
+  <summary><span>{CATALOG_POSITION[locale].years}</span><span data-year-range class="ml-auto text-xs tabular-nums text-neutral-500">{years[0]}–{years.at(-1)}</span><span class="year-index-chevron" aria-hidden="true">⌄</span></summary>
+  <nav aria-label={CATALOG_POSITION[locale].jump}>
+    {years.map(year => <a href={`#year-${year}`} data-year-jump={year}>{year}</a>)}
+  </nav>
+</details>
+
 <ol class="catalog-timeline relative space-y-6 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
   {years.map((year) => (
-    <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-24">
+    <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-32">
       {eraForYear(year) >= 0 && (
         <div data-era-heading class="era-heading mb-6 border-t border-orange-500/50 pt-5">
           <p class="editorial-kicker text-orange-500">{eraStarts[eraForYear(year)]} — {eraStarts[eraForYear(year) + 1] ? eraStarts[eraForYear(year) + 1] - 1 : new Date().getFullYear()}</p>
@@ -141,6 +148,9 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     mobileFilters.addEventListener('change', () => setExpanded(!mobileFilters.matches));
     toggle.addEventListener('click', () => setExpanded(bar.dataset.expanded !== 'true'));
     let activeStory = '';
+    const yearIndex = document.querySelector<HTMLDetailsElement>('[data-year-index]');
+    const yearLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-year-jump]'));
+    const yearRange = document.querySelector<HTMLElement>('[data-year-range]');
 
     const apply = () => {
       const q = searchInput.value.trim().toLowerCase();
@@ -168,6 +178,10 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
         group.querySelector<HTMLElement>('[data-year-count]')!.textContent = String(visibleCards.length);
       }
 
+      const visibleYears = groups.filter(group => !group.hidden).map(group => group.dataset.yearGroup!);
+      yearLinks.forEach(link => { link.hidden = !visibleYears.includes(link.dataset.yearJump!); });
+      if (yearIndex) yearIndex.hidden = visibleYears.length < 2;
+      if (yearRange) yearRange.textContent = visibleYears.length ? visibleYears[0] + '–' + visibleYears.at(-1) : '';
       empty.classList.toggle('hidden', visible > 0);
       list.hidden = visible === 0;
       count.textContent = `${visible} ${count.dataset.countLabel}`;

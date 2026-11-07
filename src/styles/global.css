@@ -404,7 +404,7 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 .catalog-active-filters button span { flex-shrink: 0; color: var(--color-orange-500); font-size: 1.125rem; }
 .catalog-filter-toggle { display: none; }
 @media (max-width: 639px) {
-  .catalog-filter-toggle:not([hidden]) { display: flex; width: 100%; min-height: .75rem; align-items: center; justify-content: space-between; margin-bottom: .75rem; text-align: left; font-size: .875rem; font-weight: 700; color: var(--color-neutral-200); cursor: pointer; }
+  .catalog-filter-toggle:not([hidden]) { display: flex; width: 100%; min-height: 2.75rem; align-items: center; justify-content: space-between; margin-bottom: .75rem; text-align: left; font-size: .875rem; font-weight: 700; color: var(--color-neutral-200); cursor: pointer; }
   .catalog-filter-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
   .catalog-tools[data-expanded="false"] .filter-select,
   .catalog-tools[data-expanded="false"] .catalog-stories,
@@ -460,3 +460,14 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
  .filter-select-list button:hover { background: var(--color-neutral-900); }
  .catalog-filter-meta button:hover { text-decoration: underline; text-underline-offset: .2em; }
 }
+
+/* Optional year shortcuts keep long timelines navigable without another filter. */
+.catalog-year-index { margin-block: 0 1.25rem; border-block: 1px solid var(--color-neutral-800); }
+.catalog-year-index[hidden], .catalog-year-index a[hidden] { display: none; }
+.catalog-year-index summary { display: flex; align-items: center; gap: .75rem; min-height: 2.75rem; padding-block: .5rem; font-size: .8125rem; font-weight: 600; color: var(--color-neutral-300); cursor: pointer; list-style: none; }
+.catalog-year-index summary::-webkit-details-marker { display: none; }
+.catalog-year-index .year-index-chevron { color: var(--color-orange-500); transition: transform var(--motion-ui) var(--motion-easing); }
+.catalog-year-index[open] .year-index-chevron { transform: rotate(180deg); }
+.catalog-year-index nav { display: flex; flex-wrap: wrap; gap: .375rem; padding-bottom: .75rem; }
+.catalog-year-index a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; min-width: 3.25rem; padding: .5rem .625rem; border: 1px solid var(--color-neutral-800); border-radius: 2px; color: var(--color-neutral-300); background: var(--color-neutral-900); font-size: .8125rem; font-variant-numeric: tabular-nums; transition: border-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing); }
+@media (hover: hover) and (pointer: fine) { .catalog-year-index a:hover { border-color: var(--color-orange-500); color: var(--color-orange-500); } }

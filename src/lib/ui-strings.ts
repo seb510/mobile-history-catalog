@@ -714,9 +714,9 @@ export const FINAL_DESIGN_COPY = {
   en: { sales: 'History in numbers', salesNote: 'Publicly documented sales for one model in the archive. This is not a ranking of all phones.', loading: 'Opening your favorites…', noScript: 'Enable JavaScript to see the phones saved in this browser.' },
 } as const;
 export const CATALOG_POSITION = {
-  uk: { label: 'Поточний рік каталогу', filters: 'До фільтрів' },
-  ru: { label: 'Текущий год каталога', filters: 'К фильтрам' },
-  en: { label: 'Current catalog year', filters: 'Back to filters' },
+  uk: { label: 'Поточний рік каталогу', filters: 'До фільтрів', years: 'Перейти до року', jump: 'Моделі за роками' },
+  ru: { label: 'Текущий год каталога', filters: 'К фильтрам', years: 'Перейти к году', jump: 'Модели по годам' },
+  en: { label: 'Current catalog year', filters: 'Back to filters', years: 'Jump to year', jump: 'Models by year' },
 } as const;
 export const SPEC_VARIANT_NOTE = {
   uk: 'Спільні характеристики наведено один раз. У рядках із відмінностями помаранчевим позначено версію {model}.',
