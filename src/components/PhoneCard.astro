@@ -29,6 +29,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
   data-brand={data.brand}
   data-year={data.year}
   data-form={data.formFactor}
+  data-video={PHONE_VIDEOS[slug] ? "true" : undefined}
   data-search={searchKey}
   class:list={['editorial-card group flex min-w-0 flex-1 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 motion-ui', compact && 'catalog-card']}
 >

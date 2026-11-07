@@ -14,9 +14,9 @@ const { locale } = Astro.props;
 const strings = t(locale);
 const editorial = DESIGN_EDITORIAL[locale];
 const controls = {
-  uk: { active: 'Активні фільтри', remove: 'Прибрати фільтр', empty: 'Спробуй прибрати одну з умов або повернути весь каталог.' },
-  ru: { active: 'Активные фильтры', remove: 'Убрать фильтр', empty: 'Попробуй убрать одно из условий или вернуться ко всему каталогу.' },
-  en: { active: 'Active filters', remove: 'Remove filter', empty: 'Remove a condition or return to the full catalog.' },
+  uk: { video: 'Лише з відео', active: 'Активні фільтри', remove: 'Прибрати фільтр', empty: 'Спробуй прибрати одну з умов або повернути весь каталог.' },
+  ru: { video: 'Только с видео', active: 'Активные фильтры', remove: 'Убрать фильтр', empty: 'Попробуй убрать одно из условий или вернуться ко всему каталогу.' },
+  en: { video: 'With video only', active: 'Active filters', remove: 'Remove filter', empty: 'Remove a condition or return to the full catalog.' },
 }[locale];
 const stories = RETRO_STORIES.map((story, index) => ({ ...story, ...HOME_EDITORIAL[locale].themes[index] }));
 
@@ -48,6 +48,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     <FilterSelect name="year" label={strings.filters.year} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={years.map(String)} />
     <FilterSelect name="form" label={strings.specs.formFactor} all={strings.filters.all} search={editorial.optionSearch} empty={editorial.selectEmpty} options={FORM_FACTORS.filter((value) => phones.some((phone) => phone.data.formFactor === value)).map((value) => ({ value, label: strings.formFactors[value] }))} />
   </div>
+  <label class="mt-3 inline-flex min-h-11 cursor-pointer items-center gap-2 text-sm text-neutral-300"><input type="checkbox" data-filter="video" name="video" class="h-4 w-4 accent-orange-500" /><svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg><span>{controls.video}</span></label>
   <div class="catalog-filter-footer">
     <nav id="catalog-filter-stories" class="catalog-stories flex flex-wrap gap-2" aria-label={RETRO_DISCOVERY[locale].collections}>
       <a href={localePath(locale, '/catalog/')} data-story-filter="" aria-current="true">{strings.filters.all}</a>
@@ -130,6 +131,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     const brandSelect = bar.querySelector<HTMLSelectElement>('[data-filter="brand"]')!;
     const yearSelect = bar.querySelector<HTMLSelectElement>('[data-filter="year"]')!;
     const formSelect = bar.querySelector<HTMLSelectElement>('[data-filter="form"]')!;
+    const videoInput = bar.querySelector<HTMLInputElement>('[data-filter="video"]')!;
     const cards = Array.from(list.querySelectorAll<HTMLElement>('[data-phone-card]'));
     const groups = Array.from(list.querySelectorAll<HTMLElement>('[data-year-group]'));
     const stories: { id: string; slugs: string[]; text: string }[] = JSON.parse(bar.dataset.stories!);
@@ -165,7 +167,8 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
           (!q || card.dataset.search!.includes(q)) &&
           (!brand || card.dataset.brand === brand) &&
           (!year || card.dataset.year === year) && (!form || card.dataset.form === form) &&
-          (!story || story.slugs.includes(card.dataset.slug!));
+          (!story || story.slugs.includes(card.dataset.slug!)) &&
+          (!videoInput.checked || card.dataset.video === 'true');
         card.closest('li')!.hidden = !matches;
         if (matches) visible++;
       }
@@ -185,11 +188,12 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       empty.classList.toggle('hidden', visible > 0);
       list.hidden = visible === 0;
       count.textContent = `${visible} ${count.dataset.countLabel}`;
-      resetBtn!.hidden = !q && !brand && !year && !story && !form;
+      resetBtn!.hidden = !q && !brand && !year && !story && !form && !videoInput.checked;
       const conditions = [
         { key: 'q', value: searchInput.value.trim(), label: searchInput.labels?.[0]?.textContent ?? '' },
         ...[brandSelect, yearSelect, formSelect].map((select) => ({ key: select.name, value: select.value ? select.selectedOptions[0].textContent! : '', label: select.getAttribute('aria-label') ?? '' })),
         { key: 'story', value: story ? storyLinks.find((link) => link.dataset.storyFilter === story.id)?.textContent?.replace(/\d+\s*$/, '').trim() ?? '' : '', label: '' },
+        { key: 'video', value: videoInput.checked ? videoInput.labels?.[0]?.textContent?.trim() ?? '' : '', label: '' },
       ].filter((condition) => condition.value);
       activeFilters.replaceChildren(...conditions.map((condition) => {
         const button = document.createElement('button');
@@ -209,9 +213,9 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
         if (link.dataset.storyFilter === activeStory) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');
       });
-      list.querySelectorAll<HTMLElement>('[data-era-heading]').forEach((heading) => { heading.hidden = Boolean(q || brand || year || story || form); });
+      list.querySelectorAll<HTMLElement>('[data-era-heading]').forEach((heading) => { heading.hidden = Boolean(q || brand || year || story || form || videoInput.checked); });
       const url = new URL(window.location.href);
-      for (const [key, value] of [['q', searchInput.value.trim()], ['brand', brand], ['year', year], ['story', activeStory], ['form', form]]) {
+      for (const [key, value] of [['q', searchInput.value.trim()], ['brand', brand], ['year', year], ['story', activeStory], ['form', form], ['video', videoInput.checked ? '1' : '']]) {
         if (value) url.searchParams.set(key, value);
         else url.searchParams.delete(key);
       }
@@ -227,6 +231,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       const index = Array.from(activeFilters.children).indexOf(button);
       const key = button.dataset.clearFilter;
       if (key === 'q') searchInput.value = '';
+      else if (key === 'video') videoInput.checked = false;
       else if (key === 'story') activeStory = '';
       else {
         const select = [brandSelect, yearSelect, formSelect].find((select) => select.name === key);
@@ -247,6 +252,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       yearSelect.value = '';
       formSelect.value = '';
       activeStory = '';
+      videoInput.checked = false;
       brandSelect.dispatchEvent(new Event('change', { bubbles: true }));
       yearSelect.dispatchEvent(new Event('change', { bubbles: true }));
       formSelect.dispatchEvent(new Event('change', { bubbles: true }));
@@ -258,6 +264,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 
     const restore = () => {
       const params = new URLSearchParams(window.location.search);
+      videoInput.checked = params.get('video') === '1';
       searchInput.value = params.get('q') ?? '';
       brandSelect.value = params.get('brand') ?? '';
       yearSelect.value = params.get('year') ?? '';

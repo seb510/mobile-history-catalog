@@ -10,7 +10,7 @@ const c = {
 }[locale];
 ---
 <section id="phone-video" aria-labelledby="phone-video-title" class="phone-video mb-8 scroll-mt-24 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900 p-4 sm:p-5" data-phone-video data-video-id={video.id}>
- <p class="editorial-kicker text-orange-500">{video.promo ? ({uk:'Рекламний погляд',ru:'Рекламный взгляд',en:'Promotional perspective'}[locale]) : video.demonstration ? ({uk:'Механіка в русі',ru:'Механика в движении',en:'Mechanism in motion'}[locale]) : video.retrospective ? ({uk:'Ретроспектива',ru:'Ретроспектива',en:'Retrospective'}[locale]) : c.subtitle}{video.year && ` · ${video.year}`}</p>
+ <p class="editorial-kicker text-orange-500">{video.walkthrough ? ({uk:'Меню та звук',ru:'Меню и звук',en:'Menus and sound'}[locale]) : video.promo ? ({uk:'Рекламний погляд',ru:'Рекламный взгляд',en:'Promotional perspective'}[locale]) : video.demonstration ? ({uk:'Механіка в русі',ru:'Механика в движении',en:'Mechanism in motion'}[locale]) : video.retrospective ? ({uk:'Ретроспектива',ru:'Ретроспектива',en:'Retrospective'}[locale]) : c.subtitle}{video.year && ` · ${video.year}`}</p>
  <h2 id="phone-video-title" class="mt-2 text-xl font-bold">{c.title}</h2>
  <p class="mt-2 text-sm leading-relaxed text-neutral-300">{video.description[locale]}</p>
  <div class="video-surface mt-4" data-video-surface data-title={`${video.author}: ${video.label}`}>
@@ -19,8 +19,10 @@ const c = {
  <div data-video-consent>
   <p id={`video-consent-${slug}`} class="mt-3 text-xs leading-relaxed text-neutral-400">{c.consent}</p>
  </div>
- <button type="button" class="control-button mt-3 min-h-11 text-sm" data-video-remove hidden>{c.remove}</button>
- <a title={c.fallback} class="mt-3 inline-flex min-h-11 items-center text-xs text-orange-500 underline underline-offset-4" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">{c.source.replace('PhoneArena', video.author)}</a>
+ <div class="video-actions">
+ <button type="button" class="control-button min-h-11 justify-center text-sm" data-video-remove hidden>{c.remove}</button>
+ <a title={c.fallback} class="inline-flex min-h-11 items-center text-xs text-orange-500 underline underline-offset-4" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">{c.source.replace('PhoneArena', video.author)}</a>
+ </div>
 </section>
 <script>
  document.querySelectorAll<HTMLElement>('[data-phone-video]').forEach(root => {
@@ -47,6 +49,9 @@ const c = {
 </script>
 <style>
 .phone-video [hidden] { display:none; }
+.video-actions { display:flex; align-items:center; flex-wrap:wrap; gap:.75rem 1.25rem; margin-top:1rem; }
+.video-actions a { overflow-wrap:anywhere; }
+@media (max-width:639px) { .video-actions { align-items:stretch; flex-direction:column; gap:.5rem; } .video-actions a { padding-block:.375rem; } }
 .video-surface { min-height:200px; aspect-ratio:16/9; width:100%; position:relative; border:1px solid var(--color-neutral-700); background:var(--color-neutral-950); }
 .video-cover { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.625rem; width:100%; padding:1rem; cursor:pointer; text-align:center; color:var(--color-neutral-400); background:radial-gradient(ellipse at center,var(--color-neutral-800),transparent 80%); }
 .video-cover:focus-visible { outline:2px solid var(--color-orange-500); outline-offset:-4px; }
