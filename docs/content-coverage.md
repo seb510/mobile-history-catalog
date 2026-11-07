@@ -1,6 +1,6 @@
 # Покриття контенту
 
-Оновлено: 2026-11-07. 105 моделей; 79 мають власні uk/ru/en записи; 87 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
+Оновлено: 2026-11-07. 105 моделей; 84 мають власні uk/ru/en записи; 88 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
 
 ## Бракує власного ru/en перекладу
 
@@ -25,11 +25,6 @@
 - samsung-galaxy-s
 - samsung-omnia-i900
 - samsung-sgh-u600
-- sony-ericsson-k800i
-- sony-ericsson-t610
-- sony-ericsson-t68i
-- sony-ericsson-w800i
-- sony-ericsson-w810i
 
 ## Поки без відео
 
@@ -47,7 +42,6 @@
 - huawei-u9508
 - lg-c1300
 - motorola-razr-ultra-2026
-- nokia-3310-2017
 - nokia-9-pureview
 - samsung-galaxy-s26-ultra
 - samsung-galaxy-z-fold8-ultra
@@ -56,4 +50,5 @@
 
 - S65: https://www.youtube.com/watch?v=2mFAv_tlNlk — Vintage phones archive, демонстрація меню/мелодій. Відтворення та модель у кадрі перевірено. Перший кандидат 78gs0TfW0Co недоступний і не доданий.
 - CX70 Emoty: https://www.youtube.com/watch?v=nmgQrCFpND8 — Retro Mobile, короткий показ апарата, не повний огляд. Відтворення й характерна клавіатура перевірені.
-- M65: https://www.youtube.com/watch?v=PD2B5MHuLMI — Vintage phones archive, демонстрація меню/мелодій/ігор. Відтворення та модель у кадрі перевірено.
+- M65: https://www.youtube.com/watch?v=PD2B5MHuLMI — Vintage phones archive, демонстрація меню/мелодій/ігор; відтворення й модель у кадрі перевірено.
+- Nokia 3310 (2017): https://www.youtube.com/watch?v=lGMwq_UK3H8 — PhoneArena, англомовний огляд кольорового перевидання; відтворення й модель у кадрі перевірено. Не оригінал 2000 року та не пізніші 3G/4G.
