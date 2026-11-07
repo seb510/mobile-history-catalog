@@ -94,3 +94,14 @@ Model source: https://www.mobilephonemuseum.com/phone-detail/3250
 ## Siemens S55 — 2026-11-05
 
 Main image: public/images/phones/siemens-s55/museum-front.webp. Model source: https://www.mobilephonemuseum.com/phone-detail/siemens-s55 . Original: https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/48a40af7-0c25-4746-848f-4fc0a5827528_large.png . Downloaded 400 × 600; WebP 90 with transparency and dimensions preserved, no cropping, retouching, upscaling or AI. Used as fallback because the detailed Commons front view has damaged keys and the accessory photograph is less suitable for the cover. The three independent Commons photographs remain in the gallery with their own authors, licenses and source links. Museum credit is visible on detail/gallery/lightbox under the established permission and presentation rules.
+
+
+## Nokia 5700 XpressMusic — 2026-11-07
+
+Source: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
+
+- museum-front.webp: https://cms.mobilephonemuseum.com/assets/8b04eb9c-3d6e-4507-a725-0058e1a19d03.png (800×1200 original linked by page).
+- museum-side.webp: https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/ea82bd62-7fc4-4600-95fa-dc3343ba9eb9_large.png (900×600).
+- museum-back.webp: https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/1eafe3a6-7ed5-4156-80c6-31bf5a38bca6_large.png (400×600).
+
+Local folder: public/images/phones/nokia-5700/. Converted WebP quality 90, dimensions and transparency preserved, no crop/retouch/AI. Front is main; other museum views and all three existing independent images remain in gallery. Credit and source set in all locales.

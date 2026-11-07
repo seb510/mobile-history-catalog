@@ -19,11 +19,21 @@ connectivity:
   - Mini-USB
   - FM
 os: Symbian OS 9.2, S60 3rd Edition FP1
-image: /images/phones/nokia-5700/front-cutout-v1.webp
-imageCredit: William J Sisti · CC BY-SA 2.0 · AI-processed adaptation of the original
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
-imageCaption: A keypad for calls. Twist the lower block to reveal another side of this XpressMusic.
+image: /images/phones/nokia-5700/museum-front.webp
+imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
+imageCaption: "Nokia 5700 XpressMusic: white body with orange sides, numeric keypad and navigation controls."
 gallery:
+  - image: /images/phones/nokia-5700/museum-side.webp
+    alt: "The rotating lower section of Nokia 5700: a mechanism that changes how the phone is used."
+    caption: "The rotating lower section of Nokia 5700: a mechanism that changes how the phone is used."
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
+  - image: /images/phones/nokia-5700/front-cutout-v1.webp
+    alt: Nokia 5700 XpressMusic
+    caption: A keypad for calls. Twist the lower block to reveal another side of this XpressMusic.
+    imageCredit: William J Sisti · CC BY-SA 2.0 · AI-processed adaptation of the original
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
   - image: /images/phones/nokia-5700/music-2007.webp
     alt: Nokia 5700 in music mode
     caption: One twist replaces the number keys with dedicated music controls.
@@ -34,6 +44,11 @@ gallery:
     caption: Another colour variant of the Nokia 5700 XpressMusic.
     imageCredit: 阿貴 · CC BY-SA 3.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_XpressMusic.jpg
+  - image: /images/phones/nokia-5700/museum-back.webp
+    alt: Rear view of Nokia 5700 XpressMusic.
+    caption: Rear view of Nokia 5700 XpressMusic.
+    imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
 milestone: A twisting keypad switches between music, camera and calls
 storageExpandable: microSD, up to 2 GB
 camera:

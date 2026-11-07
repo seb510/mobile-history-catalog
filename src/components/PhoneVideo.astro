@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../lib/locales';
+const { locale } = Astro.props as { locale: Locale };
+const c = {
+ uk: { title:'Телефон у дії', subtitle:'Огляд своєї епохи', description:'Nokia 5700 XpressMusic у відеоогляді PhoneArena, опублікованому 2 серпня 2007 року. Мова відео — англійська.', consent:'Після дозволу завантажиться зовнішній плеєр YouTube (Google), який отримає IP-адресу й дані браузера та може використовувати власне сховище. Дозвіл діє лише для цього перегляду, окремо від збереження теми.', load:'Дозволити YouTube і завантажити відео', remove:'Вимкнути плеєр', source:'PhoneArena · Дивитися на YouTube ↗', fallback:'Якщо вбудований перегляд недоступний, відкрий відео на YouTube.', player:'PhoneArena: огляд Nokia 5700 XpressMusic (2007)' },
+ ru: { title:'Телефон в действии', subtitle:'Обзор своей эпохи', description:'Nokia 5700 XpressMusic в видеообзоре PhoneArena, опубликованном 2 августа 2007 года. Язык видео — английский.', consent:'После разрешения загрузится внешний плеер YouTube (Google), который получит IP-адрес и данные браузера и может использовать собственное хранилище. Разрешение действует только для этого просмотра, отдельно от сохранения темы.', load:'Разрешить YouTube и загрузить видео', remove:'Отключить плеер', source:'PhoneArena · Смотреть на YouTube ↗', fallback:'Если встроенный просмотр недоступен, открой видео на YouTube.', player:'PhoneArena: обзор Nokia 5700 XpressMusic (2007)' },
+ en: { title:'The phone in action', subtitle:'A review from its era', description:'Nokia 5700 XpressMusic reviewed by PhoneArena, published on 2 August 2007. Video language: English.', consent:'Allowing this loads an external YouTube (Google) player, which receives your IP address and browser information and may use its own storage. Permission applies only to this viewing, separately from theme storage.', load:'Allow YouTube and load video', remove:'Disable player', source:'PhoneArena · Watch on YouTube ↗', fallback:'If embedded playback is unavailable, open the video on YouTube.', player:'PhoneArena: Nokia 5700 XpressMusic review (2007)' },
+}[locale];
+---
+<section class="phone-video mt-5 border border-neutral-700 bg-neutral-900 p-3 sm:p-4" data-phone-video>
+ <p class="editorial-kicker text-orange-500">{c.subtitle} · 2007</p>
+ <h2 class="mt-2 text-lg font-bold">{c.title}</h2>
+ <p class="mt-2 text-sm leading-relaxed text-neutral-300">{c.description}</p>
+ <div class="video-surface mt-4" data-video-surface data-title={c.player}>
+  <div class="video-cover" data-video-cover><span aria-hidden="true" class="video-play">▷</span><span class="text-xs tracking-widest">NOKIA 5700 · XPRESSMUSIC</span></div>
+ </div>
+ <div data-video-consent>
+  <p class="mt-3 text-xs leading-relaxed text-neutral-400">{c.consent}</p>
+  <button type="button" class="control-button mt-3 min-h-11 w-full justify-center text-sm" data-video-load>{c.load}</button>
+ </div>
+ <button type="button" class="control-button mt-3 min-h-11 text-sm" data-video-remove hidden>{c.remove}</button>
+ <p class="mt-3 text-xs leading-relaxed text-neutral-500">{c.fallback}</p>
+ <a class="mt-2 inline-block text-xs text-orange-500 underline underline-offset-4" href="https://www.youtube.com/watch?v=Ej0o_l0QKpg" target="_blank" rel="noopener noreferrer">{c.source}</a>
+</section>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-phone-video]').forEach(root => {
+  const surface = root.querySelector<HTMLElement>('[data-video-surface]')!;
+  const cover = root.querySelector<HTMLElement>('[data-video-cover]')!;
+  const consent = root.querySelector<HTMLElement>('[data-video-consent]')!;
+  const load = root.querySelector<HTMLButtonElement>('[data-video-load]')!;
+  const remove = root.querySelector<HTMLButtonElement>('[data-video-remove]')!;
+  load.addEventListener('click', () => {
+   if (surface.querySelector('iframe')) return;
+   const frame = document.createElement('iframe');
+   frame.src = 'https://www.youtube-nocookie.com/embed/Ej0o_l0QKpg';
+   frame.title = surface.dataset.title!;
+   frame.allow = 'encrypted-media; picture-in-picture; fullscreen';
+   frame.allowFullscreen = true;
+   frame.referrerPolicy = 'strict-origin-when-cross-origin';
+   cover.hidden = true; surface.append(frame); consent.hidden = true; remove.hidden = false;
+   frame.focus();
+  });
+  remove.addEventListener('click', () => {
+   surface.querySelector('iframe')?.remove(); cover.hidden = false; consent.hidden = false; remove.hidden = true; load.focus();
+  });
+ });
+</script>
+<style>
+.phone-video [hidden] { display:none; }
+.video-surface { aspect-ratio:16/9; width:100%; position:relative; border:1px solid var(--color-neutral-700); background:var(--color-neutral-950); }
+.video-cover { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; color:var(--color-neutral-400); background:radial-gradient(ellipse at center,var(--color-neutral-800),transparent 80%); }
+.video-play { font-size:3rem; color:var(--color-orange-500); line-height:1; }
+.video-surface :global(iframe) { width:100%; height:100%; position:absolute; inset:0; border:0; }
+</style>

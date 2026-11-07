@@ -19,11 +19,21 @@ connectivity:
   - Mini-USB
   - FM
 os: Symbian OS 9.2, S60 3rd Edition FP1
-image: /images/phones/nokia-5700/front-cutout-v1.webp
-imageCredit: William J Sisti · CC BY-SA 2.0 · обробка ШІ за оригіналом
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
-imageCaption: Клавіатура для дзвінків. Поворот нижнього блока відкриває інший характер цього XpressMusic.
+image: /images/phones/nokia-5700/museum-front.webp
+imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
+imageCaption: "Nokia 5700 XpressMusic: білий корпус із помаранчевими боковинами, цифрова клавіатура та навігаційний блок."
 gallery:
+  - image: /images/phones/nokia-5700/museum-side.webp
+    alt: "Поворот нижнього блока Nokia 5700: механізм, який змінює спосіб користування телефоном."
+    caption: "Поворот нижнього блока Nokia 5700: механізм, який змінює спосіб користування телефоном."
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
+  - image: /images/phones/nokia-5700/front-cutout-v1.webp
+    alt: Nokia 5700 XpressMusic
+    caption: Клавіатура для дзвінків. Поворот нижнього блока відкриває інший характер цього XpressMusic.
+    imageCredit: William J Sisti · CC BY-SA 2.0 · обробка ШІ за оригіналом
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_(666485189).jpg
   - image: /images/phones/nokia-5700/music-2007.webp
     alt: Музичний режим Nokia 5700
     caption: Один поворот — і замість цифр під пальцями клавіші музичного плеєра.
@@ -34,6 +44,11 @@ gallery:
     caption: Інше кольорове виконання Nokia 5700 XpressMusic.
     imageCredit: 阿貴 · CC BY-SA 3.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_5700_XpressMusic.jpg
+  - image: /images/phones/nokia-5700/museum-back.webp
+    alt: Задня панель Nokia 5700 XpressMusic.
+    caption: Задня панель Nokia 5700 XpressMusic.
+    imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
+    imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
 milestone: Поворотна клавіатура перемикає музику, камеру й дзвінки
 storageExpandable: microSD, до 2 ГБ
 camera:

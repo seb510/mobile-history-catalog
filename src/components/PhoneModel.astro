@@ -1,0 +1,81 @@
+---
+import type { Locale } from '../lib/locales';
+const { locale } = Astro.props as { locale: Locale };
+const copy = {
+ uk: { calls: 'Дзвінки', camera: 'Камера', music: 'Музика', title: 'Відчути механіку', note: 'Спрощена 3D-реконструкція Nokia 5700. Пропорції й деталі умовні; для точного вигляду дивись фотографії вище.', open: 'Відкрити 3D', close: 'Сховати 3D', drag: 'Потягни, щоб обертати. Стрілки клавіатури також працюють. На телефоні прокручуй сторінку поза сценою.', twist: 'Поворот нижнього блока', zoom: 'Масштаб', reset: 'Початковий ракурс', view: 'Інтерактивна реконструкція Nokia 5700', front: 'Спереду', back: 'Ззаду' },
+ ru: { calls: 'Звонки', camera: 'Камера', music: 'Музыка', title: 'Почувствовать механику', note: 'Упрощённая 3D-реконструкция Nokia 5700. Пропорции и детали условные; точный вид — на фотографиях выше.', open: 'Открыть 3D', close: 'Скрыть 3D', drag: 'Потяни для вращения или используй стрелки клавиатуры. На телефоне прокручивай страницу вне сцены.', twist: 'Поворот нижнего блока', zoom: 'Масштаб', reset: 'Исходный ракурс', view: 'Интерактивная реконструкция Nokia 5700', front: 'Спереди', back: 'Сзади' },
+ en: { calls: 'Calls', camera: 'Camera', music: 'Music', title: 'Explore the mechanism', note: 'Simplified 3D reconstruction of Nokia 5700. Proportions and details are approximate; refer to the photos above for its actual appearance.', open: 'Open 3D', close: 'Hide 3D', drag: 'Drag to rotate or use the arrow keys. On mobile, scroll the page outside the scene.', twist: 'Lower block rotation', zoom: 'Zoom', reset: 'Reset view', view: 'Interactive Nokia 5700 reconstruction', front: 'Front', back: 'Back' },
+}[locale];
+---
+<section class="phone-model mt-5 border border-neutral-700 bg-neutral-900 p-3 sm:p-4" data-phone-model>
+ <h2 class="text-base font-bold">{copy.title}</h2>
+ <p class="mt-2 text-xs leading-relaxed text-neutral-400">{copy.note}</p>
+ <button type="button" class="control-button mt-3 min-h-11" data-model-toggle aria-expanded="false" aria-controls="nokia-5700-model" data-open={copy.open} data-close={copy.close}>{copy.open}</button>
+ <div id="nokia-5700-model" data-model-panel hidden>
+  <div class="model-stage" data-model-stage tabindex="0" role="group" aria-label={copy.view} aria-describedby="model-help"></div>
+  <p id="model-help" class="text-xs leading-relaxed text-neutral-500">{copy.drag}</p>
+  <div class="mt-3 grid gap-3">
+   <div class="model-modes" role="group" aria-label={copy.twist}>{[[0,copy.calls],[90,copy.camera],[180,copy.music]].map(([value,label]) => <button type="button" data-model-mode={value} aria-pressed={value === 0 ? "true" : "false"}>{label}</button>)}</div>
+   <label class="text-xs text-neutral-300">{copy.twist} <output data-model-angle>0°</output><input class="model-range" data-model-twist type="range" min="0" max="180" step="5" value="0" /></label>
+   <label class="text-xs text-neutral-300">{copy.zoom}<input class="model-range" data-model-zoom type="range" min="70" max="125" value="100" /></label>
+   <div class="flex flex-wrap gap-2"><button class="control-button min-h-11" data-model-front>{copy.front}</button><button class="control-button min-h-11" data-model-back>{copy.back}</button><button class="control-button min-h-11" data-model-reset>{copy.reset}</button></div>
+  </div>
+ </div>
+ <noscript><p class="mt-2 text-xs">JavaScript → 3D</p></noscript>
+</section>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-phone-model]').forEach(root => {
+  const toggle = root.querySelector<HTMLButtonElement>('[data-model-toggle]')!;
+  const panel = root.querySelector<HTMLElement>('[data-model-panel]')!;
+  let initialized = false;
+  toggle.addEventListener('click', async () => {
+   toggle.disabled = true;
+   try {
+    if (!initialized) { const { initPhoneModel } = await import('../scripts/nokia-5700-model'); initPhoneModel(root); initialized = true; }
+    panel.hidden = !panel.hidden;
+    toggle.setAttribute('aria-expanded', String(!panel.hidden));
+    toggle.textContent = panel.hidden ? toggle.dataset.open! : toggle.dataset.close!;
+   } finally { toggle.disabled = false; }
+  });
+ });
+</script>
+<style is:global>
+.phone-model [hidden] { display:none; }
+.model-stage { height:360px; position:relative; perspective:900px; overflow:hidden; touch-action:none; cursor:grab; border-block:1px solid var(--color-neutral-800); margin-block:1rem .75rem; background:radial-gradient(ellipse at center,var(--color-neutral-800),transparent 70%); }
+.model-stage:active { cursor:grabbing; }
+.model-range { display:block; width:100%; height:44px; accent-color:var(--color-orange-500); }
+.model-phone { position:absolute; left:50%; top:50%; width:150px; height:324px; transform-style:preserve-3d; }
+.model-part { position:absolute; width:150px; transform-style:preserve-3d; }
+.model-upper { top:0; height:210px; }
+.model-lower { top:214px; height:110px; }
+.model-face { position:absolute; inset:0; backface-visibility:hidden; border:1px solid #aaa9a2; border-radius:14px; background:#e5e2da; color:#191b1e; }
+.model-front { transform:translateZ(26px); }
+.model-back { transform:rotateY(180deg) translateZ(26px); background:linear-gradient(90deg,#b7bab8,#e3e3dc 25%,#b8bcb9); }
+.model-side { width:52px; height:100%; position:absolute; left:49px; background:#a7172f; border:1px solid #7d1025; }
+.model-left { transform:rotateY(-90deg) translateZ(75px); }
+.model-right { transform:rotateY(90deg) translateZ(75px); }
+.model-cap { position:absolute; width:150px; height:52px; background:#b9bcb7; border-radius:12px; top:calc(50% - 26px); }
+.model-top { transform:rotateX(90deg) translateZ(var(--half)); }
+.model-bottom { transform:rotateX(-90deg) translateZ(var(--half)); }
+.model-upper { --half:105px; } .model-lower { --half:55px; }
+/* Hand-drawn SVG front faces follow the photographed black/silver 5700. */
+.model-face { border:0; background:linear-gradient(100deg,#aeb2af,#dedfd8 40%,#b5b9b5); }
+.model-face svg { display:block; }
+.model-upper .model-face { border-radius:30px 30px 2px 2px; }
+.model-lower .model-face { border-radius:2px 2px 29px 29px; }
+.model-side { background:linear-gradient(90deg,#555b59,#242a29 30%,#3a403e 70%,#8b918d); border-color:#555d58; }
+.model-lower .model-side { background:linear-gradient(90deg,#a5aaa5,#e1e2db 45%,#8c938c); }
+.model-cap { background:linear-gradient(#aeb3ae,#d7d9d1); border-radius:20px; }
+.model-phone { filter:none; }
+.model-upper .model-side { top:22px; height:188px; }
+.model-lower .model-side { height:84px; }
+.model-upper .model-top, .model-lower .model-bottom { width:106px; left:22px; }
+.model-camera { width:26px; height:26px; border:5px solid #6f7972; border-radius:50%; background:radial-gradient(circle,#38566b 10%,#10191b 30%,#26302f 50%,#111 60%); margin:28px auto; box-shadow:0 0 0 2px #b3bab1; }
+.model-back-label { text-align:center; font:bold 11px Arial,sans-serif; margin-top:65px; letter-spacing:2px; color:#727b73; }
+.model-battery-seam { height:110px; margin:15px 12px; border:1px solid #929b91; border-radius:8px 8px 20px 20px; }
+.model-ground { position:absolute; left:25%; right:25%; bottom:12px; height:15px; background:#0003; border-radius:50%; filter:blur(8px); }
+.model-modes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.375rem; }
+.model-modes button { min-height:44px; padding:.375rem; font-size:.75rem; border:1px solid var(--color-neutral-700); border-radius:2px; cursor:pointer; }
+.model-modes button[aria-pressed="true"] { color:var(--color-orange-500); border-color:var(--color-orange-500); background:var(--color-neutral-950); }
+@media (hover:hover) and (pointer:fine) { .model-modes button:hover { border-color:var(--color-orange-500); } }
+</style>
