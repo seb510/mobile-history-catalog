@@ -1,0 +1,59 @@
+# Покриття контенту
+
+Оновлено: 2026-11-07. 105 моделей; 79 мають власні uk/ru/en записи; 87 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
+
+## Бракує власного ru/en перекладу
+
+- apple-iphone-12
+- apple-iphone
+- htc-dream
+- huawei-mate-xt
+- motorola-defy
+- motorola-droid
+- motorola-razr2-v8
+- motorola-v66
+- nokia-3210
+- nokia-5800-xpressmusic
+- nokia-6230
+- nokia-6600
+- nokia-7610
+- nokia-e71
+- nokia-lumia-520
+- nokia-n-gage
+- samsung-galaxy-fold
+- samsung-galaxy-note
+- samsung-galaxy-s
+- samsung-omnia-i900
+- samsung-sgh-u600
+- sony-ericsson-k800i
+- sony-ericsson-t610
+- sony-ericsson-t68i
+- sony-ericsson-w800i
+- sony-ericsson-w810i
+
+## Поки без відео
+
+- alcatel-one-touch-155
+- apple-iphone-13-pro
+- apple-iphone-18-pro
+- google-pixel-11-pro
+- google-pixel-6
+- google-pixel-8
+- google-pixel-9
+- htc-u24-pro
+- huawei-mate-xt-2
+- huawei-mate-xt
+- huawei-p-smart-plus
+- huawei-u9508
+- lg-c1300
+- motorola-razr-ultra-2026
+- nokia-3310-2017
+- nokia-9-pureview
+- samsung-galaxy-s26-ultra
+- samsung-galaxy-z-fold8-ultra
+
+## Перевірені нові джерела
+
+- S65: https://www.youtube.com/watch?v=2mFAv_tlNlk — Vintage phones archive, демонстрація меню/мелодій. Відтворення та модель у кадрі перевірено. Перший кандидат 78gs0TfW0Co недоступний і не доданий.
+- CX70 Emoty: https://www.youtube.com/watch?v=nmgQrCFpND8 — Retro Mobile, короткий показ апарата, не повний огляд. Відтворення й характерна клавіатура перевірені.
+- M65: https://www.youtube.com/watch?v=PD2B5MHuLMI — Vintage phones archive, демонстрація меню/мелодій/ігор. Відтворення та модель у кадрі перевірено.
