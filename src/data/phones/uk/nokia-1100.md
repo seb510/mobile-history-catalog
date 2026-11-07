@@ -16,7 +16,7 @@ colors: ["Світло-синій", "Чорний", "Оранжевий"]
 dimensionsMm: "106 × 46 × 20 мм"
 weightGrams: 86
 os: "власна (без назви)"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nokia_1100_20140624.jpg/960px-Nokia_1100_20140624.jpg"
+image: /images/phones/nokia-1100/commons-main.webp
 imageCredit: "Фото: Namlong618, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_1100_20140624.jpg"
 gallery:

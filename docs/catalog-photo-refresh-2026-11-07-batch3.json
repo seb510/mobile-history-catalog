@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-07",
+  "note": "Перенесення головних фото з зовнішніх Wikimedia URL у локальний WebP (quality 90), без зміни розміру/кадрування/ретуші/ШІ. Атрибуція (imageCredit/imageSourceUrl) не змінювалась — ці фото вже були перевіреними вільними ліцензіями з попередніх проходів.",
+  "models": [
+    {
+      "slug": "nokia-8800",
+      "locales": ["uk", "ru", "en"],
+      "localFile": "public/images/phones/nokia-8800/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Nokia_8800.jpg",
+      "dimensions": "700x560"
+    },
+    {
+      "slug": "nokia-n8",
+      "locales": ["uk", "ru", "en"],
+      "localFile": "public/images/phones/nokia-n8/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nokia_N8.png/960px-Nokia_N8.png",
+      "dimensions": "960x1864"
+    },
+    {
+      "slug": "nokia-e71",
+      "locales": ["uk"],
+      "localFile": "public/images/phones/nokia-e71/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nokia_E71.JPG/960px-Nokia_E71.JPG",
+      "dimensions": "960x1280"
+    },
+    {
+      "slug": "motorola-v66",
+      "locales": ["uk"],
+      "localFile": "public/images/phones/motorola-v66/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Motorola_V66_mobile_phone.jpg/960px-Motorola_V66_mobile_phone.jpg",
+      "dimensions": "960x720"
+    },
+    {
+      "slug": "motorola-droid",
+      "locales": ["uk"],
+      "localFile": "public/images/phones/motorola-droid/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Motorola_Milestone.jpg/960px-Motorola_Milestone.jpg",
+      "dimensions": "960x592",
+      "note": "Фото показує європейський Milestone, не американський CDMA Droid — цей нюанс уже явно розкритий у тексті запису (\"Фото тут показує Milestone\"), перенесення не змінює цього факту."
+    },
+    {
+      "slug": "samsung-sgh-d500",
+      "locales": ["uk"],
+      "localFile": "public/images/phones/samsung-sgh-d500/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Samsung_SGH-D500.jpg/960px-Samsung_SGH-D500.jpg",
+      "dimensions": "960x1840"
+    },
+    {
+      "slug": "nokia-1100",
+      "locales": ["uk"],
+      "localFile": "public/images/phones/nokia-1100/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nokia_1100_20140624.jpg/960px-Nokia_1100_20140624.jpg",
+      "dimensions": "960x1920"
+    },
+    {
+      "slug": "nokia-5800-xpressmusic",
+      "locales": ["uk"],
+      "localFile": "public/images/phones/nokia-5800-xpressmusic/commons-main.webp",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg/960px-Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg",
+      "dimensions": "960x1280"
+    }
+  ],
+  "gallery": "Не чіпалась у цьому проході — лише головне image поле.",
+  "failures": []
+}

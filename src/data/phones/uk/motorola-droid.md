@@ -24,7 +24,7 @@ os: "Android 2.0 (Eclair), з подальшими оновленнями до 2
 dimensionsMm: "115.8 × 60 × 13.7 мм"
 weightGrams: 169
 simType: "Mini-SIM (GSM-версія Milestone); Verizon Droid — без SIM (CDMA)"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Motorola_Milestone.jpg/960px-Motorola_Milestone.jpg"
+image: /images/phones/motorola-droid/commons-main.webp
 imageCredit: "Фото: Jan Stöcklin, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_Milestone.jpg"
 ---

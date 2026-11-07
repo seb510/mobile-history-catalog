@@ -15,7 +15,7 @@ os: Series 40
 dimensionsMm: 107 × 45 × 16.5
 weightGrams: 134
 simType: Mini-SIM
-image: https://upload.wikimedia.org/wikipedia/commons/e/e3/Nokia_8800.jpg
+image: /images/phones/nokia-8800/commons-main.webp
 imageCredit: Inash · CC BY-SA 2.0 · Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_8800.jpg
 milestone: Нержавіюча сталь, пружинний слайдер і мелодії Рюїті Сакамото

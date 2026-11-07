@@ -15,7 +15,7 @@ simType: "Mini-SIM"
 dimensionsMm: "84 × 44 × 21 мм"
 weightGrams: 79
 os: "власна (Motorola)"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Motorola_V66_mobile_phone.jpg/960px-Motorola_V66_mobile_phone.jpg"
+image: /images/phones/motorola-v66/commons-main.webp
 imageCredit: "Фото: Mk2010, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Motorola_V66_mobile_phone.jpg"
 gallery:

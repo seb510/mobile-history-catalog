@@ -26,7 +26,7 @@ dimensionsMm: "114 × 57 × 10 мм"
 weightGrams: 126
 colors: ["Сталевий сірий", "Білий", "Червоний", "Чорний"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nokia_E71.JPG/960px-Nokia_E71.JPG"
+image: /images/phones/nokia-e71/commons-main.webp
 imageCredit: "Фото: Meno Keller, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_E71.JPG"
 gallery:

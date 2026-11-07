@@ -21,7 +21,7 @@ simType: "Mini-SIM"
 dimensionsMm: "93.5 × 45.7 × 23.5 мм"
 weightGrams: 99
 os: "власна (Samsung)"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Samsung_SGH-D500.jpg/960px-Samsung_SGH-D500.jpg"
+image: /images/phones/samsung-sgh-d500/commons-main.webp
 imageCredit: "Фото: Mahahahaneapneap, CC BY-SA 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_SGH-D500.jpg"
 gallery:

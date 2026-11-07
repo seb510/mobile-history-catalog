@@ -1,21 +1,59 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-07",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 89,
-    "localPrimary": 31,
-    "remotePrimary": 57,
+    "models": 105,
+    "localPrimary": 46,
+    "remotePrimary": 56,
     "missingPrimary": [
+      "htc-u24-pro",
+      "huawei-mate-xt-2",
       "samsung-sgh-e700"
     ],
-    "issues": []
+    "issues": [
+      "alcatel-one-touch-155: Missing attribution: /images/phones/alcatel-one-touch-155/front.webp",
+      "alcatel-one-touch-155: Missing attribution: /images/phones/alcatel-one-touch-155/screen-on.webp",
+      "huawei-p-smart-plus: Missing attribution: /images/phones/huawei-p-smart-plus/press-purple.webp",
+      "huawei-p-smart-plus: Missing attribution: /images/phones/huawei-p-smart-plus/press-black.webp",
+      "huawei-u9508: Missing attribution: /images/phones/huawei-u9508/front-side.webp",
+      "huawei-u9508: Missing attribution: /images/phones/huawei-u9508/front.webp",
+      "lg-c1300: Missing attribution: /images/phones/lg-c1300/open.webp",
+      "lg-c1300: Missing attribution: /images/phones/lg-c1300/closed.webp",
+      "motorola-c350: Missing attribution: /images/phones/motorola-c350/own-kyivstar.webp",
+      "siemens-cx70-emoty: Missing attribution: /images/phones/siemens-cx70-emoty/front.webp",
+      "siemens-cx70-emoty: Missing attribution: /images/phones/siemens-cx70-emoty/menu.webp"
+    ]
   },
   "records": [
     {
+      "slug": "alcatel-one-touch-155",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": [
+        "Missing attribution: /images/phones/alcatel-one-touch-155/front.webp",
+        "Missing attribution: /images/phones/alcatel-one-touch-155/screen-on.webp"
+      ]
+    },
+    {
       "slug": "apple-iphone-12",
-      "primary": "remote",
-      "frames": 3,
-      "remoteFrames": 3,
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 1,
+      "issues": []
+    },
+    {
+      "slug": "apple-iphone-13-pro",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "apple-iphone-18-pro",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -23,6 +61,13 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "google-pixel-11-pro",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
       "issues": []
     },
     {
@@ -61,6 +106,20 @@
       "issues": []
     },
     {
+      "slug": "htc-u24-pro",
+      "primary": "missing",
+      "frames": 0,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "huawei-mate-xt-2",
+      "primary": "missing",
+      "frames": 0,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "huawei-mate-xt",
       "primary": "remote",
       "frames": 2,
@@ -68,11 +127,43 @@
       "issues": []
     },
     {
+      "slug": "huawei-p-smart-plus",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": [
+        "Missing attribution: /images/phones/huawei-p-smart-plus/press-purple.webp",
+        "Missing attribution: /images/phones/huawei-p-smart-plus/press-black.webp"
+      ]
+    },
+    {
+      "slug": "huawei-u9508",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": [
+        "Missing attribution: /images/phones/huawei-u9508/front-side.webp",
+        "Missing attribution: /images/phones/huawei-u9508/front.webp"
+      ]
+    },
+    {
+      "slug": "lg-c1300",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": [
+        "Missing attribution: /images/phones/lg-c1300/open.webp",
+        "Missing attribution: /images/phones/lg-c1300/closed.webp"
+      ]
+    },
+    {
       "slug": "motorola-c350",
-      "primary": "remote",
-      "frames": 1,
+      "primary": "local",
+      "frames": 2,
       "remoteFrames": 1,
-      "issues": []
+      "issues": [
+        "Missing attribution: /images/phones/motorola-c350/own-kyivstar.webp"
+      ]
     },
     {
       "slug": "motorola-defy",
@@ -100,6 +191,13 @@
       "primary": "local",
       "frames": 5,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "motorola-razr-ultra-2026",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -180,9 +278,16 @@
       "issues": []
     },
     {
-      "slug": "nokia-5700",
+      "slug": "nokia-5130",
       "primary": "local",
       "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-5700",
+      "primary": "local",
+      "frames": 6,
       "remoteFrames": 1,
       "issues": []
     },
@@ -254,6 +359,13 @@
       "primary": "remote",
       "frames": 1,
       "remoteFrames": 1,
+      "issues": []
+    },
+    {
+      "slug": "nokia-9-pureview",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -418,6 +530,13 @@
       "issues": []
     },
     {
+      "slug": "samsung-galaxy-z-fold8-ultra",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "samsung-omnia-i900",
       "primary": "remote",
       "frames": 3,
@@ -481,11 +600,28 @@
       "issues": []
     },
     {
+      "slug": "siemens-c72",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "siemens-cx65",
       "primary": "local",
       "frames": 4,
       "remoteFrames": 0,
       "issues": []
+    },
+    {
+      "slug": "siemens-cx70-emoty",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": [
+        "Missing attribution: /images/phones/siemens-cx70-emoty/front.webp",
+        "Missing attribution: /images/phones/siemens-cx70-emoty/menu.webp"
+      ]
     },
     {
       "slug": "siemens-cx75",
@@ -624,6 +760,13 @@
       "slug": "sony-ericsson-w810i",
       "primary": "local",
       "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-xperia-arc-s",
+      "primary": "local",
+      "frames": 1,
       "remoteFrames": 0,
       "issues": []
     },

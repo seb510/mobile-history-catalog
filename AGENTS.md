@@ -1057,3 +1057,40 @@ the King» — цього разу перевірено візуально че�
 сталевий корпус із круглими клавішами, а не Sirocco/Arte, на відміну від відхиленої спроби в
 попередній партії). Усі перевірені через YouTube oEmbed. `astro check` — 0 errors/0 warnings.
 Без commit/push/deploy.
+
+## Відео для ще 8 моделей, четверта партія — 2026-11-07
+
+PHONE_VIDEOS розширено з 30 до 38 моделей: Motorola Droid (retrospective, Insider Tech — підтверджено
+саме американська CDMA-версія, не європейський Milestone), Nokia 5800 XpressMusic (огляд Geekanoids,
+2009, невдовзі після старту продажів), Nokia N8 (retrospective, TheMrNokia I Abdulla Zaki), Samsung
+Omnia i900 (хендс-он NextWindowsMobile, 2008), Motorola PEBL U6 (retrospective, maxlau100 — колір
+екземпляра на відео не підтверджено як бордовий, це прямо зазначено в описі), Nokia 3210
+(retrospective, SqueegeeMan — явно модель 1999 року, не 3310), Motorola V66 (demonstration, Mobile
+Phone Museum — срібний корпус, не V70), Samsung SGH-D500 (retrospective, JojoDudu30). Усі перевірені
+через YouTube oEmbed. `astro check` — 0 errors/0 warnings, 38 унікальних ключів без дублів.
+Без commit/push/deploy.
+
+## Фото каталогу: третя група — 2026-11-07
+
+Перенесено головні фото 8 моделей із зовнішніх Wikimedia URL у локальний WebP quality 90, без
+зміни розміру/кадрування/ретуші/ШІ: Nokia 8800, N8 (uk/ru/en), Nokia E71, Motorola V66, Motorola
+Droid, Samsung SGH-D500, Nokia 1100, Nokia 5800 XpressMusic (uk). Атрибуція (imageCredit/
+imageSourceUrl) не змінювалась — фото вже мали перевірену вільну ліцензію з попередніх проходів,
+перенесення лише робить файл локальним. Збіг не випадковий: усі 8 моделей щойно отримали відео в
+PHONE_VIDEOS, тож локальне фото одразу покращує постер відеоплеєра. Motorola Droid: фото показує
+європейський Milestone, не американський CDMA Droid із щойно доданого відео — цей нюанс уже явно
+розкритий у тексті запису («Фото тут показує Milestone»), перенесення файлу його не змінює.
+Галереї цього проходу не чіпали. Походження: docs/catalog-photo-refresh-2026-11-07-batch3.json.
+`astro check` — 0 errors/0 warnings. Без commit/push/deploy.
+
+## Відео для ще 8 моделей, п'ята партія — 2026-11-07
+
+PHONE_VIDEOS розширено з 38 до 46 моделей: Nokia N90 (retrospective, Retro Mobile — пара з Nokia
+5700 в темі «Механіка характеру»), Samsung Galaxy Note (retrospective, The Vintage Phone Guy —
+саме оригінальна GT-N7000 2011 року, не Note II/III), Motorola SLVR L7 (retrospective, PhoneArena,
+рік зйомки не підтверджено), Nokia 3250 (retrospective, Vintage Mobile Phone Collection, розпаковка
+нового старого запасу), Sony Ericsson W810i (retrospective, The Vintage Phone Guy — присвячене саме
+W810i, не порівняльне з W800i), Nokia 7280 (retrospective, Techformative, «lipstick phone» — явно не
+7380), Samsung SGH-U600 (demonstration, Bestofmicro, рік зйомки не підтверджено), Nokia 6230
+(retrospective, Retro Mobile — явно звичайна 6230, не 6230i). Усі перевірені через YouTube oEmbed.
+`astro check` — 0 errors/0 warnings, 46 унікальних ключів без дублів. Без commit/push/deploy.

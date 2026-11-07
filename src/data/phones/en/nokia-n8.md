@@ -25,7 +25,7 @@ connectivity:
   - 3.5 mm
   - FM
 os: Symbian^3
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nokia_N8.png/960px-Nokia_N8.png
+image: /images/phones/nokia-n8/commons-main.webp
 imageCredit: Dienthoaiquangcao68; Editor182 (crop), CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_N8.png
 gallery:

@@ -26,7 +26,7 @@ dimensionsMm: "111 × 51.7 × 15.5 мм"
 weightGrams: 109
 colors: ["Чорний", "Синій", "Червоний"]
 simType: "Mini-SIM"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg/960px-Nokia_5800_XpressMusic_%28Blue%29_-_Front.jpg"
+image: /images/phones/nokia-5800-xpressmusic/commons-main.webp
 imageCredit: "Фото: Beamish4, CC BY-SA 4.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_5800_XpressMusic_(Blue)_-_Front.jpg"
 gallery:
