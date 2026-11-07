@@ -13,7 +13,7 @@ ramMb: 192
 storageMb: 256
 storageExpandable: "microSD (до 8 ГБ на момент релізу)"
 camera:
-  rear: "3.1 МП, без автофокуса"
+  rear: "3.2 МП, автофокус"
 battery:
   mah: 1150
   removable: true
@@ -47,3 +47,5 @@ G1 поєднував сенсорний екран із висувною QWERTY
 У США оголошені $179 стосувалися дворічної угоди на голосовий зв’язок і дані. Це не універсальна роздрібна ціна HTC Dream для всіх країн. Порівнюючи моделі різних епох, важливо враховувати й таку операторську модель продажу.
 
 Джерела: [T-Mobile — анонс G1](https://www.t-mobile.com/news/press/t-mobile-unveils-the-t-mobile-g1-the-first-phone-powered-by), [T-Mobile — початок продажів](https://www.t-mobile.com/news/press/t-mobile-launches-the-highly-anticipatedt-mobile-g1), [Google — The future of mobile](https://googleblog.blogspot.com/2008/09/future-of-mobile.html).
+
+Камеру уточнено за інструкцією HTC: 3,2 МП з автофокусом, який активується напівнатисканням кнопки зйомки. [HTC Dream Quick Start Guide, p. 34](https://www.manualslib.com/manual/396938/Htc-Dream.html?page=34#manual).
