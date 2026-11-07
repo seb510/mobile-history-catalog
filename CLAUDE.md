@@ -1054,3 +1054,16 @@ Nokia 8800 свідомо пропущено: перший знайдений к
 8800d Sirocco Edition (інший корпус/дизайн) — не тим записом каталогу, що явно застерігає не
 змішувати оригінал із Sirocco/Arte. Краще лишити модель без відео, ніж підставити неточне.
 `astro check` — 0 errors/0 warnings. Без commit/push/deploy.
+
+## Відео для ще 8 моделей, третя партія — 2026-11-07
+
+PHONE_VIDEOS розширено з 22 до 30 моделей: Samsung Galaxy S / I9000 (огляд PhoneArena, 2010,
+оригінальна модель, не S II/S III), Nokia E71 (retrospective, Arthur Brs), Sony Ericsson T610
+(retrospective, All5!), Motorola RAZR2 V8 (retrospective, The Vintage Phone Guy — наступне
+покоління після RAZR V3/V3i, не плутати з ними), Nokia Lumia 520 (retrospective, Griffen Sander,
+«6 years later»), Motorola Defy (огляд PhoneArena, 2010, оригінал MB525, не Defy 2021), Nokia 1100
+(retrospective, Retro Unboxing), Nokia 8800 (retrospective, The Vintage Phone Guy, «The Return of
+the King» — цього разу перевірено візуально через скріншот відео, що це справді оригінальний
+сталевий корпус із круглими клавішами, а не Sirocco/Arte, на відміну від відхиленої спроби в
+попередній партії). Усі перевірені через YouTube oEmbed. `astro check` — 0 errors/0 warnings.
+Без commit/push/deploy.
