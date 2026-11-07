@@ -1,6 +1,6 @@
 # Покриття контенту
 
-Оновлено: 2026-11-07. 105 моделей; 89 мають власні uk/ru/en записи; 89 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
+Оновлено: 2026-11-07. 105 моделей; 101 мають власні uk/ru/en записи; 90 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
 
 ## Бракує власного ru/en перекладу
 
@@ -8,18 +8,6 @@
 - apple-iphone
 - htc-dream
 - huawei-mate-xt
-- motorola-defy
-- motorola-droid
-- motorola-razr2-v8
-- motorola-v66
-- nokia-5800-xpressmusic
-- nokia-e71
-- nokia-lumia-520
-- samsung-galaxy-fold
-- samsung-galaxy-note
-- samsung-galaxy-s
-- samsung-omnia-i900
-- samsung-sgh-u600
 
 ## Поки без відео
 
@@ -27,7 +15,6 @@
 - apple-iphone-13-pro
 - apple-iphone-18-pro
 - google-pixel-11-pro
-- google-pixel-6
 - google-pixel-8
 - google-pixel-9
 - htc-u24-pro
@@ -47,3 +34,4 @@
 - M65: https://www.youtube.com/watch?v=PD2B5MHuLMI — Vintage phones archive, демонстрація меню/мелодій/ігор; відтворення й модель у кадрі перевірено.
 - Nokia 3310 (2017): https://www.youtube.com/watch?v=lGMwq_UK3H8 — PhoneArena, англомовний огляд кольорового перевидання; відтворення й модель у кадрі перевірено. Не оригінал 2000 року та не пізніші 3G/4G.
 - LG C1300: https://www.youtube.com/watch?v=5ne9qkMyHyo — Davian’s Phone Collection, меню/мелодії операторського апарата Cingular. Відтворення й модель у кадрі перевірено. Темний запис CaHtuNw7cLg відхилений на користь читабельнішого відео.
+- Google Pixel 6: https://www.youtube.com/watch?v=H9WhjkwqntE — GSMArena Official, англомовний огляд базової моделі, не Pro/6a. Автора, відтворення й апарат у кадрі перевірено.
