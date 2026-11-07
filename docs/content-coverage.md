@@ -1,6 +1,6 @@
 # Покриття контенту
 
-Оновлено: 2026-11-07. 105 моделей; 84 мають власні uk/ru/en записи; 88 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
+Оновлено: 2026-11-07. 105 моделей; 89 мають власні uk/ru/en записи; 89 мають відео. Наявність ролика не означає гарантію майбутньої доступності YouTube.
 
 ## Бракує власного ru/en перекладу
 
@@ -12,14 +12,9 @@
 - motorola-droid
 - motorola-razr2-v8
 - motorola-v66
-- nokia-3210
 - nokia-5800-xpressmusic
-- nokia-6230
-- nokia-6600
-- nokia-7610
 - nokia-e71
 - nokia-lumia-520
-- nokia-n-gage
 - samsung-galaxy-fold
 - samsung-galaxy-note
 - samsung-galaxy-s
@@ -40,7 +35,6 @@
 - huawei-mate-xt
 - huawei-p-smart-plus
 - huawei-u9508
-- lg-c1300
 - motorola-razr-ultra-2026
 - nokia-9-pureview
 - samsung-galaxy-s26-ultra
@@ -52,3 +46,4 @@
 - CX70 Emoty: https://www.youtube.com/watch?v=nmgQrCFpND8 — Retro Mobile, короткий показ апарата, не повний огляд. Відтворення й характерна клавіатура перевірені.
 - M65: https://www.youtube.com/watch?v=PD2B5MHuLMI — Vintage phones archive, демонстрація меню/мелодій/ігор; відтворення й модель у кадрі перевірено.
 - Nokia 3310 (2017): https://www.youtube.com/watch?v=lGMwq_UK3H8 — PhoneArena, англомовний огляд кольорового перевидання; відтворення й модель у кадрі перевірено. Не оригінал 2000 року та не пізніші 3G/4G.
+- LG C1300: https://www.youtube.com/watch?v=5ne9qkMyHyo — Davian’s Phone Collection, меню/мелодії операторського апарата Cingular. Відтворення й модель у кадрі перевірено. Темний запис CaHtuNw7cLg відхилений на користь читабельнішого відео.
