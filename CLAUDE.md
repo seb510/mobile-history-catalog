@@ -1039,3 +1039,18 @@ Apple iPhone 2007 (архівний огляд CNET того ж 2007 року �
 (RETRO_STORIES/HOME_EDITORIAL). `astro check` — 0 errors/0 warnings після обох хвиль правок; build —
 378 сторінок. Фільтр «Лише з відео» в каталозі автоматично підхопив нові моделі без змін коду.
 Без commit/push/deploy.
+
+## Відео для ще 7 моделей, друга партія — 2026-11-07
+
+PHONE_VIDEOS розширено з 15 до 22 моделей: Siemens S55 (demonstration, Mobile Phone Museum, модель
+2002 року), Siemens SL55 (retrospective, Mobile Gazette, колір Titan — звірено з даними запису),
+Nokia 6600 (retrospective, Krazy Experiment, «Review After 20 Years»), Nokia N70 (retrospective,
+Vintage Mobile Phone Reviews), Motorola RAZR V3i (retrospective, Retro Tech & Finance Hub, 2024 —
+не плутати з RAZR V3, який уже мав відео), Sony Ericsson K800i (retrospective, TECHSHOW — не плутати
+з K750i), HTC Dream / T-Mobile G1 (retrospective, Pocketnow, перший комерційний Android-телефон
+2008 року). Кожне перевірено через YouTube oEmbed перед додаванням.
+
+Nokia 8800 свідомо пропущено: перший знайдений кандидат відео «Nokia 8800 Black» виявився насправді
+8800d Sirocco Edition (інший корпус/дизайн) — не тим записом каталогу, що явно застерігає не
+змішувати оригінал із Sirocco/Arte. Краще лишити модель без відео, ніж підставити неточне.
+`astro check` — 0 errors/0 warnings. Без commit/push/deploy.
