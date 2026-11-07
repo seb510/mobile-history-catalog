@@ -1094,3 +1094,16 @@ W810i, не порівняльне з W800i), Nokia 7280 (retrospective, Techfor
 7380), Samsung SGH-U600 (demonstration, Bestofmicro, рік зйомки не підтверджено), Nokia 6230
 (retrospective, Retro Mobile — явно звичайна 6230, не 6230i). Усі перевірені через YouTube oEmbed.
 `astro check` — 0 errors/0 warnings, 46 унікальних ключів без дублів. Без commit/push/deploy.
+
+## Відео для ще 8 моделей, шоста партія — 2026-11-07
+
+PHONE_VIDEOS розширено з 46 до 54 моделей: Google Pixel (retrospective, Leo Does Tech — оригінал
+2016 року, не 6/8/9/11 Pro), Nokia N82 (retrospective, RetroTECH, чеськомовний), Nokia 7110
+(retrospective, mobilenet.cz, чеськомовний — NaviRoller і WAP 1999 року), Apple iPhone 12
+(retrospective, Unboxio — звичайний iPhone 12, не Pro/mini/оригінал 2007), Samsung Galaxy Fold
+(retrospective, PhoneArena, «The OG Galaxy Fold vs Fold 8» — явно розрізняє оригінал 2019 і Fold 8),
+Nokia 6210 (retrospective, Old Phones World — саме 6210, не 6310i), Sony Ericsson T68i
+(retrospective, OLDevice, 2002, російськомовний — не T610), Nokia N81 (сучасний на момент виходу
+хендс-он All About Windows Phone — базова версія, N81 8GB лишається описана тим самим записом через
+specVariant). Усі перевірені через YouTube oEmbed. `astro check` — 0 errors/0 warnings, 54
+унікальних ключів без дублів. Без commit/push/deploy.
