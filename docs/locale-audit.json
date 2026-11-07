@@ -1,0 +1,15 @@
+{
+  "models": 105,
+  "records": 315,
+  "checks": [
+    "own locales",
+    "field presence",
+    "numeric/boolean consistency",
+    "image/source consistency",
+    "language heuristics",
+    "internal Markdown link locale",
+    "comparison slugs"
+  ],
+  "limitation": "Passing does not certify translation quality or factual accuracy. Proper names and brand colour names may remain untranslated.",
+  "issues": []
+}

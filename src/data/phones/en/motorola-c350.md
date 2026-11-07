@@ -30,6 +30,6 @@ The C350 represents the everyday side of mobile history in 2003: a small colour 
 
 Text input included iTAP, which suggested words from a sequence of key presses instead of requiring users to cycle through every letter on each key. The guide also describes conventional multi-tap input. This is a useful detail from the SMS era, when typing speed depended on the relationship between a predictive dictionary and a numeric keypad.
 
-Among its connectors, Motorola listed USB for a data cable. The C350 is included as an example of a basic phone gaining colour and exterior customisation. [Compare it with the Nokia 1100 from the same year](/compare/?a=motorola-c350&b=nokia-1100): two different approaches to an entry-level keypad phone.
+Among its connectors, Motorola listed USB for a data cable. The C350 is included as an example of a basic phone gaining colour and exterior customisation. [Compare it with the Nokia 1100 from the same year](/en/compare/?a=motorola-c350&b=nokia-1100): two different approaches to an entry-level keypad phone.
 
 Source: [Motorola C350 User Guide, archived copy of the manufacturer's manual](https://www.manualslib.com/manual/78694/Motorola-C350.html).

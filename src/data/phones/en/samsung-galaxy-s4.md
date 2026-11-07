@@ -44,6 +44,6 @@ The 2013 Galaxy S4 combined a 5-inch Full HD Super AMOLED display, a 13 MP main 
 
 Air Gesture allowed selected actions through hand movements without touching the screen. Smart Scroll used a combination of looking at the display and wrist movement to scroll; it was not universal eye-only control of the interface. Dual Camera combined material from the rear and front cameras. These features depended on the selected mode or application.
 
-On 23 May, Samsung reported more than 10 million channel shipments less than a month after the commercial launch on 27 April. Shipments to partners should not be equated with end-user purchases or the final lifetime total. [Compare it with the S III](/compare/?a=samsung-galaxy-s3&b=samsung-galaxy-s4) to see how the flagship formula evolved incrementally.
+On 23 May, Samsung reported more than 10 million channel shipments less than a month after the commercial launch on 27 April. Shipments to partners should not be equated with end-user purchases or the final lifetime total. [Compare it with the S III](/en/compare/?a=samsung-galaxy-s3&b=samsung-galaxy-s4) to see how the flagship formula evolved incrementally.
 
 Sources: [Samsung — S4 announcement](https://news.samsung.com/global/samsung-introduces-the-galaxy-s-4-a-life-companion-for-a-richer-simpler-and-fuller-llife), [report on 10 million channel shipments](https://news.samsung.com/global/samsung-galaxy-s4-hits-10-million-milestone-in-first-month).

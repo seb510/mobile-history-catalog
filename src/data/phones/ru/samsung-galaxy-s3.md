@@ -41,6 +41,6 @@ Galaxy S III представили 3 мая 2012 года. Наряду с 4,8-
 
 Smart Stay использовал фронтальную камеру, чтобы распознавать взгляд на экран и поддерживать подсветку. Direct Call позволял перейти от сообщения к звонку, поднеся аппарат к уху. Эти функции показывали другой вектор конкуренции: производители предлагали собственные сценарии поверх общей платформы Android.
 
-6 сентября 2012 года Samsung сообщила о 20 млн проданных аппаратов за 100 дней; более поздняя ретроспектива называет свыше 40 млн за семь месяцев. Обе цифры привязаны к конкретным периодам и не являются окончательным тиражом. [Сравните S III с S4](/compare/?a=samsung-galaxy-s3&b=samsung-galaxy-s4): программный акцент стал ещё заметнее.
+6 сентября 2012 года Samsung сообщила о 20 млн проданных аппаратов за 100 дней; более поздняя ретроспектива называет свыше 40 млн за семь месяцев. Обе цифры привязаны к конкретным периодам и не являются окончательным тиражом. [Сравните S III с S4](/ru/compare/?a=samsung-galaxy-s3&b=samsung-galaxy-s4): программный акцент стал ещё заметнее.
 
 Источники: [анонс Galaxy S III](https://news.samsung.com/global/samsung-introduces-the-galaxy-s-iii-the-smartphone-designed-for-humans-and-inspired-by-nature), [20 млн за 100 дней](https://news.samsung.com/global/samsung-galaxy-s-iii-reaches-20-million-sales-milestone-in-record-time), [более поздний итог Samsung](https://news.samsung.com/global/from-zero-to-infinity-the-five-year-journey-of-the-samsung-galaxy-s).

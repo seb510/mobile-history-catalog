@@ -15,7 +15,7 @@ camera:
   rear: 200 MP + 50 MP + 50 MP (5×) + 10 MP (3×)
   front: 12 MP, AF
 network: GSM, UMTS, LTE, 5G Sub-6
-dimensionsMm: 163,6 × 78,1 × 7,9 мм
+dimensionsMm: 163,6 × 78,1 × 7,9 mm
 weightGrams: 214
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Galaxy_S26_Ultra_-_2.jpg/960px-Galaxy_S26_Ultra_-_2.jpg
 imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons

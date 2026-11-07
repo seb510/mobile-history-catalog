@@ -41,6 +41,6 @@ Galaxy S II анонсировали 13 февраля 2011 года на Mobile
 
 Камера на 8 Мп поддерживала запись Full HD, фронтальная имела разрешение 2 Мп. Помимо мультимедиа, производитель уделял внимание корпоративным сценариям — электронной почте, защите данных и доступу к рабочим системам. В истории Android это пример перехода от одной успешной модели к ежегодно обновляемой флагманской серии.
 
-По ретроспективе Samsung, мировые продажи S II достигли 40 млн за первые 20 месяцев. Это промежуточный рубеж, а не окончательный тираж. [Сравнение с Galaxy S](/compare/?a=samsung-galaxy-s&b=samsung-galaxy-s2) показывает изменения между первыми поколениями серии.
+По ретроспективе Samsung, мировые продажи S II достигли 40 млн за первые 20 месяцев. Это промежуточный рубеж, а не окончательный тираж. [Сравнение с Galaxy S](/ru/compare/?a=samsung-galaxy-s&b=samsung-galaxy-s2) показывает изменения между первыми поколениями серии.
 
 Источники: [Samsung — первоначальный анонс GT-I9100](https://www.samsungmobilepress.com/articles/samsung-announces-the-galaxy-s-ii-worlds-thinnest-smartphone-that-will-let-you-experience-more-with-less), [история серии и данные о продажах](https://news.samsung.com/global/from-zero-to-infinity-the-five-year-journey-of-the-samsung-galaxy-s).

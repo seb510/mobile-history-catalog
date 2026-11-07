@@ -23,8 +23,8 @@ imageCredit: Aerous · CC BY-SA 4.0 · Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:A_red_iPhone_12.jpg
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/IPhone_12_-_2.jpg/960px-IPhone_12_-_2.jpg
-    alt: Side view of an iPhone 12 on display at an electronics store in Nagoya
-    imageCredit: "Photo: KKPCW, CC BY-SA 4.0, Wikimedia Commons"
+    alt: Бічний ракурс iPhone 12 на вітрині магазину електроніки в Нагої
+    imageCredit: "Фото: KKPCW, CC BY-SA 4.0, Wikimedia Commons"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:IPhone_12_-_2.jpg
 ---
 

@@ -41,6 +41,6 @@ The Galaxy S II was announced on 13 February 2011 at Mobile World Congress in Ba
 
 The 8 MP camera could record Full HD video, while the front camera was 2 MP. Alongside multimedia, Samsung highlighted business uses such as email, data protection and access to work systems. In Android's development, the S II marks a shift from a single successful model toward a flagship line refreshed each year.
 
-Samsung's retrospective says global S II sales reached 40 million during the first 20 months. This is a milestone for a particular period, not the final lifetime total. [Compare it with the original Galaxy S](/compare/?a=samsung-galaxy-s&b=samsung-galaxy-s2) to see how the first generations changed.
+Samsung's retrospective says global S II sales reached 40 million during the first 20 months. This is a milestone for a particular period, not the final lifetime total. [Compare it with the original Galaxy S](/en/compare/?a=samsung-galaxy-s&b=samsung-galaxy-s2) to see how the first generations changed.
 
 Sources: [Samsung — initial GT-I9100 announcement](https://www.samsungmobilepress.com/articles/samsung-announces-the-galaxy-s-ii-worlds-thinnest-smartphone-that-will-let-you-experience-more-with-less), [series history and sales figures](https://news.samsung.com/global/from-zero-to-infinity-the-five-year-journey-of-the-samsung-galaxy-s).

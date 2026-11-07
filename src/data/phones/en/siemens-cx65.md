@@ -20,7 +20,7 @@ connectivity:
   - Infrared
   - Cable connection via proprietary connector
 os: proprietary (Siemens)
-dimensionsMm: 108 × 46 × 18 мм
+dimensionsMm: 108 × 46 × 18 mm
 weightGrams: 90
 colors:
   - Cool Silver

@@ -39,6 +39,6 @@ The W580i brought the Walkman music experience into a slider: the numeric keypad
 
 One distinctive feature was Shake control. Hold the Walkman key and shake the phone to pick a random track from the current album or playlist. It was a specific music gesture, not a replacement for all controls with motion. A pedometer added a separate everyday activity scenario.
 
-TrackID could identify a title, artist and album from a music fragment captured on the radio or through the microphone. It was a network service of its time, not a promise that it remains available today. [Compare the W580i with the W810i](/compare/?a=sony-ericsson-w810i&b=sony-ericsson-w580i): the music focus remained, while the body shape and interactions changed.
+TrackID could identify a title, artist and album from a music fragment captured on the radio or through the microphone. It was a network service of its time, not a promise that it remains available today. [Compare the W580i with the W810i](/en/compare/?a=sony-ericsson-w810i&b=sony-ericsson-w580i): the music focus remained, while the body shape and interactions changed.
 
 Source: [Sony Ericsson W580 White Paper, June 2008 edition; document history dates to March 2007](https://www-support-downloads.sonymobile.com/w580/whitepaper_EN_w580_r8a.pdf).

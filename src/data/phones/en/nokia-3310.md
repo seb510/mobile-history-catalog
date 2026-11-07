@@ -15,11 +15,11 @@ network: GSM 900/1800 (dual-band)
 simType: Mini-SIM
 colors:
   - Xpress-on
-dimensionsMm: 113 × 48 × 22 мм
+dimensionsMm: 113 × 48 × 22 mm
 weightGrams: 133
 os: Proprietary Nokia platform (not Symbian)
 image: /images/phones/nokia-3310/commons-main.webp
-imageCredit: "Фото: BosnaIHercegovinaYT, CC BY-SA 4.0, через Wikimedia Commons"
+imageCredit: "Photo: BosnaIHercegovinaYT, CC BY-SA 4.0, via Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:European_Nokia_3310.jpg
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Nokia_3310_-_Front.jpg/960px-Nokia_3310_-_Front.jpg

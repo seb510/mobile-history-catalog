@@ -34,6 +34,6 @@ Motorola introduced the Moto G on 13 November 2013 as an affordable Android smar
 
 The Snapdragon 400 powered a 4.5-inch 1280 × 720 HD display — not Full HD. It launched with Android 4.3, and Motorola promised an update to 4.4. Replaceable Shells added colour to the restrained body; the 5 MP and 1.3 MP cameras showed the limits of the affordable tier.
 
-In the timeline, the Moto G represents smartphone progress through a lower entry price, rather than only through the most expensive components. [Compare it with the Defy](/compare/?a=motorola-defy&b=motorola-moto-g) to trace how Motorola's platform and priorities changed.
+In the timeline, the Moto G represents smartphone progress through a lower entry price, rather than only through the most expensive components. [Compare it with the Defy](/en/compare/?a=motorola-defy&b=motorola-moto-g) to trace how Motorola's platform and priorities changed.
 
 Sources: [Motorola announcement](https://www.prnewswire.com/news-releases/introducing-moto-g-an-exceptional-phone-at-an-exceptional-price-231737611.html), [Qualcomm on the configurations](https://www.qualcomm.com/news/onq/2013/11/introducing-moto-g-exceptional-phone-exceptional-price).

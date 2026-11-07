@@ -12,11 +12,11 @@ imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_rear.jpg
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
-    alt: Rear views of the Pixel 6 in Sorta Seafoam beside a Pixel 8 in Rose
+    alt: Задні панелі Pixel 6 кольору Sorta Seafoam і Pixel 8 кольору Rose поруч
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Google_Pixel_6_Sorta_Seafoam_front.jpg/960px-Google_Pixel_6_Sorta_Seafoam_front.jpg
-    alt: Front of a Pixel 6 in Sorta Seafoam
+    alt: Передня сторона Pixel 6 кольору Sorta Seafoam
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_front.jpg
 display:

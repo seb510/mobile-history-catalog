@@ -34,6 +34,6 @@ Moto G представили 13 ноября 2013 года как доступ�
 
 Snapdragon 400 работал с 4,5-дюймовым HD-экраном 1280 × 720 — не Full HD. На старте устанавливалась Android 4.3, а Motorola обещала обновление до 4.4. Сменные панели Shells добавляли сдержанному корпусу цвет; камеры на 5 и 1,3 Мп показывали ограничения доступного класса.
 
-В таймлайне Moto G представляет развитие смартфонов за счёт более низкого порога входа, а не только самых дорогих компонентов. [Сравните его с Defy](/compare/?a=motorola-defy&b=motorola-moto-g), чтобы проследить изменения платформы и приоритетов Motorola.
+В таймлайне Moto G представляет развитие смартфонов за счёт более низкого порога входа, а не только самых дорогих компонентов. [Сравните его с Defy](/ru/compare/?a=motorola-defy&b=motorola-moto-g), чтобы проследить изменения платформы и приоритетов Motorola.
 
 Источники: [анонс Motorola](https://www.prnewswire.com/news-releases/introducing-moto-g-an-exceptional-phone-at-an-exceptional-price-231737611.html), [описание конфигураций от Qualcomm](https://www.qualcomm.com/news/onq/2013/11/introducing-moto-g-exceptional-phone-exceptional-price).

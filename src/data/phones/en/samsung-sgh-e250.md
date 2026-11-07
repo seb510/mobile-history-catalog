@@ -40,6 +40,6 @@ The 2006 SGH-E250 is an everyday multimedia slider: a camera, music player and F
 
 The manual describes adding a microSD card for files, transferring content over Bluetooth and playing music. Photos and tracks could move between the phone, a computer and other devices. This was a local library and file-sharing experience, distinct from today's streaming services.
 
-In a 2014 retrospective, Samsung cited 52 million E250 sales worldwide and 10 million in its first ten months. This is a global manufacturer estimate; it does not establish a separate popularity ranking in Ukraine. [Compare the E250 with the D500](/compare/?a=samsung-sgh-d500&b=samsung-sgh-e250) to see two generations of the slider form.
+In a 2014 retrospective, Samsung cited 52 million E250 sales worldwide and 10 million in its first ten months. This is a global manufacturer estimate; it does not establish a separate popularity ranking in Ukraine. [Compare the E250 with the D500](/en/compare/?a=samsung-sgh-d500&b=samsung-sgh-e250) to see two generations of the slider form.
 
 Sources: [Samsung SGH-E250 User's Guide, archived copy](https://files.customersaas.com/files/Manual/Samsung_E250_User_manual.pdf), [Samsung — 2014 retrospective, in Korean](https://news.samsung.com/kr/삼성전자-45년-제품-혁신의-역사를-돌아보다-1편-휴대).

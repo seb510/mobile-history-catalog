@@ -40,6 +40,6 @@ The K850i pushed Cyber-shot to a 5 MP autofocus camera with a xenon flash. Sony 
 
 The camera had an automatic shutter that opened when the camera button was pressed. A separate switch selected photo, video or playback, while illuminated keypad markings revealed extra functions in shooting mode. BestPic captured a burst of nine frames for later selection, and Photo fix adjusted image lighting.
 
-The media browser brought photos, video, music and podcasts together, with automatic rotation for viewing images. HSDPA complemented the camera with a way to upload material online. [Compare it with the K800i](/compare/?a=sony-ericsson-k800i&b=sony-ericsson-k850i) to trace Cyber-shot's evolution through resolution, controls and media handling — not just megapixel counts.
+The media browser brought photos, video, music and podcasts together, with automatic rotation for viewing images. HSDPA complemented the camera with a way to upload material online. [Compare it with the K800i](/en/compare/?a=sony-ericsson-k800i&b=sony-ericsson-k850i) to trace Cyber-shot's evolution through resolution, controls and media handling — not just megapixel counts.
 
 Source: [Sony Ericsson K850 announcement, 14 June 2007](https://www.webwire.com/ViewPressRel.asp?aId=39511).

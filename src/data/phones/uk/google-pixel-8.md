@@ -11,11 +11,11 @@ imageCredit: Syced, CC0 1.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_8%2C_shown_in_Shibuya_Stream_2.jpg
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Google_Pixel_8_Rose_front.jpg/960px-Google_Pixel_8_Rose_front.jpg
-    alt: Front of a Pixel 8 in Rose
+    alt: Передня сторона Pixel 8 кольору Rose
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_8_Rose_front.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
-    alt: Rear of a Pixel 8 in Rose beside a Pixel 6
+    alt: Задня сторона Pixel 8 кольору Rose поруч із Pixel 6
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
 display:
