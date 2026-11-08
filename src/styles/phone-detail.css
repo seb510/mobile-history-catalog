@@ -1,6 +1,9 @@
 /* One reading rhythm for the media, story and technical portrait. */
 .phone-media-rail { display:grid; gap:1.75rem; }
 .phone-media-rail .phone-video { margin:0; }
+.phone-audio { min-width:0; padding:1rem; border:1px solid var(--color-neutral-700); background:var(--color-neutral-900); }
+.phone-audio-track { min-width:0; padding:.875rem; border-left:2px solid var(--color-orange-500); background:color-mix(in srgb,var(--color-neutral-950) 55%,transparent); }
+.phone-audio-track audio { color-scheme:light dark; }
 .phone-photo-block { min-width:0; }
 .gallery-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:.75rem; }
 .gallery-toolbar > div:first-child { display:flex; align-items:center; gap:.75rem; }
@@ -28,6 +31,8 @@
 .spec-variant { padding:.625rem .75rem; background:color-mix(in srgb,var(--color-orange-500) 7%,transparent); }
 .spec-variant > span:first-child { margin-bottom:.25rem; }
 html[data-design="modern"] .phone-photo-block { padding:1rem; border:1px solid var(--modern-line); border-radius:18px; background:var(--modern-surface); }
+html[data-design="modern"] .phone-audio { border-color:var(--modern-line); border-radius:16px; background:var(--modern-surface); }
+html[data-design="modern"] .phone-audio-track { border-radius:10px; background:var(--modern-soft); }
 html[data-design="modern"] .phone-gallery-stage { box-shadow:none; }
 html[data-design="modern"] .phone-section-nav { border-color:var(--modern-line); }
 html[data-design="modern"] .phone-story-section { padding:1.5rem; border:1px solid var(--modern-line); border-radius:16px; background:var(--modern-surface); }
@@ -44,6 +49,7 @@ html:not([data-design="modern"]) .phone-story-section { padding-top:1rem; border
   .phone-section-nav .control-button { min-height:2.75rem; }
   .phone-media-rail { gap:1.25rem; }
   html[data-design="modern"] .phone-photo-block,html:not([data-design="modern"]) .phone-photo-block { padding:.875rem; }
+  .phone-audio { padding:.875rem; }
   html[data-design="modern"] .phone-story-section { padding:1rem; }
   .phone-story { font-size:.9375rem; line-height:1.85; }
   .phone-spec-table th { width:33%; }
