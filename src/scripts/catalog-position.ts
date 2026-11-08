@@ -44,7 +44,7 @@ export function initCatalogPosition() {
     requestAnimationFrame(update);
   };
   const measureHeader = () => {
-    headerHeight = header?.getBoundingClientRect().height ?? 0;
+    headerHeight = header ? header.getBoundingClientRect().height + (parseFloat(getComputedStyle(header).top) || 0) : 0;
     indicator.style.setProperty('--catalog-header-height', `${headerHeight}px`);
     queue();
   };

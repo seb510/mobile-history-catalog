@@ -19,7 +19,7 @@
 | --- | --- | --- |
 | Nokia | Запуск, запис 2006 року | David Mounder / Internet Archive |
 | Motorola | RAZR V3m, 2006 | Internet Archive |
-| Samsung | Galaxy S, 2010 | Internet Archive |
+| Samsung | SGH, архівний запис «2003»; точна модель не зазначена | Internet Archive |
 | LG | Prada 3.0, 2011 | Internet Archive |
 | Siemens | SXG75, `StartupMelody.wav` | PhoneTones, системна папка `snd/sys/hdn` |
 | Sony Ericsson | W800i, `STARTUP_SOUND_SEMC.mp3` | PhoneTones, `system/settings` |
@@ -35,7 +35,7 @@ PhoneTones прочитано через дійсний HTTPS-host `3.onj.me`. �
 
 Google: у [офіційному матеріалі](https://design.google/library/ux-sound-haptic-material-design) окремо показані Super G і Gemini. Взято лише фрагмент Super G, 1.9–3.5 с відеоджерела; не додано Gemini, рінгтон чи звук заряджання. Apple: взято перші 1.8 с короткого показу запуску/вимкнення — лише запуск, без shutdown. Цей ефект не приписується раннім iPhone.
 
-Оригінальні нові WAV/OGG/MP3 та виділені звуки конвертовано в MP3 для сумісності браузерів, без синтезу й зміни висоти/темпу. Чотири попередні MP3 скопійовано без перекодування. Усі 11 файлів локальні: `public/audio/startup/`, разом 659541 байт (близько 644 КіБ).
+Оригінальні нові WAV/OGG/MP3 та виділені звуки конвертовано в MP3 для сумісності браузерів, без синтезу й зміни висоти/темпу. Чотири попередні MP3 скопійовано без перекодування. Усі 11 файлів локальні: `public/audio/startup/`, разом 650411 байт.
 
 ## Реалізація
 
@@ -47,3 +47,5 @@ Google: у [офіційному матеріалі](https://design.google/libra
 ## Перевірка
 
 Усі 11 файлів декодуються FFmpeg. У браузері перевірено `readyState=4`, ненульовий час і тривалість для нових семи записів та LG/Samsung; Nokia й Motorola також відтворилися. Для Apple перевірено 390px, журнальне світле й сучасне темне оформлення: без горизонтального переповнення. Це вибіркова перевірка браузера, а не всіх фізичних пристроїв.
+
+Уточнення 2026-11-08: Samsung замінено на архівний SGH-сигнал. Google Super G — звук запуску й першого налаштування, не гарантія сигналу кожного перезавантаження Pixel. Apple — опційний сигнал iPhone 14 і новіших: https://support.apple.com/en-nz/guide/iphone/iphb80ab7516/26/ios/26.

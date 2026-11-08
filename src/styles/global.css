@@ -501,3 +501,27 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 .primary-cta { column-gap:.625rem; }
 .filter-select-trigger > .ui-arrow { transform-origin:50% 50%; transition:transform var(--motion-ui) var(--motion-easing); }
 .filter-select-trigger[aria-expanded="true"] > .ui-arrow { transform:rotate(180deg); }
+
+/* Gallery motion is shared by both editions and all locales. */
+@keyframes gallery-photo-enter { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+@keyframes gallery-dialog-enter { from { opacity:0; transform:scale(.99); } to { opacity:1; transform:scale(1); } }
+@media(prefers-reduced-motion:no-preference) {
+  [data-gallery-slide]:not(.hidden),[data-gallery-lightbox-slide]:not(.hidden) { animation:gallery-photo-enter var(--motion-image) var(--motion-easing) both; }
+  [data-gallery-dialog][open] { animation:gallery-dialog-enter var(--motion-enter) var(--motion-easing) both; }
+}
+.gallery-zoom-button { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.gallery-expand-icon { box-shadow:inset 0 1px 0 #ffffff30; }
+html[data-design="modern"] .gallery-expand-icon { border-radius:50%; background:var(--glass-fill); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); }
+@media(prefers-reduced-transparency:reduce),(forced-colors:active) { html[data-design="modern"] .gallery-expand-icon { background:var(--modern-surface); -webkit-backdrop-filter:none; backdrop-filter:none; } }
+
+.compare-table .compare-table-head { top:var(--compare-header-offset, 4.5rem); }
+html[data-header-hidden="true"] .compare-table .compare-table-head { top:0; }
+/* Sticky model labels stay opaque over scrolling specifications in both editions. */
+.compare-table .compare-table-head {
+  isolation:isolate;
+  background:var(--color-neutral-900);
+  border-top:1px solid var(--color-neutral-700);
+  border-bottom:2px solid var(--color-orange-500);
+  box-shadow:0 -8px 0 var(--color-neutral-950),0 2px 0 var(--color-neutral-700);
+}
+.compare-table .compare-table-head > * { background:inherit; }

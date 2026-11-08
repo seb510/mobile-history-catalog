@@ -25,12 +25,12 @@
     {
       "brand": "Samsung",
       "file": "/audio/startup/samsung.mp3",
-      "source": "https://archive.org/details/Samsung_Samsung-Galaxy-S-Startup-Sound",
+      "source": "https://archive.org/details/samsung-sgh-2003-phone-startup",
       "officialSite": "https://www.samsung.com/us/smartphones/",
-      "credit": "Samsung · Internet Archive",
-      "bytes": 80248,
-      "sha256": "1bcbbb16c9124fcbbba274aa1205cef0d83c371b4f89a3d28173884e2466a938",
-      "duration": "00:00:05.02"
+      "credit": "Samsung SGH · Internet Archive",
+      "bytes": 71118,
+      "sha256": "fd5716b769888b04afb01762ee4133e9014d283df0d3ea2cd91eda04908fc003",
+      "duration": "00:00:04.34"
     },
     {
       "brand": "LG",

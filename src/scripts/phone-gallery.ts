@@ -36,7 +36,10 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
       surface?.classList.toggle('gallery-zoomed', value);
       if (zoomButton) {
         zoomButton.setAttribute('aria-pressed', String(value));
-        zoomButton.textContent = (value ? zoomButton.dataset.zoomOut : zoomButton.dataset.zoomIn) || '';
+        const label = (value ? zoomButton.dataset.zoomOut : zoomButton.dataset.zoomIn) || '';
+        zoomButton.setAttribute('aria-label', label);
+        zoomButton.title = label;
+        zoomButton.querySelector('[data-zoom-plus]')?.classList.toggle('hidden', value);
       }
       paintPan();
     };
@@ -72,13 +75,22 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
       dialog?.showModal();
       closeButton?.focus();
     });
-    closeButton?.addEventListener('click', () => dialog?.close());
+    let closing = false;
+    const closeGallery = () => {
+      if (!dialog?.open || closing) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { dialog.close(); return; }
+      closing = true;
+      const motion = dialog.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, easing: 'ease-out' });
+      motion.finished.catch(() => {}).finally(() => { dialog.close(); closing = false; });
+    };
+    closeButton?.addEventListener('click', closeGallery);
+    dialog?.addEventListener('cancel', event => { event.preventDefault(); closeGallery(); });
     previousButton?.addEventListener('click', () => activate((activeIndex - 1 + slides.length) % slides.length));
     nextButton?.addEventListener('click', () => activate((activeIndex + 1) % slides.length));
     gallery.querySelector('[data-gallery-inline-previous]')?.addEventListener('click', () => activate((activeIndex - 1 + slides.length) % slides.length));
     gallery.querySelector('[data-gallery-inline-next]')?.addEventListener('click', () => activate((activeIndex + 1) % slides.length));
     dialog?.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
+      if (event.target === dialog) closeGallery();
     });
     dialog?.addEventListener('keydown', (event) => {
       if (zoomed && ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) {

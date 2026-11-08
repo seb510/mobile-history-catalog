@@ -24,7 +24,7 @@ type Slot = 'a' | 'b';
 
 function PlaceholderIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 200 150" className={className} aria-hidden="true"><path d="M43 52h18M43 60h10M139 90h18M147 98h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".25" /><g transform="translate(52 27) scale(1.5)"><rect x="18" y="7" width="28" height="50" rx="7" fill="none" stroke="currentColor" strokeWidth="2.5" /><rect x="24" y="14" width="16" height="14" rx="2" fill="currentColor" opacity=".2" /><path d="M29 32h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><circle cx="25" cy="37" r="1.8" fill="currentColor" /><circle cx="32" cy="37" r="1.8" fill="currentColor" /><circle cx="39" cy="37" r="1.8" fill="currentColor" /><circle cx="25" cy="44" r="1.8" fill="currentColor" /><circle cx="32" cy="44" r="1.8" fill="currentColor" /><circle cx="39" cy="44" r="1.8" fill="currentColor" /><circle cx="25" cy="51" r="1.8" fill="currentColor" /><circle cx="32" cy="51" r="1.8" fill="currentColor" /><circle cx="39" cy="51" r="1.8" fill="currentColor" /></g></svg>
+    <svg viewBox="0 0 200 150" className={className} aria-hidden="true"><path d="M43 52h18M139 98h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".25"/><g transform="translate(52 27) scale(1.5)"><rect x="17" y="6" width="30" height="52" rx="10" fill="none" stroke="currentColor" strokeWidth="2.5"/><path d="M28 11h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><rect x="22" y="17" width="20" height="16" rx="4" fill="none"/><path d="M25 29V23h8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".6"/><circle cx="32" cy="39" r="3" fill="none" stroke="currentColor" strokeWidth="1.8"/><path d="M23 39h2m14 0h2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="23" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="30" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="37" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="23" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="30" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="37" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/></g></svg>
   );
 }
 
@@ -55,6 +55,23 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     const second = bySlug.get(b);
     return first && second ? [{ first, second, story }] : [];
   });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const header = document.querySelector<HTMLElement>('.site-header');
+    if (!header) return;
+    const measure = () => {
+      const height = header.offsetHeight + (parseFloat(getComputedStyle(header).top) || 0);
+      root.style.setProperty('--compare-header-offset', `${height + 4}px`);
+    };
+    const resize = new ResizeObserver(measure);
+    resize.observe(header);
+    const edition = new MutationObserver(measure);
+    edition.observe(root, { attributes: true, attributeFilter: ['data-design'] });
+    window.addEventListener('resize', measure);
+    measure();
+    return () => { resize.disconnect(); edition.disconnect(); window.removeEventListener('resize', measure); root.style.removeProperty('--compare-header-offset'); };
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);

@@ -111,11 +111,10 @@ const related = allPhones
               type="button"
               data-gallery-open
               aria-label={strings.gallery.open}
+              title={strings.gallery.open}
               class="absolute inset-0 z-10 flex cursor-zoom-in items-end justify-end p-3 focus-visible:outline-offset-[-4px]"
             >
-              <span class="rounded-sm border border-neutral-600 bg-neutral-950/90 px-3 py-1.5 text-xs font-semibold text-neutral-100">
-                {strings.gallery.open}
-              </span>
+              <span class="gallery-expand-icon inline-flex h-11 w-11 items-center justify-center rounded-sm border border-neutral-600 bg-neutral-950/90 text-neutral-100"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span>
             </button>
             </>
           )}
@@ -165,7 +164,7 @@ const related = allPhones
           <div class="flex h-dvh flex-col">
             <div class="flex items-center justify-between gap-4 px-4 py-3">
               <p data-gallery-counter aria-live="polite" aria-atomic="true" class="text-sm font-semibold text-neutral-300">1 / {images.length}</p>
-              <button type="button" data-gallery-zoom data-zoom-in={galleryCopy.zoomIn} data-zoom-out={galleryCopy.zoomOut} aria-pressed="false" class="control-button ml-auto min-h-11 text-sm">{galleryCopy.zoomIn}</button>
+              <button type="button" data-gallery-zoom data-zoom-in={galleryCopy.zoomIn} data-zoom-out={galleryCopy.zoomOut} aria-pressed="false" aria-label={galleryCopy.zoomIn} title={galleryCopy.zoomIn} class="control-button gallery-zoom-button ml-auto h-11 w-11 p-0"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6"/><path data-zoom-plus d="M10.5 7.5v6"/></svg></button>
               <button
                 type="button"
                 data-gallery-close
