@@ -27,7 +27,7 @@ const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
       <a class="control-button text-sm" href={localePath(locale, '/compare/')}>{strings.nav.compare}</a>
     </div>
   </div>
-  <aside class="rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-5 sm:p-6">
+  <aside class="about-identity rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-5 sm:p-6">
     <p class="editorial-kicker text-orange-500">{strings.siteName}</p>
     <p class="mt-3 text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">{strings.brandLine}</p>
     <p class="mt-4 text-sm leading-relaxed text-neutral-400">{projectCopy.note}</p>
