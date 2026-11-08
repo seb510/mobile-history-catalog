@@ -12,6 +12,8 @@
 - [Конструкції телефонів](form-factors.md): принципи класифікації.
 - [Файли в Git](git-tracking.md): правила відстеження.
 
+- [Аудіоприклади брендів](audio-implementation.md): джерела, відтворення й межі атрибуції.
+
 ## Дані й відтворювані аудити
 
 - `npm run audit:locales` → [locale-audit.json](locale-audit.json).

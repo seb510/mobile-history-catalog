@@ -1,0 +1,116 @@
+{
+  "checked": "2026-11-08",
+  "permission": "Owner reports permission for brand-matching power-on effects only, with an official/successor link, non-commercial non-marketplace site and no advertising additions or scripts.",
+  "audio": [
+    {
+      "brand": "Nokia",
+      "file": "/audio/startup/nokia.mp3",
+      "source": "https://archive.org/details/splitting-two-classic-nokia-startups-by-david-mounder",
+      "officialSite": "https://www.nokia.com/",
+      "credit": "David Mounder · Internet Archive",
+      "bytes": 107356,
+      "sha256": "8f3829deecb0f197d469d40cf443fcb49d95e2412867fd131875b4d0631b400f",
+      "duration": "00:00:06.69"
+    },
+    {
+      "brand": "Motorola",
+      "file": "/audio/startup/motorola.mp3",
+      "source": "https://archive.org/details/ui_start_up_mono",
+      "officialSite": "https://www.motorola.com/",
+      "credit": "Motorola Sprint RAZR V3m startup sound · Internet Archive",
+      "bytes": 15431,
+      "sha256": "d41ff5d946db7fe1e66c29517ad5a82ec82dffb29fcf3bf85504a7a54bc86ef0",
+      "duration": "00:00:01.90"
+    },
+    {
+      "brand": "Samsung",
+      "file": "/audio/startup/samsung.mp3",
+      "source": "https://archive.org/details/Samsung_Samsung-Galaxy-S-Startup-Sound",
+      "officialSite": "https://www.samsung.com/us/smartphones/",
+      "credit": "Samsung · Internet Archive",
+      "bytes": 80248,
+      "sha256": "1bcbbb16c9124fcbbba274aa1205cef0d83c371b4f89a3d28173884e2466a938",
+      "duration": "00:00:05.02"
+    },
+    {
+      "brand": "LG",
+      "file": "/audio/startup/lg.mp3",
+      "source": "https://archive.org/details/lg-prada-3.0-startup-shutdown-sounds",
+      "officialSite": "https://www.lg.com/global/",
+      "credit": "LG Electronics · Internet Archive",
+      "bytes": 135752,
+      "sha256": "eac1793a737ef25c869a19d9c414531eedcac05375011f019f6a2021d7e61136",
+      "duration": "00:00:03.27"
+    },
+    {
+      "brand": "Siemens",
+      "file": "/audio/startup/siemens.mp3",
+      "source": "https://3.onj.me/phonetones/unzipped/Siemens/SXG75/snd/sys/hdn/",
+      "officialSite": "https://www.benq.com/en-us/index.html",
+      "credit": "Siemens · PhoneTones",
+      "bytes": 64778,
+      "sha256": "e8794dfbd1523c23702839b6ba4981067f6c110d78a75fb93ac1a8f6ac4777c8",
+      "duration": "00:00:19.66"
+    },
+    {
+      "brand": "Sony Ericsson",
+      "file": "/audio/startup/sony-ericsson.mp3",
+      "source": "https://3.onj.me/phonetones/unzipped/Sony%20Ericsson/W800i/system/settings/",
+      "officialSite": "https://www.sony.com/",
+      "credit": "Sony Ericsson · PhoneTones",
+      "bytes": 31965,
+      "sha256": "142e2b2e435e07fde2f56a62abf5ade48aa73c4d32cf75a35279c3681e8fa903",
+      "duration": "00:00:02.06"
+    },
+    {
+      "brand": "HTC",
+      "file": "/audio/startup/htc.mp3",
+      "source": "https://3.onj.me/phonetones/unzipped/HTC/Desire-820s/",
+      "officialSite": "https://www.htc.com/",
+      "credit": "HTC · PhoneTones",
+      "bytes": 80928,
+      "sha256": "851447c4ba5d7ad71fda1bc8140a1ae822d9083cf600684eb8277df0048fe475",
+      "duration": "00:00:03.71"
+    },
+    {
+      "brand": "Huawei",
+      "file": "/audio/startup/huawei.mp3",
+      "source": "https://3.onj.me/phonetones/unzipped/Huawei/Ascend-P6/animationsounds/",
+      "officialSite": "https://consumer.huawei.com/en/phones/",
+      "credit": "Huawei · PhoneTones",
+      "bytes": 63551,
+      "sha256": "23f04c33fafc31aa81583e52f5b5f787a4f7321ec03af0a8a4d93ae49a7e840b",
+      "duration": "00:00:02.95"
+    },
+    {
+      "brand": "Alcatel",
+      "file": "/audio/startup/alcatel.mp3",
+      "source": "https://3.onj.me/phonetones/unzipped/Alcatel/OT-995/switch_on_off/",
+      "officialSite": "https://www.tcl.com/global/en/mobile",
+      "credit": "Alcatel · PhoneTones",
+      "bytes": 39244,
+      "sha256": "99c741aaeadd87c55b2c2587312f1ab58d1b0aa3096b9fc0d86fd84e8ceb07d3",
+      "duration": "00:00:03.66"
+    },
+    {
+      "brand": "Google",
+      "file": "/audio/startup/google.mp3",
+      "source": "https://design.google/library/ux-sound-haptic-material-design",
+      "officialSite": "https://store.google.com/category/phones",
+      "credit": "Google Design · Conor O’Sullivan",
+      "bytes": 21642,
+      "sha256": "566a3208326ed2ac623060865d32468b2560cde3bb457b7a5001a7995b33a55e",
+      "duration": "00:00:01.63"
+    },
+    {
+      "brand": "Apple",
+      "file": "/audio/startup/apple.mp3",
+      "source": "https://archive.org/details/twitter-1571038548081639424",
+      "officialSite": "https://www.apple.com/iphone/",
+      "credit": "Apple · запис Martin Nobel · Internet Archive",
+      "bytes": 18646,
+      "sha256": "5817c3e05d42cd51ad171c27fd91ee7b0ad93f1459b8ff59bba86ddd2a23f0a7",
+      "duration": "00:00:01.85"
+    }
+  ]
+}

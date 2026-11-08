@@ -40,10 +40,10 @@ const copy = {
     <p class="phone-startup-audio-rights text-[0.6875rem] leading-relaxed text-neutral-400">{sound.rightsNote[locale]}</p>
   </div>
   <div class="phone-startup-audio-tracks grid gap-2">
-    {sound.tracks.map((track) => (
+    {sound.tracks.map((track, index) => (
       <figure class="phone-audio-track">
-        <figcaption class="text-xs font-semibold text-neutral-200">{track.title[locale]}</figcaption>
-        <audio class="mt-2 block w-full" controls preload="none" src={track.src}>
+        <figcaption id={`startup-track-${index}`} class="text-xs font-semibold text-neutral-200">{track.title[locale]}</figcaption>
+        <audio aria-labelledby={`startup-track-${index}`} class="mt-2 block w-full" controls preload="none" src={track.src}>
           {locale === 'uk' ? 'Ваш браузер не підтримує відтворення аудіо.' : locale === 'ru' ? 'Ваш браузер не поддерживает воспроизведение аудио.' : 'Your browser does not support audio playback.'}
         </audio>
       </figure>

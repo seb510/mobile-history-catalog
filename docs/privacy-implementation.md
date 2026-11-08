@@ -26,3 +26,5 @@ Historical validation (2026-10-31): Astro check (0 errors/warnings), production 
 - Remote phone images may still contact their credited hosts on delivery. A local image does not make embedded video local.
 
 This section documents code behaviour, not a new legal review. The legal references above were reviewed on the stated historical date; hosting logs, retention and production configuration require separate verification.
+
+Brand power-on audio (2026-11-08): all 11 examples now use local MP3 files, native controls and `preload="none"`, with no autoplay. Source links remain external. This introduces no new browser-storage keys or advertising integration.

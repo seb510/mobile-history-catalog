@@ -1,0 +1,105 @@
+{
+  "checked": "2026-11-08",
+  "audio": [
+    {
+      "brand": "Nokia",
+      "url": "https://archive.org/download/splitting-two-classic-nokia-startups-by-david-mounder/Splitting%20Two%20Classic%20Nokia%20Startups%20by%20David%20Mounder/Splitting%20Nokia%20Startup%202006%20by%20David%20Mounder/Nokia%202006%20-%20Startup%20Original.mp3",
+      "status": 206,
+      "type": "audio/mpeg",
+      "bytes": 4096
+    },
+    {
+      "brand": "Motorola",
+      "url": "https://archive.org/download/ui_start_up_mono/ui_start_up_mono.mp3",
+      "status": 206,
+      "type": "audio/mpeg",
+      "bytes": 4096
+    },
+    {
+      "brand": "Samsung",
+      "url": "https://archive.org/download/Samsung_Samsung-Galaxy-S-Startup-Sound/Samsung-Galaxy-S-Startup-sound/MP3/Samsung%20Galaxy%20S%20Startup%20sound.mp3",
+      "status": 206,
+      "type": "audio/mpeg",
+      "bytes": 4096
+    },
+    {
+      "brand": "LG",
+      "url": "https://archive.org/download/lg-prada-3.0-startup-shutdown-sounds/PowerOn.mp3",
+      "status": 206,
+      "type": "audio/mpeg",
+      "bytes": 4096
+    }
+  ],
+  "videos": [
+    {
+      "slug": "nokia-6300",
+      "id": "PhdLI6l8YAg",
+      "status": 200,
+      "title": "Nokia 6300 Review",
+      "author": "PhoneArena"
+    },
+    {
+      "slug": "nokia-5310-xpressmusic",
+      "id": "MgSP5FIF3Ng",
+      "status": 200,
+      "title": "Nokia 5310 Xpress Music - Review",
+      "author": "Adrián Alcón Żurawka (Yadratorex)"
+    },
+    {
+      "slug": "nokia-5300-xpressmusic",
+      "id": "oL6-KC7dhXU",
+      "status": 200,
+      "title": "Nokia 5300 XpressMusic Unboxing 4K with all original accessories RM-146 review",
+      "author": "Nokia Phones Collection"
+    },
+    {
+      "slug": "nokia-6500-slide",
+      "id": "XQsSPSlSr4A",
+      "status": 200,
+      "title": "Nokia 6500 Slide Review",
+      "author": "PhoneArena"
+    },
+    {
+      "slug": "sony-ericsson-k550i",
+      "id": "2ikE730h1q4",
+      "status": 200,
+      "title": "Sony Ericsson K550i: A Classic Phone Revisited",
+      "author": "The Vintage Phone Guy"
+    },
+    {
+      "slug": "sony-ericsson-w610i",
+      "id": "AyJa4Bt9DuI",
+      "status": 200,
+      "title": "Sony Ericsson W610i Walkman  presentation",
+      "author": "Retro phones & stuff"
+    },
+    {
+      "slug": "samsung-sgh-d900",
+      "id": "7dLT21Z2grg",
+      "status": 200,
+      "title": "Samsung SGH-D900 Review",
+      "author": "PhoneArena"
+    },
+    {
+      "slug": "samsung-sgh-u900",
+      "id": "U2aOL7KVpYQ",
+      "status": 200,
+      "title": "Samsung SGH-U900 Soul Review",
+      "author": "mobileburn"
+    },
+    {
+      "slug": "motorola-krzr-k1",
+      "id": "ri1JQV5bZvY",
+      "status": 200,
+      "title": "Motorola KRZR K1 Review",
+      "author": "PhoneArena"
+    },
+    {
+      "slug": "lg-vx8500",
+      "id": "uH04bPskpSU",
+      "status": 200,
+      "title": "LG CHocolate VX8500 (Review)",
+      "author": "GigaPhish"
+    }
+  ]
+}

@@ -39,7 +39,7 @@ const links = [
     </a>
 
     <div class="header-actions flex items-center gap-1">
-      <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 xl:flex">
+      <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
         {links.map((link) => (
           <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>
             {link.label}
@@ -66,7 +66,7 @@ const links = [
         aria-label={strings.menu.open}
         data-label-open={strings.menu.open}
         data-label-close={strings.menu.close}
-        class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 xl:hidden"
+        class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 lg:hidden"
       >
         <span class="sr-only">{strings.menu.open}</span>
         <span class="menu-control-face">
@@ -79,7 +79,7 @@ const links = [
     </div>
   </div>
 
-  <div id="mobile-menu" hidden inert aria-hidden="true" class="mobile-menu-panel xl:hidden">
+  <div id="mobile-menu" hidden inert aria-hidden="true" class="mobile-menu-panel lg:hidden">
     <div class="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
       <p class="editorial-kicker border-b border-neutral-800 py-4 text-orange-500">{strings.brandLine}</p>
       <nav aria-label={strings.footer.navigation}>
@@ -104,7 +104,7 @@ const links = [
     </div>
   </div>
 </header>
-<div id="menu-backdrop" class="menu-backdrop xl:hidden" hidden aria-hidden="true"></div>
+<div id="menu-backdrop" class="menu-backdrop lg:hidden" hidden aria-hidden="true"></div>
 <div data-search-backdrop class="search-backdrop" hidden aria-hidden="true"></div>
 
 <script>
@@ -179,7 +179,7 @@ const links = [
     }
   });
 
-  window.matchMedia('(min-width: 1280px)').addEventListener('change', (event) => {
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
     if (event.matches) setMenuOpen(false);
   });
 
@@ -204,7 +204,7 @@ const links = [
       ) {
         setHeaderHidden(false);
       } else {
-        setHeaderHidden(window.matchMedia('(min-width: 1280px)').matches && currentScrollY > previousScrollY);
+        setHeaderHidden(window.matchMedia('(min-width: 1024px)').matches && currentScrollY > previousScrollY);
       }
 
       previousScrollY = currentScrollY;
