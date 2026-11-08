@@ -1,0 +1,106 @@
+{
+  "checked": "2026-11-08",
+  "method": "YouTube oEmbed and watch-page metadata. HTTP 200 for all ten; playabilityStatus OK. This does not guarantee playback on every device or in every region.",
+  "videos": [
+    {
+      "slug": "nokia-5510",
+      "id": "ZPV5YXHVg58",
+      "url": "https://www.youtube.com/watch?v=ZPV5YXHVg58",
+      "oembedStatus": 200,
+      "title": "The Weirdest Nokia Ever Made? Nokia 5510 Full Review",
+      "author": "Retro Mobile",
+      "published": "2025-04-29T10:05:16-07:00",
+      "status": "OK"
+    },
+    {
+      "slug": "nokia-3650",
+      "id": "jCLGAr_KW20",
+      "url": "https://www.youtube.com/watch?v=jCLGAr_KW20",
+      "oembedStatus": 200,
+      "title": "Nokia 3650 (2003) | Vintage Tech Showcase | Retro Review",
+      "author": "Techformative",
+      "published": "2021-04-13T19:07:41-07:00",
+      "status": "OK"
+    },
+    {
+      "slug": "nokia-7600",
+      "id": "YrfuBKFqwxg",
+      "url": "https://www.youtube.com/watch?v=YrfuBKFqwxg",
+      "oembedStatus": 200,
+      "title": "Nokia 7600 Quick Look #nokia #retrophone",
+      "author": "G•OLD collection",
+      "published": "2025-02-16T10:35:47-08:00",
+      "status": "OK"
+    },
+    {
+      "slug": "nokia-n93",
+      "id": "l35RiIn_Plk",
+      "url": "https://www.youtube.com/watch?v=l35RiIn_Plk",
+      "oembedStatus": 200,
+      "title": "Nokia N93 camcorder tutorial",
+      "author": "Steve Litchfield",
+      "published": "2006-11-01T08:15:07-08:00",
+      "status": "OK"
+    },
+    {
+      "slug": "nokia-e90",
+      "id": "H5-pj9Io6IQ",
+      "url": "https://www.youtube.com/watch?v=H5-pj9Io6IQ",
+      "oembedStatus": 200,
+      "title": "Hands-on with Nokia E90, E61i, E65",
+      "author": "PhoneArena",
+      "published": "2007-02-18T10:49:55-08:00",
+      "status": "OK"
+    },
+    {
+      "slug": "sony-ericsson-p800",
+      "id": "9y100qDkqYY",
+      "url": "https://www.youtube.com/watch?v=9y100qDkqYY",
+      "oembedStatus": 200,
+      "title": "SonyEricsson P800 - Early Smartphone RetroReview",
+      "author": "TECHabros",
+      "published": "2020-05-23T00:00:01-07:00",
+      "status": "OK"
+    },
+    {
+      "slug": "sony-ericsson-p910i",
+      "id": "drB7GfqHWGs",
+      "url": "https://www.youtube.com/watch?v=drB7GfqHWGs",
+      "oembedStatus": 200,
+      "title": "When Phones Were Fun: Sony Ericsson P910 (2004)",
+      "author": "MrMobile [Michael Fisher]",
+      "published": "2022-03-11T16:15:42-08:00",
+      "status": "OK"
+    },
+    {
+      "slug": "sony-ericsson-w900i",
+      "id": "A0aRWy79pgo",
+      "url": "https://www.youtube.com/watch?v=A0aRWy79pgo",
+      "oembedStatus": 200,
+      "title": "Sony Ericsson W900i Walkman presentation  #tech",
+      "author": "Retro phones & stuff",
+      "published": "2025-03-17T23:30:06-07:00",
+      "status": "OK"
+    },
+    {
+      "slug": "sony-ericsson-w880i",
+      "id": "0nHnVB-_H78",
+      "url": "https://www.youtube.com/watch?v=0nHnVB-_H78",
+      "oembedStatus": 200,
+      "title": "The Sony Ericsson W880i | Form before function",
+      "author": "TECHSHOW",
+      "published": "2025-06-21T07:00:03-07:00",
+      "status": "OK"
+    },
+    {
+      "slug": "sony-ericsson-c905",
+      "id": "1j5W20JJ9yc",
+      "url": "https://www.youtube.com/watch?v=1j5W20JJ9yc",
+      "oembedStatus": 200,
+      "title": "Sony-Ericsson C905 Revew",
+      "author": "PhoneArena",
+      "published": "2008-10-28T09:07:29-07:00",
+      "status": "OK"
+    }
+  ]
+}

@@ -151,3 +151,23 @@ html[data-design="modern"] .ownership-form input[type="number"] { border-radius:
 .update-phone { transition:border-color var(--motion-ui) var(--motion-easing); }
 html[data-design="modern"] .update-phone { border-radius:12px; background:var(--color-neutral-900); }
 @media (hover:hover) and (pointer:fine) { .update-phone:hover { border-color:var(--color-orange-500); } }
+/* Personal-period editor: compact inputs and a clear primary action. */
+.period-dialog { padding:0; box-shadow:0 24px 80px #0004; }
+.period-dialog-header { padding:1.25rem 1.25rem 0; }
+.period-dialog-header [data-period-close] { border-color:transparent; background:var(--color-neutral-900); padding:0; flex:none; }
+.period-dialog-help { padding-inline:1.25rem; margin-top:.75rem; max-width:25rem; font-size:.8125rem; line-height:1.6; color:var(--color-neutral-400); }
+.ownership-form { padding:0 1.25rem 1.25rem; gap:1rem; }
+.period-years { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.ownership-form .period-years label { font-size:.75rem; font-weight:600; }
+.ownership-form input[type="number"] { appearance:textfield; min-height:3rem; font-size:1.25rem; font-weight:600; font-variant-numeric:tabular-nums; background:var(--color-neutral-950); }
+.ownership-form input::-webkit-inner-spin-button,.ownership-form input::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
+.ownership-form .ownership-current { border:1px solid var(--color-neutral-800); border-radius:4px; background:var(--color-neutral-900); padding:.625rem .75rem; font-size:.8125rem; }
+.ownership-form [data-period-error]:empty { display:none; }
+.period-dialog-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1rem; border-top:1px solid var(--color-neutral-800); padding-top:1rem; }
+.period-save { min-height:2.75rem; padding:.625rem 1.25rem; border-radius:4px; background:var(--color-orange-500); color:var(--color-neutral-950); font-weight:700; cursor:pointer; }
+.period-clear { min-height:2.75rem; padding:.5rem 0; font-size:.75rem; color:var(--color-neutral-400); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.period-clear[hidden] { display:none; }
+html[data-design="modern"] .ownership-form .ownership-current { border-radius:8px; }
+html[data-design="modern"] .period-dialog-header [data-period-close] { border-radius:50%; }
+@media (hover:hover) and (pointer:fine) { .period-save:hover { background:var(--color-orange-400); } .period-clear:hover { color:var(--color-orange-500); } }
+@media(max-width:359px) { .period-dialog-actions { align-items:stretch; flex-direction:column; } .period-save { width:100%; } .period-clear { align-self:center; } }

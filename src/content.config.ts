@@ -92,7 +92,7 @@ const phones = defineCollection({
     // A family variant decorates existing canonical spec rows, without a catalog entry.
     specVariant: z.object({
       model: z.string(),
-      specs: phoneSchema.pick({ display: true, storageMb: true, storageExpandable: true, battery: true, weightGrams: true }).partial(),
+      specs: phoneSchema.pick({ display: true, storageMb: true, storageExpandable: true, battery: true, weightGrams: true, dimensionsMm: true }).partial(),
     }).optional(),
   }),
 });

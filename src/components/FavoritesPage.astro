@@ -97,14 +97,19 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     ))}
   </ol>
   <dialog data-period-dialog class="period-dialog" aria-labelledby="period-dialog-title" data-locale={locale}>
-    <div class="flex items-start justify-between gap-4"><div><p class="editorial-kicker text-orange-500">{periodCopy.edit}</p><h2 id="period-dialog-title" class="mt-2 text-xl font-bold"></h2></div><button type="button" data-period-close class="control-button h-11 w-11 justify-center" aria-label={periodCopy.close}><svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
-    <form data-period-form class="ownership-form mt-5 grid gap-4">
-      <label>{periodCopy.start}<input name="start" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" required /></label>
-      <label>{periodCopy.end}<input name="end" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" /></label>
+    <div class="period-dialog-header flex items-start justify-between gap-4"><div><p class="editorial-kicker text-orange-500">{periodCopy.edit}</p><h2 id="period-dialog-title" class="mt-2 text-xl font-bold"></h2></div><button type="button" data-period-close class="control-button h-11 w-11 justify-center" aria-label={periodCopy.close}><svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <p id="period-dialog-help" class="period-dialog-help">{periodCopy.approximate}</p>
+    <form data-period-form aria-describedby="period-dialog-help" class="ownership-form mt-5 grid gap-4">
+      <div class="period-years">
+      <label>{periodCopy.from}<input aria-label={periodCopy.start} name="start" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" required /></label>
+      <label>{periodCopy.until}<input aria-label={periodCopy.end} name="end" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" /></label>
+      </div>
       <label class="ownership-current"><input name="current" type="checkbox" />{periodCopy.current}</label>
       <p data-period-error role="alert" class="text-sm text-orange-500"></p>
-      <button type="submit" class="primary-cta control-button justify-center text-sm">{periodCopy.save}</button>
-      <button type="button" data-period-clear class="min-h-11 text-sm text-neutral-400 underline underline-offset-4">{periodCopy.clear}</button>
+      <div class="period-dialog-actions">
+      <button type="submit" class="primary-cta period-save justify-center text-sm">{periodCopy.save}</button>
+      <button type="button" data-period-clear class="period-clear">{periodCopy.clear}</button>
+      </div>
     </form>
   </dialog>
 </Layout>
@@ -224,7 +229,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     startInput.value = period ? String(period.start) : '';
     endInput.value = period?.end ? String(period.end) : '';
     current.checked = period?.current ?? false; endInput.disabled = current.checked;
-    error.textContent = ''; dialog.showModal(); startInput.focus();
+    error.textContent = ''; form.querySelector<HTMLButtonElement>('[data-period-clear]')!.hidden = !period; dialog.showModal(); startInput.focus();
   }));
   current.addEventListener('change', () => { endInput.disabled = current.checked; });
   dialog.querySelector('[data-period-close]')!.addEventListener('click', () => dialog.close());
