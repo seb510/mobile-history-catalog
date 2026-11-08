@@ -74,6 +74,7 @@ const schema = {
         var valid = choice?.version === 1 && choice.theme === true && typeof choice.at === 'number' && choice.at <= Date.now() && Date.now() - choice.at < 15552000000;
         var stored = valid ? localStorage.getItem('theme') : null;
         if (stored === 'light' || stored === 'dark') document.documentElement.dataset.theme = stored;
+        if (valid && localStorage.getItem('mobile-history:design') === 'modern') document.documentElement.dataset.design = 'modern';
       } catch (e) {}
     </script>
     <meta charset="utf-8" />
@@ -131,6 +132,7 @@ const schema = {
     <script>
       import '../scripts/image-fallback';
       import '../scripts/favorites';
+      import '../scripts/scroll-reveal';
     </script>
   </body>
 </html>

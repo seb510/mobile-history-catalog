@@ -38,8 +38,9 @@ const copy = PRIVACY_COPY[locale];
     const allowed = choice.dataset.privacyChoice === 'accept';
     try {
       localStorage.setItem(PRIVACY_KEY, JSON.stringify({ version: 1, theme: allowed, at: Date.now() }));
-      if (!allowed) localStorage.removeItem('theme');
-      else if (document.documentElement.dataset.theme) localStorage.setItem('theme', document.documentElement.dataset.theme);
+      if (!allowed) { localStorage.removeItem('theme'); localStorage.removeItem('mobile-history:design'); }
+      else { localStorage.setItem('mobile-history:design', document.documentElement.dataset.design === 'modern' ? 'modern' : 'magazine'); }
+      if (allowed && document.documentElement.dataset.theme) localStorage.setItem('theme', document.documentElement.dataset.theme);
     } catch {}
     close();
   });

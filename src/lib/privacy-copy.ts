@@ -5,9 +5,9 @@ export const PRIVACY_COPY = {
     "cookies": "Cookies і локальне зберігання",
     "settings": "Налаштування приватності",
     "title": "Твій вибір зберігання",
-    "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему оформлення між відвідуваннями? «Мої телефони» зберігає моделі лише після натискання «Я мав цей телефон».",
-    "accept": "Дозволити збереження теми",
-    "reject": "Не зберігати тему",
+    "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему та стиль оформлення між відвідуваннями? «Мої телефони» зберігає моделі лише після натискання «Я мав цей телефон».",
+    "accept": "Дозволити збереження оформлення",
+    "reject": "Не зберігати оформлення",
     "updated": "Оновлено 7 листопада 2026",
     "sections": [
       [
@@ -20,7 +20,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Налаштування у браузері",
-        "За згодою сайт запам’ятовує тему оформлення. «Мої телефони» зберігає лише слаги позначених моделей після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
+        "За згодою сайт запам’ятовує тему та стиль оформлення. «Мої телефони» зберігає лише слаги позначених моделей після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
       ],
       [
         "Зовнішні сервіси, фото й посилання",
@@ -28,7 +28,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Технічні запити та підстави",
-        "Для доставки сторінок сервер отримує IP-адресу, URL та технічні заголовки. Надання запитаної сторінки й безпека ґрунтуються на законному інтересі; необов’язкове збереження теми — на згоді. «Мої телефони» — локальна функція, яку ти прямо запитуєш. Налаштування журналів та строки їх зберігання залежать від остаточного хостингу й мають бути уточнені перед публікацією."
+        "Для доставки сторінок сервер отримує IP-адресу, URL та технічні заголовки. Надання запитаної сторінки й безпека ґрунтуються на законному інтересі; необов’язкове збереження оформлення — на згоді. «Мої телефони» — локальна функція, яку ти прямо запитуєш. Налаштування журналів та строки їх зберігання залежать від остаточного хостингу й мають бути уточнені перед публікацією."
       ],
       [
         "Твої права",
@@ -46,6 +46,12 @@ export const PRIVACY_COPY = {
       [
         "theme",
         "Світла або темна тема",
+        "До відкликання згоди чи очищення даних",
+        "Лише після згоди"
+      ],
+      [
+        "mobile-history:design",
+        "Стиль: журнал або сучасний",
         "До відкликання згоди чи очищення даних",
         "Лише після згоди"
       ],
@@ -68,16 +74,16 @@ export const PRIVACY_COPY = {
       "Термін",
       "Умова"
     ],
-    "manage": "Відмовитися або відкликати згоду можна без втрати доступу до каталогу. Тема працює й без збереження. Відмова видаляє збережену тему, але не «Мої телефони». Зміна вибору діє для цього браузера; очищення даних скидає його. Нові аналітичні чи рекламні сервіси потребуватимуть окремого оновлення правил і механізму згоди."
+    "manage": "Відмовитися або відкликати згоду можна без втрати доступу до каталогу. Тема та стиль працюють і без збереження. Відмова видаляє збережене оформлення, але не «Мої телефони». Зміна вибору діє для цього браузера; очищення даних скидає його. Нові аналітичні чи рекламні сервіси потребуватимуть окремого оновлення правил і механізму згоди."
   },
   "ru": {
     "privacy": "Политика конфиденциальности",
     "cookies": "Cookies и локальное хранение",
     "settings": "Настройки приватности",
     "title": "Твой выбор хранения",
-    "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему между посещениями? «Мои телефоны» сохраняет модели только после нажатия «У меня был этот телефон».",
-    "accept": "Разрешить сохранение темы",
-    "reject": "Не сохранять тему",
+    "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему и стиль оформления между посещениями? «Мои телефоны» сохраняет модели только после нажатия «У меня был этот телефон».",
+    "accept": "Разрешить сохранение оформления",
+    "reject": "Не сохранять оформление",
     "updated": "Обновлено 7 ноября 2026",
     "sections": [
       [
@@ -98,7 +104,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Технические запросы и основания",
-        "Для доставки страниц сервер получает IP-адрес, URL и технические заголовки. Доставка запрошенной страницы и безопасность основаны на законном интересе; необязательное сохранение темы — на согласии. «Мои телефоны» — прямо запрошенная локальная функция. Настройки журналов и сроки хранения зависят от окончательного хостинга и должны быть уточнены перед публикацией."
+        "Для доставки страниц сервер получает IP-адрес, URL и технические заголовки. Доставка запрошенной страницы и безопасность основаны на законном интересе; необязательное сохранение оформления — на согласии. «Мои телефоны» — прямо запрошенная локальная функция. Настройки журналов и сроки хранения зависят от окончательного хостинга и должны быть уточнены перед публикацией."
       ],
       [
         "Твои права",
@@ -116,6 +122,12 @@ export const PRIVACY_COPY = {
       [
         "theme",
         "Светлая или тёмная тема",
+        "До отзыва согласия или очистки данных",
+        "Только после согласия"
+      ],
+      [
+        "mobile-history:design",
+        "Стиль: журнал или современный",
         "До отзыва согласия или очистки данных",
         "Только после согласия"
       ],
@@ -138,16 +150,16 @@ export const PRIVACY_COPY = {
       "Срок",
       "Условие"
     ],
-    "manage": "Отказ или отзыв согласия не ограничивает доступ к каталогу. Тема работает без сохранения. Отказ удаляет сохранённую тему, но не «Мои телефоны». Выбор относится к этому браузеру; очистка данных его сбрасывает. Новые аналитические или рекламные сервисы потребуют обновления правил и механизма согласия."
+    "manage": "Отказ или отзыв согласия не ограничивает доступ к каталогу. Тема и стиль работают без сохранения. Отказ удаляет сохранённое оформление, но не «Мои телефоны». Выбор относится к этому браузеру; очистка данных его сбрасывает. Новые аналитические или рекламные сервисы потребуют обновления правил и механизма согласия."
   },
   "en": {
     "privacy": "Privacy policy",
     "cookies": "Cookies and local storage",
     "settings": "Privacy settings",
     "title": "Your storage choice",
-    "intro": "No advertising or analytics trackers. May we remember your theme between visits? My phones stores models only after you select “I had this phone”.",
-    "accept": "Allow theme storage",
-    "reject": "Do not store theme",
+    "intro": "No advertising or analytics trackers. May we remember your theme and design style between visits? My phones stores models only after you select “I had this phone”.",
+    "accept": "Allow appearance storage",
+    "reject": "Do not store appearance",
     "updated": "Updated 7 November 2026",
     "sections": [
       [
@@ -160,7 +172,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Browser preferences",
-        "Theme storage requires consent. My phones stores only model slugs following your direct action; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
+        "Theme and design-style storage require consent. My phones stores only model slugs following your direct action; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
       ],
       [
         "External services, images and links",
@@ -168,7 +180,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Technical requests and legal bases",
-        "To deliver pages, the server receives your IP address, URL and technical headers. Delivering requested content and security rely on legitimate interests; optional theme storage relies on consent. My phones is an explicitly requested local function. Log settings and retention depend on the final hosting configuration and must be confirmed before publication."
+        "To deliver pages, the server receives your IP address, URL and technical headers. Delivering requested content and security rely on legitimate interests; optional appearance storage relies on consent. My phones is an explicitly requested local function. Log settings and retention depend on the final hosting configuration and must be confirmed before publication."
       ],
       [
         "Your rights",
@@ -190,6 +202,12 @@ export const PRIVACY_COPY = {
         "Only after consent"
       ],
       [
+        "mobile-history:design",
+        "Magazine or modern design style",
+        "Until consent is withdrawn or site data cleared",
+        "Only with consent"
+      ],
+      [
         "mobile-history:favorites",
         "Legacy Favorites slugs awaiting separate ownership confirmation",
         "Until removal or site-data deletion",
@@ -208,6 +226,6 @@ export const PRIVACY_COPY = {
       "Retention",
       "Condition"
     ],
-    "manage": "Rejecting or withdrawing consent does not restrict the catalog. Theme switching works without storage. Rejection deletes the saved theme, not My phones. The choice applies to this browser; clearing site data resets it. Adding analytics or advertising will require updated policies and a separate consent implementation."
+    "manage": "Rejecting or withdrawing consent does not restrict the catalog. Theme switching works without storage. Rejection deletes the saved appearance preferences, not My phones. The choice applies to this browser; clearing site data resets it. Adding analytics or advertising will require updated policies and a separate consent implementation."
   }
 } as const;

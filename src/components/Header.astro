@@ -3,6 +3,7 @@ import Arrow from './Arrow.astro';
 import LogoMark from './LogoMark.astro';
 import GlobalSearch from './GlobalSearch.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import DesignToggle from './DesignToggle.astro';
 import { LOCALES, localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
 
@@ -37,24 +38,22 @@ const links = [
     </a>
 
     <div class="header-actions flex items-center gap-1">
-      <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
+      <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 xl:flex">
         {links.map((link) => (
           <a href={localePath(locale, link.path)} class="header-nav-link" aria-current={isActive(link.path) ? 'page' : undefined}>
             {link.label}
             {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count ml-1.5"></span>}
           </a>
         ))}
-        <div role="group" class="ml-2 flex items-center gap-0.5 rounded-sm border border-neutral-800 bg-neutral-900/50 p-0.5" aria-label={strings.langSwitcher}>
-          {LOCALES.map((l) => (
-            l === locale ? (
-              <span aria-current="page" class="rounded-sm bg-orange-500 px-1.5 py-1 text-[0.65rem] font-bold text-neutral-950">{LOCALE_LABEL[l]}</span>
-            ) : (
-              <a href={localePath(l, path === '/404/' ? '/' : path)} class="rounded-sm px-1.5 py-1 text-[0.65rem] font-semibold text-neutral-500 transition-colors motion-ui hover-desktop:text-neutral-100">
-                {LOCALE_LABEL[l]}
-              </a>
-            )
-          ))}
-        </div>
+        <details class="language-dropdown">
+          <summary aria-label={strings.langSwitcher}><span>{LOCALE_LABEL[locale]}</span><Arrow kind="chevron" direction="down" size={14} /></summary>
+          <div class="language-options">
+            {LOCALES.map(l => l === locale
+              ? <span aria-current="page">{LOCALE_LABEL[l]}<span aria-hidden="true">✓</span></span>
+              : <a href={localePath(l, path === '/404/' ? '/' : path)} lang={l} hreflang={l}>{LOCALE_LABEL[l]}</a>)}
+          </div>
+        </details>
+        <DesignToggle locale={locale} />
         <ThemeToggle locale={locale} class="ml-1 h-11 w-11 rounded-sm" />
       </nav>
       <GlobalSearch locale={locale} />
@@ -66,20 +65,20 @@ const links = [
         aria-label={strings.menu.open}
         data-label-open={strings.menu.open}
         data-label-close={strings.menu.close}
-        class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 lg:hidden"
+        class="menu-toggle flex h-11 w-11 shrink-0 items-center justify-center text-neutral-200 xl:hidden"
       >
         <span class="sr-only">{strings.menu.open}</span>
         <span class="menu-control-face">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6" aria-hidden="true">
-            <path class="menu-line-first" d="M4 8h16" />
-            <path class="menu-line-last" d="M4 16h16" />
+            <g class="icon-edition-magazine"><path class="menu-line-first" d="M4 8h16" /><path class="menu-line-last" d="M4 16h16" /></g>
+            <g class="icon-edition-modern"><path class="menu-line-first" d="M6 8h12" /><path class="menu-line-last" d="M6 16h12" /></g>
           </svg>
         </span>
       </button>
     </div>
   </div>
 
-  <div id="mobile-menu" hidden inert aria-hidden="true" class="mobile-menu-panel lg:hidden">
+  <div id="mobile-menu" hidden inert aria-hidden="true" class="mobile-menu-panel xl:hidden">
     <div class="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
       <p class="editorial-kicker border-b border-neutral-800 py-4 text-orange-500">{strings.brandLine}</p>
       <nav aria-label={strings.footer.navigation}>
@@ -90,6 +89,7 @@ const links = [
           <Arrow direction="right" class="ml-auto text-neutral-500" />
         </a>)}
       </nav>
+      <div class="pt-4"><DesignToggle locale={locale} mobile /></div>
       <div class="flex flex-wrap items-center justify-between gap-3 pt-4">
         <div role="group" class="flex gap-1" aria-label={strings.langSwitcher}>
           {LOCALES.map((l) => l === locale
@@ -101,7 +101,7 @@ const links = [
     </div>
   </div>
 </header>
-<div id="menu-backdrop" class="menu-backdrop lg:hidden" hidden aria-hidden="true"></div>
+<div id="menu-backdrop" class="menu-backdrop xl:hidden" hidden aria-hidden="true"></div>
 <div data-search-backdrop class="search-backdrop" hidden aria-hidden="true"></div>
 
 <script>
@@ -109,6 +109,16 @@ const links = [
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
   const backdrop = document.getElementById('menu-backdrop');
+  const language = document.querySelector<HTMLDetailsElement>('.language-dropdown');
+  document.addEventListener('pointerdown', event => {
+    if (language && event.target instanceof Node && !language.contains(event.target)) language.open = false;
+  });
+  language?.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { language.open = false; language.querySelector('summary')?.focus(); }
+  });
+  language?.addEventListener('focusout', event => {
+    if (event.relatedTarget instanceof Node && !language.contains(event.relatedTarget)) language.open = false;
+  });
   let menuRevision = 0;
   const setHeaderHidden = (hidden: boolean) => {
     header?.classList.toggle('is-hidden', hidden);
@@ -166,7 +176,7 @@ const links = [
     }
   });
 
-  window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+  window.matchMedia('(min-width: 1280px)').addEventListener('change', (event) => {
     if (event.matches) setMenuOpen(false);
   });
 
@@ -191,7 +201,7 @@ const links = [
       ) {
         setHeaderHidden(false);
       } else {
-        setHeaderHidden(window.matchMedia('(min-width: 1024px)').matches && currentScrollY > previousScrollY);
+        setHeaderHidden(window.matchMedia('(min-width: 1280px)').matches && currentScrollY > previousScrollY);
       }
 
       previousScrollY = currentScrollY;

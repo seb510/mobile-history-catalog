@@ -1,0 +1,46 @@
+---
+import type { Locale } from '../lib/locales';
+const { locale, mobile = false } = Astro.props as { locale: Locale; mobile?: boolean };
+const copy = {
+ uk: { label: 'Стиль сайту', magazine: 'Журнал', modern: 'Сучасний' },
+ ru: { label: 'Стиль сайта', magazine: 'Журнал', modern: 'Современный' },
+ en: { label: 'Site style', magazine: 'Magazine', modern: 'Modern' },
+}[locale];
+---
+<div class:list={['design-switch', mobile && 'design-switch-mobile']} role="group" aria-label={copy.label} hidden>
+  <button type="button" data-design-choice="magazine" aria-pressed="true" aria-label={copy.magazine} title={copy.magazine}>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3.5 5.5 3.5 3 5v14c2.5-1.5 6-1.5 9 0 3-1.5 6.5-1.5 9 0V5c-2.5-1.5-6-1.5-9 0Z"/><path d="M12 5v14M6 8h3M6 11h3M15 8h3M15 11h3"/></svg>
+  </button>
+  <button type="button" data-design-choice="modern" aria-pressed="false" aria-label={copy.modern} title={copy.modern}>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M9 9v12M6 6h.01M9 6h.01"/></svg>
+  </button>
+</div>
+<script>
+  import { privacyChoice } from '../lib/privacy';
+  const root = document.documentElement;
+  function syncDesign() {
+    const design = root.dataset.design === 'modern' ? 'modern' : 'magazine';
+    document.querySelectorAll<HTMLButtonElement>('[data-design-choice]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.designChoice === design));
+    });
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-design-choice]').forEach(button => {
+    button.addEventListener('click', () => {
+      const design = button.dataset.designChoice === 'modern' ? 'modern' : 'magazine';
+      if ((root.dataset.design || 'magazine') === design) return;
+      root.dataset.design = design;
+      syncDesign();
+      try { if (privacyChoice() === true) localStorage.setItem('mobile-history:design', design); } catch {}
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelector('main')?.animate([{ opacity: .75 }, { opacity: 1 }], { duration: parseFloat(getComputedStyle(root).getPropertyValue('--motion-ui')) || 180, easing: 'ease-out' });
+      }
+    });
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== 'mobile-history:design' && event.key !== 'mobile-history:privacy' && event.key !== null) return;
+    try { root.dataset.design = privacyChoice() === true && localStorage.getItem('mobile-history:design') === 'modern' ? 'modern' : 'magazine'; } catch { root.dataset.design = 'magazine'; }
+    syncDesign();
+  });
+  document.querySelectorAll<HTMLElement>('.design-switch').forEach(control => { control.hidden = false; });
+  syncDesign();
+</script>

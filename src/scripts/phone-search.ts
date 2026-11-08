@@ -143,14 +143,35 @@ function initializeGlobalSearch(root: HTMLElement): void {
   const locale = root.dataset.locale as Locale | undefined;
   if (!toggle || !panel || !form || !input || !status || !suggestionsRegion || !suggestions || !locale) return;
 
+  let searchMotionRevision = 0;
   const setOpen = (open: boolean) => {
     const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
+    if (wasOpen === open) return;
+    const motionRevision = ++searchMotionRevision;
     if (open && !wasOpen) {
       const menuToggle = document.getElementById('menu-toggle');
       if (menuToggle?.getAttribute('aria-expanded') === 'true') menuToggle.click();
     }
-    panel.hidden = !open;
-    if (backdrop) backdrop.hidden = !open;
+    panel.inert = !open;
+    panel.setAttribute('aria-hidden', String(!open));
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motion = getComputedStyle(document.documentElement);
+    const duration = reduced ? 0 : parseFloat(motion.getPropertyValue('--motion-ui')) || 180;
+    const easing = motion.getPropertyValue('--motion-easing').trim() || 'ease-out';
+    const animations = [panel, backdrop].filter((element): element is HTMLElement => !!element).map(element => {
+      const wasHidden = element.hidden;
+      const current = getComputedStyle(element);
+      const from = { opacity: wasHidden ? '0' : current.opacity, transform: wasHidden && element === panel ? 'translateY(-8px)' : current.transform };
+      element.getAnimations().forEach(animation => animation.cancel());
+      element.hidden = false;
+      return element.animate([from, { opacity: open ? '1' : '0', transform: !open && element === panel ? 'translateY(-8px)' : 'none' }], { duration, easing, fill: 'both' });
+    });
+    Promise.all(animations.map(animation => animation.finished)).then(() => {
+      if (motionRevision !== searchMotionRevision) return;
+      panel.hidden = !open;
+      if (backdrop) backdrop.hidden = !open;
+      animations.forEach(animation => animation.cancel());
+    }).catch(() => { /* A newer toggle owns the transition. */ });
     toggle.setAttribute('aria-expanded', String(open));
     const label = open ? toggle.dataset.labelClose : toggle.dataset.labelOpen;
     if (label) {
