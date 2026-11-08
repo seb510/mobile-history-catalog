@@ -19,6 +19,18 @@ for (const file of walk(root).filter((file) => file.endsWith('.html'))) {
     try { JSON.parse(match[1]); } catch { issues.push(`${pathname}: invalid JSON-LD`); }
   }
   const alternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((match) => ({ locale: match[1], url: match[2] }));
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+  if (!ogImage || !/^https?:\/\//.test(ogImage)) issues.push(pathname + ': missing absolute OG image URL');
+  if (ogImage) {
+    const imageUrl = new URL(ogImage);
+    if (imageUrl.pathname.startsWith('/og/phones/')) {
+      const localImage = path.join(root, imageUrl.pathname.slice(1));
+      if (!fs.existsSync(localImage)) issues.push(pathname + ': generated OG image is missing');
+      for (const [property, value] of [['type','image/jpeg'],['width','1200'],['height','630']]) {
+        if (!html.includes('<meta property="og:image:' + property + '" content="' + value + '"')) issues.push(pathname + ': incorrect OG image ' + property);
+      }
+    }
+  }
   pages.set(pathname, { canonical, title, robots, alternates });
 }
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');

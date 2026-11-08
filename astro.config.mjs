@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { loadEnv } from 'vite';
 
 const env = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
-const siteUrl = new URL(env.SITE_URL || 'https://mobile-history.example');
+const siteUrl = new URL(env.SITE_URL || 'https://mobile-history-catalog.nikolaysebistiyan.workers.dev');
 if (!['http:', 'https:'].includes(siteUrl.protocol) || siteUrl.pathname !== '/' || siteUrl.search || siteUrl.hash || siteUrl.username || siteUrl.password) {
   throw new Error('SITE_URL must be an HTTP(S) origin without a path, credentials or query.');
 }

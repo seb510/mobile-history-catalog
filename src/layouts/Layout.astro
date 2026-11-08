@@ -29,7 +29,7 @@ const { locale, path, title, description, ogImage = '/og-image.png', type = 'web
 const identity = await searchIdentity(Astro.site!, locale, path);
 const canonical = canonicalUrl(Astro.site!, identity.canonicalLocale, path);
 const alternates = path === '/404/' ? [] : identity.alternates;
-const absoluteOgImage = new URL(ogImage, Astro.site).toString();
+let shareImage = ogImage;
 const strings = t(locale);
 const copy = searchCopy[locale];
 const staticCopy = copy[path as keyof typeof copy];
@@ -41,6 +41,7 @@ let subject: Record<string, unknown> | undefined;
 if (phoneMatch) {
   const phone = await getPhone(locale, phoneMatch[1]);
   if (phone) {
+    if (phone.data.image?.startsWith('/images/')) shareImage = `/og/phones/${phoneMatch[1]}.jpg`;
     const name = `${phone.data.brand} ${phone.data.model}`;
     searchTitle = `${name} (${phone.data.year}): ${copy.specs} — ${strings.siteName}`;
     subject = { '@type': 'Thing', name, description: phone.data.milestone, image: phone.data.image };
@@ -53,6 +54,9 @@ if (brandMatch) {
     searchDescription = `${brand.data.name} — ${copy.brand}. ${strings.brands.indexSubtitle}`;
   }
 }
+const absoluteOgImage = new URL(shareImage, Astro.site).toString();
+const standardShareImage = shareImage.startsWith('/og/phones/') || shareImage === '/og-image.png';
+const shareImageType = shareImage.startsWith('/og/phones/') ? 'image/jpeg' : shareImage === '/og-image.png' ? 'image/png' : undefined;
 const noindex = !searchEnabled || path === '/404/' || path === '/favorites/' || path === '/search/';
 const pageType = path === '/about/' ? 'AboutPage' : path === '/catalog/' || path.startsWith('/brands/') ? 'CollectionPage' : 'WebPage';
 const siteId = new URL('/#website', Astro.site).toString();
@@ -103,6 +107,9 @@ const schema = {
     <meta property="og:site_name" content={strings.siteName} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={absoluteOgImage} />
+    {absoluteOgImage.startsWith('https://') && <meta property="og:image:secure_url" content={absoluteOgImage} />}
+    {shareImageType && <meta property="og:image:type" content={shareImageType} />}
+    {standardShareImage && <><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /></>}
     <meta property="og:image:alt" content={subject ? String(subject.name) : strings.siteName} />
     <meta property="og:locale" content={ogLocaleOf(locale)} />
 
