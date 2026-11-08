@@ -1,0 +1,99 @@
+/* Modern edition: graphite canvas, distinct surfaces and one orange accent.
+   These semantic surfaces are independent of the magazine's paper palette. */
+html[data-design="modern"] {
+  --modern-canvas:#101a22;
+  --modern-surface:#1a2833;
+  --modern-soft:#223643;
+  --modern-line:#344b5a;
+  --modern-shadow:0 8px 24px #00000018;
+  --color-neutral-50:#f4f8fa; --color-neutral-100:#eaf1f5;
+  --color-neutral-200:#d4e0e7; --color-neutral-300:#b9cad5;
+  --color-neutral-400:#a0b4c2; --color-neutral-500:#94aab9;
+  --color-neutral-600:#607a8b; --color-neutral-700:#496170;
+  --color-neutral-800:#344b5a; --color-neutral-900:#1a2833;
+  --color-neutral-950:#101a22;
+}
+html[data-design="modern"][data-theme="light"] {
+  --modern-canvas:#e7edef; --modern-surface:#f9fbfc;
+  --modern-soft:#d7e2e7; --modern-line:#bdcdd5;
+  --modern-shadow:0 8px 24px #18313d0a;
+  --color-neutral-50:#101d26; --color-neutral-100:#172a35;
+  --color-neutral-200:#263e4c; --color-neutral-300:#3c5361;
+  --color-neutral-400:#4f6674; --color-neutral-500:#546d7b;
+  --color-neutral-600:#708895; --color-neutral-700:#a2b6c1;
+  --color-neutral-800:#bdcdd5; --color-neutral-900:#d7e2e7;
+  --color-neutral-950:#e7edef;
+}
+@media(prefers-color-scheme:light) {
+  html[data-design="modern"]:not([data-theme="dark"]) {
+    --modern-canvas:#e7edef; --modern-surface:#f9fbfc;
+    --modern-soft:#d7e2e7; --modern-line:#bdcdd5;
+    --modern-shadow:0 8px 24px #18313d0a;
+    --color-neutral-50:#101d26; --color-neutral-100:#172a35;
+    --color-neutral-200:#263e4c; --color-neutral-300:#3c5361;
+    --color-neutral-400:#4f6674; --color-neutral-500:#546d7b;
+    --color-neutral-600:#708895; --color-neutral-700:#a2b6c1;
+    --color-neutral-800:#bdcdd5; --color-neutral-900:#d7e2e7;
+    --color-neutral-950:#e7edef;
+  }
+}
+html[data-design="modern"] body { background:var(--modern-canvas); }
+html[data-design="modern"] .site-header { background:var(--modern-surface); border-bottom-color:var(--modern-line); box-shadow:0 3px 18px #102b3508; }
+html[data-design="modern"] :is(.mobile-menu-panel,.language-options,.global-search-panel,.period-dialog) { background:var(--modern-surface); }
+html[data-design="modern"] :is(.editorial-card,.recent-phone,.brand-index-card,.update-phone,.catalog-tools,.catalog-year-index,.compare-selected,.compare-summary,.phone-video) { background:var(--modern-surface); border-color:var(--modern-line); box-shadow:var(--modern-shadow); }
+html[data-design="modern"] :is(.phone-card-art,.phone-gallery-stage) { background:radial-gradient(ellipse at 50% 25%,var(--modern-surface),var(--modern-soft)); }
+html[data-design="modern"] .phone-gallery-stage { border-top-width:1px; box-shadow:var(--modern-shadow); }
+html[data-design="modern"] .recent-phone > div:first-child { background:var(--modern-soft); }
+html[data-design="modern"] :is(.primary-cta,.period-save) { color:#fff; border:1px solid transparent; box-shadow:none; }
+html[data-design="modern"] .home-cover h1 { font-size:clamp(2.6rem,5.4vw,4.2rem); max-width:12ch; }
+/* A permanent dark display case anchors the homepage in either colour theme. */
+html[data-design="modern"] .home-cover-feature {
+  background:#182c36; color:#f2f7fa; border-color:#344c59; box-shadow:0 16px 40px #0c263224;
+}
+html[data-design="modern"] .home-cover-feature > .grid { background:radial-gradient(ellipse at 50% 40%,#47606c,#233c49 75%); }
+html[data-design="modern"] .home-cover-feature :is(.text-neutral-400,.text-neutral-500) { color:#bacdd7; }
+html[data-design="modern"] .home-cover-feature :is(.text-orange-500,.editorial-kicker.text-orange-500) { color:#ffac77; }
+html[data-design="modern"] .home-cover-feature :is(.border-neutral-800,.border-t) { border-color:#405663; }
+html[data-design="modern"] .home-cover-feature .card-copy { padding:1.25rem 1.5rem; }
+html[data-design="modern"] .home-topic-nav ul { gap:.75rem; border:0; background:none; }
+html[data-design="modern"] .home-topic-nav li { background:none; }
+html[data-design="modern"] .home-topic-nav a { border:1px solid var(--modern-line); border-radius:12px; background:var(--modern-surface); }
+html[data-design="modern"] .generation-feature { background:var(--modern-soft); border-color:var(--modern-line); }
+html[data-design="modern"] .generation-feature .editorial-card { background:var(--modern-surface); box-shadow:none; }
+html[data-design="modern"] .home-project { background:var(--modern-soft); border-color:var(--modern-line); box-shadow:none; }
+html[data-design="modern"] .site-footer { background:#182c36; color:#f2f7fa; border-radius:24px 24px 0 0; }
+html[data-design="modern"] .site-footer :is(.text-neutral-300,.text-neutral-400,.text-neutral-500) { color:#bacdd7; }
+html[data-design="modern"] .site-footer .text-orange-500 { color:#ffac77; }
+html[data-design="modern"] .site-footer :is(.border-neutral-700,.border-neutral-800) { border-color:#405663; }
+/* Specifications: a stable label column and quiet, visibly separate groups. */
+html[data-design="modern"] .phone-spec-surface { border-radius:14px; border-color:var(--modern-line); box-shadow:var(--modern-shadow); background:var(--modern-surface); }
+html[data-design="modern"] .phone-spec-table { background:var(--modern-surface); border-radius:0; }
+html[data-design="modern"] .phone-spec-table tbody { border:0; }
+html[data-design="modern"] .phone-spec-table tbody + tbody tr:first-child > * { border-top:5px solid var(--modern-canvas); }
+html[data-design="modern"] .phone-spec-table tr { background:transparent; }
+html[data-design="modern"] .phone-spec-table th { background:var(--modern-soft); color:var(--color-neutral-200); font-size:.75rem; padding:.875rem 1rem; }
+html[data-design="modern"] .phone-spec-table td { background:var(--modern-surface); padding:.875rem 1rem; }
+html[data-design="modern"] .phone-spec-table tr:nth-child(even) td { background:color-mix(in srgb,var(--modern-soft) 22%,var(--modern-surface)); }
+html[data-design="modern"] .phone-section-nav { background:var(--modern-soft); }
+html[data-design="modern"] .phone-section-nav a { border-radius:7px; color:var(--color-neutral-200); }
+html[data-design="modern"] .compare-table { overflow:hidden; background:var(--modern-surface); border-color:var(--modern-line); box-shadow:var(--modern-shadow); }
+html[data-design="modern"] .compare-table-head { background:var(--modern-soft); border-bottom:2px solid var(--color-orange-500); }
+html[data-design="modern"] .compare-spec-row > :first-child { background:var(--modern-soft); color:var(--color-neutral-200); }
+@media(min-width:1024px) {
+  html[data-design="modern"] .home-story-section { margin-top:1.5rem; padding:1.75rem; border:1px solid var(--modern-line); border-radius:18px; background:var(--modern-soft); }
+  html[data-design="modern"] .phone-spec-table th { font-size:.8125rem; }
+}
+@media(max-width:639px) {
+  html[data-design="modern"] .home-cover h1 { font-size:2.6rem; }
+  html[data-design="modern"] .home-cover-feature .card-copy { padding:1rem; }
+  html[data-design="modern"] .phone-spec-table :is(th,td) { padding:.75rem .625rem; overflow-wrap:anywhere; }
+  html[data-design="modern"] .phone-spec-table th { font-size:.6875rem; }
+}
+@media(hover:hover) and (pointer:fine) {
+  html[data-design="modern"] :is(.home-topic-nav a,.recent-phone,.editorial-card):hover { border-color:var(--color-orange-500); }
+  html[data-design="modern"] .phone-section-nav a:hover { background:var(--modern-surface); }
+  html[data-design="modern"] .site-footer a:hover { color:#ffac77; }
+}
+html[data-design="modern"] .phone-spec-table tr > :is(th,td) { border-bottom:1px solid var(--modern-line); border-radius:0; }
+html[data-design="modern"] .phone-spec-table tbody:last-child tr:last-child > * { border-bottom:0; }
+html[data-design="modern"] .phone-spec-table tbody tr:last-child > :is(:first-child,:last-child) { border-radius:0; }

@@ -1,7 +1,7 @@
 ---
 import CompareIsland from './CompareIsland.tsx';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { t } from '../lib/ui-strings';
+import { t, COMPARE_EXPERIENCE } from '../lib/ui-strings';
 import type { Locale } from '../lib/locales';
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
 }
 const { locale } = Astro.props;
 const strings = t(locale);
+const experience = COMPARE_EXPERIENCE[locale];
 
 const phones = await getPhonesForLocale(locale);
 phones.sort((a, b) => a.data.year - b.data.year || a.data.brand.localeCompare(b.data.brand));
@@ -19,4 +20,5 @@ const lite = phones.map((phone) => ({
 }));
 ---
 
+<aside class="compare-intro mb-6" aria-label={experience.kicker}><p class="editorial-kicker text-orange-500">{experience.kicker}</p><p class="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-300">{experience.intro}</p><ol class="compare-steps mt-4">{experience.steps.map((step,index)=><li><span aria-hidden="true">0{index+1}</span>{step}</li>)}</ol></aside>
 <CompareIsland client:load locale={locale} phones={lite} strings={strings} />

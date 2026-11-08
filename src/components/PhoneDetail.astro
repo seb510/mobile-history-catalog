@@ -243,7 +243,7 @@ const related = allPhones
     {PHONE_VIDEOS[slugOf(phone)] && <PhoneVideo locale={locale} slug={slugOf(phone)} poster={data} />}
     <h2 id="phone-specs" class="section-label mt-10 scroll-mt-24">{editorial.specs}</h2>
     {data.specVariant && <p class="mt-3 text-sm leading-relaxed text-neutral-400">{SPEC_VARIANT_NOTE[locale].replace('{model}', data.specVariant.model)}</p>}
-    <div class="mt-4 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
+    <div class="phone-spec-surface mt-4 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
       <table class="phone-spec-table w-full border-collapse text-left text-sm lg:text-base">
         {groups.map((group, gi) => (
           <tbody class:list={[gi > 0 && 'border-t-2 border-neutral-700']}>

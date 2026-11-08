@@ -64,7 +64,7 @@ export const UI = {
     },
     compare: {
       tableHead: { characteristic: 'Характеристика' },
-      subtitle: 'Два характери поруч: порівняй розміри, вагу, камери й можливості улюблених телефонів.',
+      subtitle: 'Форма, звички та можливості — досліди два телефони поруч.',
       pickA: 'Оберіть перший телефон…',
       pickB: 'Оберіть другий телефон…',
       change: 'Змінити',
@@ -230,7 +230,7 @@ export const UI = {
     },
     compare: {
       tableHead: { characteristic: 'Характеристика' },
-      subtitle: 'Два характера рядом: сравни размеры, вес, камеры и возможности любимых телефонов.',
+      subtitle: 'Форма, привычки и возможности — исследуй два телефона рядом.',
       pickA: 'Выберите первый телефон…',
       pickB: 'Выберите второй телефон…',
       change: 'Изменить',
@@ -395,7 +395,7 @@ export const UI = {
     },
     compare: {
       tableHead: { characteristic: 'Specification' },
-      subtitle: 'Two characters side by side: compare the dimensions, weight, cameras and features of your favourite phones.',
+      subtitle: 'Shape, habits and capabilities: explore two phones side by side.',
       pickA: 'Pick the first phone…',
       pickB: 'Pick the second phone…',
       change: 'Change',
@@ -719,9 +719,9 @@ export const CATALOG_POSITION = {
   en: { label: 'Current catalog year', filters: 'Back to filters', years: 'Jump to year', jump: 'Models by year' },
 } as const;
 export const SPEC_VARIANT_NOTE = {
-  uk: 'Спільні характеристики наведено один раз. У рядках із відмінностями помаранчевим позначено версію {model}.',
-  ru: 'Общие характеристики приведены один раз. В строках с отличиями оранжевым отмечена версия {model}.',
-  en: 'Shared specifications appear once. Where values differ, the {model} version is marked in orange.',
+  uk: 'Спільні характеристики наведено один раз. У рядках із відмінностями окремо позначено версію {model}.',
+  ru: 'Общие характеристики приведены один раз. В строках с отличиями отдельно отмечена версия {model}.',
+  en: 'Shared specifications appear once. Where values differ, the {model} version is labelled separately.',
 };
 export const MUSEUM_PHOTO_LABEL = {
   uk: 'Фото: Mobile Phone Museum',
@@ -808,4 +808,10 @@ export const PROJECT_PRESENTATION = {
  uk: { kicker: 'Про архів', intro: 'Телефон був особистою річчю ще до того, як став суцільним екраном. Збираємо форми, механізми й щоденні звички, за якими впізнається ціла епоха.', note: 'Курована добірка, а не повний перелік моделей. У центрі — дизайн і досвід користування.', languages: 'Мови архіву', collection: 'У добірці', brands: 'Бренди' },
  ru: { kicker: 'Об архиве', intro: 'Телефон был личной вещью задолго до того, как стал сплошным экраном. Собираем формы, механизмы и повседневные привычки, по которым узнаётся целая эпоха.', note: 'Кураторская подборка, а не полный перечень моделей. В центре — дизайн и опыт использования.', languages: 'Языки архива', collection: 'В подборке', brands: 'Бренды' },
  en: { kicker: 'About the archive', intro: 'A phone was a personal object long before it became all screen. We collect the shapes, mechanisms and everyday habits that make an era recognisable.', note: 'A curated selection, rather than a complete model directory. Design and the experience of using a phone come first.', languages: 'Archive languages', collection: 'In the collection', brands: 'Brands' },
+} as const;
+
+export const COMPARE_EXPERIENCE = {
+ uk: { kicker:'Два телефони. Два підходи.', steps:['Обери знайомий телефон','Додай інший характер','Досліди відмінності'], character:'Його характер', missing:'Додай ще один телефон — і порівняй їхню форму та можливості поруч.', note:'Підсвічено відмінності, а не переможця. «—» означає, що значення не підтверджене в архіві; це не завжди відсутність функції.', specs:'Техніка за характером', intro:'Спочатку форма, клавіатура й задум. Потім — екран, камера та інші характеристики. Тут немає балів або загального переможця.' },
+ ru: { kicker:'Два телефона. Два подхода.', steps:['Выбери знакомый телефон','Добавь другой характер','Исследуй различия'], character:'Его характер', missing:'Добавь ещё один телефон — и сравни их форму и возможности рядом.', note:'Подсвечены различия, а не победитель. «—» означает, что значение не подтверждено в архиве; это не всегда отсутствие функции.', specs:'Техника за характером', intro:'Сначала форма, клавиатура и замысел. Затем — экран, камера и другие характеристики. Здесь нет баллов или общего победителя.' },
+ en: { kicker:'Two phones. Two approaches.', steps:['Pick a familiar phone','Add a different character','Explore the differences'], character:'Its character', missing:'Add one more phone to explore their shapes and capabilities side by side.', note:'Highlights show differences, not a winner. “—” means a value is unconfirmed in the archive, not necessarily that a feature is absent.', specs:'The technology behind the character', intro:'Start with shape, keys and intent. Then explore the screen, camera and other specifications. There are no scores or overall winners here.' },
 } as const;

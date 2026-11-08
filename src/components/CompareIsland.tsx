@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
-import { COMPARE_QUICK, COMPARE_DESIGN, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
+import { COMPARE_QUICK, COMPARE_DESIGN, COMPARE_EXPERIENCE, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
 import { museumImageCredit } from '../lib/image-attribution';
 import { readFavorites, toggleFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
@@ -44,6 +44,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const editorial = DESIGN_EDITORIAL[locale];
   const design = COMPARE_DESIGN[locale];
+  const experience = COMPARE_EXPERIENCE[locale];
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
   const suggestedMatchups = [
     { a: 'nokia-3210', b: 'nokia-3310', story: strings.compare.suggestions.gsmEra },
@@ -214,8 +215,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           </div>
           <p role="status" className="text-sm text-orange-500">{copyState === 'copied' ? editorial.copied : copyState === 'manual' ? editorial.manualCopy : ''}</p>
           {copyState === 'manual' && <input readOnly aria-label={editorial.copyLink} value={shareUrl} onFocus={(event) => event.target.select()} className="mb-4 w-full rounded-sm border border-neutral-700 bg-neutral-900 p-3 text-base" />}
-          <p className="mb-3 text-xs text-neutral-500">{editorial.differenceNote}</p>
-          <p className="mb-4 text-xs leading-relaxed text-neutral-500">{editorial.dataNote}</p>
+          <h2 className="section-label mb-3 mt-6">{experience.specs}</h2>
+          <p className="mb-4 max-w-3xl text-xs leading-relaxed text-neutral-400">{experience.note}</p>
           <p className="mb-3 text-xs tabular-nums text-neutral-500" role="status">{design.rows.replace('{count}', String(rowCount))}</p>
           {rowCount === 0 && <p className="mb-4 border border-neutral-700 p-4 text-sm text-neutral-300">{design.identical}</p>}
           <div className="compare-table rounded-sm border border-neutral-700 bg-neutral-950/20 text-sm lg:text-base" role="table" aria-label={`${phoneA.data.brand} ${phoneA.data.model} / ${phoneB.data.brand} ${phoneB.data.model}`}>
@@ -257,7 +258,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
         </div>
       ) : (
         <div className="mt-8">
-          <p className="text-center text-neutral-500">{strings.compare.empty}</p>
+          <p className="text-center text-neutral-500">{phoneA || phoneB ? experience.missing : strings.compare.empty}</p>
           {!phoneA && !phoneB && suggestedMatchups.length > 0 && (
             <section className="mx-auto mt-8 max-w-3xl">
               <h2 className="mb-3 text-sm font-semibold tracking-wide text-neutral-400">{strings.compare.suggestedTitle}</h2>
@@ -349,6 +350,7 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
             </div>
           </a>
         </div>
+        {data.milestone && <p className="compare-character"><span>{COMPARE_EXPERIENCE[locale].character}</span>{data.milestone}</p>}
         <div className="compare-slot-footer mt-3">
           <button
             type="button"
@@ -357,9 +359,9 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
           >
             {strings.compare.change}
           </button>
-          <div className="compare-slot-credit">
-            {sourceCredit && <a href={sourceCredit.href} target="_blank" rel="noopener noreferrer" className="inline-block text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2 hover-desktop:text-orange-400">{sourceCredit.label}</a>}
-          </div>
+          {sourceCredit && <div className="compare-slot-credit">
+            <a href={sourceCredit.href} target="_blank" rel="noopener noreferrer" className="inline-block text-[0.65rem] leading-4 text-orange-500 underline underline-offset-2 hover-desktop:text-orange-400">{sourceCredit.label}</a>
+          </div>}
         </div>
       </div>
     );
