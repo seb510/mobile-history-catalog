@@ -26,7 +26,8 @@
 
 - [Походження записів журналу оновлень](updates-history-sources.md). Публічний журнал — `/updates/` у трьох локалях.
 - [Нова десятка 8 листопада](retro-ten-2026-11-08.md), [фото](retro-ten-2026-11-08-images.json), [відео](retro-ten-2026-11-08-videos.json).
+- [Добірка 2005–2008](retro-ten-2005-2008.md): джерела характеристик, ліцензії фото й відео для десяти моделей.
 - [Siemens A65 → SXG75](siemens-four-refresh.md).
 - [N95 8GB](nokia-n95-8gb-sources.md), [Nokia X7/N79/N81](nokia-x7-n79-n81-images-2026-11-05.md).
 - [Дизайн брендів](all-brands-design-2026-11-05.md), [аудит якості](quality-audit.md).
-- [Експорт моделей 31 жовтня](exports/mobile-history-models-2026-10-31.docx) — архівний документ, не поточний список 115 моделей.
+- [Експорт моделей 31 жовтня](exports/mobile-history-models-2026-10-31.docx) — архівний документ, знімок 115 моделей, не поточний каталог.

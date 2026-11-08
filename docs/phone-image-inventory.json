@@ -2,9 +2,9 @@
   "date": "2026-11-08",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 115,
-    "localPrimary": 64,
-    "remotePrimary": 48,
+    "models": 125,
+    "localPrimary": 66,
+    "remotePrimary": 56,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
@@ -157,6 +157,13 @@
       ]
     },
     {
+      "slug": "lg-vx8500",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
+      "issues": []
+    },
+    {
       "slug": "motorola-c350",
       "primary": "local",
       "frames": 2,
@@ -177,6 +184,13 @@
       "primary": "local",
       "frames": 1,
       "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "motorola-krzr-k1",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
       "issues": []
     },
     {
@@ -292,6 +306,20 @@
       "issues": []
     },
     {
+      "slug": "nokia-5300-xpressmusic",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
+      "issues": []
+    },
+    {
+      "slug": "nokia-5310-xpressmusic",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 1,
+      "issues": []
+    },
+    {
       "slug": "nokia-5510",
       "primary": "local",
       "frames": 1,
@@ -331,6 +359,20 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "nokia-6300",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-6500-slide",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
       "issues": []
     },
     {
@@ -483,7 +525,7 @@
     {
       "slug": "nokia-n93",
       "primary": "local",
-      "frames": 1,
+      "frames": 2,
       "remoteFrames": 0,
       "issues": []
     },
@@ -586,6 +628,13 @@
       "issues": []
     },
     {
+      "slug": "samsung-sgh-d900",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
+      "issues": []
+    },
+    {
       "slug": "samsung-sgh-e250",
       "primary": "remote",
       "frames": 3,
@@ -604,6 +653,13 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "samsung-sgh-u900",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
       "issues": []
     },
     {
@@ -729,6 +785,13 @@
       "issues": []
     },
     {
+      "slug": "sony-ericsson-k550i",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
+      "issues": []
+    },
+    {
       "slug": "sony-ericsson-k700i",
       "primary": "remote",
       "frames": 3,
@@ -803,6 +866,13 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-w610i",
+      "primary": "remote",
+      "frames": 2,
+      "remoteFrames": 2,
       "issues": []
     },
     {

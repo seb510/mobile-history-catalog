@@ -50,11 +50,11 @@ export const BRAND_ROUTES: Record<string, readonly string[]> = {
   Google: ['google-pixel', 'google-pixel-6', 'google-pixel-9', 'google-pixel-11-pro'],
   HTC: ['htc-dream', 'htc-u24-pro'],
   Huawei: ['huawei-mate-xt', 'huawei-mate-xt-2'],
-  Motorola: ['motorola-v66', 'motorola-razr-v3', 'motorola-pebl-u6', 'motorola-razr-ultra-2026'],
-  Nokia: ['nokia-3310', 'nokia-7610', 'nokia-n95', 'nokia-9-pureview'],
-  Samsung: ['samsung-sgh-e700', 'samsung-sgh-d500', 'samsung-galaxy-fold', 'samsung-galaxy-z-fold8-ultra'],
+  Motorola: ['motorola-v66', 'motorola-razr-v3', 'motorola-krzr-k1', 'motorola-pebl-u6', 'motorola-razr-ultra-2026'],
+  Nokia: ['nokia-3310', 'nokia-5300-xpressmusic', 'nokia-5310-xpressmusic', 'nokia-6300', 'nokia-6500-slide', 'nokia-7610', 'nokia-n95', 'nokia-9-pureview'],
+  Samsung: ['samsung-sgh-e700', 'samsung-sgh-d500', 'samsung-sgh-d900', 'samsung-sgh-u900', 'samsung-galaxy-fold', 'samsung-galaxy-z-fold8-ultra'],
   Siemens: SIEMENS_TIMELINE,
-  'Sony Ericsson': ['sony-ericsson-t68i', 'sony-ericsson-w800i', 'sony-ericsson-k800i', 'sony-ericsson-xperia-arc-s'],
+  'Sony Ericsson': ['sony-ericsson-t68i', 'sony-ericsson-w610i', 'sony-ericsson-k550i', 'sony-ericsson-w800i', 'sony-ericsson-k800i', 'sony-ericsson-xperia-arc-s'],
 };
 
 export const BRAND_PAGE = {
