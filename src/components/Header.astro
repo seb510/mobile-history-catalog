@@ -15,6 +15,7 @@ interface Props {
 }
 const { locale, path } = Astro.props;
 const strings = t(locale);
+const settingsCopy = { uk: { style:'Стиль', language:'Мова', theme:'Тема' }, ru: { style:'Стиль', language:'Язык', theme:'Тема' }, en: { style:'Style', language:'Language', theme:'Theme' } }[locale];
 
 const LOCALE_LABEL: Record<Locale, string> = { uk: 'UK', ru: 'RU', en: 'EN' };
 const isActive = (target: string) =>
@@ -89,14 +90,16 @@ const links = [
           <Arrow direction="right" class="ml-auto text-neutral-500" />
         </a>)}
       </nav>
-      <div class="pt-4"><DesignToggle locale={locale} mobile /></div>
-      <div class="flex flex-wrap items-center justify-between gap-3 pt-4">
+      <div class="mobile-settings">
+        <div><p class="mobile-settings-label">{settingsCopy.language}</p>
         <div role="group" class="flex gap-1" aria-label={strings.langSwitcher}>
           {LOCALES.map((l) => l === locale
             ? <span aria-current="page" class="flex h-11 min-w-11 items-center justify-center rounded-sm border border-orange-500 text-sm font-bold text-orange-500">{LOCALE_LABEL[l]}</span>
             : <a href={localePath(l, path === '/404/' ? '/' : path)} class="flex h-11 min-w-11 items-center justify-center rounded-sm border border-neutral-800 text-sm text-neutral-300 hover-desktop:border-orange-500">{LOCALE_LABEL[l]}</a>)}
         </div>
-        <ThemeToggle locale={locale} class="h-11 w-11 rounded-sm" />
+        </div>
+        <div><p class="mobile-settings-label">{settingsCopy.style}</p><DesignToggle locale={locale} mobile /></div>
+        <div><p class="mobile-settings-label">{settingsCopy.theme}</p><ThemeToggle locale={locale} class="h-11 w-11 rounded-sm" /></div>
       </div>
     </div>
   </div>

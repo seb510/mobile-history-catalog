@@ -587,3 +587,48 @@ html[data-design="modern"] .primary-cta { box-shadow:0 3px 8px #00000012; }
 @media (hover:hover) and (pointer:fine) {
   html[data-design="modern"] .primary-cta:hover { box-shadow:0 5px 12px #00000020; }
 }
+/* Modern edition: research tools use one restrained surface hierarchy. */
+html[data-design="modern"] :is(.catalog-tools,.catalog-year-index) { border-radius:12px; border:1px solid var(--color-neutral-800); background:var(--color-neutral-950); }
+html[data-design="modern"] .catalog-tools { padding:1rem; box-shadow:0 4px 20px #00000006; }
+html[data-design="modern"] :is(.catalog-search-field,.filter-select-trigger,.filter-select > select,.filter-select-search) { border-radius:8px; background:var(--color-neutral-900); border-color:var(--color-neutral-800); }
+html[data-design="modern"] .filter-label { text-transform:none; letter-spacing:.01em; font-size:.75rem; font-weight:600; }
+html[data-design="modern"] .filter-select-popup { border-radius:12px; border-color:var(--color-neutral-800); box-shadow:0 12px 32px #00000020; }
+html[data-design="modern"] .filter-select-list button { border-radius:6px; }
+html[data-design="modern"] .catalog-active-filters button { border-radius:999px; min-height:2.5rem; background:var(--color-neutral-900); border-color:var(--color-neutral-800); }
+html[data-design="modern"] .catalog-year-index :is(a,.year-index-toggle) { border-radius:7px; border-color:transparent; }
+html[data-design="modern"] .phone-gallery-stage { border-radius:16px; border:1px solid var(--color-neutral-800); background:radial-gradient(ellipse at center,var(--color-neutral-900),var(--color-neutral-950)); }
+html[data-design="modern"] [data-gallery-thumbnails] > button { border-radius:9px; }
+html[data-design="modern"] .phone-section-nav { border-radius:10px; padding:4px; background:var(--color-neutral-900); }
+html[data-design="modern"] .phone-section-nav a { border-color:transparent; box-shadow:none; background:transparent; }
+html[data-design="modern"] .phone-video { border-radius:14px; border-color:var(--color-neutral-800); background:var(--color-neutral-900); }
+html[data-design="modern"] .video-surface { border-radius:10px; overflow:hidden; }
+html[data-design="modern"] .section-label { border-left:0; padding-left:0; letter-spacing:-.025em; }
+html[data-design="modern"] .phone-spec-table { border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; border-color:var(--color-neutral-800); }
+html[data-design="modern"] .phone-spec-table :is(th,td) { border-color:var(--color-neutral-800); }
+html[data-design="modern"] .phone-spec-table th { text-transform:none; letter-spacing:0; font-weight:600; }
+html[data-design="modern"] :is(.compare-selected,.compare-summary,.compare-actions,.compare-table) { border-radius:12px; border-color:var(--color-neutral-800); }
+html[data-design="modern"] .compare-selected { border-top-width:1px; background:var(--color-neutral-900); }
+html[data-design="modern"] .compare-slot-image { border-radius:9px; border-color:transparent; }
+html[data-design="modern"] .compare-summary { background:var(--color-neutral-900); padding-inline:1rem; border:1px solid var(--color-neutral-800); }
+html[data-design="modern"] .compare-actions { background:var(--color-neutral-900); border:0; padding:.5rem; }
+html[data-design="modern"] .compare-actions .control-button { background:var(--color-neutral-950); border-color:transparent; }
+html[data-design="modern"] .compare-actions [aria-pressed="true"] { border-color:var(--color-orange-500); color:var(--color-orange-500); }
+html[data-design="modern"] .compare-table-head { border-bottom-width:1px; border-color:var(--color-neutral-700); border-radius:11px 11px 0 0; }
+html[data-design="modern"] .compare-spec-row { border-color:var(--color-neutral-800); }
+html[data-design="modern"] .compare-quick button { border-radius:8px; background:var(--color-neutral-900); border-color:var(--color-neutral-800); }
+.mobile-settings { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:.75rem .375rem; padding-top:1rem; }
+.mobile-settings-label { margin-bottom:.375rem; font-size:.6875rem; color:var(--color-neutral-500); font-weight:600; }
+html[data-design="modern"] .mobile-settings { margin-top:.75rem; border-top:1px solid var(--color-neutral-800); }
+@media (hover:hover) and (pointer:fine) {
+ html[data-design="modern"] :is(.phone-section-nav a:hover,.compare-quick button:hover) { background:var(--color-neutral-800); }
+}
+html[data-design="modern"] .catalog-position { background:var(--color-neutral-950); border-color:var(--color-neutral-800); box-shadow:0 3px 16px #0000000b; }
+html[data-design="modern"] :is(.filter-select-trigger,.catalog-search-field):focus-within { border-color:var(--color-orange-500); }
+html[data-design="modern"] .phone-spec-table tr:last-child > :first-child { border-bottom-left-radius:12px; }
+html[data-design="modern"] .phone-spec-table tr:last-child > :last-child { border-bottom-right-radius:12px; }
+@media (prefers-reduced-motion:reduce) {
+ .language-dropdown summary .ui-arrow, .year-index-chevron { transition:none; }
+}
+.mobile-settings .design-switch-mobile { margin-left:0; }
+.mobile-settings > div:first-child > [role="group"] { gap:0; }
+.mobile-settings { column-gap:.25rem; }

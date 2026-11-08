@@ -18,6 +18,9 @@ const copy = {
 <script>
   import { privacyChoice } from '../lib/privacy';
   const root = document.documentElement;
+  let editionAnimation: Animation | undefined;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) editionAnimation?.cancel(); });
   function syncDesign() {
     const design = root.dataset.design === 'modern' ? 'modern' : 'magazine';
     document.querySelectorAll<HTMLButtonElement>('[data-design-choice]').forEach(button => {
@@ -31,8 +34,9 @@ const copy = {
       root.dataset.design = design;
       syncDesign();
       try { if (privacyChoice() === true) localStorage.setItem('mobile-history:design', design); } catch {}
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelector('main')?.animate([{ opacity: .75 }, { opacity: 1 }], { duration: parseFloat(getComputedStyle(root).getPropertyValue('--motion-ui')) || 180, easing: 'ease-out' });
+      editionAnimation?.cancel();
+      if (!reducedMotion.matches) {
+        editionAnimation = document.querySelector('main')?.animate([{ opacity: .75 }, { opacity: 1 }], { duration: parseFloat(getComputedStyle(root).getPropertyValue('--motion-ui')) || 180, easing: 'ease-out' });
       }
     });
   });
