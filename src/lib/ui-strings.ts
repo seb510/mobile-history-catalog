@@ -817,7 +817,7 @@ export const COMPARE_EXPERIENCE = {
 } as const;
 
 export const PHONE_READING = {
- uk:{photos:'Фото',media:'Роздивись і послухай',specNote:'Лише підтверджені дані. Спільні характеристики споріднених версій наведено один раз.', photoHint:'Обери ракурс або відкрий фото на весь екран.'},
- ru:{photos:'Фото',media:'Рассмотри и послушай',specNote:'Только подтверждённые данные. Общие характеристики родственных версий приведены один раз.', photoHint:'Выбери ракурс или открой фото на весь экран.'},
- en:{photos:'Photos',media:'Look closer and listen',specNote:'Confirmed data only. Shared specifications for related versions appear once.',photoHint:'Choose a view or open the photo fullscreen.'},
+ uk:{photos:'Фото',media:'Роздивись ближче',specNote:'Лише підтверджені дані. Спільні характеристики споріднених версій наведено один раз.', photoHint:'Обери ракурс або відкрий фото на весь екран.'},
+ ru:{photos:'Фото',media:'Рассмотри поближе',specNote:'Только подтверждённые данные. Общие характеристики родственных версий приведены один раз.', photoHint:'Выбери ракурс или открой фото на весь экран.'},
+ en:{photos:'Photos',media:'Look closer',specNote:'Confirmed data only. Shared specifications for related versions appear once.',photoHint:'Choose a view or open the photo fullscreen.'},
 } as const;
