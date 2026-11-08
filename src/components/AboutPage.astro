@@ -1,5 +1,6 @@
 ---
 import Arrow from './Arrow.astro';
+import { UPDATES_COPY } from '../lib/updates';
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import LogoMark from './LogoMark.astro';
@@ -25,6 +26,7 @@ const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
     <div class="mt-6 flex flex-wrap gap-3">
       <a class="primary-cta inline-flex min-h-11 items-center rounded-sm bg-orange-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition-colors motion-ui" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} <Arrow /></a>
       <a class="control-button text-sm" href={localePath(locale, '/compare/')}>{strings.nav.compare}</a>
+      <a class="control-button text-sm" href={localePath(locale, '/updates/')}>{UPDATES_COPY[locale].aboutLink}</a>
     </div>
   </div>
   <aside class="about-identity rounded-sm border border-neutral-700 border-t-2 border-t-orange-500 bg-neutral-900 p-5 sm:p-6">

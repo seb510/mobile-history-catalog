@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "nokia-5510",
+    "image": "/images/phones/nokia-5510/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:NOKIA_5510_blue_topview.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ea/NOKIA_5510_blue_topview.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "Manorainjan Holzapfel",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "slug": "nokia-3650",
+    "image": "/images/phones/nokia-3650/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia3650cutout.png",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/05/Nokia3650cutout.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "nlitement",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "slug": "nokia-7600",
+    "image": "/images/phones/nokia-7600/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_7600.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/Nokia_7600.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "Shritwod at English Wikipedia",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "slug": "nokia-n93",
+    "image": "/images/phones/nokia-n93/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_n93-1.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/62/Nokia_n93-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "affemitwaffe",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "slug": "nokia-e90",
+    "image": "/images/phones/nokia-e90/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia-e90-fixed.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia-e90-fixed.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "Nokia-e90.jpg : The original uploader was Shritwod at English Wikipedia . derivative work: Fleet Command ( talk )",
+    "license": "Public domain"
+  },
+  {
+    "slug": "sony-ericsson-p800",
+    "image": "/images/phones/sony-ericsson-p800/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_P800_with_web_browser.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Sony_Ericsson_P800_with_web_browser.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "Zache",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "slug": "sony-ericsson-p910i",
+    "image": "/images/phones/sony-ericsson-p910i/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_P910i.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Sony_Ericsson_P910i.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "MrDrBob",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "slug": "sony-ericsson-w900i",
+    "image": "/images/phones/sony-ericsson-w900i/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W900i_(Black)_-_Front_(Closed).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/16/Sony_Ericsson_W900i_%28Black%29_-_Front_%28Closed%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "Beamish4",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "slug": "sony-ericsson-w880i",
+    "image": "/images/phones/sony-ericsson-w880i/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W880i_v2.png",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Sony_Ericsson_W880i_v2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "artist": "FxJ",
+    "license": "Public domain"
+  },
+  {
+    "slug": "sony-ericsson-c905",
+    "image": "/images/phones/sony-ericsson-c905/museum-main.webp",
+    "source": "https://www.mobilephonemuseum.com/phone-detail/c905i",
+    "original": "https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/6b73eb12-073e-4dcf-83f8-d86f5ea6fc57_large.png",
+    "artist": "Mobile Phone Museum",
+    "license": "Used with permission; attribution and source link required",
+    "note": "Commons C905 download returned 429; further Commons requests stopped."
+  }
+]

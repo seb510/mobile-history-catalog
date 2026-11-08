@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 105,
-    "localPrimary": 46,
-    "remotePrimary": 56,
+    "models": 115,
+    "localPrimary": 64,
+    "remotePrimary": 48,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
@@ -174,9 +174,9 @@
     },
     {
       "slug": "motorola-droid",
-      "primary": "remote",
+      "primary": "local",
       "frames": 1,
-      "remoteFrames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -237,16 +237,16 @@
     },
     {
       "slug": "motorola-v66",
-      "primary": "remote",
+      "primary": "local",
       "frames": 3,
-      "remoteFrames": 3,
+      "remoteFrames": 2,
       "issues": []
     },
     {
       "slug": "nokia-1100",
-      "primary": "remote",
+      "primary": "local",
       "frames": 3,
-      "remoteFrames": 3,
+      "remoteFrames": 2,
       "issues": []
     },
     {
@@ -278,9 +278,23 @@
       "issues": []
     },
     {
+      "slug": "nokia-3650",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-5130",
       "primary": "local",
       "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-5510",
+      "primary": "local",
+      "frames": 1,
       "remoteFrames": 0,
       "issues": []
     },
@@ -293,9 +307,9 @@
     },
     {
       "slug": "nokia-5800-xpressmusic",
-      "primary": "remote",
+      "primary": "local",
       "frames": 3,
-      "remoteFrames": 3,
+      "remoteFrames": 2,
       "issues": []
     },
     {
@@ -348,6 +362,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-7600",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-7610",
       "primary": "local",
       "frames": 3,
@@ -356,9 +377,9 @@
     },
     {
       "slug": "nokia-8800",
-      "primary": "remote",
+      "primary": "local",
       "frames": 1,
-      "remoteFrames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -370,9 +391,16 @@
     },
     {
       "slug": "nokia-e71",
-      "primary": "remote",
+      "primary": "local",
       "frames": 3,
-      "remoteFrames": 3,
+      "remoteFrames": 2,
+      "issues": []
+    },
+    {
+      "slug": "nokia-e90",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -419,9 +447,9 @@
     },
     {
       "slug": "nokia-n8",
-      "primary": "remote",
+      "primary": "local",
       "frames": 3,
-      "remoteFrames": 3,
+      "remoteFrames": 2,
       "issues": []
     },
     {
@@ -449,6 +477,13 @@
       "slug": "nokia-n90",
       "primary": "local",
       "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-n93",
+      "primary": "local",
+      "frames": 1,
       "remoteFrames": 0,
       "issues": []
     },
@@ -545,9 +580,9 @@
     },
     {
       "slug": "samsung-sgh-d500",
-      "primary": "remote",
+      "primary": "local",
       "frames": 2,
-      "remoteFrames": 2,
+      "remoteFrames": 1,
       "issues": []
     },
     {
@@ -687,6 +722,13 @@
       "issues": []
     },
     {
+      "slug": "sony-ericsson-c905",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "sony-ericsson-k700i",
       "primary": "remote",
       "frames": 3,
@@ -712,6 +754,20 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-p800",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-p910i",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -760,6 +816,20 @@
       "slug": "sony-ericsson-w810i",
       "primary": "local",
       "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-w880i",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-w900i",
+      "primary": "local",
+      "frames": 1,
       "remoteFrames": 0,
       "issues": []
     },

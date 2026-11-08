@@ -1,3 +1,4 @@
+import { savePeriod } from '../lib/ownership-periods';
 const STORAGE_KEY = 'mobile-history:owned-phones';
 const LEGACY_KEY = 'mobile-history:favorites';
 export const FAVORITES_CHANGED_EVENT = 'favorites-changed';
@@ -38,6 +39,7 @@ export function toggleFavorite(slug: string): Set<string> {
   else favorites.add(slug);
   const saved = writeFavorites(favorites);
   if (saved && favorites.has(slug)) dismissLegacyFavorite(slug);
+  if (saved && !favorites.has(slug)) savePeriod(slug);
   document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT, { detail: { slugs: [...favorites] } }));
   return favorites;
 }

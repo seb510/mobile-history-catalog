@@ -20,7 +20,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Налаштування у браузері",
-        "За згодою сайт запам’ятовує тему та стиль оформлення. «Мої телефони» зберігає лише слаги позначених моделей після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
+        "За згодою сайт запам’ятовує тему та стиль оформлення. «Мої телефони» зберігає позначені моделі та збережені тобою роки користування після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
       ],
       [
         "Зовнішні сервіси, фото й посилання",
@@ -66,6 +66,12 @@ export const PRIVACY_COPY = {
         "Слаги телефонів, якими ти користувався",
         "До видалення моделей чи очищення даних",
         "Лише після натискання «Я мав цей телефон»"
+      ],
+      [
+        "mobile-history:ownership-periods",
+        "Приблизні роки початку/завершення користування та позначка «досі» для вибраних телефонів",
+        "До видалення періоду, моделі чи очищення даних браузера",
+        "Лише після збереження періоду користувачем; не надсилається власнику"
       ]
     ],
     "headers": [
@@ -96,7 +102,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Данные браузера",
-        "Тема запоминается с согласия. «Мои телефоны» хранит только слаги отмеченных моделей после прямого действия; эти данные не отправляются владельцу сайта. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
+        "Тема запоминается с согласия. «Мои телефоны» хранит отмеченные модели и сохранённые тобой годы использования после прямого действия; эти данные не отправляются владельцу сайта. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
       ],
       [
         "Внешние сервисы, изображения и ссылки",
@@ -142,6 +148,12 @@ export const PRIVACY_COPY = {
         "Слаги телефонов, которыми ты пользовался",
         "До удаления моделей или очистки данных",
         "Только после нажатия «У меня был этот телефон»"
+      ],
+      [
+        "mobile-history:ownership-periods",
+        "Примерные годы начала/окончания использования и отметка «до сих пор» для выбранных телефонов",
+        "До удаления периода, модели или очистки данных браузера",
+        "Только после сохранения периода пользователем; не отправляется владельцу"
       ]
     ],
     "headers": [
@@ -172,7 +184,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Browser preferences",
-        "Theme and design-style storage require consent. My phones stores only model slugs following your direct action; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
+        "Theme and design-style storage require consent. My phones stores selected model slugs and any usage years you explicitly save; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
       ],
       [
         "External services, images and links",
@@ -218,6 +230,12 @@ export const PRIVACY_COPY = {
         "Slugs of phones you used to own",
         "Until models are removed or browser data is cleared",
         "Only after choosing “I had this phone”"
+      ],
+      [
+        "mobile-history:ownership-periods",
+        "Approximate start/end years and still-using status for selected phones",
+        "Until the period, phone or browser data is removed",
+        "Only after the user saves a period; not sent to the site owner"
       ]
     ],
     "headers": [
