@@ -25,7 +25,7 @@ const showcaseAction = {uk:'Роздивитися модель',ru:'Рассм�
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 ---
 
-<div class="relative flex min-w-0 flex-1 self-stretch">
+<div class="phone-card-shell relative flex min-w-0 flex-1 self-stretch">
 <a
   href={localePath(locale, `/phones/${slug}/`)}
   data-phone-card
@@ -62,6 +62,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
   <div class="card-copy flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
     <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
     <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
+    {compact && data.formFactor && <p class="catalog-list-meta hidden text-xs text-neutral-500">{strings.formFactors[data.formFactor]}</p>}
     {data.milestone && (
       <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
     )}

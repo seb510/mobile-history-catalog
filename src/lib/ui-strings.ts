@@ -803,3 +803,9 @@ export const OWNED_PHONE_COPY = {
  ru:{legacyTitle:'Ранее сохранённые модели',legacyIntro:'Это прежнее «Избранное». Отметь «У меня был этот телефон» только для моделей, которыми ты пользовался. Остальные можно убрать из этого списка.',dismiss:'Убрать из старого списка',year:'Год выхода'},
  en:{legacyTitle:'Previously saved models',legacyIntro:'These are your former Favorites. Choose “I had this phone” only for models you actually used. You can dismiss the others from this list.',dismiss:'Dismiss from the old list',year:'Release year'},
 };
+
+export const CATALOG_VIEW_COPY = {
+  uk: { label: 'Вигляд каталогу', cards: 'Картки', list: 'Список' },
+  ru: { label: 'Вид каталога', cards: 'Карточки', list: 'Список' },
+  en: { label: 'Catalog view', cards: 'Cards', list: 'List' },
+} as const;
