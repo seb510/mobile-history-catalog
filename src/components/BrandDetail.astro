@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import BrandMark from './BrandMark.astro';
 import PhoneCard from './PhoneCard.astro';
 import { render, type CollectionEntry } from 'astro:content';
@@ -96,7 +97,7 @@ const phoneCountText = (count: number) => {
       </div>}
       {first && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(first)}/`)}><span class="block text-xs font-normal text-neutral-500">{editorial.first}</span><span class="mt-1 block">{first.data.model} <span class="font-normal text-neutral-400">· {first.data.year}</span></span></a>}
       {last && first && slugOf(last) !== slugOf(first) && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(last)}/`)}><span class="block text-xs font-normal text-neutral-500">{editorial.last}</span><span class="mt-1 block">{last.data.model} <span class="font-normal text-neutral-400">· {last.data.year}</span></span></a>}
-      <a class="mt-4 flex min-h-11 items-center justify-between gap-3 border-t border-neutral-700 pt-3 text-sm font-semibold text-orange-500" href="#brand-collection">{editorial.all}<span aria-hidden="true">↓</span></a>
+      <a class="mt-4 flex min-h-11 items-center justify-between gap-3 border-t border-neutral-700 pt-3 text-sm font-semibold text-orange-500" href="#brand-collection">{editorial.all}<Arrow direction="down" /></a>
     </aside>}
   </div>
 

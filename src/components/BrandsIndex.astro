@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import BrandMark from './BrandMark.astro';
 import { getBrandsForLocale, slugOfBrand } from '../lib/brands';
 import { getPhonesForLocale } from '../lib/phones';
@@ -66,7 +67,7 @@ const yearRange = (name: string) => {
             </div>
             <p class="text-neutral-400"><span class="font-semibold text-neutral-200">{countByName.get(brand.data.name) ?? 0}</span> {phoneCountText(countByName.get(brand.data.name) ?? 0)}</p>
           </div>
-          <p class="mt-4 flex items-center justify-between border-t border-neutral-800 pt-3 text-sm font-semibold text-orange-500"><span>{copy.open}</span><span aria-hidden="true">→</span></p>
+          <p class="mt-4 flex items-center justify-between border-t border-neutral-800 pt-3 text-sm font-semibold text-orange-500"><span>{copy.open}</span><Arrow direction="right" /></p>
         </div>
       </a>
     </li>

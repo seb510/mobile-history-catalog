@@ -1,0 +1,15 @@
+---
+interface Props {
+  direction?: 'right' | 'left' | 'up' | 'down' | 'up-right';
+  kind?: 'arrow' | 'chevron';
+  size?: number;
+  class?: string;
+}
+const { direction = 'right', kind = 'arrow', size = 18, class: className } = Astro.props;
+const angles = { right: 0, down: 90, left: 180, up: -90, 'up-right': -45 };
+---
+<svg class:list={['ui-arrow', className]} aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <g transform={`rotate(${angles[direction]} 12 12)`}>
+    {kind === 'chevron' ? <path d="m9 6 6 6-6 6" /> : <path d="M4 12h15m-6-6 6 6-6 6" />}
+  </g>
+</svg>

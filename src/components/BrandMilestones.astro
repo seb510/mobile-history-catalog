@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
 import { slugOf } from '../lib/phones';
@@ -24,7 +25,7 @@ const pair = pairSlugs.flatMap(slug => { const phone = phones.find(p => slugOf(p
     {timeline.map((phone, index) => <li class="min-w-0">
       <a class="brand-milestone editorial-card flex h-full flex-col border-t-2 border-neutral-700 py-4 motion-ui" href={localePath(locale, `/phones/${slugOf(phone)}/`)}>
         <p class="text-3xl font-extrabold tabular-nums text-neutral-500">{phone.data.year}</p>
-        <h3 class="card-title mt-3 flex min-h-11 items-center justify-between gap-3 text-lg font-bold">{phone.data.model}<span class="text-sm text-orange-500" aria-hidden="true">→</span></h3>
+        <h3 class="card-title mt-3 flex min-h-11 items-center justify-between gap-3 text-lg font-bold">{phone.data.model}<Arrow direction="right" class="text-sm text-orange-500" /></h3>
         <p class="mt-1 text-sm leading-relaxed text-neutral-400">{siemens?.events[index] ?? phone.data.milestone}</p>
       </a>
     </li>)}
@@ -35,7 +36,7 @@ const pair = pairSlugs.flatMap(slug => { const phone = phones.find(p => slugOf(p
       <h3 class="text-xl font-bold">{siemens?.compare ?? copy.compare}</h3>
       <p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">{siemens?.compareText ?? copy.compareIntro}</p>
     </div>
-    <a class="inline-flex min-h-11 items-center justify-between gap-5 border border-neutral-600 px-4 py-3 text-sm font-semibold motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(pair[0])}&b=${slugOf(pair[1])}`)}>{siemens?.compareAction ?? copy.compareAction}<span aria-hidden="true">→</span></a>
+    <a class="inline-flex min-h-11 items-center justify-between gap-5 border border-neutral-600 px-4 py-3 text-sm font-semibold motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(pair[0])}&b=${slugOf(pair[1])}`)}>{siemens?.compareAction ?? copy.compareAction}<Arrow direction="right" /></a>
   </aside>}
 </section>}
 <style>

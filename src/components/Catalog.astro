@@ -1,8 +1,9 @@
 ---
+import Arrow from './Arrow.astro';
 import PhoneCard from './PhoneCard.astro';
 import FilterSelect from './FilterSelect.astro';
 import { getPhonesForLocale } from '../lib/phones';
-import { t, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, CATALOG_POSITION, CATALOG_VIEW_COPY } from '../lib/ui-strings';
+import { t, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, CATALOG_POSITION } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 import { FORM_FACTORS } from '../lib/form-factors';
 import { localePath, type Locale } from '../lib/locales';
@@ -18,7 +19,6 @@ const controls = {
   ru: { video: 'Только с видео', active: 'Активные фильтры', remove: 'Убрать фильтр', empty: 'Попробуй убрать одно из условий или вернуться ко всему каталогу.' },
   en: { video: 'With video only', active: 'Active filters', remove: 'Remove filter', empty: 'Remove a condition or return to the full catalog.' },
 }[locale];
-const viewCopy = CATALOG_VIEW_COPY[locale];
 const stories = RETRO_STORIES.map((story, index) => ({ ...story, ...HOME_EDITORIAL[locale].themes[index] }));
 
 const phones = await getPhonesForLocale(locale);
@@ -35,7 +35,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 <section id="catalog-filters" class="catalog-tools mb-5 scroll-mt-20" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
   <button type="button" class="catalog-filter-toggle" data-filter-toggle aria-expanded="true" aria-controls="catalog-filter-fields catalog-filter-stories" hidden>
     <span>{editorial.filters} <span data-active-count class="ml-1 text-orange-500"></span></span>
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6" /></svg>
+    <Arrow kind="chevron" direction="down" size={18} />
   </button>
   <div id="catalog-filter-fields" class="catalog-filter-grid">
     <div class="catalog-search">
@@ -80,33 +80,18 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       <strong data-current-year class="text-xl font-extrabold tabular-nums text-orange-500"></strong>
       <span data-current-year-count class="truncate text-xs text-neutral-400"></span>
     </div>
-    <a href="#catalog-filters" class="inline-flex min-h-11 shrink-0 items-center gap-2 text-xs font-semibold text-neutral-300 hover-desktop:text-orange-500">{CATALOG_POSITION[locale].filters}<span aria-hidden="true">↑</span></a>
+    <a href="#catalog-filters" class="inline-flex min-h-11 shrink-0 items-center gap-2 text-xs font-semibold text-neutral-300 hover-desktop:text-orange-500">{CATALOG_POSITION[locale].filters}<Arrow direction="up" /></a>
   </div>
 </nav>
 
-<script is:inline>
-  try { document.documentElement.dataset.catalogView = localStorage.getItem('mobile-history:catalog-view') === 'list' ? 'list' : 'cards'; }
-  catch { document.documentElement.dataset.catalogView = 'cards'; }
-</script>
-<div class="catalog-view-toolbar" data-view-controls hidden>
-  <span class="text-xs text-neutral-500">{viewCopy.label}</span>
-  <div role="group" aria-label={viewCopy.label} class="catalog-view-switch">
-    <button type="button" data-catalog-view="cards" aria-pressed="true" aria-controls="catalog-timeline">
-      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h6v6H2zM12 2h6v6h-6zM2 12h6v6H2zM12 12h6v6h-6z"/></svg>{viewCopy.cards}
-    </button>
-    <button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-timeline">
-      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3M8 4h10M2 10h3M8 10h10M2 16h3M8 16h10"/></svg>{viewCopy.list}
-    </button>
-  </div>
-</div>
 <details class="catalog-year-index" data-year-index>
-  <summary><span>{CATALOG_POSITION[locale].years}</span><span data-year-range class="ml-auto text-xs tabular-nums text-neutral-500">{years[0]}–{years.at(-1)}</span><span class="year-index-chevron" aria-hidden="true">⌄</span></summary>
+  <summary><span>{CATALOG_POSITION[locale].years}</span><span data-year-range class="ml-auto text-xs tabular-nums text-neutral-500">{years[0]}–{years.at(-1)}</span><span class="year-index-toggle" aria-hidden="true"><Arrow kind="chevron" direction="down" class="year-index-chevron" size={18} /></span></summary>
   <nav aria-label={CATALOG_POSITION[locale].jump}>
     {years.map(year => <a href={`#year-${year}`} data-year-jump={year}>{year}</a>)}
   </nav>
 </details>
 
-<ol id="catalog-timeline" class="catalog-timeline relative space-y-6 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
+<ol class="catalog-timeline relative space-y-6 border-l border-neutral-800 pl-4 sm:pl-6" data-catalog-list>
   {years.map((year) => (
     <li id={`year-${year}`} data-year-group={year} class="relative scroll-mt-32">
       {eraForYear(year) >= 0 && (
@@ -136,9 +121,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 
 <script>
   import { initCatalogPosition } from '../scripts/catalog-position';
-  import { initCatalogView } from '../scripts/catalog-view';
   const position = initCatalogPosition();
-  initCatalogView(() => position?.refresh());
   const bar = document.querySelector<HTMLElement>('[data-filter-bar]');
   const list = document.querySelector<HTMLElement>('[data-catalog-list]');
   const empty = document.querySelector<HTMLElement>('[data-filter-empty]');

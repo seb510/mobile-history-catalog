@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import PhoneCard from './PhoneCard.astro';
@@ -39,7 +40,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     <svg aria-hidden="true" viewBox="0 0 24 24" class="mx-auto mb-4 h-8 w-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2.5h8a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2Z M10 5h4 M10 12l2 2 4-4 M11 18h2" /></svg>
     <h2 class="text-xl font-bold text-neutral-100">{strings.favorites.emptyTitle}</h2>
     <p class="mt-2 text-sm leading-relaxed">{strings.favorites.emptyBody}</p>
-    <a class="primary-cta mt-5 inline-flex min-h-11 items-center rounded-sm bg-orange-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition-colors motion-ui" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} →</a>
+    <a class="primary-cta mt-5 inline-flex min-h-11 items-center rounded-sm bg-orange-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition-colors motion-ui" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} <Arrow /></a>
   </div>
 
   <div data-favorites-toolbar hidden class="favorites-toolbar mb-5 flex flex-wrap items-center justify-between gap-4 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-4">
@@ -61,7 +62,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
         href={comparePath}
         class="inline-flex min-h-11 items-center text-sm font-semibold text-orange-500 underline underline-offset-4 transition-colors motion-ui hover-desktop:text-orange-400"
       >
-        {strings.favorites.comparePair} →
+        {strings.favorites.comparePair} <Arrow />
       </a>
     </div>
     <div class="w-full sm:w-56">

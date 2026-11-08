@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import { localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
 
@@ -68,7 +69,7 @@ const search = t(locale).search;
       <div class="global-search-suggestions" data-suggestions-region hidden>
         <p class="editorial-kicker mb-2 text-neutral-500">{search.quickResults}</p>
         <ul class="global-search-suggestion-list" data-search-suggestions></ul>
-        <a data-search-all class="global-search-all" href={localePath(locale, '/search/')}>{search.allResults} <span aria-hidden="true">→</span></a>
+        <a data-search-all class="global-search-all" href={localePath(locale, '/search/')}>{search.allResults} <Arrow direction="right" /></a>
       </div>
     </div>
   </div>

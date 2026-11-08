@@ -1,13 +1,14 @@
 ---
+import Arrow from './Arrow.astro';
 import type { Locale } from '../lib/locales';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { PHONE_VIDEOS } from '../lib/phone-videos';
 const { locale, slug, poster } = Astro.props as { locale: Locale; slug: string; poster?: { image?: string; imageCredit?: string; imageSourceUrl?: string } };
 const video = PHONE_VIDEOS[slug];
 const c = {
- uk: { title:'Телефон у дії', subtitle:'Огляд своєї епохи',  consent:'Натискаючи «Дивитися відео», ти дозволяєш YouTube (Google) отримати IP-адресу й дані браузера та використовувати власне сховище для цього перегляду.', load:'Дивитися відео', remove:'Вимкнути плеєр', source:'PhoneArena · Дивитися на YouTube ↗', fallback:'Якщо вбудований перегляд недоступний, відкрий відео на YouTube.',   },
- ru: { title:'Телефон в действии', subtitle:'Обзор своей эпохи',  consent:'Нажимая «Смотреть видео», ты разрешаешь YouTube (Google) получить IP-адрес и данные браузера и использовать собственное хранилище для этого просмотра.', load:'Смотреть видео', remove:'Отключить плеер', source:'PhoneArena · Смотреть на YouTube ↗', fallback:'Если встроенный просмотр недоступен, открой видео на YouTube.',   },
- en: { title:'The phone in action', subtitle:'A review from its era',  consent:'By pressing “Watch video”, you allow YouTube (Google) to receive your IP address and browser information and use its own storage for this viewing.', load:'Watch video', remove:'Disable player', source:'PhoneArena · Watch on YouTube ↗', fallback:'If embedded playback is unavailable, open the video on YouTube.',   },
+ uk: { title:'Телефон у дії', subtitle:'Огляд своєї епохи',  consent:'Натискаючи «Дивитися відео», ти дозволяєш YouTube (Google) отримати IP-адресу й дані браузера та використовувати власне сховище для цього перегляду.', load:'Дивитися відео', remove:'Вимкнути плеєр', source:'PhoneArena · Дивитися на YouTube', fallback:'Якщо вбудований перегляд недоступний, відкрий відео на YouTube.',   },
+ ru: { title:'Телефон в действии', subtitle:'Обзор своей эпохи',  consent:'Нажимая «Смотреть видео», ты разрешаешь YouTube (Google) получить IP-адрес и данные браузера и использовать собственное хранилище для этого просмотра.', load:'Смотреть видео', remove:'Отключить плеер', source:'PhoneArena · Смотреть на YouTube', fallback:'Если встроенный просмотр недоступен, открой видео на YouTube.',   },
+ en: { title:'The phone in action', subtitle:'A review from its era',  consent:'By pressing “Watch video”, you allow YouTube (Google) to receive your IP address and browser information and use its own storage for this viewing.', load:'Watch video', remove:'Disable player', source:'PhoneArena · Watch on YouTube', fallback:'If embedded playback is unavailable, open the video on YouTube.',   },
 }[locale];
 ---
 <section id="phone-video" aria-labelledby="phone-video-title" class="phone-video mb-8 scroll-mt-24 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900 p-4 sm:p-5" data-phone-video data-video-id={video.id}>
@@ -23,7 +24,7 @@ const c = {
  </div>
  <div class="video-actions">
  <button type="button" class="control-button min-h-11 justify-center text-sm" data-video-remove hidden>{c.remove}</button>
- <a title={c.fallback} class="inline-flex min-h-11 items-center text-xs text-orange-500 underline underline-offset-4" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">{c.source.replace('PhoneArena', video.author)}</a>
+ <a title={c.fallback} class="inline-flex min-h-11 items-center text-xs text-orange-500 underline underline-offset-4" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">{c.source.replace('PhoneArena', video.author)} <Arrow direction="up-right" size={14} /></a>
  </div>
 </section>
 <script>

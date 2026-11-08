@@ -37,7 +37,6 @@ export const PRIVACY_COPY = {
     ],
     "cookieIntro": "Сам сайт не встановлює HTTP-cookies. Після окремого дозволу зовнішній плеєр YouTube може використовувати власні cookies або сховище за правилами Google. Він використовує localStorage — сховище лише цього браузера. Правила доступу до пристрою стосуються і такого зберігання.",
     "rows": [
-      ["mobile-history:catalog-view","Вибраний вигляд каталогу: картки або список","До зміни вигляду або очищення даних браузера","Після твого перемикання вигляду каталогу"],
       [
         "mobile-history:privacy",
         "Твій вибір щодо теми, версія правил і час рішення",
@@ -108,7 +107,6 @@ export const PRIVACY_COPY = {
     ],
     "cookieIntro": "Сам сайт не устанавливает HTTP-cookies. После отдельного разрешения внешний плеер YouTube может использовать собственные cookies или хранилище по правилам Google. Он использует localStorage — хранилище этого браузера. Правила доступа к устройству относятся и к этому хранению.",
     "rows": [
-      ["mobile-history:catalog-view","Выбранный вид каталога: карточки или список","До смены вида или очистки данных браузера","После переключения вида каталога"],
       [
         "mobile-history:privacy",
         "Выбор сохранения темы, версия правил и время решения",
@@ -179,7 +177,6 @@ export const PRIVACY_COPY = {
     ],
     "cookieIntro": "The site itself sets no HTTP cookies. After separate permission, the external YouTube player may use its own cookies or storage under Google’s policies. It uses localStorage in this browser. Device-storage rules also apply to this technology.",
     "rows": [
-      ["mobile-history:catalog-view","Selected catalog view: cards or list","Until changed or browser data is cleared","After you switch the catalog view"],
       [
         "mobile-history:privacy",
         "Theme-storage choice, policy version and decision time",

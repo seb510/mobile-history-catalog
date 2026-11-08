@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import { localePath, type Locale } from '../lib/locales';
 import { t, CHROME_COPY } from '../lib/ui-strings';
 import LogoMark from './LogoMark.astro';
@@ -53,7 +54,7 @@ const links = [
         <p class="text-sm leading-relaxed text-neutral-400">{copy.note}</p>
         <a class="mt-2 inline-flex min-h-11 items-center text-sm text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/about/')}>{copy.approach}</a>
         <p class="text-xs leading-relaxed text-neutral-500">{strings.footer.inspiredBy}</p>
-        <a class="mt-2 inline-flex min-h-11 items-center gap-2 text-sm text-neutral-300 hover-desktop:text-orange-500" href="https://github.com/seb510/mobile-history-catalog" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="mt-2 inline-flex min-h-11 items-center gap-2 text-sm text-neutral-300 hover-desktop:text-orange-500" href="https://github.com/seb510/mobile-history-catalog" target="_blank" rel="noopener noreferrer">GitHub <Arrow direction="up-right" /></a>
       </div>
     </div>
 

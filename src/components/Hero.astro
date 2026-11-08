@@ -1,10 +1,12 @@
 ---
+import Arrow from './Arrow.astro';
+import LogoMark from './LogoMark.astro';
 import { PHONE_VIDEOS, HOME_VIDEO_DISCOVERY } from '../lib/phone-videos';
 import PhoneCard from './PhoneCard.astro';
 import GenerationComparison from './GenerationComparison.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
-import { t, HOME_EDITORIAL, HOME_SIEMENS_JOURNEY, HOME_COVER_REFRESH } from '../lib/ui-strings';
+import { t, HOME_EDITORIAL, HOME_SIEMENS_JOURNEY, HOME_COVER_REFRESH, PROJECT_PRESENTATION } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 
@@ -24,6 +26,7 @@ const yearsSpan = new Date().getFullYear() - minYear + 1;
 const coverPhone = phones.find(p => slugOf(p) === 'motorola-razr-v3');
 const copy = HOME_EDITORIAL[locale];
 const coverCopy = HOME_COVER_REFRESH[locale];
+const projectCopy = PROJECT_PRESENTATION[locale];
 const pair = ['nokia-3250', 'sony-ericsson-k750i'].map(slug => phones.find(p => slugOf(p) === slug));
 const themes = copy.themes.map((theme, index) => ({ ...theme, text: coverCopy.themes[index], id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); if (phone && slug === 'nokia-n95') { const view = phone.data.gallery?.find(image => image.image.includes('media-and-camera')); if (view) return [{ ...phone, data: { ...phone.data, image: view.image, imageCaption: view.caption, imageCredit: view.imageCredit, imageSourceUrl: view.imageSourceUrl } }]; } return phone ? [phone] : []; }) }));
 const journeyCopy = HOME_SIEMENS_JOURNEY[locale];
@@ -36,7 +39,7 @@ const stats = [
 ];
 ---
 
-<section class="home-cover border-b border-neutral-800 py-4 sm:py-10">
+<section class="home-cover border-b border-neutral-800 pb-6 pt-0 sm:pb-10 sm:pt-2">
   <div class="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1fr_0.82fr]">
     <div>
     <p class="editorial-kicker animate-fade-up mb-5 inline-flex items-center gap-2 text-orange-500">
@@ -72,7 +75,7 @@ const stats = [
       </div>
     ))}
   </div>
-  {videoCount > 0 && <a href={localePath(locale, '/catalog/') + '?video=1'} class="mt-3 flex min-h-11 max-w-lg flex-wrap items-center gap-x-3 gap-y-1 py-2 text-sm text-neutral-300 hover-desktop:text-orange-500 motion-ui"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg><span class="font-semibold underline decoration-neutral-700 underline-offset-4">{videoCopy.title}</span><span class="text-xs text-neutral-500">{videoCopy.count.replace('{count}',String(videoCount))}</span><span aria-hidden="true" class="ml-auto text-orange-500">→</span></a>}
+  {videoCount > 0 && <a href={localePath(locale, '/catalog/') + '?video=1'} class="mt-3 flex min-h-11 max-w-lg flex-wrap items-center gap-x-3 gap-y-1 py-2 text-sm text-neutral-300 hover-desktop:text-orange-500 motion-ui"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg><span class="font-semibold underline decoration-neutral-700 underline-offset-4">{videoCopy.title}</span><span class="text-xs text-neutral-500">{videoCopy.count.replace('{count}',String(videoCount))}</span><Arrow direction="right" class="ml-auto text-orange-500" /></a>}
   </div>
 
   {coverPhone && <a href={localePath(locale, '/phones/motorola-razr-v3/')} class="home-cover-feature editorial-card group block overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900 focus-visible:-outline-offset-4 motion-ui">
@@ -80,7 +83,7 @@ const stats = [
     <div class="grid grid-cols-[1.2fr_.8fr] items-end gap-2 bg-neutral-800/50 px-4 pt-5 sm:px-6">
       {[{image:coverPhone.data.image,label:coverCopy.open}, {image:coverPhone.data.gallery?.find(image=>image.image.includes('museum-closed'))?.image,label:coverCopy.closed}].map((view,index)=><div class="min-w-0"><div class:list={['relative flex items-center justify-center',index===0?'h-60 sm:h-80':'h-44 sm:h-60']}>{view.image ? <><img data-image-fallback src={view.image} alt={'Motorola RAZR V3 — '+view.label} width="400" height="600" fetchpriority={index===0?'high':'auto'} class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</div><p class="py-3 text-center text-[0.65rem] uppercase tracking-widest text-neutral-500">{view.label}</p></div>)}
     </div>
-    <div class="card-copy border-t border-neutral-800 p-5"><p class="editorial-kicker text-neutral-500">Motorola</p><div class="mt-2 flex items-center justify-between gap-3"><h2 class="card-title text-3xl font-extrabold tracking-tight sm:text-4xl">RAZR V3</h2><span class="text-3xl text-orange-500" aria-hidden="true">↗</span></div><p class="mt-3 text-sm font-semibold text-orange-500">{coverCopy.story}</p><ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-neutral-400">{coverCopy.details.map(detail=><li class="flex items-center gap-2"><span class="h-1 w-1 bg-orange-500" aria-hidden="true"></span>{detail}</li>)}</ul></div>
+    <div class="card-copy border-t border-neutral-800 p-5"><p class="editorial-kicker text-neutral-500">Motorola</p><div class="mt-2 flex items-center justify-between gap-3"><h2 class="card-title text-3xl font-extrabold tracking-tight sm:text-4xl">RAZR V3</h2><Arrow size={28} class="text-orange-500" /></div><p class="mt-3 text-sm font-semibold text-orange-500">{coverCopy.story}</p><ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-neutral-400">{coverCopy.details.map(detail=><li class="flex items-center gap-2"><span class="h-1 w-1 bg-orange-500" aria-hidden="true"></span>{detail}</li>)}</ul></div>
   </a>}
   </div>
 
@@ -89,14 +92,14 @@ const stats = [
 <nav class="py-8 sm:py-10" aria-label={copy.eras}>
   <p class="editorial-kicker mb-4 text-neutral-500">{copy.eras}</p>
   <ul class="grid gap-px border border-neutral-800 bg-neutral-800 sm:grid-cols-3">
-    {themes.map((theme, index) => <li class="bg-neutral-950"><a class="flex min-h-16 items-center gap-3 p-4 text-sm font-semibold transition-colors motion-ui hover-desktop:bg-neutral-900" href={`#${theme.id}`}><span class="editorial-kicker text-orange-500">0{index + 1}</span>{theme.title}<span class="ml-auto text-orange-500" aria-hidden="true">↓</span></a></li>)}
+    {themes.map((theme, index) => <li class="bg-neutral-950"><a class="flex min-h-16 items-center gap-3 p-4 text-sm font-semibold transition-colors motion-ui hover-desktop:bg-neutral-900" href={`#${theme.id}`}><span class="editorial-kicker text-orange-500">0{index + 1}</span>{theme.title}<Arrow direction="down" class="ml-auto text-orange-500" /></a></li>)}
   </ul>
 </nav>
 {pair.every(Boolean) && <GenerationComparison phones={pair.filter((phone) => phone != null)} locale={locale} />}
 
 {themes.map((theme, index) => <section id={theme.id} class="scroll-mt-20 border-b border-neutral-800 py-9 sm:py-12" aria-labelledby={`${theme.id}-title`}>
   <div class="grid gap-6 lg:grid-cols-[.7fr_1.3fr] lg:gap-10">
-    <div><p class="editorial-kicker text-orange-500">0{index + 1}</p><h2 id={`${theme.id}-title`} class="mt-3 text-3xl font-extrabold tracking-tight">{theme.title}</h2><p class="mt-4 max-w-md text-base leading-relaxed text-neutral-400">{theme.text}</p><a class="mt-5 inline-block text-sm font-semibold text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/catalog/') + '?story=' + theme.id}>{strings.hero.cta} →</a></div>
+    <div><p class="editorial-kicker text-orange-500">0{index + 1}</p><h2 id={`${theme.id}-title`} class="mt-3 text-3xl font-extrabold tracking-tight">{theme.title}</h2><p class="mt-4 max-w-md text-base leading-relaxed text-neutral-400">{theme.text}</p><a class="mt-5 inline-block text-sm font-semibold text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/catalog/') + '?story=' + theme.id}>{strings.hero.cta} <Arrow /></a></div>
     <ul class="grid auto-rows-fr grid-cols-2 gap-3 sm:gap-4">{theme.phones.map((phone) => <li class="flex min-w-0"><PhoneCard phone={phone} locale={locale} /></li>)}</ul>
   </div>
 </section>)}
@@ -110,11 +113,21 @@ const stats = [
     {journeyPhones.map((phone, i) => <li class="flex min-w-0 flex-col gap-3"><p class="flex items-center gap-2 border-t border-neutral-700 pt-3 text-xs font-semibold text-neutral-400"><span class="editorial-kicker text-orange-500">0{i + 1}</span>{journeyCopy.steps[i]}</p><PhoneCard phone={phone} locale={locale} /></li>)}
   </ol>
   <div class="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-orange-500">
-    <a class="underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/compare/') + '?a=siemens-a65&b=siemens-sxg75'}>{journeyCopy.compare} →</a>
-    <a class="underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/brands/siemens/')}>{journeyCopy.brand} →</a>
+    <a class="underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/compare/') + '?a=siemens-a65&b=siemens-sxg75'}>{journeyCopy.compare} <Arrow /></a>
+    <a class="underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/brands/siemens/')}>{journeyCopy.brand} <Arrow /></a>
   </div>
 </section>
 
-<section class="mt-12 border-y border-neutral-800 py-8 sm:mt-16"><div class="flex flex-wrap items-end justify-between gap-4"><h2 class="text-2xl font-extrabold sm:text-3xl">{copy.principles}</h2><a href={localePath(locale,'/about/')} class="text-sm font-semibold text-orange-500 underline underline-offset-4">{strings.hero.ctaAbout} →</a></div><div class="mt-7 grid gap-6 sm:grid-cols-3">{copy.principleItems.map((item,i) => <div class="border-t border-neutral-800 pt-4"><p class="editorial-kicker text-orange-500">0{i+1}</p><h3 class="mt-3 text-lg font-bold">{item.title}</h3><p class="mt-2 text-sm leading-relaxed text-neutral-400">{item.text}</p></div>)}</div></section>
+<section class="home-project mt-12 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900/40 sm:mt-16" aria-labelledby="home-project-title">
+  <div class="grid lg:grid-cols-2">
+    <div class="p-5 sm:p-8 lg:p-10">
+      <div class="flex items-center gap-3"><LogoMark class="h-10 w-10 shrink-0" /><p class="editorial-kicker text-orange-500">{projectCopy.kicker} · {strings.siteName}</p></div>
+      <h2 id="home-project-title" class="mt-6 max-w-md text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">{copy.principles}</h2>
+      <p class="mt-4 max-w-lg text-base leading-relaxed text-neutral-300">{projectCopy.intro}</p>
+      <a href={localePath(locale,'/about/')} class="mt-6 inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-orange-500 underline underline-offset-4">{strings.hero.ctaAbout}<Arrow /></a>
+    </div>
+    <ol class="grid border-t border-neutral-700 px-5 sm:px-8 lg:border-l lg:border-t-0">{copy.principleItems.map((item,i) => <li class:list={['flex gap-4 py-5 sm:py-6',i>0&&'border-t border-neutral-700']}><span class="editorial-kicker mt-1 text-orange-500">0{i+1}</span><div><h3 class="text-lg font-bold">{item.title}</h3><p class="mt-2 max-w-md text-sm leading-relaxed text-neutral-400">{item.text}</p></div></li>)}</ol>
+  </div>
+</section>
 
-<aside class="mt-8 max-w-2xl border-l-2 border-neutral-700 pl-4"><h2 class="text-lg font-bold">{copy.modernTitle}</h2><p class="mt-2 text-sm leading-relaxed text-neutral-400">{copy.modernText}</p><a class="mt-3 inline-block text-sm font-semibold text-orange-500 underline underline-offset-4" href={localePath(locale, '/catalog/') + '#year-2019'}>{copy.modernLink} →</a></aside>
+<aside class="mt-8 max-w-2xl border-l-2 border-neutral-700 pl-4"><h2 class="text-lg font-bold">{copy.modernTitle}</h2><p class="mt-2 text-sm leading-relaxed text-neutral-400">{copy.modernText}</p><a class="mt-3 inline-block text-sm font-semibold text-orange-500 underline underline-offset-4" href={localePath(locale, '/catalog/') + '#year-2019'}>{copy.modernLink} <Arrow /></a></aside>

@@ -29,7 +29,7 @@ const forecastUrl = `https://open-meteo.com/en/docs?${forecastParams}`;
       <time class="clock-time" data-local-clock>--:--:--</time>
       <time class="clock-date" data-local-date>---</time>
     </div>
-    <a class="clock-weather" href={forecastUrl} target="_blank" rel="noopener noreferrer" aria-label={`${label} — прогноз на 3 дні, Open-Meteo`}>
+    <div class="clock-weather">
       <svg class="weather-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <g data-weather-symbol="sun" class="weather-symbol-hidden"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></g>
         <g data-weather-symbol="cloud" class="weather-symbol-hidden"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.5 4.25 4.25 0 0 0 7 18Z" /></g>
@@ -41,8 +41,7 @@ const forecastUrl = `https://open-meteo.com/en/docs?${forecastParams}`;
       <span class="weather-temp" data-weather-value>…</span>
       <span class="weather-city">{city}</span>
       <span class="weather-unavailable" data-weather-unavailable hidden>{unavailable}</span>
-      <span class="weather-credit">Open-Meteo</span>
-    </a>
+    </div>
   </div>
 </div>
 

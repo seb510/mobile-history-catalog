@@ -804,8 +804,8 @@ export const OWNED_PHONE_COPY = {
  en:{legacyTitle:'Previously saved models',legacyIntro:'These are your former Favorites. Choose “I had this phone” only for models you actually used. You can dismiss the others from this list.',dismiss:'Dismiss from the old list',year:'Release year'},
 };
 
-export const CATALOG_VIEW_COPY = {
-  uk: { label: 'Вигляд каталогу', cards: 'Картки', list: 'Список' },
-  ru: { label: 'Вид каталога', cards: 'Карточки', list: 'Список' },
-  en: { label: 'Catalog view', cards: 'Cards', list: 'List' },
+export const PROJECT_PRESENTATION = {
+ uk: { kicker: 'Про архів', intro: 'Телефон був особистою річчю ще до того, як став суцільним екраном. Збираємо форми, механізми й щоденні звички, за якими впізнається ціла епоха.', note: 'Курована добірка, а не повний перелік моделей. У центрі — дизайн і досвід користування.', languages: 'Мови архіву', collection: 'У добірці', brands: 'Бренди' },
+ ru: { kicker: 'Об архиве', intro: 'Телефон был личной вещью задолго до того, как стал сплошным экраном. Собираем формы, механизмы и повседневные привычки, по которым узнаётся целая эпоха.', note: 'Кураторская подборка, а не полный перечень моделей. В центре — дизайн и опыт использования.', languages: 'Языки архива', collection: 'В подборке', brands: 'Бренды' },
+ en: { kicker: 'About the archive', intro: 'A phone was a personal object long before it became all screen. We collect the shapes, mechanisms and everyday habits that make an era recognisable.', note: 'A curated selection, rather than a complete model directory. Design and the experience of using a phone come first.', languages: 'Archive languages', collection: 'In the collection', brands: 'Brands' },
 } as const;
