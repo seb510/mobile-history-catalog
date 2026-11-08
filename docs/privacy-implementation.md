@@ -2,7 +2,7 @@
 
 Owner/contact supplied by project owner: Sebistiian Mykola, sebistian@ukr.net.
 
-Current source audit: no analytics, advertising, account forms or application HTTP cookies. Browser keys: theme (opt-in), mobile-history:favorites (user-requested), mobile-history:privacy (decision, version and timestamp; 180 days). Remote photographs disclose network metadata to credited hosts; consent to theme storage does not gate those delivery requests. Comparison choices are in shared URLs.
+Historical source audit (2026-10-31): no analytics, advertising, account forms or application HTTP cookies. Browser keys: theme (opt-in), mobile-history:favorites (user-requested), mobile-history:privacy (decision, version and timestamp; 180 days). Remote photographs disclose network metadata to credited hosts; consent to theme storage does not gate those delivery requests. Comparison choices are in shared URLs.
 
 Reject and accept have equal styling, no preselection, scroll consent or cookie wall. Footer reopens settings. No automatic popup on policy pages. No persistent theme access until valid affirmative choice. Reject removes the saved theme without removing explicitly requested Favorites. Storage failures are tolerated.
 
@@ -14,4 +14,15 @@ Sources reviewed 31 October 2026:
 - https://europa.eu/youreurope/business/growing/digitalising/online-privacy/index_en.htm
 - https://www.dataprotection.ie/sites/default/files/uploads/2020-04/Guidance%20note%20on%20cookies%20and%20other%20tracking%20technologies.pdf
 
-Validation: Astro check (0 errors/warnings), production build (306 pages), SEO audit (170 canonical URLs). Decision validation covered absent/accept/reject/expired/future/version/type/blocked storage. Browser verified reject survives reload, accept persists a theme, withdrawal returns to the system theme after reload, footer reopening, English storage inventory and no automatic policy-page banner. Mobile dark theme at 390px: clientWidth/scrollWidth 375/375; both actions visible.
+Historical validation (2026-10-31): Astro check (0 errors/warnings), production build (306 pages), SEO audit (170 canonical URLs). Decision validation covered absent/accept/reject/expired/future/version/type/blocked storage. Browser verified reject survives reload, accept persists a theme, withdrawal returns to the system theme after reload, footer reopening, English storage inventory and no automatic policy-page banner. Mobile dark theme at 390px: clientWidth/scrollWidth 375/375; both actions visible.
+
+## Current implementation inventory — 2026-11-08
+
+- `mobile-history:privacy`: versioned decision with timestamp, valid for 180 days (`src/lib/privacy.ts`).
+- `theme` and `mobile-history:design`: optional appearance preferences, persisted only after affirmative consent. Rejecting removes both saved keys.
+- `mobile-history:owned-phones`: user-requested My phones collection. `mobile-history:favorites` is retained only as a legacy migration source.
+- `mobile-history:ownership-periods`: user-requested usage years, stored locally by slug with version 1. No account or server-side timeline is introduced.
+- YouTube-nocookie iframe is created only after the user presses the video cover and is removed by Disable player. This viewing permission is separate from appearance-storage consent; the cover uses the phone photo rather than an automatic external YouTube thumbnail.
+- Remote phone images may still contact their credited hosts on delivery. A local image does not make embedded video local.
+
+This section documents code behaviour, not a new legal review. The legal references above were reviewed on the stated historical date; hosting logs, retention and production configuration require separate verification.

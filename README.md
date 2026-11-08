@@ -1,43 +1,71 @@
-# Astro Starter Kit: Minimal
+# Мобільна Історія — телефони з характером
+
+Курований архів ретро-телефонів: корпуси, клавіатури, механізми, музика та фотографія кнопкової епохи. Натхнення — редакційна подача журналу MobiLux. Сучасні моделі продовжують історію, але не визначають її основний напрям.
+
+## Поточний стан
+
+На 8 листопада 2026 року: **115 моделей, 11 брендів, 345 записів uk/ru/en, 100 моделей із відео**. Остання перевірена збірка — 411 HTML-сторінок. Дані курируються вручну; це не повний каталог ринку.
+
+Сайт статичний: Astro SSG, TypeScript, Tailwind CSS. React використовується лише для порівняння. Українська — без префікса, інші мови — `/ru/` та `/en/`.
+
+## Локальний запуск
+
+Використовуйте Node.js 24 (`.node-version`; мінімальна версія в `package.json` — 22.12.0).
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci
+npm run dev -- --background
+npm run astro -- dev status
+npm run astro -- dev logs
+npm run astro -- dev stop
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Адресу й порт показує сервер; типовий — `http://localhost:4321/`. Якщо сервер уже запущений, спершу перевірте його статус.
 
-## 🚀 Project Structure
+Для перевірки з телефона в тій самій Wi-Fi мережі:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run dev -- --force --host 0.0.0.0 --background
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Відкрийте Network-адресу з виводу команди. `--force` замінює наявний dev-сервер; зупинка — команда вище.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Перевірки
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Команда | Призначення |
+| --- | --- |
+| `npm run build` | Astro check та статична збірка в `dist/` |
+| `npm run astro -- check` | Перевірка типів і схеми контенту |
+| `npm run preview` | Локальний перегляд зібраного сайту |
+| `npm run audit:locales` | Узгодженість локалей, звіт у `docs/locale-audit.json` |
+| `npm run audit:seo` | Перевірка вже зібраного `dist/` |
+| `npm run gen:images` | Генерація спільних графічних assets після зміни знака/OG-шаблону |
 
-## 🧞 Commands
+Окремого test suite та лінтера немає. Браузерні перевірки потрібні для інтерактивних змін. Скрипт зовнішніх фото `node scripts/audit-assets.mjs` виконує мережеві запити; після Wikimedia 429 слід припинити запити, а не вважати фото відсутнім.
 
-All commands are run from the root of the project, from a terminal:
+## Орієнтири в коді
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- `src/content.config.ts` — схеми телефонів і брендів.
+- `src/data/phones/<uk|ru|en>/` та `src/data/brands/<uk|ru|en>/` — записи Markdown.
+- `src/lib/phones.ts`, `brands.ts`, `locales.ts` — доступ до даних і мовний fallback.
+- `src/lib/specs.ts` — спільний список характеристик для деталі й порівняння.
+- `src/components/PhoneDetail.astro`, `PhoneVideo.astro`, `CompareIsland.tsx` — основні дослідницькі інтерфейси.
+- `src/lib/phone-videos.ts` — один курований ролик на модель; `phone-colors.ts` — орієнтовні зразки кольорів.
+- `src/lib/updates.ts` — локалізований публічний журнал `/updates/`.
+- `src/lib/ownership-periods.ts` — локальна хронологія користування у «Моїх телефонах».
 
-## 👀 Want to learn more?
+## Дизайн і джерела
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Дві редакції: журнальна на теплому папері та сучасна графітова. Обидві мають світлу/темну тему й спільний мідний акцент. Галерея підтримує мініатюри, стрілки, свайп і повноекранний перегляд. Відео залишається в широкій правій колонці між історією та характеристиками; YouTube завантажується лише після натискання.
+
+Фото беруться з якісних доступних джерел із перевіреною ліцензією. Якщо придатного вільного фото немає — Mobile Phone Museum за дозволом власника з обов’язковими підписом і посиланням. Наявність фотографії в інтернеті сама по собі не дає дозволу на її використання.
+
+## Публікація
+
+Налаштований origin: [mobile-history-catalog.nikolaysebistiyan.workers.dev](https://mobile-history-catalog.nikolaysebistiyan.workers.dev/). Локальні метадані беруть `SITE_URL`; приклад — `.env.example`. `SEO_INDEXABLE=false` за замовчуванням. Статус індексації опублікованої збірки перевіряється окремо.
+
+Cloudflare Workers роздає статичний `dist/` без Astro Cloudflare-адаптера. Deploy command у Workers Builds: `npx wrangler deploy --autoconfig=false`.
+
+**Push і deploy виконує власник. Агент комітить лише за прямим запитом.**
+
+Документація: [покажчик](docs/README.md), [дизайн-система](docs/design-system.md), [SEO](docs/seo.md), [покриття контенту](docs/content-coverage.md). Інструкції роботи агентів — `AGENTS.md` та `CLAUDE.md`.

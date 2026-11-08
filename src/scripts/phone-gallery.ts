@@ -75,6 +75,8 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
     closeButton?.addEventListener('click', () => dialog?.close());
     previousButton?.addEventListener('click', () => activate((activeIndex - 1 + slides.length) % slides.length));
     nextButton?.addEventListener('click', () => activate((activeIndex + 1) % slides.length));
+    gallery.querySelector('[data-gallery-inline-previous]')?.addEventListener('click', () => activate((activeIndex - 1 + slides.length) % slides.length));
+    gallery.querySelector('[data-gallery-inline-next]')?.addEventListener('click', () => activate((activeIndex + 1) % slides.length));
     dialog?.addEventListener('click', (event) => {
       if (event.target === dialog) dialog.close();
     });

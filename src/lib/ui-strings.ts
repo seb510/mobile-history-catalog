@@ -815,3 +815,9 @@ export const COMPARE_EXPERIENCE = {
  ru: { kicker:'Два телефона. Два подхода.', steps:['Выбери знакомый телефон','Добавь другой характер','Исследуй различия'], character:'Его характер', missing:'Добавь ещё один телефон — и сравни их форму и возможности рядом.', note:'Подсвечены различия, а не победитель. «—» означает, что значение не подтверждено в архиве; это не всегда отсутствие функции.', specs:'Техника за характером', intro:'Сначала форма, клавиатура и замысел. Затем — экран, камера и другие характеристики. Здесь нет баллов или общего победителя.' },
  en: { kicker:'Two phones. Two approaches.', steps:['Pick a familiar phone','Add a different character','Explore the differences'], character:'Its character', missing:'Add one more phone to explore their shapes and capabilities side by side.', note:'Highlights show differences, not a winner. “—” means a value is unconfirmed in the archive, not necessarily that a feature is absent.', specs:'The technology behind the character', intro:'Start with shape, keys and intent. Then explore the screen, camera and other specifications. There are no scores or overall winners here.' },
 } as const;
+
+export const PHONE_READING = {
+ uk:{photos:'Фото',media:'Роздивись і послухай',specNote:'Лише підтверджені дані. Спільні характеристики споріднених версій наведено один раз.', photoHint:'Обери ракурс або відкрий фото на весь екран.'},
+ ru:{photos:'Фото',media:'Рассмотри и послушай',specNote:'Только подтверждённые данные. Общие характеристики родственных версий приведены один раз.', photoHint:'Выбери ракурс или открой фото на весь экран.'},
+ en:{photos:'Photos',media:'Look closer and listen',specNote:'Confirmed data only. Shared specifications for related versions appear once.',photoHint:'Choose a view or open the photo fullscreen.'},
+} as const;

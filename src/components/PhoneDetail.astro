@@ -1,10 +1,11 @@
 ---
 import Arrow from './Arrow.astro';
+import { phoneColorSwatch } from '../lib/phone-colors';
 import PlaceholderArt from './PlaceholderArt.astro';
 import PhoneVideo from './PhoneVideo.astro';
 import { PHONE_VIDEOS, PHONE_VIDEO_LABELS } from '../lib/phone-videos';
 import { render, type CollectionEntry } from 'astro:content';
-import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, SPEC_VARIANT_NOTE, GALLERY_INTERACTION } from '../lib/ui-strings';
+import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, SPEC_VARIANT_NOTE, GALLERY_INTERACTION, PHONE_READING } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 import { PHONE_EDITORIAL, PHONE_EDITORIAL_LABELS } from '../lib/phone-editorial';
 import { getPhonesForLocale, slugOf, isRecentlyAdded } from '../lib/phones';
@@ -21,6 +22,7 @@ const { phone, locale } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const isNew = isRecentlyAdded(data.dateAdded);
+const reading = PHONE_READING[locale];
 const galleryCopy = GALLERY_INTERACTION[locale];
 const editorial = DESIGN_EDITORIAL[locale];
 const s = strings.specs;
@@ -78,15 +80,22 @@ const related = allPhones
   </div>
   <span class="cover-year hidden shrink-0 font-extrabold tabular-nums text-neutral-600 sm:block">{data.year}</span>
 </header>
-<div class="grid gap-6 sm:gap-10 lg:grid-cols-[2fr_3fr]">
-  <div class="min-w-0 lg:self-start lg:sticky lg:top-20">
-    <div data-phone-gallery>
+    <nav class:list={['phone-section-nav mb-6 grid gap-2', PHONE_VIDEOS[slugOf(phone)] ? 'grid-cols-4' : 'grid-cols-3']} aria-label={data.model}>
+      <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-photos">{reading.photos}</a>
+      <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-story">{editorial.story}</a>
+      {PHONE_VIDEOS[slugOf(phone)] && <a class="control-button min-h-11 px-2 text-center text-xs leading-snug" href="#phone-video"><svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg>{PHONE_VIDEO_LABELS[locale].nav}</a>}
+      <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-specs">{editorial.specs}</a>
+    </nav>
+<div class="phone-detail-grid grid gap-8 sm:gap-10 lg:grid-cols-[2fr_3fr]">
+  <div class="phone-media-rail min-w-0 lg:self-start">
+    <div id="phone-photos" class="phone-photo-block scroll-mt-24" data-phone-gallery>
+      <p class="editorial-kicker mb-3 text-neutral-500">{PHONE_VIDEOS[slugOf(phone)] ? reading.media : reading.photos}</p>
       <div class="relative">
         <div class="phone-gallery-stage relative flex h-[min(76vw,320px)] items-center justify-center overflow-hidden rounded-sm border border-neutral-800 border-t-4 border-t-orange-500 bg-neutral-900 p-4 sm:h-96 sm:p-6 lg:h-[420px]">
           {images.length > 0 ? (
             images.map((image, index) => (
               <div data-gallery-slide class:list={['absolute inset-0 flex items-center justify-center p-4 sm:p-6', index > 0 && 'hidden']}>
-                <img data-image-fallback src={image.image} alt={image.alt ?? `${data.brand} ${data.model}`} class="h-full w-full object-contain" />
+                <img data-image-fallback src={image.image} alt={image.alt ?? `${data.brand} ${data.model}`} class="h-full w-full object-contain" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
                 <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-6">
                   <PlaceholderArt class="h-full w-full text-neutral-700" />
                 </div>
@@ -97,7 +106,7 @@ const related = allPhones
           )}
           {images.length > 0 && (
             <>
-            {images.length > 1 && <span data-gallery-page aria-hidden="true" class="absolute top-3 left-3 rounded-sm border border-neutral-700 bg-neutral-950/90 px-2 py-1 text-xs tabular-nums text-neutral-200">1 / {images.length}</span>}
+
             <button
               type="button"
               data-gallery-open
@@ -112,6 +121,7 @@ const related = allPhones
           )}
         </div>
       </div>
+      {images.length > 0 && <div class="gallery-toolbar"><div><span class="text-xs font-semibold text-neutral-400">{reading.photos}</span> <span data-gallery-page aria-live="polite" aria-atomic="true" class="text-xs tabular-nums text-neutral-200">1 / {images.length}</span></div>{images.length > 1 && <div class="flex gap-2"><button type="button" data-gallery-inline-previous class="control-button gallery-step" aria-label={strings.gallery.previous}><Arrow direction="left" /></button><button type="button" data-gallery-inline-next class="control-button gallery-step" aria-label={strings.gallery.next}><Arrow direction="right" /></button></div>}</div>}
       {images.length > 1 && (
         <div role="group" aria-label={strings.gallery.label} data-gallery-thumbnails class="mt-3 flex gap-2 overflow-x-auto pb-1">
           {images.map((image, index) => (
@@ -218,33 +228,34 @@ const related = allPhones
       )}
     </div>
     {data.colors && data.colors.length > 0 && (
-      <div class="mt-4 flex flex-wrap items-center gap-2">
+      <div class="phone-colors" aria-label={s.colors}>
         <span class="text-xs font-semibold tracking-wide text-neutral-500 uppercase">{s.colors}</span>
         {data.colors.map((color) => (
-          <span class="rounded-full border border-neutral-700 px-2.5 py-0.5 text-xs text-neutral-300">{color}</span>
+          <span class="phone-color-chip">{phoneColorSwatch(color) && <span class="phone-color-swatch" aria-hidden="true" style={{ background: phoneColorSwatch(color) }}></span>}<span>{color}</span></span>
         ))}
+        <span class="phone-colors-note">{({uk:'Відтінки орієнтовні',ru:'Оттенки приблизительные',en:'Illustrative shades'}[locale])}</span>
       </div>
     )}
+
   </div>
 
-  <div class="min-w-0">
-    <nav class:list={['phone-section-nav mb-6 grid gap-2', PHONE_VIDEOS[slugOf(phone)] ? 'grid-cols-3' : 'grid-cols-2']} aria-label={data.model}>
-      <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-story">{editorial.story}</a>
-      {PHONE_VIDEOS[slugOf(phone)] && <a class="control-button min-h-11 px-2 text-center text-xs leading-snug" href="#phone-video"><svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg>{PHONE_VIDEO_LABELS[locale].nav}</a>}
-      <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-specs">{editorial.specs}</a>
-    </nav>
-    <section aria-labelledby="phone-story">
+  <div class="phone-reading-column min-w-0">
+
+    <section class="phone-story-section" aria-labelledby="phone-story">
     <h2 id="phone-story" class="section-label scroll-mt-24">{editorial.story}</h2>
     <div lang={phone.id.split('/')[0]} class="phone-story prose prose-invert mt-4 mb-8 max-w-none prose-p:text-neutral-300">
       <Content />
     </div>
 
     </section>
+
     {PHONE_VIDEOS[slugOf(phone)] && <PhoneVideo locale={locale} slug={slugOf(phone)} poster={data} />}
     <h2 id="phone-specs" class="section-label mt-10 scroll-mt-24">{editorial.specs}</h2>
-    {data.specVariant && <p class="mt-3 text-sm leading-relaxed text-neutral-400">{SPEC_VARIANT_NOTE[locale].replace('{model}', data.specVariant.model)}</p>}
+    <p class="mt-3 text-sm leading-relaxed text-neutral-400">{data.specVariant ? SPEC_VARIANT_NOTE[locale].replace('{model}', data.specVariant.model) : reading.specNote}</p>
     <div class="phone-spec-surface mt-4 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
       <table class="phone-spec-table w-full border-collapse text-left text-sm lg:text-base">
+        <caption class="sr-only">{data.brand} {data.model} — {editorial.specs}</caption>
+        <colgroup><col class="spec-label-column" /><col /></colgroup>
         {groups.map((group, gi) => (
           <tbody class:list={[gi > 0 && 'border-t-2 border-neutral-700']}>
             {group.rows.map(({ label, a, b }, i) => (
@@ -254,9 +265,9 @@ const related = allPhones
                 </th>
                 <td class="px-3 py-3 align-top leading-relaxed text-neutral-100">
                   {data.specVariant && a !== b ? (
-                    <div class="grid gap-2">
+                    <div class="spec-variants grid gap-2">
                       {a && <div class="flex flex-wrap items-baseline gap-x-2"><span class="text-[0.65rem] font-bold tracking-wide text-neutral-500">{data.model}</span><span>{a}</span></div>}
-                      <div class="border-l-2 border-orange-500 pl-2"><span class="block text-[0.65rem] font-bold tracking-wide text-orange-500">{data.specVariant.model}</span><span>{b ?? '—'}</span></div>
+                      <div class="spec-variant border-l-2 border-orange-500 pl-2"><span class="block text-[0.65rem] font-bold tracking-wide text-orange-500">{data.specVariant.model}</span><span>{b ?? '—'}</span></div>
                     </div>
                   ) : a}
                 </td>
