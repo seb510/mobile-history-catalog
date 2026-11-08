@@ -13,3 +13,9 @@ export const UPDATES = [{
   en:["All ten new Nokia and Sony Ericsson models now have videos with descriptions in three languages, card badges and video filtering.",'Two visual styles: magazine and modern, each with light and dark themes.','A personal timeline in My phones: usage years, a still-using status and period editing in a popup.','Consistent filters, galleries and comparisons, compact settings and subtle transitions.','Dedicated link-sharing images and a corrected base address for previews.'],
  }
 }] as const;
+
+export const HOME_RECENT_COPY = {
+ uk: { title:'Нещодавно в архіві', intro:'Нові поповнення — знайомі форми й нові приводи згадати.', link:'Усі оновлення', added:'Додано' },
+ ru: { title:'Недавно в архиве', intro:'Новые пополнения — знакомые формы и новые поводы вспомнить.', link:'Все обновления', added:'Добавлено' },
+ en: { title:'Recently in the archive', intro:'New additions, familiar shapes and more memories to revisit.', link:'All updates', added:'Added' },
+} as const;

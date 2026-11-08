@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Arrow from './Arrow.astro';
+import PlaceholderArt from './PlaceholderArt.astro';
+import { HOME_RECENT_COPY } from '../lib/updates';
+import { slugOf } from '../lib/phones';
+import { localePath, type Locale } from '../lib/locales';
+const { phones, locale } = Astro.props as { phones: CollectionEntry<'phones'>[]; locale: Locale };
+const copy = HOME_RECENT_COPY[locale];
+// Addition date drives recency; release year only orders additions made on the same day.
+const recent = phones.filter(phone => phone.data.dateAdded).sort((a,b) =>
+  b.data.dateAdded!.localeCompare(a.data.dateAdded!) || b.data.year - a.data.year || slugOf(a).localeCompare(slugOf(b))
+).slice(0,4);
+const dateLabel = (date: string) => new Intl.DateTimeFormat(locale === 'uk' ? 'uk-UA' : locale === 'ru' ? 'ru-RU' : 'en-GB', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
+---
+{recent.length > 0 && <section class="home-recent border-b border-neutral-800 py-7 sm:py-9" aria-labelledby="home-recent-title">
+  <header class="mb-4 flex flex-wrap items-end justify-between gap-3">
+    <div><h2 id="home-recent-title" class="text-xl font-extrabold tracking-tight sm:text-2xl">{copy.title}</h2><p class="mt-2 text-sm text-neutral-400">{copy.intro}</p></div>
+    <a href={localePath(locale,'/updates/')} class="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-500 underline underline-offset-4">{copy.link}<Arrow direction="right" /></a>
+  </header>
+  <ul class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+    {recent.map(phone => <li class="min-w-0"><a href={localePath(locale,'/phones/'+slugOf(phone)+'/')} class="recent-phone flex h-full flex-col overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900/40">
+      <div class="relative flex h-28 items-center justify-center bg-neutral-800/40 p-3 sm:h-32">
+        {phone.data.image ? <><img data-image-fallback src={phone.data.image} alt="" loading="lazy" decoding="async" width="240" height="160" class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}
+      </div>
+      <div class="flex flex-1 flex-col p-3"><p class="text-xs text-neutral-500">{phone.data.brand} · {phone.data.year}</p><h3 class="mt-1 text-base font-bold leading-snug">{phone.data.model}</h3><div class="mt-auto flex items-center gap-2 pt-3 text-[0.65rem] text-neutral-500"><span>{copy.added} <time datetime={phone.data.dateAdded}>{dateLabel(phone.data.dateAdded!)}</time></span><Arrow direction="right" class="ml-auto shrink-0 text-orange-500" /></div></div>
+    </a></li>)}
+  </ul>
+</section>}
+<style>
+  .recent-phone { transition:border-color var(--motion-ui) var(--motion-easing),background-color var(--motion-ui) var(--motion-easing); }
+  :global(html[data-design="modern"]) .recent-phone { border-radius:12px; }
+  .recent-phone:focus-visible { outline:2px solid var(--color-orange-500); outline-offset:3px; }
+  @media (hover:hover) and (pointer:fine) { .recent-phone:hover { border-color:var(--color-orange-500); background:var(--color-neutral-900); } }
+  @media (prefers-reduced-motion:reduce) { .recent-phone { transition:none; } }
+</style>

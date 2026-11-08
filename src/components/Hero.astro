@@ -1,5 +1,6 @@
 ---
 import Arrow from './Arrow.astro';
+import RecentPhones from './RecentPhones.astro';
 import LogoMark from './LogoMark.astro';
 import { PHONE_VIDEOS, HOME_VIDEO_DISCOVERY } from '../lib/phone-videos';
 import PhoneCard from './PhoneCard.astro';
@@ -88,6 +89,8 @@ const stats = [
   </div>
 
 </section>
+
+<RecentPhones phones={phones} locale={locale} />
 
 <nav class="py-8 sm:py-10" aria-label={copy.eras}>
   <p class="editorial-kicker mb-4 text-neutral-500">{copy.eras}</p>
