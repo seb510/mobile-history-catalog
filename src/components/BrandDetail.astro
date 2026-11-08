@@ -8,7 +8,9 @@ import { t } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 import { slugOf } from '../lib/phones';
 import BrandMilestones from './BrandMilestones.astro';
-import { BRAND_NOTES, BRAND_PAGE } from '../lib/brand-editorial';
+import { BRAND_NOTES, BRAND_OFFICIAL_SITES, BRAND_PAGE } from '../lib/brand-editorial';
+import PhoneStartupAudio from './PhoneStartupAudio.astro';
+import { PHONE_STARTUP_SOUNDS } from '../lib/phone-sounds';
 
 interface Props {
   brand: CollectionEntry<'brands'>;
@@ -18,7 +20,9 @@ const { brand, locale } = Astro.props;
 const { data } = brand;
 const strings = t(locale);
 const editorial = BRAND_PAGE[locale];
+const officialSite = BRAND_OFFICIAL_SITES[data.name];
 const { Content } = await render(brand);
+const startupSound = PHONE_STARTUP_SOUNDS[data.name];
 
 const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand === data.name).sort((a, b) => a.data.year - b.data.year);
 const first = phones[0];
@@ -74,30 +78,56 @@ const phoneCountText = (count: number) => {
           <p class="mt-1 font-semibold text-neutral-100">{phones.length} {phoneCountText(phones.length)}</p>
         </div>
       </div>
+      {officialSite && <div class="mt-4">
+        <p class="text-xs tracking-wide text-neutral-500 uppercase">
+          {officialSite.kind === 'licensee' ? editorial.officialLicensee : officialSite.kind === 'successor' ? editorial.officialSuccessor : editorial.officialSite}
+        </p>
+        <a
+          class="mt-1 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-500 underline decoration-current/45 underline-offset-4 transition-colors motion-ui hover-desktop:text-orange-400"
+          href={officialSite.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {officialSite.name[locale]}<Arrow direction="up-right" />
+        </a>
+        <p class="max-w-2xl text-xs leading-relaxed text-neutral-500">{officialSite.note[locale]}</p>
+      </div>}
     </div>
   </header>
 
-  <div class:list={["brand-overview mt-7 grid gap-7 lg:gap-10", phones.length === 1 ? "brand-overview-single" : "lg:grid-cols-[minmax(0,1fr)_17rem]"]}>
+  {startupSound && (
+    <div class="mt-4">
+      <PhoneStartupAudio locale={locale} brand={data.name} sound={startupSound} />
+    </div>
+  )}
+
+  <div class="brand-overview mt-7 grid gap-6 lg:gap-8">
     <article class="min-w-0" aria-labelledby="brand-about">
       <h2 id="brand-about" class="mb-4 text-xl font-bold">{editorial.about}</h2>
-      <div class="prose prose-invert max-w-none prose-p:text-neutral-300"><Content /></div>
+      <div class="brand-about-copy prose prose-invert max-w-none prose-p:text-neutral-300"><Content /></div>
     </article>
-    {phones.length !== 1 && <aside class="min-w-0 border border-neutral-800 bg-neutral-900 p-5" aria-labelledby="brand-archive">
-      <h2 id="brand-archive" class="editorial-kicker text-orange-500">{editorial.selection}</h2>
-      <p class="mt-3 text-sm leading-relaxed text-neutral-300">{BRAND_NOTES[locale][data.name]}</p>
-      <dl class="mt-5 border-y border-neutral-700 py-4">
-        <dt class="text-xs text-neutral-500">{editorial.range}</dt>
-        <dd class="mt-1 text-2xl font-bold tabular-nums">{yearRange}</dd>
-      </dl>
-      {forms.length > 0 && <div class="mt-4">
+    {phones.length !== 1 && <aside class="brand-archive-panel" aria-labelledby="brand-archive">
+      <div class="brand-archive-summary">
+        <h2 id="brand-archive" class="editorial-kicker text-orange-500">{editorial.selection}</h2>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">{BRAND_NOTES[locale][data.name]}</p>
+        <a class="brand-archive-all" href="#brand-collection">{editorial.all}<Arrow direction="down" /></a>
+      </div>
+      <div class="brand-archive-years">
+        <dl>
+          <dt class="text-xs text-neutral-500">{editorial.range}</dt>
+          <dd class="mt-1 text-2xl font-bold tabular-nums">{yearRange}</dd>
+        </dl>
+        <div class="brand-archive-models">
+          {first && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(first)}/`)}><span class="text-xs font-normal text-neutral-500">{editorial.first}</span><span>{first.data.model} <span class="font-normal text-neutral-400">· {first.data.year}</span></span></a>}
+          {last && first && slugOf(last) !== slugOf(first) && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(last)}/`)}><span class="text-xs font-normal text-neutral-500">{editorial.last}</span><span>{last.data.model} <span class="font-normal text-neutral-400">· {last.data.year}</span></span></a>}
+        </div>
+      </div>
+      {forms.length > 0 && <div class="brand-archive-forms">
         <h3 class="text-xs text-neutral-500">{editorial.forms}</h3>
         <ul class="mt-2 flex flex-wrap gap-2">
           {forms.map(form => <li><a class="inline-flex min-h-11 items-center border border-neutral-700 px-2 py-1 text-xs motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/catalog/?brand=${encodeURIComponent(data.name)}&form=${form}`)}>{strings.formFactors[form]}</a></li>)}
         </ul>
       </div>}
-      {first && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(first)}/`)}><span class="block text-xs font-normal text-neutral-500">{editorial.first}</span><span class="mt-1 block">{first.data.model} <span class="font-normal text-neutral-400">· {first.data.year}</span></span></a>}
-      {last && first && slugOf(last) !== slugOf(first) && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(last)}/`)}><span class="block text-xs font-normal text-neutral-500">{editorial.last}</span><span class="mt-1 block">{last.data.model} <span class="font-normal text-neutral-400">· {last.data.year}</span></span></a>}
-      <a class="mt-4 flex min-h-11 items-center justify-between gap-3 border-t border-neutral-700 pt-3 text-sm font-semibold text-orange-500" href="#brand-collection">{editorial.all}<Arrow direction="down" /></a>
     </aside>}
   </div>
 
@@ -120,11 +150,22 @@ const phoneCountText = (count: number) => {
 </div>
 
 <style>
-  .brand-archive-link { display: block; margin-top: .625rem; padding-top: .625rem; border-top: 1px solid var(--color-neutral-700); font-size: .875rem; font-weight: 600; }
+  .brand-about-copy { max-width: 78ch; }
+  .brand-archive-panel { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.3fr) minmax(0,1.1fr); align-items:stretch; gap:1.25rem; padding:1.125rem 1.25rem; border:1px solid var(--color-neutral-800); background:var(--color-neutral-900); }
+  .brand-archive-summary,.brand-archive-years,.brand-archive-forms { min-width:0; align-self:start; }
+  .brand-archive-summary { padding-right:1.25rem; border-right:1px solid var(--color-neutral-700); }
+  .brand-archive-years { padding-right:1.25rem; border-right:1px solid var(--color-neutral-700); }
+  .brand-archive-models { display:grid; gap:.5rem; margin-top:.65rem; }
+  .brand-archive-link { display:grid; min-width:0; grid-template-columns:minmax(0,.82fr) minmax(0,1fr); align-items:baseline; gap:.625rem; padding-top:.5rem; border-top:1px solid var(--color-neutral-700); font-size:.8125rem; font-weight:600; }
+  .brand-archive-link > span { min-width:0; }
+  .brand-archive-forms { min-width:0; }
+  .brand-archive-all { display:inline-flex; min-height:2.75rem; align-items:center; gap:.75rem; margin-top:.5rem; color:var(--color-orange-500); font-size:.875rem; font-weight:600; }
+  :global(html[data-design="modern"]) .brand-archive-panel { border-color:var(--modern-line); border-radius:14px; background:var(--modern-surface); }
   a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
   @media (hover: hover) and (pointer: fine) { .brand-archive-link:hover { color: var(--color-orange-500); } }
-  @media (min-width:1024px) { .brand-overview-single :global(.prose) { columns:2; column-gap:2.5rem; } .brand-overview-single :global(.prose p) { break-inside:avoid; margin-top:0; } }
+  @media (hover: hover) and (pointer: fine) { .brand-archive-all:hover { color:var(--color-orange-400); } }
   .brand-phone-single { grid-template-columns: minmax(0,1fr); }
   @media (min-width: 1024px) { .brand-phone-single { grid-template-columns: 1fr; } .brand-phone-single :global([data-phone-card]) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); } .brand-phone-single :global(.phone-card-art) { max-height: 19rem; border-bottom: 0; border-right: 1px solid var(--color-neutral-800); } .brand-phone-single :global(.card-copy) { justify-content: center; } }
-  @media (max-width: 639px) { .brand-header { gap: 1.25rem; } .brand-overview { gap: 1.5rem; } }
+  @media (min-width:640px) and (max-width:1023px) { .brand-archive-panel { grid-template-columns:repeat(2,minmax(0,1fr)); } .brand-archive-summary { padding-right:0; border-right:0; } .brand-archive-years { border-right:0; padding-right:0; } .brand-archive-forms { grid-column:1 / -1; padding-top:.875rem; border-top:1px solid var(--color-neutral-700); } }
+  @media (max-width:639px) { .brand-header { gap:1.25rem; } .brand-overview { gap:1.5rem; } .brand-archive-panel { grid-template-columns:minmax(0,1fr); gap:1rem; padding:1rem; } .brand-archive-summary { padding-right:0; border-right:0; } .brand-archive-years { padding:.875rem 0; border-right:0; border-top:1px solid var(--color-neutral-700); } .brand-archive-link { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); } .brand-archive-forms { padding-top:.875rem; border-top:1px solid var(--color-neutral-700); } }
 </style>

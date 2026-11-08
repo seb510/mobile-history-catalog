@@ -1,0 +1,52 @@
+---
+import type { Locale } from '../lib/locales';
+import type { PhoneStartupSound } from '../lib/phone-sounds';
+
+interface Props {
+  locale: Locale;
+  brand: string;
+  sound: PhoneStartupSound;
+}
+
+const { locale, brand, sound } = Astro.props;
+const copy = {
+  uk: {
+    kicker: 'Звук бренду',
+    title: 'Звук запуску',
+    source: 'Джерело й авторство',
+  },
+  ru: {
+    kicker: 'Звук бренда',
+    title: 'Звук запуска',
+    source: 'Источник и авторство',
+  },
+  en: {
+    kicker: 'Brand sound',
+    title: 'Startup sound',
+    source: 'Source and credit',
+  },
+}[locale];
+---
+
+<section class="phone-audio phone-startup-audio" aria-labelledby="phone-startup-audio-title">
+  <div class="phone-startup-audio-intro">
+    <div class="phone-startup-audio-heading">
+      <p class="editorial-kicker text-orange-500">{copy.kicker}</p>
+      <h2 id="phone-startup-audio-title" class="font-bold">{copy.title} · {brand}</h2>
+    </div>
+    <p class="phone-startup-audio-credit text-[0.6875rem] leading-relaxed text-neutral-500">
+      {sound.credit} · <a class="text-orange-500 underline underline-offset-2" href={sound.sourceUrl} target="_blank" rel="noopener noreferrer">{copy.source}</a>
+    </p>
+    <p class="phone-startup-audio-rights text-[0.6875rem] leading-relaxed text-neutral-400">{sound.rightsNote[locale]}</p>
+  </div>
+  <div class="phone-startup-audio-tracks grid gap-2">
+    {sound.tracks.map((track) => (
+      <figure class="phone-audio-track">
+        <figcaption class="text-xs font-semibold text-neutral-200">{track.title[locale]}</figcaption>
+        <audio class="mt-2 block w-full" controls preload="none" src={track.src}>
+          {locale === 'uk' ? 'Ваш браузер не підтримує відтворення аудіо.' : locale === 'ru' ? 'Ваш браузер не поддерживает воспроизведение аудио.' : 'Your browser does not support audio playback.'}
+        </audio>
+      </figure>
+    ))}
+  </div>
+</section>

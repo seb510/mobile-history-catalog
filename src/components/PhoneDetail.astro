@@ -3,9 +3,7 @@ import Arrow from './Arrow.astro';
 import { phoneColorSwatch } from '../lib/phone-colors';
 import PlaceholderArt from './PlaceholderArt.astro';
 import PhoneVideo from './PhoneVideo.astro';
-import PhoneAudio from './PhoneAudio.astro';
 import { PHONE_VIDEOS, PHONE_VIDEO_LABELS } from '../lib/phone-videos';
-import { PHONE_SIGNATURE_SOUNDS, PHONE_STARTUP_SOUNDS } from '../lib/phone-sounds';
 import { render, type CollectionEntry } from 'astro:content';
 import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, SPEC_VARIANT_NOTE, GALLERY_INTERACTION, PHONE_READING } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
@@ -24,8 +22,6 @@ const { phone, locale } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const isNew = isRecentlyAdded(data.dateAdded);
-const startupSound = PHONE_STARTUP_SOUNDS[data.brand];
-const signatureSound = PHONE_SIGNATURE_SOUNDS[slugOf(phone)];
 const reading = PHONE_READING[locale];
 const galleryCopy = GALLERY_INTERACTION[locale];
 const editorial = DESIGN_EDITORIAL[locale];
@@ -240,8 +236,6 @@ const related = allPhones
         <span class="phone-colors-note">{({uk:'Відтінки орієнтовні',ru:'Оттенки приблизительные',en:'Illustrative shades'}[locale])}</span>
       </div>
     )}
-    {(startupSound || signatureSound) && <PhoneAudio locale={locale} model={data.model} startup={startupSound} signature={signatureSound} />}
-
   </div>
 
   <div class="phone-reading-column min-w-0">

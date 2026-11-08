@@ -1,5 +1,99 @@
 import type { Locale } from './locales';
 
+export const BRAND_OFFICIAL_SITES: Record<string, {
+  url: string;
+  name: Record<Locale, string>;
+  kind: 'brand' | 'licensee' | 'successor';
+  note: Record<Locale, string>;
+}> = {
+  Alcatel: {
+    url: 'https://www.tcl.com/global/en/mobile',
+    name: { uk: 'TCL · мобільні телефони', ru: 'TCL · мобильные телефоны', en: 'TCL · mobile phones' },
+    kind: 'successor',
+    note: {
+      uk: 'TCL перебрала мобільний бізнес Alcatel; посилання на її офіційний ресурс не підтверджує прав на архівні записи.',
+      ru: 'TCL приняла мобильный бизнес Alcatel; ссылка на её официальный ресурс не подтверждает права на архивные записи.',
+      en: 'TCL took over Alcatel’s mobile business; this official-site link does not establish rights to archived recordings.',
+    },
+  },
+  Apple: {
+    url: 'https://www.apple.com/iphone/',
+    name: { uk: 'Apple · iPhone', ru: 'Apple · iPhone', en: 'Apple · iPhone' },
+    kind: 'brand',
+    note: { uk: 'Офіційна сторінка Apple.', ru: 'Официальная страница Apple.', en: 'Apple’s official page.' },
+  },
+  Google: {
+    url: 'https://store.google.com/category/phones',
+    name: { uk: 'Google · телефони', ru: 'Google · телефоны', en: 'Google · phones' },
+    kind: 'brand',
+    note: { uk: 'Офіційна сторінка телефонів Google.', ru: 'Официальная страница телефонов Google.', en: 'Google’s official phone page.' },
+  },
+  HTC: {
+    url: 'https://www.htc.com/',
+    name: { uk: 'HTC', ru: 'HTC', en: 'HTC' },
+    kind: 'brand',
+    note: { uk: 'Офіційний сайт HTC.', ru: 'Официальный сайт HTC.', en: 'HTC’s official website.' },
+  },
+  Huawei: {
+    url: 'https://consumer.huawei.com/en/phones/',
+    name: { uk: 'HUAWEI · телефони', ru: 'HUAWEI · телефоны', en: 'HUAWEI · phones' },
+    kind: 'brand',
+    note: { uk: 'Офіційна сторінка телефонів HUAWEI.', ru: 'Официальная страница телефонов HUAWEI.', en: 'HUAWEI’s official phone page.' },
+  },
+  LG: {
+    url: 'https://www.lg.com/global/',
+    name: { uk: 'LG Electronics · мобільні телефони', ru: 'LG Electronics · мобильные телефоны', en: 'LG Electronics · mobile phones' },
+    kind: 'brand',
+    note: {
+      uk: 'Офіційний ресурс LG Electronics; мобільний бізнес смартфонів завершено 2021 року.',
+      ru: 'Официальный ресурс LG Electronics; бизнес смартфонов завершён в 2021 году.',
+      en: 'LG Electronics’ official site; its smartphone business ended in 2021.',
+    },
+  },
+  Motorola: {
+    url: 'https://www.motorola.com/',
+    name: { uk: 'Motorola', ru: 'Motorola', en: 'Motorola' },
+    kind: 'brand',
+    note: { uk: 'Офіційний сайт Motorola.', ru: 'Официальный сайт Motorola.', en: 'Motorola’s official website.' },
+  },
+  Nokia: {
+    url: 'https://www.nokia.com/',
+    name: { uk: 'Nokia', ru: 'Nokia', en: 'Nokia' },
+    kind: 'brand',
+    note: {
+      uk: 'Офіційний корпоративний сайт Nokia. Сучасні телефони під брендом Nokia випускає HMD за ліцензією.',
+      ru: 'Официальный корпоративный сайт Nokia. Современные телефоны под брендом Nokia выпускает HMD по лицензии.',
+      en: 'Nokia’s official corporate website. Current Nokia-branded phones are made by HMD under licence.',
+    },
+  },
+  Samsung: {
+    url: 'https://www.samsung.com/us/smartphones/',
+    name: { uk: 'Samsung · смартфони', ru: 'Samsung · смартфоны', en: 'Samsung · smartphones' },
+    kind: 'brand',
+    note: { uk: 'Офіційна сторінка Samsung.', ru: 'Официальная страница Samsung.', en: 'Samsung’s official page.' },
+  },
+  Siemens: {
+    url: 'https://www.benq.com/en-us/index.html',
+    name: { uk: 'BenQ · правонаступник мобільного підрозділу', ru: 'BenQ · правопреемник мобильного подразделения', en: 'BenQ · successor to the mobile division' },
+    kind: 'successor',
+    note: {
+      uk: 'BenQ придбала мобільний підрозділ Siemens у 2005 році; це посилання не підтверджує права на старі записи.',
+      ru: 'BenQ приобрела мобильное подразделение Siemens в 2005 году; эта ссылка не подтверждает права на старые записи.',
+      en: 'BenQ acquired Siemens’ mobile division in 2005; this link does not establish rights to old recordings.',
+    },
+  },
+  'Sony Ericsson': {
+    url: 'https://www.sony.com/',
+    name: { uk: 'Sony · Xperia', ru: 'Sony · Xperia', en: 'Sony · Xperia' },
+    kind: 'successor',
+    note: {
+      uk: 'Sony викупила частку Ericsson у спільному підприємстві 2012 року; сторінка стосується сучасних смартфонів Sony.',
+      ru: 'Sony выкупила долю Ericsson в совместном предприятии в 2012 году; страница относится к современным смартфонам Sony.',
+      en: 'Sony acquired Ericsson’s stake in the joint venture in 2012; this page is for current Sony smartphones.',
+    },
+  },
+};
+
 // Editorial descriptions of the archive's selection, not claims about every phone a brand made.
 export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
   uk: {
@@ -58,9 +152,9 @@ export const BRAND_ROUTES: Record<string, readonly string[]> = {
 };
 
 export const BRAND_PAGE = {
-  uk: { about: 'Про виробника', selection: 'У нашому архіві', range: 'Охоплення добірки', forms: 'Форми корпуса', first: 'Перший рік у добірці', last: 'Останній рік у добірці', all: 'Усі моделі', timeline: 'Характер у різні роки', timelineIntro: 'Кілька епізодів із представлених моделей — не повна історія виробника.', compare: 'Два погляди одного бренду', compareIntro: 'Різні форми та можливості. Подивись, як змінювався досвід користування.', compareAction: 'Порівняти моделі', collection: 'Моделі в архіві', collectionIntro: 'Усі представлені телефони бренду, впорядковані за роком анонсу.' },
-  ru: { about: 'О производителе', selection: 'В нашем архиве', range: 'Охват подборки', forms: 'Формы корпуса', first: 'Первый год в подборке', last: 'Последний год в подборке', all: 'Все модели', timeline: 'Характер в разные годы', timelineIntro: 'Несколько эпизодов из представленных моделей, а не полная история производителя.', compare: 'Два взгляда одного бренда', compareIntro: 'Разные формы и возможности. Посмотри, как менялся опыт использования.', compareAction: 'Сравнить модели', collection: 'Модели в архиве', collectionIntro: 'Все представленные телефоны бренда, по году анонса.' },
-  en: { about: 'About the manufacturer', selection: 'In our archive', range: 'Selection coverage', forms: 'Body designs', first: 'Earliest year in the selection', last: 'Latest year in the selection', all: 'All models', timeline: 'Character through the years', timelineIntro: 'A few episodes from the phones in our selection, rather than a complete company history.', compare: 'Two approaches, one brand', compareIntro: 'Different shapes and capabilities. Explore how the experience of using a phone changed.', compareAction: 'Compare the models', collection: 'Models in the archive', collectionIntro: 'Every phone from this brand in the archive, ordered by announcement year.' },
+  uk: { about: 'Про виробника', officialSite: 'Офіційний сайт', officialLicensee: 'Офіційний сайт ліцензіата', officialSuccessor: 'Офіційний сайт правонаступника', selection: 'У нашому архіві', range: 'Охоплення добірки', forms: 'Форми корпуса', first: 'Перший рік у добірці', last: 'Останній рік у добірці', all: 'Усі моделі', timeline: 'Характер у різні роки', timelineIntro: 'Кілька епізодів із представлених моделей — не повна історія виробника.', compare: 'Два погляди одного бренду', compareIntro: 'Різні форми та можливості. Подивись, як змінювався досвід користування.', compareAction: 'Порівняти моделі', collection: 'Моделі в архіві', collectionIntro: 'Усі представлені телефони бренду, впорядковані за роком анонсу.' },
+  ru: { about: 'О производителе', officialSite: 'Официальный сайт', officialLicensee: 'Официальный сайт лицензиата', officialSuccessor: 'Официальный сайт правопреемника', selection: 'В нашем архиве', range: 'Охват подборки', forms: 'Формы корпуса', first: 'Первый год в подборке', last: 'Последний год в подборке', all: 'Все модели', timeline: 'Характер в разные годы', timelineIntro: 'Несколько эпизодов из представленных моделей, а не полная история производителя.', compare: 'Два взгляда одного бренда', compareIntro: 'Разные формы и возможности. Посмотри, как менялся опыт использования.', compareAction: 'Сравнить модели', collection: 'Модели в архиве', collectionIntro: 'Все представленные телефоны бренда, по году анонса.' },
+  en: { about: 'About the manufacturer', officialSite: 'Official website', officialLicensee: 'Official licensee website', officialSuccessor: 'Official successor website', selection: 'In our archive', range: 'Selection coverage', forms: 'Body designs', first: 'Earliest year in the selection', last: 'Latest year in the selection', all: 'All models', timeline: 'Character through the years', timelineIntro: 'A few episodes from the phones in our selection, rather than a complete company history.', compare: 'Two approaches, one brand', compareIntro: 'Different shapes and capabilities. Explore how the experience of using a phone changed.', compareAction: 'Compare the models', collection: 'Models in the archive', collectionIntro: 'Every phone from this brand in the archive, ordered by announcement year.' },
 } as const;
 
 export const BRAND_EDITION = {
