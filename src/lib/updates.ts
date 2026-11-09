@@ -5,13 +5,79 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
- date:'2026-11-08',
- phones:['nokia-5510','nokia-3650','nokia-7600','nokia-n93','nokia-e90','sony-ericsson-p800','sony-ericsson-p910i','sony-ericsson-w900i','sony-ericsson-w880i','sony-ericsson-c905','nokia-6300','nokia-5310-xpressmusic','nokia-5300-xpressmusic','nokia-6500-slide','sony-ericsson-k550i','sony-ericsson-w610i','samsung-sgh-d900','samsung-sgh-u900','motorola-krzr-k1','lg-vx8500'],
- changes:{
-  uk:["Додано звуки ввімкнення для семи решти брендів: Siemens, Sony Ericsson, Apple, Google, HTC, Huawei й Alcatel — з точними підписами та джерелами. Виправлено тип корпуса LG VX8500: це слайдер.","Назви кольорів корпусів доповнено наочними зразками відтінків, зі збереженням текстових підписів.","Оновлено сторінки телефонів: керування галереєю, відступи історій і таблиці споріднених версій. Відео збережено в широкій колонці; картки етапів брендів отримали внутрішні відступи.","Узгоджено обидва оформлення мідним акцентом; порівняння доповнено описами характеру моделей і поясненням непідтверджених даних.","Сучасний вигляд об’єднано графітовою палітрою: контрастна обкладинка, виразні поверхні карток і читабельні таблиці характеристик.","Усі десять нових Nokia та Sony Ericsson поповненої добірки доповнено відео й описами трьома мовами; доступні позначки на картках і відбір моделей із відео.","До архіву додано ще десять моделей 2005–2008 років: чотири Nokia, дві Sony Ericsson, два Samsung, Motorola KRZR K1 і LG VX8500 Chocolate. Для кожної є два різні фото та відео." ,'Два стилі оформлення: журнальний і сучасний, кожен зі світлою та темною темою.','Особиста хронологія в «Моїх телефонах»: роки користування, позначка «досі» та редагування періоду в попапі.','Блок «Нещодавно в архіві» на головній та N93i в історії й галереї Nokia N93.','Окремі зображення для поширення посилань і виправлена базова адреса прев’ю.','На сторінках Nokia, Motorola, Samsung і LG з’явилися компактні плеєри записів запуску. У кожного видимі підпис і посилання на джерело; записи не позначаються як суспільне надбання.','На сторінках усіх брендів додано офіційні посилання; для брендів без окремого актуального сайту зазначено ліцензіата або правонаступника й пояснено контекст.','Для Huawei Honor 2 (U9508) та Nokia 9 PureView додано перевірені огляди з YouTube; у кожному описі чітко вказано точну модель.'],
-  ru:["Добавлены звуки включения для семи остальных брендов: Siemens, Sony Ericsson, Apple, Google, HTC, Huawei и Alcatel — с точными подписями и источниками. Исправлен тип корпуса LG VX8500: это слайдер.","Названия цветов корпуса дополнены наглядными образцами оттенков с сохранением текстовых подписей.","Обновлены страницы телефонов: управление галереей, отступы историй и таблицы родственных версий. Видео сохранено в широкой колонке; карточки этапов брендов получили внутренние отступы.","Оба оформления объединены медным акцентом; сравнение дополнено описаниями характера моделей и объяснением неподтверждённых данных.","Современный вид объединён графитовой палитрой: контрастная обложка, отчётливые поверхности карточек и читаемые таблицы характеристик.","Для всех десяти моделей расширенной подборки Nokia и Sony Ericsson добавлены видео и описания на трёх языках; доступны отметки на карточках и фильтр моделей с видео.","В архив добавлены ещё десять моделей 2005–2008 годов: четыре Nokia, две Sony Ericsson, два Samsung, Motorola KRZR K1 и LG VX8500 Chocolate. У каждой модели два разных фото и видео.",'Два стиля оформления: журнальный и современный, каждый со светлой и тёмной темой.','Личная хронология в «Моих телефонах»: годы использования, отметка «до сих пор» и редактирование периода в попапе.','Блок «Недавно в архиве» на главной и N93i в истории и галерее Nokia N93.','Отдельные изображения для публикации ссылок и исправленный базовый адрес превью.','На страницах Nokia, Motorola, Samsung и LG появились компактные плееры записей запуска. У каждой записи видны подпись и ссылка на источник; записи не обозначаются как общественное достояние.','На страницах всех брендов добавлены официальные ссылки; для брендов без отдельного актуального сайта указан лицензиат или правопреемник и пояснён контекст.','Для Huawei Honor 2 (U9508) и Nokia 9 PureView добавлены проверенные обзоры на YouTube; в описании каждого указана точная модель.'],
-  en:["Added power-on sounds for the remaining seven brands — Siemens, Sony Ericsson, Apple, Google, HTC, Huawei and Alcatel — with specific labels and sources. Corrected the LG VX8500 body type to slider.","Added illustrative body-colour swatches alongside the original colour names.","Updated phone pages with gallery controls, improved story spacing and clearer variant specifications. Videos remain in the wide column, and brand milestone cards have proper internal spacing.","Unified both editions with a copper accent and added model character summaries and clearer missing-data guidance to comparison.","Unified the modern edition with a graphite palette, a contrasting cover, distinct card surfaces and clearer specification tables.","All ten Nokia and Sony Ericsson additions now have videos with descriptions in three languages, card badges and video filtering.","Added ten more models from 2005–2008: four Nokia, two Sony Ericsson, two Samsung, the Motorola KRZR K1 and LG VX8500 Chocolate. Each has two distinct photographs and a video.",'Two visual styles: magazine and modern, each with light and dark themes.','A personal timeline in My phones: usage years, a still-using status and period editing in a popup.','A Recently in the archive section on the homepage, plus N93i history and photography on the Nokia N93 page.','Dedicated link-sharing images and a corrected base address for previews.','Compact startup-sound players are now available on the Nokia, Motorola, Samsung and LG brand pages, with visible credits and links to their sources. The recordings are not presented as public domain.','Every brand page now links to an official website; for brands without a dedicated current site, the licensee or successor is identified with context.','Added verified YouTube reviews for the Huawei Honor 2 (U9508) and Nokia 9 PureView, with each description identifying the exact model.'],
- }
+  "date": "2026-11-09",
+  "phones": ["siemens-m55"],
+  "changes": {
+    "uk": [
+      "Додано компактну форму пропозицій, виправлень і повідомлень про баги.",
+      "Пошук бренду й моделі виключає телефони, які вже є в архіві.",
+      "Підключено доставку звернень у Telegram. Оновлено пояснення приватності й переклади всіх брендів."
+    ],
+    "ru": [
+      "Добавлена компактная форма предложений, исправлений и сообщений об ошибках.",
+      "Поиск бренда и модели исключает телефоны, которые уже есть в архиве.",
+      "Подключена доставка обращений в Telegram. Обновлены пояснения приватности и переводы всех брендов."
+    ],
+    "en": [
+      "Added a compact form for suggestions, corrections and bug reports.",
+      "Brand and model search excludes phones already in the archive.",
+      "Connected Telegram feedback delivery and updated the privacy explanation and translations for all brands."
+    ]
+  }
+},
+{
+  "date": "2026-11-08",
+  "phones": [
+    "nokia-5510",
+    "nokia-3650",
+    "nokia-7600",
+    "nokia-n93",
+    "nokia-e90",
+    "sony-ericsson-p800",
+    "sony-ericsson-p910i",
+    "sony-ericsson-w900i",
+    "sony-ericsson-w880i",
+    "sony-ericsson-c905",
+    "nokia-6300",
+    "nokia-5310-xpressmusic",
+    "nokia-5300-xpressmusic",
+    "nokia-6500-slide",
+    "sony-ericsson-k550i",
+    "sony-ericsson-w610i",
+    "samsung-sgh-d900",
+    "samsung-sgh-u900",
+    "motorola-krzr-k1",
+    "lg-vx8500"
+  ],
+  "changes": {
+    "uk": [
+      "Додано 20 ретро-моделей із фото, відео й перекладами.",
+      "Сучасний дизайн: Liquid Glass і бірюзовий акцент. Журнал зберіг мідь.",
+      "Оновлено логотип, favicon, хедер, футер і мобільне меню.",
+      "Плавніша галерея, іконки керування та зразки кольорів корпусу.",
+      "Закріплено назви моделей у порівнянні й покращено таблиці.",
+      "Додано звуки ввімкнення для всіх 11 брендів. LG VX8500 виправлено на слайдер.",
+      "Додано особисту хронологію, недавні поповнення на головній і прев’ю посилань."
+    ],
+    "ru": [
+      "Добавлено 20 ретромоделей с фото, видео и переводами.",
+      "Современный дизайн: Liquid Glass и бирюзовый акцент. Журнал сохранил медь.",
+      "Обновлены логотип, favicon, хедер, футер и мобильное меню.",
+      "Более плавная галерея, иконки управления и образцы цветов корпуса.",
+      "Закреплены названия моделей в сравнении и улучшены таблицы.",
+      "Добавлены звуки включения для всех 11 брендов. LG VX8500 исправлен на слайдер.",
+      "Добавлены личная хронология, недавние пополнения на главной и превью ссылок."
+    ],
+    "en": [
+      "Added 20 retro models with photos, videos and translations.",
+      "Modern design: Liquid Glass and teal accents. The magazine retains copper.",
+      "Updated the logo, favicons, header, footer and mobile menu.",
+      "Smoother galleries, icon controls and body-colour swatches.",
+      "Added sticky model names in comparison and refined specification tables.",
+      "Added startup sounds for all 11 brands. Corrected the LG VX8500 to a slider.",
+      "Added a personal timeline, recent additions on the homepage and link previews."
+    ]
+  }
 },
 {"date":"2026-11-07","phones":[],"changes":{"uk":["Розширено відеотеку: огляди, ретроспективи та демонстрації меню для Nokia, Siemens, Motorola, Sony Ericsson і Samsung. Додано фільтр моделей із відео та позначки на картках.","«Обране» перетворено на «Мої телефони» — особисту добірку моделей, якими користувалися.","Оновлено історії моделей, характеристики та мобільну навігацію сторінок телефонів. Завершено перевірку узгодженості перекладів."],"ru":["Расширена видеотека: обзоры, ретроспективы и демонстрации меню для Nokia, Siemens, Motorola, Sony Ericsson и Samsung. Добавлены фильтр моделей с видео и отметки на карточках.","«Избранное» преобразовано в «Мои телефоны» — личную подборку моделей, которыми пользовались.","Обновлены истории моделей, характеристики и мобильная навигация страниц телефонов. Завершена проверка согласованности переводов."],"en":["Expanded the video library with reviews, retrospectives and menu demonstrations for Nokia, Siemens, Motorola, Sony Ericsson and Samsung. Added video filtering and card badges.","Favourites became My phones: a personal collection of phones you have used.","Updated model histories, specifications and mobile navigation on phone pages, and completed a translation consistency audit."]}},
 {"date":"2026-11-05","phones":[],"changes":{"uk":["Поповнено ретро-добірку моделями Nokia 8800, N90 і Sony Ericsson S700i. Додано бренди LG та Alcatel і розширено історії чинних виробників сучасними моделями.","Перероблено сторінки брендів: виразніший вступ про виробника, компактніша композиція та узгоджені ховери карток.","Оновлено фотографії Nokia X7, N79, N81 та інших моделей; N81 8GB представлено як споріднену версію. Для нових поповнень додано позначку «Нове»."],"ru":["Ретроподборка пополнена Nokia 8800, N90 и Sony Ericsson S700i. Добавлены бренды LG и Alcatel, истории действующих производителей продолжены современными моделями.","Переработаны страницы брендов: более выразительное введение о производителе, компактная композиция и единые ховеры карточек.","Обновлены фотографии Nokia X7, N79, N81 и других моделей; N81 8GB представлен как родственная версия. Для новых пополнений добавлена отметка «Новое»."],"en":["Added Nokia 8800, N90 and Sony Ericsson S700i to the retro selection. Introduced LG and Alcatel brand pages and extended active manufacturers’ timelines with modern models.","Redesigned brand pages with clearer manufacturer introductions, more compact layouts and consistent card hover effects.","Refreshed photos for Nokia X7, N79, N81 and other models, and included N81 8GB as a related variant. Added a badge for recent additions."]}},

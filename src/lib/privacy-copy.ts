@@ -20,7 +20,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Пропозиції та повідомлення про помилки",
-        "Форма «Допомогти архіву» надсилає лише після натискання кнопки текст звернення, тип, бренд/модель, джерело, адресу поточної сторінки без параметрів і необов’язковий email власнику через Telegram Bot API. Обробка проходить через Cloudflare Worker. IP-адреса використовується для обмеження частоти запитів у вигляді хешованого ключа; до повідомлення Telegram вона не додається. Форма не записує чернетки у localStorage. Повідомлення залишаються в Telegram до опрацювання та видалення власником; для видалення звернися на sebistian@ukr.net. Cloudflare і Telegram обробляють дані за власними правилами. Не надсилай паролів або чутливих персональних даних."
+        "Форма «Допомогти архіву» надсилає лише після натискання кнопки текст звернення, тип, бренд/модель для пропозиції телефона та адресу поточної сторінки без параметрів власнику через Telegram Bot API. Обробка проходить через Cloudflare Worker. IP-адреса використовується для обмеження частоти запитів у вигляді хешованого ключа; до повідомлення Telegram вона не додається. Форма не записує чернетки у localStorage. Повідомлення залишаються в Telegram до опрацювання та видалення власником; для видалення звернися на sebistian@ukr.net. Cloudflare і Telegram обробляють дані за власними правилами. Не надсилай паролів або чутливих персональних даних."
       ],
       [
         "Налаштування у браузері",
@@ -106,7 +106,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Предложения и сообщения об ошибках",
-        "Форма «Помочь архиву» только после нажатия кнопки отправляет владельцу через Telegram Bot API текст, тип обращения, бренд/модель, источник, адрес текущей страницы без параметров и необязательный email. Обработка проходит через Cloudflare Worker. IP-адрес используется для ограничения частоты запросов в виде хешированного ключа; в сообщение Telegram он не добавляется. Форма не записывает черновики в localStorage. Сообщения остаются в Telegram до обработки и удаления владельцем; для удаления обратись на sebistian@ukr.net. Cloudflare и Telegram обрабатывают данные по собственным правилам. Не отправляй пароли или чувствительные личные данные."
+        "Форма «Помочь архиву» только после нажатия кнопки отправляет владельцу через Telegram Bot API текст, тип обращения, бренд/модель для предложения телефона и адрес текущей страницы без параметров. Обработка проходит через Cloudflare Worker. IP-адрес используется для ограничения частоты запросов в виде хешированного ключа; в сообщение Telegram он не добавляется. Форма не записывает черновики в localStorage. Сообщения остаются в Telegram до обработки и удаления владельцем; для удаления обратись на sebistian@ukr.net. Cloudflare и Telegram обрабатывают данные по собственным правилам. Не отправляй пароли или чувствительные личные данные."
       ],
       [
         "Данные браузера",
@@ -192,7 +192,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Suggestions and bug reports",
-        "Only when you press Send does the Help the archive form send the owner your message, request type, brand/model, source, current page address without URL parameters and optional email through Telegram Bot API. A Cloudflare Worker handles delivery. The IP address is used as a hashed rate-limit key and is not included in the Telegram message. Drafts are not saved in localStorage. Messages remain in Telegram until the owner reviews and deletes them; contact sebistian@ukr.net to request deletion. Cloudflare and Telegram process data under their own policies. Do not send passwords or sensitive personal information."
+        "Only when you press Send does the Help the archive form send the owner your message, request type, brand/model for phone suggestions and current page address without URL parameters through Telegram Bot API. A Cloudflare Worker handles delivery. The IP address is used as a hashed rate-limit key and is not included in the Telegram message. Drafts are not saved in localStorage. Messages remain in Telegram until the owner reviews and deletes them; contact sebistian@ukr.net to request deletion. Cloudflare and Telegram process data under their own policies. Do not send passwords or sensitive personal information."
       ],
       [
         "Browser preferences",

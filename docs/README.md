@@ -37,3 +37,5 @@
 - [N95 8GB](nokia-n95-8gb-sources.md), [Nokia X7/N79/N81](nokia-x7-n79-n81-images-2026-11-05.md).
 - [Дизайн брендів](all-brands-design-2026-11-05.md), [аудит якості](quality-audit.md).
 - [Експорт моделей 31 жовтня](exports/mobile-history-models-2026-10-31.docx) — архівний документ, знімок 115 моделей, не поточний каталог.
+
+- [Siemens M55: дані, фото й відео](siemens-m55-sources.md). Бренди мають усі 33 локальні записи; audit:locales перевіряє і їх.

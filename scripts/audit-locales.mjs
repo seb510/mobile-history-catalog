@@ -74,7 +74,34 @@ for (const file of files) {
     }
   }
 }
-const report = { models: files.length, records, checks: ['own locales', 'field presence', 'numeric/boolean consistency', 'image/source consistency', 'language heuristics', 'internal Markdown link locale', 'comparison slugs'], limitation: 'Passing does not certify translation quality or factual accuracy. Proper names and brand colour names may remain untranslated.', issues };
+const brandBase = path.join(root, 'src/data/brands');
+const brandFiles = fs.readdirSync(path.join(brandBase, 'uk')).filter(file=>file.endsWith('.md'));
+let brandRecords = 0;
+for (const file of brandFiles) {
+  const canonicalRaw = fs.readFileSync(path.join(brandBase,'uk',file),'utf8');
+  const canonical = parse(canonicalRaw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+  for (const locale of locales) {
+    const relative = `brands/${locale}/${file}`;
+    const filename = path.join(brandBase,locale,file);
+    if (!fs.existsSync(filename)) { add('missing-brand-locale',relative,'','No own brand translation'); continue; }
+    const raw = fs.readFileSync(filename,'utf8');
+    const header = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u);
+    if (!header) { add('frontmatter',relative,'','Missing YAML header'); continue; }
+    brandRecords++;
+    const data = parse(header[1]);
+    for (const field of ['name','founded','logo','logoSourceUrl']) {
+      if (data[field]!==canonical[field]) add('brand-identity',relative,field,'Canonical identity or asset differs');
+    }
+    const prose = raw.slice(header[0].length).replace(/\]\([^)]+\)/gu,']');
+    if (locale==='en' && cyrillic.test(prose)) add('english-body-cyrillic',relative,'body','Review untranslated brand prose');
+    if (locale==='ru' && ukrainianOnly.test(prose)) add('russian-ukrainian',relative,'body','Review untranslated brand prose');
+    for (const field of ['country','logoCredit']) {
+      if (locale==='en' && cyrillic.test(data[field]||'')) add('english-cyrillic',relative,field,data[field]);
+      if (locale==='ru' && ukrainianOnly.test(data[field]||'')) add('russian-ukrainian',relative,field,data[field]);
+    }
+  }
+}
+const report = { models: files.length, records, brands: brandFiles.length, brandRecords, checks: ['own locales', 'own brand locales and identity', 'field presence', 'numeric/boolean consistency', 'image/source consistency', 'language heuristics', 'internal Markdown link locale', 'comparison slugs'], limitation: 'Passing does not certify translation quality or factual accuracy. Proper names and brand colour names may remain untranslated.', issues };
 fs.writeFileSync(path.join(root, 'docs/locale-audit.json'), JSON.stringify(report, null, 2) + '\n');
-console.log(`Locale audit: ${files.length} models, ${records} records, ${issues.length} issues. Report: docs/locale-audit.json`);
+console.log(`Locale audit: ${files.length} models / ${records} phone records; ${brandFiles.length} brands / ${brandRecords} brand records; ${issues.length} issues. Report: docs/locale-audit.json`);
 if (issues.length) process.exitCode = 1;

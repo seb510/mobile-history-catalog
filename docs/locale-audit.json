@@ -1,8 +1,11 @@
 {
-  "models": 125,
-  "records": 375,
+  "models": 126,
+  "records": 378,
+  "brands": 11,
+  "brandRecords": 33,
   "checks": [
     "own locales",
+    "own brand locales and identity",
     "field presence",
     "numeric/boolean consistency",
     "image/source consistency",

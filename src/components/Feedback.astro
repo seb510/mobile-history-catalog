@@ -21,11 +21,8 @@ const brands = [...new Set([...Object.keys(suggestions), ...phones.map(p=>p.data
         <div class="feedback-fields"><label>{copy.brand}<input name="brand" list="feedback-brands" maxlength="60" placeholder={copy.searchBrand} autocomplete="off" required/><datalist id="feedback-brands">{brands.map(brand=><option value={brand}/>)}</datalist></label><label>{copy.model}<input name="model" list="feedback-models" maxlength="100" placeholder={copy.searchModel} autocomplete="off" required/><datalist id="feedback-models"></datalist></label></div>
         <p class="feedback-hint">{copy.suggestions}</p>
       </div>
-      <label>{copy.message}<textarea name="message" rows="4" minlength="10" maxlength="1800" required placeholder={copy.placeholder}></textarea></label>
-      <label>{copy.source}<input name="source" type="url" maxlength="400" placeholder="https://"/></label>
-      <label>{copy.email}<input name="email" type="email" maxlength="120" autocomplete="email"/></label>
+      <label><span data-feedback-message-label>{copy.comment}</span><textarea name="message" rows="2" maxlength="600" placeholder={copy.phonePlaceholder}></textarea></label>
       <div class="feedback-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"/></label></div>
-      <p class="feedback-hint">{copy.page}</p>
       <p class="feedback-privacy">{copy.privacy} <a href={localePath(locale,'/privacy/')}>{copy.policy}</a></p>
       <p data-feedback-status role="status" aria-live="polite" tabindex="-1"></p>
       <button type="submit" class="primary-cta feedback-submit">{copy.send}</button>

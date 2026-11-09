@@ -23,9 +23,23 @@ test('valid submission delivers plain text to the configured chat without IP or 
 test('cross-origin requests cannot send',async()=>assert.equal((await handleFeedback(request(payload,{headers:{Origin:'https://other.example','Content-Type':'application/json'}}),env,mustNotSend)).status,403));
 test('GET is rejected',async()=>assert.equal((await handleFeedback(new Request(origin+'/api/feedback'),env,mustNotSend)).status,405));
 test('wrong content type is rejected',async()=>assert.equal((await handleFeedback(request(payload,{headers:{Origin:origin,'Content-Type':'text/plain'}}),env,mustNotSend)).status,415));
-for(const [name,value] of Object.entries({type:'other',locale:'other',message:'short',brand:'a'.repeat(61),model:'',source:'javascript:alert(1)',email:'invalid',page:'/compare/?a=private'})) {
+for(const [name,value] of Object.entries({type:'other',locale:'other',brand:'a'.repeat(61),model:'',page:'/compare/?a=private'})) {
   test(`invalid ${name} does not send`,async()=>assert.equal((await handleFeedback(request({...payload,[name]:value}),env,mustNotSend)).status,400));
 }
+test('phone suggestion needs only brand and model',async()=>assert.equal((await handleFeedback(request({...payload,message:''}),env,async()=>Response.json({ok:true}))).status,200));
+for(const type of ['correction','bug','idea']) {
+  test(`${type} requires a non-whitespace description`,async()=>assert.equal((await handleFeedback(request({...payload,type,message:'          '}),env,mustNotSend)).status,400));
+}
+test('phone comments are capped independently of longer issue descriptions',async()=>assert.equal((await handleFeedback(request({...payload,message:'a'.repeat(601)}),env,mustNotSend)).status,400));
+for(const message of ['<script>alert(1)</script>','<img src=x onerror=alert(1)>','javascript:alert(1)','&#60;script&#62;alert(1)','&lt;script&gt;alert(1)','onload = alert(1)','data:text/html,<svg>']) {
+  test(`script or markup input is rejected: ${message.slice(0,24)}`,async()=>assert.equal((await handleFeedback(request({...payload,message}),env,mustNotSend)).status,400));
+}
+test('markup is rejected in phone identity as well as description',async()=>assert.equal((await handleFeedback(request({...payload,model:'<svg onload=alert(1)>'}),env,mustNotSend)).status,400));
+test('plain code-like text is inert; removed email/source and hidden phone fields are not forwarded',async()=>{
+  const response=await handleFeedback(request({...payload,type:'bug',brand:'hidden',model:'hidden',message:"The page says SELECT * FROM phones; it does not load.",email:'private@example.com',source:'https://private.example'}),env,async(_,options)=>{
+    const body=JSON.parse(options.body);assert.equal(body.parse_mode,undefined);assert.ok(!body.text.includes('private'));assert.ok(!body.text.includes('hidden'));assert.ok(body.text.includes('SELECT * FROM phones'));return Response.json({ok:true});
+  });assert.equal(response.status,200);
+});
 test('bounded body rejects oversized payload without delivery',async()=>assert.equal((await handleFeedback(request({...payload,message:'x'.repeat(11000)}),env,mustNotSend)).status,413));
 test('invalid JSON is rejected',async()=>assert.equal((await handleFeedback(request(payload,{body:'{'}),env,mustNotSend)).status,400));
 test('honeypot acknowledges without forwarding',async()=>assert.equal((await handleFeedback(request({...payload,website:'bot'}),env,mustNotSend)).status,200));
