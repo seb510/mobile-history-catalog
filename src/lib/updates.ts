@@ -6,19 +6,22 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-09",
-  "phones": ["siemens-m55"],
+  "phones": ["siemens-m55", "nokia-6230i", "nokia-6280", "sony-ericsson-k810i", "sony-ericsson-w910i", "lg-kg800"],
   "changes": {
     "uk": [
+      "Додано п’ять моделей 2005–2007 років із фото, відео й перекладами.",
       "Додано компактну форму пропозицій, виправлень і повідомлень про баги.",
       "Пошук бренду й моделі виключає телефони, які вже є в архіві.",
       "Підключено доставку звернень у Telegram. Оновлено пояснення приватності й переклади всіх брендів."
     ],
     "ru": [
+      "Добавлены пять моделей 2005–2007 годов с фото, видео и переводами.",
       "Добавлена компактная форма предложений, исправлений и сообщений об ошибках.",
       "Поиск бренда и модели исключает телефоны, которые уже есть в архиве.",
       "Подключена доставка обращений в Telegram. Обновлены пояснения приватности и переводы всех брендов."
     ],
     "en": [
+      "Added five 2005–2007 phones with photos, videos and translations.",
       "Added a compact form for suggestions, corrections and bug reports.",
       "Brand and model search excludes phones already in the archive.",
       "Connected Telegram feedback delivery and updated the privacy explanation and translations for all brands."
