@@ -28,3 +28,6 @@ Historical validation (2026-10-31): Astro check (0 errors/warnings), production 
 This section documents code behaviour, not a new legal review. The legal references above were reviewed on the stated historical date; hosting logs, retention and production configuration require separate verification.
 
 Brand power-on audio (2026-11-08): all 11 examples now use local MP3 files, native controls and `preload="none"`, with no autoplay. Source links remain external. This introduces no new browser-storage keys or advertising integration.
+## Звернення через Telegram — 2026-11-09
+
+Глобальна форма Feedback передає текст/тип/бренд/модель/джерело/pathname/необов’язковий email через Worker до Telegram після прямого натискання. Чернетки не пишуться у сховище; передача не пов’язана зі згодою на оформлення. IP використовується як хешований rate-limit ключ; не включається до Telegram-повідомлення. У застосунку немає журналювання звернень, але хостинг/Telegram мають власні правила. Видалення повідомлень власником ручне; автоматичного retention немає. Privacy copy uk/ru/en оновлено. Докладно: [feedback-telegram.md](feedback-telegram.md).

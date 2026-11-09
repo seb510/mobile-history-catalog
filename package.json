@@ -12,7 +12,8 @@
     "astro": "astro",
     "gen:images": "node scripts/generate-images.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
-    "audit:locales": "node scripts/audit-locales.mjs"
+    "audit:locales": "node scripts/audit-locales.mjs",
+    "test:feedback": "node --test tests/feedback-worker.test.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.0.1",

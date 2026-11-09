@@ -1,13 +1,15 @@
-// Cloudflare Workers deploy (Workers Builds runs `npm run build`, then `npx wrangler deploy`).
-// The entire site is static — every route is pre-rendered HTML (uk/ru/en), so Cloudflare serves
-// `dist/` as assets directly and no Worker code runs for any request. Unlike Watchly, there is no
-// SPA route needing a worker/index.js exception: every page, including 404, is already static HTML.
+// Cloudflare Workers deploy (Workers Builds runs `npm run build`, then `npx wrangler deploy --autoconfig=false`).
+// All pages remain Astro SSG. Only POST /api/feedback executes the Telegram handler.
 {
   // Must match the project (Worker) name in the Cloudflare dashboard, or the build fails.
   "name": "mobile-history-catalog",
   "compatibility_date": "2026-10-31",
+  "main": "worker/feedback.mjs",
+  "ratelimits": [{ "name": "FEEDBACK_RATE_LIMIT", "namespace_id": "11092026", "simple": { "limit": 3, "period": 60 } }],
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/feedback"],
     // dist/404.html (and localized ru/en 404 pages) is served with a real 404 status for any
     // unmatched path — this is a multi-page static site, not an SPA, so no "single-page-application"
     // fallback-to-200 behavior is wanted here.

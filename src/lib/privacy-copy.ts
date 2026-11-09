@@ -8,7 +8,7 @@ export const PRIVACY_COPY = {
     "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему та стиль оформлення між відвідуваннями? «Мої телефони» зберігає моделі лише після натискання «Я мав цей телефон».",
     "accept": "Дозволити збереження оформлення",
     "reject": "Не зберігати оформлення",
-    "updated": "Оновлено 7 листопада 2026",
+    "updated": "Оновлено 9 листопада 2026",
     "sections": [
       [
         "Власник і контакт",
@@ -17,6 +17,10 @@ export const PRIVACY_COPY = {
       [
         "Що обробляє сайт",
         "Це статичний некомерційний архів без акаунтів, форм реєстрації, реклами та аналітичних трекерів. Пошук і вибір моделей обробляються у браузері; обрані моделі порівняння записуються в URL і потрапляють у посилання, яким ти ділишся."
+      ],
+      [
+        "Пропозиції та повідомлення про помилки",
+        "Форма «Допомогти архіву» надсилає лише після натискання кнопки текст звернення, тип, бренд/модель, джерело, адресу поточної сторінки без параметрів і необов’язковий email власнику через Telegram Bot API. Обробка проходить через Cloudflare Worker. IP-адреса використовується для обмеження частоти запитів у вигляді хешованого ключа; до повідомлення Telegram вона не додається. Форма не записує чернетки у localStorage. Повідомлення залишаються в Telegram до опрацювання та видалення власником; для видалення звернися на sebistian@ukr.net. Cloudflare і Telegram обробляють дані за власними правилами. Не надсилай паролів або чутливих персональних даних."
       ],
       [
         "Налаштування у браузері",
@@ -90,7 +94,7 @@ export const PRIVACY_COPY = {
     "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему и стиль оформления между посещениями? «Мои телефоны» сохраняет модели только после нажатия «У меня был этот телефон».",
     "accept": "Разрешить сохранение оформления",
     "reject": "Не сохранять оформление",
-    "updated": "Обновлено 7 ноября 2026",
+    "updated": "Обновлено 9 ноября 2026",
     "sections": [
       [
         "Владелец и контакт",
@@ -99,6 +103,10 @@ export const PRIVACY_COPY = {
       [
         "Какие данные обрабатываются",
         "Это статический некоммерческий архив без аккаунтов, регистрации, рекламы и аналитических трекеров. Поиск и выбор моделей работают в браузере; модели сравнения записываются в URL и включаются в ссылку, которой ты делишься."
+      ],
+      [
+        "Предложения и сообщения об ошибках",
+        "Форма «Помочь архиву» только после нажатия кнопки отправляет владельцу через Telegram Bot API текст, тип обращения, бренд/модель, источник, адрес текущей страницы без параметров и необязательный email. Обработка проходит через Cloudflare Worker. IP-адрес используется для ограничения частоты запросов в виде хешированного ключа; в сообщение Telegram он не добавляется. Форма не записывает черновики в localStorage. Сообщения остаются в Telegram до обработки и удаления владельцем; для удаления обратись на sebistian@ukr.net. Cloudflare и Telegram обрабатывают данные по собственным правилам. Не отправляй пароли или чувствительные личные данные."
       ],
       [
         "Данные браузера",
@@ -172,7 +180,7 @@ export const PRIVACY_COPY = {
     "intro": "No advertising or analytics trackers. May we remember your theme and design style between visits? My phones stores models only after you select “I had this phone”.",
     "accept": "Allow appearance storage",
     "reject": "Do not store appearance",
-    "updated": "Updated 7 November 2026",
+    "updated": "Updated 9 November 2026",
     "sections": [
       [
         "Owner and contact",
@@ -181,6 +189,10 @@ export const PRIVACY_COPY = {
       [
         "What the site processes",
         "This is a static noncommercial archive without accounts, registration forms, advertising or analytics trackers. Search and model selection run in your browser. Comparison models are included in the URL and in any comparison link you share."
+      ],
+      [
+        "Suggestions and bug reports",
+        "Only when you press Send does the Help the archive form send the owner your message, request type, brand/model, source, current page address without URL parameters and optional email through Telegram Bot API. A Cloudflare Worker handles delivery. The IP address is used as a hashed rate-limit key and is not included in the Telegram message. Drafts are not saved in localStorage. Messages remain in Telegram until the owner reviews and deletes them; contact sebistian@ukr.net to request deletion. Cloudflare and Telegram process data under their own policies. Do not send passwords or sensitive personal information."
       ],
       [
         "Browser preferences",

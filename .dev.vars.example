@@ -1,0 +1,4 @@
+# Local Wrangler only. Copy to .dev.vars (ignored by Git).
+# Never put these values in PUBLIC_* variables or commit the real file.
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=

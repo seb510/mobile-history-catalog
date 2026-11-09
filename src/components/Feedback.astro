@@ -1,0 +1,36 @@
+---
+import { FEEDBACK_COPY, SUGGESTED_MODELS, phoneIdentity } from '../lib/feedback';
+import { getPhonesForLocale } from '../lib/phones';
+import { localePath, type Locale } from '../lib/locales';
+const { locale } = Astro.props as { locale: Locale };
+const copy = FEEDBACK_COPY[locale];
+const phones = await getPhonesForLocale(locale);
+const existing = [...new Set(phones.flatMap(p => [phoneIdentity(p.data.brand,p.data.model), ...(p.data.specVariant ? [phoneIdentity(p.data.brand,p.data.specVariant.model)] : [])]))];
+const suggestions = Object.fromEntries(Object.entries(SUGGESTED_MODELS).map(([brand, models]) => [brand, models.filter(model => !existing.includes(phoneIdentity(brand,model)))]));
+const brands = [...new Set([...Object.keys(suggestions), ...phones.map(p=>p.data.brand)])].sort();
+---
+<div data-feedback-root data-locale={locale}>
+  <button type="button" data-feedback-open hidden class="feedback-launch" aria-label={copy.open} title={copy.open} aria-haspopup="dialog" aria-controls="feedback-dialog">
+    <svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-8 8H5l-3 2v-10a9 9 0 0 1 18 0Z"/><path d="M7 11h8m-8 4h5"/></svg>
+  </button>
+  <dialog id="feedback-dialog" class="feedback-dialog" aria-labelledby="feedback-title" aria-describedby="feedback-intro">
+    <header class="feedback-heading"><div><h2 id="feedback-title">{copy.title}</h2><p id="feedback-intro">{copy.intro}</p></div><button type="button" data-feedback-close class="control-button" aria-label={copy.close} title={copy.close}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+    <form data-feedback-form>
+      <fieldset class="feedback-types"><legend>{copy.type}</legend>{['phone','correction','bug','idea'].map((value,i)=><label><input type="radio" name="type" value={value} checked={i===0}/><span>{copy.types[i]}</span></label>)}</fieldset>
+      <div data-feedback-phone>
+        <div class="feedback-fields"><label>{copy.brand}<input name="brand" list="feedback-brands" maxlength="60" placeholder={copy.searchBrand} autocomplete="off" required/><datalist id="feedback-brands">{brands.map(brand=><option value={brand}/>)}</datalist></label><label>{copy.model}<input name="model" list="feedback-models" maxlength="100" placeholder={copy.searchModel} autocomplete="off" required/><datalist id="feedback-models"></datalist></label></div>
+        <p class="feedback-hint">{copy.suggestions}</p>
+      </div>
+      <label>{copy.message}<textarea name="message" rows="4" minlength="10" maxlength="1800" required placeholder={copy.placeholder}></textarea></label>
+      <label>{copy.source}<input name="source" type="url" maxlength="400" placeholder="https://"/></label>
+      <label>{copy.email}<input name="email" type="email" maxlength="120" autocomplete="email"/></label>
+      <div class="feedback-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"/></label></div>
+      <p class="feedback-hint">{copy.page}</p>
+      <p class="feedback-privacy">{copy.privacy} <a href={localePath(locale,'/privacy/')}>{copy.policy}</a></p>
+      <p data-feedback-status role="status" aria-live="polite" tabindex="-1"></p>
+      <button type="submit" class="primary-cta feedback-submit">{copy.send}</button>
+    </form>
+  </dialog>
+  <script type="application/json" data-feedback-data set:html={JSON.stringify({copy,suggestions,existing}).replace(/</g,'\u003c')}/>
+</div>
+<script>import '../scripts/feedback';</script>

@@ -6,7 +6,7 @@
 Cloudflare Workers деплой), але інша архітектура — тут усе статично генерується (Astro SSG), бо
 дані курируються вручну й незмінні між білдами, на відміну від живих API в Watchly.
 
-## Актуальний стан — 2026-11-08
+## Актуальний стан — 2026-11-09
 
 Продовження на іншому комп’ютері: [docs/handoff-2026-11-08.md](docs/handoff-2026-11-08.md).
 
@@ -23,6 +23,8 @@ Cloudflare Workers деплой), але інша архітектура — т�
 - Головна має чотири недавні поповнення за dateAdded; /updates/ — тримовний журнал завершених змін, історичні дати підтверджені Git. Для дня без підтверджень запис не вигадувати.
 - Публічний origin налаштовано на https://mobile-history-catalog.nikolaysebistiyan.workers.dev/. Стан production-індексації перевіряється окремо. Push і deploy виконує власник; commit — лише за прямим запитом.
 
+- Зворотний зв’язок: глобальна форма й POST /api/feedback → Telegram підготовлені; secrets бота й реальна доставка ще не налаштовані. Усі сторінки SSG; новий Worker обслуговує лише API. Див. [docs/feedback-telegram.md](docs/feedback-telegram.md).
+
 ## Commands
 
 ```
@@ -32,7 +34,7 @@ npm run preview     # serve the built dist/ locally
 npm run astro check # type-check content frontmatter against the Zod schema without a full build
 ```
 
-No test suite or linter is configured. There is no per-phone "test" — correctness is enforced by
+A focused feedback API test suite is available via `npm run test:feedback`; no general UI test suite or linter is configured. There is no per-phone "test" — correctness is enforced by
 the Zod schema in `src/content.config.ts` at build time; `npm run build` (or `astro check`)
 failing on a phone file is the equivalent of a failing test.
 
@@ -1465,3 +1467,11 @@ Modern: льодяно-блакитна світла палітра й граф�
 Порівняння: compare-table використовує overflow:clip замість hidden і без backdrop-filter на контейнері, щоб sticky-заголовок не створював порожню смугу 60px; фон залишається скляним, top враховує плаваючий хедер.
 
 Sticky порівняння збережено: верхній відступ вимірюється від фактичної висоти/позиції хедера через ResizeObserver; при приховуванні хедера top=0. Перемикання редакції та resize перераховують відступ.
+
+## Зворотний зв’язок — 2026-11-09
+
+Глобальна кнопка Feedback у Layout, діалог uk/ru/en у двох редакціях і темах; типи phone/correction/bug/idea. Бренд/модель — input+datalist з ручним введенням, підказки з lib/feedback.ts. Довідник курований, не повний список виробника. Наявні моделі та specVariant виключаються з підказок, ручні дублікати перевіряються в браузері. API не має повного довідника виробників.
+
+Усі сторінки лишаються SSG; новий worker/feedback.mjs обробляє лише POST /api/feedback (run_worker_first), решта — ASSETS. Це актуальна зміна попередньої архітектури без Worker-коду; Cloudflare-адаптер Astro не додавати. TELEGRAM_BOT_TOKEN і TELEGRAM_CHAT_ID тільки secrets, локально .dev.vars (ignored); не просити токен у чаті й не додавати його до PUBLIC_* або Git. Без secrets API повертає 503. Ліміт binding FEEDBACK_RATE_LIMIT, 3/60с на хешований IP-ключ/локацію; Origin/поля/обмеження body/honeypot. Доставку Telegram реально ще не перевірено — бота та secrets підключає власник. Детально: [docs/feedback-telegram.md](docs/feedback-telegram.md).
+
+Форма передає pathname без query/hash, необов’язковий email і введені дані лише після Send; чернетки не зберігаються, localStorage не додається. Оновлено privacy uk/ru/en. npm run test:feedback — 20 ізольованих тестів API з mock-транспортом; це єдиний доданий набір тестів, загального лінтера/тестової системи UI немає. Push/deploy лишаються виключно власнику, commit за прямим запитом.
