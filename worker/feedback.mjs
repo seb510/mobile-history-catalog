@@ -28,7 +28,10 @@ export async function handleFeedback(request, env, send = fetch) {
   if(fields.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))return reply(400,'email');
   // Only a local pathname is accepted; never forward query parameters or fragments.
   if(!/^\/(?!\/)[^?#\s\\]*$/.test(fields.page))return reply(400,'page');
-  if(!env.TELEGRAM_BOT_TOKEN||!env.TELEGRAM_CHAT_ID||!env.FEEDBACK_RATE_LIMIT)return reply(503,'unavailable');
+  // Report which binding is unavailable without exposing any secret values.
+  if(typeof env.TELEGRAM_BOT_TOKEN!=='string'||!env.TELEGRAM_BOT_TOKEN.trim())return reply(503,'missing_bot_token');
+  if(typeof env.TELEGRAM_CHAT_ID!=='string'||!env.TELEGRAM_CHAT_ID.trim())return reply(503,'missing_chat_id');
+  if(typeof env.FEEDBACK_RATE_LIMIT?.limit!=='function')return reply(503,'missing_rate_limit');
   try {
     const ip=request.headers.get('CF-Connecting-IP') || 'local';
     const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(`${url.host}:${ip}`));

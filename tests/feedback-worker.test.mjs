@@ -30,6 +30,14 @@ test('bounded body rejects oversized payload without delivery',async()=>assert.e
 test('invalid JSON is rejected',async()=>assert.equal((await handleFeedback(request(payload,{body:'{'}),env,mustNotSend)).status,400));
 test('honeypot acknowledges without forwarding',async()=>assert.equal((await handleFeedback(request({...payload,website:'bot'}),env,mustNotSend)).status,200));
 test('missing setup returns unavailable',async()=>assert.equal((await handleFeedback(request(),{},mustNotSend)).status,503));
+for(const [binding,code] of [['TELEGRAM_BOT_TOKEN','missing_bot_token'],['TELEGRAM_CHAT_ID','missing_chat_id'],['FEEDBACK_RATE_LIMIT','missing_rate_limit']]) {
+  test(`configuration diagnostic identifies ${binding} without leaking other values`,async()=>{
+    const config={...env};delete config[binding];
+    const response=await handleFeedback(request(),config,mustNotSend);
+    assert.equal(response.status,503);
+    assert.deepEqual(await response.json(),{ok:false,code});
+  });
+}
 test('rate limit rejects without forwarding',async()=>assert.equal((await handleFeedback(request(),{...env,FEEDBACK_RATE_LIMIT:{limit:async()=>({success:false})}},mustNotSend)).status,429));
 test('Telegram false response is not reported as success',async()=>assert.equal((await handleFeedback(request(),env,async()=>Response.json({ok:false}))).status,502));
 test('upstream failures do not expose credentials or raw errors',async()=>{
