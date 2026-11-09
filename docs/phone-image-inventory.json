@@ -2,13 +2,14 @@
   "date": "2026-11-09",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 131,
-    "localPrimary": 72,
+    "models": 138,
+    "localPrimary": 78,
     "remotePrimary": 56,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
-      "samsung-sgh-e700"
+      "samsung-sgh-e700",
+      "siemens-sl45i"
     ],
     "issues": [
       "alcatel-one-touch-155: Missing attribution: /images/phones/alcatel-one-touch-155/front.webp",
@@ -439,6 +440,27 @@
       "issues": []
     },
     {
+      "slug": "nokia-7710",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-7900-prism",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-8600-luna",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-8800",
       "primary": "local",
       "frames": 1,
@@ -792,6 +814,13 @@
       "issues": []
     },
     {
+      "slug": "siemens-sl45i",
+      "primary": "missing",
+      "frames": 0,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "siemens-sl55",
       "primary": "remote",
       "frames": 2,
@@ -802,6 +831,20 @@
       "slug": "siemens-sxg75",
       "primary": "local",
       "frames": 4,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "siemens-xelibri-2",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "siemens-xelibri-8",
+      "primary": "local",
+      "frames": 3,
       "remoteFrames": 0,
       "issues": []
     },
@@ -947,6 +990,13 @@
     },
     {
       "slug": "sony-ericsson-xperia-arc-s",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-xperia-x1",
       "primary": "local",
       "frames": 1,
       "remoteFrames": 0,

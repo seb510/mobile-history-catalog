@@ -105,3 +105,26 @@ Source: https://www.mobilephonemuseum.com/phone-detail/nokia-5700-xpressmusic
 - museum-back.webp: https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/1eafe3a6-7ed5-4156-80c6-31bf5a38bca6_large.png (400×600).
 
 Local folder: public/images/phones/nokia-5700/. Converted WebP quality 90, dimensions and transparency preserved, no crop/retouch/AI. Front is main; other museum views and all three existing independent images remain in gallery. Credit and source set in all locales.
+
+
+## Additional model photography — 2026-11-09
+
+The following locally converted assets use the reported project permission. Their visible credits link to each model page; they are not open-licensed. Source-to-asset matching was checked against the image gallery shown on each museum page.
+
+| Model page | Local asset under `public/images/phones/` | Original image |
+| --- | --- | --- |
+| [Nokia 8600 Luna](https://www.mobilephonemuseum.com/phone-detail/8600-luna) | `nokia-8600-luna/museum-front.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/7641acd2-89eb-459d-b987-639ddca37da5_large.png |
+| | `nokia-8600-luna/museum-back.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/f444a31b-b7f0-4d09-9579-f5faab5c80d0_large.png |
+| | `nokia-8600-luna/museum-detail.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/f818a879-96a4-4283-8661-11a4cb3435b0_large.png |
+| [Nokia 7900 Prism](https://www.mobilephonemuseum.com/phone-detail/nokia-7900-prism) | `nokia-7900-prism/museum-front.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/f145e27f-6490-4804-8d11-75f59b71a145_large.png |
+| | `nokia-7900-prism/museum-back.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/1a0128e9-3156-4a68-912f-26f4c9f7cdb8_large.png |
+| | `nokia-7900-prism/museum-detail.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/312a381a-1957-4beb-a1ac-74904d3927b7_large.png |
+| [Nokia 7710](https://www.mobilephonemuseum.com/phone-detail/nokia-7710) | `nokia-7710/museum-front.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/365de23e-b43b-4cf1-8a85-19ef7e2386d1_large.png |
+| | `nokia-7710/museum-back.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/fb5fbe75-fd97-43a3-bc06-180849274b0a_large.png |
+| | `nokia-7710/museum-detail.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/b4abece5-142f-495e-9768-f72068bd1a83_large.png |
+| [Siemens Xelibri 2](https://www.mobilephonemuseum.com/phone-detail/xelibri-2) | `siemens-xelibri-2/museum-front.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/6aa1b75e-4168-4255-aaf2-67e7fe37235b_large.png |
+| [Siemens Xelibri 8](https://www.mobilephonemuseum.com/phone-detail/xelibri-8) | `siemens-xelibri-8/museum-front.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/a8617231-5dbb-4597-a741-d3cd2d981dc6_large.png |
+| | `siemens-xelibri-8/museum-back.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/f08c5d2e-f1b7-43b6-a277-897c54b32804_large.png |
+| | `siemens-xelibri-8/museum-detail.webp` | https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/32e188df-fb55-4e49-ab3e-0ece1a792c92_large.png |
+
+The Xelibri 8 `museum-detail.webp` match is the narrow gold handset shown in the museum gallery; the unrelated product-grid image (`64a9e229-f554-407d-b6a3-c337b51c94d1`) was not used. Likewise, Nokia 8600 Luna's detail frame is the open handset (`f818a879-96a4-4283-8661-11a4cb3435b0`); the side profile (`6e86602c-2e33-40ce-a766-8fd98166db5f`) was not used. WebP conversions preserve the supplied source images without cropping, retouching or AI processing. The museum page remains the source link for every frame.

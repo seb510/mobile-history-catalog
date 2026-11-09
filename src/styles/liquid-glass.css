@@ -247,6 +247,11 @@ html[data-design="modern"][data-header-hidden="true"] .compare-table-head { top:
 @supports not (overflow:clip) { html[data-design="modern"] .compare-table { overflow:visible; } }
 
 html[data-design="modern"] .compare-table .compare-table-head { top:var(--compare-header-offset,4.5rem); }
+
+/* Keep mobile navigation legible over page content instead of showing it through the glass. */
+html[data-design="modern"] .mobile-menu-panel { background-color:var(--modern-surface); }
+html[data-design="modern"] .mobile-menu-panel .mobile-nav-link { color:var(--color-neutral-100); }
+html[data-design="modern"] .mobile-menu-panel .mobile-settings-label { color:var(--color-neutral-300); }
 html[data-design="modern"][data-header-hidden="true"] .compare-table .compare-table-head { top:0; }
 html[data-design="modern"] .compare-table .compare-table-head {
   background:var(--modern-surface); border-top-color:var(--modern-line);

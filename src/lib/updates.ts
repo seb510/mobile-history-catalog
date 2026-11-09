@@ -6,22 +6,25 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-09",
-  "phones": ["siemens-m55", "nokia-6230i", "nokia-6280", "sony-ericsson-k810i", "sony-ericsson-w910i", "lg-kg800"],
+  "phones": ["siemens-m55", "nokia-6230i", "nokia-6280", "sony-ericsson-k810i", "sony-ericsson-w910i", "lg-kg800", "nokia-8600-luna", "nokia-7900-prism", "nokia-7710", "siemens-sl45i", "siemens-xelibri-2", "siemens-xelibri-8", "sony-ericsson-xperia-x1"],
   "changes": {
     "uk": [
       "Додано п’ять моделей 2005–2007 років із фото, відео й перекладами.",
+      "До каталогу приєдналися Nokia 8600 Luna, 7900 Prism і 7710, Siemens SL45i та Xelibri 2/8, Sony Ericsson Xperia X1.",
       "Додано компактну форму пропозицій, виправлень і повідомлень про баги.",
       "Пошук бренду й моделі виключає телефони, які вже є в архіві.",
       "Підключено доставку звернень у Telegram. Оновлено пояснення приватності й переклади всіх брендів."
     ],
     "ru": [
       "Добавлены пять моделей 2005–2007 годов с фото, видео и переводами.",
+      "В каталог добавлены Nokia 8600 Luna, 7900 Prism и 7710, Siemens SL45i и Xelibri 2/8, Sony Ericsson Xperia X1.",
       "Добавлена компактная форма предложений, исправлений и сообщений об ошибках.",
       "Поиск бренда и модели исключает телефоны, которые уже есть в архиве.",
       "Подключена доставка обращений в Telegram. Обновлены пояснения приватности и переводы всех брендов."
     ],
     "en": [
       "Added five 2005–2007 phones with photos, videos and translations.",
+      "Added Nokia 8600 Luna, 7900 Prism and 7710, Siemens SL45i and Xelibri 2/8, and Sony Ericsson Xperia X1.",
       "Added a compact form for suggestions, corrections and bug reports.",
       "Brand and model search excludes phones already in the archive.",
       "Connected Telegram feedback delivery and updated the privacy explanation and translations for all brands."
