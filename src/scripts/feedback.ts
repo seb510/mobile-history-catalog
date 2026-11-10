@@ -49,7 +49,7 @@ if (root) {
     if(type()==='phone'&&message.value.length>600){message.setCustomValidity(copy.commentLimit);message.reportValidity();return;}
     if(type()==='phone' && existing.includes(phoneIdentity(brand.value,model.value))){model.setCustomValidity(copy.exists);model.reportValidity();return;}
     if(!form.reportValidity())return;
-    busy=true;submit.disabled=true;submit.textContent=copy.sending;status.textContent='';
+    busy=true;submit.disabled=true;submit.textContent=copy.sending;status.textContent=copy.sending;
     const values=Object.fromEntries(new FormData(form));
     const payload={...values,brand:type()==='phone'?brand.value:'',model:type()==='phone'?model.value:'',page:location.pathname,locale:root.dataset.locale};
     try {
