@@ -5,6 +5,14 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-10",
+  "phones": ["nokia-500", "nokia-600", "nokia-700", "sony-xperia-z"],
+  "changes": {
+    "uk": ["Додано Nokia 500, 600 і 700 та Sony Xperia Z трьома мовами; для кожної моделі підібрано відео.", "Для Nokia 500, Nokia 700 і Xperia Z додано фото з Wikimedia Commons із вільними ліцензіями. Nokia 600 позначено як анонсовану, але скасовану модель; її сторінка використовує заглушку.", "Створено сторінку бренду Sony та додано добірку Xperia Z."] ,
+    "ru": ["Добавлены Nokia 500, 600 и 700, а также Sony Xperia Z на трёх языках; для каждой модели подобрано видео.", "Для Nokia 500, Nokia 700 и Xperia Z добавлены фотографии из Wikimedia Commons со свободными лицензиями. Nokia 600 отмечена как анонсированная, но отменённая модель; на её странице используется заглушка.", "Создана страница бренда Sony и добавлена подборка Xperia Z."],
+    "en": ["Added Nokia 500, 600 and 700, plus Sony Xperia Z, in all three languages, with a video for each model.", "Added freely licensed Wikimedia Commons photos for Nokia 500, Nokia 700 and Xperia Z. Nokia 600 is identified as announced but cancelled, and uses placeholder artwork.", "Created a Sony brand page and added the Xperia Z selection."]
+  }
+}, {
   "date": "2026-11-09",
   "phones": ["siemens-m55", "nokia-6230i", "nokia-6280", "sony-ericsson-k810i", "sony-ericsson-w910i", "lg-kg800", "nokia-8600-luna", "nokia-7900-prism", "nokia-7710", "siemens-sl45i", "siemens-xelibri-2", "siemens-xelibri-8", "sony-ericsson-xperia-x1"],
   "changes": {

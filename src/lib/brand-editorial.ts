@@ -72,6 +72,12 @@ export const BRAND_OFFICIAL_SITES: Record<string, {
     kind: 'brand',
     note: { uk: 'Офіційна сторінка Samsung.', ru: 'Официальная страница Samsung.', en: 'Samsung’s official page.' },
   },
+  Sony: {
+    url: 'https://www.sony.co.uk/smartphones',
+    name: { uk: 'Sony · Xperia', ru: 'Sony · Xperia', en: 'Sony · Xperia' },
+    kind: 'brand',
+    note: { uk: 'Офіційна сторінка смартфонів Sony Xperia.', ru: 'Официальная страница смартфонов Sony Xperia.', en: 'Sony’s official Xperia smartphone page.' },
+  },
   Siemens: {
     url: 'https://www.benq.com/en-us/index.html',
     name: { uk: 'BenQ · правонаступник мобільного підрозділу', ru: 'BenQ · правопреемник мобильного подразделения', en: 'BenQ · successor to the mobile division' },
@@ -106,6 +112,7 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
     Motorola: 'Метал RAZR, округлий PEBL і музичний ROKR.',
     Nokia: 'Від знайомих клавіш до сміливих механізмів Nseries.',
     Samsung: 'Компактні розкладачки, тонкі слайдери й нові форми екрана.',
+    Sony: 'Скляний корпус і прямі лінії флагманів Xperia.',
     Siemens: 'Від простих моноблоків до поворотної QWERTY.',
     'Sony Ericsson': 'Камерний хват, помаранчевий Walkman і музика в кишені.',
   },
@@ -119,6 +126,7 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
     Motorola: 'Металл RAZR, округлый PEBL и музыкальный ROKR.',
     Nokia: 'От знакомых клавиш до смелых механизмов Nseries.',
     Samsung: 'Компактные раскладушки, тонкие слайдеры и новые формы экрана.',
+    Sony: 'Стеклянный корпус и прямые линии флагманов Xperia.',
     Siemens: 'От простых моноблоков до поворотной QWERTY.',
     'Sony Ericsson': 'Камерный хват, оранжевый Walkman и музыка в кармане.',
   },
@@ -132,6 +140,7 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
     Motorola: 'RAZR metal, the rounded PEBL and the musical ROKR.',
     Nokia: 'From familiar keypads to bold Nseries mechanisms.',
     Samsung: 'Compact clamshells, slim sliders and new display forms.',
+    Sony: 'Glass bodies and straight lines in Xperia flagships.',
     Siemens: 'From simple candybars to a rotating QWERTY keyboard.',
     'Sony Ericsson': 'Camera grips, orange Walkman keys and music in your pocket.',
   },
@@ -157,6 +166,7 @@ export const BRAND_ROUTES: Record<string, readonly string[]> = {
   Samsung: ['samsung-sgh-e700', 'samsung-sgh-d500', 'samsung-sgh-d900', 'samsung-sgh-u900', 'samsung-galaxy-fold', 'samsung-galaxy-z-fold8-ultra'],
   Siemens: SIEMENS_TIMELINE,
   'Sony Ericsson': ['sony-ericsson-t68i', 'sony-ericsson-w610i', 'sony-ericsson-k550i', 'sony-ericsson-w800i', 'sony-ericsson-k800i', 'sony-ericsson-xperia-x1', 'sony-ericsson-xperia-arc-s'],
+  Sony: ['sony-xperia-z'],
 };
 
 export const BRAND_PAGE = {

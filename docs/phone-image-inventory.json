@@ -2,12 +2,13 @@
   "date": "2026-11-10",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 138,
-    "localPrimary": 79,
-    "remotePrimary": 56,
+    "models": 142,
+    "localPrimary": 81,
+    "remotePrimary": 57,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
+      "nokia-600",
       "samsung-sgh-e700"
     ],
     "issues": [
@@ -1006,6 +1007,34 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "nokia-500",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-600",
+      "primary": "missing",
+      "frames": 0,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-700",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-xperia-z",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
       "issues": []
     }
   ]
