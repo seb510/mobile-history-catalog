@@ -1,0 +1,27 @@
+{
+  "slug": "siemens-sl45i",
+  "images": [
+    {
+      "path": "public/images/phones/siemens-sl45i/front.webp",
+      "title": "Siemens SL45i SL45 SL42.JPG",
+      "source": "https://commons.wikimedia.org/wiki/File:Siemens_SL45i_SL45_SL42.JPG",
+      "license": "CC BY-SA 3.0",
+      "artist": "PawelkoP",
+      "thumbnail": "960 × 720",
+      "notes": "Wikimedia Commons thumbnail converted to WebP without cropping. The photograph shows the SL45i with SL45 and SL42 family models."
+    },
+    {
+      "path": "public/images/phones/siemens-sl45i/user-front.webp",
+      "source": "D:/Downloads/siemens-sl45.jpg",
+      "credit": "Provided by the project owner",
+      "notes": "User-provided front view of the SL45i."
+    }
+  ],
+  "video": {
+    "id": "JL7ygSBWc1M",
+    "url": "https://www.youtube.com/watch?v=JL7ygSBWc1M",
+    "title": "Siemens SL45i Video Player",
+    "author": "MOBILE FACT",
+    "notes": "A device demonstration focused on the SL45i video player; not an official Siemens advertisement."
+  }
+}

@@ -1,15 +1,14 @@
 {
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
     "models": 138,
-    "localPrimary": 78,
+    "localPrimary": 79,
     "remotePrimary": 56,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
-      "samsung-sgh-e700",
-      "siemens-sl45i"
+      "samsung-sgh-e700"
     ],
     "issues": [
       "alcatel-one-touch-155: Missing attribution: /images/phones/alcatel-one-touch-155/front.webp",
@@ -815,8 +814,8 @@
     },
     {
       "slug": "siemens-sl45i",
-      "primary": "missing",
-      "frames": 0,
+      "primary": "local",
+      "frames": 2,
       "remoteFrames": 0,
       "issues": []
     },

@@ -33,6 +33,7 @@
 - [Походження записів журналу оновлень](updates-history-sources.md). Публічний журнал — `/updates/` у трьох локалях.
 - [П’ять моделей 9 листопада: фото](retro-five-2026-11-09-images.json), [відео](retro-five-2026-11-09-videos.json).
 - [Дозвіл Mobile Phone Museum та походження фото](mobile-phone-museum-permission.md).
+- [Фото й відео Siemens SL45i — 10 листопада](siemens-sl45i-assets-2026-11-10.json).
 - [Фото Sony Ericsson Xperia X1i](retro-seven-2026-11-09-images.json).
 - [Нова десятка 8 листопада](retro-ten-2026-11-08.md), [фото](retro-ten-2026-11-08-images.json), [відео](retro-ten-2026-11-08-videos.json).
 - [Добірка 2005–2008](retro-ten-2005-2008.md): джерела характеристик, ліцензії фото й відео для десяти моделей.
