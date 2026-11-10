@@ -8,12 +8,15 @@ if (root) {
   const form = root.querySelector<HTMLFormElement>('form')!;
   const launch = root.querySelector<HTMLButtonElement>('[data-feedback-open]')!;
   const status = root.querySelector<HTMLElement>('[data-feedback-status]')!;
+  const successView = root.querySelector<HTMLElement>('[data-feedback-success]')!;
+  const again = root.querySelector<HTMLButtonElement>('[data-feedback-again]')!;
   const submit = form.querySelector<HTMLButtonElement>('[type=submit]')!;
   const brand = form.elements.namedItem('brand') as HTMLInputElement;
   const model = form.elements.namedItem('model') as HTMLInputElement;
   const message = form.elements.namedItem('message') as HTMLTextAreaElement;
   const phoneFields = form.querySelector<HTMLElement>('[data-feedback-phone]')!;
   let busy = false;
+  let successTimer = 0;
   const type = () => (form.elements.namedItem('type') as RadioNodeList).value;
   const updateModels = () => {
     const key = Object.keys(suggestions).find(key=>key.toLowerCase()===brand.value.trim().toLowerCase());
@@ -36,11 +39,17 @@ if (root) {
   form.querySelectorAll('[name=type]').forEach(input=>input.addEventListener('change',updateType));
   updateType();
   launch.hidden=false;
-  launch.addEventListener('click',()=>{dialog.showModal();form.querySelector<HTMLInputElement>('input[name=type]:checked')?.focus();});
-  const close = () => {dialog.close();launch.focus();};
+  const openForm = () => {
+    window.clearTimeout(successTimer); successTimer=0;
+    successView.hidden=true; form.hidden=false; status.textContent='';
+    form.querySelector<HTMLInputElement>('input[name=type]:checked')?.focus();
+  };
+  launch.addEventListener('click',()=>{dialog.showModal();openForm();});
+  const close = () => {window.clearTimeout(successTimer);successTimer=0;dialog.close();launch.focus();};
+  again.addEventListener('click',openForm);
   root.querySelector('[data-feedback-close]')!.addEventListener('click',close);
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();}});
-  dialog.addEventListener('close',()=>launch.focus());
+  dialog.addEventListener('close',()=>{window.clearTimeout(successTimer);successTimer=0;launch.focus();});
   form.addEventListener('submit',async event=>{
     event.preventDefault(); if(busy)return;
     const invalid=[...(type()==='phone'?[brand,model]:[]),message].find(field=>hasFeedbackMarkup(field.value));
@@ -57,7 +66,8 @@ if (root) {
       if(response.status===404 || !response.headers.get('Content-Type')?.includes('application/json'))throw new Error('unavailable');
       const result=await response.json();
       if(!response.ok||result.ok!==true)throw new Error(response.status===429?'rate':response.status===503?'unavailable':result.code==='text_only'?'text_only':'error');
-      form.reset();updateType();updateModels();status.textContent=copy.success;status.focus();
+      form.reset();updateType();updateModels();form.hidden=true;successView.hidden=false;successView.focus();
+      successTimer=window.setTimeout(()=>{if(dialog.open&&successView.hidden===false)close();},9000);
     }catch(error){const code=error instanceof Error?error.message:'';status.textContent=code==='rate'?copy.rate:code==='unavailable'?copy.unavailable:code==='text_only'?copy.textOnly:copy.error;status.focus();}
     finally{busy=false;submit.disabled=false;submit.textContent=copy.send;}
   });

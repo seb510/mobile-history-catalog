@@ -27,6 +27,12 @@ const brands = [...new Set([...Object.keys(suggestions), ...phones.map(p=>p.data
       <p data-feedback-status role="status" aria-live="polite" tabindex="-1"></p>
       <button type="submit" class="primary-cta feedback-submit">{copy.send}</button>
     </form>
+    <section data-feedback-success class="feedback-success" role="status" aria-live="polite" tabindex="-1" hidden>
+      <span class="feedback-success-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="m13 24 7 7 15-16"/></svg></span>
+      <h3>{copy.successTitle}</h3>
+      <p>{copy.success}</p>
+      <button type="button" class="primary-cta feedback-submit" data-feedback-again>{copy.again}</button>
+    </section>
   </dialog>
   <script type="application/json" data-feedback-data set:html={JSON.stringify({copy,suggestions,existing}).replace(/</g,'\u003c')}/>
 </div>
