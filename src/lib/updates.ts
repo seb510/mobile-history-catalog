@@ -8,9 +8,9 @@ export const UPDATES = [{
   "date": "2026-11-11",
   "phones": ["nokia-lumia-800", "nokia-lumia-920", "nokia-lumia-630", "microsoft-lumia-950"],
   "changes": {
-    "uk": ["Додано рубрику «Операційні системи»: історія платформ, ілюстрації інтерфейсів і телефони з архіву.", "Розширено історію Windows Phone від 7 до Windows 10 Mobile. Додано чотири Lumia та ілюстрацію для кожного покоління.", "Уточнено ОС для 20 моделей і додано фото екранів для Symbian 9.2 та 9.3.", "Оновлено галереї Nokia 600 і Sony Xperia Z."],
-    "ru": ["Добавлена рубрика «Операционные системы»: история платформ, иллюстрации интерфейсов и телефоны из архива.", "Расширена история Windows Phone от 7 до Windows 10 Mobile. Добавлены четыре Lumia и иллюстрация для каждого поколения.", "Уточнены ОС для 20 моделей и добавлены фото экранов для Symbian 9.2 и 9.3.", "Обновлены галереи Nokia 600 и Sony Xperia Z."],
-    "en": ["Added an Operating Systems section with platform histories, interface illustrations and phones from the archive.", "Expanded the Windows Phone timeline from 7 to Windows 10 Mobile, with four Lumia models and an illustration for each generation.", "Documented the OS for 20 models and added screen photos for Symbian 9.2 and 9.3.", "Updated the Nokia 600 and Sony Xperia Z galleries."]
+    "uk": ["Додано рубрику «Операційні системи»: історія платформ, ілюстрації інтерфейсів і телефони з архіву.", "Розширено історію Windows Phone від 7 до Windows 10 Mobile. Додано чотири Lumia та ілюстрацію для кожного покоління.", "Уточнено ОС для 20 моделей і додано фото екранів для Symbian 9.2 та 9.3.", "Оновлено галереї Nokia 600 і Sony Xperia Z.", "Додано зображення для 18 версій Android."],
+    "ru": ["Добавлена рубрика «Операционные системы»: история платформ, иллюстрации интерфейсов и телефоны из архива.", "Расширена история Windows Phone от 7 до Windows 10 Mobile. Добавлены четыре Lumia и иллюстрация для каждого поколения.", "Уточнены ОС для 20 моделей и добавлены фото экранов для Symbian 9.2 и 9.3.", "Обновлены галереи Nokia 600 и Sony Xperia Z.", "Добавлены изображения для 18 версий Android."],
+    "en": ["Added an Operating Systems section with platform histories, interface illustrations and phones from the archive.", "Expanded the Windows Phone timeline from 7 to Windows 10 Mobile, with four Lumia models and an illustration for each generation.", "Documented the OS for 20 models and added screen photos for Symbian 9.2 and 9.3.", "Updated the Nokia 600 and Sony Xperia Z galleries.", "Added images for 18 Android versions."]
   }
 }, {
   "date": "2026-11-10",

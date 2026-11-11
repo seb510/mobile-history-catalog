@@ -108,5 +108,203 @@
       "ru": "Microsoft Lumia 950 при запуске Windows 10 Mobile",
       "en": "Microsoft Lumia 950 starting Windows 10 Mobile"
     }
+  },
+  "android-1-0": {
+    "image": "/images/operating-systems/android-1-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_1.0_homescreen.png",
+    "license": "Apache License 2.0",
+    "artist": "Hajoon0102 · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 1.0 з аналоговим годинником.",
+      "ru": "Главный экран Android 1.0 с аналоговыми часами.",
+      "en": "Android 1.0 home screen with its analogue clock."
+    }
+  },
+  "android-1-6": {
+    "image": "/images/operating-systems/android-1-6.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_1.6_on_the_Android_SDK.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 1.6 Donut в емуляторі SDK.",
+      "ru": "Главный экран Android 1.6 Donut в эмуляторе SDK.",
+      "en": "Android 1.6 Donut home screen in the SDK emulator."
+    }
+  },
+  "android-2-0": {
+    "image": "/images/operating-systems/android-2-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android-2.0.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Android 2.0 Eclair в емуляторі SDK.",
+      "ru": "Android 2.0 Eclair в эмуляторе SDK.",
+      "en": "Android 2.0 Eclair in the SDK emulator."
+    }
+  },
+  "android-2-1": {
+    "image": "/images/operating-systems/android-2-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nexus_one_home_screen_21.png",
+    "license": "Apache License 2.0",
+    "artist": "Google LLC · AOSP",
+    "caption": {
+      "uk": "Android 2.1 Eclair на Nexus One з живими шпалерами.",
+      "ru": "Android 2.1 Eclair на Nexus One с живыми обоями.",
+      "en": "Android 2.1 Eclair on Nexus One with live wallpaper."
+    }
+  },
+  "android-2-3": {
+    "image": "/images/operating-systems/android-2-3.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android-2.3.png",
+    "license": "Apache License 2.0",
+    "artist": "Android Developers",
+    "caption": {
+      "uk": "Головний екран Android 2.3 Gingerbread в емуляторі SDK.",
+      "ru": "Главный экран Android 2.3 Gingerbread в эмуляторе SDK.",
+      "en": "Android 2.3 Gingerbread home screen in the SDK emulator."
+    }
+  },
+  "android-2-3-4": {
+    "image": "/images/operating-systems/android-2-3-4.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sony_Xperia_Neo_V_Android_Widgets.jpg",
+    "license": "CC0",
+    "artist": "Imageuploader2614",
+    "caption": {
+      "uk": "Віджети Android 2.3.4 на Sony Ericsson Xperia neo V.",
+      "ru": "Виджеты Android 2.3.4 на Sony Ericsson Xperia neo V.",
+      "en": "Android 2.3.4 widgets on a Sony Ericsson Xperia neo V."
+    }
+  },
+  "android-4-0": {
+    "image": "/images/operating-systems/android.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_4.0_(2).png",
+    "license": "Apache License 2.0",
+    "artist": "The Android Open Source Project",
+    "caption": {
+      "uk": "Скриншот Android 4.0 Ice Cream Sandwich",
+      "ru": "Скриншот Android 4.0 Ice Cream Sandwich",
+      "en": "Android 4.0 Ice Cream Sandwich screenshot"
+    }
+  },
+  "android-4-1": {
+    "image": "/images/operating-systems/android-4-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_4.1_on_the_Galaxy_Nexus.jpeg",
+    "license": "CC BY 2.5",
+    "artist": "Android Open Source Project",
+    "caption": {
+      "uk": "Головний екран Android 4.1 Jelly Bean на Galaxy Nexus.",
+      "ru": "Главный экран Android 4.1 Jelly Bean на Galaxy Nexus.",
+      "en": "Android 4.1 Jelly Bean home screen on Galaxy Nexus."
+    }
+  },
+  "android-4-2-2": {
+    "image": "/images/operating-systems/android-4-2-2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:En_Wikipedia_front_page_on_Firefox_49,_Android_4.2.2.png",
+    "license": "CC BY-SA 4.0",
+    "artist": "Chtfn",
+    "caption": {
+      "uk": "Firefox із відкритою Вікіпедією на Fairphone 1 під керуванням Android 4.2.2.",
+      "ru": "Firefox с открытой Википедией на Fairphone 1 под управлением Android 4.2.2.",
+      "en": "Firefox displaying Wikipedia on Fairphone 1 running Android 4.2.2."
+    }
+  },
+  "android-4-3": {
+    "image": "/images/operating-systems/android-4-3.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_4.3_Jelly_Bean_on_Nexus.png",
+    "license": "CC BY 2.5",
+    "artist": "Android Open Source Project",
+    "caption": {
+      "uk": "Головний екран Android 4.3 Jelly Bean на Nexus 4.",
+      "ru": "Главный экран Android 4.3 Jelly Bean на Nexus 4.",
+      "en": "Android 4.3 Jelly Bean home screen on Nexus 4."
+    }
+  },
+  "android-7-1": {
+    "image": "/images/operating-systems/android-7-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Cell_Broadcast_on_Android_7.1.png",
+    "license": "Apache License 2.0",
+    "artist": "WarningMessageDelivery · AOSP",
+    "caption": {
+      "uk": "Налаштування екстрених сповіщень в Android 7.1 Nougat.",
+      "ru": "Настройки экстренных оповещений в Android 7.1 Nougat.",
+      "en": "Emergency broadcast settings in Android 7.1 Nougat."
+    }
+  },
+  "android-8-1": {
+    "image": "/images/operating-systems/android-8-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_Oreo_8.1_screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "Christopher Schreiner · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 8.1 Oreo на Nexus 5X.",
+      "ru": "Главный экран Android 8.1 Oreo на Nexus 5X.",
+      "en": "Android 8.1 Oreo home screen on Nexus 5X."
+    }
+  },
+  "android-9": {
+    "image": "/images/operating-systems/android-9.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:AOSP_vanilla_9.0_with_FOSS_apps.png",
+    "license": "Apache License 2.0",
+    "artist": "tomsky · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 9 Pie (AOSP) із застосунками з відкритим кодом.",
+      "ru": "Главный экран Android 9 Pie (AOSP) с приложениями с открытым кодом.",
+      "en": "Android 9 Pie (AOSP) home screen with open-source apps."
+    }
+  },
+  "android-11": {
+    "image": "/images/operating-systems/android-11.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_11_Homescreen.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 11.",
+      "ru": "Главный экран Android 11.",
+      "en": "Android 11 home screen."
+    }
+  },
+  "android-12": {
+    "image": "/images/operating-systems/android-12.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_12_Homescreen_Screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 12.",
+      "ru": "Главный экран Android 12.",
+      "en": "Android 12 home screen."
+    }
+  },
+  "android-14": {
+    "image": "/images/operating-systems/android-14.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_14_Homescreen_screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "Paowee · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 14.",
+      "ru": "Главный экран Android 14.",
+      "en": "Android 14 home screen."
+    }
+  },
+  "android-16": {
+    "image": "/images/operating-systems/android-16.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_16_home_screen_screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "Paowee · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 16.",
+      "ru": "Главный экран Android 16.",
+      "en": "Android 16 home screen."
+    }
+  },
+  "android-17": {
+    "image": "/images/operating-systems/android-17.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_17_Homescreen.png",
+    "license": "Apache License 2.0",
+    "artist": "Rodrigo Mor · AOSP",
+    "caption": {
+      "uk": "Головний екран ранньої збірки Android 17, березень 2026 року.",
+      "ru": "Главный экран ранней сборки Android 17, март 2026 года.",
+      "en": "Home screen of an early Android 17 build, March 2026."
+    }
   }
 }

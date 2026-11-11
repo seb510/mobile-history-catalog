@@ -32,17 +32,6 @@
       "en": "Photo of the Nokia 3310 (2017) standby screen"
     }
   },
-  "android": {
-    "image": "/images/operating-systems/android.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Android_4.0_(2).png",
-    "license": "Apache License 2.0",
-    "artist": "The Android Open Source Project",
-    "caption": {
-      "uk": "Скриншот Android 4.0 Ice Cream Sandwich",
-      "ru": "Скриншот Android 4.0 Ice Cream Sandwich",
-      "en": "Android 4.0 Ice Cream Sandwich screenshot"
-    }
-  },
   "ios": {
     "image": "/images/operating-systems/ios.webp",
     "source": "https://commons.wikimedia.org/wiki/File:First_iPhone_Macworld_2007_DSCF1286.agr.jpg",

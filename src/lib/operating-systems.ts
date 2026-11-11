@@ -48,7 +48,11 @@ export const PLATFORMS: Platform[] = [
   {
     id:'android', name:copy('Android','Android','Android'),
     summary:copy('Android вийшов на телефонах у 2008 році. Відкритий проєкт AOSP дає виробникам основу, яку вони адаптують для своїх пристроїв. Набір сервісів і термін оновлень залежать від виробника та моделі.', 'Android появился на телефонах в 2008 году. Открытый проект AOSP даёт производителям основу для адаптации под свои устройства. Набор сервисов и срок обновлений зависят от производителя и модели.', 'Android appeared on phones in 2008. The open-source AOSP project provides a base manufacturers can adapt for their devices. Services and update support vary by manufacturer and model.'),
-    interface:copy('Головні екрани поєднують ярлики й віджети. Панель сповіщень відкривається жестом згори. У показаному Android 4.0 навігаційні кнопки можуть бути частиною екрана.', 'Домашние экраны объединяют ярлыки и виджеты. Панель уведомлений открывается жестом сверху. В показанном Android 4.0 навигационные кнопки могут быть частью экрана.', 'Home screens combine shortcuts and widgets. Notifications open from the top edge. The Android 4.0 example shows how navigation buttons can appear on screen.'),
+    interface:copy(
+      'На знімках нижче видно, як змінювалися головний екран, віджети й навігація Android: від вкладки меню в ранніх версіях до екранних кнопок і жестів. Вигляд залежить і від пристрою: наприклад, на Xperia neo V видно віджети Sony Ericsson, а в емуляторі — інтерфейс Android SDK.',
+      'На снимках ниже видно, как менялись домашний экран, виджеты и навигация Android: от вкладки меню в ранних версиях до экранных кнопок и жестов. Вид зависит и от устройства: например, на Xperia neo V видны виджеты Sony Ericsson, а в эмуляторе — интерфейс Android SDK.',
+      'The images below show how Android’s home screen, widgets and navigation evolved, from the early app drawer tab to on-screen buttons and gestures. The interface also varies by device: the Xperia neo V shows Sony Ericsson widgets, while the emulator shows the Android SDK interface.',
+    ),
     source:{name:'Android Developers · Ice Cream Sandwich',url:'https://developer.android.com/about/versions/android-4.0-highlights'},
     match:/^android\b/i,
   },
