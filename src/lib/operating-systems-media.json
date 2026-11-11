@@ -1,0 +1,112 @@
+{
+  "symbian": {
+    "image": "/images/operating-systems/symbian.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N8_Blue_(Front).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Nokia65",
+    "caption": {
+      "uk": "Фото головного екрана Nokia N8",
+      "ru": "Фото домашнего экрана Nokia N8",
+      "en": "Photo of the Nokia N8 home screen"
+    }
+  },
+  "series-40": {
+    "image": "/images/operating-systems/series-40.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6230i_20070930.jpg",
+    "license": "Public domain",
+    "artist": "Rudolf Stricker",
+    "caption": {
+      "uk": "Фото меню Nokia 6230i",
+      "ru": "Фото меню Nokia 6230i",
+      "en": "Photo of the Nokia 6230i menu"
+    }
+  },
+  "series-30-plus": {
+    "image": "/images/operating-systems/series-30-plus.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_3310_(2017).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Mezőőr",
+    "caption": {
+      "uk": "Фото екрана очікування Nokia 3310 (2017)",
+      "ru": "Фото экрана ожидания Nokia 3310 (2017)",
+      "en": "Photo of the Nokia 3310 (2017) standby screen"
+    }
+  },
+  "android": {
+    "image": "/images/operating-systems/android.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_4.0_(2).png",
+    "license": "Apache License 2.0",
+    "artist": "The Android Open Source Project",
+    "caption": {
+      "uk": "Скриншот Android 4.0 Ice Cream Sandwich",
+      "ru": "Скриншот Android 4.0 Ice Cream Sandwich",
+      "en": "Android 4.0 Ice Cream Sandwich screenshot"
+    }
+  },
+  "ios": {
+    "image": "/images/operating-systems/ios.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:First_iPhone_Macworld_2007_DSCF1286.agr.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "ArnoldReinhold",
+    "caption": {
+      "uk": "Фото першого iPhone з активним екраном на Macworld 2007",
+      "ru": "Фото первого iPhone с включённым экраном на Macworld 2007",
+      "en": "Photo of the first iPhone with its screen on at Macworld 2007"
+    }
+  },
+  "windows-mobile": {
+    "image": "/images/operating-systems/windows-mobile.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Black_X1i_in_landscape.JPG",
+    "license": "CC BY 3.0",
+    "artist": "owl order",
+    "caption": {
+      "uk": "Фото панелі Xperia X1i на Windows Mobile",
+      "ru": "Фото панели Xperia X1i на Windows Mobile",
+      "en": "Photo of the Xperia X1i panel on Windows Mobile"
+    }
+  },
+  "windows-phone": {
+    "image": "/images/operating-systems/windows-phone.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_Lumia_720_Home_screen.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Kskhh",
+    "caption": {
+      "uk": "Фото живих плиток на Lumia 720",
+      "ru": "Фото живых плиток на Lumia 720",
+      "en": "Photo of Live Tiles on the Lumia 720"
+    }
+  },
+  "harmonyos": {
+    "image": "/images/operating-systems/harmonyos.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Huawei_Mate_XT_Ultimate_Design.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "メイド理世",
+    "caption": {
+      "uk": "Фото Huawei Mate XT з увімкненим розгорнутим екраном",
+      "ru": "Фото Huawei Mate XT с включённым развёрнутым экраном",
+      "en": "Photo of the Huawei Mate XT with its unfolded screen on"
+    }
+  },
+  "motomagx": {
+    "image": "/images/operating-systems/motomagx.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:RAZR2_V8.jpg",
+    "license": "CC BY 2.0",
+    "artist": "Honou",
+    "caption": {
+      "uk": "Фото Motorola RAZR2 V8",
+      "ru": "Фото Motorola RAZR2 V8",
+      "en": "Photo of the Motorola RAZR2 V8"
+    }
+  },
+  "proprietary": {
+    "image": "/images/operating-systems/proprietary.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Siemens_CX65.png",
+    "license": "Public domain",
+    "artist": "Suidpunt (original), cropped by Pozdrawiam",
+    "caption": {
+      "uk": "Фото екрана Siemens CX65",
+      "ru": "Фото экрана Siemens CX65",
+      "en": "Photo of the Siemens CX65 display"
+    }
+  }
+}

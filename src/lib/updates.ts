@@ -5,6 +5,14 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-11",
+  "phones": [],
+  "changes": {
+    "uk": ["Додано рубрику «Операційні системи»: історія платформ, ілюстрації інтерфейсів і телефони з архіву.", "Оновлено галереї Nokia 600 і Sony Xperia Z."],
+    "ru": ["Добавлена рубрика «Операционные системы»: история платформ, иллюстрации интерфейсов и телефоны из архива.", "Обновлены галереи Nokia 600 и Sony Xperia Z."],
+    "en": ["Added an Operating Systems section with platform histories, interface illustrations and phones from the archive.", "Updated the Nokia 600 and Sony Xperia Z galleries."]
+  }
+}, {
   "date": "2026-11-10",
   "phones": ["nokia-500", "nokia-600", "nokia-700", "sony-xperia-z"],
   "changes": {

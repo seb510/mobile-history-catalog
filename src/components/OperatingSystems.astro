@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Arrow from './Arrow.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { localePath, type Locale } from '../lib/locales';
+import { getPhonesForLocale, slugOf } from '../lib/phones';
+import { OS_COPY, OS_PATH, PLATFORMS, platformFor } from '../lib/operating-systems';
+import mediaByPlatform from '../lib/operating-systems-media.json';
+import { t } from '../lib/ui-strings';
+
+interface Props {
+  locale: Locale;
+  platformId?: string;
+}
+
+const { locale, platformId } = Astro.props;
+const strings = t(locale);
+const platform = PLATFORMS.find(({ id }) => id === platformId);
+const sectionTitle = OS_COPY.title[locale];
+const title = platform?.name[locale] ?? sectionTitle;
+const description = platform?.summary[locale] ?? OS_COPY.intro[locale];
+const path = platform ? `${OS_PATH}${platform.id}/` : OS_PATH;
+const [canonicalPhones, localizedPhones] = await Promise.all([
+  getPhonesForLocale('uk'),
+  getPhonesForLocale(locale),
+]);
+const groupBySlug = new Map(canonicalPhones.map(phone => [slugOf(phone), platformFor(phone.data.os)?.id]));
+const countByPlatform = new Map<string, number>();
+let unclassified = 0;
+for (const id of groupBySlug.values()) {
+  if (id) countByPlatform.set(id, (countByPlatform.get(id) ?? 0) + 1);
+  else unclassified++;
+}
+const models = platform ? localizedPhones
+  .filter(phone => groupBySlug.get(slugOf(phone)) === platform.id)
+  .sort((a, b) => a.data.year - b.data.year || a.data.model.localeCompare(b.data.model, locale)) : [];
+const media = platform ? mediaByPlatform[platform.id as keyof typeof mediaByPlatform] : undefined;
+const mediaLicenseUrls: Record<string, string> = {
+  'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
+  'CC BY 3.0': 'https://creativecommons.org/licenses/by/3.0/',
+  'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
+  'Apache License 2.0': 'https://www.apache.org/licenses/LICENSE-2.0',
+};
+---
+
+<Layout locale={locale} path={path} title={`${title} — ${strings.siteName}`} description={description}>
+  <Breadcrumbs locale={locale} items={[
+    { label: strings.breadcrumbs.home, path: '/' },
+    { label: sectionTitle, path: platform ? OS_PATH : undefined },
+    ...(platform ? [{ label: title }] : []),
+  ]} />
+  <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
+    {platform && <p class="editorial-kicker mb-2 text-orange-500">{sectionTitle}</p>}
+    <h1 class="page-title">{title}</h1>
+    <p class="mt-4 leading-relaxed text-neutral-400">{description}</p>
+  </header>
+
+  {platform ? (
+    <>
+      <section class="grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,.8fr)]" aria-labelledby="platform-interface">
+        <div>
+          <h2 id="platform-interface" class="text-2xl font-bold tracking-tight">{OS_COPY.interface[locale]}</h2>
+          <p class="mt-3 max-w-prose leading-relaxed text-neutral-300">{platform.interface[locale]}</p>
+          {platform.source && (
+            <p class="mt-5 text-sm text-neutral-400">
+              {OS_COPY.sources[locale]} · <a class="underline decoration-neutral-600 underline-offset-4" href={platform.source.url} target="_blank" rel="noopener noreferrer">{platform.source.name}</a>
+            </p>
+          )}
+        </div>
+        {media && (
+          <figure class="editorial-card rounded-sm border border-neutral-800 bg-neutral-900 p-4">
+            <a class="block" href={media.image}>
+              <img class="mx-auto max-h-96 w-full object-contain" src={media.image} alt={media.caption[locale]} decoding="async" />
+            </a>
+            <figcaption class="mt-3 border-t border-neutral-800 pt-3 text-sm text-neutral-400">
+              <p>{media.caption[locale]}</p>
+              <p class="mt-1 text-xs">
+                <a class="underline underline-offset-2" href={media.source} target="_blank" rel="noopener noreferrer">{media.artist} · Wikimedia Commons</a>
+                {' · '}
+                {mediaLicenseUrls[media.license] ? <a class="underline underline-offset-2" href={mediaLicenseUrls[media.license]} target="_blank" rel="noopener noreferrer">{media.license}</a> : media.license}
+                {' · WebP'}
+              </p>
+            </figcaption>
+          </figure>
+        )}
+      </section>
+      <section class="mt-10 border-t border-neutral-800 pt-6" aria-labelledby="platform-models">
+        <h2 id="platform-models" class="text-2xl font-bold tracking-tight">{OS_COPY.models[locale]} · {models.length}</h2>
+        <ul class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {models.map(phone => (
+            <li>
+              <a class="platform-link flex h-full items-start justify-between gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-3" href={localePath(locale, `/phones/${slugOf(phone)}/`)}>
+                <span class="min-w-0">
+                  <span class="block font-semibold">{phone.data.brand} {phone.data.model}</span>
+                  <span class="mt-1 block text-xs text-neutral-400">{phone.data.os}</span>
+                </span>
+                <span class="shrink-0 text-sm tabular-nums text-neutral-400">{phone.data.year}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  ) : (
+    <>
+      <ul class="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {PLATFORMS.map(item => (
+          <li>
+            <a class="platform-link editorial-card flex h-full flex-col rounded-sm border border-neutral-800 bg-neutral-900 p-5" href={localePath(locale, `${OS_PATH}${item.id}/`)}>
+              <span class="text-xl font-bold tracking-tight">{item.name[locale]}</span>
+              <span class="mt-2 text-sm leading-relaxed text-neutral-400">{item.summary[locale]}</span>
+              <span class="mt-auto flex items-center justify-between gap-3 pt-4 text-sm font-semibold text-orange-500">
+                <span>{OS_COPY.models[locale]} · {countByPlatform.get(item.id) ?? 0}</span>
+                <Arrow direction="right" />
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {unclassified > 0 && <p class="mt-5 text-sm text-neutral-400">{OS_COPY.unknown[locale]} ({unclassified})</p>}
+    </>
+  )}
+</Layout>
+
+<style>
+  .platform-link { transition: border-color var(--motion-ui), color var(--motion-ui); }
+  .platform-link:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .platform-link:hover { border-color: var(--color-orange-500); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .platform-link { transition: none; }
+  }
+</style>

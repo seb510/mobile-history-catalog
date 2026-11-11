@@ -2,6 +2,7 @@ import { LOCALES, type Locale } from './locales';
 import { getPhone, getAllSlugs } from './phones';
 import { getBrand, getAllBrandSlugs } from './brands';
 import { alternateLinks, canonicalUrl } from './seo';
+import { OS_PATH, PLATFORMS } from './operating-systems';
 
 export const searchEnabled = import.meta.env.SEO_INDEXABLE === 'true';
 
@@ -23,7 +24,8 @@ export async function searchIdentity(site: URL, locale: Locale, path: string) {
 }
 
 export async function indexablePaths(site: URL) {
-  const paths = ['/', '/catalog/', '/brands/', '/compare/', '/about/', '/updates/', '/privacy/', '/cookies/',
+  const paths = ['/', '/catalog/', '/brands/', '/compare/', '/about/', '/updates/', '/privacy/', '/cookies/', OS_PATH,
+    ...PLATFORMS.map(({ id }) => `${OS_PATH}${id}/`),
     ...(await getAllSlugs()).map((slug) => `/phones/${slug}/`),
     ...(await getAllBrandSlugs()).map((slug) => `/brands/${slug}/`)];
   const urls: string[] = [];

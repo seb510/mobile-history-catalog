@@ -5,6 +5,7 @@ import { localePath, type Locale } from '../lib/locales';
 import { t, CHROME_COPY } from '../lib/ui-strings';
 import LogoMark from './LogoMark.astro';
 import { PRIVACY_COPY } from '../lib/privacy-copy';
+import { OS_COPY, OS_PATH } from '../lib/operating-systems';
 
 interface Props {
   locale: Locale;
@@ -18,6 +19,7 @@ const links = [
   { href: localePath(locale, '/updates/'), label: UPDATES_COPY[locale].title },
   { href: localePath(locale, '/catalog/'), label: strings.nav.catalog },
   { href: localePath(locale, '/brands/'), label: strings.nav.brands },
+  { href: localePath(locale, OS_PATH), label: OS_COPY.title[locale] },
   { href: localePath(locale, '/compare/'), label: strings.nav.compare },
   { href: localePath(locale, '/favorites/'), label: strings.nav.favorites },
 ];

@@ -1,0 +1,10 @@
+---
+import OperatingSystems from '../../../components/OperatingSystems.astro';
+import { PLATFORMS } from '../../../lib/operating-systems';
+
+export function getStaticPaths() {
+  return PLATFORMS.map((platform) => ({ params: { platform: platform.id } }));
+}
+---
+
+<OperatingSystems locale="en" platformId={Astro.params.platform} />
