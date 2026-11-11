@@ -71,7 +71,7 @@ export const PLATFORMS: Platform[] = [
     summary:copy('Microsoft представила Windows Phone у 2010 році. Nokia використала платформу в лінійці Lumia. Windows Phone 8, представлена у 2012 році, працювала на Lumia 520 і 620.', 'Microsoft представила Windows Phone в 2010 году. Nokia использовала платформу в линейке Lumia. Windows Phone 8, представленная в 2012 году, работала на Lumia 520 и 620.', 'Microsoft introduced Windows Phone in 2010. Nokia adopted it for the Lumia line. Windows Phone 8 arrived in 2012 and powered the Lumia 520 and 620.'),
     interface:copy('На стартовому екрані живі плитки показували повідомлення й оновлення застосунків. Плитки можна було закріплювати та змінювати їхній розмір.', 'На стартовом экране живые плитки показывали сообщения и обновления приложений. Плитки можно было закреплять и менять их размер.', 'Live Tiles showed messages and app updates on the Start screen. Users could pin tiles and change their size.'),
     source:{name:'Microsoft · Windows Phone 8',url:'https://news.microsoft.com/source/2012/10/29/microsoft-unveils-windows-phone-8/'},
-    match:/^windows phone\b/i,
+    match:/^windows (?:phone\b|10 mobile\b)/i,
   },
   {
     id:'harmonyos', name:copy('HarmonyOS','HarmonyOS','HarmonyOS'),

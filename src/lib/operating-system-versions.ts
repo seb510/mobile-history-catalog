@@ -30,8 +30,16 @@ const symbian: Version[] = [
   { id:'belle', title:'Symbian Belle', match:/^symbian belle\b/i, note:text('Додала гнучкіші віджети й панель сповіщень, яку відкриває жест згори. В архіві є Nokia 700 та анонсована Nokia 600.', 'Добавила более гибкие виджеты и панель уведомлений, открываемую жестом сверху. В архиве есть Nokia 700 и анонсированная Nokia 600.', 'Added more flexible widgets and a pull-down notification panel. The archive includes Nokia 700 and the announced Nokia 600.') },
 ];
 
+const windowsPhone: Version[] = [
+  { id: 'windows-phone-7', title: 'Windows Phone 7 / 7.5 / 7.8', match: /^windows phone 7\b/i },
+  { id: 'windows-phone-8', title: 'Windows Phone 8', match: /^windows phone 8(?!\.)\b/i },
+  { id: 'windows-phone-8-1', title: 'Windows Phone 8.1', match: /^windows phone 8\.1\b/i },
+  { id: 'windows-10-mobile', title: 'Windows 10 Mobile', match: /^windows 10 mobile\b/i },
+];
+
 export function versionFor(platform: string, os: string): Omit<Version, 'match'> | undefined {
   if (platform === 'symbian') return symbian.find(version => version.match.test(os));
+  if (platform === 'windows-phone') return windowsPhone.find(version => version.match.test(os));
   const series = platform === 'series-40' && os.match(/\bseries 40 (\d+(?:st|nd|rd|th) Edition)(?:,? (?:Feature Pack |FP)(\d+))?/i);
   if (series) {
     const [, edition, pack] = series;
@@ -45,5 +53,7 @@ export function versionFor(platform: string, os: string): Omit<Version, 'match'>
 }
 
 export function curatedVersions(platform: string): readonly Version[] {
-  return platform === 'symbian' ? symbian : [];
+  if (platform === 'symbian') return symbian;
+  if (platform === 'windows-phone') return windowsPhone;
+  return [];
 }

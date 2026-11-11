@@ -64,5 +64,49 @@
       "ru": "Главный экран Nokia N96 в горизонтальном режиме",
       "en": "Nokia N96 home screen in landscape mode"
     }
+  },
+  "windows-phone-7": {
+    "image": "/images/phones/nokia-lumia-800/front.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_Lumia_800_front.jpg",
+    "license": "CC BY 4.0",
+    "artist": "Petar Milošević",
+    "caption": {
+      "uk": "Плитки Windows Phone 7.5 на Lumia 800",
+      "ru": "Плитки Windows Phone 7.5 на Lumia 800",
+      "en": "Windows Phone 7.5 tiles on the Lumia 800"
+    }
+  },
+  "windows-phone-8": {
+    "image": "/images/phones/nokia-lumia-920/front.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_Lumia_920_white.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "SoloveiYegor",
+    "caption": {
+      "uk": "Стартовий екран Lumia 920 на Windows Phone 8",
+      "ru": "Стартовый экран Lumia 920 на Windows Phone 8",
+      "en": "Windows Phone 8 Start screen on the Lumia 920"
+    }
+  },
+  "windows-phone-8-1": {
+    "image": "/images/operating-systems/windows-phone.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_Lumia_720_Home_screen.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Kskhh",
+    "caption": {
+      "uk": "Живі плитки Windows Phone 8.1 на Nokia Lumia 720.",
+      "ru": "Живые плитки Windows Phone 8.1 на Nokia Lumia 720.",
+      "en": "Windows Phone 8.1 Live Tiles on the Nokia Lumia 720."
+    }
+  },
+  "windows-10-mobile": {
+    "image": "/images/phones/microsoft-lumia-950/front.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Languaeditor",
+    "caption": {
+      "uk": "Microsoft Lumia 950 під час запуску Windows 10 Mobile",
+      "ru": "Microsoft Lumia 950 при запуске Windows 10 Mobile",
+      "en": "Microsoft Lumia 950 starting Windows 10 Mobile"
+    }
   }
 }

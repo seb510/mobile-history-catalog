@@ -68,7 +68,7 @@ if (platform) {
   }
 }
 const versions = [...versionGroups.values()];
-if (platform?.id !== 'symbian') {
+if (platform && curatedVersions(platform.id).length === 0) {
   versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || a.title.localeCompare(b.title, 'en', { numeric: true }));
 }
 const hasVersions = versions.some(version => version.id !== 'unspecified');
@@ -140,7 +140,7 @@ const mediaLicenseUrls: Record<string, string> = {
           {versions.map(version => <a class="platform-link rounded-sm border border-neutral-800 px-3 py-2 text-sm text-orange-500" href={`#version-${version.id}`}>{version.title}</a>)}
         </nav>}
         {versions.map(version => {
-          const picture = platform.id === 'symbian' ? versionMedia[version.id as keyof typeof versionMedia] : undefined;
+          const picture = versionMedia[version.id as keyof typeof versionMedia];
           const detail = VERSION_DETAILS[version.id];
           return (
             <section id={`version-${version.id}`} class:list={['scroll-mt-24', hasVersions && 'mt-5 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 sm:p-5']}>

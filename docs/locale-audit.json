@@ -1,8 +1,8 @@
 {
-  "models": 142,
-  "records": 426,
-  "brands": 12,
-  "brandRecords": 36,
+  "models": 146,
+  "records": 438,
+  "brands": 13,
+  "brandRecords": 39,
   "checks": [
     "own locales",
     "own brand locales and identity",
