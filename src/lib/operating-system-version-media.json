@@ -120,6 +120,28 @@
       "en": "Android 1.0 home screen with its analogue clock."
     }
   },
+  "android-1-1": {
+    "image": "/images/operating-systems/android-1-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_1.1_homescreen.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 1.1.",
+      "ru": "Главный экран Android 1.1.",
+      "en": "Android 1.1 home screen."
+    }
+  },
+  "android-1-5": {
+    "image": "/images/operating-systems/android-1-5.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android-1.5.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 1.5 Cupcake.",
+      "ru": "Главный экран Android 1.5 Cupcake.",
+      "en": "Android 1.5 Cupcake home screen."
+    }
+  },
   "android-1-6": {
     "image": "/images/operating-systems/android-1-6.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Android_1.6_on_the_Android_SDK.png",
@@ -153,6 +175,17 @@
       "en": "Android 2.1 Eclair on Nexus One with live wallpaper."
     }
   },
+  "android-2-2": {
+    "image": "/images/operating-systems/android-2-2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android-2.2.png",
+    "license": "Apache License 2.0",
+    "artist": "Android Developers",
+    "caption": {
+      "uk": "Android 2.2 Froyo в емуляторі SDK.",
+      "ru": "Android 2.2 Froyo в эмуляторе SDK.",
+      "en": "Android 2.2 Froyo in the SDK emulator."
+    }
+  },
   "android-2-3": {
     "image": "/images/operating-systems/android-2-3.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Android-2.3.png",
@@ -173,6 +206,28 @@
       "uk": "Віджети Android 2.3.4 на Sony Ericsson Xperia neo V.",
       "ru": "Виджеты Android 2.3.4 на Sony Ericsson Xperia neo V.",
       "en": "Android 2.3.4 widgets on a Sony Ericsson Xperia neo V."
+    }
+  },
+  "android-3-0": {
+    "image": "/images/operating-systems/android-3-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android3.0.png",
+    "license": "Apache License 2.0",
+    "artist": "Google LLC · AOSP",
+    "caption": {
+      "uk": "Планшетний інтерфейс Android 3.0 Honeycomb.",
+      "ru": "Планшетный интерфейс Android 3.0 Honeycomb.",
+      "en": "Android 3.0 Honeycomb tablet interface."
+    }
+  },
+  "android-3-1": {
+    "image": "/images/operating-systems/android-3-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:OperaMobile11.10_on_Android_3.1.png",
+    "license": "CC BY-SA 3.0",
+    "artist": "Gp752002",
+    "caption": {
+      "uk": "Opera Mobile на ASUS Eee Pad Transformer з Android 3.1.",
+      "ru": "Opera Mobile на ASUS Eee Pad Transformer с Android 3.1.",
+      "en": "Opera Mobile on an ASUS Eee Pad Transformer running Android 3.1."
     }
   },
   "android-4-0": {
@@ -197,6 +252,17 @@
       "en": "Android 4.1 Jelly Bean home screen on Galaxy Nexus."
     }
   },
+  "android-4-2": {
+    "image": "/images/operating-systems/android-4-2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_4.2_on_the_Nexus_4.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 4.2 Jelly Bean на Nexus 4.",
+      "ru": "Главный экран Android 4.2 Jelly Bean на Nexus 4.",
+      "en": "Android 4.2 Jelly Bean home screen on Nexus 4."
+    }
+  },
   "android-4-2-2": {
     "image": "/images/operating-systems/android-4-2-2.webp",
     "source": "https://commons.wikimedia.org/wiki/File:En_Wikipedia_front_page_on_Firefox_49,_Android_4.2.2.png",
@@ -219,6 +285,61 @@
       "en": "Android 4.3 Jelly Bean home screen on Nexus 4."
     }
   },
+  "android-4-4": {
+    "image": "/images/operating-systems/android-4-4.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_4.4_with_stock_launcher.png",
+    "license": "Apache License 2.0",
+    "artist": "Brian Klug · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 4.4 KitKat на Nexus 4.",
+      "ru": "Главный экран Android 4.4 KitKat на Nexus 4.",
+      "en": "Android 4.4 KitKat home screen on Nexus 4."
+    }
+  },
+  "android-5-0": {
+    "image": "/images/operating-systems/android-5-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Notification_panel_of_android_5.0.png",
+    "license": "Apache License 2.0",
+    "artist": "Google Inc. · AOSP",
+    "caption": {
+      "uk": "Панель сповіщень Android 5.0 Lollipop.",
+      "ru": "Панель уведомлений Android 5.0 Lollipop.",
+      "en": "Android 5.0 Lollipop notification shade."
+    }
+  },
+  "android-5-1": {
+    "image": "/images/operating-systems/android-5-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_Lollipop_screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "Google LLC · AOSP",
+    "caption": {
+      "uk": "Android 5.1.1 Lollipop в емуляторі Nexus 5.",
+      "ru": "Android 5.1.1 Lollipop в эмуляторе Nexus 5.",
+      "en": "Android 5.1.1 Lollipop in the Nexus 5 emulator."
+    }
+  },
+  "android-6-0": {
+    "image": "/images/operating-systems/android-6-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_Marshmallow_screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "Google LLC · AOSP",
+    "caption": {
+      "uk": "Android 6.0 Marshmallow в емуляторі Nexus 5.",
+      "ru": "Android 6.0 Marshmallow в эмуляторе Nexus 5.",
+      "en": "Android 6.0 Marshmallow in the Nexus 5 emulator."
+    }
+  },
+  "android-7-0": {
+    "image": "/images/operating-systems/android-7-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_7.0-en.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 7.0 Nougat.",
+      "ru": "Главный экран Android 7.0 Nougat.",
+      "en": "Android 7.0 Nougat home screen."
+    }
+  },
   "android-7-1": {
     "image": "/images/operating-systems/android-7-1.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Cell_Broadcast_on_Android_7.1.png",
@@ -228,6 +349,17 @@
       "uk": "Налаштування екстрених сповіщень в Android 7.1 Nougat.",
       "ru": "Настройки экстренных оповещений в Android 7.1 Nougat.",
       "en": "Emergency broadcast settings in Android 7.1 Nougat."
+    }
+  },
+  "android-8-0": {
+    "image": "/images/operating-systems/android-8-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_Oreo_20171125-103322.png",
+    "license": "CC BY-SA 4.0",
+    "artist": "Gnana Sreekar",
+    "caption": {
+      "uk": "Екран «Про телефон» в Android 8.0 Oreo на OnePlus 2.",
+      "ru": "Экран «О телефоне» в Android 8.0 Oreo на OnePlus 2.",
+      "en": "Android 8.0 Oreo About phone screen on OnePlus 2."
     }
   },
   "android-8-1": {
@@ -252,6 +384,17 @@
       "en": "Android 9 Pie (AOSP) home screen with open-source apps."
     }
   },
+  "android-10": {
+    "image": "/images/operating-systems/android-10.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_10_screenshot_(March_2024).png",
+    "license": "Apache License 2.0",
+    "artist": "Paowee · AOSP",
+    "caption": {
+      "uk": "Android 10 на Xperia XZ з універсальним системним образом.",
+      "ru": "Android 10 на Xperia XZ с универсальным системным образом.",
+      "en": "Android 10 on an Xperia XZ running a generic system image."
+    }
+  },
   "android-11": {
     "image": "/images/operating-systems/android-11.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Android_11_Homescreen.png",
@@ -274,6 +417,28 @@
       "en": "Android 12 home screen."
     }
   },
+  "android-12l": {
+    "image": "/images/operating-systems/android-12l.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_12_L_Homescreen_Screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 12L у телефонному форматі.",
+      "ru": "Главный экран Android 12L в телефонном формате.",
+      "en": "Android 12L home screen in a phone layout."
+    }
+  },
+  "android-13": {
+    "image": "/images/operating-systems/android-13.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_13_Homescreen_Screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "Paowee · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 13.",
+      "ru": "Главный экран Android 13.",
+      "en": "Android 13 home screen."
+    }
+  },
   "android-14": {
     "image": "/images/operating-systems/android-14.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Android_14_Homescreen_screenshot.png",
@@ -283,6 +448,17 @@
       "uk": "Головний екран Android 14.",
       "ru": "Главный экран Android 14.",
       "en": "Android 14 home screen."
+    }
+  },
+  "android-15": {
+    "image": "/images/operating-systems/android-15.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_15_Homescreen_Screenshot.png",
+    "license": "Apache License 2.0",
+    "artist": "AOSP",
+    "caption": {
+      "uk": "Головний екран Android 15.",
+      "ru": "Главный экран Android 15.",
+      "en": "Android 15 home screen."
     }
   },
   "android-16": {

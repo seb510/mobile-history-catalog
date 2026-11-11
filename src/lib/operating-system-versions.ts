@@ -6,6 +6,7 @@ const text = (uk: string, ru: string, en: string): Localized => ({ uk, ru, en })
 export const VERSION_COPY = {
   title: text('Версії та покоління', 'Версии и поколения', 'Versions and generations'),
   intro: text('Моделі згруповано за версією, зазначеною в каталозі.', 'Модели сгруппированы по версии, указанной в каталоге.', 'Models are grouped by the version recorded in the archive.'),
+  androidIntro: text('Хронологія охоплює й версії, для яких в архіві ще немає телефонів.', 'Хронология охватывает и версии, для которых в архиве пока нет телефонов.', 'The timeline also covers releases without phones in the archive.'),
   unspecified: text('Точну версію не зазначено', 'Точная версия не указана', 'Exact version unspecified'),
   noModels: text('Моделей цієї версії в архіві ще немає.', 'Моделей этой версии в архиве пока нет.', 'The archive does not yet have models for this version.'),
 };
@@ -37,9 +38,23 @@ const windowsPhone: Version[] = [
   { id: 'windows-10-mobile', title: 'Windows 10 Mobile', match: /^windows 10 mobile\b/i },
 ];
 
+const androidReleases = [
+  '1.0', '1.1', '1.5 Cupcake', '1.6 Donut', '2.0 Eclair', '2.1 Eclair', '2.2 Froyo',
+  '2.3 Gingerbread', '2.3.4 Gingerbread', '3.0 Honeycomb', '3.1 Honeycomb', '3.2 Honeycomb',
+  '4.0 Ice Cream Sandwich', '4.1 Jelly Bean', '4.2 Jelly Bean', '4.2.2 Jelly Bean', '4.3 Jelly Bean',
+  '4.4 KitKat', '5.0 Lollipop', '5.1 Lollipop', '6.0 Marshmallow', '7.0 Nougat', '7.1 Nougat',
+  '8.0 Oreo', '8.1 Oreo', '9 Pie', '10', '11', '12', '12L', '13', '14', '15', '16', '17',
+].map(release => ({
+  id: 'android-' + release.split(' ')[0].toLowerCase().replaceAll('.', '-'),
+  title: 'Android ' + release,
+}));
+
 export function versionFor(platform: string, os: string): Omit<Version, 'match'> | undefined {
   if (platform === 'symbian') return symbian.find(version => version.match.test(os));
   if (platform === 'windows-phone') return windowsPhone.find(version => version.match.test(os));
+  if (platform === 'android' && /^Android\s+12L\b/i.test(os)) {
+    return { id: 'android-12l', title: 'Android 12L' };
+  }
   const series = platform === 'series-40' && os.match(/\bseries 40 (\d+(?:st|nd|rd|th) Edition)(?:,? (?:Feature Pack |FP)(\d+))?/i);
   if (series) {
     const [, edition, pack] = series;
@@ -52,8 +67,9 @@ export function versionFor(platform: string, os: string): Omit<Version, 'match'>
   }
 }
 
-export function curatedVersions(platform: string): readonly Version[] {
+export function curatedVersions(platform: string): readonly Omit<Version, 'match'>[] {
   if (platform === 'symbian') return symbian;
   if (platform === 'windows-phone') return windowsPhone;
+  if (platform === 'android') return androidReleases;
   return [];
 }
