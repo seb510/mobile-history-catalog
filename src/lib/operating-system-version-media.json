@@ -1,0 +1,46 @@
+{
+  "9-1": {
+    "image": "/images/operating-systems/symbian-9-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_E60.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "MalcolmScott",
+    "caption": {
+      "uk": "Фото головного екрана Nokia E60",
+      "ru": "Фото главного экрана Nokia E60",
+      "en": "Photo of the Nokia E60 home screen"
+    }
+  },
+  "9-4": {
+    "image": "/images/operating-systems/symbian-9-4.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_5800_in_offline_mode.jpg",
+    "license": "Public domain",
+    "artist": "Zanitie",
+    "caption": {
+      "uk": "Скриншот меню профілів Nokia 5800",
+      "ru": "Скриншот меню профилей Nokia 5800",
+      "en": "Nokia 5800 Profiles menu screenshot"
+    }
+  },
+  "anna": {
+    "image": "/images/operating-systems/symbian-anna.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_X7.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "NikitaNovozhilov",
+    "caption": {
+      "uk": "Фото екрана Nokia X7",
+      "ru": "Фото экрана Nokia X7",
+      "en": "Photo of the Nokia X7 display"
+    }
+  },
+  "belle": {
+    "image": "/images/operating-systems/symbian-belle.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_700_(SilverWhite)_-_Front.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Beamish4",
+    "caption": {
+      "uk": "Фото головного екрана Nokia 700",
+      "ru": "Фото главного экрана Nokia 700",
+      "en": "Photo of the Nokia 700 home screen"
+    }
+  }
+}

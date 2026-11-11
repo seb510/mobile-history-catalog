@@ -42,6 +42,7 @@ export const PLATFORMS: Platform[] = [
     id:'series-30-plus', name:copy('Series 30+','Series 30+','Series 30+'),
     summary:copy('Series 30+ використовували в простих телефонах під маркою Nokia, зокрема у перевиданні 3310 2017 року. Основні сценарії — дзвінки, SMS і базові інструменти.', 'Series 30+ использовалась в простых телефонах Nokia, в том числе в переиздании 3310 2017 года. Основные сценарии — звонки, SMS и базовые инструменты.', 'Series 30+ powered basic Nokia-branded handsets, including the 2017 Nokia 3310. Its main uses were calls, SMS and simple utilities.'),
     interface:copy('Головний екран показує годинник і команди програмних клавіш. Меню відкривається центральною клавішею й керується навігаційним блоком.', 'Главный экран показывает часы и команды программных клавиш. Меню открывается центральной клавишей и управляется навигационным блоком.', 'The standby screen shows the clock and soft-key commands. The centre key opens the menu, and the directional pad moves between entries.'),
+    source:{name:'HMD · Nokia 3310 user guide',url:'https://www.hmd.com/en_int/support/nokia-3310-user-guide'},
     match:/\bseries\s*30\s*\+/i,
   },
   {
@@ -83,6 +84,7 @@ export const PLATFORMS: Platform[] = [
     id:'motomagx', name:copy('Motorola MOTOMAGX','Motorola MOTOMAGX','Motorola MOTOMAGX'),
     summary:copy('MOTOMAGX поєднувала Linux і Java в частині телефонів Motorola кінця 2000-х. У каталозі її представляє RAZR2 V8.', 'MOTOMAGX сочетала Linux и Java в части телефонов Motorola конца 2000-х. В каталоге её представляет RAZR2 V8.', 'MOTOMAGX combined Linux and Java on some late-2000s Motorola phones. The RAZR2 V8 represents it in the archive.'),
     interface:copy('У V8 головне меню керується кнопками. Зовнішній екран розкладачки дає доступ до музичного плеєра, поки телефон закритий.', 'В V8 главное меню управляется кнопками. Внешний экран раскладушки даёт доступ к музыкальному плееру, пока телефон закрыт.', 'The V8 uses keys for its main menu. Its outer screen gives access to the music player while the clamshell is closed.'),
+    source:{name:'Motorola · RAZR2 V8 user guide',url:'https://en-us.support.motorola.com/euf/assets/downloads/Manuals/V8_UG_TMO.pdf'},
     match:/\bmotomagx\b/i,
   },
   {

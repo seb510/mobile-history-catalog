@@ -8,11 +8,13 @@ import { render, type CollectionEntry } from 'astro:content';
 import { t, RELATED_PHONES, DESIGN_EDITORIAL, HOME_EDITORIAL, RETRO_DISCOVERY, SPEC_VARIANT_NOTE, GALLERY_INTERACTION, PHONE_READING } from '../lib/ui-strings';
 import { RETRO_STORIES } from '../lib/editorial-stories';
 import { PHONE_EDITORIAL, PHONE_EDITORIAL_LABELS } from '../lib/phone-editorial';
-import { getPhonesForLocale, slugOf, isRecentlyAdded } from '../lib/phones';
+import { getPhone, getPhonesForLocale, slugOf, isRecentlyAdded } from '../lib/phones';
 import { buildCompareGroups } from '../lib/specs';
 import { slugifyBrandName } from '../lib/brands';
 import { museumImageCredit } from '../lib/image-attribution';
 import { localePath, type Locale } from '../lib/locales';
+import { OS_PATH, platformFor } from '../lib/operating-systems';
+import { versionFor } from '../lib/operating-system-versions';
 
 interface Props {
   phone: CollectionEntry<'phones'>;
@@ -30,6 +32,10 @@ const { Content } = await render(phone);
 
 const variantData = data.specVariant ? { ...data, ...data.specVariant.specs } : data;
 const groups = buildCompareGroups(data, variantData, strings);
+const canonicalOs = locale === 'uk' ? data.os : (await getPhone('uk', slugOf(phone)))?.data.os;
+const osPlatform = platformFor(canonicalOs);
+const osVersion = osPlatform && canonicalOs ? versionFor(osPlatform.id, canonicalOs) : undefined;
+const osHref = osPlatform ? localePath(locale, `${OS_PATH}${osPlatform.id}/`) + (osVersion ? `#version-${osVersion.id}` : '') : undefined;
 const images = [
   ...(data.image
     ? [{ image: data.image, imageCredit: data.imageCredit, imageSourceUrl: data.imageSourceUrl, alt: `${data.brand} ${data.model}`, caption: data.imageCaption }]
@@ -267,6 +273,8 @@ const related = allPhones
                       {a && <div class="flex flex-wrap items-baseline gap-x-2"><span class="text-[0.65rem] font-bold tracking-wide text-neutral-500">{data.model}</span><span>{a}</span></div>}
                       <div class="spec-variant border-l-2 border-orange-500 pl-2"><span class="block text-[0.65rem] font-bold tracking-wide text-orange-500">{data.specVariant.model}</span><span>{b ?? '—'}</span></div>
                     </div>
+                  ) : label === s.os && osHref ? (
+                    <a class="text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={osHref}>{a}</a>
                   ) : a}
                 </td>
               </tr>

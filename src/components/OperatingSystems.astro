@@ -6,6 +6,10 @@ import { localePath, type Locale } from '../lib/locales';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { OS_COPY, OS_PATH, PLATFORMS, platformFor } from '../lib/operating-systems';
 import mediaByPlatform from '../lib/operating-systems-media.json';
+import versionMedia from '../lib/operating-system-version-media.json';
+import { VERSION_COPY, curatedVersions, versionFor } from '../lib/operating-system-versions';
+import { VERSION_DETAILS } from '../lib/operating-system-version-details';
+import platformLogos from '../lib/operating-system-logos.json';
 import { t } from '../lib/ui-strings';
 
 interface Props {
@@ -35,8 +39,42 @@ const models = platform ? localizedPhones
   .filter(phone => groupBySlug.get(slugOf(phone)) === platform.id)
   .sort((a, b) => a.data.year - b.data.year || a.data.model.localeCompare(b.data.model, locale)) : [];
 const media = platform ? mediaByPlatform[platform.id as keyof typeof mediaByPlatform] : undefined;
+const vendorMarks = {
+  'series-40': { key: 'nokia', name: 'Nokia' },
+  'series-30-plus': { key: 'nokia', name: 'Nokia' },
+  motomagx: { key: 'motorola', name: 'Motorola' },
+  'windows-mobile': { key: 'microsoft', name: 'Microsoft' },
+} as const;
+const vendorLabel = { uk: 'Виробник', ru: 'Производитель', en: 'Vendor' }[locale];
+function logoFor(id: string) {
+  const vendor = vendorMarks[id as keyof typeof vendorMarks];
+  const mark = platformLogos[(vendor?.key ?? id) as keyof typeof platformLogos];
+  return mark && { ...mark, vendor: vendor?.name };
+}
+const logo = platform && logoFor(platform.id);
+const canonicalOsBySlug = new Map(canonicalPhones.map(phone => [slugOf(phone), phone.data.os]));
+const versionGroups = new Map<string, { id: string; title: string; note?: string; phones: typeof models }>();
+if (platform) {
+  for (const version of curatedVersions(platform.id)) {
+    versionGroups.set(version.id, { id: version.id, title: version.title, note: version.note?.[locale], phones: [] });
+  }
+  for (const phone of models) {
+    const os = canonicalOsBySlug.get(slugOf(phone));
+    const version = os ? versionFor(platform.id, os) : undefined;
+    const id = version?.id ?? 'unspecified';
+    const group = versionGroups.get(id) ?? { id, title: version?.title ?? VERSION_COPY.unspecified[locale], phones: [] };
+    group.phones.push(phone);
+    versionGroups.set(id, group);
+  }
+}
+const versions = [...versionGroups.values()];
+if (platform?.id !== 'symbian') {
+  versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || a.title.localeCompare(b.title, 'en', { numeric: true }));
+}
+const hasVersions = versions.some(version => version.id !== 'unspecified');
 const mediaLicenseUrls: Record<string, string> = {
   'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
+  'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/',
   'CC BY 3.0': 'https://creativecommons.org/licenses/by/3.0/',
   'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
   'Apache License 2.0': 'https://www.apache.org/licenses/LICENSE-2.0',
@@ -51,8 +89,18 @@ const mediaLicenseUrls: Record<string, string> = {
   ]} />
   <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
     {platform && <p class="editorial-kicker mb-2 text-orange-500">{sectionTitle}</p>}
-    <h1 class="page-title">{title}</h1>
+    <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+      <h1 class="page-title">{title}</h1>
+      {logo && <a class="platform-logo" href={logo.source} target="_blank" rel="noopener noreferrer" aria-label={OS_COPY.sources[locale] + ' · ' + (logo.vendor ?? title)} title={logo.vendor && `${vendorLabel} · ${logo.vendor}`}>
+        <img src={logo.image} alt="" />
+      </a>}
+    </div>
     <p class="mt-4 leading-relaxed text-neutral-400">{description}</p>
+    {logo && logo.license !== 'Public domain' && (
+      <p class="mt-2 text-xs text-neutral-500">
+        {logo.artist} · <a class="underline underline-offset-2" href={mediaLicenseUrls[logo.license]} target="_blank" rel="noopener noreferrer">{logo.license}</a> · WebP
+      </p>
+    )}
   </header>
 
   {platform ? (
@@ -86,8 +134,26 @@ const mediaLicenseUrls: Record<string, string> = {
       </section>
       <section class="mt-10 border-t border-neutral-800 pt-6" aria-labelledby="platform-models">
         <h2 id="platform-models" class="text-2xl font-bold tracking-tight">{OS_COPY.models[locale]} · {models.length}</h2>
-        <ul class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {models.map(phone => (
+        {hasVersions && <p class="mt-2 text-sm text-neutral-400">{VERSION_COPY.intro[locale]}</p>}
+        {hasVersions && <nav class="mt-4 flex flex-wrap gap-2" aria-label={VERSION_COPY.title[locale]}>
+          {versions.map(version => <a class="platform-link rounded-sm border border-neutral-800 px-3 py-2 text-sm text-orange-500" href={`#version-${version.id}`}>{version.title}</a>)}
+        </nav>}
+        {versions.map(version => {
+          const picture = platform.id === 'symbian' ? versionMedia[version.id as keyof typeof versionMedia] : undefined;
+          const detail = VERSION_DETAILS[version.id];
+          return (
+            <section id={`version-${version.id}`} class:list={['scroll-mt-24', hasVersions && 'mt-5 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 sm:p-5']}>
+              {hasVersions && <h3 class="text-xl font-bold tracking-tight">{version.title}</h3>}
+              <div class:list={[picture && 'grid items-start gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,14rem)]']}>
+                <div>
+                  {version.note && <p class="mt-2 max-w-prose text-sm leading-relaxed text-neutral-300">{version.note}</p>}
+                  {detail && <p class="mt-2 max-w-prose text-sm leading-relaxed text-neutral-300">
+                    {detail.note[locale]}{' '}
+                    <a class="text-xs text-neutral-400 underline underline-offset-2" href={detail.source} target="_blank" rel="noopener noreferrer">{OS_COPY.sources[locale]}</a>
+                  </p>}
+                  {!version.phones.length && <p class="mt-3 text-sm text-neutral-400">{VERSION_COPY.noModels[locale]}</p>}
+                  <ul class:list={['mt-4 grid gap-2 sm:grid-cols-2', !picture && 'lg:grid-cols-3']}>
+          {version.phones.map(phone => (
             <li>
               <a class="platform-link flex h-full items-start justify-between gap-3 rounded-sm border border-neutral-800 bg-neutral-900 p-3" href={localePath(locale, `/phones/${slugOf(phone)}/`)}>
                 <span class="min-w-0">
@@ -98,16 +164,36 @@ const mediaLicenseUrls: Record<string, string> = {
               </a>
             </li>
           ))}
-        </ul>
+                  </ul>
+                </div>
+                {picture && <figure class="mt-3">
+                  <a href={picture.image}><img class="mx-auto max-h-60 w-full object-contain" src={picture.image} alt={picture.caption[locale]} loading="lazy" decoding="async" /></a>
+                  <figcaption class="mt-2 text-xs leading-relaxed text-neutral-400">
+                    <p>{picture.caption[locale]}</p>
+                    <a class="underline underline-offset-2" href={picture.source} target="_blank" rel="noopener noreferrer">{picture.artist} · Wikimedia Commons</a>
+                    {' · '}
+                    {mediaLicenseUrls[picture.license] ? <a class="underline underline-offset-2" href={mediaLicenseUrls[picture.license]} target="_blank" rel="noopener noreferrer">{picture.license}</a> : picture.license}
+                    {' · WebP'}
+                  </figcaption>
+                </figure>}
+              </div>
+            </section>
+          );
+        })}
       </section>
     </>
   ) : (
     <>
       <ul class="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {PLATFORMS.map(item => (
+        {PLATFORMS.map(item => {
+          const mark = logoFor(item.id);
+          return (
           <li>
             <a class="platform-link editorial-card flex h-full flex-col rounded-sm border border-neutral-800 bg-neutral-900 p-5" href={localePath(locale, `${OS_PATH}${item.id}/`)}>
-              <span class="text-xl font-bold tracking-tight">{item.name[locale]}</span>
+              <span class="flex min-h-10 flex-wrap items-center gap-3 text-xl font-bold tracking-tight">
+                {mark && <span class="platform-logo" title={mark.vendor && `${vendorLabel} · ${mark.vendor}`}><img src={mark.image} alt="" loading="lazy" /></span>}
+                <span>{item.name[locale]}</span>
+              </span>
               <span class="mt-2 text-sm leading-relaxed text-neutral-400">{item.summary[locale]}</span>
               <span class="mt-auto flex items-center justify-between gap-3 pt-4 text-sm font-semibold text-orange-500">
                 <span>{OS_COPY.models[locale]} · {countByPlatform.get(item.id) ?? 0}</span>
@@ -115,7 +201,8 @@ const mediaLicenseUrls: Record<string, string> = {
               </span>
             </a>
           </li>
-        ))}
+          );
+        })}
       </ul>
       {unclassified > 0 && <p class="mt-5 text-sm text-neutral-400">{OS_COPY.unknown[locale]} ({unclassified})</p>}
     </>
@@ -123,6 +210,24 @@ const mediaLicenseUrls: Record<string, string> = {
 </Layout>
 
 <style>
+  .platform-logo {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    flex: none;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: .25rem;
+    border: 1px solid #e2e2e2;
+    background: #fff;
+  }
+  .platform-logo img {
+    position: absolute;
+    inset: .35rem;
+    width: calc(100% - .7rem);
+    height: calc(100% - .7rem);
+    object-fit: contain;
+  }
   .platform-link { transition: border-color var(--motion-ui), color var(--motion-ui); }
   .platform-link:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {

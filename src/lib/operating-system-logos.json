@@ -1,0 +1,50 @@
+{
+  "symbian": {
+    "image": "/images/operating-systems/logos/symbian.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Symbian_OS_logo.svg",
+    "license": "Public domain",
+    "artist": "Unknown author"
+  },
+  "android": {
+    "image": "/images/operating-systems/logos/android.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_robot.png",
+    "license": "CC BY 3.0",
+    "artist": "Google"
+  },
+  "ios": {
+    "image": "/images/operating-systems/logos/ios.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:IOS_wordmark_(2017).svg",
+    "license": "Public domain",
+    "artist": "Apple Inc. · Totie"
+  },
+  "windows-phone": {
+    "image": "/images/operating-systems/logos/windows-phone.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Windows_Phone_8_logo_and_wordmark.svg",
+    "license": "Public domain",
+    "artist": "Microsoft"
+  },
+  "harmonyos": {
+    "image": "/images/operating-systems/logos/harmonyos.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Harmonyos.svg",
+    "license": "Public domain",
+    "artist": "華爲技術有限公司"
+  },
+  "nokia": {
+    "image": "/images/operating-systems/logos/nokia.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_wordmark.svg",
+    "license": "Public domain",
+    "artist": "Nokia Corporation"
+  },
+  "motorola": {
+    "image": "/images/operating-systems/logos/motorola.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Motorola-Logo.svg",
+    "license": "Public domain",
+    "artist": "Unknown author"
+  },
+  "microsoft": {
+    "image": "/images/operating-systems/logos/microsoft.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Microsoft_logo_(2012).svg",
+    "license": "Public domain",
+    "artist": "Microsoft Corporation — Jason Wells"
+  }
+}
