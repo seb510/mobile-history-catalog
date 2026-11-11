@@ -23,6 +23,7 @@ connectivity:
   - Bluetooth
   - IrDA
   - USB
+os: "Proprietary platform Sony Ericsson"
 ---
 
 The W900i hides its numeric keypad beneath a rotating upper section. Opening it means turning the screen rather than sliding it.

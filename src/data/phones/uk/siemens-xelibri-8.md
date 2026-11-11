@@ -28,6 +28,7 @@ gallery:
     caption: "Бічний профіль незвичного корпуса Xelibri 8."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/xelibri-8
+os: "Власна платформа Siemens"
 ---
 
 Xelibri 8 завершував другу колекцію бренду як підвіска-телефон. Його пропонували носити на ланцюжку, що додавався до пристрою; вага корпуса становила 67 г.

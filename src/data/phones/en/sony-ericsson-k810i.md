@@ -43,6 +43,7 @@ gallery:
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_K810i_01.jpg
     caption: Illuminated keys on the Sony Ericsson K810i.
     alt: Illuminated keys on the Sony Ericsson K810i.
+os: "Proprietary platform Sony Ericsson"
 ---
 
 The K810i continued the K800i’s camera-first idea with a different tactile identity: individual round keys, a joystick and a slimmer lens cover. From the front it is a recognisable phone; a landscape grip and a physical shutter button turn the back into a small camera.

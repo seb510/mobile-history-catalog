@@ -26,6 +26,7 @@ storageNote: 256 or 512 GB, depending on market and configuration
 connectivity:
   - NFC
   - USB-C
+os: "Android 16"
 ---
 
 razr ultra brings the compact flip gesture into the touchscreen era. Its four-inch cover screen runs apps while closed; a seven-inch display opens inside.

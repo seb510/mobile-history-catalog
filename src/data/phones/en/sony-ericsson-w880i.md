@@ -20,6 +20,7 @@ imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W880i_v2.p
 camera:
   rear: 2 MP, no flash
 storageExpandable: Memory Stick Micro (M2); 1 GB in the original sales kit
+os: "Proprietary platform Sony Ericsson"
 ---
 
 The W880i is recognisable by its thin metal face and narrow keys. At 9.4 mm and 71 g, this Walkman contrasts with the bulky W900i.

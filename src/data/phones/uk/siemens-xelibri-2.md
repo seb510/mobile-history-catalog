@@ -12,6 +12,7 @@ image: /images/phones/siemens-xelibri-2/museum-front.webp
 imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
 imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/xelibri-2
 imageCaption: "Xelibri 2 в аква-кольорі: округлий корпус можна закріпити на одязі."
+os: "Власна платформа Siemens"
 ---
 
 Xelibri 2 задуманий не як мініатюрний бізнес-інструмент, а як помітний аксесуар. Округлі аеродинамічні лінії та незвична клавіатура віддаляли його від звичного прямокутного моноблока.

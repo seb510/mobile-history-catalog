@@ -8,9 +8,9 @@ export const UPDATES = [{
   "date": "2026-11-11",
   "phones": [],
   "changes": {
-    "uk": ["Додано рубрику «Операційні системи»: історія платформ, ілюстрації інтерфейсів і телефони з архіву.", "Оновлено галереї Nokia 600 і Sony Xperia Z."],
-    "ru": ["Добавлена рубрика «Операционные системы»: история платформ, иллюстрации интерфейсов и телефоны из архива.", "Обновлены галереи Nokia 600 и Sony Xperia Z."],
-    "en": ["Added an Operating Systems section with platform histories, interface illustrations and phones from the archive.", "Updated the Nokia 600 and Sony Xperia Z galleries."]
+    "uk": ["Додано рубрику «Операційні системи»: історія платформ, ілюстрації інтерфейсів і телефони з архіву.", "Уточнено ОС для 20 моделей і додано фото екранів для Symbian 9.2 та 9.3.", "Оновлено галереї Nokia 600 і Sony Xperia Z."],
+    "ru": ["Добавлена рубрика «Операционные системы»: история платформ, иллюстрации интерфейсов и телефоны из архива.", "Уточнены ОС для 20 моделей и добавлены фото экранов для Symbian 9.2 и 9.3.", "Обновлены галереи Nokia 600 и Sony Xperia Z."],
+    "en": ["Added an Operating Systems section with platform histories, interface illustrations and phones from the archive.", "Documented the OS for 20 models and added screen photos for Symbian 9.2 and 9.3.", "Updated the Nokia 600 and Sony Xperia Z galleries."]
   }
 }, {
   "date": "2026-11-10",

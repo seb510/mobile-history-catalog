@@ -33,6 +33,7 @@ gallery:
     caption: Regional S700c photographed; specifications describe S700i.
 milestone: A 180-degree swivel reveals the keypad, with a camera-style reverse side
 imageCaption: The photographs show the regional S700c with its keypad open. Specifications describe the S700i; regional software and versions are not treated as identical.
+os: "Proprietary platform Sony Ericsson"
 ---
 
 The S700i rotates its upper section through 180 degrees to uncover the number keys. Closed, it still leaves the screen and navigation controls accessible. Turn it over and the arrangement resembles a compact camera, with a lens shutter that activates shooting.

@@ -18,6 +18,7 @@ camera: {"rear":"1.3 MP, photo light, video"}
 connectivity: ["Bluetooth","Infrared","USB via Fast port","FM radio with RDS"]
 imageCaption: "W550i opened to 90°: the swivel reveals the number keypad. An original photograph without AI processing."
 image: "/images/phones/sony-ericsson-w550i/archive.webp"
+os: "Proprietary platform Sony Ericsson"
 ---
 
 W550i made a music phone something to turn in your hands. Its Walkman front swivels relative to the keypad, while replaceable Style-Up covers change its appearance. Sony Ericsson introduced W550 in August 2005 as a combination of music, photography and games.

@@ -25,6 +25,7 @@ image: /images/phones/lg-kg800/front.webp
 imageCredit: "Фото: Petar Milošević, CC BY 4.0, Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:LG_KG800.jpg
 imageCaption: "Белый KG800 Chocolate: сенсорные кнопки и выдвинутая цифровая клавиатура."
+os: "Собственная платформа LG"
 ---
 
 KG800 Chocolate построен вокруг момента пробуждения: гладкая передняя панель оживает красными сенсорными обозначениями. Это не сенсорный смартфон — для набора номера или сообщения выдвигается обычная цифровая клавиатура. Сочетание глянца, света и движения стало главным образом первого международного Chocolate серии Black Label.

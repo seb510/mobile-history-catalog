@@ -25,6 +25,7 @@ image: /images/phones/lg-kg800/front.webp
 imageCredit: "Photo: Petar Milošević, CC BY 4.0, Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:LG_KG800.jpg
 imageCaption: A white KG800 Chocolate with touch controls and its number keypad extended.
+os: "Proprietary platform LG"
 ---
 
 The KG800 Chocolate is built around waking up: its smooth front comes alive with red touch-sensitive controls. It is not a touchscreen smartphone. A conventional number keypad slides out for calls and messages. Gloss, light and movement define this international Black Label model.

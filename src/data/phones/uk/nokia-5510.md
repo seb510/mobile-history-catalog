@@ -17,6 +17,7 @@ simType: Mini-SIM
 image: /images/phones/nokia-5510/commons-main.webp
 imageCredit: "Фото: Manorainjan Holzapfel · CC BY-SA 3.0 · Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:NOKIA_5510_blue_topview.jpg
+os: "Власна платформа Nokia"
 ---
 
 5510 розкладає клавіші по обидва боки екрана: SMS набирають двома руками. У 2001 році Nokia поєднала цю форму з MP3/AAC-програвачем і FM-радіо.

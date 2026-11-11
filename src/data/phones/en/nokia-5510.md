@@ -17,6 +17,7 @@ simType: Mini-SIM
 image: /images/phones/nokia-5510/commons-main.webp
 imageCredit: "Photo: Manorainjan Holzapfel · CC BY-SA 3.0 · Wikimedia Commons"
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:NOKIA_5510_blue_topview.jpg
+os: "Proprietary platform Nokia"
 ---
 
 The 5510 puts keys on both sides of its screen for two-handed messaging. Nokia paired this landscape shape with an MP3/AAC player and FM radio in 2001.

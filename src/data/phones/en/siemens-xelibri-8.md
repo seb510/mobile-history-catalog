@@ -28,6 +28,7 @@ gallery:
     caption: "The unusual side profile of the Xelibri 8."
     imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/xelibri-8
+os: "Proprietary platform Siemens"
 ---
 
 The Xelibri 8 closed the brand’s second collection as a pendant phone. It was designed to be worn on the chain supplied with the device; the handset itself weighed 67 g.

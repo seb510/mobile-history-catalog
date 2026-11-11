@@ -23,6 +23,7 @@ gallery:
     caption: "Выдвижной механизм открывает клавиатуру под стеклянной панелью."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/8600-luna
+os: "Series 40"
 ---
 
 8600 Luna превращает короткое движение слайдера в часть впечатления от телефона. Nokia сочетала нержавеющую сталь с почти непрозрачным дымчатым стеклом, за которым скрывалась клавиатура.

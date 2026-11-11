@@ -12,6 +12,7 @@ image: /images/phones/siemens-xelibri-2/museum-front.webp
 imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
 imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/xelibri-2
 imageCaption: "The Aqua Xelibri 2: its rounded body could be clipped onto clothing."
+os: "Proprietary platform Siemens"
 ---
 
 The Xelibri 2 was conceived not as a miniature business tool but as a conspicuous accessory. Its rounded, aerodynamic lines and unusual keypad set it apart from the familiar rectangular candybar.

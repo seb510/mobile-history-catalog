@@ -19,6 +19,7 @@ gallery:
     alt: "A dark blue Alcatel One Touch 155, powered on with an MTS RUS carrier SIM."
     caption: "A different colour finish, powered on with a carrier SIM."
     imageCredit: "Photo: personal archive"
+os: "Proprietary platform Alcatel"
 ---
 
 The One Touch 155 represents the entry-level tier of the Alcatel One Touch range, announced in the first quarter of 2004. A monochrome 101 × 65 pixel display, no camera and no memory card support — the phone was built purely for calls and text messages, typical of the cheapest segment of the mid-2000s GSM market.

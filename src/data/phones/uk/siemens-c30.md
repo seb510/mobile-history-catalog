@@ -10,6 +10,7 @@ weightGrams: 110
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Siemens_C30.JPG/960px-Siemens_C30.JPG"
 imageCredit: "Фото: Ulli1105, CC BY 3.0, Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_C30.JPG"
+os: "Власна платформа Siemens"
 ---
 
 Siemens C30 належить до раннього покоління GSM-моноблоків компанії. Посібник, виданий Siemens у листопаді 2000 року, описує корпус вагою 110 г і розмірами 124 × 44 × 24 мм та роботу в мережах GSM 900/1800.

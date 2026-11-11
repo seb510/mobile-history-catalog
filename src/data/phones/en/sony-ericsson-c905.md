@@ -22,6 +22,7 @@ imageCredit: "Photo: Mobile Phone Museum · used with permission · mobilephonem
 imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/c905i
 camera:
   rear: 8.1 MP, autofocus, xenon flash
+os: "Proprietary platform Sony Ericsson"
 ---
 
 Closed, the C905 resembles a compact camera; opened, it restores a numeric keypad. Its lens cover and landscape grip give Cyber-shot a physical identity.

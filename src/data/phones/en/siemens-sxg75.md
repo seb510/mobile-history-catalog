@@ -46,6 +46,7 @@ gallery:
     caption: SXG75 powered on in an everyday setting. The photographer changed the status-icon colours through software modding; this is not a reference for the factory appearance.
     imageCredit: DireWolf · CC BY-SA 3.0 · Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Siemens_SXG75.png
+os: "Proprietary platform Siemens"
 ---
 
 After the compact A65 and CX65, the SXG75 has a different scale: a broad front, a 240 × 320 display and a visible front camera. A physical number keypad remains, but it now serves several new uses.

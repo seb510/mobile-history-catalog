@@ -42,5 +42,27 @@
       "ru": "Фото главного экрана Nokia 700",
       "en": "Photo of the Nokia 700 home screen"
     }
+  },
+  "9-2": {
+    "image": "/images/operating-systems/symbian-9-2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_E71_cellphone.jpg",
+    "license": "CC0",
+    "artist": "Derrick Coetzee (Dcoetzee)",
+    "caption": {
+      "uk": "Увімкнена Nokia E71 із Symbian 9.2",
+      "ru": "Включённая Nokia E71 с Symbian 9.2",
+      "en": "Nokia E71 with Symbian 9.2 and its screen on"
+    }
+  },
+  "9-3": {
+    "image": "/images/operating-systems/symbian-9-3.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N96_screen_landscape.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Stefanos Kofopoulos from Athens, Greece",
+    "caption": {
+      "uk": "Головний екран Nokia N96 у горизонтальному режимі",
+      "ru": "Главный экран Nokia N96 в горизонтальном режиме",
+      "en": "Nokia N96 home screen in landscape mode"
+    }
   }
 }

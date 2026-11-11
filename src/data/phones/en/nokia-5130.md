@@ -29,6 +29,7 @@ gallery:
     caption: "The side edge with dedicated music player control keys."
     imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5130-xpressmusic
+os: "Series 40"
 ---
 
 The 5130 XpressMusic is a budget entry in Nokia's music sub-brand: dedicated player keys (play/pause, track skip) sit below the screen, and two built-in loudspeakers let you listen without headphones. It's the same idea as the XpressMusic flagships, just in a plain candybar body with no slider or swivel mechanism.

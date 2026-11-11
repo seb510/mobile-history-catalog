@@ -22,6 +22,7 @@ imageCredit: "Фото: Mobile Phone Museum · використано з доз�
 imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/c905i
 camera:
   rear: 8,1 МП, автофокус, ксеноновий спалах
+os: "Власна платформа Sony Ericsson"
 ---
 
 Закритий C905 нагадує компактну камеру, відкритий повертає цифрову клавіатуру. Шторка об’єктива та хват для горизонтальної зйомки роблять Cyber-shot фізичним сценарієм.

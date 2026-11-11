@@ -10,6 +10,7 @@ weightGrams: 110
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Siemens_C30.JPG/960px-Siemens_C30.JPG"
 imageCredit: "Photo: Ulli1105, CC BY 3.0, Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Siemens_C30.JPG"
+os: "Proprietary platform Siemens"
 ---
 
 The Siemens C30 belongs to the company’s early generation of GSM candybars. A Siemens manual published in November 2000 describes a 110 g handset measuring 124 × 44 × 24 mm, operating on GSM 900/1800 networks.

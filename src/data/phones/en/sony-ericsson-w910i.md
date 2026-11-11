@@ -42,6 +42,7 @@ gallery:
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W910i_(Hearty_Red)_-_Back_(Open).jpg
     caption: "The open W910i from behind: camera and sliding mechanism."
     alt: "The open W910i from behind: camera and sliding mechanism."
+os: "Proprietary platform Sony Ericsson"
 ---
 
 The W910i made movement part of listening. A thin sliding front conceals the number keys, while Walkman 3.0 brings music to the foreground. Shake control changes tracks with a gesture; SensMe groups music by mood and tempo.

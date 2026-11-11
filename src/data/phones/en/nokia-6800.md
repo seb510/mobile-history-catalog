@@ -14,6 +14,7 @@ milestone: "A number keypad unfolds into a full QWERTY keyboard around the scree
 connectivity: ["Infrared","Pop-Port","FM radio"]
 imageCaption: "Nokia 6800 is the lower phone with the dark face; Nokia 6810 is above it. Both keyboards are unfolded."
 image: "/images/phones/nokia-6800/archive.webp"
+os: "Series 40"
 ---
 
 Closed, the Nokia 6800 resembles a conventional phone. Unfolding its front reveals two QWERTY halves around the display. The interface rotates 90 degrees and the device is held horizontally with both hands. Its mechanism changes not just the outline but the act of typing.

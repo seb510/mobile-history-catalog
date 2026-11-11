@@ -20,6 +20,7 @@ imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_W880i_v2.p
 camera:
   rear: 2 МП, без вспышки
 storageExpandable: Memory Stick Micro (M2); 1 ГБ в исходном комплекте
+os: "Собственная платформа Sony Ericsson"
 ---
 
 W880i узнаётся по тонкой металлической передней панели и узким клавишам. Толщина 9,4 мм и вес 71 г делают этот Walkman противоположностью массивному W900i.
