@@ -25,10 +25,21 @@ os: Android 4.1 Jelly Bean
 dimensionsMm: 139 × 71 × 7.9 мм
 weightGrams: 146
 colors: [Black, White, Purple]
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/04/Sony_Xperia_Z.jpeg/960px-Sony_Xperia_Z.jpeg
-imageCredit: "Фото: Razvanwikiman, CC BY-SA 3.0, Wikimedia Commons"
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.jpeg
-imageCaption: Sony Xperia Z, показанный на CES 2013.
+image: /images/phones/sony-xperia-z/front.webp
+imageCredit: "Фото: Clivejb, CC BY-SA 3.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.JPG
+imageCaption: "Sony Xperia Z C6603 с включённым экраном."
+gallery:
+  - image: /images/phones/sony-xperia-z/side.webp
+    alt: "Боковая грань Xperia Z с круглой кнопкой питания."
+    imageCredit: "Фото: Clivejb, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z_side_view.JPG
+    caption: "Боковая грань Xperia Z с круглой кнопкой питания."
+  - image: /images/phones/sony-xperia-z/mwc.webp
+    alt: "Sony Xperia Z на выставке MWC 2013 в Барселоне."
+    imageCredit: "Фото: conxa.roda, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Xperia_Z_at_MWC_2013.jpg
+    caption: "Sony Xperia Z на выставке MWC 2013 в Барселоне."
 ---
 
 Xperia Z стал заметным флагманом Sony в 2013 году: передняя и задняя панели были стеклянными, а корпус отличали плоские грани и тонкий профиль. Пятидюймовый экран Full HD, четырёхъядерный Snapdragon S4 Pro и основная камера 13,1 МП собрали в одном устройстве ключевые черты тогдашнего верхнего сегмента Android.

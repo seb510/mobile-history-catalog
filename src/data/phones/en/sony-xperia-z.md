@@ -25,10 +25,21 @@ os: Android 4.1 Jelly Bean
 dimensionsMm: 139 × 71 × 7.9 mm
 weightGrams: 146
 colors: [Black, White, Purple]
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/04/Sony_Xperia_Z.jpeg/960px-Sony_Xperia_Z.jpeg
-imageCredit: "Photo: Razvanwikiman, CC BY-SA 3.0, Wikimedia Commons"
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.jpeg
-imageCaption: Sony Xperia Z, shown at CES 2013.
+image: /images/phones/sony-xperia-z/front.webp
+imageCredit: "Photo: Clivejb, CC BY-SA 3.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.JPG
+imageCaption: "Sony Xperia Z C6603 with the screen on."
+gallery:
+  - image: /images/phones/sony-xperia-z/side.webp
+    alt: "Xperia Z side profile with its round power button."
+    imageCredit: "Photo: Clivejb, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z_side_view.JPG
+    caption: "Xperia Z side profile with its round power button."
+  - image: /images/phones/sony-xperia-z/mwc.webp
+    alt: "Sony Xperia Z on display at MWC 2013 in Barcelona."
+    imageCredit: "Photo: conxa.roda, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Xperia_Z_at_MWC_2013.jpg
+    caption: "Sony Xperia Z on display at MWC 2013 in Barcelona."
 ---
 
 The Xperia Z became a distinctive Sony flagship in 2013. Glass covered its front and back, while flat edges and a slim profile gave the phone a crisp silhouette. A five-inch Full HD display, quad-core Snapdragon S4 Pro and 13.1-megapixel main camera brought several high-end Android features together.

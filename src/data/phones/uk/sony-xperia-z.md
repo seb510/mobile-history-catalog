@@ -3,7 +3,7 @@ brand: Sony
 model: Xperia Z
 year: 2013
 dateAdded: "2026-11-10"
-formFactor: touchscreen
+formFactor: candybar
 milestone: Скляний Xperia-флагман із Full HD екраном і захистом від води
 display:
   sizeInches: 5
@@ -32,10 +32,21 @@ colors:
   - Black
   - White
   - Purple
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/04/Sony_Xperia_Z.jpeg/960px-Sony_Xperia_Z.jpeg
-imageCredit: "Фото: Razvanwikiman, CC BY-SA 3.0, Wikimedia Commons"
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.jpeg
-imageCaption: Sony Xperia Z, показаний на CES 2013.
+image: /images/phones/sony-xperia-z/front.webp
+imageCredit: "Фото: Clivejb, CC BY-SA 3.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.JPG
+imageCaption: "Sony Xperia Z C6603 з увімкненим екраном."
+gallery:
+  - image: /images/phones/sony-xperia-z/side.webp
+    alt: "Бічна грань Xperia Z із круглою кнопкою живлення."
+    imageCredit: "Фото: Clivejb, CC BY-SA 3.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z_side_view.JPG
+    caption: "Бічна грань Xperia Z із круглою кнопкою живлення."
+  - image: /images/phones/sony-xperia-z/mwc.webp
+    alt: "Sony Xperia Z на виставці MWC 2013 у Барселоні."
+    imageCredit: "Фото: conxa.roda, CC BY-SA 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Xperia_Z_at_MWC_2013.jpg
+    caption: "Sony Xperia Z на виставці MWC 2013 у Барселоні."
 ---
 
 Xperia Z став для Sony виразним флагманом 2013 року: передню й задню поверхні закривало скло, а корпус мав пласкі грані та помітно тонкий профіль. П’ятидюймовий екран Full HD, чотириядерний Snapdragon S4 Pro і 13,1-МП основна камера зібрали в одному пристрої риси тодішнього верхнього сегмента Android.
