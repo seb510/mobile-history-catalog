@@ -29,7 +29,7 @@ export const PLATFORMS: Platform[] = [
     summary: copy('У 2000-х Symbian став основою смартфонів Nokia та низки моделей Sony Ericsson. Платформа підтримувала багатозадачність і встановлення застосунків. Nokia згодом випустила Symbian^3, Anna й Belle.', 'В 2000-х Symbian стал основой смартфонов Nokia и ряда моделей Sony Ericsson. Платформа поддерживала многозадачность и установку приложений. Позже Nokia выпустила Symbian^3, Anna и Belle.', 'In the 2000s, Symbian powered Nokia smartphones and a number of Sony Ericsson models. It supported multitasking and installable applications. Nokia later released Symbian^3, Anna and Belle.'),
     interface: copy('S60 часто керували джойстиком і програмними клавішами. UIQ використовував стилус на моделях на кшталт P800. У Belle з’явилися настроювані головні екрани з віджетами.', 'S60 часто управлялся джойстиком и программными клавишами. UIQ использовал стилус на моделях вроде P800. В Belle появились настраиваемые домашние экраны с виджетами.', 'S60 often used a joystick and soft keys. UIQ used a stylus on devices such as the P800. Belle offered customisable home screens with widgets.'),
     source: {name:'Nokia · Symbian Belle',url:'https://www.globenewswire.com/news-release/2011/08/24/1857808/0/en/Nokia-launches-three-no-compromise-mass-market-smartphones-powered-by-Symbian-Belle.html'},
-    match: /^(?:symbian|(?:series\s*60|s60)\b)/i,
+    match: /^(?:symbian|(?:epoc(?:32)?|nokia belle|series\s*60|s60)\b)/i,
   },
   {
     id:'series-40', name:copy('Series 40','Series 40','Series 40'),

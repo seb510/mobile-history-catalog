@@ -18,7 +18,7 @@ battery:
 network: GSM 900/1800/1900
 connectivity:
   - Bluetooth
-os: Symbian OS / Series 60
+os: "Symbian OS 6.1, Series 60 1st Edition"
 simType: Mini-SIM
 image: /images/phones/nokia-3650/commons-main.webp
 imageCredit: "Фото: nlitement · CC BY-SA 3.0 · Wikimedia Commons"

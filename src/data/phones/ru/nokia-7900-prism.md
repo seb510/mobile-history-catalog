@@ -23,7 +23,7 @@ gallery:
     caption: "Тонкий боковой профиль Nokia 7900 Prism."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-7900-prism
-os: "Series 40"
+os: "Series 40 5th Edition, Feature Pack 1"
 ---
 
 7900 Prism переносит геометрию на саму поверхность телефона. Острые линии и ромбовидный рисунок объединяют клавиатуру и заднюю панель, а цветной OLED добавляет ещё один визуальный слой.

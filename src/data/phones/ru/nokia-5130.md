@@ -29,7 +29,7 @@ gallery:
     caption: "Боковая грань с выделенными клавишами управления музыкальным плеером."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-5130-xpressmusic
-os: "Series 40"
+os: "Series 40 5th Edition, Feature Pack 1"
 ---
 
 5130 XpressMusic — бюджетный представитель музыкального суббренда Nokia: под экраном расположены отдельные выделенные клавиши управления плеером (пуск/пауза, переключение треков), а два встроенных динамика позволяют слушать музыку без наушников. Это тот же принцип, что и у флагманов XpressMusic, но в простом моноблочном корпусе без слайдера или поворотного механизма.

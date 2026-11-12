@@ -17,7 +17,7 @@ connectivity:
   - Bluetooth 1.1
   - IrDA
   - USB (Pop-Port)
-os: Proprietary (Nokia Series 40)
+os: "Series 40 2nd Edition"
 dimensionsMm: 103 × 44 × 20 mm
 weightGrams: 97
 colors:

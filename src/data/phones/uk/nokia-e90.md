@@ -19,7 +19,7 @@ connectivity:
   - Wi-Fi 802.11b/g
   - GPS
   - Bluetooth
-os: S60 3rd Edition
+os: "Symbian OS 9.2, S60 3rd Edition FP1"
 simType: Mini-SIM
 image: /images/phones/nokia-e90/commons-main.webp
 imageCredit: "Фото: Shritwod; Fleet Command · Public domain · Wikimedia Commons"

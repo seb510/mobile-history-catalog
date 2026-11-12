@@ -14,7 +14,7 @@ battery:
   removable: true
 network: "GSM 900/1800/1900 (tri-band), GPRS/EDGE"
 connectivity: ["Bluetooth 1.1", "IrDA", "USB (Pop-Port)"]
-os: "власна (Nokia Series 40)"
+os: "Series 40 2nd Edition"
 dimensionsMm: "103 × 44 × 20 мм"
 weightGrams: 97
 colors: ["Сріблястий", "Графітовий"]

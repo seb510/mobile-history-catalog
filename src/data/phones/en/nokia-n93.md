@@ -14,7 +14,7 @@ connectivity:
   - Wi-Fi
   - Bluetooth
   - TV-out
-os: Symbian OS / S60 3rd Edition
+os: "Symbian OS 9.1, S60 3rd Edition"
 simType: Mini-SIM
 image: /images/phones/nokia-n93/commons-main.webp
 imageCredit: "Photo: affemitwaffe · CC BY-SA 3.0 · Wikimedia Commons"

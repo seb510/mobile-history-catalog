@@ -23,7 +23,7 @@ gallery:
     caption: "The slim side profile of the Nokia 7900 Prism."
     imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/nokia-7900-prism
-os: "Series 40"
+os: "Series 40 5th Edition, Feature Pack 1"
 ---
 
 The 7900 Prism puts geometry on the surface of the phone itself. Sharp lines and a diamond-like pattern link the keypad with the rear panel, while the colour OLED adds another visual layer.

@@ -18,7 +18,7 @@ network: GSM 900/1800/1900, EDGE, WCDMA 2100
 connectivity:
   - Bluetooth
   - USB (Pop-Port)
-os: Series 60
+os: "Symbian OS 8.1a, S60 2nd Edition FP3"
 dimensionsMm: 112 × 51 × 24
 weightGrams: 173
 simType: Mini-SIM

@@ -23,7 +23,7 @@ gallery:
     caption: "Висувний механізм відкриває клавіатуру під скляною панеллю."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/8600-luna
-os: "Series 40"
+os: "Series 40 3rd Edition, Feature Pack 1"
 ---
 
 8600 Luna перетворює короткий рух слайдера на частину враження від телефона. Nokia поєднала нержавіючу сталь із майже непрозорим димчастим склом, за яким ховається клавіатура.

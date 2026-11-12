@@ -19,7 +19,7 @@ connectivity:
   - IrDA
   - USB (Pop-Port)
   - FM
-os: Series 40
+os: "Series 40 2nd Edition"
 dimensionsMm: 103 × 44 × 20 мм
 weightGrams: 99
 storageMb: 32

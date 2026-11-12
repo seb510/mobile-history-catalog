@@ -1,4 +1,70 @@
 {
+  "epoc-er5": {
+    "image": "/images/operating-systems/symbian-epoc-er5.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Psion_Series_5MX_(2378635928).jpg",
+    "license": "CC BY 2.0",
+    "artist": "Blake Patterson",
+    "caption": {
+      "uk": "EPOC Release 5 на екрані Psion Series 5mx.",
+      "ru": "EPOC Release 5 на экране Psion Series 5mx.",
+      "en": "EPOC Release 5 on a Psion Series 5mx."
+    }
+  },
+  "6-0": {
+    "image": "/images/operating-systems/symbian-6-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_9210.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "J-P Kärnä",
+    "caption": {
+      "uk": "Інтерфейс Crystal на внутрішньому екрані Nokia 9210.",
+      "ru": "Интерфейс Crystal на внутреннем экране Nokia 9210.",
+      "en": "The Crystal interface on the Nokia 9210’s internal display."
+    }
+  },
+  "6-1": {
+    "image": "/images/operating-systems/symbian-6-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:N-Gage.jpg",
+    "license": "Public domain",
+    "artist": "clik!",
+    "caption": {
+      "uk": "Меню Series 60 на увімкненій Nokia N-Gage.",
+      "ru": "Меню Series 60 на включённой Nokia N-Gage.",
+      "en": "Series 60 menu on a powered-on Nokia N-Gage."
+    }
+  },
+  "7-0": {
+    "image": "/images/phones/sony-ericsson-p800/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_P800_with_web_browser.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Zache",
+    "caption": {
+      "uk": "Браузер у стилусному інтерфейсі UIQ на Sony Ericsson P800.",
+      "ru": "Браузер в интерфейсе UIQ на Sony Ericsson P800.",
+      "en": "The browser in the stylus-driven UIQ interface on a Sony Ericsson P800."
+    }
+  },
+  "8-0a": {
+    "image": "/images/operating-systems/symbian-8-0a.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6630.jpg",
+    "license": "Public domain",
+    "artist": "Steve Gregory",
+    "caption": {
+      "uk": "Екран Nokia 6630 з оформленням оператора 3.",
+      "ru": "Экран Nokia 6630 с оформлением оператора 3.",
+      "en": "Nokia 6630 screen with 3 carrier branding."
+    }
+  },
+  "8-1a": {
+    "image": "/images/phones/nokia-n70/commons-main.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N70_2.jpg",
+    "license": "Public domain",
+    "artist": "Dhn610",
+    "caption": {
+      "uk": "Увімкнений екран Nokia N70 з інтерфейсом S60.",
+      "ru": "Включённый экран Nokia N70 с интерфейсом S60.",
+      "en": "Nokia N70 with its S60 display on."
+    }
+  },
   "9-1": {
     "image": "/images/operating-systems/symbian-9-1.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Nokia_E60.jpg",
@@ -10,6 +76,28 @@
       "en": "Photo of the Nokia E60 home screen"
     }
   },
+  "9-2": {
+    "image": "/images/operating-systems/symbian-9-2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_E71_cellphone.jpg",
+    "license": "CC0",
+    "artist": "Derrick Coetzee (Dcoetzee)",
+    "caption": {
+      "uk": "Увімкнена Nokia E71 із Symbian 9.2",
+      "ru": "Включённая Nokia E71 с Symbian 9.2",
+      "en": "Nokia E71 with Symbian 9.2 and its screen on"
+    }
+  },
+  "9-3": {
+    "image": "/images/operating-systems/symbian-9-3.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N96_screen_landscape.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Stefanos Kofopoulos from Athens, Greece",
+    "caption": {
+      "uk": "Головний екран Nokia N96 у горизонтальному режимі",
+      "ru": "Главный экран Nokia N96 в горизонтальном режиме",
+      "en": "Nokia N96 home screen in landscape mode"
+    }
+  },
   "9-4": {
     "image": "/images/operating-systems/symbian-9-4.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Nokia_5800_in_offline_mode.jpg",
@@ -19,6 +107,17 @@
       "uk": "Скриншот меню профілів Nokia 5800",
       "ru": "Скриншот меню профилей Nokia 5800",
       "en": "Nokia 5800 Profiles menu screenshot"
+    }
+  },
+  "symbian-3": {
+    "image": "/images/operating-systems/symbian.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N8_Blue_(Front).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Nokia65",
+    "caption": {
+      "uk": "Фото головного екрана Nokia N8",
+      "ru": "Фото домашнего экрана Nokia N8",
+      "en": "Photo of the Nokia N8 home screen"
     }
   },
   "anna": {
@@ -43,26 +142,26 @@
       "en": "Photo of the Nokia 700 home screen"
     }
   },
-  "9-2": {
-    "image": "/images/operating-systems/symbian-9-2.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Nokia_E71_cellphone.jpg",
-    "license": "CC0",
-    "artist": "Derrick Coetzee (Dcoetzee)",
+  "belle-fp1": {
+    "image": "/images/operating-systems/symbian-belle-fp1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_808_PureView_front_and_back_view.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "Vlado.grv",
     "caption": {
-      "uk": "Увімкнена Nokia E71 із Symbian 9.2",
-      "ru": "Включённая Nokia E71 с Symbian 9.2",
-      "en": "Nokia E71 with Symbian 9.2 and its screen on"
+      "uk": "Головний екран Nokia 808 PureView на фото липня 2012 року, за часів Belle FP1.",
+      "ru": "Главный экран Nokia 808 PureView на фото июля 2012 года, в период Belle FP1.",
+      "en": "Nokia 808 PureView home screen photographed in July 2012, during the Belle FP1 period."
     }
   },
-  "9-3": {
-    "image": "/images/operating-systems/symbian-9-3.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N96_screen_landscape.jpg",
-    "license": "CC BY-SA 2.0",
-    "artist": "Stefanos Kofopoulos from Athens, Greece",
+  "belle-fp2": {
+    "image": "/images/operating-systems/symbian-belle-fp2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:SymbBelleFp2.jpg",
+    "license": "Public domain",
+    "artist": "Raymon Pizziolo dos Santos",
     "caption": {
-      "uk": "Головний екран Nokia N96 у горизонтальному режимі",
-      "ru": "Главный экран Nokia N96 в горизонтальном режиме",
-      "en": "Nokia N96 home screen in landscape mode"
+      "uk": "Головний екран Belle FP2 на Nokia 808 PureView.",
+      "ru": "Главный экран Belle FP2 на Nokia 808 PureView.",
+      "en": "Belle FP2 home screen on the Nokia 808 PureView."
     }
   },
   "windows-phone-7": {
@@ -481,6 +580,94 @@
       "uk": "Головний екран ранньої збірки Android 17, березень 2026 року.",
       "ru": "Главный экран ранней сборки Android 17, март 2026 года.",
       "en": "Home screen of an early Android 17 build, March 2026."
+    }
+  },
+  "1st-edition": {
+    "image": "/images/phones/nokia-6800/archive.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Amytf1qw4g471.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Prduser",
+    "caption": {
+      "uk": "Nokia 6800 та 6810 з розкладеними клавіатурами.",
+      "ru": "Nokia 6800 и 6810 с раскрытыми клавиатурами.",
+      "en": "Nokia 6800 and 6810 with their keyboards open."
+    }
+  },
+  "3rd-edition": {
+    "image": "/images/operating-systems/series-40-3rd-edition.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6280.jpg",
+    "license": "CC BY-SA 2.5",
+    "artist": "Miguel Durán",
+    "caption": {
+      "uk": "Екран Nokia 6280 з відкритим текстом.",
+      "ru": "Экран Nokia 6280 с открытым текстом.",
+      "en": "The Nokia 6280 displaying text."
+    }
+  },
+  "3rd-edition-fp1": {
+    "image": "/images/operating-systems/series-40-3rd-edition-fp1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Flickr_Nokia_6233.jpg",
+    "license": "CC BY 2.0",
+    "artist": "lyrics96",
+    "caption": {
+      "uk": "Nokia 6233 з увімкненим екраном.",
+      "ru": "Nokia 6233 с включённым экраном.",
+      "en": "Nokia 6233 with its display on."
+    }
+  },
+  "3rd-edition-fp2": {
+    "image": "/images/operating-systems/series-40-3rd-edition-fp2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6300_(718201070).jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Tobias",
+    "caption": {
+      "uk": "Меню Nokia 6300 зі сторонньою темою в стилі iPhone.",
+      "ru": "Меню Nokia 6300 со сторонней темой в стиле iPhone.",
+      "en": "Nokia 6300 menu with a third-party iPhone-style theme."
+    }
+  },
+  "5th-edition-fp1": {
+    "image": "/images/operating-systems/series-40-5th-edition-fp1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_5310_XPress_Music.jpg",
+    "license": "CC BY-SA 3.0",
+    "artist": "Crownmaster",
+    "caption": {
+      "uk": "Меню Nokia 5310 XpressMusic з піктограмами.",
+      "ru": "Меню Nokia 5310 XpressMusic со значками.",
+      "en": "The Nokia 5310 XpressMusic icon menu."
+    }
+  },
+  "6th-edition": {
+    "image": "/images/operating-systems/series-40-6th-edition.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6700_classic_.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Leopold Gallas",
+    "caption": {
+      "uk": "Сітка меню Nokia 6700 classic.",
+      "ru": "Сетка меню Nokia 6700 classic.",
+      "en": "The Nokia 6700 classic menu grid."
+    }
+  },
+  "series-40-asha-touch": {
+    "image": "/images/operating-systems/series-40-asha-touch.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_Asha_311.png",
+    "license": "CC BY-SA 4.0",
+    "artist": "AnVuong1222004 (1)",
+    "caption": {
+      "uk": "Сенсорне меню Nokia Asha 311.",
+      "ru": "Сенсорное меню Nokia Asha 311.",
+      "en": "The Nokia Asha 311 touchscreen app menu."
+    }
+  },
+  "2nd-edition": {
+    "image": "/images/operating-systems/series-40.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6230i_20070930.jpg",
+    "license": "Public domain",
+    "artist": "Rudolf Stricker",
+    "caption": {
+      "uk": "Фото меню Nokia 6230i",
+      "ru": "Фото меню Nokia 6230i",
+      "en": "Photo of the Nokia 6230i menu"
     }
   }
 }

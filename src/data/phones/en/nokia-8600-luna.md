@@ -23,7 +23,7 @@ gallery:
     caption: "The sliding mechanism reveals the keypad beneath the glass panel."
     imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/8600-luna
-os: "Series 40"
+os: "Series 40 3rd Edition, Feature Pack 1"
 ---
 
 The 8600 Luna turns the brief movement of a slider into part of the phone’s character. Nokia paired stainless steel with dark, almost opaque glass, concealing the keypad underneath.

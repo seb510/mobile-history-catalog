@@ -11,7 +11,7 @@ network: GSM 900/1800/1900, EGPRS
 connectivity:
   - Bluetooth
   - FM
-os: Series 40
+os: "Series 40 2nd Edition"
 dimensionsMm: 107 × 45 × 16.5
 weightGrams: 134
 simType: Mini-SIM

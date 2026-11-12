@@ -72,9 +72,11 @@ if (platform && (platform.id === 'android' || curatedVersions(platform.id).lengt
   versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || a.title.localeCompare(b.title, 'en', { numeric: true }));
 }
 const hasVersions = versions.some(version => version.id !== 'unspecified');
+const isTimeline = platform?.id === 'android' || platform?.id === 'symbian' || platform?.id === 'series-40';
 const mediaLicenseUrls: Record<string, string> = {
   'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
   'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/',
+  'CC BY-SA 2.5': 'https://creativecommons.org/licenses/by-sa/2.5/',
   'CC BY 3.0': 'https://creativecommons.org/licenses/by/3.0/',
   'CC BY 2.5': 'https://creativecommons.org/licenses/by/2.5/',
   'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
@@ -136,9 +138,9 @@ const mediaLicenseUrls: Record<string, string> = {
       </section>
       <section class="mt-10 border-t border-neutral-800 pt-6" aria-labelledby="platform-models">
         <h2 id="platform-models" class="text-2xl font-bold tracking-tight">
-          {platform.id === 'android' ? VERSION_COPY.title[locale] : `${OS_COPY.models[locale]} · ${models.length}`}
+          {isTimeline ? VERSION_COPY.title[locale] : `${OS_COPY.models[locale]} · ${models.length}`}
         </h2>
-        {hasVersions && <p class="mt-2 text-sm text-neutral-400">{VERSION_COPY[platform.id === 'android' ? 'androidIntro' : 'intro'][locale]}</p>}
+        {hasVersions && <p class="mt-2 text-sm text-neutral-400">{VERSION_COPY[isTimeline ? 'timelineIntro' : 'intro'][locale]}</p>}
         {hasVersions && <nav class="mt-4 flex flex-wrap gap-2" aria-label={VERSION_COPY.title[locale]}>
           {versions.map(version => <a class="platform-link rounded-sm border border-neutral-800 px-3 py-2 text-sm text-orange-500" href={`#version-${version.id}`}>{version.title}</a>)}
         </nav>}

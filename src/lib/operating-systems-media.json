@@ -1,26 +1,4 @@
 {
-  "symbian": {
-    "image": "/images/operating-systems/symbian.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N8_Blue_(Front).jpg",
-    "license": "CC BY-SA 4.0",
-    "artist": "Nokia65",
-    "caption": {
-      "uk": "Фото головного екрана Nokia N8",
-      "ru": "Фото домашнего экрана Nokia N8",
-      "en": "Photo of the Nokia N8 home screen"
-    }
-  },
-  "series-40": {
-    "image": "/images/operating-systems/series-40.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Nokia_6230i_20070930.jpg",
-    "license": "Public domain",
-    "artist": "Rudolf Stricker",
-    "caption": {
-      "uk": "Фото меню Nokia 6230i",
-      "ru": "Фото меню Nokia 6230i",
-      "en": "Photo of the Nokia 6230i menu"
-    }
-  },
   "series-30-plus": {
     "image": "/images/operating-systems/series-30-plus.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Nokia_3310_(2017).jpg",
