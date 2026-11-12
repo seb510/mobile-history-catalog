@@ -1,0 +1,86 @@
+---
+import Arrow from './Arrow.astro';
+import PlaceholderArt from './PlaceholderArt.astro';
+import { GALLERY_INTERACTION, t } from '../lib/ui-strings';
+import type { Locale } from '../lib/locales';
+
+interface Props {
+  locale: Locale;
+  images: { image: string; alt?: string; caption?: string; imageCredit?: string; imageSourceUrl?: string }[];
+}
+const { locale, images } = Astro.props;
+const strings = t(locale);
+const galleryCopy = GALLERY_INTERACTION[locale];
+---
+{images.length > 0 && (
+  <dialog
+    data-gallery-dialog
+    aria-label={strings.gallery.label}
+    class="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-hidden bg-neutral-950 p-0 text-neutral-100 backdrop:bg-neutral-950/95"
+  >
+    <div class="flex h-dvh flex-col">
+      <div class="flex items-center justify-between gap-4 px-4 py-3">
+        <p data-gallery-counter aria-live="polite" aria-atomic="true" class="text-sm font-semibold text-neutral-300">1 / {images.length}</p>
+        <button type="button" data-gallery-zoom data-zoom-in={galleryCopy.zoomIn} data-zoom-out={galleryCopy.zoomOut} aria-pressed="false" aria-label={galleryCopy.zoomIn} title={galleryCopy.zoomIn} class="control-button gallery-zoom-button ml-auto h-11 w-11 p-0"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6"/><path data-zoom-plus d="M10.5 7.5v6"/></svg></button>
+        <button
+          type="button"
+          data-gallery-close
+          aria-label={strings.gallery.close}
+          class="flex h-11 w-11 items-center justify-center rounded-sm border border-neutral-700 text-3xl leading-none text-neutral-100 hover-desktop:bg-neutral-800"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="2">
+            <path d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+      <div data-gallery-surface class="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden">
+        {images.map((image, index) => (
+          <div data-gallery-lightbox-slide class:list={['absolute inset-0 flex items-center justify-center p-4 sm:p-8', index > 0 && 'hidden']}>
+            <img data-image-fallback src={image.image} alt={image.alt ?? image.caption ?? ''} loading="lazy" decoding="async" draggable="false" class="max-h-full max-w-full select-none object-contain" />
+            <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-8">
+              <PlaceholderArt class="h-full w-full text-neutral-700" />
+            </div>
+          </div>
+        ))}
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              data-gallery-previous
+              aria-label={strings.gallery.previous}
+              class="absolute left-2 z-10 flex h-11 w-11 items-center justify-center rounded-sm border border-neutral-700 bg-neutral-950/90 text-2xl hover-desktop:bg-neutral-800 sm:left-6"
+            >
+              <Arrow kind="chevron" direction="left" size={24} />
+            </button>
+            <button
+              type="button"
+              data-gallery-next
+              aria-label={strings.gallery.next}
+              class="absolute right-2 z-10 flex h-11 w-11 items-center justify-center rounded-sm border border-neutral-700 bg-neutral-950/90 text-2xl hover-desktop:bg-neutral-800 sm:right-6"
+            >
+              <Arrow kind="chevron" size={24} />
+            </button>
+          </>
+        )}
+      </div>
+      <div class="max-h-[30dvh] min-h-12 shrink-0 overflow-y-auto px-4 pb-4 text-center text-xs text-neutral-400">
+        {images.map((image, index) => (image.caption || image.alt) && <p data-gallery-lightbox-caption={index} class:list={['mx-auto mb-2 max-w-2xl text-sm leading-relaxed text-neutral-200', index > 0 && 'hidden']}>{image.caption || image.alt}</p>)}
+        {images.map((image, index) => (
+          image.imageCredit && (
+            <p data-gallery-lightbox-credit data-gallery-lightbox-credit-index={index} class:list={[index > 0 && 'hidden']}>
+              {image.imageSourceUrl ? (
+                <a href={image.imageSourceUrl} target="_blank" rel="noopener noreferrer nofollow" class="text-orange-500 underline underline-offset-2">
+                  {image.imageCredit}
+                </a>
+              ) : (
+                image.imageCredit
+              )}
+            </p>
+          )
+        ))}
+      </div>
+    </div>
+  </dialog>
+)}
+
+<script>import '../scripts/image-gallery';</script>

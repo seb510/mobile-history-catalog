@@ -1,4 +1,4 @@
-document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery) => {
+document.querySelectorAll<HTMLElement>('[data-image-gallery]').forEach(gallery => {
     const slides = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-slide]'));
     const lightboxSlides = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-lightbox-slide]'));
     const thumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]'));
@@ -7,7 +7,9 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
     const lightboxCaptions = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-lightbox-caption]'));
     const lightboxCredits = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-lightbox-credit]'));
     const dialog = gallery.querySelector<HTMLDialogElement>('[data-gallery-dialog]');
-    const openButton = gallery.querySelector<HTMLButtonElement>('[data-gallery-open]');
+    const openButtons = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-open]'));
+    const inlineOpener = openButtons.find(button => button.dataset.galleryOpen === '');
+    let opener: HTMLElement | undefined;
     const closeButton = gallery.querySelector<HTMLButtonElement>('[data-gallery-close]');
     const previousButton = gallery.querySelector<HTMLButtonElement>('[data-gallery-previous]');
     const nextButton = gallery.querySelector<HTMLButtonElement>('[data-gallery-next]');
@@ -55,8 +57,8 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
       lightboxCredits.forEach((credit) =>
         credit.classList.toggle('hidden', Number(credit.dataset.galleryLightboxCreditIndex) !== index),
       );
-      if (counter) counter.textContent = `${index + 1} / ${slides.length}`;
-      if (page) page.textContent = `${index + 1} / ${slides.length}`;
+      if (counter) counter.textContent = `${index + 1} / ${lightboxSlides.length}`;
+      if (page) page.textContent = `${index + 1} / ${lightboxSlides.length}`;
       thumbs.forEach((thumb, thumbIndex) => {
         const selected = thumbIndex === index;
         thumb.setAttribute('aria-pressed', String(selected));
@@ -70,11 +72,19 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
       });
     };
 
-    openButton?.addEventListener('click', () => {
-      if (performance.now() < suppressOpenUntil) return;
-      dialog?.showModal();
+    const step = (direction: number) => {
+      const count = lightboxSlides.length;
+      if (count > 1) activate((activeIndex + direction + count) % count);
+    };
+    openButtons.forEach(button => button.addEventListener('click', event => {
+      if (!dialog || typeof dialog.showModal !== 'function' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      if (performance.now() < suppressOpenUntil || dialog.open) return;
+      opener = button;
+      if (button.dataset.galleryOpen) activate(Number(button.dataset.galleryOpen));
+      dialog.showModal();
       closeButton?.focus();
-    });
+    }));
     let closing = false;
     const closeGallery = () => {
       if (!dialog?.open || closing) return;
@@ -85,10 +95,10 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
     };
     closeButton?.addEventListener('click', closeGallery);
     dialog?.addEventListener('cancel', event => { event.preventDefault(); closeGallery(); });
-    previousButton?.addEventListener('click', () => activate((activeIndex - 1 + slides.length) % slides.length));
-    nextButton?.addEventListener('click', () => activate((activeIndex + 1) % slides.length));
-    gallery.querySelector('[data-gallery-inline-previous]')?.addEventListener('click', () => activate((activeIndex - 1 + slides.length) % slides.length));
-    gallery.querySelector('[data-gallery-inline-next]')?.addEventListener('click', () => activate((activeIndex + 1) % slides.length));
+    previousButton?.addEventListener('click', () => step(-1));
+    nextButton?.addEventListener('click', () => step(1));
+    gallery.querySelector('[data-gallery-inline-previous]')?.addEventListener('click', () => step(-1));
+    gallery.querySelector('[data-gallery-inline-next]')?.addEventListener('click', () => step(1));
     dialog?.addEventListener('click', (event) => {
       if (event.target === dialog) closeGallery();
     });
@@ -102,25 +112,25 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
       if (event.key === '+' || event.key === '=' || event.key === '-') { event.preventDefault(); setZoom(event.key !== '-'); return; }
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
-        activate((activeIndex - 1 + slides.length) % slides.length);
+        step(-1);
       } else if (event.key === 'ArrowRight') {
         event.preventDefault();
-        activate((activeIndex + 1) % slides.length);
+        step(1);
       }
     });
-    dialog?.addEventListener('close', () => { setZoom(false); openButton?.focus(); });
+    dialog?.addEventListener('close', () => { setZoom(false); opener?.focus({ preventScroll: true }); });
     zoomButton?.addEventListener('click', () => setZoom(!zoomed));
     surface?.addEventListener('dblclick', (event) => {
       if ((event.target as Element).tagName === 'IMG') setZoom(!zoomed);
     });
     let suppressOpenUntil = 0;
     // Native pointer events keep vertical page scrolling available until zoom is active.
-    [openButton, surface].forEach(target => {
+    [inlineOpener, surface].forEach(target => {
       if (!target) return;
       let gesture: { id: number; x: number; y: number; lastX: number; lastY: number; at: number } | null = null;
       target.addEventListener('pointerdown', event => {
         if (!event.isPrimary || event.button !== 0) { gesture = null; return; }
-        if ((event.target as Element).closest('button') && target !== openButton) return;
+        if ((event.target as Element).closest('button') && target !== inlineOpener) return;
         if (event.pointerType === 'mouse' && !zoomed) return;
         gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, lastX: event.clientX, lastY: event.clientY, at: performance.now() };
         target.setPointerCapture(event.pointerId);
@@ -137,9 +147,9 @@ document.querySelectorAll<HTMLElement>('[data-phone-gallery]').forEach((gallery)
         const dx = event.clientX - gesture.x, dy = event.clientY - gesture.y;
         const elapsed = performance.now() - gesture.at;
         gesture = null;
-        if (!zoomed && slides.length > 1 && Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.5 && elapsed < 1000) {
+        if (!zoomed && lightboxSlides.length > 1 && Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.5 && elapsed < 1000) {
           suppressOpenUntil = performance.now() + 400;
-          activate((activeIndex + (dx < 0 ? 1 : -1) + slides.length) % slides.length);
+          step(dx < 0 ? 1 : -1);
         }
       });
       target.addEventListener('pointercancel', () => { gesture = null; });

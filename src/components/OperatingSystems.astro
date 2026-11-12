@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Arrow from './Arrow.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
+import GalleryImageLink from './GalleryImageLink.astro';
+import ImageGallery from './ImageGallery.astro';
 import { localePath, type Locale } from '../lib/locales';
 import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { OS_COPY, OS_PATH, PLATFORMS, platformFor } from '../lib/operating-systems';
@@ -82,7 +84,23 @@ const mediaLicenseUrls: Record<string, string> = {
   'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
   'Apache License 2.0': 'https://www.apache.org/licenses/LICENSE-2.0',
   'CC0': 'https://creativecommons.org/publicdomain/zero/1.0/',
+  'CC0 1.0': 'https://creativecommons.org/publicdomain/zero/1.0/',
 };
+const pictures = new Map(versions.flatMap(({ id }) => {
+  const picture = versionMedia[id as keyof typeof versionMedia];
+  return picture ? [[id, picture] as const] : [];
+}));
+const galleryMedia = new Map([
+  ...(media ? [['platform', media] as const] : []),
+  ...pictures,
+]);
+const galleryIndex = new Map([...galleryMedia.keys()].map((id, index) => [id, index]));
+const galleryImages = [...galleryMedia.values()].map(picture => ({
+  image: picture.image,
+  caption: picture.caption[locale],
+  imageCredit: `${picture.artist} · Wikimedia Commons · ${picture.license}`,
+  imageSourceUrl: picture.source,
+}));
 ---
 
 <Layout locale={locale} path={path} title={`${title} — ${strings.siteName}`} description={description}>
@@ -108,7 +126,7 @@ const mediaLicenseUrls: Record<string, string> = {
   </header>
 
   {platform ? (
-    <>
+    <div data-image-gallery>
       <section class:list={['grid items-start gap-6', media && 'md:grid-cols-[minmax(0,1fr)_minmax(0,.8fr)]']} aria-labelledby="platform-history">
         <div>
           <h2 id="platform-history" class="text-2xl font-bold tracking-tight">{OS_COPY.history[locale]}</h2>
@@ -124,9 +142,7 @@ const mediaLicenseUrls: Record<string, string> = {
         </div>
         {media && (
           <figure class="editorial-card rounded-sm border border-neutral-800 bg-neutral-900 p-4">
-            <a class="block" href={media.image}>
-              <img class="mx-auto max-h-96 w-full object-contain" src={media.image} alt={media.caption[locale]} decoding="async" />
-            </a>
+            <GalleryImageLink image={media.image} caption={media.caption[locale]} index={galleryIndex.get('platform')!} label={strings.gallery.open} class="mx-auto max-h-96 w-full object-contain" />
             <figcaption class="mt-3 border-t border-neutral-800 pt-3 text-sm text-neutral-400">
               <p>{media.caption[locale]}</p>
               <p class="mt-1 text-xs">
@@ -148,7 +164,7 @@ const mediaLicenseUrls: Record<string, string> = {
           {versions.map(version => <a class="platform-link rounded-sm border border-neutral-800 px-3 py-2 text-sm text-orange-500" href={`#version-${version.id}`}>{version.title}</a>)}
         </nav>}
         {versions.map(version => {
-          const picture = versionMedia[version.id as keyof typeof versionMedia];
+          const picture = pictures.get(version.id);
           const detail = VERSION_DETAILS[version.id];
           return (
             <section id={`version-${version.id}`} class:list={['scroll-mt-24', hasVersions && 'mt-5 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 sm:p-5']}>
@@ -175,7 +191,7 @@ const mediaLicenseUrls: Record<string, string> = {
                   </ul> : <p class="mt-3 text-sm text-neutral-400">{VERSION_COPY.noModels[locale]}</p>}
                 </div>
                 {picture && <figure class="mt-3">
-                  <a href={picture.image}><img class="mx-auto max-h-60 w-full object-contain" src={picture.image} alt={picture.caption[locale]} loading="lazy" decoding="async" /></a>
+                  <GalleryImageLink image={picture.image} caption={picture.caption[locale]} index={galleryIndex.get(version.id)!} label={strings.gallery.open} class="mx-auto max-h-60 w-full object-contain" loading="lazy" />
                   <figcaption class="mt-2 text-xs leading-relaxed text-neutral-400">
                     <p>{picture.caption[locale]}</p>
                     <a class="underline underline-offset-2" href={picture.source} target="_blank" rel="noopener noreferrer">{picture.artist} · Wikimedia Commons</a>
@@ -189,7 +205,8 @@ const mediaLicenseUrls: Record<string, string> = {
           );
         })}
       </section>
-    </>
+      <ImageGallery locale={locale} images={galleryImages} />
+    </div>
   ) : (
     <>
       <ul class="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
