@@ -5,6 +5,24 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-12",
+  "phones": [
+    "sony-cmd-j5",
+    "nokia-6720-classic",
+    "apple-iphone-x"
+  ],
+  "changes": {
+    "uk": [
+      "У «Моїх телефонах» додано пошук моделі та необов’язковий крок для років користування."
+    ],
+    "ru": [
+      "В «Моих телефонах» добавлены поиск модели и необязательный шаг для указания лет использования."
+    ],
+    "en": [
+      "My phones now offers model search and an optional step for recording years of use."
+    ]
+  }
+}, {
   "date": "2026-11-11",
   "phones": ["nokia-lumia-800", "nokia-lumia-920", "nokia-lumia-630", "microsoft-lumia-950"],
   "changes": {

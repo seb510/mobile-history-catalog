@@ -5,18 +5,22 @@ export const PRIVACY_COPY = {
     "cookies": "Cookies і локальне зберігання",
     "settings": "Налаштування приватності",
     "title": "Твій вибір зберігання",
-    "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему та стиль оформлення між відвідуваннями? «Мої телефони» зберігає моделі лише після натискання «Я мав цей телефон».",
+    "intro": "Без реклами й аналітичних трекерів. Дозволиш запам’ятовувати тему та стиль оформлення між відвідуваннями? «Мої телефони» зберігає моделі, які ти додаєш.",
     "accept": "Дозволити збереження оформлення",
     "reject": "Не зберігати оформлення",
-    "updated": "Оновлено 9 листопада 2026",
+    "updated": "Оновлено 12 листопада 2026",
     "sections": [
+      [
+        "Вхід через Google і синхронізація",
+        "Вхід відкриває Google лише за твоєю дією. Для синхронізації сайт зберігає в Cloudflare D1 хеш ідентифікатора Google, слаги телефонів, періоди користування й записи про видалення. Сайт не запитує ім’я чи email. Перший вхід може перенести локальні записи до акаунта. Вихід завершує сеанс, а локальна копія лишається у браузері. Для видалення серверних даних напиши власнику."
+      ],
       [
         "Власник і контакт",
         "Власник проєкту та відповідальний за обробку даних — Sebistiian Mykola. Звернення щодо приватності: sebistian@ukr.net."
       ],
       [
         "Що обробляє сайт",
-        "Це статичний некомерційний архів без акаунтів, форм реєстрації, реклами та аналітичних трекерів. Пошук і вибір моделей обробляються у браузері; обрані моделі порівняння записуються в URL і потрапляють у посилання, яким ти ділишся."
+        "Це статичний некомерційний архів без реклами та аналітичних трекерів. Пошук і вибір моделей обробляються у браузері; обрані моделі порівняння записуються в URL і потрапляють у посилання, яким ти ділишся."
       ],
       [
         "Пропозиції та повідомлення про помилки",
@@ -24,7 +28,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Налаштування у браузері",
-        "За згодою сайт запам’ятовує тему та стиль оформлення. «Мої телефони» зберігає позначені моделі та збережені тобою роки користування після твоєї прямої дії; ці дані не надсилаються власнику сайту. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
+        "За згодою сайт запам’ятовує тему та стиль оформлення. «Мої телефони» зберігає позначені моделі та збережені тобою роки користування після твоєї прямої дії; без входу дані лишаються в браузері. Запис про вибір приватності зберігається 180 днів. Докладний перелік наведено на сторінці cookies."
       ],
       [
         "Зовнішні сервіси, фото й посилання",
@@ -32,15 +36,27 @@ export const PRIVACY_COPY = {
       ],
       [
         "Технічні запити та підстави",
-        "Для доставки сторінок сервер отримує IP-адресу, URL та технічні заголовки. Надання запитаної сторінки й безпека ґрунтуються на законному інтересі; необов’язкове збереження оформлення — на згоді. «Мої телефони» — локальна функція, яку ти прямо запитуєш. Налаштування журналів та строки їх зберігання залежать від остаточного хостингу й мають бути уточнені перед публікацією."
+        "Для доставки сторінок сервер отримує IP-адресу, URL та технічні заголовки. Надання запитаної сторінки й безпека ґрунтуються на законному інтересі; необов’язкове збереження оформлення — на згоді. «Мої телефони» працює локально, із синхронізацією після входу. Налаштування журналів та строки їх зберігання залежать від остаточного хостингу й мають бути уточнені перед публікацією."
       ],
       [
         "Твої права",
         "Можна відкликати згоду у футері, прибрати моделі з «Моїх телефонів» повторним натисканням позначки або очистити дані сайту у браузері. Для запиту доступу, виправлення, видалення, обмеження, перенесення чи заперечення щодо даних, які обробляє власник, напиши на email вище. Можна звернутися зі скаргою до наглядового органу із захисту даних у своїй країні. Сайт не ухвалює автоматизованих рішень і не продає персональні дані."
       ]
     ],
-    "cookieIntro": "Сам сайт не встановлює HTTP-cookies. Після окремого дозволу зовнішній плеєр YouTube може використовувати власні cookies або сховище за правилами Google. Він використовує localStorage — сховище лише цього браузера. Правила доступу до пристрою стосуються і такого зберігання.",
+    "cookieIntro": "Для входу через Google сайт використовує технічні HTTP-cookies. Плеєр YouTube після окремого дозволу може використовувати власні cookies або сховище за правилами Google. Для інших налаштувань сайт використовує localStorage цього браузера.",
     "rows": [
+      [
+        "__Host-collection-login / __Host-collection-session",
+        "Вхід через Google і синхронізація",
+        "До 10 хвилин для входу, до 30 днів для сеансу",
+        "Лише під час входу або активного сеансу"
+      ],
+      [
+        "mobile-history:collection-sync",
+        "Копія останнього стану синхронізації",
+        "До заміни або очищення даних браузера",
+        "Після входу через Google"
+      ],
       [
         "mobile-history:privacy",
         "Твій вибір щодо теми, версія правил і час рішення",
@@ -69,13 +85,13 @@ export const PRIVACY_COPY = {
         "mobile-history:owned-phones",
         "Слаги телефонів, якими ти користувався",
         "До видалення моделей чи очищення даних",
-        "Лише після натискання «Я мав цей телефон»"
+        "Після додавання телефона"
       ],
       [
         "mobile-history:ownership-periods",
         "Приблизні роки початку/завершення користування та позначка «досі» для вибраних телефонів",
         "До видалення періоду, моделі чи очищення даних браузера",
-        "Лише після збереження періоду користувачем; не надсилається власнику"
+        "Лише після збереження періоду користувачем"
       ]
     ],
     "headers": [
@@ -91,18 +107,22 @@ export const PRIVACY_COPY = {
     "cookies": "Cookies и локальное хранение",
     "settings": "Настройки приватности",
     "title": "Твой выбор хранения",
-    "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему и стиль оформления между посещениями? «Мои телефоны» сохраняет модели только после нажатия «У меня был этот телефон».",
+    "intro": "Без рекламы и аналитических трекеров. Разрешить запоминать тему и стиль оформления между посещениями? «Мои телефоны» сохраняет модели, которые ты добавляешь.",
     "accept": "Разрешить сохранение оформления",
     "reject": "Не сохранять оформление",
-    "updated": "Обновлено 9 ноября 2026",
+    "updated": "Обновлено 12 ноября 2026",
     "sections": [
+      [
+        "Вход через Google и синхронизация",
+        "Вход открывает Google только по твоему действию. Для синхронизации сайт хранит в Cloudflare D1 хеш идентификатора Google, слаги телефонов, периоды использования и записи об удалении. Сайт не запрашивает имя или email. При первом входе локальные записи могут перейти в аккаунт. Выход завершает сеанс, а локальная копия остаётся в браузере. Для удаления серверных данных напиши владельцу."
+      ],
       [
         "Владелец и контакт",
         "Владелец проекта и ответственный за обработку данных — Sebistiian Mykola. Обращения по приватности: sebistian@ukr.net."
       ],
       [
         "Какие данные обрабатываются",
-        "Это статический некоммерческий архив без аккаунтов, регистрации, рекламы и аналитических трекеров. Поиск и выбор моделей работают в браузере; модели сравнения записываются в URL и включаются в ссылку, которой ты делишься."
+        "Это статический некоммерческий архив без рекламы и аналитических трекеров. Поиск и выбор моделей работают в браузере; модели сравнения записываются в URL и включаются в ссылку, которой ты делишься."
       ],
       [
         "Предложения и сообщения об ошибках",
@@ -110,7 +130,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Данные браузера",
-        "Тема запоминается с согласия. «Мои телефоны» хранит отмеченные модели и сохранённые тобой годы использования после прямого действия; эти данные не отправляются владельцу сайта. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
+        "Тема запоминается с согласия. «Мои телефоны» хранит отмеченные модели и сохранённые тобой годы использования после прямого действия; без входа данные остаются в браузере. Выбор приватности хранится 180 дней. Подробности — на странице cookies."
       ],
       [
         "Внешние сервисы, изображения и ссылки",
@@ -125,8 +145,20 @@ export const PRIVACY_COPY = {
         "Согласие можно отозвать в футере, убрать модели из «Моих телефонов» повторным нажатием отметки или очистить данные сайта в браузере. Для доступа, исправления, удаления, ограничения, переноса или возражения в отношении данных, обрабатываемых владельцем, напиши на email выше. Можно подать жалобу в надзорный орган по защите данных своей страны. Сайт не принимает автоматизированных решений и не продаёт персональные данные."
       ]
     ],
-    "cookieIntro": "Сам сайт не устанавливает HTTP-cookies. После отдельного разрешения внешний плеер YouTube может использовать собственные cookies или хранилище по правилам Google. Он использует localStorage — хранилище этого браузера. Правила доступа к устройству относятся и к этому хранению.",
+    "cookieIntro": "Для входа через Google сайт использует технические HTTP-cookies. Плеер YouTube после отдельного разрешения может использовать собственные cookies или хранилище по правилам Google. Для остальных настроек сайт использует localStorage браузера.",
     "rows": [
+      [
+        "__Host-collection-login / __Host-collection-session",
+        "Вход через Google и синхронизация",
+        "До 10 минут для входа, до 30 дней для сеанса",
+        "Только при входе или активном сеансе"
+      ],
+      [
+        "mobile-history:collection-sync",
+        "Копия последнего состояния синхронизации",
+        "До замены или очистки данных браузера",
+        "После входа через Google"
+      ],
       [
         "mobile-history:privacy",
         "Выбор сохранения темы, версия правил и время решения",
@@ -155,13 +187,13 @@ export const PRIVACY_COPY = {
         "mobile-history:owned-phones",
         "Слаги телефонов, которыми ты пользовался",
         "До удаления моделей или очистки данных",
-        "Только после нажатия «У меня был этот телефон»"
+        "После добавления телефона"
       ],
       [
         "mobile-history:ownership-periods",
         "Примерные годы начала/окончания использования и отметка «до сих пор» для выбранных телефонов",
         "До удаления периода, модели или очистки данных браузера",
-        "Только после сохранения периода пользователем; не отправляется владельцу"
+        "Только после сохранения периода пользователем"
       ]
     ],
     "headers": [
@@ -177,18 +209,22 @@ export const PRIVACY_COPY = {
     "cookies": "Cookies and local storage",
     "settings": "Privacy settings",
     "title": "Your storage choice",
-    "intro": "No advertising or analytics trackers. May we remember your theme and design style between visits? My phones stores models only after you select “I had this phone”.",
+    "intro": "No advertising or analytics trackers. May we remember your theme and design style between visits? My phones stores the models you add.",
     "accept": "Allow appearance storage",
     "reject": "Do not store appearance",
-    "updated": "Updated 9 November 2026",
+    "updated": "Updated 12 November 2026",
     "sections": [
+      [
+        "Google sign-in and sync",
+        "Google opens only when you choose to sign in. For sync, the site stores a hashed Google identifier, phone slugs, ownership periods and deletion records in Cloudflare D1. The site does not request your name or email. Signing in for the first time may import existing local records. Signing out ends the session and leaves a copy in this browser. Contact the owner to request deletion of server data."
+      ],
       [
         "Owner and contact",
         "The project owner and data controller is Sebistiian Mykola. Privacy enquiries: sebistian@ukr.net."
       ],
       [
         "What the site processes",
-        "This is a static noncommercial archive without accounts, registration forms, advertising or analytics trackers. Search and model selection run in your browser. Comparison models are included in the URL and in any comparison link you share."
+        "This is a static noncommercial archive without advertising or analytics trackers. Search and model selection run in your browser. Comparison models are included in the URL and in any comparison link you share."
       ],
       [
         "Suggestions and bug reports",
@@ -196,7 +232,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Browser preferences",
-        "Theme and design-style storage require consent. My phones stores selected model slugs and any usage years you explicitly save; these values are not sent to the site owner. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
+        "Theme and design-style storage require consent. My phones stores selected model slugs and any usage years you explicitly save. These details stay in the browser when signed out. Your privacy choice is stored for 180 days. See the cookies page for the inventory."
       ],
       [
         "External services, images and links",
@@ -211,8 +247,20 @@ export const PRIVACY_COPY = {
         "Withdraw consent in the footer, remove models from My phones by pressing their marks again, or clear site data in your browser. For access, rectification, erasure, restriction, portability or objections concerning data processed by the owner, use the email above. You may complain to your national data protection authority. The site makes no automated decisions and does not sell personal data."
       ]
     ],
-    "cookieIntro": "The site itself sets no HTTP cookies. After separate permission, the external YouTube player may use its own cookies or storage under Google’s policies. It uses localStorage in this browser. Device-storage rules also apply to this technology.",
+    "cookieIntro": "The site uses technical HTTP cookies for Google sign-in. Once separately allowed, the YouTube player may use its own cookies or storage under Google’s policies. Other settings use this browser’s localStorage.",
     "rows": [
+      [
+        "__Host-collection-login / __Host-collection-session",
+        "Google sign-in and sync",
+        "Up to 10 minutes for sign-in, up to 30 days for the session",
+        "Only during sign-in or an active session"
+      ],
+      [
+        "mobile-history:collection-sync",
+        "Copy of the last synced state",
+        "Until replaced or browser data is cleared",
+        "After Google sign-in"
+      ],
       [
         "mobile-history:privacy",
         "Theme-storage choice, policy version and decision time",
@@ -241,13 +289,13 @@ export const PRIVACY_COPY = {
         "mobile-history:owned-phones",
         "Slugs of phones you used to own",
         "Until models are removed or browser data is cleared",
-        "Only after choosing “I had this phone”"
+        "After adding a phone"
       ],
       [
         "mobile-history:ownership-periods",
         "Approximate start/end years and still-using status for selected phones",
         "Until the period, phone or browser data is removed",
-        "Only after the user saves a period; not sent to the site owner"
+        "Only after the user saves a period"
       ]
     ],
     "headers": [

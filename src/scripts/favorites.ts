@@ -21,13 +21,21 @@ export function dismissLegacyFavorite(slug: string): void {
  try { if(pending.size)localStorage.setItem(LEGACY_KEY,JSON.stringify([...pending]));else localStorage.removeItem(LEGACY_KEY); } catch {}
  document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT));
 }
-function writeFavorites(favorites: Set<string>): boolean {
+export function writeFavorites(favorites: Set<string>): boolean {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([...favorites]));
     return true;
   } catch {
     return false; // Keep legacy data if the ownership record could not be saved.
   }
+}
+
+export function addFavorite(slug: string): boolean {
+  const favorites = readFavorites();
+  favorites.add(slug);
+  if (!writeFavorites(favorites)) return false;
+  dismissLegacyFavorite(slug);
+  return true;
 }
 
 // Toggles one slug and persists it. Shared by the delegated click handler below (for

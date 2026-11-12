@@ -1,18 +1,37 @@
 // Cloudflare Workers deploy (Workers Builds runs `npm run build`, then `npx wrangler deploy --autoconfig=false`).
-// All pages remain Astro SSG. Only POST /api/feedback executes the Telegram handler.
+// All pages remain Astro SSG. The Worker handles feedback and optional collection sync.
 {
-  // Must match the project (Worker) name in the Cloudflare dashboard, or the build fails.
-  "name": "mobile-history-catalog",
-  "compatibility_date": "2026-10-31",
-  "main": "worker/feedback.mjs",
-  "ratelimits": [{ "name": "FEEDBACK_RATE_LIMIT", "namespace_id": "11092026", "simple": { "limit": 3, "period": 60 } }],
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS",
-    "run_worker_first": ["/api/feedback"],
-    // dist/404.html (and localized ru/en 404 pages) is served with a real 404 status for any
-    // unmatched path — this is a multi-page static site, not an SPA, so no "single-page-application"
-    // fallback-to-200 behavior is wanted here.
-    "not_found_handling": "404-page"
-  }
+	// Must match the project (Worker) name in the Cloudflare dashboard, or the build fails.
+	"name": "mobile-history-catalog",
+	"compatibility_date": "2026-10-31",
+	"main": "worker/feedback.mjs",
+	"ratelimits": [
+		{
+			"name": "FEEDBACK_RATE_LIMIT",
+			"namespace_id": "11092026",
+			"simple": {
+				"limit": 3,
+				"period": 60
+			}
+		}
+	],
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS",
+		"run_worker_first": [
+			"/api/feedback",
+			"/api/collection/*"
+		],
+		// dist/404.html (and localized ru/en 404 pages) is served with a real 404 status for any
+		// unmatched path — this is a multi-page static site, not an SPA, so no "single-page-application"
+		// fallback-to-200 behavior is wanted here.
+		"not_found_handling": "404-page"
+	},
+	"d1_databases": [
+		{
+			"binding": "COLLECTION_DB",
+			"database_name": "mobile-history-collection",
+			"database_id": "1add1c40-f6b5-4597-9eca-ad63a259807c"
+		}
+	]
 }

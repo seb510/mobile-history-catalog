@@ -1,5 +1,29 @@
 import type { Locale } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+ 'sony-cmd-j5': {
+   id: 'RcbKI633GrI', author: 'Vintage phones archive', label: 'SONY · CMD-J5', year: 2020, walkthrough: true,
+   description: {
+     uk: 'Sony CMD-J5 у роботі: перегляд меню, мелодій, ігор і шпалер.',
+     ru: 'Sony CMD-J5 в работе: просмотр меню, мелодий, игр и обоев.',
+     en: 'A Sony CMD-J5 walkthrough covering its menus, ringtones, games and wallpapers.',
+   },
+ },
+ 'nokia-6720-classic': {
+   id: 'YhgxIhW91J0', author: 'PhoneArena', label: 'NOKIA · 6720 CLASSIC', year: 2009, demonstration: true,
+   description: {
+     uk: 'Перше знайомство з Nokia 6720 classic на MWC 2009: корпус, клавіатура та інтерфейс S60.',
+     ru: 'Первое знакомство с Nokia 6720 classic на MWC 2009: корпус, клавиатура и интерфейс S60.',
+     en: 'A first look at the Nokia 6720 classic at MWC 2009, showing its body, keypad and S60 interface.',
+   },
+ },
+ 'apple-iphone-x': {
+   id: '_HTXMhKWqnA', author: 'Marques Brownlee', label: 'APPLE · IPHONE X', year: 2017, demonstration: true,
+   description: {
+     uk: 'Перші враження Маркеса Браунлі з презентації iPhone X: OLED-екран, Face ID і нові жести навігації.',
+     ru: 'Первые впечатления Маркеса Браунли с презентации iPhone X: OLED-экран, Face ID и новые жесты навигации.',
+     en: 'Marques Brownlee’s hands-on from the iPhone X launch covers the OLED screen, Face ID and the new navigation gestures.',
+   },
+ },
  "nokia-lumia-800": {"id":"msbE0LXpYKs","author":"PhoneArena","label":"NOKIA LUMIA 800","demonstration":true,"description":{"uk":"Огляд LUMIA 800 від PhoneArena показує корпус, екран і користування телефоном.","ru":"Обзор LUMIA 800 от PhoneArena показывает корпус, экран и использование телефона.","en":"Nokia Lumia 800 Review shows the handset, screen and everyday use."}},
  "nokia-lumia-920": {"id":"KWhRxgL9HE8","author":"Engadget","label":"NOKIA LUMIA 920","demonstration":true,"description":{"uk":"Огляд LUMIA 920 від Engadget показує корпус, екран і користування телефоном.","ru":"Обзор LUMIA 920 от Engadget показывает корпус, экран и использование телефона.","en":"Nokia Lumia 920 review | Engadget shows the handset, screen and everyday use."}},
  "nokia-lumia-630": {"id":"PjXZthB4IHc","author":"Geekyranjit","label":"NOKIA LUMIA 630","demonstration":true,"description":{"uk":"Огляд LUMIA 630 від Geekyranjit показує корпус, екран і користування телефоном.","ru":"Обзор LUMIA 630 от Geekyranjit показывает корпус, экран и использование телефона.","en":"Nokia Lumia 630 Review -  A Windows Phone 8.1 shows the handset, screen and everyday use."}},

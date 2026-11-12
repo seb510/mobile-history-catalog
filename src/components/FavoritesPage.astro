@@ -1,6 +1,6 @@
 ---
 import Arrow from './Arrow.astro';
-import { OWNERSHIP_COPY } from '../lib/ownership-copy';
+import { ACCOUNT_COPY, CABINET_COPY, COLLECTION_COPY, OWNERSHIP_COPY } from '../lib/ownership-copy';
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import PhoneCard from './PhoneCard.astro';
@@ -17,7 +17,8 @@ const strings = t(locale);
 const copy = FINAL_DESIGN_COPY[locale];
 const ownedCopy = OWNED_PHONE_COPY[locale];
 const periodCopy = OWNERSHIP_COPY[locale];
-const phoneCount = strings.brands.phoneCount;
+const collectionCopy = COLLECTION_COPY[locale];
+const cabinetCopy = CABINET_COPY[locale];
 const comparePath = localePath(locale, '/compare/');
 
 const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b.data.year);
@@ -25,11 +26,27 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 
 <Layout locale={locale} path="/favorites/" title={`${strings.nav.favorites} — ${strings.siteName}`} description={strings.favorites.intro}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.favorites }]} />
-  <header class="mb-7 max-w-3xl border-b border-neutral-800 pb-6">
-    <h1 class="page-title">{strings.nav.favorites}</h1>
-    <p class="mt-4 max-w-2xl leading-relaxed text-neutral-400">{strings.favorites.intro}</p>
-    <p class="mt-2 text-sm text-neutral-500">{strings.favorites.storageNote}</p>
-  </header>
+  <div class="mb-7 grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_19rem]">
+    <header class="editorial-card rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-5 sm:p-7">
+      <p class="editorial-kicker text-orange-500">{cabinetCopy.title}</p>
+      <h1 class="page-title mt-2">{strings.nav.favorites}</h1>
+      <p class="mt-3 max-w-2xl leading-relaxed text-neutral-400">{strings.favorites.intro}</p>
+      <dl data-cabinet-stats hidden class="mt-5 grid grid-cols-3 gap-3 border-t border-neutral-800 pt-4">
+        <div><dt class="text-xs text-neutral-400">{cabinetCopy.total}</dt><dd data-favorites-count class="mt-1 text-2xl font-bold tabular-nums">0</dd></div>
+        <div><dt class="text-xs text-neutral-400">{cabinetCopy.dated}</dt><dd data-cabinet-dated class="mt-1 text-2xl font-bold tabular-nums">0</dd></div>
+        <div><dt class="text-xs text-neutral-400">{cabinetCopy.current}</dt><dd data-cabinet-current class="mt-1 text-2xl font-bold tabular-nums">0</dd></div>
+      </dl>
+      <button type="button" data-collection-add hidden class="primary-cta mt-5 min-h-11 rounded-sm bg-orange-500 px-4 text-sm font-semibold text-neutral-950">{collectionCopy.add}</button>
+    </header>
+    <section class="editorial-card rounded-sm border border-neutral-800 bg-neutral-900/40 p-5" aria-labelledby="collection-account-title">
+      <h2 id="collection-account-title" class="text-lg font-bold">{cabinetCopy.account}</h2>
+      <p data-collection-account-mode aria-live="polite" class="mt-2 text-sm font-semibold text-orange-500">{ACCOUNT_COPY[locale].signedOut}</p>
+      <p data-collection-account-note class="mt-2 text-sm leading-relaxed text-neutral-400">{cabinetCopy.localNote}</p>
+      <a data-collection-sign-in hidden class="control-button mt-4 min-h-11" href={`/api/collection/login?lang=${locale}`}>{collectionCopy.signIn}</a>
+      <button type="button" data-collection-sign-out hidden class="control-button mt-4 min-h-11">{collectionCopy.signOut}</button>
+      <p data-collection-sync-status role="status" class="mt-2 text-sm text-neutral-400 empty:hidden"></p>
+    </section>
+  </div>
 
   <section data-legacy-section hidden class="mb-8 border border-neutral-700 bg-neutral-900 p-4 sm:p-6" aria-labelledby="legacy-title">
     <h2 id="legacy-title" class="text-xl font-bold">{ownedCopy.legacyTitle}</h2>
@@ -42,21 +59,12 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     <svg aria-hidden="true" viewBox="0 0 24 24" class="mx-auto mb-4 h-8 w-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2.5h8a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2Z M10 5h4 M10 12l2 2 4-4 M11 18h2" /></svg>
     <h2 class="text-xl font-bold text-neutral-100">{strings.favorites.emptyTitle}</h2>
     <p class="mt-2 text-sm leading-relaxed">{strings.favorites.emptyBody}</p>
-    <a class="primary-cta mt-5 inline-flex min-h-11 items-center rounded-sm bg-orange-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition-colors motion-ui" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} <Arrow /></a>
+    <a class="control-button mt-5 min-h-11" href={localePath(locale, '/catalog/')}>{strings.nav.catalog} <Arrow /></a>
   </div>
 
   <div data-favorites-toolbar hidden class="favorites-toolbar mb-5 flex flex-wrap items-center justify-between gap-4 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-4">
     <div class="flex flex-wrap items-center gap-3">
-      <p
-        data-favorites-count
-        data-one={phoneCount.one}
-        data-few={'few' in phoneCount ? phoneCount.few : phoneCount.many}
-        data-many={phoneCount.many}
-        data-locale={locale}
-        data-suffix={strings.favorites.inCollection}
-        role="status"
-        class="text-sm font-semibold tabular-nums text-neutral-200"
-      ></p>
+      <h2 class="text-lg font-bold">{periodCopy.personal}</h2>
       <a
         data-favorites-compare-cta
         data-compare-base={comparePath}
@@ -96,8 +104,25 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       </li>
     ))}
   </ol>
+  <dialog data-collection-picker class="period-dialog" aria-labelledby="collection-picker-title">
+    <div class="period-dialog-header flex items-center justify-between gap-4">
+      <h2 id="collection-picker-title" class="text-xl font-bold">{collectionCopy.add}</h2>
+      <button type="button" data-collection-close class="control-button min-h-11">{periodCopy.close}</button>
+    </div>
+    <div class="ownership-form grid gap-3">
+      <label>{collectionCopy.search}<input type="search" data-collection-search autocomplete="off" /></label>
+      <p data-collection-empty role="status" hidden class="text-sm text-neutral-400">{collectionCopy.empty}</p>
+      <ul class="grid max-h-64 gap-1 overflow-auto">
+        {phones.map(phone => <li hidden>
+          <button type="button" data-collection-choice data-slug={slugOf(phone)} data-model={phone.data.brand+' '+phone.data.model} data-year={phone.data.year} class="control-button min-h-11 w-full justify-between text-left">
+            <span>{phone.data.brand} {phone.data.model}</span><span class="text-xs text-neutral-400">{phone.data.year}</span>
+          </button>
+        </li>)}
+      </ul>
+    </div>
+  </dialog>
   <dialog data-period-dialog class="period-dialog" aria-labelledby="period-dialog-title" data-locale={locale}>
-    <div class="period-dialog-header flex items-start justify-between gap-4"><div><p class="editorial-kicker text-orange-500">{periodCopy.edit}</p><h2 id="period-dialog-title" class="mt-2 text-xl font-bold"></h2></div><button type="button" data-period-close class="control-button h-11 w-11 justify-center" aria-label={periodCopy.close}><svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <div class="period-dialog-header flex items-start justify-between gap-4"><div><p data-period-heading class="editorial-kicker text-orange-500">{periodCopy.edit}</p><h2 id="period-dialog-title" class="mt-2 text-xl font-bold"></h2></div><button type="button" data-period-close class="control-button h-11 w-11 justify-center" aria-label={periodCopy.close}><svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
     <p id="period-dialog-help" class="period-dialog-help">{periodCopy.approximate}</p>
     <form data-period-form aria-describedby="period-dialog-help" class="ownership-form mt-5 grid gap-4">
       <div class="period-years">
@@ -109,6 +134,8 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       <div class="period-dialog-actions">
       <button type="submit" class="primary-cta period-save justify-center text-sm">{periodCopy.save}</button>
       <button type="button" data-period-clear class="period-clear">{periodCopy.clear}</button>
+      <button type="button" data-period-skip hidden class="period-clear">{collectionCopy.skip}</button>
+      <button type="button" data-period-back hidden class="period-clear">{collectionCopy.back}</button>
       </div>
     </form>
   </dialog>
@@ -116,8 +143,8 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 
 <script>
   import { readPeriods, savePeriod, PERIODS_KEY, validPeriod } from '../lib/ownership-periods';
-  import { OWNERSHIP_COPY } from '../lib/ownership-copy';
-  import { readFavorites, readLegacyFavorites, dismissLegacyFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
+  import { COLLECTION_COPY, OWNERSHIP_COPY } from '../lib/ownership-copy';
+  import { addFavorite, readFavorites, readLegacyFavorites, dismissLegacyFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
 
   const empty = document.querySelector<HTMLElement>('[data-favorites-empty]');
   const loading = document.querySelector<HTMLElement>('[data-favorites-loading]');
@@ -128,16 +155,9 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const sortSelect = document.querySelector<HTMLSelectElement>('[data-filter="sort"]');
   const items = Array.from(document.querySelectorAll<HTMLElement>('[data-favorite-item]'));
 
-  function wordFor(n: number): string {
-    if (!count) return '';
-    const { one, few, many, locale } = count.dataset as Record<string, string>;
-    if (locale === 'en') return n === 1 ? one : many;
-    const lastTwo = n % 100;
-    const last = n % 10;
-    if (last === 1 && lastTwo !== 11) return one;
-    if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) return few ?? many;
-    return many;
-  }
+  const stats = document.querySelector<HTMLElement>('[data-cabinet-stats]')!;
+  const datedCount = stats.querySelector('[data-cabinet-dated]')!;
+  const currentCount = stats.querySelector('[data-cabinet-current]')!;
 
   function applySort() {
     if (!list || !sortSelect) return;
@@ -175,7 +195,12 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     const hint = document.querySelector<HTMLElement>('[data-period-hint]');
     if (hint) hint.hidden = visible === 0;
     if (!visible) document.querySelector('[data-period-status]')!.textContent = '';
-    count.textContent = `${visible} ${wordFor(visible)} ${count.dataset.suffix}`;
+    const periods = readPeriods();
+    const dated = visibleSlugs.filter(slug => periods[slug]);
+    count.textContent = String(visible);
+    datedCount.textContent = String(dated.length);
+    currentCount.textContent = String(dated.filter(slug => periods[slug].current).length);
+    stats.hidden = false;
     if (loading) loading.hidden = true;
     if (compareCta) {
       if (visibleSlugs.length === 2) {
@@ -209,6 +234,39 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const error = form.querySelector('[data-period-error]')!;
   let editedSlug = '';
   let periodOpener: HTMLButtonElement | null = null;
+  let adding = false;
+  const addButton = document.querySelector<HTMLButtonElement>('[data-collection-add]')!;
+  const picker = document.querySelector<HTMLDialogElement>('[data-collection-picker]')!;
+  const search = picker.querySelector<HTMLInputElement>('[data-collection-search]')!;
+  const choices = [...picker.querySelectorAll<HTMLButtonElement>('[data-collection-choice]')];
+  const collectionCopy = COLLECTION_COPY[dialog.dataset.locale as keyof typeof COLLECTION_COPY];
+  function filterChoices() {
+    const terms = search.value.trim().toLowerCase().split(/\s+/);
+    const favorites = readFavorites();
+    let shown = 0;
+    for (const button of choices) {
+      const label = `${button.dataset.model} ${button.dataset.year} ${button.dataset.slug}`.toLowerCase();
+      const show = shown < 20 && !favorites.has(button.dataset.slug!) && terms.every(term => label.includes(term));
+      button.closest('li')!.hidden = !show;
+      if (show) shown++;
+    }
+    picker.querySelector<HTMLElement>('[data-collection-empty]')!.hidden = shown > 0;
+  }
+  function openPicker() {
+    filterChoices();
+    picker.showModal();
+    search.focus();
+  }
+  addButton.hidden = false;
+  addButton.addEventListener('click', () => { search.value = ''; openPicker(); });
+  search.addEventListener('input', filterChoices);
+  search.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    event.preventDefault();
+    picker.close();
+  });
+  picker.querySelector('[data-collection-close]')!.addEventListener('click', () => picker.close());
+  document.addEventListener(FAVORITES_CHANGED_EVENT, () => { if (picker.open) filterChoices(); });
   function syncPeriods() {
     const periods = readPeriods();
     for (const item of items) {
@@ -219,36 +277,55 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       button.title = period ? c.edit : c.add;
       button.setAttribute('aria-label', button.title + ' — ' + button.dataset.model);
     }
-    if (dialog.open && !readFavorites().has(editedSlug)) dialog.close();
+    if (dialog.open && !adding && !readFavorites().has(editedSlug)) dialog.close();
   }
-  document.querySelectorAll<HTMLButtonElement>('[data-period-open]').forEach(button => button.addEventListener('click', () => {
-    periodOpener = button; editedSlug = button.dataset.slug!;
-    const period = readPeriods()[editedSlug];
+  function openPeriod(button: HTMLButtonElement, isNew: boolean) {
+    adding = isNew;
+    periodOpener = isNew ? addButton : button;
+    editedSlug = button.dataset.slug!;
+    const period = isNew ? undefined : readPeriods()[editedSlug];
+    dialog.querySelector('[data-period-heading]')!.textContent = isNew ? collectionCopy.years : c.edit;
     dialog.querySelector('#period-dialog-title')!.textContent = button.dataset.model!;
     startInput.min = button.dataset.year!;
     startInput.value = period ? String(period.start) : '';
     endInput.value = period?.end ? String(period.end) : '';
     current.checked = period?.current ?? false; endInput.disabled = current.checked;
-    error.textContent = ''; form.querySelector<HTMLButtonElement>('[data-period-clear]')!.hidden = !period; dialog.showModal(); startInput.focus();
-  }));
+    error.textContent = '';
+    form.querySelector<HTMLButtonElement>('[data-period-clear]')!.hidden = !period;
+    form.querySelector<HTMLButtonElement>('[data-period-skip]')!.hidden = !isNew;
+    form.querySelector<HTMLButtonElement>('[data-period-back]')!.hidden = !isNew;
+    dialog.showModal();
+    startInput.focus();
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-period-open]').forEach(button => button.addEventListener('click', () => openPeriod(button, false)));
+  for (const button of choices) button.addEventListener('click', () => { picker.close(); openPeriod(button, true); });
+  form.querySelector('[data-period-back]')!.addEventListener('click', () => { dialog.close(); openPicker(); });
   current.addEventListener('change', () => { endInput.disabled = current.checked; });
   dialog.querySelector('[data-period-close]')!.addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     const r = dialog.getBoundingClientRect();
     if (event.target === dialog && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) dialog.close();
   });
-  dialog.addEventListener('close', () => { if (periodOpener && !periodOpener.closest('[hidden]')) periodOpener.focus({preventScroll:true}); });
+  dialog.addEventListener('close', () => { if (!picker.open && periodOpener && !periodOpener.closest('[hidden]')) periodOpener.focus({preventScroll:true}); });
   const commit = (clear: boolean) => {
     const period = { start:Number(startInput.value), ...(endInput.value && !current.checked ? {end:Number(endInput.value)} : {}), current:current.checked };
     if (!clear && (!validPeriod(period) || period.start < Number(startInput.min))) { error.textContent = c.invalid; return; }
-    if (!readFavorites().has(editedSlug)) { dialog.close(); return; }
+    if (!adding && !readFavorites().has(editedSlug)) { dialog.close(); return; }
+    if (adding && readFavorites().has(editedSlug)) { dialog.close(); return; }
     if (!savePeriod(editedSlug, clear ? undefined : period)) { error.textContent = c.error; return; }
+    if (adding && !addFavorite(editedSlug)) {
+      savePeriod(editedSlug);
+      error.textContent = c.error;
+      return;
+    }
     dialog.close(); syncPeriods(); applySort();
-    document.querySelector('[data-period-status]')!.textContent = clear ? c.removed : c.saved;
+    document.dispatchEvent(new CustomEvent(FAVORITES_CHANGED_EVENT));
+    document.querySelector('[data-period-status]')!.textContent = adding ? collectionCopy.added : clear ? c.removed : c.saved;
   };
   form.addEventListener('submit', event => { event.preventDefault(); commit(false); });
   form.querySelector('[data-period-clear]')!.addEventListener('click', () => commit(true));
-  window.addEventListener('storage', event => { if (event.key === PERIODS_KEY || event.key === null) { syncPeriods(); applySort(); } });
+  form.querySelector('[data-period-skip]')!.addEventListener('click', () => commit(true));
+  window.addEventListener('storage', event => { if (event.key === PERIODS_KEY || event.key === null) render(); });
   sortSelect?.addEventListener('change', applySort);
   render();
   document.addEventListener(FAVORITES_CHANGED_EVENT, render);
