@@ -10,7 +10,8 @@ type Baseline = { owner: string; entries: Entry[] };
 
 const API = '/api/collection';
 const BASELINE_KEY = 'mobile-history:collection-sync';
-const signIn = document.querySelector<HTMLAnchorElement>('[data-collection-sign-in]');
+const signInLinks = document.querySelectorAll<HTMLAnchorElement>('[data-collection-sign-in]');
+const accountLinks = document.querySelectorAll<HTMLAnchorElement>('[data-collection-account-link]');
 const signOut = document.querySelector<HTMLButtonElement>('[data-collection-sign-out]');
 const status = document.querySelector<HTMLElement>('[data-collection-sync-status]');
 const mode = document.querySelector<HTMLElement>('[data-collection-account-mode]');
@@ -55,7 +56,8 @@ function diff(previous: Snapshot, current: Snapshot): Change[] {
 }
 
 function renderAccount(message = '') {
-  if (signIn) signIn.hidden = !available || !!owner;
+  for (const link of signInLinks) link.hidden = !available || !!owner;
+  for (const link of accountLinks) link.hidden = !owner;
   if (signOut) signOut.hidden = !owner;
   if (status) status.textContent = message;
   if (mode) mode.textContent = owner ? account.signedIn : account.signedOut;
@@ -178,7 +180,7 @@ signOut?.addEventListener('click', async () => {
   }
 });
 
-if (signIn || getBaseline()) {
+if (signInLinks.length || getBaseline()) {
   if (mode) mode.textContent = account.checking;
   void loadAccount();
   document.addEventListener(FAVORITES_CHANGED_EVENT, () => { if (!applyRemote) schedule(); });
@@ -187,7 +189,7 @@ if (signIn || getBaseline()) {
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') void loadAccount();
   });
-  if (signIn) window.setInterval(() => {
+  if (mode) window.setInterval(() => {
     if (document.visibilityState === 'visible' && owner) schedule(0);
   }, 60000);
 }

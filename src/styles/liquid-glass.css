@@ -22,6 +22,22 @@ html[data-design="modern"] :is(.site-header,.mobile-menu-panel,.global-search-pa
 html[data-design="modern"] .site-header { top:.625rem; width:calc(100% - 1.5rem); max-width:74rem; margin:.625rem auto 0; border-radius:1.25rem; }
 html[data-design="modern"] .site-header.is-hidden { transform:translateY(calc(-100% - 1.5rem)); }
 html[data-design="modern"] .site-header > div:first-child { padding-inline:1rem; }
+@media (min-width:1024px) {
+  /* Both editions share one frame and font metrics for the desktop controls. */
+  html .site-header,
+  html[data-design="modern"] .site-header {
+    top:.625rem;
+    width:calc(100% - 1.5rem);
+    max-width:74rem;
+    margin:.625rem auto 0;
+    border-width:1px;
+    font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif;
+  }
+  html .site-header.is-hidden { transform:translateY(calc(-100% - 1.5rem)); }
+  html .site-header > div:first-child { padding-inline:1rem; }
+  .site-header .design-switch { padding:2px; }
+  .global-info-bar { font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; }
+}
 html[data-design="modern"] .mobile-menu-panel { margin-top:.625rem; border-radius:1.25rem; background-color:color-mix(in srgb,var(--modern-surface) 93%,transparent); max-height:calc(100dvh - 6rem); }
 html[data-design="modern"] :is(.global-search-panel,.language-options,.period-dialog) { border-radius:1.25rem; background-color:color-mix(in srgb,var(--modern-surface) 92%,transparent); }
 html[data-design="modern"] .phone-section-nav { border-radius:1rem; }
