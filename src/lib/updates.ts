@@ -13,13 +13,19 @@ export const UPDATES = [{
   ],
   "changes": {
     "uk": [
-      "У «Моїх телефонах» додано пошук моделі та необов’язковий крок для років користування."
+      "У «Кабінеті» можна знайти телефон і додати або змінити роки користування.",
+      "Додано вхід через Google, індикатор сеансу та синхронізацію колекції між пристроями.",
+      "Розширено хронологію Symbian і уточнено версії Series 40."
     ],
     "ru": [
-      "В «Моих телефонах» добавлены поиск модели и необязательный шаг для указания лет использования."
+      "В «Кабинете» можно найти телефон и добавить или изменить годы использования.",
+      "Добавлены вход через Google, индикатор сеанса и синхронизация коллекции между устройствами.",
+      "Расширена хронология Symbian и уточнены версии Series 40."
     ],
     "en": [
-      "My phones now offers model search and an optional step for recording years of use."
+      "In Account, you can find a phone and add or edit the years you used it.",
+      "Added Google sign-in, a session indicator and cross-device collection sync.",
+      "Expanded the Symbian timeline and clarified Series 40 versions."
     ]
   }
 }, {

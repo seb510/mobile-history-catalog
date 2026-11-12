@@ -39,7 +39,7 @@ export const UI = {
         'Курований архів ретро-телефонів із характером — дизайн, механіка й спогади кнопкової епохи.',
       inspiredBy: 'Натхненно форматом журналу MobiLux (2004–2016)',
       sisterProject: 'Сестринський проєкт',
-      rights: 'Контент ліцензується вільно, де це можливо — атрибуція зображень вказана на сторінках телефонів.',
+      rights: 'Авторство, джерела й умови використання медіа вказуємо поруч із матеріалами.',
     },
     filters: {
       brand: 'Бренд',
@@ -130,9 +130,9 @@ export const UI = {
       "intro": "Мобільна Історія — телефони з характером. Архів кнопкової епохи, коли розкладачку впізнавали за силуетом, музичний телефон — за окремою кнопкою, а власний апарат обирали ще й за відчуттям у руці.",
       "sections": [
         {
-          "title": "Що для нас означає характер",
+          "title": "Що є в архіві",
           "paragraphs": [
-            "Форма корпусу, хід клавіш, шарнір, джойстик, матеріали й кольори. Нас цікавить, як ці деталі визначали досвід: відкрити кришку, висунути клавіатуру, повернути музичний блок або написати SMS навпомацки."
+            "Історії моделей, галереї й технічні портрети показують, як корпус, клавіатура та механіка впливали на користування. Для окремих телефонів є відео, а на деяких сторінках брендів можна почути звук запуску конкретної моделі."
           ]
         },
         {
@@ -144,14 +144,22 @@ export const UI = {
         {
           "title": "Журнальний погляд",
           "paragraphs": [
-            "Нас надихає український журнал MobiLux (2004–2016): сильна обкладинка, помітна типографіка, коротка історія й технічний портрет. Відлік каталогу починається з 1998–1999 років, часу масового GSM-буму. Знак проєкту — власний абстрактний телефон з екраном і клавіатурою."
+            "Нас надихає український журнал MobiLux (2004–2016): виразна обкладинка, помітна типографіка, коротка історія й технічний портрет. Найстаріші телефони в каталозі датовані 1999 роком, часом масового поширення GSM.",
+            "У шапці можна перемкнутися між журнальним і сучасним оформленням. Світла й темна теми доступні в обох."
           ]
         },
         {
           "title": "Три маршрути архівом",
           "paragraphs": [
-            "«Механіка характеру», «Музика в кишені» та «Дизайн без правил» допомагають знайти спільну ідею в телефонах різних брендів. На головній — герої добірок, у каталозі — повні списки. Поєднуй тему з пошуком, брендом, роком і конструкцією; вибір зберігається в адресі."
+            "«Механіка характеру», «Музика в кишені» та «Дизайн без правил» об’єднують телефони різних брендів. У каталозі можна поєднати тему з пошуком, фільтрами за брендом, роком і конструкцією та показати лише моделі з відео. Перелік років допомагає швидко перейти до потрібного випуску."
           ]
+        },
+        {
+          "title": "Операційні системи",
+          "paragraphs": [
+            "Рубрика «ОС» пояснює, як змінювалися мобільні платформи. Відкрий хронологію версій, переглянь ілюстрації інтерфейсу й телефони з архіву. Якщо версію визначено й описано в рубриці, посилання в характеристиках веде до відповідного розділу."
+          ],
+          "path": "/operating-systems/"
         },
         {
           "title": "Порівнюй характери",
@@ -160,9 +168,22 @@ export const UI = {
           ]
         },
         {
+          "title": "Власна хронологія",
+          "paragraphs": [
+            "У «Кабінеті» знайди телефон за назвою й додай його до своєї колекції. Роки користування можна вказати одразу або додати й змінити пізніше. Без входу дані зберігаються в цьому браузері. Вхід через Google синхронізує колекцію та періоди між пристроями."
+          ],
+          "path": "/favorites/"
+        },
+        {
           "title": "Ностальгія з джерелами",
           "paragraphs": [
-            "Історії та характеристики перевіряємо за анонсами, інструкціями й іншими надійними джерелами. Посилання в описі не означає автоматичної перевірки кожного поля; прогалини залишаємо відкритими. Фото використовуємо з вільними ліцензіями й атрибуцією, без підтвердженого зображення показуємо заглушку. Тексти інтерфейсу доступні українською, російською й англійською; частина історій у перекладах поки використовує український текст."
+            "Історії та характеристики звіряємо з анонсами, інструкціями й іншими джерелами. Кредити до фото вказують автора або джерело. Використовуємо матеріали з вільними ліцензіями та фото. Архів доступний українською, російською й англійською."
+          ]
+        },
+        {
+          "title": "Допоможи доповнити архів",
+          "paragraphs": [
+            "Через форму зворотного зв’язку можна запропонувати телефон, уточнити дані, повідомити про помилку або поділитися ідеєю. Завершені зміни записуємо в журнал оновлень."
           ]
         }
       ]
@@ -203,7 +224,7 @@ export const UI = {
         'Курированный архив ретро-телефонов с характером — дизайн, механика и воспоминания кнопочной эпохи.',
       inspiredBy: 'Вдохновлено форматом журнала MobiLux (2004–2016)',
       sisterProject: 'Сестринский проект',
-      rights: 'Контент лицензируется свободно, где это возможно — атрибуция изображений указана на страницах телефонов.',
+      rights: 'Авторство, источники и условия использования медиа указываем рядом с материалами.',
     },
     filters: {
       brand: 'Бренд',
@@ -294,9 +315,9 @@ export const UI = {
       "intro": "Мобильная История — телефоны с характером. Архив кнопочной эпохи, когда раскладушку узнавали по силуэту, музыкальный телефон — по отдельной кнопке, а свой аппарат выбирали ещё и по ощущению в руке.",
       "sections": [
         {
-          "title": "Что для нас означает характер",
+          "title": "Что есть в архиве",
           "paragraphs": [
-            "Форма корпуса, ход клавиш, шарнир, джойстик, материалы и цвета. Нас интересует, как эти детали определяли опыт: открыть крышку, выдвинуть клавиатуру, повернуть музыкальный блок или написать SMS на ощупь."
+            "Истории моделей, галереи и технические портреты показывают, как корпус, клавиатура и механика влияли на использование. Для отдельных телефонов есть видео, а на некоторых страницах брендов можно услышать звук запуска конкретной модели."
           ]
         },
         {
@@ -308,14 +329,22 @@ export const UI = {
         {
           "title": "Журнальный взгляд",
           "paragraphs": [
-            "Нас вдохновляет украинский журнал MobiLux (2004–2016): сильная обложка, заметная типографика, короткая история и технический портрет. Отсчёт каталога начинается с 1998–1999 годов, времени массового GSM-бума. Знак проекта — собственный абстрактный телефон с экраном и клавиатурой."
+            "Нас вдохновляет украинский журнал MobiLux (2004–2016): выразительная обложка, заметная типографика, короткая история и технический портрет. Самые ранние телефоны в каталоге датированы 1999 годом, временем массового распространения GSM.",
+            "В шапке можно переключаться между журнальным и современным оформлением. Светлая и тёмная темы доступны в обоих."
           ]
         },
         {
           "title": "Три маршрута по архиву",
           "paragraphs": [
-            "«Механика характера», «Музыка в кармане» и «Дизайн без правил» помогают найти общую идею у телефонов разных брендов. На главной — герои подборок, в каталоге — полные списки. Сочетай тему с поиском, брендом, годом и конструкцией; выбор сохраняется в адресе."
+            "«Механика характера», «Музыка в кармане» и «Дизайн без правил» объединяют телефоны разных брендов. В каталоге можно сочетать тему с поиском и фильтрами по бренду, году и конструкции, а также показывать только модели с видео. Список годов помогает быстро перейти к нужному выпуску."
           ]
+        },
+        {
+          "title": "Операционные системы",
+          "paragraphs": [
+            "Раздел «ОС» объясняет, как менялись мобильные платформы. Открой хронологию версий, посмотри иллюстрации интерфейса и телефоны из архива. Если версия определена и описана в разделе, ссылка в характеристиках ведёт к соответствующему подразделу."
+          ],
+          "path": "/operating-systems/"
         },
         {
           "title": "Сравнивай характеры",
@@ -324,9 +353,22 @@ export const UI = {
           ]
         },
         {
+          "title": "Своя хронология",
+          "paragraphs": [
+            "В «Кабинете» найди телефон по названию и добавь его в коллекцию. Годы использования можно указать сразу или добавить и изменить позже. Без входа данные хранятся в этом браузере. Вход через Google синхронизирует коллекцию и периоды между устройствами."
+          ],
+          "path": "/favorites/"
+        },
+        {
           "title": "Ностальгия с источниками",
           "paragraphs": [
-            "Истории и характеристики проверяем по анонсам, инструкциям и другим надёжным источникам. Ссылка в описании не означает автоматической проверки каждого поля; пробелы оставляем открытыми. Для фото используем свободные лицензии и атрибуцию; без подтверждённого изображения показываем заглушку. Интерфейс доступен на украинском, русском и английском; часть историй в переводах пока использует украинский текст."
+            "Истории и характеристики сверяем с анонсами, инструкциями и другими источниками. Подписи к фото указывают автора или источник. Используем материалы со свободными лицензиями и фото, на которые получено разрешение. Архив доступен на украинском, русском и английском."
+          ]
+        },
+        {
+          "title": "Помоги пополнить архив",
+          "paragraphs": [
+            "Через форму обратной связи можно предложить телефон, уточнить данные, сообщить об ошибке или поделиться идеей. Завершённые изменения записываем в журнал обновлений."
           ]
         }
       ]
@@ -366,7 +408,7 @@ export const UI = {
       about: 'A curated archive of retro phones with character: design, mechanics and memories from the button-phone era.',
       inspiredBy: 'Inspired by the format of MobiLux magazine (2004–2016)',
       sisterProject: 'Sister project',
-      rights: 'Content is freely licensed where possible — image attribution is listed on each phone page.',
+      rights: 'Media credits, sources and terms of use appear alongside the materials.',
     },
     filters: {
       brand: 'Brand',
@@ -457,9 +499,9 @@ export const UI = {
       "intro": "Mobile History — phones with character. An archive of the button-phone era, when a clamshell was recognised by its silhouette, a music phone by its dedicated key, and a handset was chosen for how it felt in your hand.",
       "sections": [
         {
-          "title": "What character means to us",
+          "title": "What’s in the archive",
           "paragraphs": [
-            "Body shapes, key travel, hinges, joysticks, materials and colours. We explore how these details shaped everyday use: flipping a phone open, sliding out a keypad, twisting a music block or typing an SMS by touch."
+            "Model histories, galleries and technical portraits show how bodies, keypads and mechanisms shaped everyday use. Selected phones have videos, and some brand pages let you hear the startup sound of a specific model."
           ]
         },
         {
@@ -471,14 +513,22 @@ export const UI = {
         {
           "title": "A magazine perspective",
           "paragraphs": [
-            "We take inspiration from Ukrainian magazine MobiLux (2004–2016): a strong cover, expressive typography, a concise story and a technical portrait. The catalog begins in 1998–1999, around the mass GSM boom. Our original mark is an abstract handset with a screen and keypad."
+            "We take inspiration from Ukrainian magazine MobiLux (2004–2016): a striking cover, expressive typography, a concise story and a technical portrait. The earliest phones in the catalog date to 1999, when GSM was reaching a mass audience.",
+            "Use the header controls to switch between magazine and modern layouts. Both offer light and dark themes."
           ]
         },
         {
           "title": "Three routes through the archive",
           "paragraphs": [
-            "Mechanical character, Music in your pocket and Design without rules reveal shared ideas across brands. The homepage presents lead models; the catalog contains the complete collections. Combine a theme with search, brand, year and form factor filters; your selection stays in the URL."
+            "Mechanical character, Music in your pocket and Design without rules bring together phones from different brands. Combine a theme with search and filters for brand, year and form factor, or show only phones with video. The year index takes you directly to a release year."
           ]
+        },
+        {
+          "title": "Operating systems",
+          "paragraphs": [
+            "Explore how mobile platforms evolved through release timelines, interface illustrations and phones from the archive. When the phone’s version is known and documented, its specifications link to the relevant section."
+          ],
+          "path": "/operating-systems/"
         },
         {
           "title": "Compare their character",
@@ -487,9 +537,22 @@ export const UI = {
           ]
         },
         {
+          "title": "Your phone timeline",
+          "paragraphs": [
+            "Open Account, search for a phone and add it to your collection. Record the years you used it now or add and edit them later. While signed out, the collection stays in this browser. Sign in with Google to sync your phones and dates across devices."
+          ],
+          "path": "/favorites/"
+        },
+        {
           "title": "Nostalgia with sources",
           "paragraphs": [
-            "We check stories and specifications against announcements, manuals and other reliable sources. A link in a story does not mean every field has been verified; gaps remain visible. Photos use free licences and attribution, with a placeholder when no verified image is available. The interface is available in Ukrainian, Russian and English; some stories still fall back to Ukrainian."
+            "We check histories and specifications against announcements, manuals and other sources. Image credits identify the photographer or source. We use freely licensed materials and photos shared with permission. The archive is available in Ukrainian, Russian and English."
+          ]
+        },
+        {
+          "title": "Help build the archive",
+          "paragraphs": [
+            "Use the feedback form to suggest a phone, correct a detail, report a bug or share an idea. Completed changes appear in the update journal."
           ]
         }
       ]

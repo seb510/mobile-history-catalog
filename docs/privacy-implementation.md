@@ -16,12 +16,14 @@ Sources reviewed 31 October 2026:
 
 Historical validation (2026-10-31): Astro check (0 errors/warnings), production build (306 pages), SEO audit (170 canonical URLs). Decision validation covered absent/accept/reject/expired/future/version/type/blocked storage. Browser verified reject survives reload, accept persists a theme, withdrawal returns to the system theme after reload, footer reopening, English storage inventory and no automatic policy-page banner. Mobile dark theme at 390px: clientWidth/scrollWidth 375/375; both actions visible.
 
-## Current implementation inventory — 2026-11-08
+## Browser storage inventory — 2026-11-12
 
 - `mobile-history:privacy`: versioned decision with timestamp, valid for 180 days (`src/lib/privacy.ts`).
 - `theme` and `mobile-history:design`: optional appearance preferences, persisted only after affirmative consent. Rejecting removes both saved keys.
 - `mobile-history:owned-phones`: user-requested My phones collection. `mobile-history:favorites` is retained only as a legacy migration source.
-- `mobile-history:ownership-periods`: user-requested usage years, stored locally by slug with version 1. No account or server-side timeline is introduced.
+- `mobile-history:ownership-periods`: user-requested usage years, stored locally by slug with version 1. The collection and years sync to D1 after Google sign-in.
+- `mobile-history:collection-sync`: local sync baseline containing the account’s hashed identifier and the last synced records.
+- `__Host-collection-login` and `__Host-collection-session`: HTTP-only cookies for the Google sign-in flow and the account session. The session record may include the Google given name for display in the account. [Collection sync implementation](collection-sync.md)
 - YouTube-nocookie iframe is created only after the user presses the video cover and is removed by Disable player. This viewing permission is separate from appearance-storage consent; the cover uses the phone photo rather than an automatic external YouTube thumbnail.
 - Remote phone images may still contact their credited hosts on delivery. A local image does not make embedded video local.
 

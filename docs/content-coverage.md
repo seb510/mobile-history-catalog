@@ -1,8 +1,10 @@
 # Покриття контенту
 
-Оновлено: 2026-11-11. 146 моделей / 438 власних записів uk/ru/en; 127 моделей із відео. 13 брендів / 39 власних локалізованих записів. Доступність YouTube може змінюватися.
+Оновлено 2026-11-12. У каталозі 149 моделей, 447 власних записів uk/ru/en і 130 моделей із відео. Для 13 брендів є 39 локалізованих записів. Доступність YouTube може змінюватися.
 
-Останні поповнення: Nokia 500, Nokia 600, Nokia 700, Sony Xperia Z; Nokia 6230i, Nokia 6280, Sony Ericsson K810i, Sony Ericsson W910i та LG KG800, а також Nokia 8600 Luna, Nokia 7900 Prism, Nokia 7710, Siemens SL45i, Xelibri 2/8 і Sony Ericsson Xperia X1. Усі мають власні uk/ru/en записи; із семи моделей останньої добірки відео є для Siemens SL45i, решта шість поки без окремих роликів. Нові чотири моделі мають по одному відео; Nokia 600 анонсували, але скасували до виходу. Походження фото для попередньої п’ятірки — [знімок фото](retro-five-2026-11-09-images.json), для нової добірки — [фото Xperia X1i](retro-seven-2026-11-09-images.json) та [дозвіл і походження Mobile Phone Museum](mobile-phone-museum-permission.md). Відео попередньої п’ятірки — [знімок відео](retro-five-2026-11-09-videos.json); SL45i — [джерело фото й відео](siemens-sl45i-assets-2026-11-10.json).
+Останні поповнення — Sony CMD-J5, Nokia 6720 classic та iPhone X. Кожна модель має три мовні записи та відео.
+
+Джерела попередніх добірок — [п’ять моделей 2005–2007 років](retro-five-2026-11-09-images.json), [фото Xperia X1i](retro-seven-2026-11-09-images.json), [дозвіл Mobile Phone Museum](mobile-phone-museum-permission.md), [відео попередньої п’ятірки](retro-five-2026-11-09-videos.json) та [медіа Siemens SL45i](siemens-sl45i-assets-2026-11-10.json).
 
 ## Бракує перекладів
 
