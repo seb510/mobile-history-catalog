@@ -109,6 +109,17 @@
       "en": "Nokia 5800 Profiles menu screenshot"
     }
   },
+  "symbian-2": {
+    "image": "/images/operating-systems/symbian-2.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:F-06B_Yoko_Motion.jpg",
+    "license": "CC0 1.0",
+    "artist": "Rebirth10",
+    "caption": {
+      "uk": "Fujitsu F‑06B із повернутим екраном. На дисплеї видно годинник у режимі очікування.",
+      "ru": "Fujitsu F‑06B с повёрнутым экраном. На дисплее видны часы в режиме ожидания.",
+      "en": "Fujitsu F‑06B with its display rotated to landscape, showing the standby clock."
+    }
+  },
   "symbian-3": {
     "image": "/images/operating-systems/symbian.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Nokia_N8_Blue_(Front).jpg",
