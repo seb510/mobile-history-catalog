@@ -4,6 +4,8 @@ export const ACCOUNT_COPY = {
  en: { signedOut: "You’re signed out", signedIn: "You’re signed in with Google", checking: "Checking sign-in…", syncing: "Syncing your collection…", checkError: "Could not check sign-in. Your local collection is available.", signOutError: "Could not sign out. Try again." },
 } as const;
 
+export const CABINET_NAV = { uk: 'Кабінет', ru: 'Кабинет', en: 'Account' } as const;
+
 export const CABINET_COPY = {
  uk: { title:'Особистий кабінет', total:'У колекції', dated:'З роками користування', current:'Користуюся досі', account:'Акаунт і синхронізація', localNote:'Колекція й роки користування зберігаються в цьому браузері.', availableNote:'Увійди через Google, щоб користуватися цією колекцією на інших пристроях.', connectedNote:'Колекція й роки користування синхронізуються між пристроями.' },
  ru: { title:'Личный кабинет', total:'В коллекции', dated:'С годами использования', current:'Пользуюсь до сих пор', account:'Аккаунт и синхронизация', localNote:'Коллекция и годы использования хранятся в этом браузере.', availableNote:'Войди через Google, чтобы пользоваться этой коллекцией на других устройствах.', connectedNote:'Коллекция и годы использования синхронизируются между устройствами.' },

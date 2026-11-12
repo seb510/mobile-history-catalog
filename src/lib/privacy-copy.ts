@@ -12,7 +12,7 @@ export const PRIVACY_COPY = {
     "sections": [
       [
         "Вхід через Google і синхронізація",
-        "Вхід відкриває Google лише за твоєю дією. Для синхронізації сайт зберігає в Cloudflare D1 хеш ідентифікатора Google, слаги телефонів, періоди користування й записи про видалення. Сайт не запитує ім’я чи email. Перший вхід може перенести локальні записи до акаунта. Вихід завершує сеанс, а локальна копія лишається у браузері. Для видалення серверних даних напиши власнику."
+        "Вхід відкриває Google лише за твоєю дією. Для синхронізації сайт зберігає в Cloudflare D1 хеш ідентифікатора Google, слаги телефонів, періоди користування й записи про видалення. Під час входу сайт запитує базовий профіль Google і зберігає в записі сеансу лише ім’я для показу в кабінеті. Email не запитується. Перший вхід може перенести локальні записи до акаунта. Вихід завершує сеанс, а локальна копія лишається у браузері. Для видалення серверних даних напиши власнику."
       ],
       [
         "Власник і контакт",
@@ -114,7 +114,7 @@ export const PRIVACY_COPY = {
     "sections": [
       [
         "Вход через Google и синхронизация",
-        "Вход открывает Google только по твоему действию. Для синхронизации сайт хранит в Cloudflare D1 хеш идентификатора Google, слаги телефонов, периоды использования и записи об удалении. Сайт не запрашивает имя или email. При первом входе локальные записи могут перейти в аккаунт. Выход завершает сеанс, а локальная копия остаётся в браузере. Для удаления серверных данных напиши владельцу."
+        "Вход открывает Google только по твоему действию. Для синхронизации сайт хранит в Cloudflare D1 хеш идентификатора Google, слаги телефонов, периоды использования и записи об удалении. При входе сайт запрашивает базовый профиль Google и сохраняет в записи сеанса только имя для показа в кабинете. Email не запрашивается. При первом входе локальные записи могут перейти в аккаунт. Выход завершает сеанс, а локальная копия остаётся в браузере. Для удаления серверных данных напиши владельцу."
       ],
       [
         "Владелец и контакт",
@@ -216,7 +216,7 @@ export const PRIVACY_COPY = {
     "sections": [
       [
         "Google sign-in and sync",
-        "Google opens only when you choose to sign in. For sync, the site stores a hashed Google identifier, phone slugs, ownership periods and deletion records in Cloudflare D1. The site does not request your name or email. Signing in for the first time may import existing local records. Signing out ends the session and leaves a copy in this browser. Contact the owner to request deletion of server data."
+        "Google opens only when you choose to sign in. For sync, the site stores a hashed Google identifier, phone slugs, ownership periods and deletion records in Cloudflare D1. At sign-in, the site requests your basic Google profile and stores only your given name in the session record for display in your account. It does not request your email. Signing in for the first time may import existing local records. Signing out ends the session and leaves a copy in this browser. Contact the owner to request deletion of server data."
       ],
       [
         "Owner and contact",

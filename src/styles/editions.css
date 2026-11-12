@@ -133,9 +133,10 @@ html[data-design="modern"] .brand-index-card { border-color:var(--color-neutral-
 html[data-design="modern"] :is([data-gallery-credit],.compare-slot-credit,[data-video-consent] p) { font-size:.75rem; line-height:1.65; }
 html[data-design="modern"] .brand-index-card .editorial-kicker { font-size:.7rem; }
 
-.period-edit-button { display:flex; flex:none; align-items:center; justify-content:center; width:2.75rem; height:2.75rem; margin-top:-.375rem; color:var(--color-neutral-400); border-radius:4px; cursor:pointer; }
+.period-edit-button { display:inline-flex; align-items:center; gap:.375rem; min-height:2.75rem; color:var(--color-neutral-200); font-size:.75rem; font-weight:650; text-align:start; cursor:pointer; }
 .period-edit-button[hidden] { display:none; }
-.period-edit-button svg { width:1rem; height:1rem; }
+.period-edit-button svg { width:1rem; height:1rem; flex:none; }
+.period-edit-button span { text-decoration:underline; text-underline-offset:.2em; }
 .period-dialog { margin:auto; width:min(28rem,calc(100vw - 2rem)); max-height:calc(100dvh - 2rem); overflow:auto; padding:1.25rem; border:1px solid var(--color-neutral-700); border-radius:6px; background:var(--color-neutral-950); color:var(--color-neutral-100); }
 .period-dialog::backdrop { background:#0009; backdrop-filter:blur(3px); }
 html:has(.period-dialog[open]) { overflow:hidden; }
@@ -146,7 +147,7 @@ html:has(.period-dialog[open]) { overflow:hidden; }
 .ownership-current input { width:1rem; height:1rem; flex:none; accent-color:var(--color-orange-500); }
 html[data-design="modern"] .period-dialog { border-radius:16px; }
 html[data-design="modern"] .ownership-form input[type="number"] { border-radius:8px; }
-@media (hover:hover) and (pointer:fine) { .period-edit-button:hover { color:var(--color-orange-500); background:var(--color-neutral-900); } }
+@media (hover:hover) and (pointer:fine) { .period-edit-button:hover { color:var(--color-orange-500); } }
 @media (prefers-reduced-motion:no-preference) { .period-dialog[open] { animation:fade-up var(--motion-ui) var(--motion-easing); } }
 .update-phone { transition:border-color var(--motion-ui) var(--motion-easing); }
 html[data-design="modern"] .update-phone { border-radius:12px; background:var(--color-neutral-900); }

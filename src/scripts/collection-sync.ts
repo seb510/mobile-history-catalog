@@ -11,10 +11,11 @@ type Baseline = { owner: string; entries: Entry[] };
 const API = '/api/collection';
 const BASELINE_KEY = 'mobile-history:collection-sync';
 const signInLinks = document.querySelectorAll<HTMLAnchorElement>('[data-collection-sign-in]');
-const accountLinks = document.querySelectorAll<HTMLAnchorElement>('[data-collection-account-link]');
 const signOut = document.querySelector<HTMLButtonElement>('[data-collection-sign-out]');
 const status = document.querySelector<HTMLElement>('[data-collection-sync-status]');
 const mode = document.querySelector<HTMLElement>('[data-collection-account-mode]');
+const name = document.querySelector<HTMLElement>('[data-collection-account-name]');
+const indicators = document.querySelectorAll<HTMLElement>('[data-account-indicator]');
 const note = document.querySelector<HTMLElement>('[data-collection-account-note]');
 const locale = document.documentElement.lang;
 const language = locale === 'uk' || locale === 'ru' ? locale : 'en';
@@ -23,6 +24,7 @@ const cabinet = CABINET_COPY[language];
 const account = ACCOUNT_COPY[language];
 let available = false;
 let owner: string | null = null;
+let givenName = '';
 let running = false;
 let signingOut = false;
 let applyRemote = false;
@@ -57,10 +59,20 @@ function diff(previous: Snapshot, current: Snapshot): Change[] {
 
 function renderAccount(message = '') {
   for (const link of signInLinks) link.hidden = !available || !!owner;
-  for (const link of accountLinks) link.hidden = !owner;
   if (signOut) signOut.hidden = !owner;
   if (status) status.textContent = message;
-  if (mode) mode.textContent = owner ? account.signedIn : account.signedOut;
+  const label = owner ? account.signedIn : account.signedOut;
+  if (mode) mode.textContent = label;
+  if (name) {
+    name.textContent = owner ? givenName : '';
+    name.hidden = !owner || !givenName;
+  }
+  for (const indicator of indicators) {
+    indicator.hidden = !available;
+    indicator.dataset.state = owner ? 'in' : 'out';
+    indicator.title = label;
+    indicator.firstElementChild!.textContent = label;
+  }
   if (note) note.textContent = owner ? cabinet.connectedNote : available ? cabinet.availableNote : cabinet.localNote;
 }
 
@@ -139,18 +151,20 @@ async function loadAccount() {
     // Astro’s static preview has no Worker endpoint.
     if (response.status === 404) { renderAccount(); return; }
     if (!response.ok) throw new Error('Account check failed');
-    const info = await response.json() as { available: boolean; owner?: string | null };
+    const info = await response.json() as { available: boolean; owner?: string | null; givenName?: string | null };
     if (check.signal.aborted) return;
     available = info.available === true;
     const previousOwner = owner;
+    const previousName = givenName;
     owner = info.owner ?? null;
+    givenName = owner && typeof info.givenName === 'string' ? info.givenName : '';
     const url = new URL(location.href);
     const failed = url.searchParams.get('collection') === 'signin-error';
     if (failed) {
       url.searchParams.delete('collection');
       history.replaceState(history.state, '', url);
     }
-    if (failed || owner !== previousOwner || !owner) {
+    if (failed || owner !== previousOwner || givenName !== previousName || !owner) {
       renderAccount(failed ? copy.authError : owner ? account.syncing : '');
     }
     schedule(0);
@@ -180,7 +194,7 @@ signOut?.addEventListener('click', async () => {
   }
 });
 
-if (signInLinks.length || getBaseline()) {
+if (signInLinks.length || indicators.length || getBaseline()) {
   if (mode) mode.textContent = account.checking;
   void loadAccount();
   document.addEventListener(FAVORITES_CHANGED_EVENT, () => { if (!applyRemote) schedule(); });

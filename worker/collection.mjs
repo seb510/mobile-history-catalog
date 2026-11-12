@@ -30,9 +30,9 @@ async function sessionFor(request, db) {
   const token = readCookie(request, SESSION_COOKIE);
   if (!token || !/^[\w-]{43}$/.test(token)) return null;
   const key = await digest(token);
-  const row = await db.prepare('SELECT owner FROM collection_sessions WHERE token = ? AND expires > ?')
+  const row = await db.prepare('SELECT owner, given_name FROM collection_sessions WHERE token = ? AND expires > ?')
     .bind(key, now()).first();
-  return row && { owner: row.owner, key };
+  return row && { owner: row.owner, givenName: row.given_name, key };
 }
 
 async function beginLogin(url, env) {
@@ -43,7 +43,7 @@ async function beginLogin(url, env) {
     client_id: env.GOOGLE_CLIENT_ID,
     redirect_uri: url.origin + PREFIX + '/callback',
     response_type: 'code',
-    scope: 'openid',
+    scope: 'openid profile',
     state,
     code_challenge: await digest(verifier),
     code_challenge_method: 'S256',
@@ -79,7 +79,7 @@ async function finishLogin(request, url, env, fetcher) {
       signal: AbortSignal.timeout(10000),
     });
     if (!profile.ok) return failure();
-    const { sub } = await profile.json();
+    const { sub, given_name: givenName } = await profile.json();
     if (typeof sub !== 'string' || !/^[\w-]{1,128}$/.test(sub)) return failure();
     const owner = await digest('google:' + sub);
     const token = randomToken();
@@ -87,7 +87,8 @@ async function finishLogin(request, url, env, fetcher) {
     const old = await sessionFor(request, env.COLLECTION_DB);
     await env.COLLECTION_DB.batch([
       env.COLLECTION_DB.prepare('DELETE FROM collection_sessions WHERE expires <= ? OR token = ?').bind(now(), old?.key ?? ''),
-      env.COLLECTION_DB.prepare('INSERT INTO collection_sessions (token, owner, expires) VALUES (?, ?, ?)').bind(key, owner, now() + SESSION_SECONDS),
+      env.COLLECTION_DB.prepare('INSERT INTO collection_sessions (token, owner, expires, given_name) VALUES (?, ?, ?, ?)')
+        .bind(key, owner, now() + SESSION_SECONDS, typeof givenName === 'string' ? givenName.trim().slice(0, 80) || null : null),
     ]);
     return redirect(destination, [clearFlow, cookie(SESSION_COOKIE, token, SESSION_SECONDS)]);
   } catch {
@@ -152,7 +153,10 @@ export async function handleCollection(request, env, fetcher = fetch) {
     if (request.method === 'GET') {
       if (path === '/login') return beginLogin(url, env);
       if (path === '/callback') return finishLogin(request, url, env, fetcher);
-      if (path === '/status') return json({ available: true, owner: (await sessionFor(request, env.COLLECTION_DB))?.owner ?? null });
+      if (path === '/status') {
+        const session = await sessionFor(request, env.COLLECTION_DB);
+        return json({ available: true, owner: session?.owner ?? null, givenName: session?.givenName ?? null });
+      }
     }
     if (request.method !== 'POST' || !['/sync', '/logout'].includes(path)) return json({ error: 'method' }, 405);
     if (request.headers.get('Origin') !== url.origin) return json({ error: 'origin' }, 403);

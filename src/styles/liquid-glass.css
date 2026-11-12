@@ -34,6 +34,7 @@ html[data-design="modern"] .site-header > div:first-child { padding-inline:1rem;
     font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif;
   }
   html .site-header.is-hidden { transform:translateY(calc(-100% - 1.5rem)); }
+  html:not([data-design="modern"]) .site-header { border-inline-color:transparent; }
   html .site-header > div:first-child { padding-inline:1rem; }
   .site-header .design-switch { padding:2px; }
   .global-info-bar { font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; }
