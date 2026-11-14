@@ -20,9 +20,9 @@ const periodCopy = OWNERSHIP_COPY[locale];
 const collectionCopy = COLLECTION_COPY[locale];
 const cabinetCopy = CABINET_COPY[locale];
 const shareCopy = {
-  uk: { download:'Завантажити PNG', error:'Не вдалося створити зображення.' },
-  ru: { download:'Скачать PNG', error:'Не удалось создать изображение.' },
-  en: { download:'Download PNG', error:'Could not create the image.' },
+  uk: { download:'Завантажити PNG', done:'Зображення збережено.', error:'Не вдалося створити зображення.' },
+  ru: { download:'Скачать PNG', done:'Изображение сохранено.', error:'Не удалось создать изображение.' },
+  en: { download:'Download PNG', done:'Image saved.', error:'Could not create the image.' },
 }[locale];
 const comparePath = localePath(locale, '/compare/');
 
@@ -74,7 +74,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <div data-favorites-toolbar hidden class="favorites-toolbar mb-5 flex flex-wrap items-center justify-between gap-4 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-4">
     <div class="flex flex-wrap items-center gap-3">
       <h2 class="text-lg font-bold">{periodCopy.personal}</h2>
-      <button type="button" class="control-button text-sm" data-timeline-export data-title={periodCopy.personal} data-site={strings.siteName} data-error={shareCopy.error}>{shareCopy.download}</button>
+      <button type="button" class="control-button text-sm" data-timeline-export data-title={periodCopy.personal} data-site={strings.siteName} data-done={shareCopy.done} data-error={shareCopy.error}>{shareCopy.download}</button>
       <a
         data-favorites-compare-cta
         data-compare-base={comparePath}
@@ -232,6 +232,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     try {
       const { downloadTimeline } = await import('../scripts/timeline-export');
       await downloadTimeline(entries, exportButton.dataset.title ?? '', exportButton.dataset.site ?? '');
+      document.querySelector('[data-period-status]')!.textContent = exportButton.dataset.done ?? '';
     } catch {
       document.querySelector('[data-period-status]')!.textContent = exportButton.dataset.error ?? '';
     } finally {

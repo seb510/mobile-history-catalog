@@ -1,29 +1,16 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-14",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 142,
-    "localPrimary": 81,
-    "remotePrimary": 57,
+    "models": 151,
+    "localPrimary": 92,
+    "remotePrimary": 56,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
-      "nokia-600",
       "samsung-sgh-e700"
     ],
-    "issues": [
-      "alcatel-one-touch-155: Missing attribution: /images/phones/alcatel-one-touch-155/front.webp",
-      "alcatel-one-touch-155: Missing attribution: /images/phones/alcatel-one-touch-155/screen-on.webp",
-      "huawei-p-smart-plus: Missing attribution: /images/phones/huawei-p-smart-plus/press-purple.webp",
-      "huawei-p-smart-plus: Missing attribution: /images/phones/huawei-p-smart-plus/press-black.webp",
-      "huawei-u9508: Missing attribution: /images/phones/huawei-u9508/front-side.webp",
-      "huawei-u9508: Missing attribution: /images/phones/huawei-u9508/front.webp",
-      "lg-c1300: Missing attribution: /images/phones/lg-c1300/open.webp",
-      "lg-c1300: Missing attribution: /images/phones/lg-c1300/closed.webp",
-      "motorola-c350: Missing attribution: /images/phones/motorola-c350/own-kyivstar.webp",
-      "siemens-cx70-emoty: Missing attribution: /images/phones/siemens-cx70-emoty/front.webp",
-      "siemens-cx70-emoty: Missing attribution: /images/phones/siemens-cx70-emoty/menu.webp"
-    ]
+    "issues": []
   },
   "records": [
     {
@@ -31,10 +18,7 @@
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
-      "issues": [
-        "Missing attribution: /images/phones/alcatel-one-touch-155/front.webp",
-        "Missing attribution: /images/phones/alcatel-one-touch-155/screen-on.webp"
-      ]
+      "issues": []
     },
     {
       "slug": "apple-iphone-12",
@@ -54,6 +38,13 @@
       "slug": "apple-iphone-18-pro",
       "primary": "local",
       "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "apple-iphone-x",
+      "primary": "local",
+      "frames": 3,
       "remoteFrames": 0,
       "issues": []
     },
@@ -132,30 +123,21 @@
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
-      "issues": [
-        "Missing attribution: /images/phones/huawei-p-smart-plus/press-purple.webp",
-        "Missing attribution: /images/phones/huawei-p-smart-plus/press-black.webp"
-      ]
+      "issues": []
     },
     {
       "slug": "huawei-u9508",
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
-      "issues": [
-        "Missing attribution: /images/phones/huawei-u9508/front-side.webp",
-        "Missing attribution: /images/phones/huawei-u9508/front.webp"
-      ]
+      "issues": []
     },
     {
       "slug": "lg-c1300",
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
-      "issues": [
-        "Missing attribution: /images/phones/lg-c1300/open.webp",
-        "Missing attribution: /images/phones/lg-c1300/closed.webp"
-      ]
+      "issues": []
     },
     {
       "slug": "lg-kg800",
@@ -172,13 +154,18 @@
       "issues": []
     },
     {
+      "slug": "microsoft-lumia-950",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "motorola-c350",
       "primary": "local",
       "frames": 2,
       "remoteFrames": 1,
-      "issues": [
-        "Missing attribution: /images/phones/motorola-c350/own-kyivstar.webp"
-      ]
+      "issues": []
     },
     {
       "slug": "motorola-defy",
@@ -307,6 +294,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-500",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-5130",
       "primary": "local",
       "frames": 3,
@@ -346,6 +340,13 @@
       "primary": "local",
       "frames": 3,
       "remoteFrames": 2,
+      "issues": []
+    },
+    {
+      "slug": "nokia-600",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -405,7 +406,21 @@
       "issues": []
     },
     {
+      "slug": "nokia-6720-classic",
+      "primary": "local",
+      "frames": 4,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-6800",
+      "primary": "local",
+      "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-700",
       "primary": "local",
       "frames": 1,
       "remoteFrames": 0,
@@ -503,6 +518,27 @@
       "issues": []
     },
     {
+      "slug": "nokia-lumia-630",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-lumia-800",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-lumia-920",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-n-gage",
       "primary": "remote",
       "frames": 3,
@@ -514,6 +550,13 @@
       "primary": "local",
       "frames": 3,
       "remoteFrames": 2,
+      "issues": []
+    },
+    {
+      "slug": "nokia-n73",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -752,10 +795,7 @@
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
-      "issues": [
-        "Missing attribution: /images/phones/siemens-cx70-emoty/front.webp",
-        "Missing attribution: /images/phones/siemens-cx70-emoty/menu.webp"
-      ]
+      "issues": []
     },
     {
       "slug": "siemens-cx75",
@@ -790,6 +830,13 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "siemens-me75",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -843,6 +890,13 @@
     },
     {
       "slug": "siemens-xelibri-8",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-cmd-j5",
       "primary": "local",
       "frames": 3,
       "remoteFrames": 0,
@@ -1010,31 +1064,10 @@
       "issues": []
     },
     {
-      "slug": "nokia-500",
-      "primary": "local",
-      "frames": 1,
-      "remoteFrames": 0,
-      "issues": []
-    },
-    {
-      "slug": "nokia-600",
-      "primary": "missing",
-      "frames": 0,
-      "remoteFrames": 0,
-      "issues": []
-    },
-    {
-      "slug": "nokia-700",
-      "primary": "local",
-      "frames": 1,
-      "remoteFrames": 0,
-      "issues": []
-    },
-    {
       "slug": "sony-xperia-z",
-      "primary": "remote",
-      "frames": 1,
-      "remoteFrames": 1,
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
       "issues": []
     }
   ]

@@ -4,13 +4,18 @@ import YAML from 'yaml';
 import sharp from 'sharp';
 
 // Offline inventory: remote URLs are counted, not treated as verified downloads.
+// Personal-archive, owner-provided and official press-render credits have no external
+// page to link to by design (see CLAUDE.md); only credits that name an external source
+// (Wikimedia Commons, Mobile Phone Museum) are expected to carry an imageSourceUrl.
+const EXTERNAL_SOURCE_CREDIT = /wikimedia commons|mobile phone museum/i;
 const records = [];
 for (const file of fs.readdirSync('src/data/phones/uk').filter(file => file.endsWith('.md'))) {
   const data = YAML.parse(fs.readFileSync(`src/data/phones/uk/${file}`, 'utf8').split('---')[1]);
   const images = [data.image && { image: data.image, imageCredit: data.imageCredit, imageSourceUrl: data.imageSourceUrl }, ...(data.gallery ?? [])].filter(Boolean);
   const issues = [];
   for (const image of images) {
-    if (!image.imageCredit || !image.imageSourceUrl) issues.push(`Missing attribution: ${image.image}`);
+    if (!image.imageCredit) issues.push(`Missing attribution: ${image.image}`);
+    else if (EXTERNAL_SOURCE_CREDIT.test(image.imageCredit) && !image.imageSourceUrl) issues.push(`Missing source URL: ${image.image}`);
     if (!image.image.startsWith('/')) continue;
     const local = path.resolve('public', `.${image.image}`);
     if (!local.startsWith(`${path.resolve('public')}${path.sep}`) || !fs.existsSync(local)) {
