@@ -1,6 +1,6 @@
 # Інвентаризація Nokia та Siemens
 
-Згенеровано командою `node scripts/audit-phone-data.mjs`. Моделей: 54.
+Згенеровано командою `node scripts/audit-phone-data.mjs`. Моделей: 76.
 Це список полів для ручної перевірки, а не оцінка достовірності заповнених характеристик.
 Відсутні поля не заповнювати здогадками: підтверджену відсутність функції позначати текстом,
 невідомі RAM/чипсет залишати порожніми. Числова пам’ять означає доступний користувачу обсяг.
@@ -13,27 +13,44 @@
 | Nokia 3310 (2017) | chipset, battery.type | ru, en | є | не задана |
 | Nokia 3310 | ramMb | ru, en | є | не задана |
 | Nokia 3650 | chipset, ramMb, camera.front | ru, en | є | не задана |
-| Nokia 5130 XpressMusic | chipset, ramMb, os | ru, en | є | не задана |
-| Nokia 5510 | chipset, ramMb, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, os | ru, en | є | не задана |
+| Nokia Nokia 500 | camera.front, simType | ru, en | є | не задана |
+| Nokia 5130 XpressMusic | chipset, ramMb | ru, en | є | не задана |
+| Nokia 5300 XpressMusic | chipset, ramMb, storage, camera.front, battery.type, simType | ru, en | є | не задана |
+| Nokia 5310 XpressMusic | chipset, ramMb, camera.front, battery.type, simType | ru, en | є | не задана |
+| Nokia 5510 | chipset, ramMb, storageExpandable, camera.rear, camera.front, battery.mah, battery.type | ru, en | є | не задана |
 | Nokia 5700 XpressMusic | chipset, ramMb, storage | ru, en | є | не задана |
 | Nokia 5800 XpressMusic | battery.type | ru, en | є | прихована: без джерела |
+| Nokia Nokia 600 | ramMb, camera.front, simType | ru, en | є | не задана |
 | Nokia 6210 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, simType | ru, en | є | не задана |
 | Nokia 6230 | chipset, ramMb, storage, storageExpandable, camera.front, battery.type | ru, en | є | не задана |
+| Nokia 6230i | chipset, ramMb, camera.front | ru, en | є | не задана |
 | Nokia 6233 | chipset, ramMb, camera.front | ru, en | є | не задана |
+| Nokia 6280 | chipset, ramMb | ru, en | є | не задана |
+| Nokia 6300 | chipset, ramMb, camera.front, battery.type, simType | ru, en | є | не задана |
+| Nokia 6500 slide | chipset, ramMb, battery.type, simType | ru, en | є | не задана |
 | Nokia 6600 | ramMb, camera.front | ru, en | є | прихована: без джерела |
-| Nokia 6800 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, os | ru, en | є | не задана |
+| Nokia 6720 classic | chipset, ramMb, storage, camera.front, battery.type, simType | ru, en | є | не задана |
+| Nokia 6800 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front | ru, en | є | не задана |
+| Nokia Nokia 700 | ramMb, camera.front, simType | ru, en | є | не задана |
 | Nokia 7110 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, connectivity, simType | ru, en | є | не задана |
 | Nokia 7280 | chipset, ramMb, storage, storageExpandable, camera.front, os | ru, en | є | не задана |
 | Nokia 7600 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, os | ru, en | є | не задана |
 | Nokia 7610 | camera.front, battery.type | ru, en | є | прихована: без джерела |
+| Nokia 7710 | chipset, ramMb, camera.rear, camera.front, battery.mah, battery.type, connectivity, simType | ru, en | є | не задана |
+| Nokia 7900 Prism | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, connectivity, simType | ru, en | є | не задана |
+| Nokia 8600 Luna | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, simType | ru, en | є | не задана |
 | Nokia 8800 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front | ru, en | є | не задана |
 | Nokia 9 PureView | display.resolution, storageExpandable, camera.front, battery.type, connectivity, simType | ru, en | є | не задана |
 | Nokia E71 | — | ru, en | є | не задана |
 | Nokia E90 Communicator | chipset, ramMb, camera.front | ru, en | є | не задана |
 | Nokia Lumia 520 | camera.front, battery.type | ru, en | є | прихована: без джерела |
 | Nokia Lumia 620 | — | ru, en | є | є джерело |
+| Nokia Lumia 630 | camera.front, battery.type, connectivity | ru, en | є | не задана |
+| Nokia Lumia 800 | storageExpandable, camera.front, battery.type, connectivity | ru, en | є | не задана |
+| Nokia Lumia 920 | storageExpandable, battery.type, connectivity | ru, en | є | не задана |
 | Nokia N-Gage | ramMb, camera.rear, camera.front, battery.type | ru, en | є | прихована: без джерела |
 | Nokia N70 | storage, battery.type | ru, en | є | не задана |
+| Nokia N73 | chipset, ramMb | ru, en | є | не задана |
 | Nokia N76 | — | ru, en | є | не задана |
 | Nokia N79 | — | ru, en | є | не задана |
 | Nokia N8 | — | ru, en | є | не задана |
@@ -46,7 +63,7 @@
 | Nokia N96 | — | ru, en | є | не задана |
 | Nokia X7-00 | chipset, ramMb | ru, en | є | не задана |
 | Siemens A65 | chipset, ramMb, storageExpandable, camera.front, battery.type | ru, en | є | не задана |
-| Siemens C30 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, connectivity, os, simType | ru, en | є | не задана |
+| Siemens C30 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, connectivity, simType | ru, en | є | не задана |
 | Siemens C55 | chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.type, connectivity | ru, en | є | не задана |
 | Siemens C65 | chipset, ramMb, storageExpandable, camera.front, battery.type | ru, en | є | не задана |
 | Siemens C72 | chipset, ramMb, storage, storageExpandable, camera.front | ru, en | є | не задана |
@@ -54,10 +71,15 @@
 | Siemens CX70 Emoty | chipset, ramMb, camera.front, battery.type | ru, en | є | не задана |
 | Siemens CX75 | chipset, ramMb, camera.front | ru, en | є | не задана |
 | Siemens M50 | chipset, ramMb, storageExpandable, camera.rear, camera.front, battery.type, connectivity | ru, en | є | не задана |
+| Siemens M55 | chipset, ramMb, storage, storageExpandable, camera.front | ru, en | є | не задана |
 | Siemens M65 | chipset, ramMb, storage, storageExpandable, camera.front, battery.type | ru, en | є | не задана |
 | Siemens ME45 | chipset, ramMb, storage, storageExpandable, camera.rear, camera.front | ru, en | є | не задана |
+| Siemens ME75 | chipset, ramMb, storageExpandable, camera.front | ru, en | є | не задана |
 | Siemens S55 | chipset, ramMb, storage, storageExpandable, camera.front, battery.type | ru, en | є | не задана |
 | Siemens S65 | chipset, ramMb, camera.front, battery.type | ru, en | є | не задана |
 | Siemens SK65 | chipset, ramMb, storageExpandable, camera.rear, camera.front, battery.type | ru, en | є | не задана |
+| Siemens SL45i | display.resolution, chipset, ramMb, storage, camera.rear, camera.front, battery.mah, battery.type, connectivity, simType | ru, en | є | не задана |
 | Siemens SL55 | chipset, ramMb, storageExpandable, camera.rear, camera.front | ru, en | є | не задана |
-| Siemens SXG75 | chipset, ramMb, storage, os | ru, en | є | не задана |
+| Siemens SXG75 | chipset, ramMb, storage | ru, en | є | не задана |
+| Siemens Xelibri 2 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, connectivity, simType | ru, en | є | не задана |
+| Siemens Xelibri 8 | display.resolution, chipset, ramMb, storage, storageExpandable, camera.rear, camera.front, battery.mah, battery.type, simType | ru, en | є | не задана |
