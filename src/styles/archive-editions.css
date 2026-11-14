@@ -99,7 +99,7 @@ html[data-design="modern"] .home-cover h1 {
   line-height:.99;
   text-wrap:balance;
 }
-html[data-design="modern"] .home-cover-feature {
+html[data-design="modern"] .home-cover-feature[data-home-edition="modern"] {
   display:grid;
   background:var(--display-surface);
   color:var(--display-text);
