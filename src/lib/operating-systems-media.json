@@ -1,4 +1,26 @@
 {
+  "symbian": {
+    "image": "/images/operating-systems/symbian.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_N8_Blue_(Front).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Nokia65",
+    "caption": {
+      "uk": "Фото головного екрана Nokia N8",
+      "ru": "Фото домашнего экрана Nokia N8",
+      "en": "Photo of the Nokia N8 home screen"
+    }
+  },
+  "series-40": {
+    "image": "/images/operating-systems/series-40-asha-touch.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Nokia_Asha_311.png",
+    "license": "CC BY-SA 4.0",
+    "artist": "AnVuong1222004 (1)",
+    "caption": {
+      "uk": "Сенсорне меню Nokia Asha 311 — пізніша, сенсорна гілка Series 40.",
+      "ru": "Сенсорное меню Nokia Asha 311 — более поздняя, сенсорная ветка Series 40.",
+      "en": "The Nokia Asha 311 touchscreen app menu — the later, touch-driven branch of Series 40."
+    }
+  },
   "series-30-plus": {
     "image": "/images/operating-systems/series-30-plus.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Nokia_3310_(2017).jpg",
@@ -8,6 +30,17 @@
       "uk": "Фото екрана очікування Nokia 3310 (2017)",
       "ru": "Фото экрана ожидания Nokia 3310 (2017)",
       "en": "Photo of the Nokia 3310 (2017) standby screen"
+    }
+  },
+  "android": {
+    "image": "/images/operating-systems/android-1-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Android_1.0_homescreen.png",
+    "license": "Apache License 2.0",
+    "artist": "Hajoon0102 · AOSP",
+    "caption": {
+      "uk": "Головний екран Android 1.0 (2008) з аналоговим годинником — там, де все почалося.",
+      "ru": "Главный экран Android 1.0 (2008) с аналоговыми часами — там, где всё начиналось.",
+      "en": "The Android 1.0 (2008) home screen with its analogue clock — where it all began."
     }
   },
   "ios": {
@@ -45,13 +78,13 @@
   },
   "harmonyos": {
     "image": "/images/operating-systems/harmonyos.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Huawei_Mate_XT_Ultimate_Design.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:HUAWEI_Mate_40_Pro_loaded_with_Harmony_OS_2.0.jpg",
     "license": "CC BY-SA 4.0",
-    "artist": "メイド理世",
+    "artist": "30000lightyears",
     "caption": {
-      "uk": "Фото Huawei Mate XT з увімкненим розгорнутим екраном",
-      "ru": "Фото Huawei Mate XT с включённым развёрнутым экраном",
-      "en": "Photo of the Huawei Mate XT with its unfolded screen on"
+      "uk": "Екран «Про телефон» Huawei Mate 40 Pro підтверджує HarmonyOS 2.0.0. Це сторінка відомостей про систему, не головний екран.",
+      "ru": "Экран «О телефоне» Huawei Mate 40 Pro подтверждает HarmonyOS 2.0.0. Это страница сведений о системе, не главный экран.",
+      "en": "The Huawei Mate 40 Pro's About Phone screen confirming HarmonyOS 2.0.0. This is the device-info screen, not the home screen."
     }
   },
   "motomagx": {

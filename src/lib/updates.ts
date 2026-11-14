@@ -6,7 +6,7 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-14",
-  "phones": [],
+  "phones": ["nokia-n73"],
   "changes": {
     "uk": [
       "Оновлено обидві редакції: прямокутні плитки в «Журналі», фіолетова палітра в сучасній і впорядкована навігація в обох.",

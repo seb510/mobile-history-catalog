@@ -26,7 +26,7 @@ function PlaceholderIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 200 150" className={className} aria-hidden="true">
       <g transform="translate(52 27) scale(1.5)">
-        <path fill="currentColor" fillRule="evenodd" d="M24 8h16a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8ZM22 16v20h20V16Zm2 24v4h6v-4Zm10 0v4h6v-4ZM24 46v4h6v-4Zm10 0v4h6v-4Z" />
+        <path fill="currentColor" fillRule="evenodd" d="M24 8h16a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8ZM22 16v20h20V16ZM24 38v4h4v-4ZM30 38v4h4v-4ZM36 38v4h4v-4ZM24 44v4h4v-4ZM30 44v4h4v-4ZM36 44v4h4v-4ZM24 50v4h4v-4ZM30 50v4h4v-4ZM36 50v4h4v-4Z" />
         <rect x="22" y="16" width="20" height="20" fill="currentColor" opacity=".4" />
       </g>
     </svg>
@@ -356,10 +356,13 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
           onClick={onToggleFavorite}
           aria-pressed={isFavorite}
           aria-label={isFavorite ? strings.favorites.remove : strings.favorites.add}
-          className="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-300 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 sm:right-3 sm:top-3"
+          className="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-300 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500 sm:right-3 sm:top-3"
         >
-          <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[16px] w-[16px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M8 2.5h8a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2Z M10 5h4 M10 12l2 2 4-4 M11 18h2" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[22px] w-[22px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path className="icon-edition-magazine" d="M5 4h14v16l-7-4-7 4z" />
+            <path className="icon-edition-modern" d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+            <path className="collection-icon-add" d="M9 10h6m-3-3v6" />
+            <path className="collection-icon-check" d="m9 10 2 2 4-4" />
           </svg>
         </button>
         <p className="editorial-kicker mb-3 text-orange-500">{slot === 'a' ? COMPARE_DESIGN[locale].first : COMPARE_DESIGN[locale].second}</p>

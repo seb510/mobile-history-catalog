@@ -184,6 +184,10 @@
   background: color-mix(in srgb, var(--color-orange-500) 12%, var(--color-neutral-950));
 }
 .favorite-toggle-bare[aria-pressed="true"] { color: var(--color-orange-500); }
+/* These two sit on top of an arbitrary product photo, so a fill-color contrast
+   against the page/card alone isn't enough — a dark phone photo can still read
+   close in tone to a dark badge. A light halo plus a drop shadow separates them
+   from the photo itself, whatever its own brightness happens to be. */
 .favorite-count {
   display: inline-flex;
   min-width: 1.25rem;

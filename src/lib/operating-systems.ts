@@ -136,7 +136,7 @@ export const PLATFORMS: Platform[] = [
     sources: [
       { name: "Microsoft · Windows Mobile and Sony Ericsson", url: "https://news.microsoft.com/source/2008/02/10/microsoft-expands-consumer-reach-of-windows-mobile-phones-with-sony-ericsson/" },
     ],
-    match:/^windows mobile\b/i,
+    match:/^(?:windows mobile|pocket pc)\b/i,
   },
   {
     id:'windows-phone', name:copy('Windows Phone','Windows Phone','Windows Phone'),

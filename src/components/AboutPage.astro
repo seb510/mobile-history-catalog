@@ -13,6 +13,10 @@ const strings = t(locale);
 const projectCopy = PROJECT_PRESENTATION[locale];
 const phones = await getPhonesForLocale(locale);
 const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
+// Section order is fixed across locales: 0 what's-in-the-archive, 1 how-we-choose, 2 magazine-view,
+// 3 three-routes, 4 operating-systems, 5 compare, 6 your-timeline, 7 nostalgia-with-sources, 8 help-us.
+// These four read as "about the archive"; the rest are practical how-to entries.
+const philosophySections = new Set([0, 1, 2, 7]);
 ---
 <Layout locale={locale} path="/about/" title={`${strings.about.title} — ${strings.siteName}`} description={strings.about.intro}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.about.title }]} />
@@ -37,8 +41,11 @@ const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
     <dl class="mt-6 grid grid-cols-3 gap-3 border-t border-neutral-700 pt-4">{[{value:phones.length,label:projectCopy.collection},{value:brandCount,label:projectCopy.brands},{value:3,label:projectCopy.languages}].map(item=><div><dt class="text-xs text-neutral-500">{item.label}</dt><dd class="mt-2 text-2xl font-extrabold tabular-nums text-orange-500">{item.value}</dd></div>)}</dl>
   </aside>
   </header>
-  <nav class="about-index hidden" data-about-index aria-label={strings.about.title}>
-    {strings.about.sections.map((section, index) => <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
+  <nav class="about-index" data-about-index aria-label={strings.about.title}>
+    <p class="about-index-group-label editorial-kicker text-neutral-500">{strings.about.groupLabels.philosophy}</p>
+    {strings.about.sections.map((section, index) => philosophySections.has(index) && <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
+    <p class="about-index-group-label editorial-kicker text-neutral-500">{strings.about.groupLabels.howto}</p>
+    {strings.about.sections.map((section, index) => !philosophySections.has(index) && <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
   </nav>
   <div class="about-sections mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
     {strings.about.sections.map((section, index) => <section id={`about-section-${index + 1}`} class="glass-surface border-t border-neutral-800 pt-4">

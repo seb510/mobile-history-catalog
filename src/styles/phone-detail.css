@@ -14,6 +14,23 @@
 .phone-startup-audio-heading h2 { margin:0; font-size:.9375rem; }
 .phone-startup-audio .phone-audio-track { padding:.625rem .75rem; }
 .phone-startup-audio audio { min-height:2.5rem; }
+/* A custom transport replaces the bare native <audio controls> widget, whose
+   browser-default chrome (grey bar, generic icons) clashed with the rest of
+   the page's styling. */
+.audio-player { display:flex; align-items:center; gap:.75rem; }
+.audio-player audio { display:none; }
+.audio-toggle { display:flex; flex:none; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border-radius:999px; border:1px solid var(--color-neutral-700); background:var(--color-neutral-950); color:var(--color-orange-500); cursor:pointer; }
+.audio-toggle svg { width:1rem; height:1rem; }
+.audio-icon-pause { display:none; }
+.audio-toggle[aria-pressed="true"] .audio-icon-play { display:none; }
+.audio-toggle[aria-pressed="true"] .audio-icon-pause { display:block; }
+.audio-scrub { flex:1; min-width:0; padding-block:.625rem; cursor:pointer; }
+.audio-scrub-track { position:relative; height:.25rem; border-radius:999px; background:var(--color-neutral-800); overflow:hidden; }
+.audio-scrub-fill { position:absolute; inset-block:0; left:0; width:0%; background:var(--color-orange-500); }
+.audio-scrub:focus-visible { outline:2px solid var(--color-orange-500); outline-offset:3px; }
+.audio-time { flex:none; font-size:.75rem; font-variant-numeric:tabular-nums; color:var(--color-neutral-400); }
+@media (hover:hover) and (pointer:fine) { .audio-toggle:hover { border-color:var(--color-orange-500); } }
+html[data-design="modern"] .audio-toggle { background:var(--modern-canvas); border-color:var(--modern-line); }
 .phone-photo-block { min-width:0; }
 .gallery-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:.75rem; }
 .gallery-toolbar > div:first-child { display:flex; align-items:center; gap:.75rem; }

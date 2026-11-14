@@ -38,6 +38,17 @@ const symbian: Version[] = [
   { id:'belle-fp2', title:'Nokia Belle Feature Pack 2', match:/^(?:nokia|symbian) belle\s+(?:feature pack\s*|fp\s*)2\b/i },
 ];
 
+const windowsMobile: Version[] = [
+  { id:'pocket-pc-2000', title:'Pocket PC 2000', match:/\bpocket pc 2000\b/i, note:text('Дебютний Today-екран одним списком показував дату, зустрічі, листи й завдання. Підтримувалась лише роздільність 240×240/240×320.', 'Дебютный экран Today одним списком показывал дату, встречи, письма и задачи. Поддерживалось только разрешение 240×240/240×320.', 'The debut Today screen listed the date, appointments, mail and tasks in a single list. Only 240×240/240×320 resolution was supported.') },
+  { id:'pocket-pc-2002', title:'Pocket PC 2002', match:/\bpocket pc 2002\b/i, note:text('Оформлення під впливом Windows XP: Windows Media Player 8 зі стримінгом, MSN Messenger і теми інтерфейсу.', 'Оформление под влиянием Windows XP: Windows Media Player 8 со стримингом, MSN Messenger и темы интерфейса.', 'A Windows XP-influenced look, with streaming Windows Media Player 8, MSN Messenger and interface themes.') },
+  { id:'windows-mobile-2003', title:'Windows Mobile 2003', match:/\bwindows mobile 2003\b(?!\s*se)/i, note:text('Перший реліз під єдиною назвою Windows Mobile — одночасно для Pocket PC і Smartphone. Додав керування Bluetooth-пристроями.', 'Первый релиз под единым названием Windows Mobile — сразу для Pocket PC и Smartphone. Добавил управление Bluetooth-устройствами.', 'The first release under the unified Windows Mobile name, for both Pocket PC and Smartphone. Added Bluetooth device management.') },
+  { id:'windows-mobile-2003-se', title:'Windows Mobile 2003 SE', match:/\bwindows mobile 2003\s*se\b/i, note:text('Додала ручний поворот екрана в альбомну орієнтацію та нові роздільності, включно з VGA 640×480.', 'Добавила ручной поворот экрана в альбомную ориентацию и новые разрешения, включая VGA 640×480.', 'Added manual landscape screen rotation and new resolutions, including VGA 640×480.') },
+  { id:'windows-mobile-5', title:'Windows Mobile 5.0', match:/\bwindows mobile 5(?:\.0)?\b/i, note:text('Об’єднала кодові бази Pocket PC і Smartphone та додала стійке до перезавантажень сховище даних.', 'Объединила кодовые базы Pocket PC и Smartphone и добавила устойчивое к перезагрузкам хранилище данных.', 'Unified the Pocket PC and Smartphone codebases and added persistent (reboot-proof) storage.') },
+  { id:'windows-mobile-6', title:'Windows Mobile 6', match:/\bwindows mobile 6\b(?!\.\d)/i, note:text('Три редакції: Standard без сенсорного екрана, Professional — сенсорна й телефонна, Classic — без стільникового модуля.', 'Три редакции: Standard без сенсорного экрана, Professional — сенсорная и телефонная, Classic — без сотового модуля.', 'Three editions: Standard (no touchscreen), Professional (touchscreen and phone) and Classic (no cellular radio).') },
+  { id:'windows-mobile-6-1', title:'Windows Mobile 6.1', match:/\bwindows mobile 6\.1\b/i, note:text('Оновлений Today-екран з горизонтальними плитками (Standard) і груповані SMS. У архіві цю версію (6.1 Professional) мають Samsung Omnia i900 та Sony Ericsson Xperia X1.', 'Обновлённый экран Today с горизонтальными плитками (Standard) и сгруппированные SMS. В архиве эту версию (6.1 Professional) имеют Samsung Omnia i900 и Sony Ericsson Xperia X1.', 'A refreshed Today screen with horizontal tiles (Standard) and threaded SMS. Samsung Omnia i900 and Sony Ericsson Xperia X1 in the archive run this version (6.1 Professional).') },
+  { id:'windows-mobile-6-5', title:'Windows Mobile 6.5', match:/\bwindows mobile 6\.5/i, note:text('Перша версія, розрахована на керування пальцем без стилуса: новий Today-екран із вертикальними плитками та крамниця Windows Marketplace for Mobile.', 'Первая версия, рассчитанная на управление пальцем без стилуса: новый экран Today с вертикальными плитками и магазин Windows Marketplace for Mobile.', 'The first version designed for finger input without a stylus: a new Today screen with stacked tiles and the Windows Marketplace for Mobile store.') },
+];
+
 const windowsPhone: Version[] = [
   { id: 'windows-phone-7', title: 'Windows Phone 7 / 7.5 / 7.8', match: /^windows phone 7\b/i },
   { id: 'windows-phone-8', title: 'Windows Phone 8', match: /^windows phone 8(?!\.)\b/i },
@@ -70,6 +81,7 @@ const series40 = [
 
 export function versionFor(platform: string, os: string): Omit<Version, 'match'> | undefined {
   if (platform === 'symbian') return symbian.find(version => version.match.test(os));
+  if (platform === 'windows-mobile') return windowsMobile.find(version => version.match.test(os));
   if (platform === 'windows-phone') return windowsPhone.find(version => version.match.test(os));
   if (platform === 'series-40' && /\b(?:Asha (?:Full )?Touch|Developer Platform 2\.0)\b/i.test(os)) {
     return series40.find(version => version.id === 'series-40-asha-touch');
@@ -91,6 +103,7 @@ export function versionFor(platform: string, os: string): Omit<Version, 'match'>
 
 export function curatedVersions(platform: string): readonly Omit<Version, 'match'>[] {
   if (platform === 'symbian') return symbian;
+  if (platform === 'windows-mobile') return windowsMobile;
   if (platform === 'windows-phone') return windowsPhone;
   if (platform === 'android') return androidReleases;
   if (platform === 'series-40') return series40;

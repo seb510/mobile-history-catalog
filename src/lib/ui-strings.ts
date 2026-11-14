@@ -128,6 +128,7 @@ export const UI = {
     about: {
       "title": "Про проєкт",
       "intro": "Мобільна Історія — телефони з характером. Архів кнопкової епохи, коли розкладачку впізнавали за силуетом, музичний телефон — за окремою кнопкою, а власний апарат обирали ще й за відчуттям у руці.",
+      "groupLabels": { "philosophy": "Про архів", "howto": "Як користуватись" },
       "sections": [
         {
           "title": "Що є в архіві",
@@ -313,6 +314,7 @@ export const UI = {
     about: {
       "title": "О проекте",
       "intro": "Мобильная История — телефоны с характером. Архив кнопочной эпохи, когда раскладушку узнавали по силуэту, музыкальный телефон — по отдельной кнопке, а свой аппарат выбирали ещё и по ощущению в руке.",
+      "groupLabels": { "philosophy": "Об архиве", "howto": "Как пользоваться" },
       "sections": [
         {
           "title": "Что есть в архиве",
@@ -497,6 +499,7 @@ export const UI = {
     about: {
       "title": "About",
       "intro": "Mobile History — phones with character. An archive of the button-phone era, when a clamshell was recognised by its silhouette, a music phone by its dedicated key, and a handset was chosen for how it felt in your hand.",
+      "groupLabels": { "philosophy": "About the archive", "howto": "How to use it" },
       "sections": [
         {
           "title": "What’s in the archive",

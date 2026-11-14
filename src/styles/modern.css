@@ -34,6 +34,13 @@ html[data-design="modern"][data-theme="light"] {
   --color-neutral-900:#eeebf5;
   --color-neutral-950:#f7f5fa;
   --color-orange-500:#5939a8; --color-orange-400:#472788;
+  /* Explicit (not derived from the neutral ramp) so the light theme keeps a visible
+     lavender canvas and crisp white cards instead of reading as plain grey. */
+  --modern-canvas:#f3effc;
+  --modern-surface:#ffffff;
+  --modern-soft:#e8e0f8;
+  --modern-line:#b6a0dd;
+  --modern-shadow:0 4px 14px #4b2aa01f;
 }
 @media (prefers-color-scheme:light) {
   html[data-design="modern"]:not([data-theme="dark"]) {
@@ -49,6 +56,11 @@ html[data-design="modern"][data-theme="light"] {
     --color-neutral-900:#eeebf5;
     --color-neutral-950:#f7f5fa;
     --color-orange-500:#5939a8; --color-orange-400:#472788;
+    --modern-canvas:#f3effc;
+    --modern-surface:#ffffff;
+    --modern-soft:#e8e0f8;
+    --modern-line:#b6a0dd;
+    --modern-shadow:0 4px 14px #4b2aa01f;
   }
 }
 html[data-design="modern"] body { background:var(--modern-canvas); }

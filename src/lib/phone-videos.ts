@@ -1,5 +1,13 @@
 import type { Locale } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+ 'nokia-n73': {
+   id: 'Poq-4DNM6GU', author: 'Vintage phones archive', label: 'NOKIA · N73', walkthrough: true,
+   description: {
+     uk: 'Огляд Nokia N73 (RM-133) із меню S60, мелодіями, іграми та шпалерами.',
+     ru: 'Обзор Nokia N73 (RM-133) с меню S60, мелодиями, играми и обоями.',
+     en: 'A Nokia N73 (RM-133) walkthrough covering its S60 menus, ringtones, games and wallpapers.',
+   },
+ },
  'sony-cmd-j5': {
    id: 'RcbKI633GrI', author: 'Vintage phones archive', label: 'SONY · CMD-J5', year: 2020, walkthrough: true,
    description: {

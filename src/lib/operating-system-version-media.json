@@ -1,4 +1,48 @@
 {
+  "windows-mobile-2003-se": {
+    "image": "/images/operating-systems/windows-mobile-2003-se.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:HP_IPAQ_hx2110_in_landscape_mode,_with_stylus.jpg",
+    "license": "CC BY 2.0",
+    "artist": "Yuri Litvinenko",
+    "caption": {
+      "uk": "HP iPAQ hx2110 у альбомній орієнтації — Windows Mobile 2003 SE першою додала ручний поворот екрана. Показано Solitaire, а не головний екран Today.",
+      "ru": "HP iPAQ hx2110 в альбомной ориентации — Windows Mobile 2003 SE первой добавила ручной поворот экрана. Показан Solitaire, а не главный экран Today.",
+      "en": "The HP iPAQ hx2110 in landscape — Windows Mobile 2003 SE was the first to add manual screen rotation. This shows Solitaire, not the Today home screen."
+    }
+  },
+  "windows-mobile-5-0": {
+    "image": "/images/operating-systems/windows-mobile-5-0.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:MioP550_today.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Vkardp",
+    "caption": {
+      "uk": "Today-екран Windows Mobile 5.0 на навігаторі Mio DigiWalker P550 (2006).",
+      "ru": "Экран Today Windows Mobile 5.0 на навигаторе Mio DigiWalker P550 (2006).",
+      "en": "The Windows Mobile 5.0 Today screen on a Mio DigiWalker P550 (2006) navigator."
+    }
+  },
+  "windows-mobile-6-1": {
+    "image": "/images/operating-systems/windows-mobile-6-1.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:T-Mobile_MDA_Touch_with_WM_6.1.jpg",
+    "license": "CC BY 3.0",
+    "artist": "Frettie",
+    "caption": {
+      "uk": "Today-екран Windows Mobile 6.1 на HTC Touch (T-Mobile MDA Touch).",
+      "ru": "Экран Today Windows Mobile 6.1 на HTC Touch (T-Mobile MDA Touch).",
+      "en": "The Windows Mobile 6.1 Today screen on an HTC Touch (T-Mobile MDA Touch)."
+    }
+  },
+  "windows-mobile-6-5": {
+    "image": "/images/operating-systems/windows-mobile-6-5.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:HTC_Vouge_Winmo65.JPG",
+    "license": "CC BY-SA 3.0",
+    "artist": "Koman90",
+    "caption": {
+      "uk": "Вертикальні плитки Today-екрана Windows Mobile 6.5 на HTC Touch (Verizon XV6900).",
+      "ru": "Вертикальные плитки экрана Today Windows Mobile 6.5 на HTC Touch (Verizon XV6900).",
+      "en": "The stacked Today-screen tiles of Windows Mobile 6.5 on an HTC Touch (Verizon XV6900)."
+    }
+  },
   "epoc-er5": {
     "image": "/images/operating-systems/symbian-epoc-er5.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Psion_Series_5MX_(2378635928).jpg",
@@ -209,14 +253,19 @@
     }
   },
   "windows-10-mobile": {
-    "image": "/images/phones/microsoft-lumia-950/front.webp",
-    "source": "https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg",
-    "license": "CC BY-SA 4.0",
-    "artist": "Languaeditor",
+    "image": "/images/operating-systems/windows-10-mobile.webp",
+    "source": "",
+    "license": "",
+    "artist": "",
+    "personalCredit": {
+      "uk": "Фото: особистий архів",
+      "ru": "Фото: личный архив",
+      "en": "Photo: personal archive"
+    },
     "caption": {
-      "uk": "Microsoft Lumia 950 під час запуску Windows 10 Mobile",
-      "ru": "Microsoft Lumia 950 при запуске Windows 10 Mobile",
-      "en": "Microsoft Lumia 950 starting Windows 10 Mobile"
+      "uk": "Стартовий екран Windows 10 Mobile: плитка Continuum, погода й застосунки Office.",
+      "ru": "Стартовый экран Windows 10 Mobile: плитка Continuum, погода и приложения Office.",
+      "en": "The Windows 10 Mobile Start screen: the Continuum tile, weather and Office apps."
     }
   },
   "android-1-0": {

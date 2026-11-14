@@ -44,7 +44,7 @@ const journeyPhones = ['siemens-a65', 'siemens-cx65', 'siemens-cx75', 'siemens-s
 
 const stats = [
   { value: phones.length, label: strings.hero.statsPhones },
-  { value: brandsCount, label: strings.hero.statsBrands },
+  { value: brandsCount, label: strings.hero.statsBrands, href: localePath(locale, '/brands/') },
   { value: yearsSpan, label: strings.hero.statsYears },
 ];
 ---
@@ -79,7 +79,12 @@ const stats = [
 
   <div class="home-cover-overview">
   <div class="home-cover-stats animate-fade-up mt-6 grid max-w-lg grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-3 lg:mt-7" style="animation-delay:0.2s">
-    {stats.map((stat, index) => (
+    {stats.map((stat, index) => stat.href ? (
+      <a href={stat.href} class:list={['group block min-h-11', index === 0 ? 'pr-3' : 'px-3']}>
+        <p class="text-2xl font-extrabold tracking-tight text-orange-500 underline decoration-transparent underline-offset-4 transition-colors motion-ui group-hover-desktop:decoration-orange-500">{stat.value}</p>
+        <p class="editorial-kicker mt-1 text-[0.6rem] text-neutral-500 transition-colors motion-ui group-hover-desktop:text-orange-500">{stat.label}</p>
+      </a>
+    ) : (
       <div class:list={[index === 0 ? 'pr-3' : 'px-3']}>
         <p class="text-2xl font-extrabold tracking-tight text-orange-500">{stat.value}</p>
         <p class="editorial-kicker mt-1 text-[0.6rem] text-neutral-500">{stat.label}</p>

@@ -74,7 +74,7 @@ if (platform && (platform.id === 'android' || curatedVersions(platform.id).lengt
   versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || a.title.localeCompare(b.title, 'en', { numeric: true }));
 }
 const hasVersions = versions.some(version => version.id !== 'unspecified');
-const isTimeline = platform?.id === 'android' || platform?.id === 'symbian' || platform?.id === 'series-40';
+const isTimeline = platform?.id === 'android' || platform?.id === 'symbian' || platform?.id === 'series-40' || platform?.id === 'windows-mobile';
 const mediaLicenseUrls: Record<string, string> = {
   'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
   'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/',
@@ -194,9 +194,11 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
                   <GalleryImageLink image={picture.image} caption={picture.caption[locale]} index={galleryIndex.get(version.id)!} label={strings.gallery.open} class="mx-auto max-h-60 w-full object-contain" loading="lazy" />
                   <figcaption class="mt-2 text-xs leading-relaxed text-neutral-400">
                     <p>{picture.caption[locale]}</p>
-                    <a class="underline underline-offset-2" href={picture.source} target="_blank" rel="noopener noreferrer">{picture.artist} · Wikimedia Commons</a>
-                    {' · '}
-                    {mediaLicenseUrls[picture.license] ? <a class="underline underline-offset-2" href={mediaLicenseUrls[picture.license]} target="_blank" rel="noopener noreferrer">{picture.license}</a> : picture.license}
+                    {'personalCredit' in picture ? <span>{picture.personalCredit[locale]}</span> : <>
+                      <a class="underline underline-offset-2" href={picture.source} target="_blank" rel="noopener noreferrer">{picture.artist} · Wikimedia Commons</a>
+                      {' · '}
+                      {mediaLicenseUrls[picture.license] ? <a class="underline underline-offset-2" href={mediaLicenseUrls[picture.license]} target="_blank" rel="noopener noreferrer">{picture.license}</a> : picture.license}
+                    </>}
                     {' · WebP'}
                   </figcaption>
                 </figure>}
@@ -243,7 +245,8 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
     width: 5rem;
     height: 2.5rem;
     border-radius: .25rem;
-    border: 1px solid #e2e2e2;
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 1px 4px rgba(0,0,0,.14);
     background: #fff;
   }
   .platform-logo img {

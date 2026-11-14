@@ -23,7 +23,7 @@ const dateLabel = (date: string) => new Intl.DateTimeFormat(locale === 'uk' ? 'u
       <div class="relative flex h-28 items-center justify-center bg-neutral-800/40 p-3 sm:h-32">
         {phone.data.image ? <><img data-image-fallback src={phone.data.image} alt="" loading="lazy" decoding="async" width="240" height="160" class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}
       </div>
-      <div class="flex flex-1 flex-col p-3"><p class="text-xs text-neutral-500">{phone.data.brand} · {phone.data.year}</p><h3 class="mt-1 text-base font-bold leading-snug">{phone.data.model}</h3><div class="mt-auto flex items-center gap-2 pt-3 text-[0.65rem] text-neutral-500"><span>{copy.added} <time datetime={phone.data.dateAdded}>{dateLabel(phone.data.dateAdded!)}</time></span><Arrow direction="right" class="ml-auto shrink-0 text-orange-500" /></div></div>
+      <div class="flex flex-1 flex-col p-3"><p class="text-xs text-neutral-500">{phone.data.brand} · {phone.data.year}</p><h3 class="mt-1 text-base font-bold leading-snug">{phone.data.model}</h3>{phone.data.milestone && <p class="mt-1 line-clamp-2 text-xs leading-snug text-neutral-400">{phone.data.milestone}</p>}<div class="mt-auto flex items-center gap-2 pt-3 text-[0.65rem] text-neutral-500"><span>{copy.added} <time datetime={phone.data.dateAdded}>{dateLabel(phone.data.dateAdded!)}</time></span><Arrow direction="right" class="ml-auto shrink-0 text-orange-500" /></div></div>
     </a></li>)}
   </ul>
 </section>}
