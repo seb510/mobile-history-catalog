@@ -5,6 +5,26 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-14",
+  "phones": [],
+  "changes": {
+    "uk": [
+      "Оновлено обидві редакції: прямокутні плитки в «Журналі», фіолетова палітра в сучасній і впорядкована навігація в обох.",
+      "Каталог повертає до останньої відкритої картки зі збереженими фільтрами. У порівнянні — три нові пари з короткими поясненнями.",
+      "У кабінеті можна завантажити свою хронологію телефонів як PNG. Оновлено логотип і фавіконку."
+    ],
+    "ru": [
+      "Обновлены оба оформления: прямоугольные плитки в «Журнале», фиолетовая палитра в современном стиле и упорядоченная навигация в обоих.",
+      "Каталог возвращает к последней открытой карточке с сохранёнными фильтрами. В сравнении — три новые пары с короткими пояснениями.",
+      "В кабинете можно скачать свою хронологию телефонов в PNG. Обновлены логотип и фавиконка."
+    ],
+    "en": [
+      "Both editions have refreshed navigation, with square tiles in Magazine and a violet palette in Modern.",
+      "The catalog takes you back to the last phone you opened with your filters intact. Compare has three new curated pairs with short notes.",
+      "Download your phone timeline as a PNG from Account. The logo and favicon have been refreshed."
+    ]
+  }
+}, {
   "date": "2026-11-12",
   "phones": [
     "sony-cmd-j5",
