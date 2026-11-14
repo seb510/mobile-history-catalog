@@ -26,6 +26,8 @@ html:not([data-design="modern"]) :is(.editorial-card,.recent-phone,.update-entry
   box-shadow:none;
 }
 html:not([data-design="modern"]) .home-cover-feature { border-block-start:3px solid var(--color-orange-500); }
+html:not([data-design="modern"]) [data-home-edition="modern"],
+html[data-design="modern"] [data-home-edition="magazine"] { display:none; }
 html:not([data-design="modern"]) .home-cover h1 { text-wrap:balance; }
 html:not([data-design="modern"]) .home-topic-nav ul { overflow:hidden; }
 html:not([data-design="modern"]) .home-cover-feature .card-copy { border-color:var(--paper-rule); }
@@ -90,13 +92,6 @@ html[data-design="modern"] .design-switch button[aria-pressed="true"] {
   color:var(--color-orange-500);
   box-shadow:inset 0 0 0 1px var(--modern-line);
 }
-html[data-design="modern"] .home-cover {
-  padding:clamp(1rem,4vw,3rem);
-  background:var(--modern-soft);
-  border:1px solid var(--modern-line);
-  border-radius:clamp(1rem,3vw,2rem);
-}
-html[data-design="modern"] .home-cover-grid { gap:clamp(1.5rem,4vw,3.5rem); }
 html[data-design="modern"] .home-cover h1 {
   max-width:16ch;
   font-size:clamp(2.3rem,4.8vw,4.25rem);
@@ -134,9 +129,6 @@ html[data-design="modern"] .compare-table .compare-table-head {
   background:var(--modern-soft);
   border-radius:0;
   box-shadow:0 2px 0 var(--modern-line);
-}
-@media (min-width:1024px) {
-  html[data-design="modern"] .home-cover-grid { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); }
 }
 @media (max-width:639px) {
   html[data-design="modern"] .home-cover-media > div:first-child > div { height:clamp(9rem,47vw,15rem); }
@@ -239,4 +231,225 @@ html[data-design="modern"] .phone-search-result { background:var(--modern-surfac
 }
 @media (forced-colors:active) {
   html[data-design="modern"] .home-cover-feature { --display-text:CanvasText; --display-muted:CanvasText; --display-accent:LinkText; }
+}
+
+/* Modern layouts share the archive’s content but give each route its own composition. */
+html[data-design="modern"] .footer-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: .875rem;
+}
+html[data-design="modern"] :is(.footer-identity,.footer-directory,.footer-archive) {
+  max-width: none;
+  padding: clamp(1rem,3vw,1.75rem);
+  border: 1px solid var(--modern-line);
+  border-radius: var(--modern-corner);
+  background: var(--modern-canvas);
+}
+html[data-design="modern"] .footer-identity { background: var(--modern-soft); }
+html[data-design="modern"] .footer-directory > ul { grid-template-columns: repeat(2,minmax(0,1fr)); }
+
+html[data-design="modern"] .phone-masthead,
+html[data-design="modern"] .about-header {
+  padding: clamp(1rem,4vw,2.5rem);
+  border: 1px solid var(--modern-line);
+  border-radius: var(--modern-corner);
+  background: var(--modern-soft);
+}
+html[data-design="modern"] .phone-masthead .cover-year { color: var(--color-orange-500); }
+html[data-design="modern"] .phone-masthead h1 { line-height: 1.06; }
+html[data-design="modern"] .phone-section-nav .control-button { background: var(--modern-canvas); }
+html[data-design="modern"] .phone-story-section { padding: clamp(1rem,3vw,1.75rem); }
+html[data-design="modern"] .phone-story-section .prose { margin-bottom: 0; }
+html[data-design="modern"] .phone-spec-section { margin-top: 1.75rem; }
+html[data-design="modern"] .phone-spec-section > h2 { margin-top: 0; }
+
+.catalog-timeline { padding-inline-start: 0; border-inline-start: 0; }
+.catalog-timeline [data-year-group] {
+  padding: clamp(.75rem,2vw,1.25rem);
+  border: 1px solid var(--modern-line);
+  border-radius: var(--modern-corner);
+  background: var(--modern-soft);
+}
+[data-year-heading] > [aria-hidden="true"] { display: none; }
+html:not([data-design="modern"]) .catalog-timeline [data-year-group] {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+}
+html[data-design="modern"] [data-year-count] {
+  border-radius: var(--modern-control);
+  background: var(--modern-canvas);
+}
+.catalog-timeline .era-heading { border-top: 0; padding-top: 0; }
+
+html[data-design="modern"] .about-header { grid-template-columns: minmax(0,1fr); }
+html[data-design="modern"] .about-identity { border-top-width: 1px; }
+html[data-design="modern"] .about-sections { grid-template-columns: minmax(0,1fr); gap: .875rem; }
+html[data-design="modern"] .about-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .75rem;
+  margin-top: 1rem;
+}
+html[data-design="modern"] .about-index a {
+  display: flex;
+  align-items: center;
+  padding-inline: .75rem;
+  border: 1px solid var(--modern-line);
+  border-radius: var(--modern-control);
+  background: var(--modern-surface);
+}
+html[data-design="modern"] .about-sections > section { scroll-margin-top: 6rem; }
+
+@media (min-width:768px) {
+  html[data-design="modern"] .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  html[data-design="modern"] .footer-identity { grid-column: 1 / -1; }
+}
+
+@media (max-width:1023px) {
+  html[data-design="modern"] .mobile-menu-panel nav {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: .5rem;
+  }
+  html[data-design="modern"] .mobile-nav-link {
+    min-width: 0;
+    gap: .375rem;
+    padding: .625rem;
+    border: 1px solid var(--modern-line);
+    font-size: .875rem;
+    overflow-wrap: anywhere;
+  }
+  html[data-design="modern"] .mobile-nav-link > .ui-arrow { display: none; }
+}
+
+@media (min-width:1024px) {
+  .catalog-layout {
+    --catalog-visible-header: var(--catalog-header-height, 69px);
+    --catalog-filter-top: calc(var(--catalog-visible-header) + var(--catalog-year-bar-height, 0px) + .75rem);
+    display: grid;
+    grid-template-columns: minmax(13.5rem,16rem) minmax(0,1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  html[data-header-hidden="true"] .catalog-layout { --catalog-visible-header: 0px; }
+  .catalog-tools[data-sticky-filters] { position: sticky; top: var(--catalog-filter-top); z-index: 20; }
+  :is(.catalog-filter-grid,.catalog-filter-footer) {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: .75rem;
+  }
+  .catalog-timeline [data-year-group],
+  .catalog-layout #catalog-filters { scroll-margin-top: calc(var(--catalog-header-height, 69px) + 3.75rem); }
+  .catalog-timeline [data-year-group] > ul { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  html[data-design="modern"] .phone-detail-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  html[data-design="modern"] .phone-media-rail { position: static; }
+  html[data-design="modern"] .phone-reading-column { display: contents; }
+  html[data-design="modern"] :is(.phone-reading-column > .phone-video,.phone-spec-section) {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  html[data-design="modern"] :is(#phone-photos,#phone-story,#phone-video,#phone-specs,.about-sections > section) { scroll-margin-top: 8rem; }
+  html[data-design="modern"] .about-layout {
+    display: grid;
+    grid-template-columns: 15rem minmax(0,1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  html[data-design="modern"] .about-header {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+    align-items: center;
+  }
+  html[data-design="modern"] .about-index {
+    display: grid;
+    position: sticky;
+    top: 8rem;
+    max-height: calc(100vh - 9rem);
+    overflow: auto;
+    margin: 0;
+  }
+  html[data-design="modern"] .about-sections { margin: 0; }
+}
+
+html[data-design="modern"] .about-index a[aria-current="location"] {
+  box-shadow: inset 3px 0 var(--color-orange-500);
+  border-color: var(--color-orange-500);
+  background: var(--modern-soft);
+  color: var(--color-orange-500);
+  font-weight: 700;
+}
+html[data-design="modern"] .home-cover {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+html[data-design="modern"] .home-cover-grid { grid-template-columns: minmax(0,1fr); gap: 1rem; }
+html[data-design="modern"] .home-cover-intro {
+  padding: clamp(1rem,4vw,3rem);
+  border: 1px solid var(--modern-line);
+  border-radius: var(--modern-corner);
+  background: var(--modern-soft);
+}
+html[data-design="modern"] .home-cover h1 { max-width: 24ch; }
+html[data-design="modern"] .home-cover-intro > p { max-width: 56ch; }
+html[data-design="modern"] .home-cover-actions > a { border-radius: var(--modern-control); }
+html[data-design="modern"] .home-cover-stats { border-bottom: 0; }
+@media (min-width:1024px) {
+  html[data-design="modern"] .home-cover-intro {
+    display: grid;
+    grid-template-columns: minmax(0,1.65fr) minmax(0,1fr);
+    column-gap: clamp(1.5rem,4vw,3.5rem);
+  }
+  html[data-design="modern"] .home-cover-intro > :not(.home-cover-overview) {
+    grid-column: 1;
+    justify-self: start;
+  }
+  html[data-design="modern"] .home-cover-overview {
+    grid-area: 1 / 2 / 5;
+    align-self: center;
+    min-width: 0;
+    padding: 1.125rem;
+    border: 1px solid var(--modern-line);
+    border-radius: var(--modern-corner);
+    background: var(--modern-canvas);
+  }
+  html[data-design="modern"] .home-cover-stats {
+    grid-template-columns: minmax(0,1fr);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  html[data-design="modern"] .home-cover-stats > div {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0,1fr);
+    align-items: baseline;
+    gap: .625rem;
+    padding: .625rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--modern-line);
+  }
+}
+html[data-design="modern"] .home-discovery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr));
+  gap: .75rem;
+  margin-top: 1rem;
+}
+html[data-design="modern"] .home-discovery a {
+  padding: .75rem 1rem;
+  border: 1px solid var(--modern-line);
+  border-radius: var(--modern-control);
+  background: var(--modern-surface);
+}
+@media (min-width:768px) {
+  html[data-design="modern"] .home-cover-feature {
+    grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+  }
+  html[data-design="modern"] .home-feature-meta { grid-column: 1 / -1; }
+  html[data-design="modern"] .home-cover-media { align-self: stretch; }
+  html[data-design="modern"] .home-cover-media > div:first-child > div { height: 12.5rem; }
+  html[data-design="modern"] .home-cover-media > div:nth-child(2) > div { height: 9rem; }
+  html[data-design="modern"] .home-cover-feature .card-copy {
+    align-self: center;
+    border-top: 0;
+  }
 }

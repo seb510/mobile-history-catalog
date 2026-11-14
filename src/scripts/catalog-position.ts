@@ -3,6 +3,8 @@ export function initCatalogPosition() {
   const indicator = document.querySelector<HTMLElement>('[data-catalog-position]');
   const list = document.querySelector<HTMLElement>('[data-catalog-list]');
   const header = document.getElementById('site-header');
+  const layout = list?.closest<HTMLElement>('.catalog-layout');
+  const filters = document.querySelector<HTMLElement>('[data-filter-bar]');
   if (!indicator || !list) return;
   const year = indicator.querySelector<HTMLElement>('[data-current-year]')!;
   const count = indicator.querySelector<HTMLElement>('[data-current-year-count]')!;
@@ -21,6 +23,10 @@ export function initCatalogPosition() {
       && list.getBoundingClientRect().bottom > offset + 45
       && window.scrollY + window.innerHeight < document.documentElement.scrollHeight - 2;
     indicator.hidden = !visible;
+    const yearBarHeight = visible ? indicator.offsetHeight : 0;
+    layout?.style.setProperty('--catalog-year-bar-height', `${yearBarHeight}px`);
+    // Keep the full filter panel reachable on short windows without clipping its popups.
+    filters?.toggleAttribute('data-sticky-filters', filters.offsetHeight + offset + yearBarHeight + 24 <= window.innerHeight);
     if (!visible) return;
     // Track the upper reading area, not a few remaining pixels of the preceding year.
     // Keep this line stable when the header slides in/out to avoid changing years on reversal.
@@ -46,11 +52,13 @@ export function initCatalogPosition() {
   const measureHeader = () => {
     headerHeight = header ? header.getBoundingClientRect().height + (parseFloat(getComputedStyle(header).top) || 0) : 0;
     indicator.style.setProperty('--catalog-header-height', `${headerHeight}px`);
+    layout?.style.setProperty('--catalog-header-height', `${headerHeight}px`);
     queue();
   };
   if (header) new ResizeObserver(measureHeader).observe(header);
   new MutationObserver(queue).observe(document.documentElement, { attributes: true, attributeFilter: ['data-header-hidden'] });
   new ResizeObserver(queue).observe(list);
+  if (filters) new ResizeObserver(queue).observe(filters);
   window.addEventListener('scroll', queue, { passive: true });
   window.addEventListener('resize', queue, { passive: true });
   window.addEventListener('pageshow', queue);

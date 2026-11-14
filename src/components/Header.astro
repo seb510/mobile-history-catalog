@@ -36,8 +36,8 @@ const links: { path: string; label: string; title?: string; icon: 'catalog' | 'b
 ---
 
 <header id="site-header" class="site-header sticky top-0 z-50 border-t-2 border-b border-t-orange-500 border-b-neutral-800 bg-neutral-950/95 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 h-14 sm:px-6">
-    <a href={localePath(locale, '/')} class="flex min-w-0 items-center gap-2 text-neutral-100">
+  <div class="header-shell mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 h-14 sm:px-6">
+    <a href={localePath(locale, '/')} class="header-brand flex min-w-0 items-center gap-2 text-neutral-100">
       <LogoMark class="h-7 w-7 shrink-0" />
       <span class="truncate text-sm font-bold tracking-tight sm:text-base" title={`${strings.siteName} — ${strings.brandLine}`}>{strings.siteName}</span>
     </a>

@@ -16,7 +16,8 @@ const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
 ---
 <Layout locale={locale} path="/about/" title={`${strings.about.title} — ${strings.siteName}`} description={strings.about.intro}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.about.title }]} />
-  <header class="grid gap-7 border-b border-neutral-800 pb-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+  <div class="about-layout">
+  <header class="about-header grid gap-7 border-b border-neutral-800 pb-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
   <div>
     <div class="flex items-center gap-4">
       <LogoMark class="h-16 w-16 shrink-0 sm:h-20 sm:w-20" />
@@ -36,12 +37,48 @@ const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
     <dl class="mt-6 grid grid-cols-3 gap-3 border-t border-neutral-700 pt-4">{[{value:phones.length,label:projectCopy.collection},{value:brandCount,label:projectCopy.brands},{value:3,label:projectCopy.languages}].map(item=><div><dt class="text-xs text-neutral-500">{item.label}</dt><dd class="mt-2 text-2xl font-extrabold tabular-nums text-orange-500">{item.value}</dd></div>)}</dl>
   </aside>
   </header>
-  <div class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-    {strings.about.sections.map((section) => <section class="glass-surface border-t border-neutral-800 pt-4">
+  <nav class="about-index hidden" data-about-index aria-label={strings.about.title}>
+    {strings.about.sections.map((section, index) => <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
+  </nav>
+  <div class="about-sections mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+    {strings.about.sections.map((section, index) => <section id={`about-section-${index + 1}`} class="glass-surface border-t border-neutral-800 pt-4">
       <h2 class="text-xl font-bold tracking-tight text-neutral-100">
         {'path' in section ? <a class="inline-flex items-center gap-2 underline decoration-neutral-600 underline-offset-4 hover-desktop:text-orange-500" href={localePath(locale, section.path)}>{section.title} <Arrow /></a> : section.title}
       </h2>
       {section.paragraphs.map((paragraph) => <p class="mt-3 text-sm leading-relaxed text-neutral-400 lg:text-base">{paragraph}</p>)}
     </section>)}
   </div>
+  </div>
 </Layout>
+
+<script>
+  const index = document.querySelector<HTMLElement>('[data-about-index]');
+  if (index) {
+    const entries = [...index.querySelectorAll<HTMLAnchorElement>('a')].flatMap(link => {
+      const section = document.getElementById(link.hash.slice(1));
+      return section ? [{ link, section }] : [];
+    });
+    const header = document.getElementById('site-header');
+    let frame = 0;
+    let active: HTMLAnchorElement | undefined;
+    const update = () => {
+      frame = 0;
+      const readingLine = Math.max((header?.getBoundingClientRect().bottom ?? 0) + 24, 144);
+      const lastReached = entries.findLast(({ section }) => section.getBoundingClientRect().top <= readingLine);
+      const atBottom = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      const current = (atBottom ? entries.at(-1) : lastReached) ?? entries[0];
+      if (!current || current.link === active) return;
+      active?.removeAttribute('aria-current');
+      current.link.setAttribute('aria-current', 'location');
+      active = current.link;
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    window.addEventListener('pageshow', schedule);
+    window.addEventListener('hashchange', schedule);
+    const resize = new ResizeObserver(schedule);
+    entries.forEach(({ section }) => resize.observe(section));
+    schedule();
+  }
+</script>

@@ -60,7 +60,7 @@ const related = allPhones
   .slice(0, 3);
 ---
 
-<header class="phone-cover mb-5 flex items-end justify-between gap-4 border-b border-neutral-800 pb-5 sm:mb-8 sm:pb-6">
+<header class="phone-masthead phone-cover mb-5 flex items-end justify-between gap-4 border-b border-neutral-800 pb-5 sm:mb-8 sm:pb-6">
   <div class="min-w-0">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
       <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-orange-500 hover-desktop:text-orange-400">{data.brand}</a>
@@ -185,6 +185,7 @@ const related = allPhones
     </section>
 
     {PHONE_VIDEOS[slugOf(phone)] && <PhoneVideo locale={locale} slug={slugOf(phone)} poster={data} />}
+    <section class="phone-spec-section min-w-0" aria-labelledby="phone-specs">
     <h2 id="phone-specs" class="section-label mt-10 scroll-mt-24">{editorial.specs}</h2>
     <p class="mt-3 text-sm leading-relaxed text-neutral-400">{data.specVariant ? SPEC_VARIANT_NOTE[locale].replace('{model}', data.specVariant.model) : reading.specNote}</p>
     <div class="phone-spec-surface mt-4 overflow-hidden rounded-sm border border-neutral-700 bg-neutral-950/20">
@@ -214,6 +215,7 @@ const related = allPhones
         ))}
       </table>
     </div>
+    </section>
   </div>
 </div>
 

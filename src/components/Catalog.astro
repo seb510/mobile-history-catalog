@@ -32,6 +32,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   year === years.find((candidate) => candidate >= start && candidate < (eraStarts[index + 1] ?? Infinity)));
 ---
 
+<div class="catalog-layout">
 <section id="catalog-filters" class="catalog-tools mb-5 scroll-mt-20" data-filter-bar data-stories={JSON.stringify(stories)} aria-label={editorial.filters}>
   <button type="button" class="catalog-filter-toggle" data-filter-toggle aria-expanded="true" aria-controls="catalog-filter-fields catalog-filter-stories" hidden>
     <span>{editorial.filters} <span data-active-count class="ml-1 text-orange-500"></span></span>
@@ -64,6 +65,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   <div data-active-filters data-remove-label={controls.remove} role="group" aria-label={controls.active} class="catalog-active-filters" hidden></div>
 </section>
 
+<div class="catalog-results min-w-0">
 <div class="hidden text-center text-neutral-400" data-filter-empty>
   <p class="text-lg font-bold text-neutral-100">{strings.filters.empty}</p>
   <p class="mt-2 text-sm leading-relaxed">{controls.empty}</p>
@@ -118,6 +120,8 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     </li>
   ))}
 </ol>
+</div>
+</div>
 
 <script>
   import { initCatalogPosition } from '../scripts/catalog-position';

@@ -10,6 +10,7 @@ import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { t, HOME_EDITORIAL, HOME_SIEMENS_JOURNEY, HOME_COVER_REFRESH, PROJECT_PRESENTATION } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 import { RETRO_STORIES } from '../lib/editorial-stories';
+import { OS_COPY, OS_PATH } from '../lib/operating-systems';
 
 interface Props {
   locale: Locale;
@@ -24,9 +25,17 @@ const brandsCount = new Set(phones.map((p) => p.data.brand)).size;
 const minYear = Math.min(...phones.map((p) => p.data.year));
 const yearsSpan = new Date().getFullYear() - minYear + 1;
 
-const coverPhone = phones.find(p => slugOf(p) === 'motorola-razr-v3');
 const copy = HOME_EDITORIAL[locale];
 const coverCopy = HOME_COVER_REFRESH[locale];
+const sk65Copy = {
+  uk: { story: 'Поверни корпус, щоб відкрити QWERTY', details: ['Поворот на 90°', 'Повна клавіатура'], open: 'Розгорнута QWERTY' },
+  ru: { story: 'Поверни корпус, чтобы открыть QWERTY', details: ['Поворот на 90°', 'Полная клавиатура'], open: 'Раскрытая QWERTY' },
+  en: { story: 'Twist the body to reveal the QWERTY keyboard', details: ['90° rotation', 'Full keyboard'], open: 'QWERTY open' },
+}[locale];
+const covers = [
+  { edition: 'magazine', slug: 'motorola-razr-v3', closedFile: '/museum-closed.webp', copy: coverCopy },
+  { edition: 'modern', slug: 'siemens-sk65', copy: sk65Copy },
+];
 const projectCopy = PROJECT_PRESENTATION[locale];
 const pair = ['nokia-3250', 'sony-ericsson-k750i'].map(slug => phones.find(p => slugOf(p) === slug));
 const themes = copy.themes.map((theme, index) => ({ ...theme, text: coverCopy.themes[index], id: RETRO_STORIES[index].id, phones: RETRO_STORIES[index].leads.flatMap((slug) => { const phone = phones.find((p) => slugOf(p) === slug); if (phone && slug === 'nokia-n95') { const view = phone.data.gallery?.find(image => image.image.includes('media-and-camera')); if (view) return [{ ...phone, data: { ...phone.data, image: view.image, imageCaption: view.caption, imageCredit: view.imageCredit, imageSourceUrl: view.imageSourceUrl } }]; } return phone ? [phone] : []; }) }));
@@ -42,7 +51,7 @@ const stats = [
 
 <section class="home-cover border-b border-neutral-800 pb-6 pt-0 sm:pb-10 sm:pt-2">
   <div class="home-cover-grid grid items-center gap-8 sm:gap-10 lg:grid-cols-[1fr_0.82fr]">
-    <div>
+    <div class="home-cover-intro">
     <p class="editorial-kicker animate-fade-up mb-5 inline-flex items-center gap-2 text-orange-500">
       <span class="h-2 w-2 bg-orange-500"></span>{strings.hero.eyebrow}
     </p>
@@ -53,7 +62,7 @@ const stats = [
       {coverCopy.intro}
     </p>
 
-    <div class="animate-fade-up mt-6 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:gap-3" style="animation-delay:0.15s">
+    <div class="home-cover-actions animate-fade-up mt-6 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:gap-3" style="animation-delay:0.15s">
       <a
         href={localePath(locale, '/catalog/')}
         class="primary-cta inline-flex min-h-11 items-center justify-center rounded-sm bg-orange-500 px-3 py-3 text-center text-sm font-bold text-neutral-950 transition-colors motion-ui sm:px-5"
@@ -68,7 +77,8 @@ const stats = [
       </a>
     </div>
 
-  <div class="animate-fade-up mt-6 grid max-w-lg grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-3 lg:mt-7" style="animation-delay:0.2s">
+  <div class="home-cover-overview">
+  <div class="home-cover-stats animate-fade-up mt-6 grid max-w-lg grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-3 lg:mt-7" style="animation-delay:0.2s">
     {stats.map((stat, index) => (
       <div class:list={[index === 0 ? 'pr-3' : 'px-3']}>
         <p class="text-2xl font-extrabold tracking-tight text-orange-500">{stat.value}</p>
@@ -78,17 +88,37 @@ const stats = [
   </div>
   {videoCount > 0 && <a href={localePath(locale, '/catalog/') + '?video=1'} class="mt-3 flex min-h-11 max-w-lg flex-wrap items-center gap-x-3 gap-y-1 py-2 text-sm text-neutral-300 hover-desktop:text-orange-500 motion-ui"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg><span class="font-semibold underline decoration-neutral-700 underline-offset-4">{videoCopy.title}</span><span class="text-xs text-neutral-500">{videoCopy.count.replace('{count}',String(videoCount))}</span><Arrow direction="right" class="ml-auto text-orange-500" /></a>}
   </div>
+  </div>
 
-  {coverPhone && <a href={localePath(locale, '/phones/motorola-razr-v3/')} class="home-cover-feature editorial-card group block overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900 focus-visible:-outline-offset-4 motion-ui">
-    <div class="flex items-center justify-between gap-3 border-b border-neutral-800 px-5 py-3"><span class="editorial-kicker text-orange-500">{coverCopy.feature}</span><span class="text-sm font-bold tabular-nums text-neutral-400">2004</span></div>
-    <div class="home-cover-media grid grid-cols-[1.2fr_.8fr] items-end gap-2 bg-neutral-800/50 px-4 pt-5 sm:px-6">
-      {[{image:coverPhone.data.image,label:coverCopy.open}, {image:coverPhone.data.gallery?.find(image=>image.image.includes('museum-closed'))?.image,label:coverCopy.closed}].map((view,index)=><div class="min-w-0"><div class:list={['relative flex items-center justify-center',index===0?'h-60 sm:h-80':'h-44 sm:h-60']}>{view.image ? <><img data-image-fallback src={view.image} alt={'Motorola RAZR V3 — '+view.label} width="400" height="600" fetchpriority={index===0?'high':'auto'} class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</div><p class="py-3 text-center text-[0.65rem] uppercase tracking-widest text-neutral-500">{view.label}</p></div>)}
+  {covers.map(cover => {
+    const coverPhone = phones.find(phone => slugOf(phone) === cover.slug);
+    if (!coverPhone) return null;
+    const { brand, model, year } = coverPhone.data;
+    const views = [{ image: coverPhone.data.image, label: cover.copy.open }];
+    if (cover.closedFile && 'closed' in cover.copy) {
+      views.push({ image: coverPhone.data.gallery?.find(image => image.image.endsWith(cover.closedFile))?.image, label: cover.copy.closed });
+    }
+    return <a data-home-edition={cover.edition} href={localePath(locale, `/phones/${cover.slug}/`)} class="home-cover-feature editorial-card group block overflow-hidden rounded-sm border border-neutral-700 bg-neutral-900 focus-visible:-outline-offset-4 motion-ui">
+    <div class="home-feature-meta flex items-center justify-between gap-3 border-b border-neutral-800 px-5 py-3"><span class="editorial-kicker text-orange-500">{coverCopy.feature}</span><span class="text-sm font-bold tabular-nums text-neutral-400">{year}</span></div>
+    <div class:list={['home-cover-media grid items-end gap-2 bg-neutral-800/50 px-4 pt-5 sm:px-6', views.length > 1 && 'grid-cols-[1.2fr_.8fr]']}>
+      {views.map((view,index)=><div class="min-w-0"><div class:list={['relative flex items-center justify-center',index===0?'h-60 sm:h-80':'h-44 sm:h-60']}>{view.image ? <><img data-image-fallback src={view.image} alt={`${brand} ${model} — ${view.label}`} width="400" height="600" loading={cover.edition === 'modern' ? 'lazy' : 'eager'} fetchpriority={cover.edition === 'magazine' && index === 0 ? 'high' : 'auto'} class="h-full w-full object-contain" /><div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-600" /></div></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</div><p class="py-3 text-center text-[0.65rem] uppercase tracking-widest text-neutral-500">{view.label}</p></div>)}
     </div>
-    <div class="card-copy border-t border-neutral-800 p-5"><p class="editorial-kicker text-neutral-500">Motorola</p><div class="mt-2 flex items-center justify-between gap-3"><h2 class="card-title text-3xl font-extrabold tracking-tight sm:text-4xl">RAZR V3</h2><Arrow size={28} class="text-orange-500" /></div><p class="mt-3 text-sm font-semibold text-orange-500">{coverCopy.story}</p><ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-neutral-400">{coverCopy.details.map(detail=><li class="flex items-center gap-2"><span class="h-1 w-1 bg-orange-500" aria-hidden="true"></span>{detail}</li>)}</ul></div>
-  </a>}
+    <div class="card-copy border-t border-neutral-800 p-5"><p class="editorial-kicker text-neutral-500">{brand}</p><div class="mt-2 flex items-center justify-between gap-3"><h2 class="card-title text-3xl font-extrabold tracking-tight sm:text-4xl">{model}</h2><Arrow size={28} class="text-orange-500" /></div><p class="mt-3 text-sm font-semibold text-orange-500">{cover.copy.story}</p><ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-neutral-400">{cover.copy.details.map(detail=><li class="flex items-center gap-2"><span class="h-1 w-1 bg-orange-500" aria-hidden="true"></span>{detail}</li>)}</ul></div>
+  </a>;
+  })}
   </div>
 
 </section>
+
+<nav class="home-discovery hidden" aria-label={strings.footer.navigation}>
+  {[
+    { path: OS_PATH, label: OS_COPY.title[locale] },
+    { path: '/brands/', label: strings.nav.brands },
+    { path: '/compare/', label: strings.nav.compare },
+  ].map(({ path, label }) => (
+    <a class="flex min-h-11 items-center justify-between gap-3 font-semibold hover-desktop:text-orange-500" href={localePath(locale, path)}>{label}<Arrow /></a>
+  ))}
+</nav>
 
 <RecentPhones phones={phones} locale={locale} />
 
