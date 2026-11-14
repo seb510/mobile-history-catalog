@@ -581,23 +581,23 @@ export const HOME_EDITORIAL = {
     "compare": "Два характери однієї епохи",
     "text": "Nokia 3250 із поворотним музичним блоком і камерофон Sony Ericsson K750i: два погляди на мультимедійний телефон 2005 року.",
     "cta": "Порівняти характери",
-    "principles": "Зберігаємо характер епохи",
+    "principles": "Три принципи головної",
     "pairNotes": [
       "Твіст-механізм · музичні клавіші · microSD",
       "Автофокус · кришка об’єктива · камерофон"
     ],
     "principleItems": [
       {
-        "title": "Форма має значення",
-        "text": "Клавіатури, шарніри, матеріали й кольори, за якими телефон упізнавали здалеку."
+        "title": "Тільки перевірена інформація",
+        "text": "Кожна дата, характеристика й підпис фото має джерело. Невідоме лишаємо невідомим, а не вигадуємо."
       },
       {
-        "title": "Речі та спогади",
-        "text": "Відкрити кришку, перемкнути трек, набрати SMS. Історія через повсякденні жести."
+        "title": "Дві редакції, один архів",
+        "text": "«Журнал» із паперовими картками чи сучасна скляна редакція — перемикач у шапці змінює вигляд, не зміст."
       },
       {
-        "title": "Ностальгія з фактами",
-        "text": "Любов до ретро — з перевіреними джерелами, фотографіями й технічним контекстом."
+        "title": "Зміни видно",
+        "text": "Кожне поповнення каталогу чи нову можливість сайту фіксує тримовний журнал оновлень із датою."
       }
     ],
     "themes": [
@@ -631,23 +631,23 @@ export const HOME_EDITORIAL = {
     "compare": "Два характера одной эпохи",
     "text": "Nokia 3250 с поворотным музыкальным блоком и камерофон Sony Ericsson K750i: два взгляда на мультимедийный телефон 2005 года.",
     "cta": "Сравнить характеры",
-    "principles": "Сохраняем характер эпохи",
+    "principles": "Три принципа главной",
     "pairNotes": [
       "Твист-механизм · музыкальные клавиши · microSD",
       "Автофокус · крышка объектива · камерофон"
     ],
     "principleItems": [
       {
-        "title": "Форма имеет значение",
-        "text": "Клавиатуры, шарниры, материалы и цвета, по которым телефон узнавали издалека."
+        "title": "Только проверенная информация",
+        "text": "У каждой даты, характеристики и подписи фото есть источник. Неизвестное остаётся неизвестным, а не придуманным."
       },
       {
-        "title": "Вещи и воспоминания",
-        "text": "Открыть крышку, переключить трек, набрать SMS. История через повседневные жесты."
+        "title": "Два оформления, один архив",
+        "text": "«Журнал» с бумажными карточками или современная стеклянная редакция — переключатель в шапке меняет облик, а не содержание."
       },
       {
-        "title": "Ностальгия с фактами",
-        "text": "Любовь к ретро — с проверенными источниками, фотографиями и техническим контекстом."
+        "title": "Изменения видны",
+        "text": "Каждое новое пополнение каталога или возможность сайта фиксирует трёхъязычный журнал обновлений с датой."
       }
     ],
     "themes": [
@@ -681,23 +681,23 @@ export const HOME_EDITORIAL = {
     "compare": "Two characters from one era",
     "text": "The Nokia 3250 with its rotating music module and the Sony Ericsson K750i camera phone: two takes on the multimedia handset in 2005.",
     "cta": "Compare their character",
-    "principles": "Preserving the character of an era",
+    "principles": "Three principles behind the homepage",
     "pairNotes": [
       "Twist mechanism · music keys · microSD",
       "Autofocus · lens cover · camera phone"
     ],
     "principleItems": [
       {
-        "title": "Form matters",
-        "text": "Keypads, hinges, materials and colours that made a phone recognisable from afar."
+        "title": "Verified information only",
+        "text": "Every date, specification and photo credit has a source. What isn't known stays unknown, never invented."
       },
       {
-        "title": "Objects and memories",
-        "text": "Flip it open, skip a track, type an SMS. History through everyday gestures."
+        "title": "Two looks, one archive",
+        "text": "The paper-tile Magazine or the modern glass edition — the header switch changes the look, not the content."
       },
       {
-        "title": "Nostalgia with evidence",
-        "text": "A love of retro phones, grounded in sources, photographs and technical context."
+        "title": "Changes you can see",
+        "text": "Every new phone or site feature is logged with a date in the trilingual update journal."
       }
     ],
     "themes": [
