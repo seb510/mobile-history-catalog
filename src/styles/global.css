@@ -31,6 +31,10 @@
   --color-neutral-950: #171512;
   --color-orange-400: #fb8748;
   --color-orange-500: #f97316;
+  /* The sign's own navy tile is intentionally independent of the orange/neutral accent
+     system (it's a fixed mark, not themed chrome) — but it still needs a theme-appropriate
+     shade of its own so it doesn't read as flatly identical on a bright vs. a near-black page. */
+  --logo-tile: #193341;
 }
 
 @utility motion-ui {
@@ -345,6 +349,7 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
     --color-neutral-950: #f7f2e8;
     --color-orange-400: #dc5a22;
     --color-orange-500: #bd4212;
+    --logo-tile: #102936;
   }
 }
 
@@ -362,6 +367,7 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
   --color-neutral-950: #f7f2e8;
   --color-orange-400: #dc5a22;
   --color-orange-500: #bd4212;
+  --logo-tile: #102936;
 }
 
 @media (prefers-reduced-motion: no-preference) {

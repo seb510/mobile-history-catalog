@@ -1,16 +1,18 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="14" fill="#193341" />
+  <style>.tile{fill:#193341}@media (prefers-color-scheme:dark){.tile{fill:#102936}}</style>
+  <rect width="64" height="64" rx="14" class="tile" />
+  <rect x="35" y="1" width="6" height="9" rx="3" fill="#f2f7f6" />
   <rect x="16" y="8" width="32" height="48" rx="8" fill="#f2f7f6" />
   <rect x="22" y="16" width="20" height="20" rx="2" fill="#f3a773" />
-  <g fill="#193341">
+  <g class="tile">
     <rect x="24" y="38" width="4" height="4" />
     <rect x="30" y="38" width="4" height="4" />
     <rect x="36" y="38" width="4" height="4" />
-    <rect x="24" y="44" width="4" height="4" />
-    <rect x="30" y="44" width="4" height="4" />
-    <rect x="36" y="44" width="4" height="4" />
-    <rect x="24" y="50" width="4" height="4" />
-    <rect x="30" y="50" width="4" height="4" />
-    <rect x="36" y="50" width="4" height="4" />
+    <rect x="24" y="43" width="4" height="4" />
+    <rect x="30" y="43" width="4" height="4" />
+    <rect x="36" y="43" width="4" height="4" />
+    <rect x="24" y="48" width="4" height="4" />
+    <rect x="30" y="48" width="4" height="4" />
+    <rect x="36" y="48" width="4" height="4" />
   </g>
 </svg>

@@ -16,7 +16,7 @@ const c = {
  <h2 id="phone-video-title" class="mt-2 text-xl font-bold">{c.title}</h2>
  <p class="mt-2 text-sm leading-relaxed text-neutral-300">{video.description[locale]}</p>
  <div class="video-surface mt-4" data-video-surface data-title={`${video.author}: ${video.label}`}>
-  <button type="button" class:list={['video-cover', poster?.image && 'has-photo']} data-video-load aria-describedby={`video-consent-${slug}`} aria-label={`${c.load}: ${video.label}`}><span class="video-cover-photo" aria-hidden="true">{poster?.image ? <><img data-image-fallback src={poster.image} alt="" loading="lazy" decoding="async" /><span data-image-fallback-placeholder class="hidden"><PlaceholderArt class="h-full w-full text-neutral-600" /></span></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</span><span class="video-cover-copy"><span class="text-xs tracking-widest">{video.label}</span><span aria-hidden="true" class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 6.5v11a1 1 0 0 0 1.52.85l9-5.5a1 1 0 0 0 0-1.7l-9-5.5A1 1 0 0 0 9 6.5Z"/></svg></span><span class="text-sm font-semibold">{c.load}</span></span></button>
+  <button type="button" class:list={['video-cover', poster?.image && 'has-photo']} data-video-load aria-describedby={`video-consent-${slug}`} aria-label={`${c.load}: ${video.label}`}><span class="video-cover-photo" aria-hidden="true">{poster?.image ? <><img data-image-fallback src={poster.image} alt="" loading="lazy" decoding="async" /><span data-image-fallback-placeholder class="hidden"><PlaceholderArt class="h-full w-full text-neutral-600" /></span></> : <PlaceholderArt class="h-full w-full text-neutral-600" />}</span><span class="video-cover-copy"><span class="text-xs tracking-widest">{video.label}</span><span aria-hidden="true" class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5v14l12-7z"/></svg></span><span class="text-sm font-semibold">{c.load}</span></span></button>
  </div>
  <div data-video-consent>
   {poster?.imageCredit && <p class="mt-2 text-[0.65rem] leading-relaxed text-neutral-500">{({uk:"Фото обкладинки: ",ru:"Фото обложки: ",en:"Cover photo: "}[locale])}{poster.imageSourceUrl ? <a href={poster.imageSourceUrl} target="_blank" rel="noopener noreferrer" class="text-orange-500 underline underline-offset-2">{poster.imageCredit}</a> : poster.imageCredit}</p>}
@@ -61,7 +61,7 @@ const c = {
    wide empty gap once this section became full-width in the modern layout. The
    icon-only fallback (no poster) keeps the original centered-on-gradient look. */
 .video-cover { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; width:100%; padding:1.25rem; cursor:pointer; text-align:center; color:var(--color-neutral-400); background:radial-gradient(ellipse at center,var(--color-neutral-800),transparent 80%); }
-.video-cover.has-photo { align-items:flex-end; color:#fff; background:none; }
+.video-cover.has-photo { align-items:center; color:#fff; background:none; text-shadow:0 1px 4px rgba(0,0,0,.6); }
 .video-cover:focus-visible { outline:2px solid var(--color-orange-500); outline-offset:-4px; }
 @media (hover:hover) and (pointer:fine) {
   .video-cover:not(.has-photo):hover { color:var(--color-orange-500); }
@@ -69,9 +69,8 @@ const c = {
 }
 .video-cover-photo { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .video-cover-photo img { width:100%; height:100%; object-fit:cover; }
-.video-cover.has-photo .video-cover-photo::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(10,8,16,.82) 0%,rgba(10,8,16,.4) 48%,rgba(10,8,16,.05) 75%); }
+.video-cover.has-photo .video-cover-photo::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(10,8,16,.82) 0%,rgba(10,8,16,.65) 55%,rgba(10,8,16,.4) 100%); }
 .video-cover-copy { position:relative; z-index:1; display:flex; min-width:0; flex-direction:column; align-items:center; gap:.625rem; }
-.video-cover.has-photo .video-cover-copy { padding-block-start:3rem; }
 @media (max-width:639px) { .video-cover-copy { gap:.5rem; } .video-cover-copy > span:first-child { font-size:.625rem; letter-spacing:.08em; } }
 .video-play {
   position:relative;
@@ -86,14 +85,14 @@ const c = {
   box-shadow:0 6px 18px rgba(0,0,0,.4);
   transition:transform var(--motion-ui) var(--motion-easing), box-shadow var(--motion-ui) var(--motion-easing);
 }
-.video-play svg { width:1.875rem; height:1.875rem; margin-inline-start:.1875rem; }
+.video-play svg { width:1.875rem; height:1.875rem; }
 .video-play::after {
   content:'';
   position:absolute;
   inset:0;
   border-radius:inherit;
   border:2px solid var(--color-orange-500);
-  animation:video-play-pulse 2.4s ease-out infinite;
+  opacity:0;
 }
 @keyframes video-play-pulse {
   0% { transform:scale(1); opacity:.55; }
@@ -101,8 +100,10 @@ const c = {
 }
 @media (hover:hover) and (pointer:fine) {
   .video-cover:hover .video-play { transform:scale(1.08); box-shadow:0 8px 22px rgba(0,0,0,.5); }
+  .video-cover:hover .video-play::after { animation:video-play-pulse 1.6s ease-out infinite; }
 }
 .video-cover:focus-visible .video-play { transform:scale(1.08); }
+.video-cover:focus-visible .video-play::after { animation:video-play-pulse 1.6s ease-out infinite; }
 @media (prefers-reduced-motion:reduce) {
   .video-play, .video-cover:hover .video-play, .video-cover:focus-visible .video-play { transition:none; }
   .video-play::after { animation:none; display:none; }

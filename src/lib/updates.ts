@@ -6,22 +6,25 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-14",
-  "phones": ["nokia-n73"],
+  "phones": ["nokia-n73", "siemens-me75"],
   "changes": {
     "uk": [
       "Оновлено обидві редакції: прямокутні плитки в «Журналі», фіолетова палітра в сучасній і впорядкована навігація в обох.",
       "Каталог повертає до останньої відкритої картки зі збереженими фільтрами. У порівнянні — три нові пари з короткими поясненнями.",
-      "У кабінеті можна завантажити свою хронологію телефонів як PNG. Оновлено логотип і фавіконку."
+      "У кабінеті можна завантажити свою хронологію телефонів як PNG. Оновлено логотип і фавіконку.",
+      "У хронології операційних систем (Symbian, Series 40, Android, Windows Phone, Windows Mobile) додано перевірені дати виходу версій — місяць і рік, де відомо, інакше лише рік."
     ],
     "ru": [
       "Обновлены оба оформления: прямоугольные плитки в «Журнале», фиолетовая палитра в современном стиле и упорядоченная навигация в обоих.",
       "Каталог возвращает к последней открытой карточке с сохранёнными фильтрами. В сравнении — три новые пары с короткими пояснениями.",
-      "В кабинете можно скачать свою хронологию телефонов в PNG. Обновлены логотип и фавиконка."
+      "В кабинете можно скачать свою хронологию телефонов в PNG. Обновлены логотип и фавиконка.",
+      "В хронологии операционных систем (Symbian, Series 40, Android, Windows Phone, Windows Mobile) добавлены проверенные даты выхода версий — месяц и год, где известно, иначе только год."
     ],
     "en": [
       "Both editions have refreshed navigation, with square tiles in Magazine and a violet palette in Modern.",
       "The catalog takes you back to the last phone you opened with your filters intact. Compare has three new curated pairs with short notes.",
-      "Download your phone timeline as a PNG from Account. The logo and favicon have been refreshed."
+      "Download your phone timeline as a PNG from Account. The logo and favicon have been refreshed.",
+      "The OS version timelines (Symbian, Series 40, Android, Windows Phone, Windows Mobile) now show verified release dates — month and year where confirmed, otherwise just the year."
     ]
   }
 }, {

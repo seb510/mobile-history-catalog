@@ -9,7 +9,7 @@ import { getPhonesForLocale, slugOf } from '../lib/phones';
 import { OS_COPY, OS_PATH, PLATFORMS, platformFor } from '../lib/operating-systems';
 import mediaByPlatform from '../lib/operating-systems-media.json';
 import versionMedia from '../lib/operating-system-version-media.json';
-import { VERSION_COPY, curatedVersions, versionFor } from '../lib/operating-system-versions';
+import { VERSION_COPY, curatedVersions, versionFor, formatReleased } from '../lib/operating-system-versions';
 import { VERSION_DETAILS } from '../lib/operating-system-version-details';
 import platformLogos from '../lib/operating-system-logos.json';
 import { t } from '../lib/ui-strings';
@@ -55,16 +55,16 @@ function logoFor(id: string) {
 }
 const logo = platform && logoFor(platform.id);
 const canonicalOsBySlug = new Map(canonicalPhones.map(phone => [slugOf(phone), phone.data.os]));
-const versionGroups = new Map<string, { id: string; title: string; note?: string; phones: typeof models }>();
+const versionGroups = new Map<string, { id: string; title: string; note?: string; released?: string; phones: typeof models }>();
 if (platform) {
   for (const version of curatedVersions(platform.id)) {
-    versionGroups.set(version.id, { id: version.id, title: version.title, note: version.note?.[locale], phones: [] });
+    versionGroups.set(version.id, { id: version.id, title: version.title, note: version.note?.[locale], released: version.released, phones: [] });
   }
   for (const phone of models) {
     const os = canonicalOsBySlug.get(slugOf(phone));
     const version = os ? versionFor(platform.id, os) : undefined;
     const id = version?.id ?? 'unspecified';
-    const group = versionGroups.get(id) ?? { id, title: version?.title ?? VERSION_COPY.unspecified[locale], phones: [] };
+    const group = versionGroups.get(id) ?? { id, title: version?.title ?? VERSION_COPY.unspecified[locale], released: version?.released, phones: [] };
     group.phones.push(phone);
     versionGroups.set(id, group);
   }
@@ -169,6 +169,7 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
           return (
             <section id={`version-${version.id}`} class:list={['scroll-mt-24', hasVersions && 'mt-5 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 sm:p-5']}>
               {hasVersions && <h3 class="text-xl font-bold tracking-tight">{version.title}</h3>}
+              {version.released && <p class="mt-1 text-sm text-neutral-400">{formatReleased(version.released, locale)}</p>}
               <div class:list={[picture && 'grid items-start gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,14rem)]']}>
                 <div>
                   {version.note && <p class="mt-2 max-w-prose text-sm leading-relaxed text-neutral-300">{version.note}</p>}
