@@ -511,7 +511,6 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 }
 .gallery-zoom-button { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
 .gallery-expand-icon { box-shadow:inset 0 1px 0 #ffffff30; }
-html[data-design="modern"] .gallery-expand-icon { border-radius:50%; background:var(--glass-fill); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); }
 @media(prefers-reduced-transparency:reduce),(forced-colors:active) { html[data-design="modern"] .gallery-expand-icon { background:var(--modern-surface); -webkit-backdrop-filter:none; backdrop-filter:none; } }
 
 .compare-table .compare-table-head { top:var(--compare-header-offset, 4.5rem); }

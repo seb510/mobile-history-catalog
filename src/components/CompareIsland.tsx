@@ -55,6 +55,12 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     const second = bySlug.get(b);
     return first && second ? [{ first, second, story }] : [];
   });
+  const pairNotes = [
+    { a:'nokia-3250', b:'sony-ericsson-k750i', uk:'У Nokia 3250 поворот блока відкриває музичні клавіші, а в K750i зсув шторки об’єктива запускає камеру.', ru:'У Nokia 3250 поворот блока открывает музыкальные клавиши, а у K750i сдвиг шторки объектива запускает камеру.', en:'Twist the Nokia 3250 to uncover its music keys, or slide open the K750i lens cover to launch its camera.' },
+    { a:'nokia-3210', b:'nokia-3310', uk:'Nokia 3210 зробила SMS зручнішими завдяки T9, а 3310 дозволяла писати довші повідомлення.', ru:'Nokia 3210 упростила набор SMS с помощью T9, а 3310 позволяла писать более длинные сообщения.', en:'The Nokia 3210 made texting easier with T9, while the 3310 let you compose longer messages.' },
+    { a:'sony-ericsson-w800i', b:'motorola-rokr-e1', uk:'W800i давав швидкий доступ до Walkman окремою клавішею, а ROKR E1 переносив музику з настільного iTunes.', ru:'W800i открывал Walkman отдельной клавишей, а ROKR E1 переносил музыку из настольного iTunes.', en:'The W800i opened Walkman with a dedicated key, while the ROKR E1 brought over music from desktop iTunes.' },
+    { a:'motorola-razr-v3', b:'nokia-n95', uk:'RAZR V3 відкривався як розкладачка, а двобічний слайдер N95 відкривав цифрові або музичні клавіші.', ru:'RAZR V3 раскрывался как раскладушка, а двусторонний слайдер N95 открывал цифровые или музыкальные клавиши.', en:'The RAZR V3 flipped open, while sliding the N95 in either direction revealed number keys or media controls.' },
+  ];
 
   useEffect(() => {
     const root = document.documentElement;
@@ -138,6 +144,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
   const phoneA = selected.a ? bySlug.get(selected.a) : undefined;
   const phoneB = selected.b ? bySlug.get(selected.b) : undefined;
+  const pairNote = pairNotes.find(({ a, b }) => (selected.a === a && selected.b === b) || (selected.a === b && selected.b === a))?.[locale];
 
   const groups = useMemo(() => {
     if (!phoneA || !phoneB) return [];
@@ -186,6 +193,11 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
 
       {phoneA && phoneB ? (
         <div className="mt-6">
+          {pairNote && (
+            <p className="mb-5 border-s-2 border-orange-500 bg-neutral-900 px-4 py-3 text-sm leading-relaxed text-neutral-200">
+              {pairNote}
+            </p>
+          )}
           {highlights.length > 0 && <details className="compare-summary mb-5 border-y border-neutral-800">
             <summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold text-neutral-300">{editorial.overview}</summary>
             <div className="compare-overview">

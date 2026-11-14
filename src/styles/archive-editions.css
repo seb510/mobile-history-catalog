@@ -1,0 +1,242 @@
+/* The header shares its desktop geometry in both editions. */
+@media (min-width:1024px) {
+  html .site-header {
+    top:.625rem;
+    width:calc(100% - 1.5rem);
+    max-width:74rem;
+    margin:.625rem auto 0;
+    border-width:1px;
+    font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif;
+  }
+  html .site-header.is-hidden { transform:translateY(calc(-100% - 1.5rem)); }
+  html .site-header > div:first-child { padding-inline:1rem; }
+  .site-header .design-switch { padding:2px; }
+  .global-info-bar { font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif; }
+}
+
+/* Square tiles and copper rules bind the magazine edition together. */
+html:not([data-design="modern"]) {
+  --motion-enter:300ms;
+  --motion-image:280ms;
+}
+html:not([data-design="modern"]) body :where(*, *::before, *::after) { border-radius:0 !important; }
+html:not([data-design="modern"]) .site-header { border-inline-color:transparent; }
+html:not([data-design="modern"]) :is(.editorial-card,.recent-phone,.update-entry,.update-phone,.home-project,.generation-feature,.catalog-tools,.catalog-year-index,.phone-photo-block,.phone-gallery-stage,.phone-video,.phone-audio,.phone-spec-surface,.compare-table,.compare-selected,.compare-summary,.about-identity,.period-dialog,.filter-select-popup,.feedback-dialog) {
+  border-color:var(--paper-rule);
+  box-shadow:none;
+}
+html:not([data-design="modern"]) .home-cover-feature { border-block-start:3px solid var(--color-orange-500); }
+html:not([data-design="modern"]) .home-cover h1 { text-wrap:balance; }
+html:not([data-design="modern"]) .home-topic-nav ul { overflow:hidden; }
+html:not([data-design="modern"]) .home-cover-feature .card-copy { border-color:var(--paper-rule); }
+html:not([data-design="modern"]) .section-label { border-inline-start-color:var(--color-orange-500); }
+html:not([data-design="modern"]) :is(a.editorial-card,.recent-phone,.update-phone) {
+  transition:border-color var(--motion-ui) var(--motion-easing),background-color var(--motion-ui) var(--motion-easing);
+}
+@media (hover:hover) and (pointer:fine) {
+  html:not([data-design="modern"]) :is(a.editorial-card,.recent-phone,.update-phone):hover { border-color:var(--color-orange-500); }
+}
+
+/* The modern edition pairs mineral surfaces with a violet accent. */
+html[data-design="modern"] {
+  --display-surface:#211e35;
+  --display-text:#f6f3ff;
+  --display-muted:#cbc4de;
+  --display-accent:#e0d2ff;
+  --display-line:#f1e5ff40;
+  --modern-corner:1rem;
+  --modern-control:.625rem;
+}
+html[data-design="modern"] body { background:var(--modern-canvas); }
+html[data-design="modern"] .site-header {
+  background:var(--modern-surface);
+  border:1px solid var(--modern-line);
+  border-radius:var(--modern-corner);
+  box-shadow:var(--modern-shadow);
+}
+html[data-design="modern"] .feedback-launch { background:var(--modern-surface); border-radius:var(--modern-control); }
+html[data-design="modern"] :is(.global-search-panel,.mobile-menu-panel,.language-options,.period-dialog,.feedback-dialog) {
+  background:var(--modern-surface);
+  border:1px solid var(--modern-line);
+  border-radius:var(--modern-corner);
+  box-shadow:var(--modern-shadow);
+}
+html[data-design="modern"] .mobile-menu-panel { margin-top:.375rem; }
+html[data-design="modern"] .mobile-menu-panel .mobile-nav-link[aria-current] {
+  background:var(--modern-soft);
+  border-radius:var(--modern-control);
+  padding-inline:.75rem;
+}
+html[data-design="modern"] :is(.editorial-card,.recent-phone,.update-phone,.phone-photo-block,.phone-story-section,.phone-video,.phone-audio,.compare-selected,.compare-summary,.compare-actions,.home-project,.catalog-tools,.catalog-year-index,.brand-archive-panel,.brand-milestone,.about-identity,.glass-surface,.update-entry,.favorites-empty,.favorites-toolbar,.generation-feature,.phone-spec-surface,.compare-table) {
+  background:var(--modern-surface);
+  border-color:var(--modern-line);
+  border-radius:var(--modern-corner);
+  box-shadow:none;
+}
+html[data-design="modern"] :is(.glass-surface,.update-entry) { padding:clamp(1rem,3vw,1.75rem); }
+html[data-design="modern"] :is(.phone-card-art,.phone-gallery-stage,.compare-slot-image) {
+  background:var(--modern-soft);
+  border-color:var(--modern-line);
+}
+html[data-design="modern"] :is(.control-button,.search-control-face,.menu-control-face,.filter-select-trigger,.catalog-search-field,.gallery-expand-icon) { border-radius:var(--modern-control); }
+html[data-design="modern"] :is(.primary-cta,.period-save) {
+  background:var(--accent-solid);
+  color:white;
+  border-radius:var(--modern-control);
+  box-shadow:none;
+}
+html[data-design="modern"] .design-switch button[aria-pressed="true"] {
+  background:var(--modern-surface);
+  color:var(--color-orange-500);
+  box-shadow:inset 0 0 0 1px var(--modern-line);
+}
+html[data-design="modern"] .home-cover {
+  padding:clamp(1rem,4vw,3rem);
+  background:var(--modern-soft);
+  border:1px solid var(--modern-line);
+  border-radius:clamp(1rem,3vw,2rem);
+}
+html[data-design="modern"] .home-cover-grid { gap:clamp(1.5rem,4vw,3.5rem); }
+html[data-design="modern"] .home-cover h1 {
+  max-width:16ch;
+  font-size:clamp(2.3rem,4.8vw,4.25rem);
+  font-weight:800;
+  line-height:.99;
+  text-wrap:balance;
+}
+html[data-design="modern"] .home-cover-feature {
+  display:grid;
+  background:var(--display-surface);
+  color:var(--display-text);
+  border-color:var(--display-line);
+  border-radius:clamp(.875rem,2.5vw,1.75rem);
+}
+html[data-design="modern"] .home-cover-feature .home-cover-media {
+  background:radial-gradient(ellipse at 35% 65%,#9a7ce75c,transparent 65%),#27223e;
+}
+html[data-design="modern"] .home-cover-feature .card-title { color:var(--display-text); }
+html[data-design="modern"] .home-cover-feature :is(.text-neutral-400,.text-neutral-500) { color:var(--display-muted); }
+html[data-design="modern"] .home-cover-feature .text-orange-500 { color:var(--display-accent); }
+html[data-design="modern"] .home-cover-feature :is(.border-b,.border-t) { border-color:var(--display-line); }
+html[data-design="modern"] .home-cover-feature .card-copy { padding:clamp(1rem,3vw,1.75rem); }
+html[data-design="modern"] .home-topic-nav a { background:var(--modern-soft); border-radius:var(--modern-control); }
+html[data-design="modern"] .generation-feature { background:var(--modern-soft); }
+html[data-design="modern"] .generation-feature .editorial-card { border-radius:0; background:transparent; }
+html[data-design="modern"] .site-footer {
+  background:var(--modern-surface);
+  border-color:var(--modern-line);
+  color:var(--color-neutral-100);
+  border-radius:0;
+}
+html[data-design="modern"] .compare-table { overflow:clip; }
+@supports not (overflow:clip) { html[data-design="modern"] .compare-table { overflow:visible; } }
+html[data-design="modern"] .compare-table .compare-table-head {
+  background:var(--modern-soft);
+  border-radius:0;
+  box-shadow:0 2px 0 var(--modern-line);
+}
+@media (min-width:1024px) {
+  html[data-design="modern"] .home-cover-grid { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); }
+}
+@media (max-width:639px) {
+  html[data-design="modern"] .home-cover-media > div:first-child > div { height:clamp(9rem,47vw,15rem); }
+  html[data-design="modern"] .home-cover-media > div:nth-child(2) > div { height:clamp(7rem,36vw,11rem); }
+  html[data-design="modern"] .feedback-dialog { border-radius:var(--modern-corner) var(--modern-corner) 0 0; }
+}
+@media (max-width:1023px) {
+  html[data-design="modern"] .site-header { border-block-start-width:2px; border-block-start-color:transparent; border-inline-width:0; }
+}
+@media (hover:hover) and (pointer:fine) {
+  html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone,.home-topic-nav a):hover { border-color:var(--color-orange-500); }
+  html[data-design="modern"] :is(.primary-cta,.period-save):hover { background:var(--accent-solid-hover); }
+}
+@media (prefers-reduced-motion:no-preference) {
+  @media (hover:hover) and (pointer:fine) {
+    html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone) { transition:translate var(--motion-ui) var(--motion-easing),border-color var(--motion-ui) var(--motion-easing); }
+    html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone):hover { translate:0 -2px; }
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-design="modern"] .editorial-card img { transition:none; }
+}
+
+.header-nav-icon { flex:none; }
+.header-navigation { gap:.125rem; }
+.header-settings { gap:.25rem; }
+.header-settings .language-dropdown,
+.header-settings .design-switch { margin-inline-start:0; }
+.header-settings .language-dropdown summary { min-width:2.75rem; }
+@media (min-width:1024px) {
+  .header-settings {
+    margin-inline-start:.375rem;
+    padding-inline-start:.625rem;
+    border-inline-start:1px solid var(--color-neutral-800);
+  }
+  .header-actions > .global-search {
+    padding-inline-start:.25rem;
+    border-inline-start:1px solid var(--color-neutral-800);
+  }
+}
+html[data-design="modern"] .header-settings :is(.design-switch,.language-dropdown summary,.theme-toggle-btn > span),
+html[data-design="modern"] .header-actions .search-control-face {
+  background:var(--modern-canvas);
+  border-radius:var(--modern-control);
+}
+.header-nav-link { gap:.35rem; white-space:nowrap; padding-inline:.55rem; }
+.header-nav-link .header-nav-icon { display:none; }
+@media (min-width:1200px) {
+  .header-nav-link .header-nav-icon { display:block; width:1rem; height:1rem; }
+}
+.header-nav-link[aria-current]::after { inset-inline:.55rem; }
+.mobile-nav-link { gap:.625rem; }
+.menu-line-middle { transition:opacity var(--motion-ui) var(--motion-easing); }
+.menu-toggle[aria-expanded="true"] .menu-line-middle { opacity:0; }
+html:not([data-design="modern"]) .mobile-menu-panel nav {
+  display:grid;
+  gap:1px;
+  background:var(--paper-rule);
+  border:1px solid var(--paper-rule);
+  margin-block:.625rem;
+}
+html:not([data-design="modern"]) .mobile-nav-link {
+  background:var(--paper-panel);
+  border:0;
+  padding-inline:.75rem;
+}
+html:not([data-design="modern"]) :is(.header-nav-link,.mobile-nav-link)[aria-current] {
+  background:var(--paper-panel);
+  box-shadow:inset 2px 0 var(--color-orange-500);
+}
+html:not([data-design="modern"]) .header-nav-link[aria-current]::after { display:none; }
+html[data-design="modern"] .header-nav-link,
+html[data-design="modern"] .mobile-nav-link { border-radius:var(--modern-control); }
+html[data-design="modern"] .header-nav-link[aria-current] {
+  color:var(--color-orange-500);
+  background:var(--modern-soft);
+}
+html[data-design="modern"] .header-nav-link[aria-current]::after { display:none; }
+html[data-design="modern"] .mobile-menu-panel nav { display:grid; gap:.25rem; padding-block:.5rem; }
+html[data-design="modern"] .mobile-nav-link { border-bottom-color:var(--modern-line); padding-inline:.75rem; }
+.collection-icon-check, [aria-pressed="true"] .collection-icon-add { display:none; }
+[aria-pressed="true"] .collection-icon-check { display:initial; }
+html:not([data-design="modern"]) :is(.favorite-toggle-icon,.phone-video-badge) {
+  background:var(--paper-panel);
+  backdrop-filter:none;
+}
+html:not([data-design="modern"]) .favorite-toggle-icon[aria-pressed="true"] {
+  background:var(--accent-solid);
+  color:#fff;
+  border-color:var(--accent-solid);
+}
+html[data-design="modern"] :is(.privacy-notice,.phone-search-result,.platform-link) { border-radius:var(--modern-control); }
+html[data-design="modern"] .phone-search-result { background:var(--modern-surface); }
+@media (hover:hover) and (pointer:fine) {
+  html[data-design="modern"] .header-nav-link:hover { background:var(--modern-soft); }
+  html:not([data-design="modern"]) .header-nav-link:hover { background:var(--paper-panel); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .menu-line-middle { transition:none; }
+}
+@media (forced-colors:active) {
+  html[data-design="modern"] .home-cover-feature { --display-text:CanvasText; --display-muted:CanvasText; --display-accent:LinkText; }
+}

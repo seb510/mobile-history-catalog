@@ -1,4 +1,5 @@
 ---
+import CollectionIcon from './CollectionIcon.astro';
 import Arrow from './Arrow.astro';
 import { phoneColorSwatch } from '../lib/phone-colors';
 import PlaceholderArt from './PlaceholderArt.astro';
@@ -43,6 +44,20 @@ const images = [
     : []),
   ...(data.gallery ?? []),
 ];
+const bodyStates = {
+  'motorola-razr-v3': [
+    ['museum-open.webp', { uk: 'Відкритий', ru: 'Открыт', en: 'Open' }],
+    ['museum-closed.webp', { uk: 'Закритий', ru: 'Закрыт', en: 'Closed' }],
+  ],
+  'nokia-5700': [
+    ['front-cutout-v1.webp', { uk: 'Клавіатура для дзвінків', ru: 'Клавиатура для звонков', en: 'Call keypad' }],
+    ['music-2007.webp', { uk: 'Музичні клавіші', ru: 'Музыкальные клавиши', en: 'Music controls' }],
+  ],
+} as const;
+const states = (bodyStates[slugOf(phone) as keyof typeof bodyStates] ?? []).flatMap(([file, labels]) => {
+  const index = images.findIndex(image => image.image.endsWith('/' + file));
+  return index < 0 ? [] : [{ image: images[index], index, label: labels[locale] }];
+});
 const stories = RETRO_STORIES.flatMap((story, index) => story.slugs.some((slug) => slug === slugOf(phone))
   ? [{ ...story, title: HOME_EDITORIAL[locale].themes[index].title }] : []);
 const storySlugs = new Set<string>(stories.flatMap((story) => [...story.slugs]));
@@ -74,9 +89,7 @@ const related = allPhones
         aria-label={strings.favorites.add}
         class="favorite-toggle favorite-toggle-bare inline-flex min-h-11 shrink-0 items-center justify-center gap-2 text-neutral-500 motion-ui hover-desktop:text-orange-500"
       >
-        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 2.5h8a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2Z M10 5h4 M10 12l2 2 4-4 M11 18h2" />
-        </svg>
+        <CollectionIcon />
         <span data-favorite-label class="text-xs normal-case tracking-normal">{strings.favorites.add}</span>
       </button>
       <span class="editorial-kicker text-neutral-500 sm:hidden">{data.year}</span>
@@ -97,6 +110,15 @@ const related = allPhones
   <div class="phone-media-rail min-w-0 lg:self-start">
     <div id="phone-photos" class="phone-photo-block scroll-mt-24" data-image-gallery>
       <p class="editorial-kicker mb-3 text-neutral-500">{PHONE_VIDEOS[slugOf(phone)] ? reading.media : reading.photos}</p>
+      {states.length === 2 && <div class="mb-4 grid grid-cols-2 gap-2">
+        {states.map(({ image, index, label }) => <button type="button" data-gallery-open={String(index)} aria-haspopup="dialog" aria-label={`${strings.gallery.open} — ${label}`} class="editorial-card grid min-w-0 gap-2 rounded-sm border border-neutral-800 bg-neutral-900 p-2 text-start text-xs font-semibold">
+          <div class="relative flex h-24 justify-center sm:h-32">
+            <img data-image-fallback src={image.image} alt="" class="h-full w-full object-contain" />
+            <div data-image-fallback-placeholder class="absolute inset-0 hidden items-center justify-center"><PlaceholderArt class="h-full w-full text-neutral-700" /></div>
+          </div>
+          <span class="flex items-center justify-between gap-1">{label}<Arrow kind="chevron" /></span>
+        </button>)}
+      </div>}
       <div class="relative">
         <div class="phone-gallery-stage relative flex h-[min(76vw,320px)] items-center justify-center overflow-hidden rounded-sm border border-neutral-800 border-t-4 border-t-orange-500 bg-neutral-900 p-4 sm:h-96 sm:p-6 lg:h-[420px]">
           {images.length > 0 ? (

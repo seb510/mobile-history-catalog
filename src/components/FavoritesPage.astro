@@ -19,6 +19,11 @@ const ownedCopy = OWNED_PHONE_COPY[locale];
 const periodCopy = OWNERSHIP_COPY[locale];
 const collectionCopy = COLLECTION_COPY[locale];
 const cabinetCopy = CABINET_COPY[locale];
+const shareCopy = {
+  uk: { download:'Завантажити PNG', error:'Не вдалося створити зображення.' },
+  ru: { download:'Скачать PNG', error:'Не удалось создать изображение.' },
+  en: { download:'Download PNG', error:'Could not create the image.' },
+}[locale];
 const comparePath = localePath(locale, '/compare/');
 
 const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b.data.year);
@@ -69,6 +74,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <div data-favorites-toolbar hidden class="favorites-toolbar mb-5 flex flex-wrap items-center justify-between gap-4 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-4">
     <div class="flex flex-wrap items-center gap-3">
       <h2 class="text-lg font-bold">{periodCopy.personal}</h2>
+      <button type="button" class="control-button text-sm" data-timeline-export data-title={periodCopy.personal} data-site={strings.siteName} data-error={shareCopy.error}>{shareCopy.download}</button>
       <a
         data-favorites-compare-cta
         data-compare-base={comparePath}
@@ -99,7 +105,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <p data-period-status role="status" aria-live="polite" class="mb-3 text-sm text-orange-500"></p>
   <ol data-favorites-list hidden class="grid grid-cols-2 items-start gap-3 sm:grid-cols-3 lg:grid-cols-4">
     {phones.map((phone) => (
-      <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} class="flex min-w-0 flex-col" hidden>
+      <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} data-timeline-name={`${phone.data.brand} ${phone.data.model}`} data-timeline-image={phone.data.imageCredit ? phone.data.image : undefined} data-timeline-credit={phone.data.imageCredit} class="flex min-w-0 flex-col" hidden>
         <div class="ownership-heading mb-2 grid justify-items-start gap-1 border-l-2 border-orange-500 pl-2">
           <div class="min-w-0"><p data-period-label class="text-sm font-bold tabular-nums text-orange-500">{periodCopy.unknown}</p><p class="mt-1 text-xs text-neutral-500">{periodCopy.release}: {phone.data.year}</p></div>
           <button type="button" data-period-open data-slug={slugOf(phone)} data-model={phone.data.brand+' '+phone.data.model} data-year={phone.data.year} aria-label={periodCopy.add+' — '+phone.data.brand+' '+phone.data.model} class="period-edit-button" hidden>
@@ -201,6 +207,25 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const compareCta = document.querySelector<HTMLAnchorElement>('[data-favorites-compare-cta]');
   const sortSelect = document.querySelector<HTMLSelectElement>('[data-filter="sort"]');
   const items = Array.from(document.querySelectorAll<HTMLElement>('[data-favorite-item]'));
+  const exportButton = document.querySelector<HTMLButtonElement>('[data-timeline-export]');
+  exportButton?.addEventListener('click', async () => {
+    const entries = Array.from(list?.querySelectorAll<HTMLElement>('[data-favorite-item]:not([hidden])') ?? [], item => ({
+      name: item.dataset.timelineName ?? '',
+      period: item.querySelector('[data-period-label]')?.textContent ?? '',
+      image: item.dataset.timelineImage,
+      credit: item.dataset.timelineCredit,
+    }));
+    if (!entries.length) return;
+    exportButton.disabled = true;
+    try {
+      const { downloadTimeline } = await import('../scripts/timeline-export');
+      await downloadTimeline(entries, exportButton.dataset.title ?? '', exportButton.dataset.site ?? '');
+    } catch {
+      document.querySelector('[data-period-status]')!.textContent = exportButton.dataset.error ?? '';
+    } finally {
+      exportButton.disabled = false;
+    }
+  });
 
   const stats = document.querySelector<HTMLElement>('[data-cabinet-stats]')!;
   const datedCount = stats.querySelector('[data-cabinet-dated]')!;

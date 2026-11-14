@@ -1,4 +1,5 @@
 ---
+import CollectionIcon from './CollectionIcon.astro';
 import Arrow from './Arrow.astro';
 import { PHONE_VIDEOS, PHONE_VIDEO_LABELS } from '../lib/phone-videos';
 import PlaceholderArt from './PlaceholderArt.astro';
@@ -49,7 +50,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     ) : (
       <PlaceholderArt class="h-full w-full text-neutral-600" />
     )}
-    {PHONE_VIDEOS[slug] && <span class="phone-video-badge absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-sm border border-neutral-600 bg-neutral-950 px-2 py-1 text-[0.65rem] font-semibold text-neutral-200" title={PHONE_VIDEO_LABELS[locale].available}><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg><span aria-hidden="true">{PHONE_VIDEO_LABELS[locale].badge}</span><span class="sr-only">{PHONE_VIDEO_LABELS[locale].available}</span></span>}
+    {PHONE_VIDEOS[slug] && <span class="phone-video-badge absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-sm border border-neutral-600 bg-neutral-950 px-2 py-1 text-[0.65rem] font-semibold text-neutral-200" title={PHONE_VIDEO_LABELS[locale].available}><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path class="icon-edition-magazine" d="M3 4h14v12H3zM8 7l5 3-5 3z"/><rect class="icon-edition-modern" x="2" y="3" width="16" height="14" rx="5"/><path class="icon-edition-modern" d="m8 7 5 3-5 3Z"/></svg><span aria-hidden="true">{PHONE_VIDEO_LABELS[locale].badge}</span><span class="sr-only">{PHONE_VIDEO_LABELS[locale].available}</span></span>}
     {badge ? (
       <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold text-neutral-950">
         {badge}
@@ -88,8 +89,6 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     aria-label={strings.favorites.add}
     class="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-200 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500"
   >
-    <svg aria-hidden="true" viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8 2.5h8a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2Z M10 5h4 M10 12l2 2 4-4 M11 18h2" />
-    </svg>
+    <CollectionIcon />
   </button>
 </div>

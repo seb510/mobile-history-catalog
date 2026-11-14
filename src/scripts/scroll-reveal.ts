@@ -10,7 +10,8 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
       observer.unobserve(entry.target);
       if (reducedMotion.matches) continue;
       const motion = getComputedStyle(document.documentElement);
-      const animation = entry.target.animate([{ opacity: .15, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], {
+      const distance = document.documentElement.dataset.design === 'modern' ? 8 : 4;
+      const animation = entry.target.animate([{ opacity: .72, translate: `0 ${distance}px` }, { opacity: 1, translate: 'none' }], {
         duration: parseFloat(motion.getPropertyValue('--motion-enter')) || 440,
         easing: motion.getPropertyValue('--motion-easing').trim() || 'ease-out',
       });

@@ -4,6 +4,7 @@ import LogoMark from './LogoMark.astro';
 import GlobalSearch from './GlobalSearch.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import DesignToggle from './DesignToggle.astro';
+import HeaderNavIcon from './HeaderNavIcon.astro';
 import { OS_COPY, OS_PATH } from '../lib/operating-systems';
 import { LOCALES, localePath, type Locale } from '../lib/locales';
 import { t } from '../lib/ui-strings';
@@ -24,13 +25,13 @@ const isActive = (target: string) =>
   path === target ||
   (target !== '/' && path.startsWith(target)) ||
   (target === '/catalog/' && path.startsWith('/phones/'));
-const links = [
-  { path: '/catalog/', label: strings.nav.catalog },
-  { path: '/brands/', label: strings.nav.brands },
-  { path: OS_PATH, label: OS_COPY.short[locale], title: OS_COPY.title[locale] },
-  { path: '/compare/', label: strings.nav.compare },
-  { path: '/favorites/', label: CABINET_NAV[locale] },
-  { path: '/about/', label: strings.nav.about },
+const links: { path: string; label: string; title?: string; icon: 'catalog' | 'brands' | 'os' | 'compare' | 'account' | 'about' }[] = [
+  { path: '/catalog/', label: strings.nav.catalog, icon: 'catalog' },
+  { path: '/brands/', label: strings.nav.brands, icon: 'brands' },
+  { path: OS_PATH, label: OS_COPY.short[locale], title: OS_COPY.title[locale], icon: 'os' },
+  { path: '/compare/', label: strings.nav.compare, icon: 'compare' },
+  { path: '/favorites/', label: CABINET_NAV[locale], icon: 'account' },
+  { path: '/about/', label: strings.nav.about, icon: 'about' },
 ];
 ---
 
@@ -41,15 +42,17 @@ const links = [
       <span class="truncate text-sm font-bold tracking-tight sm:text-base" title={`${strings.siteName} — ${strings.brandLine}`}>{strings.siteName}</span>
     </a>
 
-    <div class="header-actions flex items-center gap-1">
-      <nav aria-label={strings.footer.navigation} class="hidden items-center gap-1 lg:flex">
+    <div class="header-actions">
+      <nav aria-label={strings.footer.navigation} class="header-navigation hidden items-center lg:flex">
         {links.map((link) => (
           <a href={localePath(locale, link.path)} class="header-nav-link" title={link.title} aria-label={link.title} aria-current={isActive(link.path) ? 'page' : undefined}>
-            {link.label}
+            <HeaderNavIcon icon={link.icon} /><span>{link.label}</span>
             {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count ml-1.5"></span>}
             {link.path === '/favorites/' && <span class="account-indicator" data-account-indicator hidden><span class="sr-only"></span></span>}
           </a>
         ))}
+      </nav>
+      <div class="header-settings hidden items-center lg:flex">
         <details class="language-dropdown">
           <summary aria-label={strings.langSwitcher}><span>{LOCALE_LABEL[locale]}</span><Arrow kind="chevron" direction="down" size={14} /></summary>
           <div class="language-options">
@@ -59,8 +62,8 @@ const links = [
           </div>
         </details>
         <DesignToggle locale={locale} />
-        <ThemeToggle locale={locale} class="ml-1 h-11 w-11 rounded-sm" />
-      </nav>
+        <ThemeToggle locale={locale} />
+      </div>
       <GlobalSearch locale={locale} />
       <button
         id="menu-toggle"
@@ -75,8 +78,8 @@ const links = [
         <span class="sr-only">{strings.menu.open}</span>
         <span class="menu-control-face">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6" aria-hidden="true">
-            <g class="icon-edition-magazine"><path class="menu-line-first" d="M4 8h16" /><path class="menu-line-last" d="M4 16h16" /></g>
-            <g class="icon-edition-modern"><path class="menu-line-first" d="M6 8h12" /><path class="menu-line-last" d="M6 16h12" /></g>
+            <g class="icon-edition-magazine"><path class="menu-line-first" d="M5 8h14" /><path class="menu-line-middle" d="M5 12h10" /><path class="menu-line-last" d="M5 16h14" /></g>
+            <g class="icon-edition-modern" stroke-linecap="round" stroke-width="2"><path class="menu-line-first" d="M6 8h12" /><path class="menu-line-last" d="M6 16h12" /></g>
           </svg>
         </span>
       </button>
@@ -89,6 +92,7 @@ const links = [
       <nav aria-label={strings.footer.navigation}>
         {links.map((link) => (
         <a class="mobile-nav-link" href={localePath(locale, link.path)} aria-current={isActive(link.path) ? 'page' : undefined}>
+          <HeaderNavIcon icon={link.icon} />
           <span>{link.title ?? link.label}</span>
           {link.path === '/favorites/' && <span data-favorite-count hidden class="favorite-count"></span>}
           {link.path === '/favorites/' && <span class="account-indicator" data-account-indicator hidden><span class="sr-only"></span></span>}
