@@ -291,7 +291,13 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
       const { catalogCard, catalogOffset, ...remaining } = state;
       history.replaceState(remaining, '');
       requestAnimationFrame(() => {
-        window.scrollBy({ top: card.getBoundingClientRect().top - catalogOffset, behavior: 'instant' });
+        const header = document.querySelector<HTMLElement>('.site-header');
+        const yearBar = document.querySelector<HTMLElement>('[data-catalog-position]');
+        const headerSpace = header ? header.offsetHeight + (parseFloat(getComputedStyle(header).top) || 0) : 0;
+        const safeTop = headerSpace + (yearBar?.offsetHeight || 52) + 12;
+        const safeBottom = Math.max(safeTop, innerHeight - card.offsetHeight - 12);
+        const offset = Math.max(safeTop, Math.min(catalogOffset, safeBottom));
+        window.scrollBy({ top: card.getBoundingClientRect().top - offset, behavior: 'instant' });
         card.focus({ preventScroll: true });
       });
     };

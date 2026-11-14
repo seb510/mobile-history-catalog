@@ -2,4 +2,9 @@
 interface Props { class?: string }
 const { class: className = 'h-full w-full' } = Astro.props;
 ---
-<svg viewBox="0 0 200 150" class={className} aria-hidden="true"><path d="M43 52h18M139 98h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".25"/><g transform="translate(52 27) scale(1.5)"><rect x="17" y="6" width="30" height="52" rx="10" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M28 11h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="22" y="17" width="20" height="16" rx="4" fill="none"/><path d="M25 29V23h8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".6"/><circle cx="32" cy="39" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M23 39h2m14 0h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="23" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="30" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="37" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="23" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="30" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="37" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/></g></svg>
+<svg viewBox="0 0 200 150" class={className} aria-hidden="true">
+    <g transform="translate(52 27) scale(1.5)">
+      <path fill="currentColor" fill-rule="evenodd" d="M24 8h16a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8ZM22 16v20h20V16Zm2 24v4h6v-4Zm10 0v4h6v-4ZM24 46v4h6v-4Zm10 0v4h6v-4Z" />
+      <rect x="22" y="16" width="20" height="20" fill="currentColor" opacity=".4" />
+    </g>
+</svg>

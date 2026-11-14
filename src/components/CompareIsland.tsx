@@ -24,7 +24,12 @@ type Slot = 'a' | 'b';
 
 function PlaceholderIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 200 150" className={className} aria-hidden="true"><path d="M43 52h18M139 98h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".25"/><g transform="translate(52 27) scale(1.5)"><rect x="17" y="6" width="30" height="52" rx="10" fill="none" stroke="currentColor" strokeWidth="2.5"/><path d="M28 11h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><rect x="22" y="17" width="20" height="16" rx="4" fill="none"/><path d="M25 29V23h8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".6"/><circle cx="32" cy="39" r="3" fill="none" stroke="currentColor" strokeWidth="1.8"/><path d="M23 39h2m14 0h2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="23" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="30" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="37" y="46" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="23" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="30" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/><rect x="37" y="51" width="4" height="2.5" rx="1.25" fill="currentColor"/></g></svg>
+    <svg viewBox="0 0 200 150" className={className} aria-hidden="true">
+      <g transform="translate(52 27) scale(1.5)">
+        <path fill="currentColor" fillRule="evenodd" d="M24 8h16a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8ZM22 16v20h20V16Zm2 24v4h6v-4Zm10 0v4h6v-4ZM24 46v4h6v-4Zm10 0v4h6v-4Z" />
+        <rect x="22" y="16" width="20" height="20" fill="currentColor" opacity=".4" />
+      </g>
+    </svg>
   );
 }
 
@@ -46,16 +51,18 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
   const design = COMPARE_DESIGN[locale];
   const experience = COMPARE_EXPERIENCE[locale];
   const bySlug = useMemo(() => new Map(phones.map((p) => [p.slug, p])), [phones]);
-  const suggestedMatchups = [
-    { a: 'nokia-3210', b: 'nokia-3310', story: strings.compare.suggestions.gsmEra },
-    { a: 'sony-ericsson-w800i', b: 'motorola-rokr-e1', story: strings.compare.suggestions.musicPhones },
-    { a: 'motorola-razr-v3', b: 'nokia-n95', story: strings.compare.suggestions.mechanics },
-  ].flatMap(({ a, b, story }) => {
-    const first = bySlug.get(a);
-    const second = bySlug.get(b);
-    return first && second ? [{ first, second, story }] : [];
+  const featuredPairs = [
+    { a:'siemens-a65', b:'siemens-sxg75', uk:'На A65 головними були дзвінки й SMS. SXG75 додав відеодзвінки через UMTS і навігацію з GPS.', ru:'У A65 в центре были звонки и SMS. SXG75 добавил видеозвонки через UMTS и навигацию с GPS.', en:'The A65 focused on calls and texts. The SXG75 added video calls over UMTS and GPS navigation.' },
+    { a:'nokia-6800', b:'siemens-sk65', uk:'Nokia 6800 розкладала клавіатуру навколо екрана, а SK65 відкривав QWERTY поворотом корпусу.', ru:'Nokia 6800 раскладывала клавиатуру вокруг экрана, а SK65 открывал QWERTY поворотом корпуса.', en:'The Nokia 6800 unfolded its keyboard around the screen. The SK65 exposed its QWERTY keys with a twist.' },
+    { a:'nokia-n70', b:'sony-ericsson-k750i', uk:'В обох зйомка починалася зі зсуву шторки. У N70 була також фронтальна камера для відеодзвінків, а K750i мав автофокус для знімків зблизька.', ru:'В обоих съёмка начиналась со сдвига шторки. У N70 была и фронтальная камера для видеозвонков, а K750i получил автофокус для близких планов.', en:'Sliding open the lens cover started the camera on both. The N70 also offered a front camera for video calls, while the K750i offered autofocus for close-ups.' },
+  ];
+  const suggestedMatchups = featuredPairs.flatMap(pair => {
+    const first = bySlug.get(pair.a);
+    const second = bySlug.get(pair.b);
+    return first && second ? [{ first, second, story: pair[locale] }] : [];
   });
   const pairNotes = [
+    ...featuredPairs,
     { a:'nokia-3250', b:'sony-ericsson-k750i', uk:'У Nokia 3250 поворот блока відкриває музичні клавіші, а в K750i зсув шторки об’єктива запускає камеру.', ru:'У Nokia 3250 поворот блока открывает музыкальные клавиши, а у K750i сдвиг шторки объектива запускает камеру.', en:'Twist the Nokia 3250 to uncover its music keys, or slide open the K750i lens cover to launch its camera.' },
     { a:'nokia-3210', b:'nokia-3310', uk:'Nokia 3210 зробила SMS зручнішими завдяки T9, а 3310 дозволяла писати довші повідомлення.', ru:'Nokia 3210 упростила набор SMS с помощью T9, а 3310 позволяла писать более длинные сообщения.', en:'The Nokia 3210 made texting easier with T9, while the 3310 let you compose longer messages.' },
     { a:'sony-ericsson-w800i', b:'motorola-rokr-e1', uk:'W800i давав швидкий доступ до Walkman окремою клавішею, а ROKR E1 переносив музику з настільного iTunes.', ru:'W800i открывал Walkman отдельной клавишей, а ROKR E1 переносил музыку из настольного iTunes.', en:'The W800i opened Walkman with a dedicated key, while the ROKR E1 brought over music from desktop iTunes.' },
@@ -133,7 +140,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     }
   };
   const quickPhones = (other: string | null) => {
-    const curated = ['nokia-3310', 'motorola-razr-v3', 'sony-ericsson-w800i', 'siemens-sl55', 'nokia-7610', 'nokia-n95'];
+    const curated = ['siemens-sk65', 'nokia-6800', 'sony-ericsson-k750i', 'nokia-n70', 'siemens-a65', 'siemens-sxg75'];
     const opposite = other ? bySlug.get(other) : undefined;
     const sameBrand = opposite ? phones.filter((p) => p.data.year <= 2007 && p.data.brand === opposite.data.brand && p.slug !== other)
       .sort((a, b) => Math.abs(a.data.year - opposite.data.year) - Math.abs(b.data.year - opposite.data.year))
