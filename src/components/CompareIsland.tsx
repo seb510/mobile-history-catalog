@@ -25,8 +25,8 @@ type Slot = 'a' | 'b';
 function PlaceholderIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 200 150" className={className} aria-hidden="true">
-      <g transform="translate(52 27) scale(1.5)">
-        <path fill="currentColor" fillRule="evenodd" d="M38 1A3 3 0 0 1 41 4V5A3 3 0 0 1 38 8A3 3 0 0 1 35 5V4A3 3 0 0 1 38 1ZM24 8h16a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8ZM22 16v20h20V16ZM24 38v4h4v-4ZM30 38v4h4v-4ZM36 38v4h4v-4ZM24 43v4h4v-4ZM30 43v4h4v-4ZM36 43v4h4v-4ZM24 48v4h4v-4ZM30 48v4h4v-4ZM36 48v4h4v-4Z" />
+      <g transform="translate(58 30.75) scale(1.3125 1.5)">
+        <path fill="currentColor" fillRule="evenodd" d="M41 3a2 2 0 0 1 2 2v3h-4V5a2 2 0 0 1 2-2ZM24 8h16a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8ZM22 16v20h20V16ZM24 38v4h4v-4ZM30 38v4h4v-4ZM36 38v4h4v-4ZM24 43v4h4v-4ZM30 43v4h4v-4ZM36 43v4h4v-4ZM24 48v4h4v-4ZM30 48v4h4v-4ZM36 48v4h4v-4Z" />
         <rect x="22" y="16" width="20" height="20" fill="currentColor" opacity=".4" />
       </g>
     </svg>

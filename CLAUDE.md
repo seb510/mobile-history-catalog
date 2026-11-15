@@ -136,7 +136,7 @@ failing on a phone file is the equivalent of a failing test.
   неторгового використання (ідентифікація бренду в каталозі), якщо для бренду немає перевіреного вільного файлу — лиши `logo` незаповненим.
   Для Apple на запит користувача використовується знак яблука з Commons (`Apple_Logo.svg`,
   PD-textlogo); для Huawei — `Huawei_wordmark.svg` (PD-textlogo).
-- Лого (`src/components/LogoMark.astro`, `public/favicon.svg`) — світлий силует кнопкового телефона з великим мідним екраном і чотирма клавішами на темній плашці. Шапка й фавіконка використовують ту саму спрощену геометрію. Назва — «Мобільна Історія», позиціонування — «Телефони з характером» (brandLine у ui-strings.ts; uk/ru/en).
+- Лого (`src/components/LogoMark.astro`, `public/favicon.svg`) — світлий силует кнопкового телефона з мідним екраном і дев’ятьма клавішами на темній плашці. Коротка антена зміщена праворуч, силует центровано за габаритами разом з антеною. Шапка й фавіконка використовують спільну геометрію. Назва — «Мобільна Історія», позиціонування — «Телефони з характером» (brandLine у ui-strings.ts; uk/ru/en).
   `scripts/generate-images.mjs` використовує сам favicon.svg у OG-шаблоні; після зміни знака запускай gen:images і додавай PNG assets до коміту. Геометрію glyph синхронізуй також у PlaceholderArt.astro й PlaceholderIcon у CompareIsland.tsx. Зображення телефонів мають data-image-fallback і приховану заглушку; src/scripts/image-fallback.ts перемикає їх при помилці. BrandMark має власний текстовий fallback.
 - Світла/темна тема — перемикач (`src/components/ThemeToggle.astro`) ставить `data-theme="light"|
   "dark"` на `<html>` і зберігає вибір у `localStorage('theme')`; блокувальний inline-скрипт на
