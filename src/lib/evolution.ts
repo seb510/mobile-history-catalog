@@ -5,7 +5,7 @@ export const EVOLUTION_HOME = '/#evolution';
 
 // Preferred models for the years beyond the individually written scenes below.
 export const evolutionHighlights = [
-  'siemens-s10', 'nokia-5110', 'nokia-3310', 'siemens-sl45i', 'siemens-s55', 'lg-kg800',
+  'siemens-s10', 'nokia-5110', 'nokia-3310', 'siemens-sl45i', 'siemens-s55', 'nokia-n93',
   'htc-dream', 'samsung-galaxy-s', 'samsung-galaxy-s3',
   'sony-xperia-z', 'nokia-lumia-630', 'microsoft-lumia-950', 'google-pixel',
   'huawei-p-smart-plus', 'nokia-9-pureview', 'apple-iphone-12', 'samsung-galaxy-z-fold3', 'apple-iphone-se-2022',
