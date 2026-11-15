@@ -1,6 +1,7 @@
 ---
 import Arrow from './Arrow.astro';
 import { UPDATES_COPY } from '../lib/updates';
+import { EVOLUTION_HOME, evolutionCopy } from '../lib/evolution';
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import LogoMark from './LogoMark.astro';
@@ -17,6 +18,11 @@ const brandCount = new Set(phones.map(phone => phone.data.brand)).size;
 // 3 three-routes, 4 operating-systems, 5 compare, 6 your-timeline, 7 nostalgia-with-sources, 8 help-us.
 // These four read as "about the archive"; the rest are practical how-to entries.
 const philosophySections = new Set([0, 1, 2, 7]);
+const sections = [...strings.about.sections, {
+  title: evolutionCopy[locale].title,
+  paragraphs: [evolutionCopy[locale].about],
+  path: EVOLUTION_HOME,
+}];
 ---
 <Layout locale={locale} path="/about/" title={`${strings.about.title} — ${strings.siteName}`} description={strings.about.intro}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.about.title }]} />
@@ -43,12 +49,12 @@ const philosophySections = new Set([0, 1, 2, 7]);
   </header>
   <nav class="about-index" data-about-index aria-label={strings.about.title}>
     <p class="about-index-group-label editorial-kicker text-neutral-500">{strings.about.groupLabels.philosophy}</p>
-    {strings.about.sections.map((section, index) => philosophySections.has(index) && <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
+    {sections.map((section, index) => philosophySections.has(index) && <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
     <p class="about-index-group-label editorial-kicker text-neutral-500">{strings.about.groupLabels.howto}</p>
-    {strings.about.sections.map((section, index) => !philosophySections.has(index) && <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
+    {sections.map((section, index) => !philosophySections.has(index) && <a href={`#about-section-${index + 1}`} class="min-h-11 text-sm hover-desktop:text-orange-500">{section.title}</a>)}
   </nav>
   <div class="about-sections mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-    {strings.about.sections.map((section, index) => <section id={`about-section-${index + 1}`} class="glass-surface border-t border-neutral-800 pt-4">
+    {sections.map((section, index) => <section id={`about-section-${index + 1}`} class="glass-surface border-t border-neutral-800 pt-4">
       <h2 class="text-xl font-bold tracking-tight text-neutral-100">
         {'path' in section ? <a class="inline-flex items-center gap-2 underline decoration-neutral-600 underline-offset-4 hover-desktop:text-orange-500" href={localePath(locale, section.path)}>{section.title} <Arrow /></a> : section.title}
       </h2>

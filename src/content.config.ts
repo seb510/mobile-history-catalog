@@ -12,7 +12,7 @@ import { FORM_FACTORS } from './lib/form-factors';
 const phoneSchema = z.object({
     brand: z.string(),
     model: z.string(),
-    year: z.number().int().min(1998).max(new Date().getFullYear() + 1),
+    year: z.number().int().min(1997).max(new Date().getFullYear() + 1),
     formFactor: z.enum(FORM_FACTORS).optional(),
     // A short tag for why this model is on a "milestone" timeline, not a full spec sheet —
     // e.g. "перший масовий GSM-телефон", "перший Android". Optional: not every entry needs one.

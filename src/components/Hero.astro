@@ -1,5 +1,7 @@
 ---
 import Arrow from './Arrow.astro';
+import Evolution from './Evolution.astro';
+import { evolutionCopy } from '../lib/evolution';
 import RecentPhones from './RecentPhones.astro';
 import LogoMark from './LogoMark.astro';
 import { PHONE_VIDEOS, HOME_VIDEO_DISCOVERY } from '../lib/phone-videos';
@@ -69,10 +71,12 @@ const stats = [
       >
         {strings.hero.cta}
       </a>
-      <a
-        href={localePath(locale, '/about/')}
-        class="inline-flex min-h-11 items-center justify-center rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5"
-      >
+      <button id="evolution" type="button" hidden aria-haspopup="dialog" aria-controls="phone-evolution"
+        class="inline-flex min-h-11 cursor-pointer scroll-mt-24 items-center justify-center gap-2 rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5">
+        {evolutionCopy[locale].title}<Arrow direction="up-right" class="shrink-0" size={16} />
+      </button>
+      <a href={localePath(locale, '/about/')}
+        class="col-span-2 inline-flex min-h-11 items-center justify-center rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5">
         {strings.hero.ctaAbout}
       </a>
     </div>
@@ -114,6 +118,7 @@ const stats = [
   </div>
 
 </section>
+<Evolution locale={locale} phones={phones} />
 
 <nav class="home-discovery hidden" aria-label={strings.footer.navigation}>
   {[

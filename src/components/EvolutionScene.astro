@@ -1,0 +1,354 @@
+---
+import Arrow from './Arrow.astro';
+import PlaceholderArt from './PlaceholderArt.astro';
+import { evolutionCopy, type EvolutionFrame } from '../lib/evolution';
+import { museumImageCredit } from '../lib/image-attribution';
+import { localePath, type Locale } from '../lib/locales';
+import { t } from '../lib/ui-strings';
+
+interface Props { locale: Locale; stops: EvolutionFrame[]; brand?: string }
+const { locale, stops, brand } = Astro.props;
+const copy = evolutionCopy[locale];
+const id = brand ? 'brand-evolution' : 'phone-evolution';
+const titleId = `${id}-title`;
+const close = t(locale).gallery.close;
+---
+
+<dialog id={id} class="evolution-dialog" data-evolution-dialog aria-labelledby={titleId}>
+  <section class="evolution" data-evolution>
+    <div class="scene" data-evolution-scene>
+      <header class="scene-heading">
+        <div>
+          <h2 id={titleId}>{brand ? `${copy.brandTitle} · ${brand}` : copy.title}</h2>
+          {stops.length > 1 && <p>{brand ? copy.brandIntro : copy.intro}</p>}
+        </div>
+        <button class="close-scene" type="button" data-close-evolution aria-label={close} title={close} autofocus>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+      </header>
+
+      <div class="frames">
+        {stops.map(({ slug, phone, label, description }) => {
+          const name = phone.model.startsWith(`${phone.brand} `) ? phone.model : `${phone.brand} ${phone.model}`;
+          const image = phone.image;
+          const source = museumImageCredit(phone, locale);
+          const credit = source?.label ?? phone.imageCredit;
+          const creditUrl = source?.href ?? phone.imageSourceUrl;
+          return (
+            <article class="frame" data-evolution-frame data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>
+              <figure class="artwork">
+                {image && <img data-evolution-src={image} alt={name} class="hidden" decoding="async" />}
+                <div data-image-fallback-placeholder><PlaceholderArt /></div>
+              </figure>
+              <div class="story">
+                <p class="year">{phone.year}</p>
+                <h3>{name}</h3>
+                {label && <p class="milestone">{label}</p>}
+                {description && <p class="description">{description}</p>}
+                <a class="details" href={localePath(locale, `/phones/${slug}/`)}>
+                  {copy.details}<span aria-hidden="true">→</span>
+                </a>
+                {credit && <p class="credit">
+                  {creditUrl ? <a href={creditUrl} target="_blank" rel="noopener noreferrer">{credit}</a> : credit}
+                </p>}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <div class="controls" data-evolution-controls hidden>
+        <button class="arrow" type="button" data-evolution-prev aria-label={copy.previous} title={copy.previous}><Arrow direction="left" /></button>
+        {brand ? <div class="model-picker-wrap">
+          <select class="model-picker" data-evolution-picker aria-label={copy.modelPicker}>
+            {stops.map(({ phone }, index) => (
+              <option value={index}>{phone.year} · {phone.model}</option>
+            ))}
+          </select>
+          <span class="model-picker-icon" aria-hidden="true"><Arrow direction="down" kind="chevron" size={16} /></span>
+        </div> : <div class="year-rail" data-evolution-rail>
+          <nav class="years" data-evolution-years aria-label={copy.timeline}>
+            {stops.map(({ phone }, index) => (
+              <button type="button" data-evolution-step={index}>{phone.year}</button>
+            ))}
+          </nav>
+        </div>}
+        <button class="arrow" type="button" data-evolution-next aria-label={copy.next} title={copy.next}><Arrow /></button>
+      </div>
+      <p class="sr-only" aria-live="polite" data-evolution-status></p>
+    </div>
+  </section>
+</dialog>
+
+<script>
+  import { initEvolution } from '../scripts/evolution';
+
+  for (const dialog of document.querySelectorAll<HTMLDialogElement>('[data-evolution-dialog]')) {
+    const timeline = dialog.querySelector<HTMLElement>('[data-evolution]');
+    const trigger = document.querySelector<HTMLButtonElement>(`[aria-controls="${dialog.id}"]`);
+    if (!trigger || !timeline) continue;
+    let refresh: (() => void) | undefined;
+    let pageScroll = 0;
+    trigger.hidden = false;
+    trigger.addEventListener('click', () => {
+      if (dialog.open) return;
+      pageScroll = window.scrollY;
+      dialog.showModal();
+      dialog.scrollTop = 0;
+      if (refresh) refresh();
+      else refresh = initEvolution(timeline, dialog);
+    });
+    if (trigger.id && location.hash === `#${trigger.id}`) trigger.scrollIntoView({ block: 'start', behavior: 'instant' });
+    dialog.querySelector('[data-close-evolution]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => {
+      trigger.focus({ preventScroll: true });
+      window.scrollTo({ top: pageScroll, behavior: 'instant' });
+    });
+  }
+</script>
+
+<style>
+  .evolution-dialog {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    border: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    overflow-anchor: none;
+    scrollbar-width: none;
+    background: #151e2a;
+  }
+  .evolution-dialog::-webkit-scrollbar { display: none; }
+  .evolution-dialog::backdrop { background: rgb(9 12 20 / 68%); }
+  :global(html:has([data-evolution-dialog][open])) { overflow: hidden; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .evolution-dialog[open] { animation: evolution-open 290ms cubic-bezier(.2, .75, .3, 1) both; }
+    .evolution-dialog[open]::backdrop { animation: evolution-backdrop 220ms ease-out both; }
+  }
+
+  @keyframes evolution-open {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes evolution-backdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .evolution {
+    --scene-bg: #151e2a;
+    --scene-text: #f5f2eb;
+    --scene-muted: #bbc7d5;
+    --scene-accent: #ffc28e;
+    --scene-rule: #74849b60;
+    --scene-height: 100vh;
+    background: var(--scene-bg);
+  }
+  @supports (height: 100dvh) {
+    .evolution { --scene-height: 100dvh; }
+  }
+
+  :global(html[data-design="modern"]) .evolution {
+    --scene-bg: #211d34;
+    --scene-muted: #d2c9e3;
+    --scene-accent: #dfcbff;
+    --scene-rule: #a697c55c;
+  }
+
+  .evolution[data-scroll] {
+    block-size: calc(var(--scene-height) + var(--walk));
+  }
+
+  .scene {
+    display: grid;
+    gap: clamp(.5rem, 2vh, 1.25rem);
+    padding: clamp(1rem, 3vw, 2rem);
+    min-height: var(--scene-height);
+    width: min(100%, 78rem);
+    margin-inline: auto;
+    background: var(--scene-bg);
+    color: var(--scene-text);
+  }
+
+  [data-scroll] .scene {
+    position: sticky;
+    inset-block-start: 0;
+    block-size: var(--scene-height);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    touch-action: pan-x pinch-zoom;
+  }
+
+  .evolution:not([data-scroll]) .scene-heading {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    background: var(--scene-bg);
+  }
+
+  .scene-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .25rem 1rem;
+    padding-block-end: .65rem;
+    border-block-end: 1px solid var(--scene-rule);
+  }
+
+  .scene-heading h2 { font-size: clamp(1rem, 2.4vw, 1.45rem); font-weight: 750; }
+  .scene-heading p { color: var(--scene-muted); font-size: .82rem; }
+  .frames { display: grid; gap: 1.5rem; min-block-size: 0; }
+  [data-scroll] .frames { grid-template: minmax(0, 1fr) / minmax(0, 1fr); gap: 0; }
+
+  .frame {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas: 'artwork story';
+    align-items: center;
+    gap: clamp(1rem, 5vw, 4rem);
+    min-height: 0;
+  }
+
+  [data-scroll] .frame {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  [data-scroll] .frame[data-active] { visibility: visible; pointer-events: auto; }
+
+  .artwork {
+    grid-area: artwork;
+    position: relative;
+    display: grid;
+    place-items: center;
+    block-size: clamp(14rem, 46vh, 30rem);
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid #ffffff26;
+    border-radius: 1rem;
+    background: radial-gradient(ellipse at 50% 44%, #e9e8ee, #a4afbf 85%);
+    color: #243042;
+  }
+
+  [data-scroll] .artwork {
+    align-self: stretch;
+    block-size: auto;
+  }
+
+  .artwork img, .artwork [data-image-fallback-placeholder] {
+    position: absolute;
+    inset: 5%;
+    inline-size: 90%;
+    block-size: 90%;
+    object-fit: contain;
+    object-position: center;
+  }
+  [data-scroll] .frame[data-active] .artwork :is(img, [data-image-fallback-placeholder]) { opacity: var(--frame-opacity, 1); }
+
+  .story { grid-area: story; display: grid; align-content: center; gap: .4rem; min-inline-size: 0; }
+  [data-scroll] .story { align-content: start; min-block-size: var(--story-height, 0px); }
+  [data-scroll] .frame:not([data-active]) .story { visibility: hidden; }
+  [data-scroll] .frame[data-active] .story { opacity: var(--frame-caption, 1); }
+  .year {
+    color: var(--scene-accent);
+    font-size: clamp(2.4rem, 9vw, 6.8rem);
+    font-weight: 760;
+    font-variant-numeric: tabular-nums;
+    line-height: .95;
+  }
+  .story :is(h2, h3) { font-size: clamp(1.3rem, 3.4vw, 2.7rem); font-weight: 750; line-height: 1.08; }
+  .milestone { color: var(--scene-accent); font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 650; }
+  .description { max-inline-size: 36ch; color: var(--scene-muted); font-size: clamp(.85rem, 1.7vw, 1.05rem); line-height: 1.45; }
+  .details { justify-self: start; display: inline-flex; align-items: center; gap: .4em; min-height: 2rem; color: var(--scene-text); text-decoration: underline; text-underline-offset: .2em; font-size: .85rem; }
+  .credit { color: var(--scene-muted); font-size: .7rem; overflow-wrap: anywhere; }
+  .credit a { text-decoration: underline; text-underline-offset: .15em; }
+
+  .controls:not([hidden]) {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .45rem;
+    padding-block-start: .5rem;
+    border-block-start: 1px solid var(--scene-rule);
+  }
+
+  .year-rail { position: relative; min-width: 0; }
+  .year-rail::before, .year-rail::after {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    z-index: 1;
+    width: 1.25rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--motion-ui) var(--motion-easing);
+  }
+  .year-rail::before { inset-inline-start: 0; background: linear-gradient(to right, var(--scene-bg), transparent); }
+  .year-rail::after { inset-inline-end: 0; background: linear-gradient(to left, var(--scene-bg), transparent); }
+  .year-rail[data-more-start]::before, .year-rail[data-more-end]::after { opacity: 1; }
+  .years {
+    display: flex;
+    justify-content: safe center;
+    gap: clamp(0rem, .8vw, .55rem);
+    min-width: 0;
+    padding-inline: .2rem;
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+  .years::-webkit-scrollbar { display: none; }
+  .controls button {
+    min-block-size: 2.75rem;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    color: var(--scene-muted);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+  }
+  .controls .arrow { display: grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; padding: 0; border-color: var(--scene-rule); color: var(--scene-text); }
+  .close-scene { display: grid; flex: 0 0 2.75rem; min-height: 2.75rem; place-items: center; border: 1px solid var(--scene-rule); border-radius: .5rem; cursor: pointer; }
+  .model-picker-wrap { position: relative; justify-self: center; min-width: 0; width: min(100%, 18rem); }
+  .model-picker { display: block; appearance: none; width: 100%; height: 2.75rem; padding-inline: .75rem 2.25rem; border: 1px solid var(--scene-rule); border-radius: .5rem; background: var(--scene-bg); color: var(--scene-text); font-size: .85rem; }
+  .model-picker-icon { position: absolute; inset-block: 0; inset-inline-end: .75rem; display: grid; place-items: center; color: var(--scene-text); pointer-events: none; }
+  .controls .arrow[aria-disabled="true"] { opacity: .45; cursor: default; }
+  .controls .years button {
+    flex: none;
+    min-inline-size: 2.75rem;
+    padding-inline: .3rem;
+    font-size: clamp(.75rem, 2.3vw, .9rem);
+    font-weight: 600;
+    transition: color var(--motion-ui) var(--motion-easing), border-color var(--motion-ui) var(--motion-easing);
+  }
+  .controls .years button[aria-current="step"] { color: var(--scene-accent); border-block-end-color: var(--scene-accent); }
+  .scene :is(a, button, select):focus-visible { outline: 2px solid var(--scene-accent); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .year-rail::before, .year-rail::after { transition: none; }
+    [data-scroll] .frame[data-active] .story { visibility: visible; opacity: 1; }
+  }
+
+  @media (max-width: 39.99rem) {
+    .scene { padding: .8rem; }
+    .frame {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr) auto;
+      grid-template-areas: 'artwork' 'story';
+      gap: .65rem;
+    }
+    .story { gap: .24rem; }
+  }
+
+  @media (min-width: 40rem) and (max-height: 42rem) {
+    .year { font-size: clamp(2.5rem, 10vh, 4.5rem); }
+    .story :is(h2, h3) { font-size: clamp(1.1rem, 4.5vh, 2rem); }
+  }
+</style>

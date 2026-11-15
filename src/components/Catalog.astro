@@ -27,7 +27,7 @@ phones.sort((a, b) => a.data.year - b.data.year);
 const brands = [...new Set(phones.map((p) => p.data.brand))].sort();
 const years = [...new Set(phones.map((p) => p.data.year))].sort((a, b) => a - b);
 const byYear = Map.groupBy(phones, (p) => p.data.year);
-const eraStarts = [1998, 2002, 2005, 2007, 2011, 2019];
+const eraStarts = [1997, 2002, 2005, 2007, 2011, 2019];
 const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   year === years.find((candidate) => candidate >= start && candidate < (eraStarts[index + 1] ?? Infinity)));
 ---

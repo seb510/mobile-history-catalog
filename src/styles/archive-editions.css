@@ -436,7 +436,7 @@ html[data-design="modern"] .home-cover-intro {
 }
 html[data-design="modern"] .home-cover h1 { max-width: 24ch; }
 html[data-design="modern"] .home-cover-intro > p { max-width: 56ch; }
-html[data-design="modern"] .home-cover-actions > a { border-radius: var(--modern-control); }
+html[data-design="modern"] .home-cover-actions > :is(a, button) { border-radius: var(--modern-control); }
 html[data-design="modern"] .home-cover-stats { border-bottom: 0; }
 @media (min-width:1024px) {
   html[data-design="modern"] .home-cover-intro {

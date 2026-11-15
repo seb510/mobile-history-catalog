@@ -1,0 +1,33 @@
+---
+import EvolutionScene from './EvolutionScene.astro';
+import { evolutionHighlights, evolutionStops, type EvolutionFrame } from '../lib/evolution';
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../lib/locales';
+import { slugOf } from '../lib/phones';
+import { t } from '../lib/ui-strings';
+
+interface Props { locale: Locale; phones: CollectionEntry<'phones'>[] }
+const { locale, phones } = Astro.props;
+const curated = new Map(evolutionStops.map(({ slug, copy }) => [slug, copy[locale]]));
+const preferred = new Set([...curated.keys(), ...evolutionHighlights]);
+const forms = t(locale).formFactors;
+const byYear = new Map<number, EvolutionFrame>();
+const priority = (entry: EvolutionFrame) => (
+  Number(curated.has(entry.slug)) * 8 + Number(preferred.has(entry.slug)) * 4
+  + Number(Boolean(entry.phone.image)) * 2 + Number(Boolean(entry.phone.milestone))
+);
+for (const entry of phones) {
+  const phone = entry.data;
+  const slug = slugOf(entry);
+  const [label, summary] = curated.get(slug) ?? [];
+  const description = summary ?? phone.milestone ?? phone.os ?? (phone.formFactor ? forms[phone.formFactor] : undefined);
+  const frame = { slug, phone, label, description };
+  const current = byYear.get(phone.year);
+  if (!current || priority(frame) > priority(current) || (priority(frame) === priority(current) && slug < current.slug)) {
+    byYear.set(phone.year, frame);
+  }
+}
+const stops = [...byYear.values()].sort((a, b) => a.phone.year - b.phone.year);
+---
+
+<EvolutionScene locale={locale} stops={stops} />

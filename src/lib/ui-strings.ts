@@ -89,7 +89,7 @@ export const UI = {
       allPhones: 'Телефони бренду в каталозі',
     },
     hero: {
-      eyebrow: '1998 — сьогодні',
+      eyebrow: '1997 — сьогодні',
       cta: 'Перейти до каталогу',
       ctaAbout: 'Про проєкт',
       statsPhones: 'телефонів у каталозі',
@@ -145,7 +145,7 @@ export const UI = {
         {
           "title": "Журнальний погляд",
           "paragraphs": [
-            "Нас надихає український журнал MobiLux (2004–2016): виразна обкладинка, помітна типографіка, коротка історія й технічний портрет. Найстаріші телефони в каталозі датовані 1999 роком, часом масового поширення GSM.",
+            "Нас надихає український журнал MobiLux (2004–2016): виразна обкладинка, помітна типографіка, коротка історія й технічний портрет. Каталог починається з Siemens S10 1997 року, першого мобільного телефона з кольоровим дисплеєм.",
             "У шапці можна перемкнутися між журнальним і сучасним оформленням. Світла й темна теми доступні в обох."
           ]
         },
@@ -275,7 +275,7 @@ export const UI = {
       allPhones: 'Телефоны бренда в каталоге',
     },
     hero: {
-      eyebrow: '1998 — сегодня',
+      eyebrow: '1997 — сегодня',
       cta: 'Перейти в каталог',
       ctaAbout: 'О проекте',
       statsPhones: 'телефонов в каталоге',
@@ -331,7 +331,7 @@ export const UI = {
         {
           "title": "Журнальный взгляд",
           "paragraphs": [
-            "Нас вдохновляет украинский журнал MobiLux (2004–2016): выразительная обложка, заметная типографика, короткая история и технический портрет. Самые ранние телефоны в каталоге датированы 1999 годом, временем массового распространения GSM.",
+            "Нас вдохновляет украинский журнал MobiLux (2004–2016): выразительная обложка, заметная типографика, короткая история и технический портрет. Каталог начинается с Siemens S10 1997 года, первого мобильного телефона с цветным дисплеем.",
             "В шапке можно переключаться между журнальным и современным оформлением. Светлая и тёмная темы доступны в обоих."
           ]
         },
@@ -460,7 +460,7 @@ export const UI = {
       allPhones: 'Phones from this brand in the catalog',
     },
     hero: {
-      eyebrow: '1998 — today',
+      eyebrow: '1997 — today',
       cta: 'Browse the catalog',
       ctaAbout: 'About the project',
       statsPhones: 'phones in the catalog',
@@ -516,7 +516,7 @@ export const UI = {
         {
           "title": "A magazine perspective",
           "paragraphs": [
-            "We take inspiration from Ukrainian magazine MobiLux (2004–2016): a striking cover, expressive typography, a concise story and a technical portrait. The earliest phones in the catalog date to 1999, when GSM was reaching a mass audience.",
+            "We take inspiration from Ukrainian magazine MobiLux (2004–2016): a striking cover, expressive typography, a concise story and a technical portrait. The catalog starts with the 1997 Siemens S10, the first mobile phone with a colour display.",
             "Use the header controls to switch between magazine and modern layouts. Both offer light and dark themes."
           ]
         },

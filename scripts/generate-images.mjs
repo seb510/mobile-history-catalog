@@ -43,7 +43,7 @@ function ogSvg({ siteName, tagline }) {
 
     <text x="360" y="300" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#fafafa">${siteName}</text>
     <text x="360" y="350" font-family="Arial, sans-serif" font-size="30" fill="#a3a3a3">${tagline}</text>
-    <text x="360" y="400" font-family="Arial, sans-serif" font-size="22" fill="#fb923c">1998 — ${new Date().getFullYear()}</text>
+    <text x="360" y="400" font-family="Arial, sans-serif" font-size="22" fill="#fb923c">1997 — ${new Date().getFullYear()}</text>
   </svg>`;
 }
 

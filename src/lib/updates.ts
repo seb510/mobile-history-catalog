@@ -1,10 +1,19 @@
 export const UPDATES_COPY = {
- uk: { title:'Оновлення', intro:'Що змінилося в архіві: нові телефони, фотографії та можливості сайту.', additions:'Нові в архіві', changes:'Зміни на сайті', edition:'Журнал оновлень', note:'Дати позначають завершені зміни в проєкті за історією комітів, а не роки випуску телефонів.', aboutLink:'Що нового в проєкті', release:'Випуск' },
- ru: { title:'Обновления', intro:'Что изменилось в архиве: новые телефоны, фотографии и возможности сайта.', additions:'Новое в архиве', changes:'Изменения на сайте', edition:'Журнал обновлений', note:'Даты обозначают завершённые изменения проекта по истории коммитов, а не годы выпуска телефонов.', aboutLink:'Что нового в проекте', release:'Выпуск' },
- en: { title:'Updates', intro:'What changed in the archive: new phones, photographs and site features.', additions:'New in the archive', changes:'Site changes', edition:'Update journal', note:'Dates mark completed project changes recorded in commit history, not the phones’ release years.', aboutLink:'What’s new in the project', release:'Released' },
+ uk: { title:'Оновлення', intro:'Що змінилося в архіві: нові телефони, фотографії та можливості сайту.', additions:'Нові в архіві', changes:'Зміни на сайті', edition:'Журнал оновлень', note:'Дати в журналі позначають завершені зміни проєкту.', aboutLink:'Що нового в проєкті', release:'Випуск' },
+ ru: { title:'Обновления', intro:'Что изменилось в архиве: новые телефоны, фотографии и возможности сайта.', additions:'Новое в архиве', changes:'Изменения на сайте', edition:'Журнал обновлений', note:'Даты в журнале обозначают завершённые изменения проекта.', aboutLink:'Что нового в проекте', release:'Выпуск' },
+ en: { title:'Updates', intro:'What changed in the archive: new phones, photographs and site features.', additions:'New in the archive', changes:'Site changes', edition:'Update journal', note:'Dates in the journal mark completed project changes.', aboutLink:'What’s new in the project', release:'Released' },
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-15",
+  "phones": ["siemens-s10", "nokia-5110", "apple-iphone-se-2022", "apple-iphone-17"],
+  "evolution": true,
+  "changes": {
+    "uk": ["На головній з’явилася повноекранна «Еволюція телефонів» з однією моделлю на кожен рік, представлений в архіві. На сторінках брендів є власні хронології."],
+    "ru": ["На главной появилась полноэкранная «Эволюция телефонов» с одной моделью на каждый год, представленный в архиве. На страницах брендов есть свои хронологии."],
+    "en": ["The homepage now has a full-screen timeline with one model for each year represented in the archive. Brand pages have their own timelines."]
+  }
+}, {
   "date": "2026-11-14",
   "phones": ["nokia-n73", "siemens-me75"],
   "changes": {

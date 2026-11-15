@@ -27,10 +27,14 @@ dimensionsMm: "136.6 × 70.6 × 8.6 mm"
 weightGrams: 133
 colors: ["Pebble Blue", "Marble White", "Amber Brown", "Garnet Red", "Sapphire Black", "Titanium Grey"]
 simType: Micro-SIM
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg/960px-Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg"
-imageCredit: "Photo: Raimond Spekking, CC BY-SA 4.0, via Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg"
+image: /images/phones/samsung-galaxy-s3/pebble-blue.jpg
+imageCredit: "Image supplied by the archive owner"
+imageCaption: Front and rear views of the Samsung Galaxy S III in Pebble Blue
 gallery:
+  - image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg/960px-Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg"
+    alt: Front of the Samsung Galaxy S III with its screen off
+    imageCredit: "Photo: Raimond Spekking, CC BY-SA 4.0, via Wikimedia Commons"
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S_III_(GT-I9300)-9385.jpg"
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Front_of_Samsung_Galaxy_S_III.jpg/960px-Front_of_Samsung_Galaxy_S_III.jpg
     alt: White Samsung Galaxy S III, front view
     imageCredit: "Photo: YuMaNuMa, CC BY-SA 3.0, via Wikimedia Commons"
