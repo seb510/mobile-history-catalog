@@ -20,7 +20,7 @@ const pair = (BRAND_COMPARE_PAIRS[name] ?? []).flatMap(slug => {
       <h2 id="brand-comparison-title" class="text-xl font-bold">{siemens?.compare ?? copy.compare}</h2>
       <p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">{siemens?.compareText ?? copy.compareIntro}</p>
     </div>
-    <a class="inline-flex min-h-11 items-center justify-between gap-5 border border-neutral-600 px-4 py-3 text-sm font-semibold motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(pair[0])}&b=${slugOf(pair[1])}`)}>{siemens?.compareAction ?? copy.compareAction}<Arrow direction="right" /></a>
+    <a class="secondary-cta inline-flex min-h-11 items-center justify-between gap-5 rounded-sm border border-neutral-600 px-4 py-3 text-sm font-semibold motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(pair[0])}&b=${slugOf(pair[1])}`)}>{siemens?.compareAction ?? copy.compareAction}<Arrow direction="right" /></a>
   </aside>}
 <style>
   a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }

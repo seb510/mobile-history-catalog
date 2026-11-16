@@ -80,7 +80,8 @@ html[data-design="modern"] :is(.phone-card-art,.phone-gallery-stage,.compare-slo
   background:var(--modern-soft);
   border-color:var(--modern-line);
 }
-html[data-design="modern"] :is(.control-button,.search-control-face,.menu-control-face,.filter-select-trigger,.catalog-search-field,.gallery-expand-icon) { border-radius:var(--modern-control); }
+html[data-design="modern"] :is(.control-button,.search-control-face,.menu-control-face,.filter-select-trigger,.catalog-search-field,.gallery-expand-icon,.secondary-cta,.form-chip,[data-year-count],.platform-picture) { border-radius:var(--modern-control); }
+html[data-design="modern"] .secondary-cta { border-color:var(--modern-line); background:var(--modern-surface); }
 html[data-design="modern"] :is(.primary-cta,.period-save) {
   background:var(--accent-solid);
   color:white;
@@ -522,6 +523,12 @@ html[data-design="modern"] :is(.home-cover-intro,.phone-masthead,.about-header,.
 html[data-design="modern"] :is(.home-cover-intro,.phone-masthead,.about-header,.brand-header,.home-project,.generation-feature,.compare-intro) {
   box-shadow:var(--modern-highlight),var(--modern-shadow-raised);
 }
+html[data-design="modern"] :is(.phone-masthead,.about-header,.brand-header) {
+  padding:clamp(1.25rem,3vw,2rem);
+  border:1px solid var(--modern-line);
+  border-radius:var(--modern-corner);
+  background-color:var(--modern-soft);
+}
 html[data-design="modern"] :is(.catalog-tools,.catalog-year-index,.favorites-toolbar,.phone-spec-surface,.compare-summary,.compare-actions) {
   background-color:var(--modern-elevated);
 }
@@ -764,7 +771,8 @@ html[data-design="modern"] .catalog-card .phone-card-art {
 }
 html[data-design="modern"] .catalog-card .card-copy { padding:clamp(.65rem,1.2vw,.95rem); }
 html[data-design="modern"] .catalog-card .card-title { letter-spacing:-.035em; }
-html[data-design="modern"] .catalog-card .card-copy > p:last-of-type { border-color:color-mix(in srgb,var(--year-accent,var(--color-orange-500)) 72%,var(--modern-line)); }
+html[data-design="modern"] .catalog-card .card-copy > p:last-of-type,
+html[data-design="modern"] .catalog-card .card-copy > div:first-child:last-child > p:last-of-type { border-color:color-mix(in srgb,var(--year-accent,var(--color-orange-500)) 72%,var(--modern-line)); }
 html[data-design="modern"] .catalog-card .phone-video-badge { border:1px solid #ffffff90; background:linear-gradient(145deg,#172334e8,#26364add); box-shadow:0 4px 12px #10182750; }
 html[data-design="modern"] #brand-grid { gap:clamp(.875rem,1.6vw,1.5rem); }
 html[data-design="modern"] #brand-grid > li:nth-child(3n + 1) { --brand-accent:var(--color-orange-500); }
@@ -870,7 +878,8 @@ html[data-design="modern"] .platform-version-card:nth-of-type(3n) { --platform-a
 html[data-design="modern"] .platform-logo { border-radius:.3rem .85rem .3rem .85rem; }
 html[data-design="modern"] .platform-link:not(.editorial-card) { box-shadow:inset 3px 0 color-mix(in srgb,var(--platform-accent) 72%,transparent),var(--modern-highlight); }
 html[data-design="modern"] .platform-link[href^="#"] { border-radius:999px; background:color-mix(in srgb,var(--platform-accent) 9%,var(--modern-surface)); box-shadow:none; }
-html[data-design="modern"] .platform-version-card { border:1px solid color-mix(in srgb,var(--platform-accent,var(--modern-blue)) 32%,var(--modern-line)); border-inline-start:4px solid var(--platform-accent,var(--modern-blue)); border-radius:1.25rem .45rem 1.25rem .45rem; background:color-mix(in srgb,var(--platform-accent,var(--modern-blue)) 6%,var(--modern-surface)); }
+html[data-design="modern"] .platform-version-card { border:1px solid color-mix(in srgb,var(--platform-accent,var(--modern-blue)) 32%,var(--modern-line)); border-inline-start:4px solid var(--platform-accent,var(--modern-blue)); border-radius:1.25rem .45rem 1.25rem .45rem; background:color-mix(in srgb,var(--platform-accent,var(--modern-blue)) 6%,var(--modern-surface)); padding:1rem; }
+@media (min-width:640px) { html[data-design="modern"] .platform-version-card { padding:1.25rem; } }
 html[data-design="modern"] .platform-history-card { border-radius:.45rem 1.25rem .45rem 1.25rem; border-top:3px solid var(--modern-gold); background:color-mix(in srgb,var(--modern-gold) 6%,var(--modern-surface)); }
 html[data-design="modern"] :is(.phone-story-section,.phone-video,.phone-audio,.compare-selected,.phone-spec-surface,.catalog-tools,.catalog-year-index,.favorites-toolbar,.ownership-item,.feedback-dialog,.privacy-notice,.period-dialog) {
   border-radius:.6rem 1.2rem .6rem 1.2rem;
@@ -882,15 +891,15 @@ html[data-design="modern"] .phone-audio { border-top:3px solid var(--color-orang
 
 /* Modern catalog cards use a compact product-information hierarchy, separate
    from the Magazine's stacked editorial caption. */
-html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > .editorial-kicker {
+html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > div:first-child > .editorial-kicker {
   align-items:center;
   gap:.75rem;
   margin-bottom:.3rem;
   color:var(--color-neutral-500);
 }
-html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > .editorial-kicker > span:first-child {
-  width:max-content;
-  max-width:calc(100% - 4.5rem);
+html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > div:first-child > .editorial-kicker > span:first-child {
+  min-width:0;
+  flex:0 1 auto;
   overflow:hidden;
   border:1px solid color-mix(in srgb,var(--year-accent,var(--tile-accent,var(--modern-blue))) 26%,var(--modern-line));
   border-radius:999px;
@@ -900,8 +909,9 @@ html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .
   text-overflow:ellipsis;
   white-space:nowrap;
 }
-html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > .editorial-kicker > span:last-child {
+html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > div:first-child > .editorial-kicker > span:last-child {
   display:inline-flex;
+  flex:0 0 auto;
   margin-inline-start:auto;
   border-radius:.35rem .7rem .35rem .7rem;
   background:var(--modern-soft);
@@ -917,7 +927,8 @@ html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .
   line-height:1.12;
 }
 html[data-design="modern"] .catalog-card .card-title { min-height:0; }
-html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > p:last-of-type {
+html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > p:last-of-type,
+html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .card-copy > div:first-child:last-child > p:last-of-type {
   margin-top:.55rem;
   border:0;
   border-radius:.3rem .8rem .8rem .3rem;
@@ -978,8 +989,9 @@ html[data-design="modern"] .favorite-toggle-icon[aria-pressed="true"] {
     min-height:0;
     padding:.65rem .7rem;
   }
-  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > .editorial-kicker { padding-inline-end:2.5rem; }
-  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > p:last-of-type {
+  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child > .editorial-kicker { padding-inline-end:2.5rem; }
+  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > p:last-of-type,
+  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child:last-child > p:last-of-type {
     display:block;
     overflow:visible;
     -webkit-line-clamp:unset;
@@ -1075,7 +1087,7 @@ html[data-design="modern"] .home-story-section [data-phone-card] .phone-card-art
   border:1px solid color-mix(in srgb,var(--tile-accent,var(--modern-blue)) 24%,var(--modern-line));
   border-radius:1rem .35rem 1rem .35rem;
 }
-html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > .editorial-kicker { padding-inline-end:2.75rem; }
+html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child > .editorial-kicker { padding-inline-end:2.75rem; }
 html[data-design="modern"] .generation-feature > .grid > .editorial-card {
   --pair-accent:var(--modern-blue);
   border:1px solid color-mix(in srgb,var(--pair-accent) 28%,var(--modern-line));
@@ -1100,7 +1112,8 @@ html[data-design="modern"] .generation-feature > .grid > .editorial-card > .rela
 }
 html[data-design="modern"] .generation-feature > .grid > .editorial-card .card-copy { border:0; padding-top:.5rem; }
 html[data-design="modern"] .generation-feature > .grid > .editorial-card .editorial-kicker { color:var(--pair-accent); }
-html[data-design="modern"] .generation-feature > .grid > .editorial-card .card-copy > p:last-child {
+html[data-design="modern"] .generation-feature > .grid > .editorial-card .card-copy > p:last-child,
+html[data-design="modern"] .generation-feature > .grid > .editorial-card .card-copy > div:first-child:last-child > p:last-child {
   border-radius:.25rem .7rem .7rem .25rem;
   background:color-mix(in srgb,var(--pair-accent) 7%,var(--modern-soft));
   padding:.45rem .55rem;
@@ -1152,7 +1165,7 @@ html[data-design="modern"] .home-cover-feature[data-home-edition="modern"] .home
   padding-inline:clamp(1rem,3vw,1.75rem);
 }
 html[data-design="modern"] .home-cover-feature[data-home-edition="modern"] .home-cover-media {
-  margin:.55rem .55rem 0;
+  margin:.55rem;
   border:1px solid color-mix(in srgb,var(--modern-blue) 20%,var(--modern-line));
   border-radius:1.5rem .4rem 1.5rem .4rem;
 }

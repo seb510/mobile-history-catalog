@@ -110,7 +110,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
           {byYear.get(year)!.length}
         </span>
       </div>
-      <ul class="grid grid-cols-2 auto-rows-fr items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 xl:grid-cols-5">
+      <ul class="grid grid-cols-2 items-start gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 xl:grid-cols-5">
         {byYear.get(year)!.map((phone) => (
           <li class="flex min-w-0">
             <PhoneCard phone={phone} locale={locale} compact />

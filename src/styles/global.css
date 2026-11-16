@@ -491,6 +491,7 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
  .catalog-search { grid-column: 1 / -1; }
  .catalog-filter-grid > .filter-select:last-child { grid-column: 1 / -1; }
  .catalog-filter-grid > [data-select-name="year"] .filter-select-popup { left: auto; right: 0; }
+ .catalog-filter-grid > .filter-select:not(:last-child) .filter-select-popup { width: 100%; }
 }
 @media (max-width: 639px) {
  .catalog-tools { padding: .75rem .75rem .5rem; }

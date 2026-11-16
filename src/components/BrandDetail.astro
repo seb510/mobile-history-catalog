@@ -135,7 +135,7 @@ const phoneCountText = (count: number) => {
       {forms.length > 0 && <div class="brand-archive-forms">
         <h3 class="text-xs text-neutral-500">{editorial.forms}</h3>
         <ul class="mt-2 flex flex-wrap gap-2">
-          {forms.map(form => <li><a class="inline-flex min-h-11 items-center border border-neutral-700 px-2 py-1 text-xs motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/catalog/?brand=${encodeURIComponent(data.name)}&form=${form}`)}>{strings.formFactors[form]}</a></li>)}
+          {forms.map(form => <li><a class="form-chip inline-flex min-h-11 items-center rounded-sm border border-neutral-700 px-2 py-1 text-xs motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/catalog/?brand=${encodeURIComponent(data.name)}&form=${form}`)}>{strings.formFactors[form]}</a></li>)}
         </ul>
       </div>}
     </aside>
@@ -156,10 +156,10 @@ const phoneCountText = (count: number) => {
           <EvolutionIcon />
         </button>
       </div>
-      <ul class:list={["brand-phone-grid mt-6 grid grid-cols-2 items-stretch gap-4 lg:auto-rows-fr", phones.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2", phones.length === 1 && "brand-phone-single"]}>
+      <ul class:list={["brand-phone-grid mt-6 grid grid-cols-2 items-start gap-4", phones.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2", phones.length === 1 && "brand-phone-single"]}>
         {phones.map((phone) => (
           <li class="flex min-w-0">
-            <PhoneCard phone={phone} locale={locale} showcase={phones.length === 1} />
+            <PhoneCard phone={phone} locale={locale} showcase={phones.length === 1} compact={phones.length > 1} />
           </li>
         ))}
       </ul>
@@ -180,7 +180,6 @@ const phoneCountText = (count: number) => {
   .brand-archive-link > span { min-width:0; }
   .brand-archive-forms { min-width:0; }
   .brand-archive-all { display:inline-flex; min-height:2.75rem; align-items:center; gap:.75rem; margin-top:.5rem; color:var(--color-orange-500); font-size:.875rem; font-weight:600; }
-  :global(html[data-design="modern"]) .brand-archive-panel { border-color:var(--modern-line); border-radius:14px; background:var(--modern-surface); }
   a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
   @media (hover: hover) and (pointer: fine) { .brand-archive-link:hover { color: var(--color-orange-500); } }
   @media (hover: hover) and (pointer: fine) { .brand-archive-all:hover { color:var(--color-orange-400); } }

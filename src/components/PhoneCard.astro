@@ -1,6 +1,7 @@
 ---
 import CollectionIcon from './CollectionIcon.astro';
 import Arrow from './Arrow.astro';
+import InfoTooltip from './InfoTooltip.astro';
 import { PHONE_VIDEOS, PHONE_VIDEO_LABELS } from '../lib/phone-videos';
 import PlaceholderArt from './PlaceholderArt.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -24,6 +25,11 @@ const slug = slugOf(phone);
 const isNew = isRecentlyAdded(data.dateAdded);
 const showcaseRows = showcase ? buildSpecGroups(data, strings).flatMap(group => group.rows).filter(([label]) => new Set<string>([strings.specs.formFactor, strings.specs.display, strings.specs.weight]).has(label)) : [];
 const showcaseAction = {uk:'Роздивитися модель',ru:'Рассмотреть модель',en:'Explore the model'}[locale];
+const priceContextLabel = {uk:'Додаткова інформація',ru:'Дополнительная информация',en:'Additional information'}[locale];
+const hasPrice = data.priceUsdAtLaunch != null && data.priceSourceUrl;
+const priceTooltipText = hasPrice
+  ? `${strings.specs.priceUsdAtLaunch}: $${data.priceUsdAtLaunch} USD${data.priceContext ? ` — ${data.priceContext}` : ''}`
+  : null;
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 ---
 
@@ -62,21 +68,27 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     )}
   </div>
   <div class="card-copy flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
-    <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
-    <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
-    {data.milestone && (
-      <p class="mt-1 line-clamp-2 border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{data.milestone}</p>
-    )}
+    <div class="flex flex-1 flex-col justify-center gap-1">
+      <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
+      <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
+      {data.milestone && (
+        <p class="relative mt-1 border-l-2 border-orange-500/60 py-0.5 pl-2 pr-5 text-sm text-neutral-400">
+          <span class="line-clamp-2">{data.milestone}</span>
+          {priceTooltipText && (
+            <span class="absolute bottom-0 right-0">
+              <InfoTooltip text={priceTooltipText} label={priceContextLabel} id={`price-context-${slug}`} />
+            </span>
+          )}
+        </p>
+      )}
+      {!data.milestone && priceTooltipText && (
+        <p class="mt-1"><InfoTooltip text={priceTooltipText} label={priceContextLabel} id={`price-context-${slug}`} /></p>
+      )}
+    </div>
     {showcase && <>
       <dl class="mt-4 grid gap-3 border-t border-neutral-700 pt-4 sm:grid-cols-3">{showcaseRows.map(([label,value])=><div class="min-w-0"><dt class="text-xs text-neutral-500">{label}</dt><dd class="mt-1 text-sm font-semibold leading-relaxed text-neutral-200">{value}</dd></div>)}</dl>
       <span class="mt-4 inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-orange-500">{showcaseAction}<Arrow direction="right" /></span>
     </>}
-    {!compact && data.priceUsdAtLaunch != null && data.priceSourceUrl && (
-      <p class="mt-auto flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-neutral-800 pt-3 text-xs text-neutral-400">
-        <span>{strings.specs.priceUsdAtLaunch}{data.priceContext && <span class="mt-1 block text-xs font-normal">{data.priceContext}</span>}</span>
-        <span class="text-sm font-semibold tabular-nums text-neutral-200">${data.priceUsdAtLaunch} USD</span>
-      </p>
-    )}
   </div>
 </a>
   <button

@@ -68,17 +68,17 @@ const stats = [
     <div class="home-cover-actions animate-fade-up mt-6 grid grid-cols-2 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:gap-3" style="animation-delay:0.15s">
       <a
         href={localePath(locale, '/catalog/')}
-        class="primary-cta inline-flex min-h-11 items-center justify-center rounded-sm bg-orange-500 px-3 py-3 text-center text-sm font-bold text-neutral-950 transition-colors motion-ui sm:px-5"
+        class="primary-cta inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-orange-500 px-3 py-3 text-center text-sm font-bold text-neutral-950 transition-colors motion-ui sm:px-5"
       >
-        {strings.hero.cta}
+        {strings.hero.cta}<Arrow direction="right" size={16} />
       </a>
       <button id="evolution" type="button" hidden aria-haspopup="dialog" aria-controls="phone-evolution"
         class="evolution-trigger primary-cta motion-ui scroll-mt-24">
         {evolutionCopy[locale].title}<EvolutionIcon />
       </button>
       <a href={localePath(locale, '/about/')}
-        class="col-span-2 inline-flex min-h-11 items-center justify-center rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5">
-        {strings.hero.ctaAbout}
+        class="secondary-cta col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5">
+        {strings.hero.ctaAbout}<Arrow direction="right" size={16} />
       </a>
     </div>
 
