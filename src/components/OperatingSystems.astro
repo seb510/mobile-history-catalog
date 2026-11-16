@@ -141,7 +141,7 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
           </div>
         </div>
         {media && (
-          <figure class="editorial-card rounded-sm border border-neutral-800 bg-neutral-900 p-4">
+          <figure class="platform-history-card editorial-card rounded-sm border border-neutral-800 bg-neutral-900 p-4">
             <GalleryImageLink image={media.image} caption={media.caption[locale]} index={galleryIndex.get('platform')!} label={strings.gallery.open} class="mx-auto max-h-96 w-full object-contain" />
             <figcaption class="mt-3 border-t border-neutral-800 pt-3 text-sm text-neutral-400">
               <p>{media.caption[locale]}</p>
@@ -167,7 +167,7 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
           const picture = pictures.get(version.id);
           const detail = VERSION_DETAILS[version.id];
           return (
-            <section id={`version-${version.id}`} class:list={['scroll-mt-24', hasVersions && 'mt-5 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 sm:p-5']}>
+            <section id={`version-${version.id}`} class:list={['platform-version-card scroll-mt-24', hasVersions && 'mt-5 rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 sm:p-5']}>
               {hasVersions && <h3 class="text-xl font-bold tracking-tight">{version.title}</h3>}
               {version.released && <p class="mt-1 text-sm text-neutral-400">{formatReleased(version.released, locale)}</p>}
               <div class:list={[picture && 'grid items-start gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,14rem)]']}>
@@ -216,7 +216,7 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
         {PLATFORMS.map(item => {
           const mark = logoFor(item.id);
           return (
-          <li>
+          <li class="platform-card-item">
             <a class="platform-link editorial-card flex h-full flex-col rounded-sm border border-neutral-800 bg-neutral-900 p-5" href={localePath(locale, `${OS_PATH}${item.id}/`)}>
               <span class="flex min-h-10 flex-wrap items-center gap-3 text-xl font-bold tracking-tight">
                 {mark && <span class="platform-logo" title={mark.vendor && `${vendorLabel} · ${mark.vendor}`}><img src={mark.image} alt="" loading="lazy" /></span>}

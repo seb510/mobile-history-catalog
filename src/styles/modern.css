@@ -1,66 +1,94 @@
-/* Mineral neutrals and violet accents for the modern edition. */
+/* Graphite mineral neutrals and a clear teal accent for the modern edition. */
 html[data-design="modern"] {
-  --color-neutral-50:#faf8ff;
-  --color-neutral-100:#f2eefa;
-  --color-neutral-200:#e3ddf3;
-  --color-neutral-300:#cfc7e0;
-  --color-neutral-400:#bdb4d0;
-  --color-neutral-500:#aaa1bf;
-  --color-neutral-600:#827997;
-  --color-neutral-700:#655978;
-  --color-neutral-800:#48405a;
-  --color-neutral-900:#29243a;
-  --color-neutral-950:#171421;
-  --color-orange-500:#ccb5ff; --color-orange-400:#e1d0ff;
+  --modern-cover-ink:#f1f5fb;
+  --modern-cover-muted:#a8b7ca;
+  --color-neutral-50:#f1f5fb;
+  --color-neutral-100:#e2e9f3;
+  --color-neutral-200:#cad5e3;
+  --color-neutral-300:#a8b7ca;
+  --color-neutral-400:#899bb3;
+  --color-neutral-500:#6d8098;
+  --color-neutral-600:#56677d;
+  --color-neutral-700:#414f63;
+  --color-neutral-800:#303b4d;
+  --color-neutral-900:#202a38;
+  --color-neutral-950:#141a24;
+  --color-orange-500:#5eead4; --color-orange-400:#99f6e4;
+  --modern-blue:#8eb4ff;
+  --modern-coral:#ffad91;
+  --modern-gold:#f5ca74;
+  --modern-glow-blue:#668cf94a;
+  --modern-glow-coral:#f0786140;
   --modern-canvas:var(--color-neutral-950);
   --modern-surface:var(--color-neutral-900);
   --modern-soft:color-mix(in srgb,var(--color-neutral-800) 46%,var(--modern-canvas));
+  --modern-elevated:color-mix(in srgb,var(--color-neutral-900) 72%,var(--color-neutral-800));
   --modern-line:var(--color-neutral-800);
-  --modern-shadow:0 4px 14px #21192d17;
-  --accent-solid:#623dbc;
-  --accent-solid-hover:#4d2d9c;
-  --accent-on-dark:#e0d2ff;
+  --modern-shadow:0 4px 12px #07101d2e,0 18px 44px #07101d24;
+  --modern-shadow-raised:0 2px 4px #07101d2e,0 12px 28px #07101d3a,0 28px 64px #07101d2a;
+  --modern-highlight:inset 0 1px 0 #ffffff12;
+  --accent-solid:#0f766e;
+  --accent-solid-hover:#115e59;
+  --accent-on-dark:#5eead4;
 }
 html[data-design="modern"][data-theme="light"] {
-  --color-neutral-50:#171527;
-  --color-neutral-100:#211e33;
-  --color-neutral-200:#302b45;
-  --color-neutral-300:#49435d;
-  --color-neutral-400:#575068;
-  --color-neutral-500:#625b73;
-  --color-neutral-600:#777086;
-  --color-neutral-700:#a6a0b7;
-  --color-neutral-800:#d4cde1;
-  --color-neutral-900:#eeebf5;
-  --color-neutral-950:#f7f5fa;
-  --color-orange-500:#5939a8; --color-orange-400:#472788;
-  /* Explicit (not derived from the neutral ramp) so the light theme keeps a visible
-     lavender canvas and crisp white cards instead of reading as plain grey. */
-  --modern-canvas:#f3effc;
+  --modern-cover-ink:#172235;
+  --modern-cover-muted:#52637a;
+  --color-neutral-50:#141a24;
+  --color-neutral-100:#202a38;
+  --color-neutral-200:#303b4d;
+  --color-neutral-300:#414f63;
+  --color-neutral-400:#52637a;
+  --color-neutral-500:#65758b;
+  --color-neutral-600:#7b8ba0;
+  --color-neutral-700:#a2afc0;
+  --color-neutral-800:#cbd5e2;
+  --color-neutral-900:#e9eef5;
+  --color-neutral-950:#f5f7fb;
+  --color-orange-500:#0f766e; --color-orange-400:#115e59;
+  --modern-blue:#315fc2;
+  --modern-coral:#ad432f;
+  --modern-gold:#875700;
+  --modern-glow-blue:#4e78d62e;
+  --modern-glow-coral:#dc76552b;
+  --modern-canvas:#f4f6fa;
   --modern-surface:#ffffff;
-  --modern-soft:#e8e0f8;
-  --modern-line:#b6a0dd;
-  --modern-shadow:0 4px 14px #4b2aa01f;
+  --modern-soft:#e8edf5;
+  --modern-elevated:#ffffff;
+  --modern-line:#c8d2e0;
+  --modern-shadow:0 3px 10px #15263b14,0 16px 36px #15263b10;
+  --modern-shadow-raised:0 2px 5px #15263b18,0 14px 30px #15263b15,0 28px 58px #15263b0d;
+  --modern-highlight:inset 0 1px 0 #ffffffd9;
 }
 @media (prefers-color-scheme:light) {
   html[data-design="modern"]:not([data-theme="dark"]) {
-    --color-neutral-50:#171527;
-    --color-neutral-100:#211e33;
-    --color-neutral-200:#302b45;
-    --color-neutral-300:#49435d;
-    --color-neutral-400:#575068;
-    --color-neutral-500:#625b73;
-    --color-neutral-600:#777086;
-    --color-neutral-700:#a6a0b7;
-    --color-neutral-800:#d4cde1;
-    --color-neutral-900:#eeebf5;
-    --color-neutral-950:#f7f5fa;
-    --color-orange-500:#5939a8; --color-orange-400:#472788;
-    --modern-canvas:#f3effc;
+    --modern-cover-ink:#172235;
+    --modern-cover-muted:#52637a;
+    --color-neutral-50:#141a24;
+    --color-neutral-100:#202a38;
+    --color-neutral-200:#303b4d;
+    --color-neutral-300:#414f63;
+    --color-neutral-400:#52637a;
+    --color-neutral-500:#65758b;
+    --color-neutral-600:#7b8ba0;
+    --color-neutral-700:#a2afc0;
+    --color-neutral-800:#cbd5e2;
+    --color-neutral-900:#e9eef5;
+    --color-neutral-950:#f5f7fb;
+    --color-orange-500:#0f766e; --color-orange-400:#115e59;
+    --modern-blue:#315fc2;
+    --modern-coral:#ad432f;
+    --modern-gold:#875700;
+    --modern-glow-blue:#4e78d62e;
+    --modern-glow-coral:#dc76552b;
+    --modern-canvas:#f4f6fa;
     --modern-surface:#ffffff;
-    --modern-soft:#e8e0f8;
-    --modern-line:#b6a0dd;
-    --modern-shadow:0 4px 14px #4b2aa01f;
+    --modern-soft:#e8edf5;
+    --modern-elevated:#ffffff;
+    --modern-line:#c8d2e0;
+    --modern-shadow:0 3px 10px #15263b14,0 16px 36px #15263b10;
+    --modern-shadow-raised:0 2px 5px #15263b18,0 14px 30px #15263b15,0 28px 58px #15263b0d;
+    --modern-highlight:inset 0 1px 0 #ffffffd9;
   }
 }
 html[data-design="modern"] body { background:var(--modern-canvas); }

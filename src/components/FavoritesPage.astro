@@ -31,19 +31,19 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 
 <Layout locale={locale} path="/favorites/" title={`${strings.nav.favorites} — ${strings.siteName}`} description={strings.favorites.intro}>
   <Breadcrumbs locale={locale} items={[{ label: strings.breadcrumbs.home, path: '/' }, { label: strings.nav.favorites }]} />
-  <div class="editorial-card mb-7 grid items-start gap-6 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-5 sm:p-7 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-10">
+  <div class="favorites-overview editorial-card mb-7 grid items-start gap-6 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-5 sm:p-7 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-10">
     <header>
       <p class="editorial-kicker text-orange-500">{cabinetCopy.title}</p>
       <h1 class="page-title mt-2">{strings.nav.favorites}</h1>
       <p class="mt-3 max-w-2xl leading-relaxed text-neutral-400">{strings.favorites.intro}</p>
-      <dl data-cabinet-stats hidden class="mt-5 grid grid-cols-3 gap-3 border-t border-neutral-800 pt-4">
+      <dl data-cabinet-stats hidden class="favorites-stats mt-5 grid grid-cols-3 gap-3 border-t border-neutral-800 pt-4">
         <div><dt class="text-xs text-neutral-400">{cabinetCopy.total}</dt><dd data-favorites-count class="mt-1 text-2xl font-bold tabular-nums">0</dd></div>
         <div><dt class="text-xs text-neutral-400">{cabinetCopy.dated}</dt><dd data-cabinet-dated class="mt-1 text-2xl font-bold tabular-nums">0</dd></div>
         <div><dt class="text-xs text-neutral-400">{cabinetCopy.current}</dt><dd data-cabinet-current class="mt-1 text-2xl font-bold tabular-nums">0</dd></div>
       </dl>
       <button type="button" data-collection-add hidden class="primary-cta mt-5 min-h-11 rounded-sm bg-orange-500 px-4 text-sm font-semibold text-neutral-950">{collectionCopy.add}</button>
     </header>
-    <section class="border-t border-neutral-800 pt-5 lg:border-t-0 lg:pt-0" aria-labelledby="collection-account-title">
+    <section class="favorites-account border-t border-neutral-800 pt-5 lg:border-t-0 lg:pt-0" aria-labelledby="collection-account-title">
       <h2 id="collection-account-title" tabindex="-1" class="scroll-mt-24 text-lg font-bold">{cabinetCopy.account}</h2>
       <p data-collection-account-mode aria-live="polite" class="mt-2 text-sm font-semibold text-neutral-200">{ACCOUNT_COPY[locale].signedOut}</p>
       <p data-collection-account-name hidden class="mt-1 break-words text-sm font-semibold text-neutral-100"></p>
@@ -99,9 +99,9 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     </div>
   </div>
 
-  <p data-period-hint hidden class="mb-5 text-sm leading-relaxed text-neutral-500">{periodCopy.hint}</p>
-  <p data-period-status role="status" aria-live="polite" class="mb-3 text-sm text-orange-500"></p>
-  <ol data-favorites-list hidden class="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <p data-period-hint hidden class="period-hint mb-5 text-sm leading-relaxed text-neutral-500">{periodCopy.hint}</p>
+  <p data-period-status role="status" aria-live="polite" class="period-status mb-3 text-sm text-orange-500"></p>
+  <ol data-favorites-list hidden class="favorites-timeline grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {phones.map((phone) => (
       <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} data-timeline-name={`${phone.data.brand} ${phone.data.model}`} data-timeline-image={phone.data.imageCredit ? phone.data.image : undefined} data-timeline-credit={phone.data.imageCredit} class="ownership-item flex min-w-0 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50" hidden>
         <div class="ownership-heading flex items-start justify-between gap-2 border-b border-neutral-800 bg-neutral-950/40 px-3 py-2">

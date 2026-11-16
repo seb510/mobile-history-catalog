@@ -116,7 +116,7 @@ const phoneCountText = (count: number) => {
       <h2 id="brand-about" class="mb-4 text-xl font-bold">{editorial.about}</h2>
       <div class="brand-about-copy prose prose-invert max-w-none prose-p:text-neutral-300"><Content /></div>
     </article>
-    {phones.length !== 1 && <aside class="brand-archive-panel" aria-labelledby="brand-archive">
+    <aside class:list={['brand-archive-panel', phones.length === 1 && 'brand-archive-single']} aria-labelledby="brand-archive">
       <div class="brand-archive-summary">
         <h2 id="brand-archive" class="editorial-kicker text-orange-500">{editorial.selection}</h2>
         <p class="mt-2 text-sm leading-relaxed text-neutral-300">{BRAND_NOTES[locale][data.name]}</p>
@@ -138,7 +138,7 @@ const phoneCountText = (count: number) => {
           {forms.map(form => <li><a class="inline-flex min-h-11 items-center border border-neutral-700 px-2 py-1 text-xs motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/catalog/?brand=${encodeURIComponent(data.name)}&form=${form}`)}>{strings.formFactors[form]}</a></li>)}
         </ul>
       </div>}
-    </aside>}
+    </aside>
   </div>
 
   <BrandComparison name={data.name} phones={phones} locale={locale} />
@@ -170,6 +170,7 @@ const phoneCountText = (count: number) => {
 
 <style>
   .brand-about-copy { max-width: 78ch; }
+  :global(html:not([data-design="modern"])) .brand-archive-single { display:none; }
   .brand-archive-panel { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.3fr) minmax(0,1.1fr); align-items:stretch; gap:1.25rem; padding:1.125rem 1.25rem; border:1px solid var(--color-neutral-800); background:var(--color-neutral-900); }
   .brand-archive-summary,.brand-archive-years,.brand-archive-forms { min-width:0; align-self:start; }
   .brand-archive-summary { padding-right:1.25rem; border-right:1px solid var(--color-neutral-700); }

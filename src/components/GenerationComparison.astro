@@ -25,7 +25,7 @@ const compareUrl = `${localePath(locale, '/compare/')}?a=${slugOf(phones[0])}&b=
     </a>
   </div>
 
-  <div class="grid grid-cols-2 divide-x divide-neutral-800 border-t border-neutral-800 lg:border-t-0 lg:border-l">
+  <div class="generation-feature-pair grid grid-cols-2 gap-3 border-t border-neutral-800 p-3 lg:border-t-0 lg:border-l lg:p-4">
     {phones.map((phone, index) => (
       <a href={localePath(locale, `/phones/${slugOf(phone)}/`)} class="editorial-card group focus-visible:-outline-offset-4 flex min-w-0 flex-col p-4 motion-ui sm:p-6">
         <p class="text-3xl font-extrabold leading-none tracking-tight text-orange-500 sm:text-4xl">{phone.data.year}</p>

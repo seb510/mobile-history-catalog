@@ -160,12 +160,11 @@ const close = t(locale).gallery.close;
   }
 
   :global(html[data-design="modern"]) .evolution {
-    --scene-bg: #211d34;
-    --scene-muted: #d2c9e3;
-    --scene-accent: #dfcbff;
-    --scene-rule: #a697c55c;
+    --scene-bg: #141a24;
+    --scene-muted: #c1cde0;
+    --scene-accent: #5eead4;
+    --scene-rule: #8fa0b866;
   }
-
   .evolution[data-scroll] {
     block-size: calc(var(--scene-height) + var(--walk));
   }
@@ -179,6 +178,10 @@ const close = t(locale).gallery.close;
     margin-inline: auto;
     background: var(--scene-bg);
     color: var(--scene-text);
+  }
+  :global(html[data-design="modern"]) .scene {
+    background-color:var(--scene-bg);
+    background-image:radial-gradient(ellipse at 85% 4%,#668cf933,transparent 32rem),radial-gradient(ellipse at 12% 90%,#f0786122,transparent 26rem);
   }
 
   [data-scroll] .scene {

@@ -39,7 +39,10 @@ const links: { path: string; label: string; title?: string; icon: 'catalog' | 'b
   <div class="header-shell mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 h-14 sm:px-6">
     <a href={localePath(locale, '/')} class="header-brand flex min-w-0 items-center gap-2 text-neutral-100">
       <LogoMark class="h-7 w-7 shrink-0" />
-      <span class="truncate text-sm font-bold tracking-tight sm:text-base" title={`${strings.siteName} — ${strings.brandLine}`}>{strings.siteName}</span>
+      <span class="header-brand-copy flex min-w-0 flex-col">
+        <span class="truncate text-sm font-bold tracking-tight sm:text-base" title={`${strings.siteName} — ${strings.brandLine}`}>{strings.siteName}</span>
+        <span class="header-brand-line">{strings.brandLine}</span>
+      </span>
     </a>
 
     <div class="header-actions">
@@ -114,6 +117,8 @@ const links: { path: string; label: string; title?: string; icon: 'catalog' | 'b
   </div>
 </header>
 <style>
+  .header-brand-line { display:none; }
+  :global(html[data-design="modern"]) .header-brand-line { display:block; }
   .account-indicator { position: relative; flex: none; width: .5rem; height: .5rem; margin-inline-start: .375rem; }
   .account-indicator::before { content: ''; position: absolute; inset: 0; border: 1px solid var(--color-neutral-500); border-radius: 50%; }
   .account-indicator[data-state="in"]::before { border-color: var(--color-orange-500); background: var(--color-orange-500); }
