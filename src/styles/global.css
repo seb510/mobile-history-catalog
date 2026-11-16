@@ -127,9 +127,15 @@
 @media (min-width: 640px) {
   .search-page-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (min-width: 1200px) {
-  .global-search { position: relative; }
-  .global-search-panel { inset: calc(100% + .5rem) 0 auto auto; width: min(24rem, calc(100vw - 2rem)); max-height: min(65vh, 36rem); }
+@media (min-width: 1024px) {
+  .global-search-panel {
+    inset-block-start: calc(100% + .5rem);
+    max-height: min(65vh, 36rem);
+    border: 1px solid var(--color-neutral-700);
+  }
+}
+@media (max-width: 1023px) {
+  .global-search-panel { inset-block-start: calc(100% + .375rem); }
 }
 @media (max-width: 639px) {
   .global-search-form .global-search-submit { padding-inline: .75rem; }
@@ -149,6 +155,7 @@
 }
 
 .page-title {
+  overflow-wrap: anywhere;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   line-height: 1;
@@ -442,8 +449,10 @@ html[data-header-hidden="true"] .compare-table-head { top: 0; }
 .filter-select-trigger[aria-expanded="true"] { border-color: var(--color-orange-500); }
 .filter-select-popup { position: absolute; top: calc(100% + .5rem); left: 0; z-index: 40; width: max(100%, 16rem); max-width: calc(100vw - 2rem); border: 1px solid var(--color-neutral-700); background: var(--color-neutral-950); border-radius: 3px; padding: .5rem; box-shadow: 0 12px 30px #0003; }
 .filter-select:last-child .filter-select-popup { left: auto; right: 0; }
+.filter-select[data-opens-up] .filter-select-popup { top: auto; bottom: calc(100% + .5rem); width: 100%; }
 .filter-select-search { width: 100%; min-height: 2.75rem; padding: .5rem .75rem; border: 1px solid var(--color-neutral-800); border-radius: 2px; color: var(--color-neutral-100); background: var(--color-neutral-900); font-size: 1rem; }
-.filter-select-list { max-height: min(17rem, 40vh); overflow-y: auto; overscroll-behavior: contain; margin-top: .5rem; }
+.filter-select-list { max-height: min(17rem, 40vh); overflow-y: auto; overscroll-behavior: contain; }
+.filter-select-search + .filter-select-list { margin-top: .5rem; }
 .filter-select-list button { display: flex; width: 100%; min-height: 2.75rem; align-items: center; justify-content: space-between; padding: .625rem .75rem; border-radius: 2px; text-align: left; color: var(--color-neutral-300); font-size: .9375rem; cursor: pointer; }
 .filter-select-list button[aria-selected="true"] { color: var(--color-orange-500); background: var(--color-neutral-900); font-weight: 700; }
 .filter-select-list .select-check { visibility: hidden; margin-left: .5rem; }

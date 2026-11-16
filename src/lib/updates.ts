@@ -6,7 +6,7 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-15",
-  "phones": ["siemens-s10", "nokia-5110", "apple-iphone-se-2022", "apple-iphone-17"],
+  "phones": ["siemens-s10", "nokia-6110", "nokia-5110", "motorola-cd930", "apple-iphone-se-2022", "apple-iphone-17"],
   "evolution": true,
   "changes": {
     "uk": ["На головній з’явилася повноекранна «Еволюція телефонів» з однією моделлю на кожен рік, представлений в архіві. На сторінках брендів є власні хронології."],

@@ -69,7 +69,7 @@ html[data-design="modern"] .mobile-menu-panel .mobile-nav-link[aria-current] {
   border-radius:var(--modern-control);
   padding-inline:.75rem;
 }
-html[data-design="modern"] :is(.editorial-card,.recent-phone,.update-phone,.phone-photo-block,.phone-story-section,.phone-video,.phone-audio,.compare-selected,.compare-summary,.compare-actions,.home-project,.catalog-tools,.catalog-year-index,.brand-archive-panel,.brand-milestone,.about-identity,.glass-surface,.update-entry,.favorites-empty,.favorites-toolbar,.generation-feature,.phone-spec-surface,.compare-table,.ownership-item) {
+html[data-design="modern"] :is(.editorial-card,.recent-phone,.update-phone,.phone-photo-block,.phone-story-section,.phone-video,.phone-audio,.compare-selected,.compare-summary,.compare-actions,.home-project,.catalog-tools,.catalog-year-index,.brand-archive-panel,.brand-comparison,.about-identity,.glass-surface,.update-entry,.favorites-empty,.favorites-toolbar,.generation-feature,.phone-spec-surface,.compare-table,.ownership-item) {
   background:var(--modern-surface);
   border-color:var(--modern-line);
   border-radius:var(--modern-corner);

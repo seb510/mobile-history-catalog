@@ -89,9 +89,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       <FilterSelect
         name="sort"
         label={strings.favorites.sortLabel}
-        all={strings.favorites.sortNewest}
         defaultValue="personal"
-        allowEmpty={false}
         options={[
           { value: 'personal', label: periodCopy.personal },
           { value: 'year-asc', label: strings.favorites.sortOldest },

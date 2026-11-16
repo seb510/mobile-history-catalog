@@ -1,0 +1,27 @@
+---
+import Arrow from './Arrow.astro';
+import type { CollectionEntry } from 'astro:content';
+import { localePath, type Locale } from '../lib/locales';
+import { slugOf } from '../lib/phones';
+import { BRAND_COMPARE_PAIRS, BRAND_EDITION, BRAND_PAGE } from '../lib/brand-editorial';
+
+interface Props { name: string; phones: CollectionEntry<'phones'>[]; locale: Locale }
+const { name, phones, locale } = Astro.props;
+const copy = BRAND_PAGE[locale];
+const siemens = name === 'Siemens' ? BRAND_EDITION[locale].siemens : null;
+const pair = (BRAND_COMPARE_PAIRS[name] ?? []).flatMap(slug => {
+  const phone = phones.find(phone => slugOf(phone) === slug);
+  return phone ? [phone] : [];
+});
+---
+{pair.length === 2 && <aside class="brand-comparison mt-8 grid gap-4 border border-neutral-700 bg-neutral-900 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center" aria-labelledby="brand-comparison-title">
+    <div>
+      <p class="editorial-kicker mb-2 text-orange-500">{pair[0].data.model} / {pair[1].data.model}</p>
+      <h2 id="brand-comparison-title" class="text-xl font-bold">{siemens?.compare ?? copy.compare}</h2>
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">{siemens?.compareText ?? copy.compareIntro}</p>
+    </div>
+    <a class="inline-flex min-h-11 items-center justify-between gap-5 border border-neutral-600 px-4 py-3 text-sm font-semibold motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/compare/?a=${slugOf(pair[0])}&b=${slugOf(pair[1])}`)}>{siemens?.compareAction ?? copy.compareAction}<Arrow direction="right" /></a>
+  </aside>}
+<style>
+  a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
+</style>

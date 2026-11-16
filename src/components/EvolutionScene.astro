@@ -1,5 +1,6 @@
 ---
 import Arrow from './Arrow.astro';
+import FilterSelect from './FilterSelect.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { evolutionCopy, type EvolutionFrame } from '../lib/evolution';
 import { museumImageCredit } from '../lib/image-attribution';
@@ -60,12 +61,10 @@ const close = t(locale).gallery.close;
       <div class="controls" data-evolution-controls hidden>
         <button class="arrow" type="button" data-evolution-prev aria-label={copy.previous} title={copy.previous}><Arrow direction="left" /></button>
         {brand ? <div class="model-picker-wrap">
-          <select class="model-picker" data-evolution-picker aria-label={copy.modelPicker}>
-            {stops.map(({ phone }, index) => (
-              <option value={index}>{phone.year} · {phone.model}</option>
-            ))}
-          </select>
-          <span class="model-picker-icon" aria-hidden="true"><Arrow direction="down" kind="chevron" size={16} /></span>
+          <FilterSelect name="evolution-model" label={copy.modelPicker} hideLabel opensUp options={stops.map(({ phone }, index) => ({
+            value: String(index),
+            label: `${phone.year} · ${phone.model}`,
+          }))} />
         </div> : <div class="year-rail" data-evolution-rail>
           <nav class="years" data-evolution-years aria-label={copy.timeline}>
             {stops.map(({ phone }, index) => (
@@ -184,6 +183,9 @@ const close = t(locale).gallery.close;
     inset-block-start: 0;
     block-size: var(--scene-height);
     grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  [data-scroll] :is(.scene-heading, .frames, .controls > :not(.model-picker-wrap)) {
     touch-action: pan-x pinch-zoom;
   }
 
@@ -306,7 +308,7 @@ const close = t(locale).gallery.close;
     scrollbar-width: none;
   }
   .years::-webkit-scrollbar { display: none; }
-  .controls button {
+  .controls :is(.arrow, .years button) {
     min-block-size: 2.75rem;
     border: 1px solid transparent;
     border-radius: .5rem;
@@ -316,9 +318,19 @@ const close = t(locale).gallery.close;
   }
   .controls .arrow { display: grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; padding: 0; border-color: var(--scene-rule); color: var(--scene-text); }
   .close-scene { display: grid; flex: 0 0 2.75rem; min-height: 2.75rem; place-items: center; border: 1px solid var(--scene-rule); border-radius: .5rem; cursor: pointer; }
-  .model-picker-wrap { position: relative; justify-self: center; min-width: 0; width: min(100%, 18rem); }
-  .model-picker { display: block; appearance: none; width: 100%; height: 2.75rem; padding-inline: .75rem 2.25rem; border: 1px solid var(--scene-rule); border-radius: .5rem; background: var(--scene-bg); color: var(--scene-text); font-size: .85rem; }
-  .model-picker-icon { position: absolute; inset-block: 0; inset-inline-end: .75rem; display: grid; place-items: center; color: var(--scene-text); pointer-events: none; }
+  .model-picker-wrap {
+    --color-neutral-100: var(--scene-text);
+    --color-neutral-300: var(--scene-text);
+    --color-neutral-500: var(--scene-muted);
+    --color-neutral-700: var(--scene-rule);
+    --color-neutral-800: var(--scene-rule);
+    --color-neutral-900: color-mix(in srgb, var(--scene-bg), var(--scene-text) 7%);
+    --color-neutral-950: var(--scene-bg);
+    --color-orange-500: var(--scene-accent);
+    justify-self: center;
+    min-width: 0;
+    width: min(100%, 18rem);
+  }
   .controls .arrow[aria-disabled="true"] { opacity: .45; cursor: default; }
   .controls .years button {
     flex: none;

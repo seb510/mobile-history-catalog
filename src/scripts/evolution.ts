@@ -6,7 +6,8 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
   const previous = timeline.querySelector<HTMLButtonElement>('[data-evolution-prev]');
   const next = timeline.querySelector<HTMLButtonElement>('[data-evolution-next]');
   const status = timeline.querySelector<HTMLElement>('[data-evolution-status]');
-  const picker = timeline.querySelector<HTMLSelectElement>('[data-evolution-picker]');
+  const picker = timeline.querySelector<HTMLSelectElement>('[data-filter="evolution-model"]');
+  const pickerRoot = picker?.closest('[data-select]');
   const rail = timeline.querySelector<HTMLElement>('[data-evolution-rail]');
   const years = timeline.querySelector<HTMLElement>('[data-evolution-years]');
   if (frames.length === 0 || !controls || !previous || !next || !status) return;
@@ -108,7 +109,10 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
     revealYear(steps[current]);
     previous!.setAttribute('aria-disabled', String(current === 0));
     next!.setAttribute('aria-disabled', String(current === last));
-    if (picker) picker.value = String(current);
+    if (picker && picker.value !== String(current)) {
+      picker.value = String(current);
+      picker.dispatchEvent(new Event('select-sync'));
+    }
     if (active >= 0) status!.textContent = frames[current].dataset.announcement ?? '';
     active = current;
   }
@@ -154,6 +158,10 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
 
   dialog.addEventListener('wheel', (event) => {
     if (controls.hidden || event.ctrlKey || event.shiftKey) return;
+    if (pickerRoot?.querySelector('[data-select-trigger][aria-expanded="true"]')) {
+      if (!(event.target instanceof Element && event.target.closest('.filter-select-list'))) event.preventDefault();
+      return;
+    }
     const vertical = Math.abs(event.deltaY) > Math.abs(event.deltaX);
     if (!vertical && years?.contains(event.target as Node)) return;
     event.preventDefault();
@@ -170,7 +178,7 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
 
   dialog.addEventListener('touchstart', (event) => {
     const point = event.touches[0];
-    touchStart = !controls.hidden && event.touches.length === 1
+    touchStart = !controls.hidden && !pickerRoot?.contains(event.target as Node) && event.touches.length === 1
       ? { id: point.identifier, x: point.clientX, y: point.clientY }
       : undefined;
   }, { passive: true });
@@ -197,7 +205,7 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
   previous.addEventListener('click', () => goTo(requestedIndex() - 1));
   next.addEventListener('click', () => goTo(requestedIndex() + 1));
   timeline.addEventListener('keydown', (event) => {
-    if (event.target === picker || controls.hidden || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (pickerRoot?.contains(event.target as Node) || controls.hidden || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     const direction = ['ArrowRight', 'ArrowDown', 'PageDown'].includes(event.key) ? 1
       : ['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key) ? -1 : 0;
     if (!direction) return;

@@ -7,8 +7,9 @@ import { slugOf } from '../lib/phones';
 import { localePath, type Locale } from '../lib/locales';
 const { phones, locale } = Astro.props as { phones: CollectionEntry<'phones'>[]; locale: Locale };
 const copy = HOME_RECENT_COPY[locale];
+const omitted = new Set(['apple-iphone-se-2022', 'apple-iphone-17']);
 // Addition date drives recency; release year only orders additions made on the same day.
-const recent = phones.filter(phone => phone.data.dateAdded).sort((a,b) =>
+const recent = phones.filter(phone => phone.data.dateAdded && !omitted.has(slugOf(phone))).sort((a,b) =>
   b.data.dateAdded!.localeCompare(a.data.dateAdded!) || b.data.year - a.data.year || slugOf(a).localeCompare(slugOf(b))
 ).slice(0,4);
 const dateLabel = (date: string) => new Intl.DateTimeFormat(locale === 'uk' ? 'uk-UA' : locale === 'ru' ? 'ru-RU' : 'en-GB', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));

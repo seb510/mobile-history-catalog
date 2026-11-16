@@ -149,65 +149,48 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
   },
 };
 
-export const SIEMENS_TIMELINE = [
-  'siemens-sl45i',
-  'siemens-s55',
-  'siemens-sl55',
-  'siemens-xelibri-2',
-  'siemens-xelibri-8',
-  'siemens-sk65',
-  'siemens-sxg75',
-] as const;
-
-export const BRAND_ROUTES: Record<string, readonly string[]> = {
-  Apple: ['apple-iphone', 'apple-iphone-12', 'apple-iphone-18-pro'],
-  Google: ['google-pixel', 'google-pixel-6', 'google-pixel-9', 'google-pixel-11-pro'],
+export const BRAND_COMPARE_PAIRS: Record<string, readonly [string, string]> = {
+  Apple: ['apple-iphone', 'apple-iphone-18-pro'],
+  Google: ['google-pixel', 'google-pixel-11-pro'],
   HTC: ['htc-dream', 'htc-u24-pro'],
   Huawei: ['huawei-mate-xt', 'huawei-mate-xt-2'],
-  Motorola: ['motorola-v66', 'motorola-razr-v3', 'motorola-krzr-k1', 'motorola-pebl-u6', 'motorola-razr-ultra-2026'],
-  Nokia: ['nokia-3310', 'nokia-7610', 'nokia-7710', 'nokia-5300-xpressmusic', 'nokia-5310-xpressmusic', 'nokia-6300', 'nokia-6500-slide', 'nokia-7900-prism', 'nokia-8600-luna', 'nokia-n95', 'nokia-9-pureview'],
-  Samsung: ['samsung-sgh-e700', 'samsung-sgh-d500', 'samsung-sgh-d900', 'samsung-sgh-u900', 'samsung-galaxy-fold', 'samsung-galaxy-z-fold8-ultra'],
-  Siemens: SIEMENS_TIMELINE,
-  'Sony Ericsson': ['sony-ericsson-t68i', 'sony-ericsson-w610i', 'sony-ericsson-k550i', 'sony-ericsson-w800i', 'sony-ericsson-k800i', 'sony-ericsson-xperia-x1', 'sony-ericsson-xperia-arc-s'],
-  Sony: ['sony-xperia-z'],
+  Motorola: ['motorola-v66', 'motorola-razr-ultra-2026'],
+  Nokia: ['nokia-3310', 'nokia-9-pureview'],
+  Samsung: ['samsung-sgh-e700', 'samsung-galaxy-z-fold8-ultra'],
+  Siemens: ['siemens-a65', 'siemens-sxg75'],
+  'Sony Ericsson': ['sony-ericsson-t68i', 'sony-ericsson-xperia-arc-s'],
 };
 
 export const BRAND_PAGE = {
-  uk: { about: 'Про виробника', officialSite: 'Офіційний сайт', officialLicensee: 'Офіційний сайт ліцензіата', officialSuccessor: 'Офіційний сайт правонаступника', selection: 'У нашому архіві', range: 'Охоплення добірки', forms: 'Форми корпуса', first: 'Перший рік у добірці', last: 'Останній рік у добірці', all: 'Усі моделі', timeline: 'Характер у різні роки', timelineIntro: 'Кілька епізодів із представлених моделей — не повна історія виробника.', compare: 'Два погляди одного бренду', compareIntro: 'Різні форми та можливості. Подивись, як змінювався досвід користування.', compareAction: 'Порівняти моделі', collection: 'Моделі в архіві', collectionIntro: 'Усі представлені телефони бренду, впорядковані за роком анонсу.' },
-  ru: { about: 'О производителе', officialSite: 'Официальный сайт', officialLicensee: 'Официальный сайт лицензиата', officialSuccessor: 'Официальный сайт правопреемника', selection: 'В нашем архиве', range: 'Охват подборки', forms: 'Формы корпуса', first: 'Первый год в подборке', last: 'Последний год в подборке', all: 'Все модели', timeline: 'Характер в разные годы', timelineIntro: 'Несколько эпизодов из представленных моделей, а не полная история производителя.', compare: 'Два взгляда одного бренда', compareIntro: 'Разные формы и возможности. Посмотри, как менялся опыт использования.', compareAction: 'Сравнить модели', collection: 'Модели в архиве', collectionIntro: 'Все представленные телефоны бренда, по году анонса.' },
-  en: { about: 'About the manufacturer', officialSite: 'Official website', officialLicensee: 'Official licensee website', officialSuccessor: 'Official successor website', selection: 'In our archive', range: 'Selection coverage', forms: 'Body designs', first: 'Earliest year in the selection', last: 'Latest year in the selection', all: 'All models', timeline: 'Character through the years', timelineIntro: 'A few episodes from the phones in our selection, rather than a complete company history.', compare: 'Two approaches, one brand', compareIntro: 'Different shapes and capabilities. Explore how the experience of using a phone changed.', compareAction: 'Compare the models', collection: 'Models in the archive', collectionIntro: 'Every phone from this brand in the archive, ordered by announcement year.' },
+  uk: { about: 'Про виробника', officialSite: 'Офіційний сайт', officialLicensee: 'Офіційний сайт ліцензіата', officialSuccessor: 'Офіційний сайт правонаступника', selection: 'У нашому архіві', range: 'Охоплення добірки', forms: 'Форми корпуса', first: 'Перший рік у добірці', last: 'Останній рік у добірці', all: 'Усі моделі', compare: 'Два погляди одного бренду', compareIntro: 'Різні форми та можливості. Подивись, як змінювався досвід користування.', compareAction: 'Порівняти моделі', collection: 'Моделі в архіві', collectionIntro: 'Усі представлені телефони бренду, впорядковані за роком анонсу.' },
+  ru: { about: 'О производителе', officialSite: 'Официальный сайт', officialLicensee: 'Официальный сайт лицензиата', officialSuccessor: 'Официальный сайт правопреемника', selection: 'В нашем архиве', range: 'Охват подборки', forms: 'Формы корпуса', first: 'Первый год в подборке', last: 'Последний год в подборке', all: 'Все модели', compare: 'Два взгляда одного бренда', compareIntro: 'Разные формы и возможности. Посмотри, как менялся опыт использования.', compareAction: 'Сравнить модели', collection: 'Модели в архиве', collectionIntro: 'Все представленные телефоны бренда, по году анонса.' },
+  en: { about: 'About the manufacturer', officialSite: 'Official website', officialLicensee: 'Official licensee website', officialSuccessor: 'Official successor website', selection: 'In our archive', range: 'Selection coverage', forms: 'Body designs', first: 'Earliest year in the selection', last: 'Latest year in the selection', all: 'All models', compare: 'Two approaches, one brand', compareIntro: 'Different shapes and capabilities. Explore how the experience of using a phone changed.', compareAction: 'Compare the models', collection: 'Models in the archive', collectionIntro: 'Every phone from this brand in the archive, ordered by announcement year.' },
 } as const;
 
 export const BRAND_EDITION = {
   uk: {
     archiveYears: 'Роки в архіві', open: 'Дослідити бренд',
-    title: 'Різні імена. Власний почерк.',
+    sort: { label: 'Сортувати', name: 'За абеткою', count: 'За кількістю моделей', year: 'Від найранішої моделі' },
     intro: 'Впізнавали за корпусом, клавішами й одним рухом руки. Обери бренд і простеж його характер через телефони нашої добірки.',
     siemens: {
-      timeline: 'Як змінювався досвід', timelineIntro: 'Сім епізодів із нашого архіву, а не повна історія виробника.',
-      events: ['MP3-плеєр і знімна MMC', 'Камера як окремий аксесуар', 'Клавіатура ховається під екраном', 'Телефон як модний аксесуар', 'Підвіска з радіо й голосовим керуванням', 'Листування змінює форму корпуса', 'UMTS, GPS і великий QVGA-екран'],
       compare: 'Від дзвінків до навігації', compareText: 'A65 і SXG75: один бренд, сусідні роки й зовсім різний набір щоденних можливостей.', compareAction: 'Порівняти A65 та SXG75',
       collection: 'Добірка архіву', collectionText: 'Усі представлені Siemens — за роком анонсу. Це курована добірка, а не повний перелік моделей компанії.',
     },
   },
   ru: {
     archiveYears: 'Годы в архиве', open: 'Исследовать бренд',
-    title: 'Разные имена. Собственный почерк.',
+    sort: { label: 'Сортировать', name: 'По алфавиту', count: 'По количеству моделей', year: 'От самой ранней модели' },
     intro: 'Узнавали по корпусу, клавишам и одному движению руки. Выбери бренд и проследи его характер через телефоны нашей подборки.',
     siemens: {
-      timeline: 'Как менялся опыт', timelineIntro: 'Семь эпизодов из нашего архива, а не полная история производителя.',
-      events: ['MP3-плеер и съёмная MMC', 'Камера как отдельный аксессуар', 'Клавиатура скрыта под экраном', 'Телефон как модный аксессуар', 'Подвеска с радио и голосовым управлением', 'Переписка меняет форму корпуса', 'UMTS, GPS и большой QVGA-экран'],
       compare: 'От звонков до навигации', compareText: 'A65 и SXG75: один бренд, соседние годы и совсем разные повседневные возможности.', compareAction: 'Сравнить A65 и SXG75',
       collection: 'Подборка архива', collectionText: 'Все представленные Siemens — по году анонса. Это курируемая подборка, а не полный перечень моделей компании.',
     },
   },
   en: {
     archiveYears: 'Years in the archive', open: 'Explore the brand',
-    title: 'Different names. Distinct signatures.',
+    sort: { label: 'Sort by', name: 'Name (A–Z)', count: 'Number of models', year: 'Earliest model' },
     intro: 'Recognised by a silhouette, a keypad or a single gesture. Choose a brand and trace its character through the phones in our selection.',
     siemens: {
-      timeline: 'How the experience changed', timelineIntro: 'Seven episodes from our archive, rather than a complete company history.',
-      events: ['An MP3 player and removable MMC', 'A camera sold as an accessory', 'A keypad hidden beneath the screen', 'A phone as a fashion accessory', 'A pendant with radio and voice control', 'Messaging changes the shape', 'UMTS, GPS and a large QVGA screen'],
       compare: 'From calls to navigation', compareText: 'A65 and SXG75: one brand, neighbouring years and very different everyday possibilities.', compareAction: 'Compare A65 and SXG75',
       collection: 'The archive selection', collectionText: 'Every Siemens in the archive, ordered by announcement year. A curated selection, rather than a complete company catalogue.',
     },

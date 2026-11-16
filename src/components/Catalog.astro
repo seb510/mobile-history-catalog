@@ -149,7 +149,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     const setExpanded = (expanded: boolean) => {
       bar.dataset.expanded = String(expanded);
       toggle.setAttribute('aria-expanded', String(expanded));
-      if (!expanded) document.dispatchEvent(new CustomEvent('catalog-select-open', { detail: null }));
+      if (!expanded) document.dispatchEvent(new CustomEvent('filter-select-open'));
     };
     setExpanded(!mobileFilters.matches);
     mobileFilters.addEventListener('change', () => setExpanded(!mobileFilters.matches));
