@@ -123,7 +123,6 @@ html[data-design="modern"] .phone-spec-table tr:last-child > :last-child { borde
  .language-dropdown summary .ui-arrow, .year-index-chevron { transition:none; }
 }
 .mobile-settings .design-switch-mobile { margin-left:0; }
-.mobile-settings > div:first-child > [role="group"] { gap:0; }
 .mobile-settings { column-gap:.25rem; }
 /* Remaining archive pages share the same modern surfaces. */
 html[data-design="modern"] :is(.about-identity,.favorites-empty,.favorites-toolbar,[aria-labelledby="brand-archive"]) { border:1px solid var(--color-neutral-800); border-radius:14px; background:var(--color-neutral-900); }

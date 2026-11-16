@@ -34,6 +34,20 @@ const { Content } = await render(phone);
 
 const variantData = data.specVariant ? { ...data, ...data.specVariant.specs } : data;
 const groups = buildCompareGroups(data, variantData, strings);
+const video = PHONE_VIDEOS[slugOf(phone)];
+const modelName = data.model.startsWith(`${data.brand} `) ? data.model : `${data.brand} ${data.model}`;
+const detailCopy = {
+  uk: { overview: 'Огляд', story: 'Історія', specs: 'Характеристики', allSpecs: 'Усі характеристики' },
+  ru: { overview: 'Обзор', story: 'История', specs: 'Характеристики', allSpecs: 'Все характеристики' },
+  en: { overview: 'Overview', story: 'History', specs: 'Specs', allSpecs: 'All specifications' },
+}[locale];
+const rows = new Map(groups.flatMap(group => group.rows.map(row => [row.label, row.a] as const)));
+const quickSpecs = [s.formFactor, s.display, s.os, s.camera, s.battery, s.network]
+  .flatMap(label => {
+    const value = rows.get(label);
+    return value ? [{ label, value }] : [];
+  })
+  .slice(0, 4);
 const canonicalOs = locale === 'uk' ? data.os : (await getPhone('uk', slugOf(phone)))?.data.os;
 const osPlatform = platformFor(canonicalOs);
 const osVersion = osPlatform && canonicalOs ? versionFor(osPlatform.id, canonicalOs) : undefined;
@@ -60,7 +74,8 @@ const related = allPhones
   .slice(0, 3);
 ---
 
-<header class="phone-masthead phone-cover mb-5 flex items-end justify-between gap-4 border-b border-neutral-800 pb-5 sm:mb-8 sm:pb-6">
+<div class="phone-page-layout">
+<header id="phone-overview" class="phone-masthead phone-cover mb-5 flex items-end justify-between gap-4 border-b border-neutral-800 pb-5 sm:mb-8 sm:pb-6">
   <div class="min-w-0">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
       <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-orange-500 hover-desktop:text-orange-400">{data.brand}</a>
@@ -78,24 +93,24 @@ const related = allPhones
         <CollectionIcon />
         <span data-favorite-label class="text-xs normal-case tracking-normal">{strings.favorites.add}</span>
       </button>
-      <span class="editorial-kicker text-neutral-500 sm:hidden">{data.year}</span>
+      <span class="phone-inline-year editorial-kicker text-neutral-500 sm:hidden">{data.year}</span>
     </div>
     <h1 class="page-title mt-2 wrap-anywhere">{data.model}</h1>
-    {data.formFactor && <p class="mt-2 text-sm text-neutral-500">{strings.specs.formFactor}: <a class="text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/catalog/') + '?form=' + data.formFactor}>{strings.formFactors[data.formFactor]}</a></p>}
-    {data.milestone && <p class="mt-3 max-w-2xl border-l-2 border-orange-500 pl-3 text-sm leading-relaxed text-neutral-300 sm:mt-4 sm:text-lg">{data.milestone}</p>}
+    {data.formFactor && <p class="phone-masthead-form mt-2 text-sm text-neutral-500">{strings.specs.formFactor}: <a class="text-orange-500 underline underline-offset-4 hover-desktop:text-orange-400" href={localePath(locale, '/catalog/') + '?form=' + data.formFactor}>{strings.formFactors[data.formFactor]}</a></p>}
+    {data.milestone && <p class="phone-masthead-summary mt-3 max-w-2xl border-l-2 border-orange-500 pl-3 text-sm leading-relaxed text-neutral-300 sm:mt-4 sm:text-lg">{data.milestone}</p>}
   </div>
   <span class="cover-year hidden shrink-0 font-extrabold tabular-nums text-neutral-600 sm:block">{data.year}</span>
 </header>
-    <nav class:list={['phone-section-nav mb-6 grid gap-2', PHONE_VIDEOS[slugOf(phone)] ? 'grid-cols-4' : 'grid-cols-3']} aria-label={data.model}>
+    <nav class:list={['phone-section-nav phone-magazine-nav mb-6 grid gap-2', video ? 'grid-cols-4' : 'grid-cols-3']} aria-label={data.model}>
       <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-photos">{reading.photos}</a>
       <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-story">{editorial.story}</a>
-      {PHONE_VIDEOS[slugOf(phone)] && <a class="control-button min-h-11 px-2 text-center text-xs leading-snug" href="#phone-video"><svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg>{PHONE_VIDEO_LABELS[locale].nav}</a>}
+      {video && <a class="control-button min-h-11 px-2 text-center text-xs leading-snug" href="#phone-video"><svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m8 7 5 3-5 3Z"/></svg>{PHONE_VIDEO_LABELS[locale].nav}</a>}
       <a class="control-button px-2 text-center text-xs leading-snug" href="#phone-specs">{editorial.specs}</a>
     </nav>
 <div class="phone-detail-grid grid gap-8 sm:gap-10 lg:grid-cols-[2fr_3fr]">
   <div class="phone-media-rail min-w-0 lg:self-start">
     <div id="phone-photos" class="phone-photo-block scroll-mt-24" data-image-gallery>
-      <p class="editorial-kicker mb-3 text-neutral-500">{PHONE_VIDEOS[slugOf(phone)] ? reading.media : reading.photos}</p>
+      <p class="phone-gallery-heading editorial-kicker mb-3 text-neutral-500">{video ? reading.media : reading.photos}</p>
       <div class="relative">
         <div class="phone-gallery-stage relative flex h-[min(76vw,320px)] items-center justify-center overflow-hidden rounded-sm border border-neutral-800 border-t-4 border-t-orange-500 bg-neutral-900 p-4 sm:h-96 sm:p-6 lg:h-[420px]">
           {images.length > 0 ? (
@@ -125,6 +140,12 @@ const related = allPhones
             </>
           )}
         </div>
+        {video && (
+          <button type="button" hidden class="phone-preview-video control-button" aria-label={`${PHONE_VIDEO_LABELS[locale].nav} · YouTube · ${modelName}`} aria-haspopup="dialog" aria-controls="card-video-dialog" data-card-video={video.id} data-video-model={modelName} data-video-author={video.author}>
+            <svg aria-hidden="true" width="17" height="17" viewBox="0 0 20 20" fill="currentColor"><path d="M6 4v12l10-6z"/></svg>
+            {PHONE_VIDEO_LABELS[locale].nav}
+          </button>
+        )}
       </div>
       {images.length > 0 && <div class="gallery-toolbar"><div><span class="text-xs font-semibold text-neutral-400">{reading.photos}</span> <span data-gallery-page aria-live="polite" aria-atomic="true" class="text-xs tabular-nums text-neutral-200">1 / {images.length}</span></div>{images.length > 1 && <div class="flex gap-2"><button type="button" data-gallery-inline-previous class="control-button gallery-step" aria-label={strings.gallery.previous}><Arrow direction="left" /></button><button type="button" data-gallery-inline-next class="control-button gallery-step" aria-label={strings.gallery.next}><Arrow direction="right" /></button></div>}</div>}
       {images.length > 1 && (
@@ -174,6 +195,23 @@ const related = allPhones
     )}
   </div>
 
+  <div class="phone-quick-specs">
+    {quickSpecs.length > 0 && <dl>
+      {quickSpecs.map(({ label, value }) => (
+        <div>
+          <dt>{label}</dt>
+          <dd>{label === s.os && osHref ? <a href={osHref}>{value}</a> : label === s.formFactor && data.formFactor ? <a href={localePath(locale, '/catalog/') + '?form=' + data.formFactor}>{value}</a> : value}</dd>
+        </div>
+      ))}
+    </dl>}
+    <a class="phone-quick-link" href="#phone-specs">{detailCopy.allSpecs}<Arrow direction="down" size={16} /></a>
+  </div>
+  <nav class="phone-section-nav phone-modern-nav" data-phone-detail-nav aria-label={modelName}>
+    <a class="control-button" href="#phone-overview" aria-current="location">{detailCopy.overview}</a>
+    <a class="control-button" href="#phone-story">{detailCopy.story}</a>
+    <a class="control-button" href="#phone-specs">{detailCopy.specs}</a>
+  </nav>
+
   <div class="phone-reading-column min-w-0">
 
     <section class="phone-story-section" aria-labelledby="phone-story">
@@ -184,7 +222,7 @@ const related = allPhones
 
     </section>
 
-    {PHONE_VIDEOS[slugOf(phone)] && <PhoneVideo locale={locale} slug={slugOf(phone)} poster={data} />}
+    {video && <PhoneVideo locale={locale} slug={slugOf(phone)} poster={data} />}
     <section class="phone-spec-section min-w-0" aria-labelledby="phone-specs">
     <h2 id="phone-specs" class="section-label mt-10 scroll-mt-24">{editorial.specs}</h2>
     <p class="mt-3 text-sm leading-relaxed text-neutral-400">{data.specVariant ? SPEC_VARIANT_NOTE[locale].replace('{model}', data.specVariant.model) : reading.specNote}</p>
@@ -217,6 +255,7 @@ const related = allPhones
     </div>
     </section>
   </div>
+</div>
 </div>
 
 {stories.length > 0 && <nav class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-neutral-800 pt-5 text-sm" aria-label={discovery.collections}>
@@ -258,4 +297,136 @@ const related = allPhones
 )}
 
 <script>
+  const nav = document.querySelector<HTMLElement>('[data-phone-detail-nav]');
+  const header = document.getElementById('site-header');
+  if (nav && header) {
+    const layout = nav.closest<HTMLElement>('.phone-page-layout')!;
+    const links = [...nav.querySelectorAll<HTMLAnchorElement>('a')];
+    const sections = links.map(link => document.getElementById(link.hash.slice(1)));
+    let pending = false;
+    const update = () => {
+      pending = false;
+      if (!nav.getClientRects().length) return;
+      const bottom = nav.getBoundingClientRect().bottom + 24;
+      let active = 0;
+      sections.slice(1).forEach((section, index) => {
+        if (section && section.getBoundingClientRect().top <= bottom) active = index + 1;
+      });
+      links.forEach((link, index) => {
+        if (index === active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    const queue = () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(update);
+    };
+    const measure = () => {
+      const offset = parseFloat(getComputedStyle(header).top) || 0;
+      layout.style.setProperty('--phone-header-height', `${header.offsetHeight + offset}px`);
+      queue();
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    observer.observe(layout);
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('hashchange', queue);
+    measure();
+  }
 </script>
+
+<style>
+  .phone-modern-nav, .phone-preview-video, .phone-quick-specs { display: none; }
+  :global(html[data-design="modern"] body:has(.phone-page-layout) .global-info-bar) { display: none; }
+  :global(html[data-design="modern"] main:has(> .phone-page-layout)) { padding-block-start: clamp(.875rem, 2vw, 1.5rem); }
+  :global(html[data-design="modern"]) .phone-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'intro' 'media' 'quick' 'nav' 'story' 'specs';
+    align-items: start;
+    gap: 1rem;
+  }
+  :global(html[data-design="modern"]) :is(.phone-detail-grid, .phone-reading-column) { display: contents; }
+  :global(html[data-design="modern"]) :is(.phone-magazine-nav, .phone-gallery-heading, .phone-masthead-form, .phone-masthead .cover-year) { display: none; }
+  :global(html[data-design="modern"]) .phone-masthead {
+    grid-area: intro;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  :global(html[data-design="modern"]) .phone-inline-year { display: inline; font-variant-numeric: tabular-nums; }
+  :global(html[data-design="modern"]) .phone-masthead-summary { margin-top: .5rem; border: 0; padding: 0; }
+  :global(html[data-design="modern"]) .phone-media-rail { grid-area: media; position: static; display: grid; gap: .75rem; }
+  :global(html[data-design="modern"]) .phone-photo-block { padding: 0; border: 0; background: transparent; box-shadow: none; }
+  :global(html[data-design="modern"]) .phone-gallery-stage { height: clamp(13rem, 66vw, 22rem); border-width: 1px; }
+  :global(html[data-design="modern"]) .phone-preview-video:not([hidden]) {
+    position: absolute;
+    inset-block-start: .75rem;
+    inset-inline-end: .75rem;
+    z-index: 11;
+    display: inline-flex;
+    background: var(--modern-elevated);
+    font-size: .8125rem;
+    font-weight: 650;
+  }
+  :global(html[data-design="modern"]) .phone-preview-video svg { color: var(--color-orange-500); }
+  :global(html[data-design="modern"]) .phone-quick-specs { grid-area: quick; display: grid; gap: .625rem; min-width: 0; }
+  .phone-quick-specs dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+  .phone-quick-specs dl > div {
+    padding: .625rem .75rem;
+    border: 1px solid var(--modern-line);
+    border-radius: var(--modern-control);
+    background: var(--modern-surface);
+    overflow-wrap: anywhere;
+  }
+  .phone-quick-specs dt { color: var(--color-neutral-500); font-size: .75rem; }
+  .phone-quick-specs dd { margin: .25rem 0 0; font-size: .875rem; font-weight: 650; }
+  .phone-quick-specs dd a { text-decoration: underline; text-underline-offset: .2em; }
+  .phone-quick-link { display: inline-flex; align-items: center; justify-self: start; min-height: 2.75rem; gap: .5rem; color: var(--color-orange-500); font-size: .875rem; font-weight: 650; }
+  :global(html[data-design="modern"]) .phone-modern-nav {
+    grid-area: nav;
+    position: sticky;
+    top: var(--phone-header-height, 4.5rem);
+    z-index: 25;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .25rem;
+    margin: 0;
+    padding: .25rem;
+    background: var(--modern-surface);
+  }
+  :global(html[data-design="modern"][data-header-hidden="true"]) .phone-modern-nav { top: 0; }
+  :global(html[data-design="modern"]) .phone-modern-nav a {
+    text-align: center;
+    font-size: .8125rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    background: transparent;
+  }
+  :global(html[data-design="modern"]) .phone-modern-nav a[aria-current] {
+    color: var(--color-orange-500);
+    background: var(--modern-soft);
+    border-color: var(--modern-line);
+  }
+  :global(html[data-design="modern"]) .phone-story-section { grid-area: story; }
+  :global(html[data-design="modern"]) .phone-story-section > :is(h2, .phone-story) { max-width: 45rem; margin-inline: auto; }
+  :global(html[data-design="modern"]) .phone-spec-section { grid-area: specs; margin-top: 0; }
+  :global(html[data-design="modern"]) .phone-page-layout :global([data-phone-video]:not(:target)) { display: none; }
+  :global(html[data-design="modern"]) .phone-page-layout :global([data-phone-video]:target) { grid-column: 1 / -1; }
+  :global(html[data-design="modern"]) :is(#phone-overview, #phone-story, #phone-specs) { scroll-margin-top: calc(var(--phone-header-height, 4.5rem) + 3.75rem); }
+
+  @media (min-width: 1024px) {
+    :global(html[data-design="modern"]) .phone-page-layout {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      grid-template-areas: 'media intro' 'media quick' 'nav nav' 'story story' 'specs specs';
+      grid-template-rows: auto minmax(0, 1fr) auto auto auto;
+      gap: 1.5rem 2rem;
+    }
+    :global(html[data-design="modern"]) .phone-masthead { padding-top: .5rem; }
+    :global(html[data-design="modern"]) .phone-gallery-stage { height: clamp(18rem, 47vh, 28rem); }
+  }
+</style>

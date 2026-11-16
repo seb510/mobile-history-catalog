@@ -22,10 +22,12 @@ const { phone, locale, badge, compact = false, showcase = false } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const slug = slugOf(phone);
+const video = PHONE_VIDEOS[slug];
+const videoLabel = `${PHONE_VIDEO_LABELS[locale].badge} · YouTube`;
+const modelName = data.model.startsWith(`${data.brand} `) ? data.model : `${data.brand} ${data.model}`;
 const isNew = isRecentlyAdded(data.dateAdded);
 const showcaseRows = showcase ? buildSpecGroups(data, strings).flatMap(group => group.rows).filter(([label]) => new Set<string>([strings.specs.formFactor, strings.specs.display, strings.specs.weight]).has(label)) : [];
 const showcaseAction = {uk:'Роздивитися модель',ru:'Рассмотреть модель',en:'Explore the model'}[locale];
-const priceContextLabel = {uk:'Додаткова інформація',ru:'Дополнительная информация',en:'Additional information'}[locale];
 const hasPrice = data.priceUsdAtLaunch != null && data.priceSourceUrl;
 const priceTooltipText = hasPrice
   ? `${strings.specs.priceUsdAtLaunch}: $${data.priceUsdAtLaunch} USD${data.priceContext ? ` — ${data.priceContext}` : ''}`
@@ -33,30 +35,50 @@ const priceTooltipText = hasPrice
 const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 ---
 
-<div class="relative flex min-w-0 flex-1 self-stretch">
-<a
-  href={localePath(locale, `/phones/${slug}/`)}
+<div class:list={['phone-card-frame relative flex min-w-0 flex-1 self-stretch', compact && 'phone-card-frame--compact']}>
+<div
   data-phone-card
   data-slug={slug}
   data-brand={data.brand}
   data-year={data.year}
   data-form={data.formFactor}
-  data-video={PHONE_VIDEOS[slug] ? "true" : undefined}
+  data-video={video ? "true" : undefined}
   data-search={searchKey}
-  class:list={['editorial-card group flex min-w-0 flex-1 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 motion-ui', compact && 'catalog-card']}
+  class:list={['editorial-card relative group flex min-w-0 flex-1 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900 motion-ui', compact && 'catalog-card']}
 >
-  <div class="phone-card-art relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-5">
-    {data.image ? (
-      <>
-        <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="relative h-full w-full object-contain" loading="lazy" decoding="async" />
-        <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-3">
-          <PlaceholderArt class="h-full w-full text-neutral-600" />
-        </div>
-      </>
-    ) : (
-      <PlaceholderArt class="h-full w-full text-neutral-600" />
-    )}
-    {PHONE_VIDEOS[slug] && <span class="phone-video-badge absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-sm border border-neutral-600 bg-neutral-950 px-2 py-1 text-[0.65rem] font-semibold text-neutral-200" title={PHONE_VIDEO_LABELS[locale].available}><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path class="icon-edition-magazine" d="M3 4h14v12H3zM8 7l5 3-5 3z"/><rect class="icon-edition-modern" x="2" y="3" width="16" height="14" rx="5"/><path class="icon-edition-modern" d="m8 7 5 3-5 3Z"/></svg><span aria-hidden="true">{PHONE_VIDEO_LABELS[locale].badge}</span><span class="sr-only">{PHONE_VIDEO_LABELS[locale].available}</span></span>}
+  <div class="phone-card-art phone-card-media relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-5">
+    <div class="phone-card-media-visual relative h-full w-full min-w-0">
+      {data.image ? (
+        <>
+          <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="absolute inset-0 h-full w-full object-contain" loading="lazy" decoding="async" />
+          <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-3">
+            <PlaceholderArt class="h-full w-full text-neutral-600" />
+          </div>
+        </>
+      ) : (
+        <PlaceholderArt class="h-full w-full text-neutral-600" />
+      )}
+    </div>
+    <div class="phone-card-media-actions">
+      <button
+        type="button"
+        data-favorite-toggle
+        data-slug={slug}
+        data-label-add={strings.favorites.add}
+        data-label-remove={strings.favorites.remove}
+        aria-pressed="false"
+        aria-label={strings.favorites.add}
+        class="phone-card-media-action favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-200 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500"
+      >
+        <CollectionIcon />
+      </button>
+      {video && <button type="button" hidden class="phone-card-media-action phone-video-badge absolute bottom-2 right-2 z-10 inline-flex items-center justify-center rounded-sm border border-neutral-600 bg-neutral-950 text-neutral-200" title={`${videoLabel} · ${modelName}`} aria-label={`${videoLabel} · ${modelName}`} aria-haspopup="dialog" aria-controls="card-video-dialog" data-card-video={video.id} data-video-model={modelName} data-video-author={video.author}>
+        <span class="phone-video-badge-icon" aria-hidden="true">
+          <svg class="icon-edition-magazine" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h14v12H3zM8 7l5 3-5 3z"/></svg>
+          <svg class="icon-edition-modern" viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M6 3.5v9l6.5-4.5z"/></svg>
+        </span>
+      </button>}
+    </div>
     {badge ? (
       <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold text-neutral-950">
         {badge}
@@ -68,39 +90,101 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     )}
   </div>
   <div class="card-copy flex min-h-32 flex-1 flex-col gap-1 p-4 sm:p-5">
-    <div class="flex flex-1 flex-col justify-center gap-1">
+    <div class:list={['flex flex-1 flex-col gap-1', priceTooltipText && !showcase ? 'justify-end' : 'justify-center']}>
       <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
-      <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight">{data.model}</p>
+      <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight"><a class="phone-card-link" data-phone-card-link aria-label={modelName} href={localePath(locale, `/phones/${slug}/`)}>{data.model}</a></p>
       {data.milestone && (
-        <p class="relative mt-1 border-l-2 border-orange-500/60 py-0.5 pl-2 pr-5 text-sm text-neutral-400">
+        <p class:list={['mt-1 border-l-2 border-orange-500/60 py-0.5 pl-2 text-sm text-neutral-400', priceTooltipText && !showcase && 'phone-card-price-note']}>
           <span class="line-clamp-2">{data.milestone}</span>
-          {priceTooltipText && (
-            <span class="absolute bottom-0 right-0">
-              <InfoTooltip text={priceTooltipText} label={priceContextLabel} id={`price-context-${slug}`} />
-            </span>
-          )}
         </p>
       )}
       {!data.milestone && priceTooltipText && (
-        <p class="mt-1"><InfoTooltip text={priceTooltipText} label={priceContextLabel} id={`price-context-${slug}`} /></p>
+        <span class="h-8" aria-hidden="true"></span>
       )}
     </div>
     {showcase && <>
       <dl class="mt-4 grid gap-3 border-t border-neutral-700 pt-4 sm:grid-cols-3">{showcaseRows.map(([label,value])=><div class="min-w-0"><dt class="text-xs text-neutral-500">{label}</dt><dd class="mt-1 text-sm font-semibold leading-relaxed text-neutral-200">{value}</dd></div>)}</dl>
-      <span class="mt-4 inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-orange-500">{showcaseAction}<Arrow direction="right" /></span>
+      <span class:list={['mt-4 inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-orange-500', priceTooltipText && 'pr-10']}>{showcaseAction}<Arrow direction="right" /></span>
     </>}
   </div>
-</a>
-  <button
-    type="button"
-    data-favorite-toggle
-    data-slug={slug}
-    data-label-add={strings.favorites.add}
-    data-label-remove={strings.favorites.remove}
-    aria-pressed="false"
-    aria-label={strings.favorites.add}
-    class="favorite-toggle favorite-toggle-icon absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/80 text-neutral-200 backdrop-blur-sm motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500"
-  >
-    <CollectionIcon />
-  </button>
 </div>
+  {priceTooltipText && (
+    <div class="phone-card-price absolute z-10 flex">
+      <InfoTooltip text={priceTooltipText} label={strings.specs.priceUsdAtLaunch} />
+    </div>
+  )}
+</div>
+
+<style>
+  .phone-card-link::after { content: ''; position: absolute; inset: 0; }
+  .phone-card-link:focus-visible { outline: none; }
+  .phone-card-link:focus-visible::after { outline: 2px solid var(--color-orange-500); outline-offset: -3px; }
+  .phone-card-media-action {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+  }
+  .phone-video-badge { cursor: pointer; }
+  .phone-video-badge-icon { flex: none; }
+  .phone-video-badge-icon svg { width: 1rem; height: 1rem; }
+  .phone-card-media-actions { display: contents; }
+  @media (hover: hover) and (pointer: fine) {
+    .phone-video-badge:hover { outline: 2px solid var(--color-orange-500); outline-offset: -1px; }
+  }
+  @media (min-width: 640px) {
+    .phone-card-media:has(.phone-video-badge) { min-height: 7.25rem; }
+  }
+  @media (max-width: 639px) {
+    [data-phone-card] > .phone-card-media.phone-card-art {
+      display: flex;
+      align-self: stretch;
+      align-items: flex-start;
+      width: auto;
+      min-width: 0;
+      height: clamp(6.875rem, 27vw, 9rem);
+      aspect-ratio: auto;
+      gap: .375rem;
+      padding: .375rem;
+    }
+    .phone-card-media-visual {
+      flex: 1 1 0;
+      align-self: stretch;
+      width: auto;
+      height: auto;
+    }
+    .phone-card-media-actions {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex: 0 0 2.75rem;
+      flex-direction: column;
+      width: 2.75rem;
+      gap: .375rem;
+    }
+    .phone-card-media-actions > .phone-card-media-action {
+      position: static;
+      box-shadow: none;
+    }
+    .phone-card-media-actions > .phone-card-media-action:focus-visible { outline-offset: -2px; }
+  }
+  .phone-card-frame { --price-inset: 1rem; }
+  .phone-card-frame--compact { --price-inset: .75rem; }
+  .phone-card-price {
+    inset-inline-end: calc(var(--price-inset) + .25rem);
+    inset-block-end: calc(var(--price-inset) + .25rem);
+  }
+  .phone-card-price-note {
+    display: grid;
+    min-block-size: 2.5rem;
+    align-items: center;
+  }
+  .phone-card-price-note > span { padding-inline-end: 2.25rem; }
+
+  @media (min-width: 640px) {
+    .phone-card-frame { --price-inset: 1.25rem; }
+    .phone-card-frame--compact { --price-inset: .875rem; }
+    :global(html[data-design="modern"]) .phone-card-frame--compact { --price-inset: clamp(.65rem, 1.2vw, .95rem); }
+  }
+  @media (max-width: 639px) {
+    :global(html[data-design="modern"]) .phone-card-frame { --price-inset: .7rem; }
+  }
+</style>

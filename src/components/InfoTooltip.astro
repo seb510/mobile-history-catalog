@@ -2,41 +2,33 @@
 interface Props {
   text: string;
   label: string;
-  id: string;
 }
-const { text, label, id } = Astro.props;
+const { text, label } = Astro.props;
 ---
 <span class="info-tooltip" data-info-tooltip>
-  <span
+  <button
+    type="button"
     class="info-tooltip-trigger"
-    role="button"
-    tabindex="0"
-    aria-haspopup="dialog"
-    aria-expanded="false"
-    aria-describedby={id}
     aria-label={label}
+    hidden
     data-info-trigger
   >
-    <svg aria-hidden="true" viewBox="0 0 20 20" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6">
-      <circle cx="10" cy="10" r="7.25" />
-      <path d="M10 9.2v4" stroke-linecap="round" />
-      <path d="M10 6.3h.01" stroke-linecap="round" />
+    <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <circle cx="10" cy="10" r="8" />
+      <path d="M10 9.2v4.4" />
+      <circle cx="10" cy="6.3" r="1" fill="currentColor" stroke="none" />
     </svg>
-  </span>
-  <span role="tooltip" id={id} class="info-tooltip-bubble" data-info-bubble>{text}</span>
+  </button>
+  <span role="tooltip" class="info-tooltip-bubble" data-info-bubble>{text}</span>
 </span>
 
 <script>
   const GAP = 8;
   const MARGIN = 10;
-  const fineHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-  // Adopted into <body> the first time it opens, so no ancestor (overflow,
-  // stacking context, etc.) can ever clip or constrain it. aria-describedby
-  // still links trigger -> bubble by id regardless of where it lives in the DOM.
-  function adoptIntoBody(bubble: HTMLElement) {
-    if (bubble.parentElement !== document.body) document.body.appendChild(bubble);
-  }
+  type Tooltip = { trigger: HTMLButtonElement; bubble: HTMLElement };
+  let current: Tooltip | null = null;
+  let pinned = false;
+  let hideTimer: number | undefined;
 
   function positionBubble(trigger: HTMLElement, bubble: HTMLElement) {
     const triggerRect = trigger.getBoundingClientRect();
@@ -44,47 +36,66 @@ const { text, label, id } = Astro.props;
     const openUp = triggerRect.top > bubbleRect.height + GAP + MARGIN;
     const top = (openUp
       ? Math.max(MARGIN, triggerRect.top - bubbleRect.height - GAP)
-      : Math.min(window.innerHeight - bubbleRect.height - MARGIN, triggerRect.bottom + GAP)) + window.scrollY;
+      : Math.max(MARGIN, Math.min(document.documentElement.clientHeight - bubbleRect.height - MARGIN, triggerRect.bottom + GAP)));
     let left = triggerRect.left + triggerRect.width / 2 - bubbleRect.width / 2;
-    left = Math.max(MARGIN, Math.min(left, window.innerWidth - bubbleRect.width - MARGIN)) + window.scrollX;
+    left = Math.max(MARGIN, Math.min(left, document.documentElement.clientWidth - bubbleRect.width - MARGIN));
     bubble.style.top = `${top}px`;
     bubble.style.left = `${left}px`;
   }
 
-  let current: { trigger: HTMLElement; bubble: HTMLElement } | null = null;
-
   function close() {
+    window.clearTimeout(hideTimer);
     if (!current) return;
     current.bubble.removeAttribute('data-open');
-    current.trigger.setAttribute('aria-expanded', 'false');
     current = null;
+    pinned = false;
   }
 
-  function open(root: HTMLElement) {
-    const trigger = root.querySelector<HTMLElement>('[data-info-trigger]');
-    const bubble = root.querySelector<HTMLElement>('[data-info-bubble]');
-    if (!trigger || !bubble) return;
-    if (current && current.bubble !== bubble) close();
-    adoptIntoBody(bubble);
+  function open(tooltip: Tooltip) {
+    window.clearTimeout(hideTimer);
+    if (current === tooltip) return;
+    close();
+    const { trigger, bubble } = tooltip;
+    // Keep the cached reference after moving the bubble outside the clipped card.
+    if (bubble.parentElement !== document.body) document.body.append(bubble);
     positionBubble(trigger, bubble);
     bubble.setAttribute('data-open', 'true');
-    trigger.setAttribute('aria-expanded', 'true');
-    current = { trigger, bubble };
+    current = tooltip;
   }
 
-  document.querySelectorAll<HTMLElement>('[data-info-tooltip]').forEach((root) => {
-    const trigger = root.querySelector<HTMLElement>('[data-info-trigger]');
-    if (!trigger) return;
-    trigger.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      if (current && current.trigger === trigger) close();
-      else open(root);
+  document.querySelectorAll<HTMLElement>('[data-info-tooltip]').forEach((root, index) => {
+    const trigger = root.querySelector<HTMLButtonElement>('[data-info-trigger]');
+    const bubble = root.querySelector<HTMLElement>('[data-info-bubble]');
+    if (!trigger || !bubble) return;
+    const tooltip = { trigger, bubble };
+    bubble.id = `info-tooltip-${index + 1}`;
+    trigger.setAttribute('aria-describedby', bubble.id);
+    trigger.hidden = false;
+
+    const leave = () => {
+      if (current !== tooltip) return;
+      window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => {
+        if (current === tooltip && !pinned && !trigger.matches(':hover, :focus-visible') && !bubble.matches(':hover')) close();
+      }, 150);
+    };
+    trigger.addEventListener('click', () => {
+      if (current === tooltip && pinned) close();
+      else {
+        open(tooltip);
+        pinned = true;
+      }
     });
-    trigger.addEventListener('mouseenter', () => { if (fineHover()) open(root); });
-    trigger.addEventListener('mouseleave', () => { if (current?.trigger === trigger) close(); });
-    trigger.addEventListener('focus', () => open(root));
-    trigger.addEventListener('blur', () => { if (current?.trigger === trigger) close(); });
+    trigger.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') open(tooltip); });
+    trigger.addEventListener('pointerleave', (event) => { if (event.pointerType === 'mouse') leave(); });
+    bubble.addEventListener('pointerenter', () => { if (current === tooltip) window.clearTimeout(hideTimer); });
+    bubble.addEventListener('pointerleave', leave);
+    trigger.addEventListener('focus', () => { if (trigger.matches(':focus-visible')) open(tooltip); });
+    trigger.addEventListener('blur', () => {
+      if (current !== tooltip) return;
+      pinned = false;
+      leave();
+    });
   });
 
   document.addEventListener('click', (event) => {
@@ -92,11 +103,7 @@ const { text, label, id } = Astro.props;
     if (current && !(target instanceof Element && target.closest('[data-info-tooltip]')) && !current.bubble.contains(target)) close();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && current) {
-      const trigger = current.trigger;
-      close();
-      trigger.focus();
-    }
+    if (event.key === 'Escape') close();
   });
   window.addEventListener('scroll', () => close(), { passive: true, capture: true });
   window.addEventListener('resize', () => { if (current) positionBubble(current.trigger, current.bubble); });
@@ -104,29 +111,34 @@ const { text, label, id } = Astro.props;
 
 <style>
   .info-tooltip { position: relative; display: inline-flex; vertical-align: middle; }
-  .info-tooltip-trigger {
+  .info-tooltip-trigger:not([hidden]) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.125rem;
-    height: 1.125rem;
-    border-radius: 999px;
-    border: 1px solid var(--color-neutral-600);
-    color: var(--color-neutral-400);
+    width: 2rem;
+    height: 2rem;
+    border-radius: .4rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-neutral-300);
     cursor: pointer;
-    transition: border-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing);
+    transition: background-color var(--motion-ui) var(--motion-easing), color var(--motion-ui) var(--motion-easing);
   }
   @media (hover: hover) and (pointer: fine) {
-    .info-tooltip-trigger:hover { border-color: var(--color-orange-500); color: var(--color-orange-500); }
+    .info-tooltip-trigger:hover {
+      background: color-mix(in srgb, var(--color-orange-500) 10%, transparent);
+      color: var(--color-orange-500);
+    }
   }
   .info-tooltip-trigger:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 2px; }
   .info-tooltip-bubble {
-    position: absolute;
+    position: fixed;
     inset-block-start: 0;
     inset-inline-start: 0;
     z-index: 200;
     width: max-content;
-    max-width: 16rem;
+    max-width: min(16rem, calc(100vw - 20px));
+    overflow-wrap: anywhere;
     border: 1px solid var(--color-neutral-700);
     border-radius: 2px;
     background: var(--color-neutral-950);
@@ -147,6 +159,8 @@ const { text, label, id } = Astro.props;
     visibility: visible;
     pointer-events: auto;
   }
-  html[data-design="modern"] .info-tooltip-trigger { border-radius: 999px; border-color: var(--modern-line); }
-  html[data-design="modern"] .info-tooltip-bubble { border-radius: var(--modern-control); border-color: var(--modern-line); background: var(--modern-elevated); color: var(--color-neutral-300); }
+  :global(html[data-design="modern"]) .info-tooltip-bubble { border-radius: var(--modern-control); border-color: var(--modern-line); background: var(--modern-elevated); }
+  @media (prefers-reduced-motion: reduce) {
+    .info-tooltip-trigger, .info-tooltip-bubble { transition: none; }
+  }
 </style>

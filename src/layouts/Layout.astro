@@ -8,6 +8,7 @@ import '../styles/feedback.css';
 import '../styles/archive-editions.css';
 import Feedback from '../components/Feedback.astro';
 import Header from '../components/Header.astro';
+import CardVideoDialog from '../components/CardVideoDialog.astro';
 import Footer from '../components/Footer.astro';
 import PrivacyNotice from '../components/PrivacyNotice.astro';
 import ClockWeather from '../components/ClockWeather.astro';
@@ -133,6 +134,7 @@ const schema = {
     <Footer locale={locale} />
     <PrivacyNotice locale={locale} path={path} />
     <Feedback locale={locale} />
+    <CardVideoDialog locale={locale} />
     <script is:inline>
       document.querySelectorAll('a[href]').forEach((link) => {
         try {

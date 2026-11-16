@@ -32,11 +32,11 @@ html:not([data-design="modern"]) .home-cover h1 { text-wrap:balance; }
 html:not([data-design="modern"]) .home-topic-nav ul { overflow:hidden; }
 html:not([data-design="modern"]) .home-cover-feature .card-copy { border-color:var(--paper-rule); }
 html:not([data-design="modern"]) .section-label { border-inline-start-color:var(--color-orange-500); }
-html:not([data-design="modern"]) :is(a.editorial-card,.recent-phone,.update-phone) {
+html:not([data-design="modern"]) :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone) {
   transition:border-color var(--motion-ui) var(--motion-easing),background-color var(--motion-ui) var(--motion-easing);
 }
 @media (hover:hover) and (pointer:fine) {
-  html:not([data-design="modern"]) :is(a.editorial-card,.recent-phone,.update-phone):hover { border-color:var(--color-orange-500); }
+  html:not([data-design="modern"]) :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone):hover { border-color:var(--color-orange-500); }
 }
 
 /* The modern edition pairs graphite mineral surfaces with a teal accent. */
@@ -140,13 +140,13 @@ html[data-design="modern"] .compare-table .compare-table-head {
   html[data-design="modern"] .site-header { border-block-start-width:2px; border-block-start-color:transparent; border-inline-width:0; }
 }
 @media (hover:hover) and (pointer:fine) {
-  html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone,.home-topic-nav a):hover { border-color:var(--color-orange-500); }
+  html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone,.home-topic-nav a):hover { border-color:var(--color-orange-500); }
   html[data-design="modern"] :is(.primary-cta,.period-save):hover { background:var(--accent-solid-hover); }
 }
 @media (prefers-reduced-motion:no-preference) {
   @media (hover:hover) and (pointer:fine) {
-    html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone) { transition:translate var(--motion-ui) var(--motion-easing),border-color var(--motion-ui) var(--motion-easing); }
-    html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone):hover { translate:0 -2px; }
+    html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone) { transition:translate var(--motion-ui) var(--motion-easing),border-color var(--motion-ui) var(--motion-easing); }
+    html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone):hover { translate:0 -2px; }
   }
 }
 @media (prefers-reduced-motion:reduce) {
@@ -221,17 +221,10 @@ html:not([data-design="modern"]) .favorite-toggle-icon[aria-pressed="true"] {
   color:#fff;
   border-color:var(--accent-solid);
 }
-/* These two badges sit on top of a product photo, not the page background, so in
-   Modern they keep a fixed dark glass regardless of theme instead of the
-   light/dark-inverted neutral ramp used for the rest of the chrome — otherwise
-   the light theme turns them near-white and they vanish against the photo. */
-html[data-design="modern"] :is(.favorite-toggle-icon,.phone-video-badge) {
+html[data-design="modern"] .favorite-toggle-icon {
   background:rgba(12,30,29,.78);
   border-color:rgba(255,255,255,.22);
   color:#e9fbf7;
-}
-html[data-design="modern"] .phone-video-badge {
-  box-shadow:0 2px 6px rgba(0,0,0,.5), 0 0 0 2px rgba(255,255,255,.92);
 }
 html[data-design="modern"] .favorite-toggle-icon[aria-pressed="true"] {
   background:var(--accent-solid);
@@ -266,16 +259,13 @@ html[data-design="modern"] :is(.footer-identity,.footer-directory,.footer-archiv
 html[data-design="modern"] .footer-identity { background: var(--modern-soft); }
 html[data-design="modern"] .footer-directory > ul { grid-template-columns: repeat(2,minmax(0,1fr)); }
 
-html[data-design="modern"] .phone-masthead,
 html[data-design="modern"] .about-header {
   padding: clamp(1rem,4vw,2.5rem);
   border: 1px solid var(--modern-line);
   border-radius: var(--modern-corner);
   background: var(--modern-soft);
 }
-html[data-design="modern"] .phone-masthead .cover-year { color: var(--color-orange-500); }
 html[data-design="modern"] .phone-masthead h1 { line-height: 1.06; }
-html[data-design="modern"] .phone-section-nav .control-button { background: var(--modern-canvas); }
 html[data-design="modern"] .phone-story-section { padding: clamp(1rem,3vw,1.75rem); }
 html[data-design="modern"] .phone-story-section .prose { margin-bottom: 0; }
 html[data-design="modern"] .phone-spec-section { margin-top: 1.75rem; }
@@ -371,26 +361,12 @@ html:not([data-design="modern"]) .about-index a[aria-current="location"] {
   }
   html[data-header-hidden="true"] .catalog-layout { --catalog-visible-header: 0px; }
   .catalog-tools[data-sticky-filters] { position: sticky; top: var(--catalog-filter-top); z-index: 20; }
-  :is(.catalog-filter-grid,.catalog-filter-footer) {
-    display: grid;
+  .catalog-filter-grid {
     grid-template-columns: minmax(0,1fr);
-    gap: .75rem;
   }
   .catalog-timeline [data-year-group],
   .catalog-layout #catalog-filters { scroll-margin-top: calc(var(--catalog-header-height, 69px) + 3.75rem); }
   .catalog-timeline [data-year-group] > ul { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  html[data-design="modern"] .phone-detail-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  html[data-design="modern"] .phone-media-rail { position: static; }
-  html[data-design="modern"] .phone-reading-column { display: contents; }
-  /* .phone-story-section shares row 1 with the (taller) gallery column once the
-     reading column is unwrapped; without this it stretches to the gallery's
-     height, leaving a tall empty card whenever the story text is short. */
-  html[data-design="modern"] .phone-reading-column > .phone-story-section { align-self: start; }
-  html[data-design="modern"] :is(.phone-reading-column > .phone-video,.phone-spec-section) {
-    grid-column: 1 / -1;
-    margin: 0;
-  }
-  html[data-design="modern"] :is(#phone-photos,#phone-story,#phone-video,#phone-specs) { scroll-margin-top: 8rem; }
 
   /* The sticky two-column "contents" layout is shared; only surface styling differs. */
   .about-layout {
@@ -415,6 +391,8 @@ html:not([data-design="modern"]) .about-index a[aria-current="location"] {
   .about-sections { margin: 0; }
   .about-sections > section { scroll-margin-top: 8rem; }
 }
+
+html[data-design="modern"] :is(.catalog-video-filter,.catalog-stories a) { border-radius:var(--modern-control); }
 
 html[data-design="modern"] .about-index a[aria-current="location"] {
   box-shadow: inset 3px 0 var(--color-orange-500);
@@ -516,14 +494,14 @@ html[data-design="modern"] .site-header {
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 }
-html[data-design="modern"] :is(.home-cover-intro,.phone-masthead,.about-header,.brand-header,.home-project,.generation-feature,.compare-intro,.phone-photo-block,.phone-story-section,.brand-archive-panel,.about-identity,.ownership-item,.favorites-toolbar,.favorites-empty,.update-entry,.catalog-tools,.catalog-year-index,.compare-selected,.compare-summary,.compare-actions,.phone-video,.phone-audio,.phone-spec-surface,.compare-table,.editorial-card,.recent-phone,.update-phone,.brand-index-card,.footer-identity,.footer-directory,.footer-archive,.home-discovery a) {
+html[data-design="modern"] :is(.home-cover-intro,.about-header,.brand-header,.home-project,.generation-feature,.compare-intro,.phone-photo-block,.phone-story-section,.brand-archive-panel,.about-identity,.ownership-item,.favorites-toolbar,.favorites-empty,.update-entry,.catalog-tools,.catalog-year-index,.compare-selected,.compare-summary,.compare-actions,.phone-video,.phone-audio,.phone-spec-surface,.compare-table,.editorial-card,.recent-phone,.update-phone,.brand-index-card,.footer-identity,.footer-directory,.footer-archive,.home-discovery a) {
   box-shadow:var(--modern-highlight),var(--modern-shadow);
   background-image:linear-gradient(145deg,color-mix(in srgb,var(--modern-elevated) 62%,transparent),transparent 52%);
 }
-html[data-design="modern"] :is(.home-cover-intro,.phone-masthead,.about-header,.brand-header,.home-project,.generation-feature,.compare-intro) {
+html[data-design="modern"] :is(.home-cover-intro,.about-header,.brand-header,.home-project,.generation-feature,.compare-intro) {
   box-shadow:var(--modern-highlight),var(--modern-shadow-raised);
 }
-html[data-design="modern"] :is(.phone-masthead,.about-header,.brand-header) {
+html[data-design="modern"] :is(.about-header,.brand-header) {
   padding:clamp(1.25rem,3vw,2rem);
   border:1px solid var(--modern-line);
   border-radius:var(--modern-corner);
@@ -563,7 +541,7 @@ html[data-design="modern"] :is(.header-nav-link[aria-current],.mobile-nav-link[a
   border-color:color-mix(in srgb,var(--modern-blue) 30%,var(--modern-line));
 }
 html[data-design="modern"] .about-index a[aria-current="location"] { box-shadow:inset 3px 0 var(--modern-blue),var(--modern-highlight); }
-html[data-design="modern"] :is(.home-cover .cover-year,.phone-masthead .cover-year,.home-cover-stats p:first-child,[data-year-count]) { color:var(--modern-gold); }
+html[data-design="modern"] :is(.home-cover .cover-year,.home-cover-stats p:first-child,[data-year-count]) { color:var(--modern-gold); }
 html[data-design="modern"] :is(.favorite-count,.favorite-toggle-icon[aria-pressed="true"],.favorite-toggle-bare[aria-pressed="true"]) {
   color:var(--modern-coral);
   border-color:var(--modern-coral);
@@ -773,7 +751,25 @@ html[data-design="modern"] .catalog-card .card-copy { padding:clamp(.65rem,1.2vw
 html[data-design="modern"] .catalog-card .card-title { letter-spacing:-.035em; }
 html[data-design="modern"] .catalog-card .card-copy > p:last-of-type,
 html[data-design="modern"] .catalog-card .card-copy > div:first-child:last-child > p:last-of-type { border-color:color-mix(in srgb,var(--year-accent,var(--color-orange-500)) 72%,var(--modern-line)); }
-html[data-design="modern"] .catalog-card .phone-video-badge { border:1px solid #ffffff90; background:linear-gradient(145deg,#172334e8,#26364add); box-shadow:0 4px 12px #10182750; }
+html[data-design="modern"] .phone-video-badge {
+  inset-inline-end:.75rem;
+  inset-block-end:.625rem;
+  border:1px solid var(--modern-line);
+  border-radius:var(--modern-control);
+  background:var(--modern-elevated);
+  color:var(--color-neutral-100);
+  box-shadow:0 2px 7px #1018271f;
+}
+html[data-design="modern"] .phone-video-badge-icon {
+  display:grid;
+  flex:none;
+  place-items:center;
+  width:1.25rem;
+  height:1.25rem;
+  border-radius:50%;
+  background:var(--modern-soft);
+  color:var(--color-orange-500);
+}
 html[data-design="modern"] #brand-grid { gap:clamp(.875rem,1.6vw,1.5rem); }
 html[data-design="modern"] #brand-grid > li:nth-child(3n + 1) { --brand-accent:var(--color-orange-500); }
 html[data-design="modern"] #brand-grid > li:nth-child(3n + 2) { --brand-accent:var(--modern-blue); }
@@ -792,10 +788,10 @@ html[data-design="modern"] .brand-index-card .brand-index-logo { border:0; borde
 html[data-design="modern"] .brand-index-card .card-copy { border-color:color-mix(in srgb,var(--brand-accent) 35%,var(--modern-line)); }
 html[data-design="modern"] .brand-index-card .brand-index-action { color:var(--brand-accent); border-color:color-mix(in srgb,var(--brand-accent) 35%,var(--modern-line)); }
 @media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine) {
-  html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a,.about-index a,.control-button,.filter-select-trigger,.primary-cta,.period-save) {
+  html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a,.about-index a,.control-button,.filter-select-trigger,.primary-cta,.period-save) {
     transition:translate var(--motion-ui) var(--motion-easing),transform var(--motion-ui) var(--motion-easing),box-shadow var(--motion-ui) var(--motion-easing),border-color var(--motion-ui) var(--motion-easing),background-color var(--motion-ui) var(--motion-easing);
   }
-  html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a):hover {
+  html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a):hover {
     translate:0 -3px;
     box-shadow:var(--modern-highlight),var(--modern-shadow-raised);
   }
@@ -808,7 +804,7 @@ html[data-design="modern"] .brand-index-card .brand-index-action { color:var(--b
   html[data-design="modern"] :is(.prose a,.brand-about-copy a,.phone-story-section a,[data-gallery-credit] a,.compare-slot-credit a):hover { color:var(--modern-coral); }
 }
 @media (prefers-reduced-motion:reduce) {
-  html[data-design="modern"] :is(a.editorial-card,.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a,.about-index a,.control-button,.filter-select-trigger,.primary-cta,.period-save) { transition:none; }
+  html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a,.about-index a,.control-button,.filter-select-trigger,.primary-cta,.period-save) { transition:none; }
 }
 
 /* Carry the card language across every route while giving each content type
@@ -943,8 +939,6 @@ html[data-design="modern"] :is(.catalog-card,.editorial-card[data-phone-card]) .
 html[data-design="modern"] .favorite-toggle-icon {
   inset-block-start:.75rem;
   inset-inline-end:.75rem;
-  width:2.5rem;
-  height:2.5rem;
   border:1px solid color-mix(in srgb,var(--modern-blue) 26%,var(--modern-line));
   border-radius:.55rem;
   background:color-mix(in srgb,var(--modern-surface) 88%,transparent);
@@ -1179,13 +1173,8 @@ html[data-design="modern"] .home-cover-feature[data-home-edition="modern"] .card
 html[data-design="modern"] .generation-feature-pair { gap:.875rem; border:0; }
 html[data-design="modern"] .generation-feature-pair > .editorial-card { border:1px solid var(--modern-line); border-radius:14px; background:var(--modern-surface); }
 html[data-design="modern"] .generation-feature-pair .card-copy { border-color:var(--modern-line); }
-html[data-design="modern"] .brand-overview { grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr); align-items:stretch; }
-html[data-design="modern"] .brand-archive-panel { grid-template-columns:minmax(0,1fr); align-content:start; gap:1rem; }
-html[data-design="modern"] .brand-archive-summary,html[data-design="modern"] .brand-archive-years { padding:0 0 1rem; border-right:0; border-bottom:1px solid var(--modern-line); }
-html[data-design="modern"] .brand-archive-forms { padding-top:.25rem; }
 html[data-design="modern"] .brand-fact { border:1px solid var(--modern-line)!important; border-radius:10px; background:var(--modern-soft)!important; }
 @media (max-width:639px) {
-  html[data-design="modern"] .brand-overview { grid-template-columns:minmax(0,1fr); }
   html[data-design="modern"] .generation-feature-pair { gap:.625rem; padding:.75rem; }
   html[data-design="modern"] .home-cover-feature[data-home-edition="modern"] { border-radius:1.25rem .4rem 1.25rem .4rem; }
   html[data-design="modern"] .home-cover-feature[data-home-edition="modern"] .home-cover-media { border-radius:.9rem .3rem .9rem .3rem; }

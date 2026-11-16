@@ -11,21 +11,18 @@ interface Props {
 const { locale, brand, sound } = Astro.props;
 const copy = {
   uk: {
-    kicker: 'Звук бренду',
     title: 'Звук запуску',
     source: 'Джерело й авторство',
     play: 'Відтворити',
     pause: 'Пауза',
   },
   ru: {
-    kicker: 'Звук бренда',
     title: 'Звук запуска',
     source: 'Источник и авторство',
     play: 'Воспроизвести',
     pause: 'Пауза',
   },
   en: {
-    kicker: 'Brand sound',
     title: 'Startup sound',
     source: 'Source and credit',
     play: 'Play',
@@ -35,16 +32,7 @@ const copy = {
 ---
 
 <section class="phone-audio phone-startup-audio" aria-labelledby="phone-startup-audio-title">
-  <div class="phone-startup-audio-intro">
-    <div class="phone-startup-audio-heading">
-      <p class="editorial-kicker text-orange-500">{copy.kicker}</p>
-      <h2 id="phone-startup-audio-title" class="font-bold">{copy.title} · {brand}</h2>
-    </div>
-    <p class="phone-startup-audio-credit text-[0.6875rem] leading-relaxed text-neutral-500">
-      {sound.credit} · <a class="text-orange-500 underline underline-offset-2" href={sound.sourceUrl} target="_blank" rel="noopener noreferrer">{copy.source}</a>
-    </p>
-    <p class="phone-startup-audio-rights text-[0.6875rem] leading-relaxed text-neutral-400">{sound.rightsNote[locale]}</p>
-  </div>
+  <h2 id="phone-startup-audio-title" class="phone-startup-audio-heading font-bold">{copy.title} · {brand}</h2>
   <div class="phone-startup-audio-tracks grid gap-2">
     {sound.tracks.map((track, index) => (
       <figure class="phone-audio-track">
@@ -64,6 +52,12 @@ const copy = {
         </div>
       </figure>
     ))}
+  </div>
+  <div class="phone-startup-audio-attribution text-xs leading-relaxed">
+    <p class="text-neutral-300">
+      {sound.credit} · <a class="text-orange-500 underline underline-offset-2" href={sound.sourceUrl} target="_blank" rel="noopener noreferrer">{copy.source}</a>
+    </p>
+    <p class="text-neutral-400">{sound.rightsNote[locale]}</p>
   </div>
 </section>
 <script>

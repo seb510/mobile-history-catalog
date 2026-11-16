@@ -118,23 +118,25 @@ const phoneCountText = (count: number) => {
     </article>
     <aside class:list={['brand-archive-panel', phones.length === 1 && 'brand-archive-single']} aria-labelledby="brand-archive">
       <div class="brand-archive-summary">
-        <h2 id="brand-archive" class="editorial-kicker text-orange-500">{editorial.selection}</h2>
-        <p class="mt-2 text-sm leading-relaxed text-neutral-300">{BRAND_NOTES[locale][data.name]}</p>
-        <a class="brand-archive-all" href="#brand-collection">{editorial.all}<Arrow direction="down" /></a>
+        <div class="min-w-0">
+          <h2 id="brand-archive" class="text-lg font-bold">{editorial.selection}</h2>
+          <p class="mt-1 max-w-prose text-sm leading-relaxed text-neutral-300">{BRAND_NOTES[locale][data.name]}</p>
+        </div>
+        {first && <a class="brand-archive-all control-button text-sm font-semibold" href="#brand-collection">{editorial.all}<Arrow direction="down" /></a>}
       </div>
       <div class="brand-archive-years">
-        <dl>
+        <dl class="brand-archive-range">
           <dt class="text-xs text-neutral-500">{editorial.range}</dt>
           <dd class="mt-1 text-2xl font-bold tabular-nums">{yearRange}</dd>
         </dl>
-        <div class="brand-archive-models">
-          {first && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(first)}/`)}><span class="text-xs font-normal text-neutral-500">{editorial.first}</span><span>{first.data.model} <span class="font-normal text-neutral-400">· {first.data.year}</span></span></a>}
-          {last && first && slugOf(last) !== slugOf(first) && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(last)}/`)}><span class="text-xs font-normal text-neutral-500">{editorial.last}</span><span>{last.data.model} <span class="font-normal text-neutral-400">· {last.data.year}</span></span></a>}
-        </div>
+        {first && <div class="brand-archive-models">
+          <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(first)}/`)}><span class="text-xs font-normal text-neutral-500">{editorial.first}</span><span>{first.data.model} <span class="font-normal text-neutral-400">· {first.data.year}</span></span></a>
+          {last && slugOf(last) !== slugOf(first) && <a class="brand-archive-link" href={localePath(locale, `/phones/${slugOf(last)}/`)}><span class="text-xs font-normal text-neutral-500">{editorial.last}</span><span>{last.data.model} <span class="font-normal text-neutral-400">· {last.data.year}</span></span></a>}
+        </div>}
       </div>
       {forms.length > 0 && <div class="brand-archive-forms">
         <h3 class="text-xs text-neutral-500">{editorial.forms}</h3>
-        <ul class="mt-2 flex flex-wrap gap-2">
+        <ul class="flex flex-wrap gap-2">
           {forms.map(form => <li><a class="form-chip inline-flex min-h-11 items-center rounded-sm border border-neutral-700 px-2 py-1 text-xs motion-ui hover-desktop:border-orange-500 hover-desktop:text-orange-500" href={localePath(locale, `/catalog/?brand=${encodeURIComponent(data.name)}&form=${form}`)}>{strings.formFactors[form]}</a></li>)}
         </ul>
       </div>}
@@ -171,20 +173,62 @@ const phoneCountText = (count: number) => {
 <style>
   .brand-about-copy { max-width: 78ch; }
   :global(html:not([data-design="modern"])) .brand-archive-single { display:none; }
-  .brand-archive-panel { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.3fr) minmax(0,1.1fr); align-items:stretch; gap:1.25rem; padding:1.125rem 1.25rem; border:1px solid var(--color-neutral-800); background:var(--color-neutral-900); }
-  .brand-archive-summary,.brand-archive-years,.brand-archive-forms { min-width:0; align-self:start; }
-  .brand-archive-summary { padding-right:1.25rem; border-right:1px solid var(--color-neutral-700); }
-  .brand-archive-years { padding-right:1.25rem; border-right:1px solid var(--color-neutral-700); }
-  .brand-archive-models { display:grid; gap:.5rem; margin-top:.65rem; }
-  .brand-archive-link { display:grid; min-width:0; grid-template-columns:minmax(0,.82fr) minmax(0,1fr); align-items:baseline; gap:.625rem; padding-top:.5rem; border-top:1px solid var(--color-neutral-700); font-size:.8125rem; font-weight:600; }
-  .brand-archive-link > span { min-width:0; }
-  .brand-archive-forms { min-width:0; }
-  .brand-archive-all { display:inline-flex; min-height:2.75rem; align-items:center; gap:.75rem; margin-top:.5rem; color:var(--color-orange-500); font-size:.875rem; font-weight:600; }
+  .brand-archive-panel {
+    --archive-rule: var(--color-neutral-700);
+    display: grid;
+    gap: 1rem;
+    min-width: 0;
+    padding: clamp(1rem, 2.1vw, 1.5rem);
+    border: 1px solid var(--color-neutral-800);
+    background: var(--color-neutral-900);
+  }
+  :global(html[data-design="modern"]) .brand-archive-panel { --archive-rule: var(--modern-line); }
+  .brand-archive-summary, .brand-archive-forms {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .625rem 1rem;
+  }
+  .brand-archive-summary { justify-content: space-between; }
+  .brand-archive-all { flex: none; color: var(--color-orange-500); }
+  .brand-archive-years {
+    display: grid;
+    gap: .75rem 1.25rem;
+    align-items: center;
+    border-block-start: 1px solid var(--archive-rule);
+    padding-block-start: 1rem;
+  }
+  .brand-archive-models { display: grid; gap: .5rem; }
+  .brand-archive-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .25rem;
+    min-width: 0;
+    padding: .625rem .75rem;
+    border: 1px solid var(--archive-rule);
+    overflow-wrap: anywhere;
+    font-size: .875rem;
+    font-weight: 600;
+  }
+  :global(html[data-design="modern"]) .brand-archive-link {
+    border-radius: var(--modern-control);
+    background: var(--modern-soft);
+  }
+  .brand-archive-forms { border-block-start: 1px solid var(--archive-rule); padding-block-start: .875rem; }
   a:focus-visible { outline: 2px solid var(--color-orange-500); outline-offset: 4px; }
   @media (hover: hover) and (pointer: fine) { .brand-archive-link:hover { color: var(--color-orange-500); } }
   @media (hover: hover) and (pointer: fine) { .brand-archive-all:hover { color:var(--color-orange-400); } }
   .brand-phone-single { grid-template-columns: minmax(0,1fr); }
   @media (min-width: 1024px) { .brand-phone-single { grid-template-columns: 1fr; } .brand-phone-single :global([data-phone-card]) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); } .brand-phone-single :global(.phone-card-art) { max-height: 19rem; border-bottom: 0; border-right: 1px solid var(--color-neutral-800); } .brand-phone-single :global(.card-copy) { justify-content: center; } }
-  @media (min-width:640px) and (max-width:1023px) { .brand-archive-panel { grid-template-columns:repeat(2,minmax(0,1fr)); } .brand-archive-summary { padding-right:0; border-right:0; } .brand-archive-years { border-right:0; padding-right:0; } .brand-archive-forms { grid-column:1 / -1; padding-top:.875rem; border-top:1px solid var(--color-neutral-700); } }
-  @media (max-width:639px) { .brand-header { gap:1.25rem; } .brand-overview { gap:1.5rem; } .brand-archive-panel { grid-template-columns:minmax(0,1fr); gap:1rem; padding:1rem; } .brand-archive-summary { padding-right:0; border-right:0; } .brand-archive-years { padding:.875rem 0; border-right:0; border-top:1px solid var(--color-neutral-700); } .brand-archive-link { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); } .brand-archive-forms { padding-top:.875rem; border-top:1px solid var(--color-neutral-700); } }
+  @media (min-width:640px) {
+    .brand-archive-models { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+  }
+  @media (min-width:768px) {
+    .brand-archive-years:has(.brand-archive-models) { grid-template-columns: minmax(9rem, .55fr) minmax(0, 2fr); }
+  }
+  @media (max-width:639px) {
+    .brand-header { gap:1.25rem; }
+    .brand-overview { gap:1.5rem; }
+  }
 </style>

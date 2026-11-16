@@ -1,0 +1,112 @@
+---
+import Arrow from './Arrow.astro';
+import type { Locale } from '../lib/locales';
+import { PHONE_VIDEO_LABELS } from '../lib/phone-videos';
+import { t } from '../lib/ui-strings';
+import { VIDEO_PLAYER_COPY } from '../lib/video-copy';
+
+const { locale } = Astro.props as { locale: Locale };
+const copy = VIDEO_PLAYER_COPY[locale];
+const close = t(locale).gallery.close;
+---
+
+<dialog id="card-video-dialog" class="card-video-dialog" aria-labelledby="card-video-title">
+  <div class="card-video-body">
+    <header class="card-video-header">
+      <h2 id="card-video-title" class="min-w-0 text-lg font-bold"><span>{PHONE_VIDEO_LABELS[locale].badge}</span> · <span data-card-video-title></span></h2>
+      <button type="button" class="control-button card-video-close" aria-label={close} data-close-card-video autofocus>
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <div class="card-video-surface" data-video-surface>
+      <button type="button" class="primary-cta card-video-load" aria-describedby="card-video-consent" data-video-load>
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l12-7z"/></svg>
+        {copy.load}
+      </button>
+    </div>
+    <p id="card-video-consent" class="text-xs leading-relaxed text-neutral-400" data-video-consent>{copy.consent}</p>
+    <div class="card-video-actions">
+      <button type="button" class="control-button text-sm" data-video-remove hidden>{copy.remove}</button>
+      <a class="inline-flex min-h-11 items-center gap-2 text-xs text-orange-500 underline underline-offset-4" title={copy.fallback} target="_blank" rel="noopener noreferrer" data-card-video-source>
+        <span><span data-card-video-author></span> · {copy.source}</span>
+        <Arrow direction="up-right" size={14} />
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import { initVideoPlayer } from '../scripts/video-player';
+
+  const dialog = document.querySelector<HTMLDialogElement>('#card-video-dialog')!;
+  const title = dialog.querySelector<HTMLElement>('[data-card-video-title]')!;
+  const surface = dialog.querySelector<HTMLElement>('[data-video-surface]')!;
+  const author = dialog.querySelector<HTMLElement>('[data-card-video-author]')!;
+  const source = dialog.querySelector<HTMLAnchorElement>('[data-card-video-source]')!;
+  const { play, reset } = initVideoPlayer(dialog);
+  let trigger: HTMLButtonElement | null = null;
+
+  document.querySelectorAll<HTMLButtonElement>('[data-card-video]').forEach((button) => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const { cardVideo, videoModel, videoAuthor } = button.dataset;
+      if (!cardVideo || dialog.open) return;
+      trigger = button;
+      dialog.dataset.videoId = cardVideo;
+      title.textContent = videoModel ?? '';
+      author.textContent = videoAuthor ?? '';
+      surface.dataset.title = [videoModel, videoAuthor].filter(Boolean).join(' · ');
+      source.href = `https://www.youtube.com/watch?v=${cardVideo}`;
+      dialog.showModal();
+      play(false);
+    });
+  });
+
+  dialog.querySelector('[data-close-card-video]')?.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => {
+    reset();
+    trigger?.focus({ preventScroll: true });
+    trigger = null;
+  });
+</script>
+
+<style>
+  .card-video-dialog {
+    position: fixed;
+    inset: 0;
+    max-inline-size: min(48rem, calc(100% - 1.5rem));
+    max-block-size: calc(100dvh - 1.5rem);
+    inline-size: 100%;
+    margin: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--color-neutral-700);
+    background: var(--color-neutral-950);
+    color: var(--color-neutral-100);
+    box-shadow: 0 18px 60px #0006;
+  }
+  .card-video-dialog::backdrop { background: #0009; }
+  :global(html:has(#card-video-dialog[open])) { overflow: hidden; }
+  .card-video-dialog [hidden] { display: none; }
+  .card-video-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; padding: clamp(.75rem, 3vw, 1.25rem); }
+  .card-video-header, .card-video-actions { display: flex; align-items: center; gap: .75rem; }
+  .card-video-header { justify-content: space-between; overflow-wrap: anywhere; }
+  .card-video-close { flex: 0 0 2.75rem; padding: 0; }
+  .card-video-actions { flex-wrap: wrap; }
+  .card-video-surface {
+    position: relative;
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    min-block-size: calc(200px + 2px); /* Player viewport plus the two borders. */
+    overflow: hidden;
+    border: 1px solid var(--color-neutral-700);
+    background: var(--color-neutral-900);
+  }
+  .card-video-surface :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .card-video-load { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .5rem; padding: .5rem 1rem; }
+  :global(html[data-design="modern"]) .card-video-dialog { border-color: var(--modern-line); border-radius: var(--modern-corner); background: var(--modern-surface); }
+  :global(html[data-design="modern"]) .card-video-surface { border-color: var(--modern-line); border-radius: var(--modern-control); }
+</style>

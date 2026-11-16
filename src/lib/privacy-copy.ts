@@ -32,7 +32,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Зовнішні сервіси, фото й посилання",
-        "Поточна погода для Хмельницького завантажується з Open-Meteo; сервіс отримує IP-адресу й технічні дані браузера, але координати міста задані на сайті й геолокація не запитується. Частина фотографій завантажується з Wikimedia та інших джерел, указаних у кредитах: їхні сервери також отримують IP-адресу й технічні дані браузера. Локальні фото не створюють такого запиту до музею чи Commons. Перехід за зовнішнім посиланням відкриває інший сайт із власною політикою. Відео YouTube підключається лише після окремого дозволу в блоці відео через youtube-nocookie.com. До цього плеєр і його прев’ю не завантажуються. Дозвіл не зберігається між відвідуваннями; кнопка «Вимкнути плеєр» видаляє його зі сторінки й припиняє відтворення, але не видаляє дані, вже отримані Google."
+        "Поточна погода для Хмельницького завантажується з Open-Meteo; сервіс отримує IP-адресу й технічні дані браузера, але координати міста задані на сайті й геолокація не запитується. Частина фотографій завантажується з Wikimedia та інших джерел, указаних у кредитах: їхні сервери також отримують IP-адресу й технічні дані браузера. Локальні фото не створюють такого запиту до музею чи Commons. Перехід за зовнішнім посиланням відкриває інший сайт із власною політикою. Плеєр YouTube завантажується через youtube-nocookie.com після натискання кнопки відео на картці чи в галереї або «Дивитися відео» в блоці відео. До натискання сайт не завантажує плеєр чи його прев’ю. Закриття вікна або кнопка «Вимкнути плеєр» зупиняє відтворення та видаляє плеєр зі сторінки. Google зберігає вже отримані дані за власною політикою."
       ],
       [
         "Технічні запити та підстави",
@@ -43,7 +43,7 @@ export const PRIVACY_COPY = {
         "Можна відкликати згоду у футері, прибрати моделі з «Моїх телефонів» повторним натисканням позначки або очистити дані сайту у браузері. Для запиту доступу, виправлення, видалення, обмеження, перенесення чи заперечення щодо даних, які обробляє власник, напиши на email вище. Можна звернутися зі скаргою до наглядового органу із захисту даних у своїй країні. Сайт не ухвалює автоматизованих рішень і не продає персональні дані."
       ]
     ],
-    "cookieIntro": "Для входу через Google сайт використовує технічні HTTP-cookies. Плеєр YouTube після окремого дозволу може використовувати власні cookies або сховище за правилами Google. Для інших налаштувань сайт використовує localStorage цього браузера.",
+    "cookieIntro": "Для входу через Google сайт використовує технічні HTTP-cookies. Плеєр YouTube після запуску може використовувати власні cookies або сховище за правилами Google. Для інших налаштувань сайт використовує localStorage цього браузера.",
     "rows": [
       [
         "__Host-collection-login / __Host-collection-session",
@@ -134,7 +134,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "Внешние сервисы, изображения и ссылки",
-        "Текущая погода для Хмельницкого загружается из Open-Meteo; сервис получает IP-адрес и технические данные браузера, но координаты города заданы на сайте, геолокация не запрашивается. Часть фотографий загружается с Wikimedia и других источников, указанных в подписях: их серверы также получают IP-адрес и технические данные браузера. Локальные фото не создают запрос к музею или Commons. Внешняя ссылка открывает сайт с собственной политикой. Видео YouTube подключается только после отдельного разрешения в блоке видео через youtube-nocookie.com. До этого плеер и его превью не загружаются. Разрешение не сохраняется между посещениями; кнопка «Отключить плеер» удаляет его со страницы и прекращает воспроизведение, но не удаляет данные, уже полученные Google."
+        "Текущая погода для Хмельницкого загружается из Open-Meteo; сервис получает IP-адрес и технические данные браузера, но координаты города заданы на сайте, геолокация не запрашивается. Часть фотографий загружается с Wikimedia и других источников, указанных в подписях: их серверы также получают IP-адрес и технические данные браузера. Локальные фото не создают запрос к музею или Commons. Внешняя ссылка открывает сайт с собственной политикой. Плеер YouTube загружается через youtube-nocookie.com после нажатия кнопки видео на карточке или в галерее либо «Смотреть видео» в блоке видео. До нажатия сайт не загружает плеер или его превью. Закрытие окна или кнопка «Отключить плеер» останавливает воспроизведение и удаляет плеер со страницы. Google хранит уже полученные данные согласно своей политике."
       ],
       [
         "Технические запросы и основания",
@@ -145,7 +145,7 @@ export const PRIVACY_COPY = {
         "Согласие можно отозвать в футере, убрать модели из «Моих телефонов» повторным нажатием отметки или очистить данные сайта в браузере. Для доступа, исправления, удаления, ограничения, переноса или возражения в отношении данных, обрабатываемых владельцем, напиши на email выше. Можно подать жалобу в надзорный орган по защите данных своей страны. Сайт не принимает автоматизированных решений и не продаёт персональные данные."
       ]
     ],
-    "cookieIntro": "Для входа через Google сайт использует технические HTTP-cookies. Плеер YouTube после отдельного разрешения может использовать собственные cookies или хранилище по правилам Google. Для остальных настроек сайт использует localStorage браузера.",
+    "cookieIntro": "Для входа через Google сайт использует технические HTTP-cookies. Плеер YouTube после запуска может использовать собственные cookies или хранилище по правилам Google. Для остальных настроек сайт использует localStorage браузера.",
     "rows": [
       [
         "__Host-collection-login / __Host-collection-session",
@@ -236,7 +236,7 @@ export const PRIVACY_COPY = {
       ],
       [
         "External services, images and links",
-        "Current weather for Khmelnytskyi is fetched from Open-Meteo; the service receives your IP address and browser technical information, but the city coordinates are fixed by the site and geolocation is not requested. Some photographs load from Wikimedia and other credited sources: their servers also receive your IP address and browser technical information. Locally hosted photos do not request the museum or Commons. External links open sites with their own privacy policies. YouTube videos load through youtube-nocookie.com only after separate permission in the video block. Before that, neither the player nor its thumbnail is requested. Permission is not saved between visits; Disable player removes it and stops playback but does not erase data already received by Google."
+        "Current weather for Khmelnytskyi is fetched from Open-Meteo; the service receives your IP address and browser technical information, but the city coordinates are fixed by the site and geolocation is not requested. Some photographs load from Wikimedia and other credited sources: their servers also receive your IP address and browser technical information. Locally hosted photos do not request the museum or Commons. External links open sites with their own privacy policies. The YouTube player loads through youtube-nocookie.com when you select the video button on a card or in a gallery, or “Watch video” in the video section. Before that, the site does not request the player or its thumbnail. Closing the dialog or selecting “Disable player” stops playback and removes the player. Google retains data it has already received under its own policy."
       ],
       [
         "Technical requests and legal bases",
@@ -247,7 +247,7 @@ export const PRIVACY_COPY = {
         "Withdraw consent in the footer, remove models from My phones by pressing their marks again, or clear site data in your browser. For access, rectification, erasure, restriction, portability or objections concerning data processed by the owner, use the email above. You may complain to your national data protection authority. The site makes no automated decisions and does not sell personal data."
       ]
     ],
-    "cookieIntro": "The site uses technical HTTP cookies for Google sign-in. Once separately allowed, the YouTube player may use its own cookies or storage under Google’s policies. Other settings use this browser’s localStorage.",
+    "cookieIntro": "The site uses technical HTTP cookies for Google sign-in. Once started, the YouTube player may use its own cookies or storage under Google’s policies. Other settings use this browser’s localStorage.",
     "rows": [
       [
         "__Host-collection-login / __Host-collection-session",
