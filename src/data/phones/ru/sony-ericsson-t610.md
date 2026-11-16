@@ -26,14 +26,15 @@ colors:
   - Abyss Blue
   - Volcanic Red
 simType: Mini-SIM
-image: /images/phones/sony-ericsson-t610/commons-main.webp
-imageCredit: "Фото: Tolbxela, CC BY 2.0, Wikimedia Commons"
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg
+imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(Aluminium_Haze)_-_Front.jpg
+imageCaption: "Один телефон Sony Ericsson T610 цвета Aluminium Haze, вид спереди."
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg
-    alt: Передняя сторона Sony Ericsson T610 цвета Aluminium Haze
-    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(Aluminium_Haze)_-_Front.jpg
+  - image: /images/phones/sony-ericsson-t610/commons-main.webp
+    alt: Два телефона Sony Ericsson T610, красный и серебристый
+    imageCredit: "Фото: Tolbxela, CC BY 2.0, Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Back.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Back.jpg
     alt: Задняя сторона Sony Ericsson T610 цвета Aluminium Haze
     imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"

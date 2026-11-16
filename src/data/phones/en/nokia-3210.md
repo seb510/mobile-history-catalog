@@ -16,10 +16,14 @@ colors:
 dimensionsMm: 123 × 46 × 25 mm
 weightGrams: 146
 os: Proprietary (unnamed)
-image: /images/phones/nokia-3210/commons-main.webp
-imageCredit: "Photo: MiNe, CC BY 2.0, via Wikimedia Commons"
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:MiNe-M_100-3345U.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Nokia_3210_with_display_content.jpg/960px-Nokia_3210_with_display_content.jpg
+imageCredit: "Photo: Basic.Master, CC BY-SA 3.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Nokia_3210_with_display_content.jpg
 gallery:
+  - image: /images/phones/nokia-3210/commons-main.webp
+    alt: Nokia 3210 from the front at an angle on a wooden surface
+    imageCredit: "Photo: MiNe, CC BY 2.0, via Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:MiNe-M_100-3345U.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Nokia_3210_%289136307576%29.jpg/960px-Nokia_3210_%289136307576%29.jpg
     alt: Nokia 3210 with an interchangeable cover and internal antenna
     imageCredit: "Photo: FaceMePLS, CC BY 2.0, Wikimedia Commons"

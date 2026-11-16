@@ -23,21 +23,21 @@ simType: Nano-SIM
 os: Windows 10 Mobile
 dimensionsMm: 145 × 73.2 × 8.25 мм
 weightGrams: 150
-image: /images/phones/microsoft-lumia-950/front.webp
+image: /images/phones/microsoft-lumia-950/detail.webp
 evolutionImage:
-  image: "/images/phones/microsoft-lumia-950/front.webp"
-  alt: "Фронтальна панель Microsoft Lumia 950 з логотипом Windows на екрані"
+  image: "/images/phones/microsoft-lumia-950/detail.webp"
+  alt: "Біла задня кришка Microsoft Lumia 950 із круглою камерою PureView та логотипом Microsoft"
   imageCredit: "Languaeditor · CC BY-SA 4.0 · Wikimedia Commons"
-  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg"
+  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Lumia_950_Rear.jpg"
 imageCredit: Languaeditor · CC BY-SA 4.0 · Wikimedia Commons
-imageSourceUrl: https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg
-imageCaption: Lumia 950 під час запуску.
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Lumia_950_Rear.jpg
+imageCaption: Біла задня кришка Lumia 950 із камерою PureView.
 gallery:
-  - image: /images/phones/microsoft-lumia-950/detail.webp
+  - image: /images/phones/microsoft-lumia-950/front.webp
     imageCredit: Languaeditor · CC BY-SA 4.0 · Wikimedia Commons
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Lumia_950_Rear.jpg
-    alt: Задня кришка й камера Lumia 950.
-    caption: Задня кришка й камера Lumia 950.
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg
+    alt: Передня панель Lumia 950 з логотипом Windows на екрані.
+    caption: Lumia 950 спереду під час запуску.
 dateAdded: "2026-11-11"
 ---
 

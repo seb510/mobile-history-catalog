@@ -21,14 +21,15 @@ dimensionsMm: "102 × 44 × 19 мм"
 weightGrams: 95
 colors: ["Aluminium Haze", "Abyss Blue", "Volcanic Red"]
 simType: "Mini-SIM"
-image: "/images/phones/sony-ericsson-t610/commons-main.webp"
-imageCredit: "Фото: Tolbxela, CC BY 2.0, через Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg"
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg
+imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
+imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(Aluminium_Haze)_-_Front.jpg
+imageCaption: "Один телефон Sony Ericsson T610 кольору Aluminium Haze, вигляд спереду."
 gallery:
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Front.jpg
-    alt: Передня сторона Sony Ericsson T610 кольору Aluminium Haze
-    imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
-    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(Aluminium_Haze)_-_Front.jpg
+  - image: /images/phones/sony-ericsson-t610/commons-main.webp
+    alt: Два телефони Sony Ericsson T610, червоний і сріблястий
+    imageCredit: "Фото: Tolbxela, CC BY 2.0, через Wikimedia Commons"
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Sony_Ericsson_T610_(6144638049).jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Back.jpg/960px-Sony_Ericsson_T610_%28Aluminium_Haze%29_-_Back.jpg
     alt: Задня сторона Sony Ericsson T610 кольору Aluminium Haze
     imageCredit: "Фото: Beamish4, CC BY-SA 4.0, Wikimedia Commons"
