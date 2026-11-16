@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-16",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 151,
-    "localPrimary": 92,
-    "remotePrimary": 56,
+    "models": 157,
+    "localPrimary": 93,
+    "remotePrimary": 61,
     "missingPrimary": [
       "htc-u24-pro",
       "huawei-mate-xt-2",
@@ -35,10 +35,24 @@
       "issues": []
     },
     {
+      "slug": "apple-iphone-17",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
+      "issues": []
+    },
+    {
       "slug": "apple-iphone-18-pro",
       "primary": "local",
       "frames": 1,
       "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "apple-iphone-se-2022",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
       "issues": []
     },
     {
@@ -164,6 +178,13 @@
       "slug": "motorola-c350",
       "primary": "local",
       "frames": 2,
+      "remoteFrames": 1,
+      "issues": []
+    },
+    {
+      "slug": "motorola-cd930",
+      "primary": "remote",
+      "frames": 1,
       "remoteFrames": 1,
       "issues": []
     },
@@ -301,6 +322,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-5110",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
+      "issues": []
+    },
+    {
       "slug": "nokia-5130",
       "primary": "local",
       "frames": 3,
@@ -347,6 +375,13 @@
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-6110",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
       "issues": []
     },
     {
@@ -673,8 +708,8 @@
     },
     {
       "slug": "samsung-galaxy-s3",
-      "primary": "remote",
-      "frames": 2,
+      "primary": "local",
+      "frames": 3,
       "remoteFrames": 2,
       "issues": []
     },
@@ -837,6 +872,13 @@
       "primary": "local",
       "frames": 3,
       "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "siemens-s10",
+      "primary": "remote",
+      "frames": 1,
+      "remoteFrames": 1,
       "issues": []
     },
     {

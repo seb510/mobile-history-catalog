@@ -53,4 +53,4 @@ Xperia Z став для Sony виразним флагманом 2013 року:
 
 Захищені роз’єми допомагали зберегти водо- й пилозахист, а незнімний акумулятор на 2330 мА·год підтримував режим STAMINA для економії енергії. Xperia Z показав, як Sony переносила мову дизайну скла й прямої геометрії у смартфон із великим екраном.
 
-Джерела: [Sony — офіційний white paper C6602](https://www-support-downloads.sonymobile.com/c6602/whitepaper_EN_c6602_xperia_z.pdf); фото: [Wikimedia Commons — Sony Xperia Z](https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.jpeg), CC BY-SA 3.0.
+Джерела: [Sony — офіційний white paper C6602](https://www-support-downloads.sonymobile.com/c6602/whitepaper_EN_c6602_xperia_z.pdf); фото: [передній вигляд, Clivejb, CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.JPG), [бічний вигляд, Clivejb, CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z_side_view.JPG) і [виставка MWC 2013, conxa.roda, CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Xperia_Z_at_MWC_2013.jpg).

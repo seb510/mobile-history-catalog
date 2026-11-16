@@ -5,6 +5,14 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-16",
+  "phones": [],
+  "changes": {
+    "uk": ["Уточнено джерела трьох фото Xperia Z та атрибуцію двох фото Nokia 600, наданих власником архіву."],
+    "ru": ["Уточнены источники трёх фотографий Xperia Z и атрибуция двух фотографий Nokia 600, предоставленных владельцем архива."],
+    "en": ["Clarified the sources for all three Xperia Z photos and the credit for two Nokia 600 photos supplied by the archive owner."]
+  }
+}, {
   "date": "2026-11-15",
   "phones": ["siemens-s10", "nokia-6110", "nokia-5110", "motorola-cd930", "apple-iphone-se-2022", "apple-iphone-17"],
   "evolution": true,
@@ -72,9 +80,9 @@ export const UPDATES = [{
   "date": "2026-11-10",
   "phones": ["nokia-500", "nokia-600", "nokia-700", "sony-xperia-z"],
   "changes": {
-    "uk": ["Додано Nokia 500, 600 і 700 та Sony Xperia Z трьома мовами; для кожної моделі підібрано відео.", "Для Nokia 500, Nokia 700 і Xperia Z додано фото з Wikimedia Commons із вільними ліцензіями. Nokia 600 позначено як анонсовану, але скасовану модель; її сторінка використовує заглушку.", "Створено сторінку бренду Sony та додано добірку Xperia Z."] ,
-    "ru": ["Добавлены Nokia 500, 600 и 700, а также Sony Xperia Z на трёх языках; для каждой модели подобрано видео.", "Для Nokia 500, Nokia 700 и Xperia Z добавлены фотографии из Wikimedia Commons со свободными лицензиями. Nokia 600 отмечена как анонсированная, но отменённая модель; на её странице используется заглушка.", "Создана страница бренда Sony и добавлена подборка Xperia Z."],
-    "en": ["Added Nokia 500, 600 and 700, plus Sony Xperia Z, in all three languages, with a video for each model.", "Added freely licensed Wikimedia Commons photos for Nokia 500, Nokia 700 and Xperia Z. Nokia 600 is identified as announced but cancelled, and uses placeholder artwork.", "Created a Sony brand page and added the Xperia Z selection."]
+    "uk": ["Додано Nokia 500, 600 і 700 та Sony Xperia Z трьома мовами; для кожної моделі підібрано відео.", "Для Nokia 500, Nokia 700 і Xperia Z додано фото з Wikimedia Commons із вільними ліцензіями. Nokia 600 позначено як анонсовану, але скасовану модель; для неї використано фото, надані власником архіву.", "Створено сторінку бренду Sony та додано добірку Xperia Z."],
+    "ru": ["Добавлены Nokia 500, 600 и 700, а также Sony Xperia Z на трёх языках; для каждой модели подобрано видео.", "Для Nokia 500, Nokia 700 и Xperia Z добавлены фотографии из Wikimedia Commons со свободными лицензиями. Nokia 600 отмечена как анонсированная, но отменённая модель; для неё использованы фотографии, предоставленные владельцем архива.", "Создана страница бренда Sony и добавлена подборка Xperia Z."],
+    "en": ["Added Nokia 500, 600 and 700, plus Sony Xperia Z, in all three languages, with a video for each model.", "Added freely licensed Wikimedia Commons photos for Nokia 500, Nokia 700 and Xperia Z. Nokia 600 is identified as announced but cancelled and illustrated with photos supplied by the archive owner.", "Created a Sony brand page and added the Xperia Z selection."]
   }
 }, {
   "date": "2026-11-09",

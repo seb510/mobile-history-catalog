@@ -46,4 +46,4 @@ The Xperia Z became a distinctive Sony flagship in 2013. Glass covered its front
 
 Sealed ports helped the handset resist water and dust, while its non-removable 2330 mAh battery supported STAMINA power saving. The Xperia Z carried Sony’s language of glass and straight lines into a large-screen smartphone.
 
-Sources: [Sony — official C6602 white paper](https://www-support-downloads.sonymobile.com/c6602/whitepaper_EN_c6602_xperia_z.pdf); photo: [Wikimedia Commons — Sony Xperia Z](https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.jpeg), CC BY-SA 3.0.
+Sources: [Sony — official C6602 white paper](https://www-support-downloads.sonymobile.com/c6602/whitepaper_EN_c6602_xperia_z.pdf); photos: [front view, Clivejb, CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z.JPG), [side view, Clivejb, CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Sony_Xperia_Z_side_view.JPG), and [MWC 2013, conxa.roda, CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Xperia_Z_at_MWC_2013.jpg).
