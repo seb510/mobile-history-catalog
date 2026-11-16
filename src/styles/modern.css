@@ -70,6 +70,7 @@ html[data-design="modern"] :is(.phone-card-art,.phone-gallery-stage) { backgroun
 html[data-design="modern"] .phone-gallery-stage { border-top-width:1px; box-shadow:var(--modern-shadow); }
 html[data-design="modern"] .recent-phone > div:first-child { background:var(--modern-soft); }
 html[data-design="modern"] :is(.primary-cta,.period-save) { color:#fff; border:1px solid transparent; box-shadow:none; }
+html[data-design="modern"] .evolution-trigger { color:var(--color-neutral-950); }
 html[data-design="modern"] .home-cover h1 { font-size:clamp(2.6rem,5.4vw,4.2rem); max-width:12ch; }
 html[data-design="modern"] .home-topic-nav ul { gap:.75rem; border:0; background:none; }
 html[data-design="modern"] .home-topic-nav li { background:none; }

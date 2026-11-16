@@ -1,5 +1,6 @@
 ---
 import Arrow from './Arrow.astro';
+import EvolutionIcon from './EvolutionIcon.astro';
 import Evolution from './Evolution.astro';
 import { evolutionCopy } from '../lib/evolution';
 import RecentPhones from './RecentPhones.astro';
@@ -72,8 +73,8 @@ const stats = [
         {strings.hero.cta}
       </a>
       <button id="evolution" type="button" hidden aria-haspopup="dialog" aria-controls="phone-evolution"
-        class="inline-flex min-h-11 cursor-pointer scroll-mt-24 items-center justify-center gap-2 rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5">
-        {evolutionCopy[locale].title}<Arrow direction="up-right" class="shrink-0" size={16} />
+        class="evolution-trigger primary-cta motion-ui scroll-mt-24">
+        {evolutionCopy[locale].title}<EvolutionIcon />
       </button>
       <a href={localePath(locale, '/about/')}
         class="col-span-2 inline-flex min-h-11 items-center justify-center rounded-sm border border-neutral-700 px-3 py-3 text-center text-sm font-semibold text-neutral-200 transition-colors motion-ui hover-desktop:border-orange-500 sm:px-5">
