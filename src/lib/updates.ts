@@ -6,11 +6,11 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-16",
-  "phones": [],
+  "phones": ["motorola-startac-70", "nokia-8810", "ericsson-t28s"],
   "changes": {
-    "uk": ["Уточнено джерела трьох фото Xperia Z та атрибуцію двох фото Nokia 600, наданих власником архіву."],
-    "ru": ["Уточнены источники трёх фотографий Xperia Z и атрибуция двух фотографий Nokia 600, предоставленных владельцем архива."],
-    "en": ["Clarified the sources for all three Xperia Z photos and the credit for two Nokia 600 photos supplied by the archive owner."]
+    "uk": ["Уточнено джерела трьох фото Xperia Z та атрибуцію двох фото Nokia 600, наданих власником архіву.", "Додано Motorola StarTAC 70 (1997), Nokia 8810 (1998) та Ericsson T28s (1999) трьома мовами; підібрано відео й фото. Створено сторінку бренду Ericsson.", "Галереї цих трьох моделей доповнено шістьма фото: по два на телефон із підписами та джерелами. Для Nokia 8810 показані ракурси рідкісного золотого прототипу окремо від стандартної версії."],
+    "ru": ["Уточнены источники трёх фотографий Xperia Z и атрибуция двух фотографий Nokia 600, предоставленных владельцем архива.", "Добавлены Motorola StarTAC 70 (1997), Nokia 8810 (1998) и Ericsson T28s (1999) на трёх языках; подобраны видео и фотографии. Создана страница бренда Ericsson.", "Галереи этих трёх моделей дополнены шестью фотографиями: по две на телефон с подписями и источниками. Ракурсы редкого золотого прототипа Nokia 8810 обозначены отдельно от стандартной версии."],
+    "en": ["Clarified the sources for all three Xperia Z photos and the credit for two Nokia 600 photos supplied by the archive owner.", "Added the Motorola StarTAC 70 (1997), Nokia 8810 (1998) and Ericsson T28s (1999) in all three languages, with videos and photos. Added an Ericsson brand page.", "Expanded these three galleries with six photos, two per phone, each with captions and sources. The rare gold Nokia 8810 prototype is identified separately from the standard version."]
   }
 }, {
   "date": "2026-11-15",

@@ -1,5 +1,11 @@
 import type { Locale } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+ 'motorola-startac-70': { id: 'gJAt5j-z30g', author: 'BrickCellphones', label: 'MOTOROLA · STARTAC 70', year: 2015, demonstration: true,
+   description: { uk: 'Розпакування та огляд саме StarTAC 70 (MR501), GSM-версії для британської мережі Orange.', ru: 'Распаковка и обзор именно StarTAC 70 (MR501), GSM-версии для британской сети Orange.', en: 'An unboxing and look at the StarTAC 70 (MR501), a GSM version made for the UK Orange network.' } },
+ 'nokia-8810': { id: 'Gl5PBkItAng', author: 'RetroTECH', label: 'NOKIA · 8810', year: 2026, retrospective: true,
+   description: { uk: 'Ретроогляд Nokia 8810: хромований корпус, зсувна кришка клавіатури й прихована антена.', ru: 'Ретрообзор Nokia 8810: хромированный корпус, сдвижная крышка клавиатуры и скрытая антенна.', en: 'A retrospective on the Nokia 8810, covering its chrome body, sliding keypad cover and internal antenna.' } },
+ 'ericsson-t28s': { id: 'ub5uoOc_Z-4', author: 'Scirocco ThePunisher', label: 'ERICSSON · T28S', year: 2015, retrospective: true,
+   description: { uk: 'Розпакування й огляд Ericsson T28s — компактної розкладачки з кнопкою активної кришки.', ru: 'Распаковка и обзор Ericsson T28s — компактной раскладушки с кнопкой активной крышки.', en: 'An unboxing and review of the Ericsson T28s, a compact flip phone with a push-button active flip.' } },
  'nokia-n73': {
    id: 'Poq-4DNM6GU', author: 'Vintage phones archive', label: 'NOKIA · N73', walkthrough: true,
    description: {

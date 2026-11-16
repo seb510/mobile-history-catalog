@@ -22,6 +22,12 @@ export const BRAND_OFFICIAL_SITES: Record<string, {
     kind: 'brand',
     note: { uk: 'Офіційна сторінка Apple.', ru: 'Официальная страница Apple.', en: 'Apple’s official page.' },
   },
+  Ericsson: {
+    url: 'https://www.ericsson.com/en',
+    name: { uk: 'Ericsson', ru: 'Ericsson', en: 'Ericsson' },
+    kind: 'brand',
+    note: { uk: 'Офіційний сайт Ericsson.', ru: 'Официальный сайт Ericsson.', en: 'Ericsson’s official website.' },
+  },
   Google: {
     url: 'https://store.google.com/category/phones',
     name: { uk: 'Google · телефони', ru: 'Google · телефоны', en: 'Google · phones' },
@@ -105,6 +111,7 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
   uk: {
     Alcatel: 'Найдоступніший сегмент One Touch — ціна понад усе.',
     Apple: 'Від першого iPhone до звичних жестів сенсорної епохи.',
+    Ericsson: 'Мінімалістичні корпуси, активна кришка й продумана ергономіка.',
     Google: 'Камерна планка, колір і впізнаваний силует Pixel.',
     HTC: 'Висувна клавіатура на початку історії Android.',
     Huawei: 'Складаний екран як наступний експеримент із формою.',
@@ -120,6 +127,7 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
   ru: {
     Alcatel: 'Самый доступный сегмент One Touch — цена превыше всего.',
     Apple: 'От первого iPhone до привычных жестов сенсорной эпохи.',
+    Ericsson: 'Минималистичные корпуса, активная крышка и продуманная эргономика.',
     Google: 'Планка камер, цвет и узнаваемый силуэт Pixel.',
     HTC: 'Выдвижная клавиатура в начале истории Android.',
     Huawei: 'Складной экран как следующий эксперимент с формой.',
@@ -135,6 +143,7 @@ export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
   en: {
     Alcatel: 'The most affordable tier of One Touch — price above all.',
     Apple: 'From the first iPhone to the familiar gestures of the touch era.',
+    Ericsson: 'Minimalist bodies, an active flip and considered ergonomics.',
     Google: 'Camera bars, colour and the recognisable Pixel silhouette.',
     HTC: 'A sliding keyboard at the beginning of Android.',
     Huawei: 'A folding display as the next experiment in form.',
