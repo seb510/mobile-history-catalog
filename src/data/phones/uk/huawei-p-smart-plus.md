@@ -27,13 +27,17 @@ dimensionsMm: "157,6 × 75,2 × 7,6 мм"
 weightGrams: 169
 colors: ["Чорний", "Iris Purple"]
 simType: "Dual SIM (гібридний слот із microSD)"
-image: /images/phones/huawei-p-smart-plus/press-purple.webp
+image: /images/phones/huawei-p-smart-plus/press-black.webp
+evolutionImage:
+  image: "/images/phones/huawei-p-smart-plus/press-black.webp"
+  alt: "Huawei P smart+ спереду й ззаду у чорному кольорі"
+  imageCredit: "Офіційний прес-рендер Huawei Nova 3i (той самий апарат під азійською назвою)"
 imageCredit: "Офіційний прес-рендер Huawei Nova 3i (той самий апарат під азійською назвою)"
-imageCaption: "Nova 3i / P smart+ у кольорі Iris Purple: задня й фронтальна панелі."
+imageCaption: "Nova 3i / P smart+ у чорному кольорі: задня й фронтальна панелі."
 gallery:
   - image: /images/phones/huawei-p-smart-plus/press-black.webp
-    alt: "Huawei Nova 3i / P smart+ у чорному кольорі, офіційний прес-рендер."
-    caption: "Той самий апарат у чорному кольорі."
+    alt: "Huawei Nova 3i / P smart+ у кольорі Iris Purple, офіційний прес-рендер."
+    caption: "Той самий апарат у кольорі Iris Purple."
     imageCredit: "Офіційний прес-рендер Huawei Nova 3i (той самий апарат під азійською назвою)"
 ---
 

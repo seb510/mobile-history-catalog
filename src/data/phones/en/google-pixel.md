@@ -5,6 +5,10 @@ year: 2016
 formFactor: candybar
 milestone: The first Pixel, with Google Assistant built in
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Google_Pixel_White_01.jpg/960px-Google_Pixel_White_01.jpg
+evolutionImage:
+  image: "/images/phones/google-pixel/pixel-one.jpg"
+  alt: "Google Pixel front and back"
+  imageCredit: "Image supplied by the project owner"
 imageCredit: X-SHLIED, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_White_01.jpg
 gallery:

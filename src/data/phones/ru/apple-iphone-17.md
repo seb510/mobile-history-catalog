@@ -21,6 +21,11 @@ dimensionsMm: "149.6 × 71.5 × 7.95 мм"
 weightGrams: 177
 colors: ["Black", "White", "Mist Blue", "Sage", "Lavender"]
 image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Mist_Blue_iPhone_17_%28cropped%29.jpg/960px-Mist_Blue_iPhone_17_%28cropped%29.jpg"
+evolutionImage:
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/IPhone_17_about_screen_%28Oct_1%2C_2025%29.jpg/960px-IPhone_17_about_screen_%28Oct_1%2C_2025%29.jpg"
+  alt: "Передняя панель iPhone 17 с открытым экраном «Об этом устройстве»"
+  imageCredit: "茅野ふたば, CC BY-SA 4.0, Wikimedia Commons"
+  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_17_about_screen_(Oct_1,_2025).jpg"
 imageCredit: "Ahmad Ali Karim, CC0 1.0, Wikimedia Commons; crop by Panam2014"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Mist_Blue_iPhone_17_(cropped).jpg"
 milestone: "ProMotion 120 Гц в базовом iPhone"

@@ -24,6 +24,11 @@ os: Windows 10 Mobile
 dimensionsMm: 145 × 73.2 × 8.25 mm
 weightGrams: 150
 image: /images/phones/microsoft-lumia-950/front.webp
+evolutionImage:
+  image: "/images/phones/microsoft-lumia-950/front.webp"
+  alt: "Front of the Microsoft Lumia 950 with the Windows logo on screen"
+  imageCredit: "Languaeditor · CC BY-SA 4.0 · Wikimedia Commons"
+  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg"
 imageCredit: Languaeditor · CC BY-SA 4.0 · Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Lumia_950_Frontal.jpg
 imageCaption: Lumia 950 starting up.

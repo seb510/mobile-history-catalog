@@ -9,6 +9,10 @@ chipset: "Qualcomm Snapdragon 845"
 battery: {"mah":3320,"removable":false}
 os: "Android 9 Pie (Android One)"
 image: "/images/phones/nokia-9-pureview/main.webp"
+evolutionImage:
+  image: "/images/phones/nokia-9-pureview/local-front-back.png"
+  alt: "Nokia 9 PureView front and back"
+  imageCredit: "Image supplied by the project owner"
 imageCredit: "TGspot · CC BY-SA 4.0 · Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nokia_9_Pureview.jpg"
 milestone: "Five cameras in a final PureView flagship experiment"

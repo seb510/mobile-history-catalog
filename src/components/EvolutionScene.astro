@@ -31,14 +31,17 @@ const close = t(locale).gallery.close;
       <div class="frames">
         {stops.map(({ slug, phone, label, description }) => {
           const name = phone.model.startsWith(`${phone.brand} `) ? phone.model : `${phone.brand} ${phone.model}`;
-          const image = phone.image;
-          const source = museumImageCredit(phone, locale);
-          const credit = source?.label ?? phone.imageCredit;
-          const creditUrl = source?.href ?? phone.imageSourceUrl;
+          const image = phone.evolutionImage?.image ?? phone.image;
+          const imageAlt = phone.evolutionImage?.alt ?? name;
+          const source = phone.evolutionImage ? null : museumImageCredit(phone, locale);
+          const credit = phone.evolutionImage?.imageCredit ?? source?.label ?? phone.imageCredit;
+          const creditUrl = phone.evolutionImage
+            ? phone.evolutionImage.imageSourceUrl
+            : source?.href ?? phone.imageSourceUrl;
           return (
             <article class="frame" data-evolution-frame data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>
               <figure class="artwork">
-                {image && <img data-evolution-src={image} alt={name} class="hidden" decoding="async" />}
+                {image && <img data-evolution-src={image} alt={imageAlt} class="hidden" decoding="async" />}
                 <div data-image-fallback-placeholder><PlaceholderArt /></div>
               </figure>
               <div class="story">

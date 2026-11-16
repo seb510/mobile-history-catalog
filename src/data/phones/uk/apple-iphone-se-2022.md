@@ -23,6 +23,10 @@ dimensionsMm: "138.4 × 67.3 × 7.3 мм"
 weightGrams: 144
 colors: ["Midnight", "Starlight", "(PRODUCT)RED"]
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/IPhone_SE_3rd_Gen.jpg/960px-IPhone_SE_3rd_Gen.jpg"
+evolutionImage:
+  image: "/images/phones/apple-iphone-se-2022/local-front-back.jpg"
+  alt: "Apple iPhone SE (2022) спереду й ззаду"
+  imageCredit: "Фото надане власником проєкту"
 imageCredit: "Toad40, CC BY-SA 4.0, Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_SE_3rd_Gen.jpg"
 milestone: "5G та A15 Bionic у корпусі з кнопкою Home"
