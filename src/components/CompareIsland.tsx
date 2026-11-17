@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import type { CollectionEntry } from 'astro:content';
 import { localePath, type Locale } from '../lib/locales';
 import { COMPARE_QUICK, COMPARE_DESIGN, COMPARE_EXPERIENCE, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
@@ -294,9 +294,9 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
         </div>
       ) : (
         <div className="mt-8">
-          <p className="text-center text-neutral-500">{phoneA || phoneB ? experience.missing : strings.compare.empty}</p>
+          <p className={`text-center text-neutral-500 ${!phoneA && !phoneB && suggestedMatchups.length > 0 ? 'compare-pairs-hint' : ''}`}>{phoneA || phoneB ? experience.missing : strings.compare.empty}</p>
           {!phoneA && !phoneB && suggestedMatchups.length > 0 && (
-            <section className="mx-auto mt-8 max-w-3xl">
+            <section className="compare-pairs mx-auto mt-8 max-w-3xl">
               <h2 className="mb-3 text-sm font-semibold tracking-wide text-neutral-400">{strings.compare.suggestedTitle}</h2>
               <ul className="grid gap-3 sm:grid-cols-3">
                 {suggestedMatchups.map(({ first, second, story }) => (
@@ -309,14 +309,34 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
                         setSelected({ a: first.slug, b: second.slug });
                         setQuery({ a: '', b: '' });
                       }}
-                      className="block h-full rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors motion-ui hover-desktop:border-orange-500"
+                      className="compare-pair block h-full rounded-sm border border-neutral-800 bg-neutral-900/40 p-4 transition-colors motion-ui hover-desktop:border-orange-500"
                     >
-                      <span className="block text-xs text-neutral-500">{first.data.brand} · {first.data.year}</span>
-                      <span className="block font-semibold text-neutral-200">{first.data.model}</span>
-                      <span className="my-1 block text-xs font-semibold tracking-wider text-orange-500">VS</span>
-                      <span className="block text-xs text-neutral-500">{second.data.brand} · {second.data.year}</span>
-                      <span className="block font-semibold text-neutral-200">{second.data.model}</span>
-                      <span className="mt-3 block border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{story}</span>
+                      <span className="compare-pair-phones contents">
+                        {[first, second].map(({ slug, data }, index) => (
+                          <Fragment key={slug}>
+                            {index === 1 && <span className="compare-pair-versus my-1 block text-xs font-semibold tracking-wider text-orange-500">VS</span>}
+                            <span className="compare-pair-phone contents">
+                              <span className="compare-pair-image hidden">
+                                {data.image ? (
+                                  <>
+                                    <img data-image-fallback src={data.image} alt="" loading="lazy" className="h-full w-full object-contain" />
+                                    <span data-image-fallback-placeholder className="absolute inset-0 hidden items-center justify-center">
+                                      <PlaceholderIcon className="h-full w-full text-neutral-500" />
+                                    </span>
+                                  </>
+                                ) : <PlaceholderIcon className="h-full w-full text-neutral-500" />}
+                              </span>
+                              <span className="block text-xs text-neutral-500">{data.brand} · {data.year}</span>
+                              <span className="compare-pair-model block font-semibold text-neutral-200">{data.model}</span>
+                            </span>
+                          </Fragment>
+                        ))}
+                      </span>
+                      <span className="compare-pair-story mt-3 block border-l-2 border-orange-500/60 pl-2 text-sm text-neutral-400">{story}</span>
+                      <span className="compare-pair-action hidden">
+                        {strings.nav.compare}
+                        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-5-5 5 5-5 5" /></svg>
+                      </span>
                     </a>
                   </li>
                 ))}
@@ -407,8 +427,11 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
   }
 
   return (
-    <div className="relative min-w-0 rounded-sm border border-neutral-800 bg-neutral-900 p-3 sm:p-4">
-      <label htmlFor={`phone-search-${slot}`} className="filter-label">{placeholder}</label>
+    <div className="compare-picker relative min-w-0 rounded-sm border border-neutral-800 bg-neutral-900 p-3 sm:p-4" data-compare-slot={slot}>
+      <label htmlFor={`phone-search-${slot}`} className="filter-label compare-picker-label">
+        <span className="compare-picker-original-label">{placeholder}</span>
+        <span className="compare-picker-slot-label hidden">{slot === 'a' ? COMPARE_DESIGN[locale].first : COMPARE_DESIGN[locale].second}</span>
+      </label>
       <div className="catalog-search-field">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
       <input
@@ -445,7 +468,7 @@ function PhoneSlot({ slot, phone, query, onQueryChange, onSelect, onClear, candi
               </button>
             ))}
           </div>
-          <details className="mt-3">
+          <details className="compare-picker-brands mt-3">
             <summary className="min-h-11 cursor-pointer text-xs leading-11 text-neutral-500">{COMPARE_QUICK[locale].brands}</summary>
             <div className="flex flex-wrap gap-x-3 gap-y-2">
             {['Nokia', 'Siemens', 'Motorola', 'Sony Ericsson', 'Samsung'].map((brand) => (

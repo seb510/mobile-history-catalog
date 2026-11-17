@@ -1,5 +1,29 @@
 import type { Locale } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+ 'nokia-1110': {
+   id: 'SJl1rLk5ec4', author: 'Vintage phones archive', label: 'NOKIA · 1110', year: 2022, walkthrough: true,
+   description: {
+     uk: 'Демонстрація меню, мелодій та ігор на Nokia 1110 (RH-70).',
+     ru: 'Демонстрация меню, мелодий и игр на Nokia 1110 (RH-70).',
+     en: 'A walkthrough of the menus, ringtones and games on the Nokia 1110 (RH-70).',
+   },
+ },
+ 'sony-ericsson-k610i': {
+   id: 'T0ebDQ63yek', author: 'Retro Mobile', label: 'SONY ERICSSON · K610I', year: 2025, retrospective: true,
+   description: {
+     uk: 'Розпакування та ретроогляд Sony Ericsson K610i з демонстрацією корпусу й інтерфейсу.',
+     ru: 'Распаковка и ретрообзор Sony Ericsson K610i с демонстрацией корпуса и интерфейса.',
+     en: 'An unboxing and retro review of the Sony Ericsson K610i, showing its body and interface.',
+   },
+ },
+ 'nokia-1200': {
+   id: 'waiWDCzposA', author: 'Nokia Phones Collection', label: 'NOKIA · 1200', year: 2019, demonstration: true,
+   description: {
+     uk: 'Розпакування Nokia 1200 (RH-99) з оригінальним комплектом і короткою демонстрацією телефона.',
+     ru: 'Распаковка Nokia 1200 (RH-99) с оригинальным комплектом и короткой демонстрацией телефона.',
+     en: 'An unboxing of the Nokia 1200 (RH-99) with its original accessories and a short handset demonstration.',
+   },
+ },
  'motorola-startac-70': { id: 'gJAt5j-z30g', author: 'BrickCellphones', label: 'MOTOROLA · STARTAC 70', year: 2015, demonstration: true,
    description: { uk: 'Розпакування та огляд саме StarTAC 70 (MR501), GSM-версії для британської мережі Orange.', ru: 'Распаковка и обзор именно StarTAC 70 (MR501), GSM-версии для британской сети Orange.', en: 'An unboxing and look at the StarTAC 70 (MR501), a GSM version made for the UK Orange network.' } },
  'nokia-8810': { id: 'Gl5PBkItAng', author: 'RetroTECH', label: 'NOKIA · 8810', year: 2026, retrospective: true,

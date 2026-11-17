@@ -77,7 +77,7 @@ const related = allPhones
 <div class="phone-page-layout">
 <header id="phone-overview" class="phone-masthead phone-cover mb-5 flex items-end justify-between gap-4 border-b border-neutral-800 pb-5 sm:mb-8 sm:pb-6">
   <div class="min-w-0">
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+    <div class="phone-identity-meta flex flex-wrap items-center gap-x-3 gap-y-1">
       <a href={localePath(locale, `/brands/${slugifyBrandName(data.brand)}/`)} class="editorial-kicker text-orange-500 hover-desktop:text-orange-400">{data.brand}</a>
       {isNew && <span class="rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-neutral-950">{strings.newBadge}</span>}
       <button
@@ -141,13 +141,17 @@ const related = allPhones
           )}
         </div>
         {video && (
-          <button type="button" hidden class="phone-preview-video control-button" aria-label={`${PHONE_VIDEO_LABELS[locale].nav} · YouTube · ${modelName}`} aria-haspopup="dialog" aria-controls="card-video-dialog" data-card-video={video.id} data-video-model={modelName} data-video-author={video.author}>
+          <a class="phone-preview-video control-button" href="#phone-video">
             <svg aria-hidden="true" width="17" height="17" viewBox="0 0 20 20" fill="currentColor"><path d="M6 4v12l10-6z"/></svg>
             {PHONE_VIDEO_LABELS[locale].nav}
-          </button>
+          </a>
         )}
       </div>
-      {images.length > 0 && <div class="gallery-toolbar"><div><span class="text-xs font-semibold text-neutral-400">{reading.photos}</span> <span data-gallery-page aria-live="polite" aria-atomic="true" class="text-xs tabular-nums text-neutral-200">1 / {images.length}</span></div>{images.length > 1 && <div class="flex gap-2"><button type="button" data-gallery-inline-previous class="control-button gallery-step" aria-label={strings.gallery.previous}><Arrow direction="left" /></button><button type="button" data-gallery-inline-next class="control-button gallery-step" aria-label={strings.gallery.next}><Arrow direction="right" /></button></div>}</div>}
+      {images.length > 0 && <div class:list={['phone-gallery-controls', images.length > 1 && 'phone-gallery-controls--multiple']}>
+      <div class="gallery-toolbar">
+        <div><span class="phone-photo-label text-xs font-semibold text-neutral-400">{reading.photos}</span><span data-gallery-page aria-live="polite" aria-atomic="true" class="text-xs tabular-nums text-neutral-200">1 / {images.length}</span></div>
+        {images.length > 1 && <div class="flex gap-2"><button type="button" data-gallery-inline-previous class="control-button gallery-step" aria-label={strings.gallery.previous}><Arrow direction="left" /></button><button type="button" data-gallery-inline-next class="control-button gallery-step" aria-label={strings.gallery.next}><Arrow direction="right" /></button></div>}
+      </div>
       {images.length > 1 && (
         <div role="group" aria-label={strings.gallery.label} data-gallery-thumbnails class="mt-3 flex gap-2 overflow-x-auto pb-1">
           {images.map((image, index) => (
@@ -167,7 +171,8 @@ const related = allPhones
           ))}
         </div>
       )}
-      {images.length > 1 && <p class="mt-2 text-xs text-neutral-500 sm:hidden">{galleryCopy.swipe}</p>}
+      </div>}
+      {images.length > 1 && <p class="phone-swipe-hint mt-2 text-xs text-neutral-500 sm:hidden">{galleryCopy.swipe}</p>}
       {images.map((image, index) => image.caption && <p data-gallery-caption={index} class:list={['mt-4 border-l-2 border-orange-500 pl-3 text-sm leading-relaxed text-neutral-200', index > 0 && 'hidden']}>{image.caption}</p>)}
       {images.map((image, index) => (
         image.imageCredit && (
@@ -341,29 +346,45 @@ const related = allPhones
   :global(html[data-design="modern"] body:has(.phone-page-layout) .global-info-bar) { display: none; }
   :global(html[data-design="modern"] main:has(> .phone-page-layout)) { padding-block-start: clamp(.875rem, 2vw, 1.5rem); }
   :global(html[data-design="modern"]) .phone-page-layout {
+    --phone-panel-padding: clamp(.75rem, 2vw, 1.25rem);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'intro' 'media' 'quick' 'nav' 'story' 'specs';
+    grid-template-areas: 'intro' 'media' 'quick' 'nav' 'reading';
     align-items: start;
     gap: 1rem;
   }
-  :global(html[data-design="modern"]) :is(.phone-detail-grid, .phone-reading-column) { display: contents; }
+  :global(html[data-design="modern"]) .phone-detail-grid { display: contents; }
   :global(html[data-design="modern"]) :is(.phone-magazine-nav, .phone-gallery-heading, .phone-masthead-form, .phone-masthead .cover-year) { display: none; }
+  :global(html[data-design="modern"]) :is(.phone-masthead, .phone-quick-specs, .phone-media-rail) {
+    min-width: 0;
+    padding: var(--phone-panel-padding);
+    border: 1px solid var(--modern-line);
+    border-radius: var(--modern-corner);
+    background: var(--modern-surface);
+  }
   :global(html[data-design="modern"]) .phone-masthead {
     grid-area: intro;
     margin: 0;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
     box-shadow: none;
   }
   :global(html[data-design="modern"]) .phone-inline-year { display: inline; font-variant-numeric: tabular-nums; }
+  :global(html[data-design="modern"]) .phone-identity-meta .favorite-toggle {
+    order: 1;
+    margin-inline-start: auto;
+    max-inline-size: 60%;
+    text-align: start;
+  }
+  :global(html[data-design="modern"]) .phone-identity-meta .favorite-toggle svg { flex: none; }
+  :global(html[data-design="modern"]) .phone-masthead > div { width: 100%; }
   :global(html[data-design="modern"]) .phone-masthead-summary { margin-top: .5rem; border: 0; padding: 0; }
   :global(html[data-design="modern"]) .phone-media-rail { grid-area: media; position: static; display: grid; gap: .75rem; }
   :global(html[data-design="modern"]) .phone-photo-block { padding: 0; border: 0; background: transparent; box-shadow: none; }
   :global(html[data-design="modern"]) .phone-gallery-stage { height: clamp(13rem, 66vw, 22rem); border-width: 1px; }
-  :global(html[data-design="modern"]) .phone-preview-video:not([hidden]) {
+  :global(html[data-design="modern"]) .gallery-expand-icon {
+    border-color: var(--modern-line);
+    background: var(--modern-elevated);
+  }
+  :global(html[data-design="modern"]) .phone-preview-video {
     position: absolute;
     inset-block-start: .75rem;
     inset-inline-end: .75rem;
@@ -374,19 +395,74 @@ const related = allPhones
     font-weight: 650;
   }
   :global(html[data-design="modern"]) .phone-preview-video svg { color: var(--color-orange-500); }
+  :global(html[data-design="modern"]) .phone-gallery-controls--multiple {
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+    margin-block-start: .625rem;
+  }
+  :global(html[data-design="modern"]) .phone-gallery-controls--multiple .gallery-toolbar {
+    flex: none;
+    gap: .375rem;
+    margin: 0;
+  }
+  :global(html[data-design="modern"]) .phone-gallery-controls--multiple .phone-photo-label,
+  :global(html[data-design="modern"]) .phone-swipe-hint { display: none; }
+  :global(html[data-design="modern"]) .phone-gallery-controls [data-gallery-thumbnails] {
+    min-width: 0;
+    margin: 0;
+    padding: .25rem;
+  }
+  :global(html[data-design="modern"]) .phone-gallery-controls [data-gallery-thumb] { width: 3rem; height: 3rem; }
+  :global(html[data-design="modern"]) .phone-gallery-controls [data-gallery-thumb][aria-pressed="true"] {
+    outline: 0;
+    box-shadow: inset 0 0 0 1px var(--color-orange-500);
+  }
+  :global(html[data-design="modern"]) .phone-gallery-controls [data-gallery-thumb]:focus-visible {
+    outline: 2px solid var(--modern-blue);
+    outline-offset: 2px;
+  }
+  :global(html[data-design="modern"]) .phone-photo-block [data-gallery-credit] { overflow-wrap: anywhere; }
+  :global(html[data-design="modern"]) .phone-colors {
+    padding-block-start: .75rem;
+    border-block-start: 1px solid var(--modern-line);
+  }
+  :global(html[data-design="modern"]) .phone-color-chip { background: var(--modern-soft); }
   :global(html[data-design="modern"]) .phone-quick-specs { grid-area: quick; display: grid; gap: .625rem; min-width: 0; }
-  .phone-quick-specs dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
-  .phone-quick-specs dl > div {
-    padding: .625rem .75rem;
+  .phone-quick-specs dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
     border: 1px solid var(--modern-line);
     border-radius: var(--modern-control);
-    background: var(--modern-surface);
+    background: var(--modern-line);
+  }
+  .phone-quick-specs dl > div {
+    padding: .625rem .75rem;
+    background: var(--modern-canvas);
     overflow-wrap: anywhere;
   }
   .phone-quick-specs dt { color: var(--color-neutral-500); font-size: .75rem; }
   .phone-quick-specs dd { margin: .25rem 0 0; font-size: .875rem; font-weight: 650; }
   .phone-quick-specs dd a { text-decoration: underline; text-underline-offset: .2em; }
-  .phone-quick-link { display: inline-flex; align-items: center; justify-self: start; min-height: 2.75rem; gap: .5rem; color: var(--color-orange-500); font-size: .875rem; font-weight: 650; }
+  .phone-quick-specs dd a:focus-visible { outline-offset: 1px; }
+  .phone-quick-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 2.75rem;
+    gap: .5rem;
+    padding-inline: .75rem;
+    border-radius: var(--modern-control);
+    background: var(--modern-soft);
+    color: var(--color-orange-500);
+    font-size: .875rem;
+    font-weight: 650;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .phone-quick-link:hover { text-decoration: underline; text-underline-offset: .2em; }
+  }
   :global(html[data-design="modern"]) .phone-modern-nav {
     grid-area: nav;
     position: sticky;
@@ -412,21 +488,71 @@ const related = allPhones
     background: var(--modern-soft);
     border-color: var(--modern-line);
   }
-  :global(html[data-design="modern"]) .phone-story-section { grid-area: story; }
+  :global(html[data-design="modern"]) .phone-reading-column {
+    grid-area: reading;
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 1px solid var(--modern-line);
+    border-radius: var(--modern-corner);
+    background: var(--modern-surface);
+  }
+  :global(html[data-design="modern"]) .phone-reading-column > .phone-story-section {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
   :global(html[data-design="modern"]) .phone-story-section > :is(h2, .phone-story) { max-width: 45rem; margin-inline: auto; }
-  :global(html[data-design="modern"]) .phone-spec-section { grid-area: specs; margin-top: 0; }
-  :global(html[data-design="modern"]) .phone-page-layout :global([data-phone-video]:not(:target)) { display: none; }
-  :global(html[data-design="modern"]) .phone-page-layout :global([data-phone-video]:target) { grid-column: 1 / -1; }
-  :global(html[data-design="modern"]) :is(#phone-overview, #phone-story, #phone-specs) { scroll-margin-top: calc(var(--phone-header-height, 4.5rem) + 3.75rem); }
+  :global(html[data-design="modern"]) .phone-reading-column > .phone-spec-section {
+    margin-block-start: clamp(1.25rem, 3vw, 2rem);
+    padding-block-start: clamp(1.25rem, 3vw, 2rem);
+    border-block-start: 1px solid var(--modern-line);
+  }
+  :global(html[data-design="modern"]) .phone-reading-column .phone-spec-surface {
+    border-width: 1px;
+    border-color: var(--modern-line);
+    box-shadow: none;
+  }
+  :global(html[data-design="modern"]) :is(#phone-overview, #phone-story, #phone-specs, :global(#phone-video)) { scroll-margin-top: calc(var(--phone-header-height, 4.5rem) + 3.75rem); }
 
   @media (min-width: 1024px) {
     :global(html[data-design="modern"]) .phone-page-layout {
       grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-      grid-template-areas: 'media intro' 'media quick' 'nav nav' 'story story' 'specs specs';
-      grid-template-rows: auto minmax(0, 1fr) auto auto auto;
-      gap: 1.5rem 2rem;
+      grid-template-areas: 'media intro' 'media quick' 'reading reading';
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 0 clamp(1rem, 2.5vw, 2rem);
     }
-    :global(html[data-design="modern"]) .phone-masthead { padding-top: .5rem; }
+    :global(html[data-design="modern"]) .phone-masthead {
+      border-block-end: 0;
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+      padding-block-end: .875rem;
+    }
+    :global(html[data-design="modern"]) .phone-quick-specs {
+      border-block-start: 0;
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
+      padding-block-start: 0;
+    }
+    :global(html[data-design="modern"]) .phone-modern-nav { display: none; }
+    :global(html[data-design="modern"]) :is(#phone-specs, :global(#phone-video)) { scroll-margin-top: calc(var(--phone-header-height, 4.5rem) + 1rem); }
     :global(html[data-design="modern"]) .phone-gallery-stage { height: clamp(18rem, 47vh, 28rem); }
+    :global(html[data-design="modern"]) .phone-reading-column {
+      display: grid;
+      margin-block-start: 1.5rem;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      grid-template-areas: 'story specs';
+      align-items: start;
+      gap: 1.5rem;
+    }
+    :global(html[data-design="modern"]) .phone-reading-column > .phone-story-section { grid-area: story; }
+    :global(html[data-design="modern"]) .phone-reading-column > .phone-spec-section {
+      grid-area: specs;
+      margin-block-start: 0;
+      padding-block-start: 0;
+      padding-inline-start: 1.5rem;
+      border-block-start: 0;
+      border-inline-start: 1px solid var(--modern-line);
+    }
+    :global(html[data-design="modern"]) .phone-reading-column > :global([data-phone-video]) { grid-column: 1 / -1; margin: 0; }
   }
 </style>

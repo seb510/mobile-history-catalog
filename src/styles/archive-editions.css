@@ -128,8 +128,42 @@ html[data-design="modern"] .compare-table { overflow:clip; }
 @supports not (overflow:clip) { html[data-design="modern"] .compare-table { overflow:visible; } }
 html[data-design="modern"] .compare-table .compare-table-head {
   background:var(--modern-soft);
-  border-radius:0;
-  box-shadow:0 2px 0 var(--modern-line);
+  border:0;
+  border-bottom:1px solid var(--modern-line);
+  border-radius:var(--modern-corner) var(--modern-corner) 0 0;
+  box-shadow:0 3px 6px color-mix(in srgb,var(--modern-line) 40%,transparent);
+}
+html[data-design="modern"] :is(.compare-picker,.compare-table-head > :nth-child(2)) { --compare-slot-accent:var(--color-orange-500); }
+html[data-design="modern"] :is(.compare-picker[data-compare-slot="b"],.compare-table-head > :nth-child(3)) { --compare-slot-accent:var(--modern-blue); }
+html[data-design="modern"] .compare-table-head > :nth-child(n + 2) {
+  border-color:var(--modern-line);
+  background:color-mix(in srgb,var(--compare-slot-accent) 9%,var(--modern-surface));
+  box-shadow:inset 0 3px var(--compare-slot-accent);
+}
+html[data-design="modern"] .compare-table-head > :nth-child(n + 2) > :first-child { color:var(--compare-slot-accent); }
+html[data-design="modern"] .compare-table [role="rowgroup"] { border-color:var(--modern-line); }
+html[data-design="modern"] .compare-table .compare-spec-row {
+  border-color:var(--modern-line);
+  background:var(--modern-surface);
+}
+html[data-design="modern"] .compare-table .compare-spec-row:nth-child(even) { background:var(--modern-canvas); }
+html[data-design="modern"] .compare-table .compare-spec-row > * { border-color:var(--modern-line); }
+html[data-design="modern"] .compare-table .compare-spec-row > [role="rowheader"] {
+  background:transparent;
+  color:var(--color-neutral-300);
+  font-size:.8125rem;
+  letter-spacing:normal;
+  text-transform:none;
+}
+html[data-design="modern"] .compare-table .compare-different > [role="cell"] {
+  background:color-mix(in srgb,var(--color-orange-500) 7%,transparent);
+  font-weight:600;
+}
+@media (max-width:639px) {
+  html[data-design="modern"] .compare-table .compare-spec-row > [role="rowheader"] {
+    background:var(--modern-soft);
+    font-size:.75rem;
+  }
 }
 @media (max-width:639px) {
   html[data-design="modern"] .home-cover-media > div:first-child > div { height:clamp(9rem,47vw,15rem); }
@@ -393,6 +427,42 @@ html:not([data-design="modern"]) .about-index a[aria-current="location"] {
 }
 
 html[data-design="modern"] :is(.catalog-video-filter,.catalog-stories a) { border-radius:var(--modern-control); }
+
+html[data-design="modern"] .catalog-position {
+  padding-block-start:.375rem;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  pointer-events:none;
+}
+html[data-design="modern"] .catalog-position-inner {
+  width:calc(100% - 2rem);
+  max-width:69rem;
+  gap:.5rem;
+  padding:.125rem .25rem .125rem .625rem;
+  border:1px solid var(--modern-line);
+  border-radius:var(--modern-corner);
+  background:var(--modern-surface);
+  box-shadow:var(--modern-highlight),var(--modern-shadow);
+  pointer-events:auto;
+}
+html[data-design="modern"] .catalog-position-status {
+  align-items:center;
+  gap:clamp(.375rem,2vw,.75rem);
+}
+html[data-design="modern"] .catalog-position [data-current-year] {
+  border-radius:var(--modern-control);
+  background:color-mix(in srgb,var(--color-orange-500) 12%,var(--modern-surface));
+  padding:.15rem .5rem;
+  font-size:1rem;
+}
+html[data-design="modern"] .catalog-position-filters {
+  gap:.375rem;
+  padding-inline:.625rem;
+  border-radius:var(--modern-control);
+  background:var(--modern-soft);
+}
+html[data-design="modern"] .catalog-position-filters:focus-visible { outline-offset:-2px; }
 
 html[data-design="modern"] .about-index a[aria-current="location"] {
   box-shadow: inset 3px 0 var(--color-orange-500);
@@ -807,9 +877,28 @@ html[data-design="modern"] .brand-index-card .brand-index-action { color:var(--b
   html[data-design="modern"] :is(a.editorial-card,.editorial-card[data-phone-card],.recent-phone,.update-phone,.brand-index-card,.home-topic-nav a,.home-discovery a,.about-index a,.control-button,.filter-select-trigger,.primary-cta,.period-save) { transition:none; }
 }
 
+@media (hover:hover) and (pointer:fine) {
+  html[data-design="modern"] .catalog-timeline .catalog-card:hover {
+    border-color:color-mix(in srgb,var(--year-accent) 70%,var(--modern-line));
+  }
+  html[data-design="modern"] .catalog-timeline .catalog-card:hover .phone-card-art {
+    border-color:color-mix(in srgb,var(--year-accent) 42%,var(--modern-line));
+  }
+  html[data-design="modern"] .catalog-timeline .catalog-card:hover .card-title { color:var(--year-accent); }
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  html[data-design="modern"] .catalog-timeline .catalog-card .phone-card-art {
+    transition:border-color var(--motion-ui) var(--motion-easing);
+  }
+  html[data-design="modern"] .catalog-timeline .catalog-card .phone-card-media-visual > img {
+    transition:transform var(--motion-image) var(--motion-easing);
+  }
+  html[data-design="modern"] .catalog-timeline .catalog-card:hover .phone-card-media-visual > img { transform:scale(1.045); }
+}
+
 /* Carry the card language across every route while giving each content type
    its own silhouette and accent family. These rules are Modern-only. */
-html[data-design="modern"] :is(.recent-phone,.update-phone,.generation-feature .editorial-card,.compare-quick a,.phone-related-card) {
+html[data-design="modern"] :is(.recent-phone,.update-phone,.generation-feature .editorial-card,.compare-pair,.phone-related-card) {
   --tile-accent:var(--modern-blue);
   overflow:hidden;
   border:1px solid color-mix(in srgb,var(--tile-accent) 32%,var(--modern-line));
@@ -817,11 +906,140 @@ html[data-design="modern"] :is(.recent-phone,.update-phone,.generation-feature .
   background:linear-gradient(145deg,color-mix(in srgb,var(--tile-accent) 7%,var(--modern-surface)),var(--modern-surface) 58%);
 }
 html[data-design="modern"] :is(.recent-phone,.update-phone,.generation-feature .editorial-card):nth-child(3n + 1),
-html[data-design="modern"] .compare-quick li:nth-child(3n + 1) > a { --tile-accent:var(--color-orange-500); }
+html[data-design="modern"] .compare-pairs li:nth-child(3n + 1) > .compare-pair { --tile-accent:var(--color-orange-500); }
 html[data-design="modern"] :is(.recent-phone,.update-phone,.generation-feature .editorial-card):nth-child(3n + 2),
-html[data-design="modern"] .compare-quick li:nth-child(3n + 2) > a { --tile-accent:var(--modern-blue); }
+html[data-design="modern"] .compare-pairs li:nth-child(3n + 2) > .compare-pair { --tile-accent:var(--modern-blue); }
 html[data-design="modern"] :is(.recent-phone,.update-phone,.generation-feature .editorial-card):nth-child(3n),
-html[data-design="modern"] .compare-quick li:nth-child(3n) > a { --tile-accent:var(--modern-coral); }
+html[data-design="modern"] .compare-pairs li:nth-child(3n) > .compare-pair { --tile-accent:var(--modern-coral); }
+html[data-design="modern"] .compare-pairs { max-width:36rem; }
+html[data-design="modern"] :is(.compare-intro .compare-steps,.compare-pairs-hint,.compare-picker-original-label) { display:none; }
+html[data-design="modern"] .compare-intro {
+  padding:.875rem clamp(1rem,2vw,1.5rem);
+  background:var(--modern-surface);
+  box-shadow:none;
+}
+html[data-design="modern"] .compare-picker {
+  padding:clamp(.875rem,2vw,1.25rem);
+  border-radius:var(--modern-corner);
+  box-shadow:var(--modern-highlight),var(--modern-shadow);
+}
+html[data-design="modern"] .compare-picker-slot-label {
+  display:inline-block;
+  margin-bottom:.25rem;
+  color:var(--compare-slot-accent);
+  font-size:1rem;
+  font-weight:750;
+}
+html[data-design="modern"] .compare-picker .compare-quick button {
+  display:inline-flex;
+  align-items:center;
+  min-height:2.75rem;
+  border-radius:var(--modern-control);
+  background:var(--modern-soft);
+  box-shadow:none;
+}
+html[data-design="modern"] .compare-picker-brands {
+  margin-top:.875rem;
+  border-top:1px solid var(--modern-line);
+}
+html[data-design="modern"] .compare-picker-brands > summary {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  color:var(--color-neutral-300);
+  font-weight:600;
+  line-height:1.35;
+  list-style:none;
+}
+html[data-design="modern"] .compare-picker-brands > summary::-webkit-details-marker { display:none; }
+html[data-design="modern"] .compare-picker-brands > summary::after {
+  flex:none;
+  width:.45rem;
+  height:.45rem;
+  margin-inline-end:.25rem;
+  border:solid currentColor;
+  border-width:0 1.5px 1.5px 0;
+  transform:rotate(45deg);
+  content:"";
+}
+html[data-design="modern"] .compare-picker-brands[open] > summary::after { transform:rotate(225deg); }
+html[data-design="modern"] .compare-pairs > h2 {
+  margin-bottom:1rem;
+  color:var(--color-neutral-100);
+  font-size:1.25rem;
+  font-weight:750;
+  letter-spacing:-.025em;
+}
+html[data-design="modern"] .compare-pairs > ul { grid-template-columns:minmax(0,1fr); }
+@media (min-width:900px) {
+  html[data-design="modern"] .compare-pairs { max-width:none; }
+  html[data-design="modern"] .compare-pairs > ul { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+}
+html[data-design="modern"] .compare-pair {
+  display:flex;
+  flex-direction:column;
+  gap:.875rem;
+  padding:clamp(.75rem,1.5vw,1.125rem);
+  box-shadow:var(--modern-highlight),var(--modern-shadow);
+}
+html[data-design="modern"] .compare-pair-phones {
+  --compare-pair-photo-height:clamp(4.5rem,9vw,6rem);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  gap:.375rem;
+}
+html[data-design="modern"] .compare-pair-phone {
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  gap:.25rem;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+html[data-design="modern"] .compare-pair-image {
+  position:relative;
+  display:grid;
+  grid-template:minmax(0,1fr) / minmax(0,1fr);
+  place-items:center;
+  height:var(--compare-pair-photo-height);
+  overflow:hidden;
+  padding:.375rem;
+  border:1px solid var(--modern-line);
+  border-radius:var(--modern-control);
+  background:var(--modern-soft);
+}
+html[data-design="modern"] .compare-pair-versus {
+  align-self:start;
+  margin-block:calc(var(--compare-pair-photo-height) / 2 - .75rem) 0;
+  border-radius:var(--modern-control);
+  background:color-mix(in srgb,var(--tile-accent) 10%,var(--modern-surface));
+  padding:.25rem .375rem;
+  color:var(--tile-accent);
+  font-size:.625rem;
+}
+html[data-design="modern"] .compare-pair-model { color:var(--color-neutral-100); line-height:1.25; }
+html[data-design="modern"] .compare-pair-story {
+  margin:0;
+  padding:0;
+  border:0;
+  line-height:1.55;
+}
+html[data-design="modern"] .compare-pair-action {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  margin-top:auto;
+  padding-top:.75rem;
+  border-top:1px solid var(--modern-line);
+  color:var(--tile-accent);
+  font-size:.875rem;
+  font-weight:700;
+}
+@media (hover:hover) and (pointer:fine) {
+  html[data-design="modern"] .compare-pair:hover { border-color:var(--tile-accent); }
+  html[data-design="modern"] .compare-pair:hover .compare-pair-action { text-decoration:underline; text-underline-offset:.2em; }
+}
 html[data-design="modern"] .recent-phone > div:first-child {
   border-radius:0 0 1.1rem .35rem;
   background:radial-gradient(ellipse at 50% 15%,color-mix(in srgb,var(--tile-accent) 18%,var(--modern-soft)),var(--modern-soft) 72%);
@@ -833,8 +1051,7 @@ html[data-design="modern"] .update-entry {
 }
 html[data-design="modern"] .update-phone { border-radius:.4rem 1rem 1rem .4rem; }
 html[data-design="modern"] .update-phone > :first-child { border-radius:50%; background:color-mix(in srgb,var(--tile-accent) 13%,var(--modern-soft)); }
-html[data-design="modern"] .brand-comparison,
-html[data-design="modern"] .compare-intro {
+html[data-design="modern"] .brand-comparison {
   border-inline-start:4px solid var(--modern-coral);
   border-radius:.4rem 1.25rem 1.25rem .4rem;
   background:linear-gradient(115deg,color-mix(in srgb,var(--modern-coral) 9%,var(--modern-surface)),var(--modern-surface) 52%);
@@ -961,36 +1178,7 @@ html[data-design="modern"] .favorite-toggle-icon[aria-pressed="true"] {
   }
 }
 
-/* Modern phone cards keep the short description readable on narrow screens:
-   image and copy share one row instead of squeezing two tall cards together. */
 @media (max-width:639px) {
-  html[data-design="modern"] .home-story-section > div > ul { grid-template-columns:minmax(0,1fr); }
-  html[data-design="modern"] .home-story-section [data-phone-card] {
-    display:grid;
-    grid-template-columns:minmax(6.5rem,32%) minmax(0,1fr);
-    align-items:stretch;
-  }
-  html[data-design="modern"] .home-story-section [data-phone-card] .phone-card-art {
-    width:auto;
-    min-height:8rem;
-    aspect-ratio:auto;
-    margin:.4rem 0 .4rem .4rem;
-    border:1px solid var(--modern-line);
-    border-radius:.8rem .3rem .8rem .3rem;
-    padding:.45rem;
-  }
-  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy {
-    min-height:0;
-    padding:.65rem .7rem;
-  }
-  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child > .editorial-kicker { padding-inline-end:2.5rem; }
-  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > p:last-of-type,
-  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child:last-child > p:last-of-type {
-    display:block;
-    overflow:visible;
-    -webkit-line-clamp:unset;
-    line-clamp:unset;
-  }
   html[data-design="modern"] .favorite-toggle-icon { inset-block-start:.65rem; inset-inline-end:.65rem; }
 }
 
@@ -1082,6 +1270,38 @@ html[data-design="modern"] .home-story-section [data-phone-card] .phone-card-art
   border-radius:1rem .35rem 1rem .35rem;
 }
 html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child > .editorial-kicker { padding-inline-end:2.75rem; }
+@media (max-width:639px) {
+  html[data-design="modern"] .home-story-section > div > ul { grid-template-columns:minmax(0,1fr); }
+  html[data-design="modern"] .home-story-section [data-phone-card] {
+    display:grid;
+    grid-template-columns:minmax(7.25rem,36%) minmax(0,1fr);
+  }
+  html[data-design="modern"] .home-story-section [data-phone-card] > .phone-card-media.phone-card-art {
+    flex-direction:column;
+    align-items:stretch;
+    height:auto;
+    margin:.4rem 0 .4rem .4rem;
+    padding:.375rem;
+  }
+  html[data-design="modern"] .home-story-section .phone-card-media-visual { min-height:6.25rem; }
+  html[data-design="modern"] .home-story-section .phone-card-media-actions {
+    flex:0 0 auto;
+    flex-direction:row;
+    justify-content:center;
+    width:auto;
+  }
+  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy {
+    min-width:0;
+    min-height:0;
+    padding:.75rem;
+  }
+  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy > div:first-child > .editorial-kicker {
+    flex-wrap:wrap;
+    gap:.25rem .5rem;
+    padding-inline-end:0;
+  }
+  html[data-design="modern"] .home-story-section [data-phone-card] .card-copy .line-clamp-2 { -webkit-line-clamp:3; }
+}
 html[data-design="modern"] .generation-feature > .grid > .editorial-card {
   --pair-accent:var(--modern-blue);
   border:1px solid color-mix(in srgb,var(--pair-accent) 28%,var(--modern-line));

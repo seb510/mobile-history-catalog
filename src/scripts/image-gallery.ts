@@ -67,7 +67,12 @@ document.querySelectorAll<HTMLElement>('[data-image-gallery]').forEach(gallery =
         if (moveFocus && selected) thumb.focus();
         if (selected && gallery.getBoundingClientRect().top < window.innerHeight && gallery.getBoundingClientRect().bottom > 0) {
           const strip = thumb.parentElement;
-          if (strip && (thumb.offsetLeft < strip.scrollLeft || thumb.offsetLeft + thumb.offsetWidth > strip.scrollLeft + strip.clientWidth)) strip.scrollLeft = thumb.offsetLeft - strip.offsetLeft;
+          if (strip) {
+            const viewport = strip.getBoundingClientRect();
+            const item = thumb.getBoundingClientRect();
+            if (item.left < viewport.left) strip.scrollLeft += item.left - viewport.left;
+            else if (item.right > viewport.right) strip.scrollLeft += item.right - viewport.right;
+          }
         }
       });
     };

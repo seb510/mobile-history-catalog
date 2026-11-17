@@ -115,7 +115,6 @@ html[data-design="modern"] .mobile-settings { margin-top:.75rem; border-top:1px 
 @media (hover:hover) and (pointer:fine) {
  html[data-design="modern"] :is(.phone-section-nav a:hover,.compare-quick button:hover) { background:var(--color-neutral-800); }
 }
-html[data-design="modern"] .catalog-position { background:var(--color-neutral-950); border-color:var(--color-neutral-800); box-shadow:0 3px 16px #0000000b; }
 html[data-design="modern"] :is(.filter-select-trigger,.catalog-search-field):focus-within { border-color:var(--color-orange-500); }
 html[data-design="modern"] .phone-spec-table tr:last-child > :first-child { border-bottom-left-radius:12px; }
 html[data-design="modern"] .phone-spec-table tr:last-child > :last-child { border-bottom-right-radius:12px; }

@@ -83,13 +83,13 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
   data-locale={locale} data-count-one={strings.brands.phoneCount.one}
   data-count-few={'few' in strings.brands.phoneCount ? strings.brands.phoneCount.few : strings.brands.phoneCount.many}
   data-count-many={strings.brands.phoneCount.many}>
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-    <div class="flex min-w-0 items-baseline gap-3">
+  <div class="catalog-position-inner mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+    <div class="catalog-position-status flex min-w-0 items-baseline gap-3">
       <span class="editorial-kicker text-neutral-500">{strings.filters.year}</span>
       <strong data-current-year class="text-xl font-extrabold tabular-nums text-orange-500"></strong>
       <span data-current-year-count class="truncate text-xs text-neutral-400"></span>
     </div>
-    <a href="#catalog-filters" class="inline-flex min-h-11 shrink-0 items-center gap-2 text-xs font-semibold text-neutral-300 hover-desktop:text-orange-500">{CATALOG_POSITION[locale].filters}<Arrow direction="up" /></a>
+    <a href="#catalog-filters" class="catalog-position-filters inline-flex min-h-11 shrink-0 items-center gap-2 text-xs font-semibold text-neutral-300 hover-desktop:text-orange-500">{CATALOG_POSITION[locale].filters}<Arrow direction="up" /></a>
   </div>
 </nav>
 

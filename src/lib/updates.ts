@@ -5,6 +5,14 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-17",
+  "phones": ["nokia-1110", "sony-ericsson-k610i", "nokia-1200"],
+  "changes": {
+    "uk": ["Додано три масові кнопкові моделі 2005–2007 років із характеристиками, галереями та відео."],
+    "ru": ["Добавлены три массовые кнопочные модели 2005–2007 годов с характеристиками, галереями и видео."],
+    "en": ["Added three mass-market keypad phones from 2005–2007, with specifications, photo galleries and videos."]
+  }
+}, {
   "date": "2026-11-16",
   "phones": ["motorola-startac-70", "nokia-8810", "ericsson-t28s"],
   "changes": {
