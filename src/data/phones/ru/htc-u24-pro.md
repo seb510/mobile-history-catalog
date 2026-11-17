@@ -32,6 +32,9 @@ camera:
 charging: USB-C до 60 Вт; Qi до 15 Вт; обратная Qi до 5 Вт
 colors:
   - Space Navy
+image: /images/phones/htc-u24-pro/front-back-side.jpg
+imageCredit: "Изображение предоставлено владельцем архива"
+imageCaption: "HTC U24 pro в цвете Space Navy спереди, сзади и сбоку"
 ---
 
 U24 pro представляет позднюю старшую линейку HTC: изогнутое стекло сочетается со скошенной алюминиевой рамкой. Сохранены практичные детали — microSD и разъём 3,5 мм для проводных наушников.

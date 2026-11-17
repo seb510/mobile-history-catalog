@@ -20,6 +20,13 @@ colors: ["Indigo Blue", "Metallic Silver", "Beaujolais Red", "Pearl White"]
 dimensionsMm: "87 × 45 × 23 mm"
 weightGrams: 94
 os: "Samsung proprietary platform"
+image: /images/phones/samsung-sgh-e700/closed.webp
+imageCredit: "Image supplied by the archive owner"
+imageCaption: "Closed Samsung SGH-E700 with its external display"
+gallery:
+  - image: /images/phones/samsung-sgh-e700/open.jpg
+    alt: "Open Samsung SGH-E700 with its screen on and keypad visible"
+    imageCredit: "Image supplied by the archive owner"
 ---
 
 The 2003 SGH-E700 was Samsung's first phone with an integrated antenna, according to the company. Removing the protrusion complemented the rounded clamshell, while the blue-and-silver colour scheme made the design distinctive.
@@ -28,4 +35,4 @@ The camera and external display added a multimedia touch to the familiar calling
 
 Twenty years later, Samsung revisited the E700 with the special Galaxy Z Flip5 Retro edition, borrowing its colours and reworking early-2000s pixel graphics. This speaks to the lasting appeal of the design, not to an equivalence between the old clamshell and a modern foldable smartphone. [Compare it with the Motorola V66](/en/compare/?a=motorola-v66&b=samsung-sgh-e700) to see two approaches to compact bodies at the start of the decade.
 
-Source: [Samsung — the E700 and Galaxy Z Flip5 Retro](https://news.samsung.com/global/samsung-electronics-unveils-galaxy-z-flip5-retro-to-celebrate-a-legacy-of-innovation).
+Source: [Samsung — the E700 and Galaxy Z Flip5 Retro](https://news.samsung.com/global/samsung-electronics-unveils-galaxy-z-flip5-retro-to-celebrate-a-legacy-of-innovation) · [SGH-E700 photo in the Samsung Design archive](https://design.samsung.com/global/contents/design-history/product.html).

@@ -4,6 +4,7 @@ import { localePath, type Locale } from '../lib/locales';
 import { COMPARE_QUICK, COMPARE_DESIGN, COMPARE_EXPERIENCE, DESIGN_EDITORIAL, type t } from '../lib/ui-strings';
 import { buildCompareGroups } from '../lib/specs';
 import { museumImageCredit } from '../lib/image-attribution';
+import { matchesPhoneSearch, normalizePhoneSearch } from '../lib/phone-search-match';
 import { readFavorites, toggleFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
 
 type PhoneData = CollectionEntry<'phones'>['data'];
@@ -33,10 +34,8 @@ function PlaceholderIcon({ className }: { className?: string }) {
   );
 }
 
-function matches(phone: ComparePhoneLite, query: string): boolean {
-  const q = query.trim().toLowerCase();
-  if (!q) return true;
-  return `${phone.data.brand} ${phone.data.model} ${phone.data.year}`.toLowerCase().includes(q);
+function matches(phone: ComparePhoneLite, terms: string[]): boolean {
+  return matchesPhoneSearch(terms, normalizePhoneSearch(`${phone.data.brand} ${phone.data.model} ${phone.data.year}`));
 }
 
 export default function CompareIsland({ phones, locale, strings }: Props) {
@@ -162,6 +161,8 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
     [strings.specs.display, strings.specs.camera, strings.specs.weight].some((label) => label === row.label) && row.a && row.b);
   const visibleGroups = groups.map((group) => ({ ...group, rows: group.rows.filter((row) => !differencesOnly || row.a !== row.b) })).filter((group) => group.rows.length);
   const rowCount = visibleGroups.reduce((count, group) => count + group.rows.length, 0);
+  const termsA = normalizePhoneSearch(query.a).split(' ').filter(Boolean);
+  const termsB = normalizePhoneSearch(query.b).split(' ').filter(Boolean);
 
   return (
     <div>
@@ -173,7 +174,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           onQueryChange={(v) => setQuery((prev) => ({ ...prev, a: v }))}
           onSelect={(slug) => select('a', slug)}
           onClear={() => clear('a')}
-          candidates={phones.filter((p) => p.slug !== selected.b && matches(p, query.a)).slice(0, 8)}
+          candidates={phones.filter((p) => p.slug !== selected.b && matches(p, termsA)).slice(0, 8)}
           quickPhones={quickPhones(selected.b)}
           placeholder={strings.compare.pickA}
           locale={locale}
@@ -188,7 +189,7 @@ export default function CompareIsland({ phones, locale, strings }: Props) {
           onQueryChange={(v) => setQuery((prev) => ({ ...prev, b: v }))}
           onSelect={(slug) => select('b', slug)}
           onClear={() => clear('b')}
-          candidates={phones.filter((p) => p.slug !== selected.a && matches(p, query.b)).slice(0, 8)}
+          candidates={phones.filter((p) => p.slug !== selected.a && matches(p, termsB)).slice(0, 8)}
           quickPhones={quickPhones(selected.a)}
           placeholder={strings.compare.pickB}
           locale={locale}

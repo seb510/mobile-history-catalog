@@ -1,5 +1,153 @@
 import type { Locale } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+ 'nokia-6700-classic': {
+   id: 'uOTBwcEAnOo', author: 'TelepolisVideo', label: 'NOKIA · 6700 CLASSIC',
+   description: {
+     uk: 'Зовнішній вигляд 6700 classic і навігація головним меню Series 40.',
+     ru: 'Внешний вид 6700 classic и навигация по главному меню Series 40.',
+     en: 'A look at the 6700 classic’s design and Series 40 main menu.',
+   },
+ },
+ 'nokia-asha-311': {
+   id: 'NMil8bbGhj8', author: 'PhoneArena', label: 'NOKIA · ASHA 311', year: 2012,
+   description: {
+     uk: 'Огляд Asha 311 із демонстрацією сенсорного інтерфейсу.',
+     ru: 'Обзор Asha 311 с демонстрацией сенсорного интерфейса.',
+     en: 'A review of the Asha 311 that demonstrates the touchscreen interface.',
+   },
+ },
+ 'nokia-808-pureview': {
+   id: 'v0oXqvNUB2w', author: 'PhoneArena', label: 'NOKIA · 808 PUREVIEW', year: 2012,
+   description: {
+     uk: 'Огляд Nokia 808 PureView із демонстрацією камери й Nokia Belle.',
+     ru: 'Обзор Nokia 808 PureView с демонстрацией камеры и Nokia Belle.',
+     en: 'A review of the Nokia 808 PureView covering its camera and Nokia Belle.',
+   },
+ },
+ 'apple-iphone-13-pro': {
+   id: 'TnkdoEZhTbc', author: 'Marques Brownlee', label: 'APPLE · IPHONE 13 PRO', year: 2021,
+   description: {
+     uk: 'Огляд iPhone 13 Pro з екраном ProMotion і новими можливостями камер.',
+     ru: 'Обзор iPhone 13 Pro с экраном ProMotion и новыми возможностями камер.',
+     en: 'A review of the iPhone 13 Pro, including ProMotion and the updated cameras.',
+   },
+ },
+ 'apple-iphone-17': {
+   id: 'rng_yUSwrgU', author: 'Marques Brownlee', label: 'APPLE · IPHONE 17', year: 2025,
+   description: {
+     uk: 'Огляд базового iPhone 17 з дисплеєм 120 Гц.',
+     ru: 'Обзор базового iPhone 17 с дисплеем 120 Гц.',
+     en: 'A review of the standard iPhone 17 and its 120 Hz display.',
+   },
+ },
+ 'apple-iphone-18-pro': {
+   id: 'ohqxP8EEumo', author: 'Marques Brownlee', label: 'APPLE · IPHONE 18 PRO', year: 2026,
+   description: {
+     uk: 'Огляд iPhone 18 Pro з акцентом на новий чип.',
+     ru: 'Обзор iPhone 18 Pro с акцентом на новый чип.',
+     en: 'A review of the iPhone 18 Pro with a focus on the new chip.',
+   },
+ },
+ 'apple-iphone-se-2022': {
+   id: 'QpbGctuHoMY', author: 'Marques Brownlee', label: 'APPLE · IPHONE SE (2022)', year: 2022,
+   description: {
+     uk: 'Огляд iPhone SE третього покоління з A15 Bionic і кнопкою Home.',
+     ru: 'Обзор iPhone SE третьего поколения с A15 Bionic и кнопкой Home.',
+     en: 'A review of the third-generation iPhone SE with A15 Bionic and the Home button.',
+   },
+ },
+ 'google-pixel-11-pro': {
+   id: '6IwthvMnIkc', author: 'GSMArena Official', label: 'GOOGLE · PIXEL 11 PRO', year: 2026,
+   description: {
+     uk: 'Огляд Pixel 11 Pro з демонстрацією корпусу та камер.',
+     ru: 'Обзор Pixel 11 Pro с демонстрацией корпуса и камер.',
+     en: 'A review of the Pixel 11 Pro covering its design and cameras.',
+   },
+ },
+ 'google-pixel-8': {
+   id: 'Cf-msk5mamg', author: 'Adam Lobo', label: 'GOOGLE · PIXEL 8', year: 2024,
+   description: {
+     uk: 'Враження від Pixel 8 після трьох місяців користування.',
+     ru: 'Впечатления от Pixel 8 после трёх месяцев использования.',
+     en: 'A review of the standard Pixel 8 after three months of use.',
+   },
+ },
+ 'google-pixel-9': {
+   id: 'E5cfM4UHBDI', author: 'Real World Review', label: 'GOOGLE · PIXEL 9', year: 2026,
+   description: {
+     uk: 'Практичний огляд базового Pixel 9 у 2026 році.',
+     ru: 'Практический обзор базового Pixel 9 в 2026 году.',
+     en: 'A hands-on review of the standard Pixel 9 in 2026.',
+   },
+ },
+ 'huawei-mate-xt': {
+   id: 'Yv_S7KrOlfk', author: 'Marques Brownlee', label: 'HUAWEI · MATE XT', year: 2024, demonstration: true,
+   description: {
+     uk: 'Перше знайомство з Mate XT і демонстрація трисекційного складання.',
+     ru: 'Первое знакомство с Mate XT и демонстрация трёхсекционного складывания.',
+     en: 'An early hands-on look at the Mate XT and its tri-fold mechanism.',
+   },
+ },
+ 'huawei-p-smart-plus': {
+   id: 'PNSundI-bXY', author: 'Marc Corredera Reviews', label: 'HUAWEI · P SMART+', year: 2018,
+   description: {
+     uk: 'Розпакування й перший огляд Huawei P Smart+ іспанською.',
+     ru: 'Распаковка и первый обзор Huawei P Smart+ на испанском.',
+     en: 'A Spanish-language unboxing and first look at the Huawei P Smart+.',
+   },
+ },
+ 'motorola-razr-ultra-2026': {
+   id: 'L2Ilq4HDk14', author: 'GSMArena Official', label: 'MOTOROLA · RAZR ULTRA (2026)', year: 2026, demonstration: true,
+   description: {
+     uk: 'Огляд Razr Ultra 2026 з демонстрацією зовнішнього й внутрішнього екранів.',
+     ru: 'Обзор Razr Ultra 2026 с демонстрацией внешнего и внутреннего экранов.',
+     en: 'A review of the Razr Ultra (2026), including its cover and inner displays.',
+   },
+ },
+ 'samsung-galaxy-s26-ultra': {
+   id: 'gAiLf8Z6Kh8', author: 'GSMArena Official', label: 'SAMSUNG · GALAXY S26 ULTRA', year: 2026,
+   description: {
+     uk: 'Огляд Galaxy S26 Ultra з демонстрацією Privacy Display.',
+     ru: 'Обзор Galaxy S26 Ultra с демонстрацией Privacy Display.',
+     en: 'A Galaxy S26 Ultra review that demonstrates Privacy Display.',
+   },
+ },
+ 'samsung-galaxy-z-fold8-ultra': {
+   id: 'XTcLNVFQGZE', author: 'IGN', label: 'SAMSUNG · GALAXY Z FOLD8 ULTRA', year: 2026, demonstration: true,
+   description: {
+     uk: 'Перше знайомство з Galaxy Z Fold8 Ultra на Galaxy Unpacked.',
+     ru: 'Первое знакомство с Galaxy Z Fold8 Ultra на Galaxy Unpacked.',
+     en: 'A hands-on look at the Galaxy Z Fold8 Ultra from Galaxy Unpacked.',
+   },
+ },
+ 'siemens-xelibri-2': {
+   id: 'iwUD2GaHJrA', author: 'VoloKin Project', label: 'SIEMENS · XELIBRI 2', year: 2020, retrospective: true,
+   description: {
+     uk: 'Історія Xelibri 2 та дизайнерської серії Siemens.',
+     ru: 'История Xelibri 2 и дизайнерской серии Siemens.',
+     en: 'A look back at the Xelibri 2 and Siemens’ designer phone series.',
+   },
+ },
+ 'motorola-cd930': { id: 'dBIQNvoUXZA', author: "Vintage phones archive", label: 'MOTOROLA · CD930', year: 2024, walkthrough: true,
+   description: { uk: "Меню та мелодії Motorola CD930 у роботі.", ru: "Меню и мелодии Motorola CD930 в работе.", en: "A look at the Motorola CD930 menus and ringtones." } },
+ 'nokia-5110': { id: 'yNqg3KMV0z8', author: "Hardly Vintage", label: 'NOKIA · 5110', retrospective: true,
+   description: { uk: "Розпакування Nokia 5110 з оригінальними аксесуарами.", ru: "Распаковка Nokia 5110 с оригинальными аксессуарами.", en: "An unboxing of the Nokia 5110 with its original accessories." } },
+ 'nokia-6110': { id: 'DuFh_ArHSsk', author: "BCC", label: 'NOKIA · 6110', year: 2023, demonstration: true,
+   description: { uk: "Розпакування оригінальної Nokia 6110.", ru: "Распаковка оригинальной Nokia 6110.", en: "An unboxing of the original Nokia 6110." } },
+ 'nokia-7710': { id: '80i9juz172M', author: "Mobile Memories", label: 'NOKIA · 7710', retrospective: true,
+   description: { uk: "Nokia 7710 із широким сенсорним екраном, меню й застосунками.", ru: "Nokia 7710 с широким сенсорным экраном, меню и приложениями.", en: "The Nokia 7710 widescreen touchscreen, menus and applications." } },
+ 'nokia-7900-prism': { id: 'N-LfImJqlis', author: "PhoneArena", label: 'NOKIA · 7900 PRISM', year: 2007, demonstration: true,
+   description: { uk: "Огляд 7900 Prism від PhoneArena з часів виходу моделі.", ru: "Обзор 7900 Prism от PhoneArena времён выхода модели.", en: "PhoneArena’s period review of the Nokia 7900 Prism." } },
+ 'nokia-8600-luna': { id: 'cd_A7vJEVTY', author: "Vintage Mobile Phone Collection", label: 'NOKIA · 8600 LUNA', year: 2021, retrospective: true,
+   description: { uk: "Розпакування та огляд Nokia 8600 Luna.", ru: "Распаковка и обзор Nokia 8600 Luna.", en: "An unboxing and review of the Nokia 8600 Luna." } },
+ 'siemens-s10': { id: 'AvArQDp0Gfg', author: "Retro Celulares & Más * Geiler Almario", label: 'SIEMENS · S10', retrospective: true,
+   description: { uk: "Відео про Siemens S10 та його ранній кольоровий дисплей.", ru: "Видео о Siemens S10 и его раннем цветном дисплее.", en: "A video about the Siemens S10 and its early colour display." } },
+ 'sony-ericsson-xperia-x1': { id: 'K14N_FKmWHI', author: "PhoneArena", label: 'SONY ERICSSON · XPERIA X1', year: 2008, demonstration: true,
+   description: { uk: "Огляд Xperia X1 від PhoneArena: висувна QWERTY-клавіатура й панелі інтерфейсу.", ru: "Обзор Xperia X1 от PhoneArena: выдвижная QWERTY-клавиатура и панели интерфейса.", en: "PhoneArena’s Xperia X1 review covers the slide-out QWERTY keyboard and the panels interface." } },
+ 'htc-u24-pro': { id: 'ryzSOohnIYE', author: "HTC", label: 'HTC · U24 PRO', year: 2024, promo: true,
+   description: { uk: "Офіційне відео HTC про U24 Pro, його дизайн і камери.", ru: "Официальное видео HTC о U24 Pro, его дизайне и камерах.", en: "HTC’s official introduction to the U24 Pro, its design and cameras." } },
+ 'huawei-mate-xt-2': { id: 'HgVpJ5GXbtQ', author: "Matthew Moniz", label: 'HUAWEI · MATE XT 2', year: 2026, demonstration: true,
+   description: { uk: "Практичний огляд Huawei Mate XT 2 з демонстрацією трисекційного екрана.", ru: "Практический обзор Huawei Mate XT 2 с демонстрацией трёхсекционного экрана.", en: "A hands-on look at the Huawei Mate XT 2 and its three-section display." } },
  'nokia-1110': {
    id: 'SJl1rLk5ec4', author: 'Vintage phones archive', label: 'NOKIA · 1110', year: 2022, walkthrough: true,
    description: {
@@ -110,7 +258,7 @@ export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: s
  'nokia-1100': {"id":"dS80q7TPEdc","author":"Retro Unboxing","label":"NOKIA · 1100","retrospective":true,"description":{"uk":"Ретроспективна розпаковка Nokia 1100 (модель 2003 року) від каналу Retro Unboxing — телефона, який канал називає найбільш продаваним мобільним пристроєм усіх часів. Мова відео — англійська.","ru":"Ретроспективная распаковка Nokia 1100 (модель 2003 года) от канала Retro Unboxing — телефона, который канал называет самым продаваемым мобильным устройством всех времён. Язык видео — английский.","en":"A retrospective unboxing of the Nokia 1100 (2003 model) from the Retro Unboxing channel, described there as the best-selling mobile device of all time. Video language: English."}},
  'nokia-8800': {"id":"njBrNg3PmgE","author":"The Vintage Phone Guy","label":"NOKIA · 8800","retrospective":true,"description":{"uk":"Ретроспектива «The Return of the King» від The Vintage Phone Guy про Nokia 8800 2005 року: класичний моноблок із нержавіючої сталі й круглими клавішами. Перевірено, що у відео саме ОРИГІНАЛЬНА модель, не Sirocco чи Arte. Мова відео — англійська.","ru":"Ретроспектива «The Return of the King» от The Vintage Phone Guy о Nokia 8800 2005 года: классический моноблок из нержавеющей стали с круглыми клавишами. Проверено, что в видео именно ОРИГИНАЛЬНАЯ модель, не Sirocco или Arte. Язык видео — английский.","en":"The Vintage Phone Guy's “The Return of the King” retrospective on the 2005 Nokia 8800: the classic stainless-steel candybar with its round keypad. Verified to show the ORIGINAL model specifically, not the Sirocco or Arte. Video language: English."}},
  'motorola-droid': {"id":"xXb2G-7QQ88","author":"Insider Tech","label":"MOTOROLA · DROID","retrospective":true,"description":{"uk":"Ретроспектива Insider Tech «I Used The 10-Year-Old Original Motorola Droid For A Week»: саме американська CDMA-версія Droid 2009 року для Verizon, не європейський GSM/UMTS Milestone, який має окремий запис каталогу. Мова відео — англійська.","ru":"Ретроспектива Insider Tech «I Used The 10-Year-Old Original Motorola Droid For A Week»: именно американская CDMA-версия Droid 2009 года для Verizon, не европейский GSM/UMTS Milestone, у которого отдельная запись каталога. Язык видео — английский.","en":"Insider Tech's retrospective “I Used The 10-Year-Old Original Motorola Droid For A Week”: specifically the US CDMA Verizon Droid from 2009, not the European GSM/UMTS Milestone, which has its own catalog entry. Video language: English."}},
- 'nokia-5800-xpressmusic': {"id":"K9-UYkKd_i0","author":"Geekanoids","label":"NOKIA · 5800 XPRESSMUSIC","year":2009,"description":{"uk":"Огляд Geekanoids, опублікований у лютому 2009 року невдовзі після старту продажів: перший сенсорний телефон Nokia на Symbian S60 5th edition. Мова відео — англійська.","ru":"Обзор Geekanoids, опубликованный в феврале 2009 года вскоре после старта продаж: первый сенсорный телефон Nokia на Symbian S60 5th edition. Язык видео — английский.","en":"A Geekanoids review published in February 2009, shortly after launch: Nokia's first touchscreen phone, running Symbian S60 5th edition. Video language: English."}},
+ 'nokia-5800-xpressmusic': {"id":"K9-UYkKd_i0","author":"Geekanoids","label":"NOKIA · 5800 XPRESSMUSIC","year":2009,"description":{"uk":"Англомовний огляд Geekanoids 2009 року про сенсорний Nokia 5800 XpressMusic на S60 5th Edition.","ru":"Англоязычный обзор Geekanoids 2009 года о сенсорном Nokia 5800 XpressMusic на S60 5th Edition.","en":"Geekanoids’ 2009 review of the touchscreen Nokia 5800 XpressMusic running S60 5th Edition."}},
  'nokia-n8': {"id":"xF73MOBQgi8","author":"TheMrNokia I Abdulla Zaki","label":"NOKIA · N8","retrospective":true,"description":{"uk":"Ретроспектива «The Nokia N8 Surprised Me» від TheMrNokia I Abdulla Zaki (той самий канал, що й для 7610): флагман 2010 року на Symbian^3 із 12-мегапіксельною камерою Carl Zeiss. Мова відео — англійська.","ru":"Ретроспектива «The Nokia N8 Surprised Me» от TheMrNokia I Abdulla Zaki (тот же канал, что и для 7610): флагман 2010 года на Symbian^3 с 12-мегапиксельной камерой Carl Zeiss. Язык видео — английский.","en":"A “The Nokia N8 Surprised Me” retrospective from TheMrNokia I Abdulla Zaki (the same channel used for 7610): the 2010 Symbian^3 flagship with its 12-megapixel Carl Zeiss camera. Video language: English."}},
  'samsung-omnia-i900': {"id":"cXPP1Cqchr8","author":"NextWindowsMobile","label":"SAMSUNG · OMNIA I900","year":2008,"description":{"uk":"Ранній відеоогляд NextWindowsMobile з 2008 року: інтерфейс TouchWiz і можливості Windows Mobile на SGH-i900 Omnia невдовзі після анонсу. Мова відео — англійська.","ru":"Ранний видеообзор NextWindowsMobile 2008 года: интерфейс TouchWiz и возможности Windows Mobile на SGH-i900 Omnia вскоре после анонса. Язык видео — английский.","en":"An early 2008 NextWindowsMobile video review: the TouchWiz interface and Windows Mobile features of the SGH-i900 Omnia, filmed shortly after its announcement. Video language: English."}},
  'motorola-pebl-u6': {"id":"KPMfJJc9KcA","author":"maxlau100","label":"MOTOROLA · PEBL U6","retrospective":true,"description":{"uk":"Відеоогляд «Review Motorola PEBL U6» від каналу maxlau100: овальний корпус і характерна фактура PEBL U6. Колір конкретного екземпляра на відео може відрізнятись від бордового виконання, задокументованого в цьому записі. Мова відео — англійська.","ru":"Видеообзор «Review Motorola PEBL U6» от канала maxlau100: овальный корпус и характерная фактура PEBL U6. Цвет конкретного экземпляра на видео может отличаться от бордового исполнения, задокументированного в этой записи. Язык видео — английский.","en":"A “Review Motorola PEBL U6” video from the maxlau100 channel: the oval body and distinctive texture of the PEBL U6. The exact unit's colour in the video may differ from the burgundy finish documented in this record. Video language: English."}},

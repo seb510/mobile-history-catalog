@@ -12,7 +12,7 @@ chipset: Snapdragon 8 Elite Gen 5 for Galaxy
 ramMb: 12288
 storageMb: 262144
 camera:
-  rear: 200 MP + 50 MP + 50 MP (5×) + 10 MP (3×)
+  rear: 200 Мп основная, 50 Мп сверхширокоугольная, телефото 50 Мп (5×) и 10 Мп (3×)
   front: 12 MP, AF
 network: GSM, UMTS, LTE, 5G Sub-6
 dimensionsMm: 163,6 × 78,1 × 7,9 мм

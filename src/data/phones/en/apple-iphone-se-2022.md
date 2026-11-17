@@ -22,13 +22,14 @@ os: "iOS 15"
 dimensionsMm: "138.4 × 67.3 × 7.3 mm"
 weightGrams: 144
 colors: ["Midnight", "Starlight", "(PRODUCT)RED"]
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/IPhone_SE_3rd_Gen.jpg/960px-IPhone_SE_3rd_Gen.jpg"
-evolutionImage:
-  image: "/images/phones/apple-iphone-se-2022/local-front-back.jpg"
-  alt: "Apple iPhone SE (2022) front and back"
-  imageCredit: "Image supplied by the project owner"
-imageCredit: "Toad40, CC BY-SA 4.0, Wikimedia Commons"
-imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_SE_3rd_Gen.jpg"
+image: "/images/phones/apple-iphone-se-2022/local-front-back.jpg"
+imageCredit: "Image supplied by the project owner"
+imageCaption: "Apple iPhone SE (2022) front and back"
+gallery:
+  - image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/IPhone_SE_3rd_Gen.jpg/960px-IPhone_SE_3rd_Gen.jpg"
+    alt: "Front of the iPhone SE (2022)"
+    imageCredit: "Toad40, CC BY-SA 4.0, Wikimedia Commons"
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:IPhone_SE_3rd_Gen.jpg"
 milestone: "5G and A15 Bionic in a phone with a Home button"
 ---
 

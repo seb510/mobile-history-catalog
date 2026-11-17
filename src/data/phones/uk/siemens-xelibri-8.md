@@ -28,6 +28,9 @@ gallery:
     caption: "Бічний профіль незвичного корпуса Xelibri 8."
     imageCredit: "Фото: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/xelibri-8
+  - image: /images/phones/siemens-xelibri-8/screen-on.jpg
+    alt: "Siemens Xelibri 8 з увімкненим кольоровим екраном"
+    imageCredit: "Зображення надано власником архіву"
 os: "Власна платформа Siemens"
 ---
 

@@ -20,6 +20,13 @@ colors: ["Indigo Blue", "Metallic Silver", "Beaujolais Red", "Pearl White"]
 dimensionsMm: "87 × 45 × 23 мм"
 weightGrams: 94
 os: "власна (Samsung)"
+image: /images/phones/samsung-sgh-e700/closed.webp
+imageCredit: "Зображення надано власником архіву"
+imageCaption: "Samsung SGH-E700 у закритому стані із зовнішнім дисплеєм"
+gallery:
+  - image: /images/phones/samsung-sgh-e700/open.jpg
+    alt: "Розкритий Samsung SGH-E700 з увімкненим екраном і клавіатурою"
+    imageCredit: "Зображення надано власником архіву"
 ---
 
 SGH-E700 2003 року став першим телефоном Samsung із вбудованою антеною — саме так його місце в історії визначає компанія. Відсутність виступу доповнювала округлу форму розкладачки, а поєднання синього та сріблястого робило зовнішність упізнаваною.
@@ -28,4 +35,4 @@ SGH-E700 2003 року став першим телефоном Samsung із в�
 
 Через двадцять років Samsung повернулася до E700 у спеціальній версії Galaxy Z Flip5 Retro: запозичила кольори й переосмислила піксельну графіку початку 2000-х. Це свідчення тривалої ролі дизайну, а не тотожності старої розкладачки й сучасного складаного смартфона. [Порівняння з Motorola V66](/compare/?a=motorola-v66&b=samsung-sgh-e700) показує різні підходи до компактного корпуса на початку десятиліття.
 
-Джерело: [Samsung — історія E700 та Galaxy Z Flip5 Retro](https://news.samsung.com/global/samsung-electronics-unveils-galaxy-z-flip5-retro-to-celebrate-a-legacy-of-innovation).
+Джерело: [Samsung — історія E700 та Galaxy Z Flip5 Retro](https://news.samsung.com/global/samsung-electronics-unveils-galaxy-z-flip5-retro-to-celebrate-a-legacy-of-innovation) · [Фото SGH-E700 в архіві Samsung Design](https://design.samsung.com/global/contents/design-history/product.html).

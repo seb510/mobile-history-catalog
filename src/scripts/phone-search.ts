@@ -1,3 +1,5 @@
+import { matchesPhoneSearch, normalizePhoneSearch } from '../lib/phone-search-match';
+
 type Locale = 'uk' | 'ru' | 'en';
 
 interface SearchPhone {
@@ -63,26 +65,18 @@ async function loadSearchIndex(url: string): Promise<SearchIndex> {
   return indexPromise;
 }
 
-function normalize(value: string, locale: Locale): string {
-  return value
-    .toLocaleLowerCase(locale)
-    .normalize('NFD')
-    .replace(/\p{M}/gu, '')
-    .trim();
-}
-
 function findPhones(records: SearchPhone[], query: string, locale: Locale): SearchPhone[] {
-  const tokens = normalize(query, locale).split(/\s+/).filter(Boolean);
+  const tokens = normalizePhoneSearch(query).split(' ').filter(Boolean);
   if (!tokens.length) return [];
 
   return records
     .map((phone) => {
-      const brand = normalize(phone.brand, locale);
-      const model = normalize(phone.model, locale);
-      const searchText = normalize(`${phone.brand} ${phone.model} ${phone.year} ${phone.milestone}`, locale);
+      const brand = normalizePhoneSearch(phone.brand);
+      const model = normalizePhoneSearch(phone.model);
+      const searchText = normalizePhoneSearch(`${phone.brand} ${phone.model} ${phone.year} ${phone.milestone}`);
       return { phone, brand, model, searchText };
     })
-    .filter(({ searchText }) => tokens.every((token) => searchText.includes(token)))
+    .filter(({ searchText }) => matchesPhoneSearch(tokens, searchText))
     .sort((a, b) => {
       const score = (item: typeof a) => tokens.reduce(
         (total, token) => total + (item.model.startsWith(token) ? 3 : item.brand.startsWith(token) ? 2 : 0),

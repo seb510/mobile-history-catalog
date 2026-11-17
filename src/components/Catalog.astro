@@ -132,6 +132,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 
 <script>
   import { initCatalogPosition } from '../scripts/catalog-position';
+  import { matchesPhoneSearch, normalizePhoneSearch } from '../lib/phone-search-match';
   const position = initCatalogPosition();
   const bar = document.querySelector<HTMLElement>('[data-filter-bar]');
   const list = document.querySelector<HTMLElement>('[data-catalog-list]');
@@ -167,7 +168,8 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
     const yearRange = document.querySelector<HTMLElement>('[data-year-range]');
 
     const apply = () => {
-      const q = searchInput.value.trim().toLowerCase();
+      const q = searchInput.value.trim();
+      const terms = normalizePhoneSearch(q).split(' ').filter(Boolean);
       const brand = brandSelect.value;
       const year = yearSelect.value;
       const form = formSelect.value;
@@ -176,7 +178,7 @@ const eraForYear = (year: number) => eraStarts.findIndex((start, index) =>
 
       for (const card of cards) {
         const matches =
-          (!q || card.dataset.search!.includes(q)) &&
+          matchesPhoneSearch(terms, normalizePhoneSearch(card.dataset.search!)) &&
           (!brand || card.dataset.brand === brand) &&
           (!year || card.dataset.year === year) && (!form || card.dataset.form === form) &&
           (!story || story.slugs.includes(card.dataset.slug!)) &&

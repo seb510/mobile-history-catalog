@@ -28,6 +28,9 @@ gallery:
     caption: "The unusual side profile of the Xelibri 8."
     imageCredit: "Photo: Mobile Phone Museum · mobilephonemuseum.com"
     imageSourceUrl: https://www.mobilephonemuseum.com/phone-detail/xelibri-8
+  - image: /images/phones/siemens-xelibri-8/screen-on.jpg
+    alt: "Siemens Xelibri 8 with its colour screen on"
+    imageCredit: "Image supplied by the archive owner"
 os: "Proprietary platform Siemens"
 ---
 

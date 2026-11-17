@@ -1,14 +1,12 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 157,
-    "localPrimary": 93,
-    "remotePrimary": 61,
+    "models": 166,
+    "localPrimary": 97,
+    "remotePrimary": 68,
     "missingPrimary": [
-      "htc-u24-pro",
-      "huawei-mate-xt-2",
-      "samsung-sgh-e700"
+      "huawei-mate-xt-2"
     ],
     "issues": []
   },
@@ -50,8 +48,8 @@
     },
     {
       "slug": "apple-iphone-se-2022",
-      "primary": "remote",
-      "frames": 1,
+      "primary": "local",
+      "frames": 2,
       "remoteFrames": 1,
       "issues": []
     },
@@ -64,6 +62,13 @@
     },
     {
       "slug": "apple-iphone",
+      "primary": "remote",
+      "frames": 3,
+      "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "ericsson-t28s",
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
@@ -113,8 +118,8 @@
     },
     {
       "slug": "htc-u24-pro",
-      "primary": "missing",
-      "frames": 0,
+      "primary": "local",
+      "frames": 1,
       "remoteFrames": 0,
       "issues": []
     },
@@ -266,6 +271,13 @@
       "issues": []
     },
     {
+      "slug": "motorola-startac-70",
+      "primary": "remote",
+      "frames": 3,
+      "remoteFrames": 3,
+      "issues": []
+    },
+    {
       "slug": "motorola-v66",
       "primary": "local",
       "frames": 3,
@@ -280,10 +292,24 @@
       "issues": []
     },
     {
-      "slug": "nokia-3210",
+      "slug": "nokia-1110",
       "primary": "local",
-      "frames": 3,
-      "remoteFrames": 2,
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-1200",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-3210",
+      "primary": "remote",
+      "frames": 4,
+      "remoteFrames": 3,
       "issues": []
     },
     {
@@ -441,6 +467,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-6700-classic",
+      "primary": "remote",
+      "frames": 3,
+      "remoteFrames": 3,
+      "issues": []
+    },
+    {
       "slug": "nokia-6720-classic",
       "primary": "local",
       "frames": 4,
@@ -504,6 +537,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-808-pureview",
+      "primary": "remote",
+      "frames": 3,
+      "remoteFrames": 3,
+      "issues": []
+    },
+    {
       "slug": "nokia-8600-luna",
       "primary": "local",
       "frames": 3,
@@ -518,10 +558,24 @@
       "issues": []
     },
     {
+      "slug": "nokia-8810",
+      "primary": "remote",
+      "frames": 3,
+      "remoteFrames": 3,
+      "issues": []
+    },
+    {
       "slug": "nokia-9-pureview",
       "primary": "local",
       "frames": 1,
       "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "nokia-asha-311",
+      "primary": "remote",
+      "frames": 3,
+      "remoteFrames": 3,
       "issues": []
     },
     {
@@ -764,8 +818,8 @@
     },
     {
       "slug": "samsung-sgh-e700",
-      "primary": "missing",
-      "frames": 0,
+      "primary": "local",
+      "frames": 2,
       "remoteFrames": 0,
       "issues": []
     },
@@ -933,7 +987,7 @@
     {
       "slug": "siemens-xelibri-8",
       "primary": "local",
-      "frames": 3,
+      "frames": 4,
       "remoteFrames": 0,
       "issues": []
     },
@@ -956,6 +1010,13 @@
       "primary": "remote",
       "frames": 2,
       "remoteFrames": 2,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-k610i",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -1016,7 +1077,7 @@
     },
     {
       "slug": "sony-ericsson-t610",
-      "primary": "local",
+      "primary": "remote",
       "frames": 3,
       "remoteFrames": 2,
       "issues": []

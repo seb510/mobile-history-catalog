@@ -3,8 +3,7 @@ brand: Nokia
 model: 5800 XpressMusic
 year: 2008
 formFactor: candybar
-milestone: A mass-market Nokia touchscreen music phone
-priceUsdAtLaunch: 400
+milestone: A Nokia music smartphone with a resistive touchscreen and touch-enabled S60
 display:
   sizeInches: 3.2
   type: Resistive touch TFT, 16.7 million colours

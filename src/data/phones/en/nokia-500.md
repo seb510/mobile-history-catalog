@@ -11,7 +11,7 @@ display:
   type: TFT, capacitive touchscreen
 chipset: ARM11 1 GHz
 ramMb: 256
-storageMb: 2000
+storageMb: 2048
 storageExpandable: microSD up to 32 GB
 camera:
   rear: 5 MP, full focus, no flash

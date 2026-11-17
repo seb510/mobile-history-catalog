@@ -6,11 +6,26 @@ export const UPDATES_COPY = {
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
   "date": "2026-11-17",
-  "phones": ["nokia-1110", "sony-ericsson-k610i", "nokia-1200"],
+  "phones": ["nokia-1110", "sony-ericsson-k610i", "nokia-1200", "nokia-6700-classic", "nokia-asha-311", "nokia-808-pureview"],
   "changes": {
-    "uk": ["Додано три масові кнопкові моделі 2005–2007 років із характеристиками, галереями та відео."],
-    "ru": ["Добавлены три массовые кнопочные модели 2005–2007 годов с характеристиками, галереями и видео."],
-    "en": ["Added three mass-market keypad phones from 2005–2007, with specifications, photo galleries and videos."]
+    "uk": [
+      "Додано шість телефонів із фото й відео, серед них Nokia 6700 classic, Asha 311 і 808 PureView.",
+      "Оновлено фото Samsung SGH-E700, HTC U24 Pro, Siemens Xelibri 8 та iPhone SE (2022).",
+      "Уточнено дані Nokia 500, 5800 XpressMusic, 600, 700 і Galaxy S26 Ultra.",
+      "Додано відео для 23 наявних моделей. Пошук розпізнає кирилицю, дефіси й пробіли в назвах."
+    ],
+    "ru": [
+      "Добавлены шесть телефонов с фото и видео, среди них Nokia 6700 classic, Asha 311 и 808 PureView.",
+      "Обновлены фотографии Samsung SGH-E700, HTC U24 Pro, Siemens Xelibri 8 и iPhone SE (2022).",
+      "Уточнены данные Nokia 500, 5800 XpressMusic, 600, 700 и Galaxy S26 Ultra.",
+      "Добавлены видео для 23 моделей из каталога. Поиск распознаёт кириллицу, дефисы и пробелы в названиях."
+    ],
+    "en": [
+      "Added six phones with photos and videos, including the Nokia 6700 classic, Asha 311 and 808 PureView.",
+      "Updated photos for the Samsung SGH-E700, HTC U24 Pro, Siemens Xelibri 8 and iPhone SE (2022).",
+      "Updated details for the Nokia 500, 5800 XpressMusic, 600, 700 and Galaxy S26 Ultra.",
+      "Added videos for 23 existing models. Search recognises Cyrillic letters, hyphens and spaces in model names."
+    ]
   }
 }, {
   "date": "2026-11-16",

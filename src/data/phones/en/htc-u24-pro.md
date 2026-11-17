@@ -32,6 +32,9 @@ camera:
 charging: USB-C up to 60 W; Qi up to 15 W; reverse Qi up to 5 W
 colors:
   - Space Navy
+image: /images/phones/htc-u24-pro/front-back-side.jpg
+imageCredit: "Image supplied by the archive owner"
+imageCaption: "HTC U24 pro in Space Navy, front, back and side views"
 ---
 
 U24 pro represents HTC’s later upper range, combining curved glass with a bevelled aluminium frame. Practical details survive alongside the touchscreen: microSD expansion and a 3.5 mm headphone jack.

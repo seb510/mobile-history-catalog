@@ -34,6 +34,6 @@ Mate XT 2 змінює жест першого Mate XT: дві зовнішні 
 
 Продажі в Китаї почалися 12 вересня 2026 року. Наведена базова конфігурація 16/256 ГБ зі звичайним внутрішнім екраном 1–90 Гц. Варіант Privacy Display має інші параметри, зокрема 1–120 Гц; його не змішано з базовою версією. Типова ємність батареї — 5600 мА·год.
 
-Джерела: [Huawei — official specifications (China)](https://consumer.huawei.com/cn/phones/mate-xt-2-ultimate-design/specs/); [Huawei — announcement and 12 September availability](https://www.prnewswire.com/news-releases/extraordinary-in-hand-effortless-in-control-huawei-mate-xt-2--ultimate-design-debuts-as-the-first-smartphone-to-feature-logicfolding-tau--chip-and-reach-mass-commercialization-302872159.html).
+Джерела: [Huawei — official specifications (China)](https://consumer.huawei.com/cn/phones/mate-xt-2-ultimate-design/specs/); [Huawei — announcement and 12 September availability](https://www.prnewswire.com/news-releases/extraordinary-in-hand-effortless-in-control-huawei-mate-xt-2--ultimate-design-debuts-as-the-first-smartphone-to-feature-logicfolding-tau--chip-and-reach-mass-commercialization-302872159.html) · [Зображення Mate XT 2 на сайті Huawei](https://consumer.huawei.com/cn/phones/mate-xt-2-ultimate-design/).
 
 Габарити наведені у складеному стані. Вага 299 г не враховує поверхневий шар екрана; із ним виробник указує приблизно 304 г. Зовнішній екран — 6,5 дюйма, 2442 × 1140, LTPO OLED 1–120 Гц. USB 3.1 Gen 1 потребує відповідного кабелю: комплектний працює як USB 2.0.

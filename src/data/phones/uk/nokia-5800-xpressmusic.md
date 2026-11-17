@@ -3,8 +3,7 @@ brand: Nokia
 model: "5800 XpressMusic"
 year: 2008
 formFactor: candybar
-milestone: "Перший масовий сенсорний телефон Nokia"
-priceUsdAtLaunch: 400
+milestone: "Музичний смартфон Nokia з резистивним екраном і сенсорним S60"
 display:
   sizeInches: 3.2
   type: "резистивний тач-TFT, 16.7 млн кольорів"

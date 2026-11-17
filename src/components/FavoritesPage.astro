@@ -205,6 +205,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 </style>
 
 <script>
+  import { matchesPhoneSearch, normalizePhoneSearch } from '../lib/phone-search-match';
   import { readPeriods, savePeriod, PERIODS_KEY, validPeriod } from '../lib/ownership-periods';
   import { COLLECTION_COPY, OWNERSHIP_COPY } from '../lib/ownership-copy';
   import { addFavorite, readFavorites, readLegacyFavorites, dismissLegacyFavorite, FAVORITES_CHANGED_EVENT } from '../scripts/favorites';
@@ -324,12 +325,12 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const choices = [...picker.querySelectorAll<HTMLButtonElement>('[data-collection-choice]')];
   const collectionCopy = COLLECTION_COPY[dialog.dataset.locale as keyof typeof COLLECTION_COPY];
   function filterChoices() {
-    const terms = search.value.trim().toLowerCase().split(/\s+/);
+    const terms = normalizePhoneSearch(search.value).split(' ').filter(Boolean);
     const favorites = readFavorites();
     let shown = 0;
     for (const button of choices) {
-      const label = `${button.dataset.model} ${button.dataset.year} ${button.dataset.slug}`.toLowerCase();
-      const show = shown < 20 && !favorites.has(button.dataset.slug!) && terms.every(term => label.includes(term));
+      const label = normalizePhoneSearch(`${button.dataset.model} ${button.dataset.year} ${button.dataset.slug}`);
+      const show = shown < 20 && !favorites.has(button.dataset.slug!) && matchesPhoneSearch(terms, label);
       button.closest('li')!.hidden = !show;
       if (show) shown++;
     }
