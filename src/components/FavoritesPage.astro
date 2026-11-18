@@ -20,9 +20,9 @@ const periodCopy = OWNERSHIP_COPY[locale];
 const collectionCopy = COLLECTION_COPY[locale];
 const cabinetCopy = CABINET_COPY[locale];
 const shareCopy = {
-  uk: { download:'Завантажити PNG', done:'Зображення збережено.', error:'Не вдалося створити зображення.' },
-  ru: { download:'Скачать PNG', done:'Изображение сохранено.', error:'Не удалось создать изображение.' },
-  en: { download:'Download PNG', done:'Image saved.', error:'Could not create the image.' },
+  uk: { download:'Завантажити PNG', preview:'Попередній перегляд PNG', done:'Зображення збережено.', error:'Не вдалося створити зображення.', loading:'Готуємо попередній перегляд…', design:'Оберіть оформлення', magazine:'Журнальне', magazineHint:'Теплий папір і мідні акценти', modern:'Сучасне', modernHint:'Світлі картки та кольорові акценти', close:'Закрити', release:'Випуск' },
+  ru: { download:'Скачать PNG', preview:'Предпросмотр PNG', done:'Изображение сохранено.', error:'Не удалось создать изображение.', loading:'Готовим предпросмотр…', design:'Выберите оформление', magazine:'Журнальное', magazineHint:'Тёплая бумага и медные акценты', modern:'Современное', modernHint:'Светлые карточки и цветные акценты', close:'Закрыть', release:'Выпуск' },
+  en: { download:'Download PNG', preview:'Preview PNG', done:'Image saved.', error:'Could not create the image.', loading:'Preparing preview…', design:'Choose a style', magazine:'Magazine', magazineHint:'Warm paper with copper accents', modern:'Modern', modernHint:'Light cards with color accents', close:'Close', release:'Released' },
 }[locale];
 const comparePath = localePath(locale, '/compare/');
 
@@ -74,7 +74,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <div data-favorites-toolbar hidden class="favorites-toolbar mb-5 flex flex-wrap items-center justify-between gap-4 rounded-sm border border-neutral-800 border-t-2 border-t-orange-500 bg-neutral-900/40 p-4">
     <div class="flex flex-wrap items-center gap-3">
       <h2 class="text-lg font-bold">{periodCopy.personal}</h2>
-      <button type="button" class="control-button text-sm" data-timeline-export data-title={periodCopy.personal} data-site={strings.siteName} data-done={shareCopy.done} data-error={shareCopy.error}>{shareCopy.download}</button>
+      <button type="button" class="control-button text-sm" data-timeline-preview-open>{shareCopy.preview}</button>
       <a
         data-favorites-compare-cta
         data-compare-base={comparePath}
@@ -103,7 +103,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <p data-period-status role="status" aria-live="polite" class="period-status mb-3 text-sm text-orange-500"></p>
   <ol data-favorites-list hidden class="favorites-timeline grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {phones.map((phone) => (
-      <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} data-timeline-name={`${phone.data.brand} ${phone.data.model}`} data-timeline-image={phone.data.imageCredit ? phone.data.image : undefined} data-timeline-credit={phone.data.imageCredit} class="ownership-item flex min-w-0 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50" hidden>
+      <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} data-timeline-name={`${phone.data.brand} ${phone.data.model}`} data-timeline-image={phone.data.image} data-timeline-highlight={phone.data.milestone ?? phone.data.os ?? (phone.data.formFactor ? strings.formFactors[phone.data.formFactor] : '')} class="ownership-item flex min-w-0 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50" hidden>
         <div class="ownership-heading flex items-start justify-between gap-2 border-b border-neutral-800 bg-neutral-950/40 px-3 py-2">
           <div class="min-w-0"><p data-period-label class="text-sm font-bold tabular-nums text-orange-500">{periodCopy.unknown}</p><p class="mt-1 text-xs text-neutral-500">{periodCopy.release}: {phone.data.year}</p></div>
           <button type="button" data-period-open data-slug={slugOf(phone)} data-model={phone.data.brand+' '+phone.data.model} data-year={phone.data.year} aria-label={periodCopy.add+' — '+phone.data.brand+' '+phone.data.model} class="period-edit-button" hidden>
@@ -115,6 +115,27 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       </li>
     ))}
   </ol>
+  <dialog data-timeline-dialog class="period-dialog timeline-export-dialog" aria-labelledby="timeline-export-title" data-title={periodCopy.personal} data-site={strings.siteName} data-done={shareCopy.done} data-error={shareCopy.error} data-release={shareCopy.release} data-loading={shareCopy.loading}>
+    <div class="period-dialog-header flex items-start justify-between gap-4">
+      <div><p class="editorial-kicker text-orange-500">{shareCopy.preview}</p><h2 id="timeline-export-title" class="mt-2 text-xl font-bold">{periodCopy.personal}</h2></div>
+      <button type="button" data-timeline-close class="control-button h-11 w-11 shrink-0 justify-center" aria-label={shareCopy.close} title={shareCopy.close}>
+        <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <fieldset class="timeline-design-options">
+      <legend class="text-sm font-semibold">{shareCopy.design}</legend>
+      <div class="mt-2 grid grid-cols-2 gap-2">
+        <label><input type="radio" name="timeline-design" value="magazine" /><span class="timeline-style-choice"><span class="timeline-style-swatch timeline-style-swatch--magazine" aria-hidden="true"><i></i><i></i><i></i></span><span class="timeline-style-copy"><strong>{shareCopy.magazine}</strong><small>{shareCopy.magazineHint}</small></span><span class="timeline-style-check" aria-hidden="true"></span></span></label>
+        <label><input type="radio" name="timeline-design" value="modern" /><span class="timeline-style-choice"><span class="timeline-style-swatch timeline-style-swatch--modern" aria-hidden="true"><i></i><i></i><i></i></span><span class="timeline-style-copy"><strong>{shareCopy.modern}</strong><small>{shareCopy.modernHint}</small></span><span class="timeline-style-check" aria-hidden="true"></span></span></label>
+      </div>
+    </fieldset>
+    <p data-timeline-preview-status role="status" aria-live="polite" class="timeline-preview-status min-h-5 text-sm text-neutral-500">{shareCopy.loading}</p>
+    <div class="timeline-preview-frame"><img data-timeline-preview alt={`${periodCopy.personal} — PNG`} /></div>
+    <div class="period-dialog-actions timeline-preview-actions">
+      <button type="button" data-timeline-cancel class="control-button min-h-11 px-4 text-sm">{shareCopy.close}</button>
+      <button type="button" data-timeline-download class="primary-cta period-save justify-center text-sm" disabled>{shareCopy.download}</button>
+    </div>
+  </dialog>
   <dialog data-collection-picker class="period-dialog collection-picker" aria-labelledby="collection-picker-title">
     <div class="period-dialog-header flex items-center justify-between gap-4">
       <h2 id="collection-picker-title" class="text-xl font-bold">{collectionCopy.add}</h2>
@@ -145,8 +166,8 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     <p id="period-dialog-help" class="period-dialog-help">{periodCopy.approximate}</p>
     <form data-period-form aria-describedby="period-dialog-help" class="ownership-form mt-5 grid gap-4">
       <div class="period-years">
-      <label>{periodCopy.from}<input aria-label={periodCopy.start} name="start" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" required /></label>
-      <label>{periodCopy.until}<input aria-label={periodCopy.end} name="end" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" /></label>
+      <label>{periodCopy.from}<span class="period-date-controls"><input aria-label={periodCopy.start} name="start" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" required /><select aria-label={`${periodCopy.start}: ${periodCopy.month}`} name="startMonth"><option value="">—</option>{periodCopy.months.map((month, index) => <option value={index + 1}>{month}</option>)}</select></span></label>
+      <label>{periodCopy.until}<span class="period-date-controls"><input aria-label={periodCopy.end} name="end" type="number" inputmode="numeric" min="1980" max={new Date().getFullYear()} step="1" /><select aria-label={`${periodCopy.end}: ${periodCopy.month}`} name="endMonth"><option value="">—</option>{periodCopy.months.map((month, index) => <option value={index + 1}>{month}</option>)}</select></span></label>
       </div>
       <label class="ownership-current"><input name="current" type="checkbox" />{periodCopy.current}</label>
       <p data-period-error role="alert" class="text-sm text-orange-500"></p>
@@ -161,7 +182,56 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 </Layout>
 
 <style>
-  .collection-picker { width: min(36rem, calc(100vw - 1.5rem)); }
+  .collection-picker { width:min(60rem,calc(100vw - 2rem)); max-height:calc(100dvh - 2rem); }
+  .collection-picker .period-dialog-header { padding:1.5rem 1.75rem 0; }
+  .collection-picker .ownership-form { padding:0 1.75rem 1.75rem; }
+  .collection-results { grid-template-columns:repeat(3,minmax(0,1fr)); gap:.5rem; max-height:min(58dvh,40rem); }
+  .collection-results li { min-width:0; }
+  .collection-choice { min-height:2.75rem; padding:.4rem .65rem; }
+  .collection-choice > span:first-child { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .collection-choice > span:last-child { flex:none; }
+  @media(max-width:899px) { .collection-results { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media(max-width:639px) {
+    .collection-picker { width:calc(100vw - 1rem); max-height:calc(100dvh - 1rem); }
+    .collection-picker .period-dialog-header { padding:1rem 1rem 0; }
+    .collection-picker .ownership-form { padding:0 1rem 1rem; }
+    .collection-results { grid-template-columns:minmax(0,1fr); max-height:54dvh; }
+  }
+  .timeline-export-dialog { width:min(58rem,calc(100vw - 2rem)); padding:0; overflow:hidden; }
+  .timeline-export-dialog .period-dialog-header { padding:1.5rem 1.75rem 0; }
+  .timeline-design-options { margin:1.25rem 1.75rem 0; border:0; padding:0; }
+  .timeline-design-options legend { margin-bottom:.65rem; }
+  .timeline-design-options label { position:relative; display:block; min-width:0; cursor:pointer; }
+  .timeline-design-options input { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; }
+  .timeline-style-choice { display:flex; min-height:4.25rem; align-items:center; gap:.8rem; border:1px solid var(--color-neutral-700); border-radius:.65rem; padding:.65rem .8rem; transition:border-color var(--motion-ui) var(--motion-easing),background-color var(--motion-ui) var(--motion-easing),box-shadow var(--motion-ui) var(--motion-easing); }
+  .timeline-design-options input:checked + .timeline-style-choice { border-color:var(--color-orange-500); background:color-mix(in srgb,var(--color-orange-500) 7%,var(--color-neutral-950)); box-shadow:inset 3px 0 var(--color-orange-500); }
+  .timeline-design-options input:focus-visible + .timeline-style-choice { outline:2px solid var(--color-orange-500); outline-offset:3px; }
+  .timeline-style-swatch { display:flex; width:2.6rem; height:2.6rem; flex:none; align-items:flex-end; gap:.2rem; border:1px solid var(--color-neutral-700); border-radius:.5rem; padding:.35rem; }
+  .timeline-style-swatch i { width:.42rem; height:.9rem; border-radius:99px; background:#994320; }
+  .timeline-style-swatch i:nth-child(2) { height:1.25rem; background:#c47a4d; }
+  .timeline-style-swatch i:nth-child(3) { height:.7rem; background:#5c4839; }
+  .timeline-style-swatch--magazine { background:#f5f0e6; }
+  .timeline-style-swatch--modern { background:#edf2f8; }
+  .timeline-style-swatch--modern i { background:#315fc2; }
+  .timeline-style-swatch--modern i:nth-child(2) { background:#157c78; }
+  .timeline-style-swatch--modern i:nth-child(3) { background:#ad432f; }
+  .timeline-style-copy { display:grid; min-width:0; gap:.15rem; }
+  .timeline-style-copy strong { font-size:.875rem; }
+  .timeline-style-copy small { color:var(--color-neutral-400); font-size:.75rem; font-weight:400; line-height:1.35; }
+  .timeline-preview-status { margin:1rem 1.75rem .55rem; }
+  .timeline-preview-frame { max-height:min(56vh,42rem); overflow:auto; margin-inline:1.75rem; border:1px solid var(--color-neutral-700); border-radius:.65rem; background:var(--color-neutral-900); padding:.65rem; }
+  .timeline-preview-frame img { display:block; width:100%; height:auto; border-radius:.25rem; }
+  .timeline-export-dialog .timeline-preview-actions { justify-content:flex-end; gap:.75rem; margin-top:1.25rem; padding:1rem 1.75rem 1.25rem; background:var(--color-neutral-900); }
+  @media(max-width:639px) {
+    .timeline-export-dialog { width:calc(100vw - 1rem); max-height:calc(100dvh - 1rem); }
+    .timeline-export-dialog .period-dialog-header { padding:1.1rem 1rem 0; }
+    .timeline-design-options { margin:1rem 1rem 0; }
+    .timeline-design-options > div { grid-template-columns:minmax(0,1fr); }
+    .timeline-style-choice { min-height:3.6rem; }
+    .timeline-preview-status { margin-inline:1rem; }
+    .timeline-preview-frame { max-height:46dvh; margin-inline:1rem; padding:.4rem; }
+    .timeline-export-dialog .timeline-preview-actions { padding:1rem; }
+  }
   .collection-search-label { font-weight: 650; }
   .collection-search-field {
     display: flex;
@@ -188,7 +258,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     font-weight: 400;
     outline: none;
   }
-  .collection-results { max-height: min(23rem, 48dvh); padding-right: .25rem; }
+  .collection-results { padding-right:.25rem; }
   .collection-choice { justify-content: space-between; gap: .75rem; }
 
   /* The period header and the phone card below it read as one object, not two
@@ -218,25 +288,66 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const compareCta = document.querySelector<HTMLAnchorElement>('[data-favorites-compare-cta]');
   const sortSelect = document.querySelector<HTMLSelectElement>('[data-filter="sort"]');
   const items = Array.from(document.querySelectorAll<HTMLElement>('[data-favorite-item]'));
-  const exportButton = document.querySelector<HTMLButtonElement>('[data-timeline-export]');
-  exportButton?.addEventListener('click', async () => {
-    const entries = Array.from(list?.querySelectorAll<HTMLElement>('[data-favorite-item]:not([hidden])') ?? [], item => ({
-      name: item.dataset.timelineName ?? '',
-      period: item.querySelector('[data-period-label]')?.textContent ?? '',
-      image: item.dataset.timelineImage,
-      credit: item.dataset.timelineCredit,
-    }));
-    if (!entries.length) return;
-    exportButton.disabled = true;
+  const previewOpen = document.querySelector<HTMLButtonElement>('[data-timeline-preview-open]');
+  const exportDialog = document.querySelector<HTMLDialogElement>('[data-timeline-dialog]');
+  const previewImage = exportDialog?.querySelector<HTMLImageElement>('[data-timeline-preview]');
+  const previewStatus = exportDialog?.querySelector<HTMLElement>('[data-timeline-preview-status]');
+  const downloadButton = exportDialog?.querySelector<HTMLButtonElement>('[data-timeline-download]');
+  let previewBlob: Blob | null = null;
+  let previewUrl: string | null = null;
+  let previewVersion = 0;
+  const getTimelineEntries = () => Array.from(list?.querySelectorAll<HTMLElement>('[data-favorite-item]:not([hidden])') ?? [], item => ({
+    name: item.dataset.timelineName ?? '',
+    period: item.querySelector('[data-period-label]')?.textContent ?? '',
+    year: item.dataset.year ?? '',
+    highlight: item.dataset.timelineHighlight ?? '',
+    image: item.dataset.timelineImage,
+  }));
+  const updateTimelinePreview = async () => {
+    if (!exportDialog || !previewImage || !previewStatus || !downloadButton) return;
+    const version = ++previewVersion;
+    previewBlob = null;
+    downloadButton.disabled = true;
+    previewStatus.textContent = previewStatus.dataset.loading ?? '';
+    try {
+      const design = exportDialog.querySelector<HTMLInputElement>('[name="timeline-design"]:checked')?.value === 'modern' ? 'modern' : 'magazine';
+      const { renderTimeline } = await import('../scripts/timeline-export');
+      const blob = await renderTimeline(getTimelineEntries(), exportDialog.dataset.title ?? '', exportDialog.dataset.site ?? '', design, exportDialog.dataset.release ?? 'Released');
+      if (version !== previewVersion) return;
+      previewBlob = blob;
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = URL.createObjectURL(blob);
+      previewImage.src = previewUrl;
+      previewImage.dataset.ready = 'true';
+      previewStatus.textContent = '';
+      downloadButton.disabled = false;
+    } catch {
+      if (version === previewVersion) previewStatus.textContent = exportDialog.dataset.error ?? '';
+    }
+  };
+  previewOpen?.addEventListener('click', () => {
+    if (!getTimelineEntries().length || !exportDialog) return;
+    const preferred = document.documentElement.dataset.design === 'modern' ? 'modern' : 'magazine';
+    const radio = exportDialog.querySelector<HTMLInputElement>(`[name="timeline-design"][value="${preferred}"]`);
+    if (radio) radio.checked = true;
+    exportDialog.showModal();
+    void updateTimelinePreview();
+  });
+  exportDialog?.querySelectorAll<HTMLInputElement>('[name="timeline-design"]').forEach(radio => radio.addEventListener('change', () => void updateTimelinePreview()));
+  exportDialog?.querySelectorAll<HTMLButtonElement>('[data-timeline-close],[data-timeline-cancel]').forEach(button => button.addEventListener('click', () => exportDialog.close()));
+  exportDialog?.addEventListener('click', event => { if (event.target === exportDialog) exportDialog.close(); });
+  exportDialog?.addEventListener('close', () => { previewVersion++; if (previewUrl) URL.revokeObjectURL(previewUrl); previewUrl = null; previewBlob = null; if (previewImage) { previewImage.removeAttribute('src'); delete previewImage.dataset.ready; } });
+  downloadButton?.addEventListener('click', async () => {
+    if (!previewBlob || !exportDialog || !downloadButton) return;
+    downloadButton.disabled = true;
     try {
       const { downloadTimeline } = await import('../scripts/timeline-export');
-      await downloadTimeline(entries, exportButton.dataset.title ?? '', exportButton.dataset.site ?? '');
-      document.querySelector('[data-period-status]')!.textContent = exportButton.dataset.done ?? '';
+      await downloadTimeline(previewBlob);
+      document.querySelector('[data-period-status]')!.textContent = exportDialog.dataset.done ?? '';
+      exportDialog.close();
     } catch {
-      document.querySelector('[data-period-status]')!.textContent = exportButton.dataset.error ?? '';
-    } finally {
-      exportButton.disabled = false;
-    }
+      if (previewStatus) previewStatus.textContent = exportDialog.dataset.error ?? '';
+    } finally { downloadButton.disabled = false; }
   });
 
   const stats = document.querySelector<HTMLElement>('[data-cabinet-stats]')!;
@@ -247,8 +358,9 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     if (!list || !sortSelect) return;
     const direction = sortSelect.value === 'year-asc' ? 1 : -1;
     const periods = readPeriods();
+    const rank = (slug: string) => { const period = periods[slug]; return period ? period.start * 13 + (period.startMonth ?? 13) : Infinity; };
     const sorted = items.slice().sort((a, b) => sortSelect.value === 'personal'
-      ? (periods[a.dataset.slug!]?.start ?? Infinity) - (periods[b.dataset.slug!]?.start ?? Infinity) || Number(a.dataset.year) - Number(b.dataset.year)
+      ? rank(a.dataset.slug!) - rank(b.dataset.slug!) || Number(a.dataset.year) - Number(b.dataset.year) || a.dataset.slug!.localeCompare(b.dataset.slug!)
       : direction * (Number(a.dataset.year) - Number(b.dataset.year)));
     const active = document.activeElement instanceof HTMLElement && list.contains(document.activeElement) ? document.activeElement : null;
     for (const item of sorted) list.append(item);
@@ -314,6 +426,8 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const c = OWNERSHIP_COPY[dialog.dataset.locale as keyof typeof OWNERSHIP_COPY];
   const startInput = form.elements.namedItem('start') as HTMLInputElement;
   const endInput = form.elements.namedItem('end') as HTMLInputElement;
+  const startMonthInput = form.elements.namedItem('startMonth') as HTMLSelectElement;
+  const endMonthInput = form.elements.namedItem('endMonth') as HTMLSelectElement;
   const current = form.elements.namedItem('current') as HTMLInputElement;
   const error = form.querySelector('[data-period-error]')!;
   let editedSlug = '';
@@ -330,7 +444,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     let shown = 0;
     for (const button of choices) {
       const label = normalizePhoneSearch(`${button.dataset.model} ${button.dataset.year} ${button.dataset.slug}`);
-      const show = shown < 20 && !favorites.has(button.dataset.slug!) && matchesPhoneSearch(terms, label);
+      const show = shown < 36 && !favorites.has(button.dataset.slug!) && matchesPhoneSearch(terms, label);
       button.closest('li')!.hidden = !show;
       if (show) shown++;
     }
@@ -353,9 +467,12 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   document.addEventListener(FAVORITES_CHANGED_EVENT, () => { if (picker.open) filterChoices(); });
   function syncPeriods() {
     const periods = readPeriods();
+    const point = (year: number, month?: number) => month ? `${c.months[month - 1]} ${year}` : String(year);
     for (const item of items) {
       const period = periods[item.dataset.slug!];
-      item.querySelector('[data-period-label]')!.textContent = period ? String(period.start) + (period.current ? ' — ' + c.present : period.end && period.end !== period.start ? ' — ' + period.end : '') : c.unknown;
+      const finish = period?.end ? point(period.end, period.endMonth) : '';
+      const hasRange = !!period && (period.current || period.end !== undefined && (period.end !== period.start || period.endMonth !== undefined || period.startMonth !== undefined));
+      item.querySelector('[data-period-label]')!.textContent = period ? point(period.start, period.startMonth) + (hasRange ? ' — ' + (period.current ? c.present : finish) : '') : c.unknown;
       const button = item.querySelector<HTMLButtonElement>('[data-period-open]')!;
       button.hidden = false;
       const label = period ? c.edit : c.add;
@@ -374,7 +491,9 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     startInput.min = button.dataset.year!;
     startInput.value = period ? String(period.start) : '';
     endInput.value = period?.end ? String(period.end) : '';
-    current.checked = period?.current ?? false; endInput.disabled = current.checked;
+    startMonthInput.value = period?.startMonth ? String(period.startMonth) : '';
+    endMonthInput.value = period?.endMonth ? String(period.endMonth) : '';
+    current.checked = period?.current ?? false; endInput.disabled = current.checked; endMonthInput.disabled = current.checked;
     error.textContent = '';
     form.querySelector<HTMLButtonElement>('[data-period-clear]')!.hidden = !period;
     form.querySelector<HTMLButtonElement>('[data-period-skip]')!.hidden = !isNew;
@@ -385,7 +504,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   document.querySelectorAll<HTMLButtonElement>('[data-period-open]').forEach(button => button.addEventListener('click', () => openPeriod(button, false)));
   for (const button of choices) button.addEventListener('click', () => { picker.close(); openPeriod(button, true); });
   form.querySelector('[data-period-back]')!.addEventListener('click', () => { dialog.close(); openPicker(); });
-  current.addEventListener('change', () => { endInput.disabled = current.checked; });
+  current.addEventListener('change', () => { endInput.disabled = current.checked; endMonthInput.disabled = current.checked; });
   dialog.querySelector('[data-period-close]')!.addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     const r = dialog.getBoundingClientRect();
@@ -393,8 +512,8 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   });
   dialog.addEventListener('close', () => { if (!picker.open && periodOpener && !periodOpener.closest('[hidden]')) periodOpener.focus({preventScroll:true}); });
   const commit = (clear: boolean) => {
-    const period = { start:Number(startInput.value), ...(endInput.value && !current.checked ? {end:Number(endInput.value)} : {}), current:current.checked };
-    if (!clear && (!validPeriod(period) || period.start < Number(startInput.min))) { error.textContent = c.invalid; return; }
+    const period = { start:Number(startInput.value), ...(startMonthInput.value ? {startMonth:Number(startMonthInput.value)} : {}), ...(endInput.value && !current.checked ? {end:Number(endInput.value), ...(endMonthInput.value ? {endMonth:Number(endMonthInput.value)} : {})} : {}), current:current.checked };
+    if (!clear && (endMonthInput.value && !endInput.value || !validPeriod(period) || period.start < Number(startInput.min))) { error.textContent = c.invalid; return; }
     if (!adding && !readFavorites().has(editedSlug)) { dialog.close(); return; }
     if (adding && readFavorites().has(editedSlug)) { dialog.close(); return; }
     if (!savePeriod(editedSlug, clear ? undefined : period)) { error.textContent = c.error; return; }

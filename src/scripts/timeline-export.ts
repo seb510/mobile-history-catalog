@@ -1,68 +1,125 @@
-interface TimelineEntry { name: string; period: string; image?: string; credit?: string }
+export interface TimelineEntry {
+  name: string;
+  period: string;
+  year: string;
+  highlight: string;
+  image?: string;
+}
 
-// fillText's maxWidth argument squishes text horizontally instead of wrapping or
-// truncating it, which mangles long names/credits — truncate with an ellipsis instead.
+type TimelineDesign = 'magazine' | 'modern';
+
+const PALETTES = {
+  magazine: { canvas:'#f5f0e6', card:'#e9e0d1', ink:'#251e19', muted:'#74695a', accent:'#873c22', line:'#d5c8b4', photo:'#fffaf1' },
+  modern: { canvas:'#edf2f8', card:'#ffffff', ink:'#1b2b40', muted:'#566a83', accent:'#157c78', line:'#c8d5e4', photo:'#e4ebf4' },
+} as const;
+
 function fitText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string {
   if (ctx.measureText(text).width <= maxWidth) return text;
   let truncated = text;
-  while (truncated.length > 1 && ctx.measureText(truncated + '…').width > maxWidth) truncated = truncated.slice(0, -1);
-  return truncated + '…';
+  while (truncated.length > 1 && ctx.measureText(`${truncated}…`).width > maxWidth) truncated = truncated.slice(0, -1);
+  return `${truncated}…`;
 }
 
-export async function downloadTimeline(entries: TimelineEntry[], title: string, site: string) {
+function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number, maxLines: number): string[] {
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  const lines: string[] = [];
+  let line = '';
+  for (const word of words) {
+    const next = line ? `${line} ${word}` : word;
+    if (ctx.measureText(next).width <= maxWidth || !line) line = next;
+    else { lines.push(line); line = word; }
+    if (lines.length === maxLines) break;
+  }
+  if (line && lines.length < maxLines) lines.push(line);
+  const consumed = lines.join(' ').split(/\s+/).filter(Boolean).length;
+  if (consumed < words.length && lines.length) lines[lines.length - 1] = fitText(ctx, `${lines.at(-1)}…`, maxWidth);
+  return lines;
+}
+
+async function loadImage(url?: string): Promise<HTMLImageElement | null> {
+  if (!url) return null;
+  const image = new Image();
+  image.crossOrigin = 'anonymous';
+  image.src = url;
+  try { await image.decode(); return image.naturalWidth ? image : null; }
+  catch { return null; }
+}
+
+export async function renderTimeline(entries: TimelineEntry[], title: string, site: string, design: TimelineDesign, releaseLabel: string): Promise<Blob> {
+  const palette = PALETTES[design];
+  const columns = 3;
+  const margin = 34;
+  const gap = 14;
+  const cardWidth = (1200 - margin * 2 - gap * (columns - 1)) / columns;
+  const cardHeight = 160;
+  const top = 132;
+  const rowGap = 14;
+  const rows = Math.ceil(entries.length / columns);
   const canvas = document.createElement('canvas');
-  canvas.width = 960;
-  canvas.height = 116 + Math.ceil(entries.length / 3) * 146;
+  canvas.width = 1200;
+  canvas.height = top + rows * (cardHeight + rowGap) + 42;
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Canvas unavailable');
-  ctx.fillStyle = '#f5f0e6';
+
+  ctx.fillStyle = palette.canvas;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#873c22';
+  ctx.fillStyle = palette.accent;
+  ctx.fillRect(margin, 28, 42, 4);
   ctx.font = '600 16px system-ui';
-  ctx.fillText(site, 32, 34);
-  ctx.fillStyle = '#251e19';
-  ctx.font = 'bold 32px system-ui';
-  ctx.fillText(fitText(ctx, title, 896), 32, 76);
+  ctx.fillText(fitText(ctx, site, 1120), margin, 56);
+  ctx.fillStyle = palette.ink;
+  ctx.font = 'bold 36px system-ui';
+  ctx.fillText(fitText(ctx, title, 1120), margin, 104);
 
   for (let offset = 0; offset < entries.length; offset += 9) {
-    await Promise.all(entries.slice(offset, offset + 9).map(async ({ name, period, image, credit }, index) => {
-      const position = offset + index;
-      const x = 32 + position % 3 * 304;
-      const y = 100 + Math.floor(position / 3) * 146;
-      ctx.fillStyle = '#e9e0d1';
-      ctx.fillRect(x, y, 288, 132);
-      const photo = new Image();
+    await Promise.all(entries.slice(offset, offset + 9).map(async (entry, localIndex) => {
+      const index = offset + localIndex;
+      const column = index % columns;
+      const row = Math.floor(index / columns);
+      const x = margin + column * (cardWidth + gap);
+      const y = top + row * (cardHeight + rowGap);
+      const image = await loadImage(entry.image);
+
+      ctx.fillStyle = palette.card;
+      ctx.fillRect(x, y, cardWidth, cardHeight);
+      ctx.fillStyle = palette.accent;
+      ctx.fillRect(x, y, 4, cardHeight);
+      const imageBox = { x:x + 14, y:y + 14, width:78, height:132 };
       if (image) {
-        photo.crossOrigin = 'anonymous';
-        photo.src = image;
-        await photo.decode().catch(() => {});
+        ctx.fillStyle = palette.photo;
+        ctx.fillRect(imageBox.x, imageBox.y, imageBox.width, imageBox.height);
+        const scale = Math.min((imageBox.width - 8) / image.naturalWidth, (imageBox.height - 8) / image.naturalHeight);
+        const width = image.naturalWidth * scale;
+        const height = image.naturalHeight * scale;
+        ctx.drawImage(image, imageBox.x + (imageBox.width - width) / 2, imageBox.y + (imageBox.height - height) / 2, width, height);
       }
-      if (photo.naturalWidth) {
-        const scale = Math.min(60 / photo.naturalWidth, 84 / photo.naturalHeight);
-        const width = photo.naturalWidth * scale;
-        const height = photo.naturalHeight * scale;
-        ctx.drawImage(photo, x + 12 + (60 - width) / 2, y + 12 + (84 - height) / 2, width, height);
-      }
-      const textX = x + (photo.naturalWidth ? 84 : 12);
-      const maxWidth = x + 276 - textX;
-      ctx.fillStyle = '#873c22';
+
+      const textX = x + (image ? 108 : 18);
+      const maxWidth = x + cardWidth - 18 - textX;
+      ctx.fillStyle = palette.accent;
       ctx.font = '600 14px system-ui';
-      ctx.fillText(fitText(ctx, period, maxWidth), textX, y + 37);
-      ctx.fillStyle = '#251e19';
-      ctx.font = 'bold 17px system-ui';
-      ctx.fillText(fitText(ctx, name, maxWidth), textX, y + 63);
-      if (photo.naturalWidth && credit) {
-        ctx.font = '12px system-ui';
-        ctx.fillText(fitText(ctx, credit, 264), x + 12, y + 116);
-      }
+      ctx.fillText(fitText(ctx, entry.period, maxWidth), textX, y + 34);
+      ctx.fillStyle = palette.ink;
+      ctx.font = 'bold 19px system-ui';
+      ctx.fillText(fitText(ctx, entry.name, maxWidth), textX, y + 64);
+      ctx.fillStyle = palette.muted;
+      ctx.font = '600 12px system-ui';
+      ctx.fillText(fitText(ctx, `${releaseLabel}: ${entry.year}`, maxWidth), textX, y + 88);
+      ctx.font = '12px system-ui';
+      const featureLines = wrapText(ctx, entry.highlight, maxWidth, 3);
+      featureLines.forEach((line, lineIndex) => ctx.fillText(line, textX, y + 110 + lineIndex * 16));
     }));
   }
-  ctx.fillStyle = '#a89a86';
-  ctx.font = '11px system-ui';
-  ctx.fillText(location.host, 32, canvas.height - 10);
 
+  ctx.fillStyle = palette.muted;
+  ctx.font = '11px system-ui';
+  ctx.fillText(location.host, margin, canvas.height - 14);
   const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'));
   if (!blob) throw new Error('PNG unavailable');
+  return blob;
+}
+
+export async function downloadTimeline(blob: Blob): Promise<void> {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;

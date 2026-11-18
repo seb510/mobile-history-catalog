@@ -101,9 +101,15 @@ function validChange(change) {
   if (change.value === null || change.value === true) return true;
   const period = change.value;
   const year = new Date().getFullYear();
+  const validMonth = month => month === undefined || (Number.isInteger(month) && month >= 1 && month <= 12);
+  const monthNow = new Date().getMonth() + 1;
   return !!period && typeof period === 'object' && Number.isInteger(period.start) && period.start >= 1980 && period.start <= year &&
     typeof period.current === 'boolean' &&
-    (period.end === undefined || (!period.current && Number.isInteger(period.end) && period.end >= period.start && period.end <= year));
+    validMonth(period.startMonth) && validMonth(period.endMonth) &&
+    !(period.start === year && period.startMonth !== undefined && period.startMonth > monthNow) &&
+    (period.end === undefined ? period.endMonth === undefined : (!period.current && Number.isInteger(period.end) && period.end >= period.start && period.end <= year)) &&
+    !(period.end === year && period.endMonth !== undefined && period.endMonth > monthNow) &&
+    !(period.end === period.start && period.startMonth !== undefined && period.endMonth !== undefined && period.endMonth < period.startMonth);
 }
 
 async function readChanges(request) {
@@ -131,7 +137,7 @@ async function readChanges(request) {
 async function syncCollection(db, owner, { changes, seed }) {
   const rows = changes.map(({ slug, value }) => {
     // Project the accepted fields before storing them.
-    const data = value && value !== true ? { start: value.start, end: value.end, current: value.current } : value;
+    const data = value && value !== true ? { start: value.start, startMonth: value.startMonth, end: value.end, endMonth: value.endMonth, current: value.current } : value;
     return { slug, value: JSON.stringify(data) };
   });
   const selectChanges = `SELECT ?, json_extract(value, '$.slug'), json_extract(value, '$.value') FROM json_each(?) WHERE true`;

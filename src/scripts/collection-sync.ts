@@ -52,7 +52,7 @@ function diff(previous: Snapshot, current: Snapshot): Change[] {
     const before = previous.get(slug);
     const after = current.get(slug);
     const unchanged = before === after || (before && after && before !== true && after !== true &&
-      before.start === after.start && before.end === after.end && before.current === after.current);
+      before.start === after.start && before.startMonth === after.startMonth && before.end === after.end && before.endMonth === after.endMonth && before.current === after.current);
     return unchanged ? [] : [{ slug, value: after ?? null }];
   });
 }
