@@ -76,6 +76,21 @@ try {
       const params = new URL(await pair.getAttribute('href'), origin).searchParams;
       assert.equal(params.get('a'), first.split('/').at(-2));
       assert.equal(params.get('b'), (await frame.locator('a[href*="/phones/"]').getAttribute('href')).split('/').at(-2));
+      if (width === 320) {
+        await page.setViewportSize({ width, height: 568 });
+        for (let year = 1997; year <= 2026; year++) {
+          await page.locator('[data-evolution-years]').getByRole('button', { name: String(year), exact: true }).click();
+          const active = page.locator(`[data-evolution-frame][data-active][data-announcement^="${year}"]`);
+          await active.waitFor();
+          const description = await active.locator('.description').boundingBox();
+          const links = await active.locator('.scene-links').boundingBox();
+          const art = await active.locator('.artwork').boundingBox();
+          const controls = await page.locator('[data-evolution-controls]').boundingBox();
+          assert.ok(art.height > 0 && art.y + art.height <= description.y, String(year));
+          assert.ok(description.y + description.height <= links.y + 1 && links.y + links.height <= controls.y + 1, String(year));
+          assert.ok(controls.y + controls.height <= 569 && links.x + links.width <= 321, String(year));
+        }
+      }
       await page.keyboard.press('Escape');
       await page.locator('#phone-evolution').waitFor({ state: 'hidden' });
       assert.equal(await trigger.evaluate(el => el === document.activeElement), true);

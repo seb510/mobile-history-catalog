@@ -27,6 +27,11 @@ os: "Android 1.0"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTC_Dream_%28front_view%29.jpg/960px-HTC_Dream_%28front_view%29.jpg"
 imageCredit: "Фото: Marcus Sümnick, CC BY 3.0, через Wikimedia Commons"
 imageSourceUrl: "https://commons.wikimedia.org/wiki/File:HTC_Dream_(front_view).jpg"
+evolutionImage:
+  image: https://upload.wikimedia.org/wikipedia/commons/6/64/HTC_Dream_opened.jpg
+  alt: "HTC Dream із відсунутим екраном і відкритою клавіатурою"
+  imageCredit: "Marcus Sümnick · CC BY 3.0 · Wikimedia Commons"
+  imageSourceUrl: https://commons.wikimedia.org/wiki/File:HTC_Dream_opened.jpg
 gallery:
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/HTC_Dream_%28right_side%29.jpg/960px-HTC_Dream_%28right_side%29.jpg
     alt: Білий HTC Dream з відкритим слотом microSD

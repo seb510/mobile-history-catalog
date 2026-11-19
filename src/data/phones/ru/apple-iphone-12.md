@@ -28,11 +28,6 @@ colors:
   - (PRODUCT)RED
 simType: Nano-SIM и eSIM
 image: /images/phones/apple-iphone-12/red-back.webp
-evolutionImage:
-  image: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Iphone-12-product--red.png"
-  alt: "Передняя панель красного Apple iPhone 12"
-  imageCredit: "Raphaël Poupon, CC BY-SA 4.0, Wikimedia Commons"
-  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Iphone-12-product--red.png"
 imageCredit: Aerous · CC BY-SA 4.0 · Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:A_red_iPhone_12.jpg
 gallery:

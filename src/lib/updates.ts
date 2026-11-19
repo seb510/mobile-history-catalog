@@ -5,6 +5,23 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  "date": "2026-11-19",
+  "phones": [],
+  "changes": {
+    "uk": [
+      "В «Еволюції телефонів» на головній — по одній моделі за кожен рік від 1997 до 2026. Гортай фото й дивись, як змінювалися звичні дії — від набору SMS до зйомки на складаний смартфон.",
+      "З другого кадру можна порівняти телефон із попередньою моделлю. Це працює і в хронологіях брендів."
+    ],
+    "ru": [
+      "В «Эволюции телефонов» на главной — по одной модели за каждый год с 1997 по 2026. Листай фотографии и смотри, как менялись привычные действия — от набора SMS до съёмки на складной смартфон.",
+      "Со второго кадра можно сравнить телефон с предыдущей моделью. Это работает и в хронологиях брендов."
+    ],
+    "en": [
+      "The homepage timeline features one phone for every year from 1997 to 2026. Browse the photos to see how everyday habits changed, from typing a text to taking a photo on a foldable.",
+      "From the second slide onward, you can compare each phone with the previous model. This also works in the brand timelines."
+    ]
+  }
+}, {
   "date": "2026-11-17",
   "phones": ["nokia-1110", "sony-ericsson-k610i", "nokia-1200", "nokia-6700-classic", "nokia-asha-311", "nokia-808-pureview"],
   "changes": {

@@ -13,6 +13,14 @@ const copy = evolutionCopy[locale];
 const id = brand ? 'brand-evolution' : 'phone-evolution';
 const titleId = `${id}-title`;
 const close = t(locale).gallery.close;
+// Use the gallery's localized alt text and attribution with the selected photograph.
+const galleryShots: Record<string, string> = {
+  'nokia-3210': '/images/phones/nokia-3210/commons-main.webp',
+  'siemens-s55': '/images/phones/siemens-s55/commons-main.webp',
+  'nokia-n95': '/images/phones/nokia-n95/media-and-camera.webp',
+  'nokia-n86': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Nokia_N86_8MP_-_Back_%28Open%2C_camera_slider_open%29.jpg/960px-Nokia_N86_8MP_-_Back_%28Open%2C_camera_slider_open%29.jpg',
+  'sony-xperia-z': '/images/phones/sony-xperia-z/side.webp',
+};
 ---
 
 <dialog id={id} class="evolution-dialog" data-evolution-dialog aria-labelledby={titleId}>
@@ -31,12 +39,13 @@ const close = t(locale).gallery.close;
       <div class="frames">
         {stops.map(({ slug, phone, label, description }, index) => {
           const name = phone.model.startsWith(`${phone.brand} `) ? phone.model : `${phone.brand} ${phone.model}`;
-          const image = phone.evolutionImage?.image ?? phone.image;
-          const imageAlt = phone.evolutionImage?.alt ?? name;
-          const source = phone.evolutionImage ? null : museumImageCredit(phone, locale);
-          const credit = phone.evolutionImage?.imageCredit ?? source?.label ?? phone.imageCredit;
-          const creditUrl = phone.evolutionImage
-            ? phone.evolutionImage.imageSourceUrl
+          const shot = phone.evolutionImage ?? phone.gallery?.find(frame => frame.image === galleryShots[slug]);
+          const image = shot?.image ?? phone.image;
+          const imageAlt = shot?.alt ?? phone.imageCaption ?? name;
+          const source = shot ? null : museumImageCredit(phone, locale);
+          const credit = shot?.imageCredit ?? source?.label ?? phone.imageCredit;
+          const creditUrl = shot
+            ? shot.imageSourceUrl
             : source?.href ?? phone.imageSourceUrl;
           return (
             <article class="frame" data-evolution-frame data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>

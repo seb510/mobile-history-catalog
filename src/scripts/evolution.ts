@@ -199,7 +199,8 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
   steps.forEach((button, index) => button.addEventListener('click', () => goTo(index)));
   years?.addEventListener('scroll', updateRail, { passive: true });
   years?.addEventListener('focusin', (event) => {
-    if (event.target instanceof HTMLButtonElement) revealYear(event.target);
+    // Moving the rail between pointerdown and pointerup can cancel the year click.
+    if (event.target instanceof HTMLButtonElement && event.target.matches(':focus-visible')) revealYear(event.target);
   });
   picker?.addEventListener('change', () => goTo(Number(picker.value)));
   previous.addEventListener('click', () => goTo(requestedIndex() - 1));
