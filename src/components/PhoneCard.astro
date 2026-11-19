@@ -16,9 +16,11 @@ interface Props {
   /** Optional corner tag, e.g. "126 млн шт." for the homepage's best-sellers section. */
   badge?: string;
   compact?: boolean;
+  /** Include optional elements for the cabinet’s reusable client-side card. */
+  templateCard?: boolean;
   showcase?: boolean;
 }
-const { phone, locale, badge, compact = false, showcase = false } = Astro.props;
+const { phone, locale, badge, templateCard = false, compact = false, showcase = false } = Astro.props;
 const { data } = phone;
 const strings = t(locale);
 const slug = slugOf(phone);
@@ -48,9 +50,9 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
 >
   <div class="phone-card-art phone-card-media relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden border-b border-neutral-800 bg-neutral-800 p-5">
     <div class="phone-card-media-visual relative h-full w-full min-w-0">
-      {data.image ? (
+      {data.image || templateCard ? (
         <>
-          <img data-image-fallback src={data.image} alt={`${data.brand} ${data.model}`} class="absolute inset-0 h-full w-full object-contain" loading="lazy" decoding="async" />
+          <img data-image-fallback src={templateCard ? undefined : data.image} alt={`${data.brand} ${data.model}`} class="absolute inset-0 h-full w-full object-contain" loading="lazy" decoding="async" />
           <div data-image-fallback-placeholder class="absolute inset-0 hidden flex items-center justify-center p-3">
             <PlaceholderArt class="h-full w-full text-neutral-600" />
           </div>
@@ -72,7 +74,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
       >
         <CollectionIcon />
       </button>
-      {video && <button type="button" hidden class="phone-card-media-action phone-video-badge absolute bottom-2 right-2 z-10 inline-flex items-center justify-center rounded-sm border border-neutral-600 bg-neutral-950 text-neutral-200" title={`${videoLabel} · ${modelName}`} aria-label={`${videoLabel} · ${modelName}`} aria-haspopup="dialog" aria-controls="card-video-dialog" data-card-video={video.id} data-video-model={modelName} data-video-author={video.author}>
+      {(video || templateCard) && <button type="button" hidden class="phone-card-media-action phone-video-badge absolute bottom-2 right-2 z-10 inline-flex items-center justify-center rounded-sm border border-neutral-600 bg-neutral-950 text-neutral-200" title={`${videoLabel} · ${modelName}`} aria-label={`${videoLabel} · ${modelName}`} aria-haspopup="dialog" aria-controls="card-video-dialog" data-card-video={video?.id ?? ""} data-video-model={modelName} data-video-author={video?.author}>
         <span class="phone-video-badge-icon" aria-hidden="true">
           <svg class="icon-edition-magazine" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h14v12H3zM8 7l5 3-5 3z"/></svg>
           <svg class="icon-edition-modern" viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M6 3.5v9l6.5-4.5z"/></svg>
@@ -83,8 +85,8 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
       <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold text-neutral-950">
         {badge}
       </span>
-    ) : isNew && (
-      <span class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-neutral-950">
+    ) : (isNew || templateCard) && (
+      <span data-new-badge class="absolute left-2 top-2 rounded bg-orange-500 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-neutral-950">
         {strings.newBadge}
       </span>
     )}
@@ -93,7 +95,7 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     <div class:list={['flex flex-1 flex-col gap-1', priceTooltipText && !showcase ? 'justify-end' : 'justify-center']}>
       <p class="editorial-kicker flex items-baseline justify-between gap-2 text-neutral-500"><span>{data.brand}</span><span class="tabular-nums">{data.year}</span></p>
       <p class="card-title mt-1 text-xl font-extrabold leading-tight tracking-tight"><a class="phone-card-link" data-phone-card-link aria-label={modelName} href={localePath(locale, `/phones/${slug}/`)}>{data.model}</a></p>
-      {data.milestone && (
+      {(data.milestone || templateCard) && (
         <p class:list={['mt-1 border-l-2 border-orange-500/60 py-0.5 pl-2 text-sm text-neutral-400', priceTooltipText && !showcase && 'phone-card-price-note']}>
           <span class="line-clamp-2">{data.milestone}</span>
         </p>
@@ -108,9 +110,9 @@ const searchKey = `${data.brand} ${data.model}`.toLowerCase();
     </>}
   </div>
 </div>
-  {priceTooltipText && (
+  {(priceTooltipText || templateCard) && (
     <div class="phone-card-price absolute z-10 flex">
-      <InfoTooltip text={priceTooltipText} label={strings.specs.priceUsdAtLaunch} />
+      <InfoTooltip text={priceTooltipText ?? ""} label={strings.specs.priceUsdAtLaunch} />
     </div>
   )}
 </div>

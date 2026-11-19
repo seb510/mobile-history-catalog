@@ -29,7 +29,7 @@ const close = t(locale).gallery.close;
       </header>
 
       <div class="frames">
-        {stops.map(({ slug, phone, label, description }) => {
+        {stops.map(({ slug, phone, label, description }, index) => {
           const name = phone.model.startsWith(`${phone.brand} `) ? phone.model : `${phone.brand} ${phone.model}`;
           const image = phone.evolutionImage?.image ?? phone.image;
           const imageAlt = phone.evolutionImage?.alt ?? name;
@@ -49,9 +49,11 @@ const close = t(locale).gallery.close;
                 <h3>{name}</h3>
                 {label && <p class="milestone">{label}</p>}
                 {description && <p class="description">{description}</p>}
-                <a class="details" href={localePath(locale, `/phones/${slug}/`)}>
+                <div class="scene-links"><a class="details" href={localePath(locale, `/phones/${slug}/`)}>
                   {copy.details}<span aria-hidden="true">→</span>
                 </a>
+                  {index > 0 && <a class="details" href={`${localePath(locale, '/compare/')}?${new URLSearchParams({ a: stops[index - 1].slug, b: slug })}`}>{ { uk: 'Порівняти з попереднім', ru: 'Сравнить с предыдущим', en: 'Compare with previous' }[locale] }</a>}
+                </div>
                 {credit && <p class="credit">
                   {creditUrl ? <a href={creditUrl} target="_blank" rel="noopener noreferrer">{credit}</a> : credit}
                 </p>}
@@ -276,6 +278,7 @@ const close = t(locale).gallery.close;
   .story :is(h2, h3) { font-size: clamp(1.3rem, 3.4vw, 2.7rem); font-weight: 750; line-height: 1.08; }
   .milestone { color: var(--scene-accent); font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 650; }
   .description { max-inline-size: 36ch; color: var(--scene-muted); font-size: clamp(.85rem, 1.7vw, 1.05rem); line-height: 1.45; }
+  .scene-links { display: flex; flex-wrap: wrap; gap: 0 1rem; }
   .details { justify-self: start; display: inline-flex; align-items: center; gap: .4em; min-height: 2rem; color: var(--scene-text); text-decoration: underline; text-underline-offset: .2em; font-size: .85rem; }
   .credit { color: var(--scene-muted); font-size: .7rem; overflow-wrap: anywhere; }
   .credit a { text-decoration: underline; text-underline-offset: .15em; }

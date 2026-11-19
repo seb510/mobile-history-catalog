@@ -4,8 +4,9 @@ import { ACCOUNT_COPY, CABINET_COPY, COLLECTION_COPY, OWNERSHIP_COPY } from '../
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import PhoneCard from './PhoneCard.astro';
+import { PHONE_VIDEOS, PHONE_VIDEO_LABELS } from '../lib/phone-videos';
 import FilterSelect from './FilterSelect.astro';
-import { getPhonesForLocale, slugOf } from '../lib/phones';
+import { getPhonesForLocale, isRecentlyAdded, slugOf } from '../lib/phones';
 import { t, FINAL_DESIGN_COPY, OWNED_PHONE_COPY } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 
@@ -27,6 +28,16 @@ const shareCopy = {
 const comparePath = localePath(locale, '/compare/');
 
 const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b.data.year);
+const index = phones.map(phone => {
+  const slug = slugOf(phone);
+  const { brand, model, year, image, milestone, os, formFactor, dateAdded, priceUsdAtLaunch, priceContext, priceSourceUrl } = phone.data;
+  const video = PHONE_VIDEOS[slug];
+  return { slug, brand, model, year, image, milestone, formFactor, highlight: milestone ?? os ?? (formFactor && strings.formFactors[formFactor]),
+    recent: isRecentlyAdded(dateAdded), path: localePath(locale, `/phones/${slug}/`),
+    price: priceUsdAtLaunch != null && priceSourceUrl ? `${strings.specs.priceUsdAtLaunch}: ${priceUsdAtLaunch} USD${priceContext ? ' — ' + priceContext : ''}` : undefined,
+    video: video && { id: video.id, author: video.author },
+  };
+});
 ---
 
 <Layout locale={locale} path="/favorites/" title={`${strings.nav.favorites} — ${strings.siteName}`} description={strings.favorites.intro}>
@@ -60,7 +71,8 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <section data-legacy-section hidden class="mb-8 border border-neutral-700 bg-neutral-900 p-4 sm:p-6" aria-labelledby="legacy-title">
     <h2 id="legacy-title" class="text-xl font-bold">{ownedCopy.legacyTitle}</h2>
     <p class="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-400">{ownedCopy.legacyIntro}</p>
-    <ul class="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">{phones.map(phone=><li data-legacy-item data-slug={slugOf(phone)} hidden class="min-w-0"><div class="flex"><PhoneCard phone={phone} locale={locale} compact /></div><button type="button" data-legacy-dismiss={slugOf(phone)} class="mt-2 min-h-11 text-left text-xs text-neutral-400 underline underline-offset-4">{ownedCopy.dismiss}</button></li>)}</ul>
+    <ul data-legacy-list class="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"></ul>
+    <template data-legacy-template><li data-legacy-item class="min-w-0"><div class="flex" data-card-slot></div><button type="button" data-legacy-dismiss class="mt-2 min-h-11 text-left text-xs text-neutral-400 underline underline-offset-4">{ownedCopy.dismiss}</button></li></template>
   </section>
   <p data-favorites-loading role="status" class="py-8 text-sm text-neutral-500">{copy.loading}</p>
   <noscript><style is:inline>[data-favorites-loading] { display: none; }</style><p class="mb-6 border border-neutral-700 p-4 text-sm text-neutral-300">{copy.noScript}</p></noscript>
@@ -102,19 +114,20 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   <p data-period-hint hidden class="period-hint mb-5 text-sm leading-relaxed text-neutral-500">{periodCopy.hint}</p>
   <p data-period-status role="status" aria-live="polite" class="period-status mb-3 text-sm text-orange-500"></p>
   <ol data-favorites-list hidden class="favorites-timeline grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    {phones.map((phone) => (
-      <li data-favorite-item data-slug={slugOf(phone)} data-year={phone.data.year} data-timeline-name={`${phone.data.brand} ${phone.data.model}`} data-timeline-image={phone.data.image} data-timeline-highlight={phone.data.milestone ?? phone.data.os ?? (phone.data.formFactor ? strings.formFactors[phone.data.formFactor] : '')} class="ownership-item flex min-w-0 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50" hidden>
+  </ol>
+  <template data-cabinet-card data-index={JSON.stringify(index)} data-video-label={PHONE_VIDEO_LABELS[locale].badge}>{phones[0] && <PhoneCard phone={phones[0]} locale={locale} compact templateCard />}</template>
+  <template data-owned-template>
+      <li data-favorite-item class="ownership-item flex min-w-0 flex-col overflow-hidden rounded-sm border border-neutral-800 bg-neutral-900/50" hidden>
         <div class="ownership-heading flex items-start justify-between gap-2 border-b border-neutral-800 bg-neutral-950/40 px-3 py-2">
-          <div class="min-w-0"><p data-period-label class="text-sm font-bold tabular-nums text-orange-500">{periodCopy.unknown}</p><p class="mt-1 text-xs text-neutral-500">{periodCopy.release}: {phone.data.year}</p></div>
-          <button type="button" data-period-open data-slug={slugOf(phone)} data-model={phone.data.brand+' '+phone.data.model} data-year={phone.data.year} aria-label={periodCopy.add+' — '+phone.data.brand+' '+phone.data.model} class="period-edit-button" hidden>
+          <div class="min-w-0"><p data-period-label class="text-sm font-bold tabular-nums text-orange-500">{periodCopy.unknown}</p><p class="mt-1 text-xs text-neutral-500">{periodCopy.release}: <span data-release-year></span></p></div>
+          <button type="button" data-period-open class="period-edit-button" hidden>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15Z"/></svg>
             <span data-period-action-label>{periodCopy.add}</span>
           </button>
         </div>
-        <PhoneCard phone={phone} locale={locale} compact />
+        <div class="flex flex-1" data-card-slot></div>
       </li>
-    ))}
-  </ol>
+  </template>
   <dialog data-timeline-dialog class="period-dialog timeline-export-dialog" aria-labelledby="timeline-export-title" data-title={periodCopy.personal} data-site={strings.siteName} data-done={shareCopy.done} data-error={shareCopy.error} data-release={shareCopy.release} data-loading={shareCopy.loading}>
     <div class="period-dialog-header flex items-start justify-between gap-4">
       <div><p class="editorial-kicker text-orange-500">{shareCopy.preview}</p><h2 id="timeline-export-title" class="mt-2 text-xl font-bold">{periodCopy.personal}</h2></div>
@@ -153,11 +166,6 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
       </label>
       <p data-collection-empty role="status" hidden class="text-sm text-neutral-400">{collectionCopy.empty}</p>
       <ul class="collection-results grid gap-1.5 overflow-auto">
-        {phones.map(phone => <li hidden>
-          <button type="button" data-collection-choice data-slug={slugOf(phone)} data-model={phone.data.brand+' '+phone.data.model} data-year={phone.data.year} class="control-button collection-choice min-h-11 w-full text-left">
-            <span>{phone.data.brand} {phone.data.model}</span><span class="text-xs text-neutral-400">{phone.data.year}</span>
-          </button>
-        </li>)}
       </ul>
     </div>
   </dialog>
@@ -187,9 +195,9 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   .collection-picker .ownership-form { padding:0 1.75rem 1.75rem; }
   .collection-results { grid-template-columns:repeat(3,minmax(0,1fr)); gap:.5rem; max-height:min(58dvh,40rem); }
   .collection-results li { min-width:0; }
-  .collection-choice { min-height:2.75rem; padding:.4rem .65rem; }
-  .collection-choice > span:first-child { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .collection-choice > span:last-child { flex:none; }
+  :global(.collection-choice) { min-height:2.75rem; padding:.4rem .65rem; }
+  :global(.collection-choice > span):first-child { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  :global(.collection-choice > span):last-child { flex:none; }
   @media(max-width:899px) { .collection-results { grid-template-columns:repeat(2,minmax(0,1fr)); } }
   @media(max-width:639px) {
     .collection-picker { width:calc(100vw - 1rem); max-height:calc(100dvh - 1rem); }
@@ -259,7 +267,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     outline: none;
   }
   .collection-results { padding-right:.25rem; }
-  .collection-choice { justify-content: space-between; gap: .75rem; }
+  :global(.collection-choice) { justify-content: space-between; gap: .75rem; }
 
   /* The period header and the phone card below it read as one object, not two
      stacked boxes: the outer .ownership-item supplies the single border/surface,
@@ -275,6 +283,7 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
 </style>
 
 <script>
+  import { createCabinetCard, type CabinetPhone } from '../scripts/cabinet-card';
   import { matchesPhoneSearch, normalizePhoneSearch } from '../lib/phone-search-match';
   import { readPeriods, savePeriod, PERIODS_KEY, validPeriod } from '../lib/ownership-periods';
   import { COLLECTION_COPY, OWNERSHIP_COPY } from '../lib/ownership-copy';
@@ -287,7 +296,11 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const count = document.querySelector<HTMLElement>('[data-favorites-count]');
   const compareCta = document.querySelector<HTMLAnchorElement>('[data-favorites-compare-cta]');
   const sortSelect = document.querySelector<HTMLSelectElement>('[data-filter="sort"]');
-  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-favorite-item]'));
+  const cardTemplate = document.querySelector<HTMLTemplateElement>('[data-cabinet-card]')!;
+  const records: CabinetPhone[] = JSON.parse(cardTemplate.dataset.index!);
+  const bySlug = new Map(records.map(phone => [phone.slug, phone]));
+  const items: HTMLElement[] = [];
+  const mounted = new Map<string, HTMLElement>();
   const previewOpen = document.querySelector<HTMLButtonElement>('[data-timeline-preview-open]');
   const exportDialog = document.querySelector<HTMLDialogElement>('[data-timeline-dialog]');
   const previewImage = exportDialog?.querySelector<HTMLImageElement>('[data-timeline-preview]');
@@ -374,6 +387,31 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     const previousIndex = focusedItem ? Array.from(list.children).filter((item) => !(item as HTMLElement).hidden).indexOf(focusedItem) : -1;
     const favorites = readFavorites();
     const legacy = readLegacyFavorites();
+    for (const [kind, slugs] of [['owned', favorites], ['legacy', legacy]] as const) {
+      for (const slug of slugs) {
+        const phone = bySlug.get(slug);
+        const key = kind + '/' + slug;
+        if (!phone || mounted.has(key) || (kind === 'legacy' && favorites.has(slug))) continue;
+        const template = document.querySelector<HTMLTemplateElement>(`[data-${kind}-template]`)!;
+        const item = template.content.firstElementChild!.cloneNode(true) as HTMLElement;
+        const model = phone.brand + ' ' + phone.model;
+        Object.assign(item.dataset, { slug, year: String(phone.year), timelineName: model, timelineImage: phone.image ?? '', timelineHighlight: phone.highlight ?? '' });
+        item.querySelector('[data-card-slot]')!.append(createCabinetCard(cardTemplate, phone, kind === 'owned'));
+        if (kind === 'owned') {
+          item.querySelector('[data-release-year]')!.textContent = String(phone.year);
+          const edit = item.querySelector<HTMLButtonElement>('[data-period-open]')!;
+          Object.assign(edit.dataset, { slug, model, year: String(phone.year) });
+          edit.addEventListener('click', () => openPeriod(edit, false));
+          items.push(item);
+          list.append(item);
+        } else {
+          item.querySelector<HTMLButtonElement>('[data-legacy-dismiss]')!.dataset.legacyDismiss = slug;
+          document.querySelector('[data-legacy-list]')!.append(item);
+        }
+        mounted.set(key, item);
+        item.dispatchEvent(new CustomEvent('cabinet-card-mounted', { bubbles: true }));
+      }
+    }
     let pending = 0;
     document.querySelectorAll<HTMLElement>('[data-legacy-item]').forEach(item=>{ item.hidden = !legacy.has(item.dataset.slug!) || favorites.has(item.dataset.slug!); if(!item.hidden)pending++; });
     const legacySection=document.querySelector<HTMLElement>('[data-legacy-section]');
@@ -420,7 +458,16 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     }
   }
 
-  document.querySelectorAll<HTMLButtonElement>('[data-legacy-dismiss]').forEach(button => button.addEventListener('click',()=>{ dismissLegacyFavorite(button.dataset.legacyDismiss!); const target = document.querySelector<HTMLElement>('[data-legacy-section]')?.hidden ? empty?.querySelector<HTMLElement>('a') : document.querySelector<HTMLElement>('#legacy-title'); target?.setAttribute('tabindex','-1'); target?.focus(); }));
+  document.querySelector('[data-legacy-list]')?.addEventListener('click', event => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('[data-legacy-dismiss]');
+    if (!button) return;
+    dismissLegacyFavorite(button.dataset.legacyDismiss!);
+    const target = document.querySelector<HTMLElement>('[data-legacy-section]')?.hidden
+      ? empty?.querySelector<HTMLElement>('a')
+      : document.querySelector<HTMLElement>('#legacy-title');
+    target?.setAttribute('tabindex', '-1');
+    target?.focus();
+  });
   const dialog = document.querySelector<HTMLDialogElement>('[data-period-dialog]')!;
   const form = dialog.querySelector<HTMLFormElement>('[data-period-form]')!;
   const c = OWNERSHIP_COPY[dialog.dataset.locale as keyof typeof OWNERSHIP_COPY];
@@ -436,17 +483,31 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
   const addButton = document.querySelector<HTMLButtonElement>('[data-collection-add]')!;
   const picker = document.querySelector<HTMLDialogElement>('[data-collection-picker]')!;
   const search = picker.querySelector<HTMLInputElement>('[data-collection-search]')!;
-  const choices = [...picker.querySelectorAll<HTMLButtonElement>('[data-collection-choice]')];
+  const results = picker.querySelector<HTMLElement>('.collection-results')!;
   const collectionCopy = COLLECTION_COPY[dialog.dataset.locale as keyof typeof COLLECTION_COPY];
   function filterChoices() {
     const terms = normalizePhoneSearch(search.value).split(' ').filter(Boolean);
     const favorites = readFavorites();
     let shown = 0;
-    for (const button of choices) {
-      const label = normalizePhoneSearch(`${button.dataset.model} ${button.dataset.year} ${button.dataset.slug}`);
-      const show = shown < 36 && !favorites.has(button.dataset.slug!) && matchesPhoneSearch(terms, label);
-      button.closest('li')!.hidden = !show;
-      if (show) shown++;
+    results.replaceChildren();
+    for (const phone of records) {
+      const model = phone.brand + ' ' + phone.model;
+      const label = normalizePhoneSearch(`${model} ${phone.year} ${phone.slug}`);
+      if (favorites.has(phone.slug) || !matchesPhoneSearch(terms, label)) continue;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'control-button collection-choice min-h-11 w-full text-left';
+      Object.assign(button.dataset, { collectionChoice: '', slug: phone.slug, model, year: String(phone.year) });
+      const year = document.createElement('span');
+      year.className = 'text-xs text-neutral-400';
+      year.textContent = String(phone.year);
+      const title = document.createElement('span');
+      title.textContent = model;
+      button.append(title, year);
+      const item = document.createElement('li');
+      item.append(button);
+      results.append(item);
+      if (++shown === 36) break;
     }
     picker.querySelector<HTMLElement>('[data-collection-empty]')!.hidden = shown > 0;
   }
@@ -501,8 +562,10 @@ const phones = (await getPhonesForLocale(locale)).sort((a, b) => a.data.year - b
     dialog.showModal();
     startInput.focus();
   }
-  document.querySelectorAll<HTMLButtonElement>('[data-period-open]').forEach(button => button.addEventListener('click', () => openPeriod(button, false)));
-  for (const button of choices) button.addEventListener('click', () => { picker.close(); openPeriod(button, true); });
+  results.addEventListener('click', event => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('[data-collection-choice]');
+    if (button) { picker.close(); openPeriod(button, true); }
+  });
   form.querySelector('[data-period-back]')!.addEventListener('click', () => { dialog.close(); openPicker(); });
   current.addEventListener('change', () => { endInput.disabled = current.checked; endMonthInput.disabled = current.checked; });
   dialog.querySelector('[data-period-close]')!.addEventListener('click', () => dialog.close());

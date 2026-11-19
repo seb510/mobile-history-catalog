@@ -63,12 +63,13 @@ const { text, label } = Astro.props;
     current = tooltip;
   }
 
-  document.querySelectorAll<HTMLElement>('[data-info-tooltip]').forEach((root, index) => {
+  let nextId = 0;
+  const bind = (parent: ParentNode) => parent.querySelectorAll<HTMLElement>('[data-info-tooltip]').forEach(root => {
     const trigger = root.querySelector<HTMLButtonElement>('[data-info-trigger]');
     const bubble = root.querySelector<HTMLElement>('[data-info-bubble]');
-    if (!trigger || !bubble) return;
+    if (!trigger || !bubble || trigger.hasAttribute('aria-describedby')) return;
     const tooltip = { trigger, bubble };
-    bubble.id = `info-tooltip-${index + 1}`;
+    bubble.id = `info-tooltip-${++nextId}`;
     trigger.setAttribute('aria-describedby', bubble.id);
     trigger.hidden = false;
 
@@ -97,6 +98,9 @@ const { text, label } = Astro.props;
       leave();
     });
   });
+
+  bind(document);
+  document.addEventListener('cabinet-card-mounted', event => bind(event.target as HTMLElement));
 
   document.addEventListener('click', (event) => {
     const target = event.target as Node;

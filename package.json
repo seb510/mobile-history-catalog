@@ -13,6 +13,8 @@
     "gen:images": "node scripts/generate-images.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
     "audit:locales": "node scripts/audit-locales.mjs",
+    "test:ui": "node tests/ui-smoke.mjs",
+    "audit:remote-images": "node scripts/audit-remote-images.mjs",
     "test:feedback": "node --test tests/feedback-worker.test.mjs"
   },
   "dependencies": {
@@ -29,6 +31,7 @@
     "@astrojs/check": "^0.9.10",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^26.6.6",
+    "playwright-core": "1.62.1",
     "sharp": "^0.35.5",
     "typescript": "^6.0.3"
   }

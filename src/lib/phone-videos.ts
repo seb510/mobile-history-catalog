@@ -1,5 +1,13 @@
 import type { Locale } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+ 'siemens-xelibri-8': {
+   id: '1QY4VloAPcw', author: 'Mobijunk', label: 'SIEMENS · XELIBRI 8', year: 2026, retrospective: true,
+   description: {
+     uk: 'Розпакування Xelibri 8, телефона-підвіски Siemens.',
+     ru: 'Распаковка Xelibri 8, телефона-подвески Siemens.',
+     en: 'Unboxing the Xelibri 8, Siemens’ pendant phone.',
+   },
+ },
  'nokia-6700-classic': {
    id: 'uOTBwcEAnOo', author: 'TelepolisVideo', label: 'NOKIA · 6700 CLASSIC',
    description: {

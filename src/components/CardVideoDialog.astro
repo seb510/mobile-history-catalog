@@ -46,20 +46,22 @@ const close = t(locale).gallery.close;
   const { play, reset } = initVideoPlayer(dialog);
   let trigger: HTMLButtonElement | null = null;
 
-  document.querySelectorAll<HTMLButtonElement>('[data-card-video]').forEach((button) => {
-    button.hidden = false;
-    button.addEventListener('click', () => {
-      const { cardVideo, videoModel, videoAuthor } = button.dataset;
-      if (!cardVideo || dialog.open) return;
-      trigger = button;
-      dialog.dataset.videoId = cardVideo;
-      title.textContent = videoModel ?? '';
-      author.textContent = videoAuthor ?? '';
-      surface.dataset.title = [videoModel, videoAuthor].filter(Boolean).join(' · ');
-      source.href = `https://www.youtube.com/watch?v=${cardVideo}`;
-      dialog.showModal();
-      play(false);
-    });
+  const enable = (root: ParentNode) => root.querySelectorAll<HTMLButtonElement>('[data-card-video]').forEach(button => { button.hidden = false; });
+  enable(document);
+  document.addEventListener('cabinet-card-mounted', event => enable(event.target as HTMLElement));
+  document.addEventListener('click', event => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('[data-card-video]');
+    if (!button) return;
+    const { cardVideo, videoModel, videoAuthor } = button.dataset;
+    if (!cardVideo || dialog.open) return;
+    trigger = button;
+    dialog.dataset.videoId = cardVideo;
+    title.textContent = videoModel ?? '';
+    author.textContent = videoAuthor ?? '';
+    surface.dataset.title = [videoModel, videoAuthor].filter(Boolean).join(' · ');
+    source.href = `https://www.youtube.com/watch?v=${cardVideo}`;
+    dialog.showModal();
+    play(false);
   });
 
   dialog.querySelector('[data-close-card-video]')?.addEventListener('click', () => dialog.close());
