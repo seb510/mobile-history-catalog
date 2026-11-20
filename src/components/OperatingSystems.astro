@@ -11,6 +11,7 @@ import mediaByPlatform from '../lib/operating-systems-media.json';
 import versionMedia from '../lib/operating-system-version-media.json';
 import { VERSION_COPY, curatedVersions, versionFor, formatReleased } from '../lib/operating-system-versions';
 import { VERSION_DETAILS } from '../lib/operating-system-version-details';
+import { releaseExperience } from '../lib/os-release-experience';
 import platformLogos from '../lib/operating-system-logos.json';
 import { t } from '../lib/ui-strings';
 
@@ -177,6 +178,7 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
                     {detail.note[locale]}{' '}
                     <a class="text-xs text-neutral-400 underline underline-offset-2" href={detail.source} target="_blank" rel="noopener noreferrer">{OS_COPY.sources[locale]}</a>
                   </p>}
+                  {releaseExperience[version.id] && <p class="mt-2 max-w-prose text-sm leading-relaxed text-neutral-300">{releaseExperience[version.id][locale]}</p>}
                   {version.phones.length ? <ul class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-2">
           {version.phones.map(phone => (
             <li>

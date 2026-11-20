@@ -84,7 +84,7 @@ const series40 = [
   { id: '3rd-edition', title: 'Series 40 3rd Edition', released:'2006' },
   { id: '3rd-edition-fp1', title: 'Series 40 3rd Edition FP1', released:'2006' },
   { id: '3rd-edition-fp2', title: 'Series 40 3rd Edition FP2', released:'2007' },
-  { id: '5th-edition', title: 'Series 40 5th Edition', released:'2008' },
+  { id: '5th-edition', title: 'Series 40 5th Edition', released:'2007-05' },
   { id: '5th-edition-fp1', title: 'Series 40 5th Edition FP1', released:'2009' },
   { id: '6th-edition', title: 'Series 40 6th Edition', released:'2008' },
   { id: 'series-40-asha-touch', title: 'Series 40 · Asha Full Touch', released:'2012' },
