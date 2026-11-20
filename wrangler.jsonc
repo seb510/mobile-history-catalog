@@ -19,10 +19,12 @@
 		"directory": "./dist",
 		"binding": "ASSETS",
 		"run_worker_first": [
+			"/ru",
+			"/ru/*",
 			"/api/feedback",
 			"/api/collection/*"
 		],
-		// dist/404.html (and localized ru/en 404 pages) is served with a real 404 status for any
+		// dist/404.html (and localized English 404 page) is served with a real 404 status for any
 		// unmatched path — this is a multi-page static site, not an SPA, so no "single-page-application"
 		// fallback-to-200 behavior is wanted here.
 		"not_found_handling": "404-page"

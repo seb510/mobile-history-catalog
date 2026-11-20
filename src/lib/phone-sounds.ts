@@ -1,14 +1,14 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
 export interface PhoneStartupTrack {
-  title: Record<Locale, string>;
+  title: Localized<string>;
   src: string;
 }
 
 export interface PhoneStartupSound {
   credit: string;
   sourceUrl: string;
-  rightsNote: Record<Locale, string>;
+  rightsNote: Localized<string>;
   tracks: PhoneStartupTrack[];
 }
 

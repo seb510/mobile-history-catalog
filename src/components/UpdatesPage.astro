@@ -12,7 +12,7 @@ const { locale } = Astro.props as { locale: Locale };
 const copy = UPDATES_COPY[locale];
 const strings = t(locale);
 const entries = await Promise.all(UPDATES.map(async entry => ({ ...entry, phones:await Promise.all(entry.phones.map(async slug => { const phone=await getPhone(locale,slug); if(!phone)throw new Error('Missing update phone '+slug); return {slug,data:phone.data}; })) })));
-const dateLabel = (date:string) => new Intl.DateTimeFormat(locale === 'uk' ? 'uk-UA' : locale === 'ru' ? 'ru-RU' : 'en-GB', {dateStyle:'long',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
+const dateLabel = (date:string) => new Intl.DateTimeFormat(locale === 'uk' ? 'uk-UA' : 'en-GB', {dateStyle:'long',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
 ---
 <Layout locale={locale} path="/updates/" title={copy.title+' — '+strings.siteName} description={copy.intro}>
   <Breadcrumbs locale={locale} items={[{label:strings.breadcrumbs.home,path:'/'},{label:copy.title}]} />

@@ -1,10 +1,10 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
 export const BRAND_OFFICIAL_SITES: Record<string, {
   url: string;
-  name: Record<Locale, string>;
+  name: Localized<string>;
   kind: 'brand' | 'licensee' | 'successor';
-  note: Record<Locale, string>;
+  note: Localized<string>;
 }> = {
   Alcatel: {
     url: 'https://www.tcl.com/global/en/mobile',
@@ -107,7 +107,7 @@ export const BRAND_OFFICIAL_SITES: Record<string, {
 };
 
 // Editorial descriptions of the archive's selection, not claims about every phone a brand made.
-export const BRAND_NOTES: Record<Locale, Record<string, string>> = {
+export const BRAND_NOTES: Localized<Record<string, string>> = {
   uk: {
     Alcatel: 'Найдоступніший сегмент One Touch — ціна понад усе.',
     Apple: 'Від першого iPhone до звичних жестів сенсорної епохи.',

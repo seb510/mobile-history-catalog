@@ -6,7 +6,7 @@ import { parse } from 'yaml';
 // Structural and language heuristics, not a factual or literary review.
 const root = fileURLToPath(new URL('../', import.meta.url));
 const base = path.join(root, 'src/data/phones');
-const locales = ['uk', 'ru', 'en'];
+const locales = ['uk', 'en'];
 const issues = [];
 const add = (code, file, field, detail) => issues.push({ code, file, field, detail });
 const flatten = (value, prefix = '', result = {}) => {
@@ -64,7 +64,7 @@ for (const file of files) {
   }
   const canonical = documents.uk;
   if (!canonical) continue;
-  for (const locale of ['ru', 'en']) {
+  for (const locale of locales.filter(locale => locale !== 'uk')) {
     const translated = documents[locale];
     if (!translated) continue;
     for (const field of new Set([...Object.keys(canonical), ...Object.keys(translated)])) {

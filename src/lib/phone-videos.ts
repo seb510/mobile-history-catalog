@@ -1,5 +1,5 @@
-import type { Locale } from './locales';
-export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Record<Locale,string> }> = {
+import type { Localized } from './locales';
+export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Localized<string> }> = {
  'siemens-xelibri-8': {
    id: '1QY4VloAPcw', author: 'Mobijunk', label: 'SIEMENS · XELIBRI 8', year: 2026, retrospective: true,
    description: {
@@ -352,7 +352,7 @@ export const PHONE_VIDEO_LABELS = {
  uk: { nav:'Відео', available:'Є відео', badge:'Відео' },
  ru: { nav:'Видео', available:'Есть видео', badge:'Видео' },
  en: { nav:'Video', available:'Video available', badge:'Video' },
-} satisfies Record<Locale, {nav:string; available:string; badge:string}>;
+} satisfies Localized<{nav:string; available:string; badge:string}>;
 
 export const HOME_VIDEO_DISCOVERY = {
  uk: { title:'Телефони в дії', count:'Моделей із відео: {count}' },

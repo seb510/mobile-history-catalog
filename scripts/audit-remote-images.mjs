@@ -4,7 +4,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import YAML from 'yaml';
 
 const images = new Map();
-for (const locale of ['uk', 'ru', 'en']) {
+for (const locale of ['uk', 'en']) {
   const dir = 'src/data/phones/' + locale;
   for (const file of await readdir(dir)) {
     if (!file.endsWith('.md')) continue;

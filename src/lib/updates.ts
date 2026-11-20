@@ -5,6 +5,11 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  date: "2026-11-20", phones: [], changes: {
+    uk: ["Архів виходить українською та англійською. Доповнили історію Siemens моделями SL45i, S55 і SK65."],
+    en: ["The archive is published in Ukrainian and English. The Siemens history now features the SL45i, S55 and SK65."]
+  }
+}, {
   "date": "2026-11-19",
   "phones": [],
   "changes": {

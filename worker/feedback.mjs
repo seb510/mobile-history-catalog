@@ -1,5 +1,6 @@
 import { hasFeedbackMarkup } from '../src/lib/feedback-input.mjs';
 import { handleCollection } from './collection.mjs';
+import { legacyLanguageTarget } from '../src/lib/legacy-language-url.mjs';
 const headers = { 'Content-Type':'application/json; charset=utf-8', 'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff' };
 const reply = (status, code) => new Response(JSON.stringify({ok:status===200,code}), {status,headers});
 const clean = value => typeof value==='string' ? value.trim().replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g,'') : '';
@@ -49,7 +50,10 @@ export async function handleFeedback(request, env, send = fetch) {
 
 export default {
   async fetch(request,env) {
-    if(new URL(request.url).pathname==='/api/feedback')return handleFeedback(request,env);
+    const url = new URL(request.url);
+    const target = legacyLanguageTarget(url);
+    if (target) return Response.redirect(target, 301);
+    if(url.pathname==='/api/feedback')return handleFeedback(request,env);
     if(new URL(request.url).pathname.startsWith('/api/collection/'))return handleCollection(request,env);
     return env.ASSETS.fetch(request);
   },

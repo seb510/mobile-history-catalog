@@ -25,7 +25,7 @@ async function allBrands(): Promise<BrandEntry[]> {
 }
 
 // One entry per unique brand, in the locale it should render in for the given target locale —
-// following the uk → ru → en fallback chain.
+// following the fallback chain for the requested language.
 export async function getBrandsForLocale(locale: Locale): Promise<BrandEntry[]> {
   const entries = await allBrands();
   const bySlug = new Map<string, BrandEntry>();

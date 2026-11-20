@@ -25,7 +25,6 @@ async function buildIndex(locale: Locale): Promise<SearchPhone[]> {
 export async function GET() {
   const index: Record<Locale, SearchPhone[]> = {
     uk: await buildIndex('uk'),
-    ru: await buildIndex('ru'),
     en: await buildIndex('en'),
   };
 

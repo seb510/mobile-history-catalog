@@ -23,7 +23,7 @@ function redirect(location, cookies = []) {
 }
 
 function favoritesPath(lang) {
-  return lang === 'ru' || lang === 'en' ? `/${lang}/favorites/` : '/favorites/';
+  return lang === 'en' ? `/${lang}/favorites/` : '/favorites/';
 }
 
 async function sessionFor(request, db) {
@@ -38,7 +38,7 @@ async function sessionFor(request, db) {
 async function beginLogin(url, env) {
   const state = randomToken();
   const verifier = randomToken();
-  const lang = ['uk', 'ru', 'en'].includes(url.searchParams.get('lang')) ? url.searchParams.get('lang') : 'uk';
+  const lang = ['uk', 'en'].includes(url.searchParams.get('lang')) ? url.searchParams.get('lang') : 'uk';
   const query = new URLSearchParams({
     client_id: env.GOOGLE_CLIENT_ID,
     redirect_uri: url.origin + PREFIX + '/callback',

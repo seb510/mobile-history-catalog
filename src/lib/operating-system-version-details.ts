@@ -1,12 +1,12 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
 export interface VersionDetail {
-  note: Record<Locale, string>;
+  note: Localized<string>;
   source: string;
 }
 
-const detail = (source: string, uk: string, ru: string, en: string): VersionDetail =>
-  ({ source, note: { uk, ru, en } });
+const detail = (source: string, uk: string, translation: string, archivedEnglish?: string): VersionDetail =>
+  ({ source, note: { uk, en: archivedEnglish ?? translation } });
 const android = (path: string) => 'https://developer.android.com/about/versions/' + path;
 
 export const VERSION_DETAILS: Record<string, VersionDetail> = {

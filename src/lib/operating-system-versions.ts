@@ -1,7 +1,8 @@
-import type { Locale } from './locales';
+import type { Locale, Localized } from './locales';
 
-type Localized = Record<Locale, string>;
-const text = (uk: string, ru: string, en: string): Localized => ({ uk, ru, en });
+
+const text = (uk: string, translation: string, archivedEnglish?: string): Localized<string> =>
+  ({ uk, en: archivedEnglish ?? translation });
 
 export const VERSION_COPY = {
   title: text('Версії та покоління', 'Версии и поколения', 'Versions and generations'),
@@ -15,7 +16,7 @@ interface Version {
   id: string;
   title: string;
   match: RegExp;
-  note?: Localized;
+  note?: Localized<string>;
   // "YYYY-MM" when the month is confirmed, "YYYY" when only the year is — never a guessed
   // month. Left out entirely where no source gives a usable date (e.g. Symbian 9.5).
   released?: string;
@@ -112,7 +113,7 @@ export function versionFor(platform: string, os: string): Omit<Version, 'match'>
 }
 
 export function formatReleased(released: string, locale: Locale): string {
-  const intlLocale = locale === 'uk' ? 'uk-UA' : locale === 'ru' ? 'ru-RU' : 'en-GB';
+  const intlLocale = locale === 'uk' ? 'uk-UA' : 'en-GB';
   if (/^\d{4}-\d{2}$/.test(released)) {
     return new Intl.DateTimeFormat(intlLocale, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(released + '-01T12:00:00Z'));
   }

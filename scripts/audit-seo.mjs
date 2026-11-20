@@ -13,6 +13,14 @@ for (const file of walk(root).filter((file) => file.endsWith('.html'))) {
   const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1];
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1];
+  if (pathname === '/evolution/' || pathname === '/en/evolution/') {
+    const target = pathname.replace('evolution/', '#evolution');
+    if (!robots?.includes('noindex') || !canonical?.endsWith(target) ||
+        !html.includes('http-equiv="refresh" content="0;url=' + target + '"')) {
+      issues.push(pathname + ': invalid redirect to the homepage evolution scene');
+    }
+    continue;
+  }
   if (!canonical || !title || !description || !robots) issues.push(`${pathname}: missing core metadata`);
   if ((html.match(/<h1(?:\s|>)/g) || []).length !== 1) issues.push(`${pathname}: expected exactly one H1`);
   for (const match of html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {

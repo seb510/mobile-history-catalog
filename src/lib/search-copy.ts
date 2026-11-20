@@ -1,4 +1,4 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
 export const searchCopy = {
   uk: {
@@ -25,4 +25,4 @@ export const searchCopy = {
     '/about/': ['About the project and our sources', 'How Mobile History is curated: landmark phone selection, specification checks, data sources and photo licensing.'],
     specs: 'specifications', brand: 'brand history and landmark phones',
   },
-} as const satisfies Record<Locale, unknown>;
+} as const satisfies Localized<unknown>;

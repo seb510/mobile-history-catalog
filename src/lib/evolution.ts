@@ -1,5 +1,5 @@
+import type { Localized } from './locales';
 import type { CollectionEntry } from 'astro:content';
-import type { Locale } from './locales';
 
 export const EVOLUTION_HOME = '/#evolution';
 
@@ -38,10 +38,10 @@ export const evolutionCopy = {
     brandTitle: 'Brand evolution', brandIntro: 'Scroll through the archive models from earliest to latest.', modelPicker: 'Jump to a model',
     about: 'From SMS to foldable smartphones, explore one model for each year represented in the archive. Each brand page has its own full-screen timeline.',
   },
-} satisfies Record<Locale, Record<string, string>>;
+} satisfies Localized<Record<string, string>>;
 
 // Each stop describes the experience of this model in its release year.
-export const evolutionStops: { slug: string; copy: Record<Locale, [string, string]> }[] = [
+export const evolutionStops: { slug: string; copy: Localized<[string, string]> }[] = [
   {
     slug: 'motorola-startac-70', copy: {
       uk: ['Розмова з розкритою кришкою', 'У кишені StarTAC лежав складеним. Для розмови його розкривали й підносили динамік у кришці до вуха.'],

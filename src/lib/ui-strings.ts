@@ -1,4 +1,4 @@
-import type { Locale } from './locales';
+import type { Locale, Localized } from './locales';
 
 // Site-chrome strings (nav, footer, filters, spec labels) — separate from phone content, which
 // lives in the per-locale markdown files. These are translated manually since there are few of
@@ -178,7 +178,7 @@ export const UI = {
         {
           "title": "Ностальгія з джерелами",
           "paragraphs": [
-            "Історії та характеристики звіряємо з анонсами, інструкціями й іншими джерелами. Кредити до фото вказують автора або джерело. Використовуємо матеріали з вільними ліцензіями та фото. Архів доступний українською, російською й англійською."
+            "Історії та характеристики звіряємо з анонсами, інструкціями й іншими джерелами. Кредити до фото вказують автора або джерело. Використовуємо матеріали з вільними ліцензіями та фото. Архів доступний українською й англійською."
           ]
         },
         {
@@ -549,7 +549,7 @@ export const UI = {
         {
           "title": "Nostalgia with sources",
           "paragraphs": [
-            "We check histories and specifications against announcements, manuals and other sources. Image credits identify the photographer or source. We use freely licensed materials and photos shared with permission. The archive is available in Ukrainian, Russian and English."
+            "We check histories and specifications against announcements, manuals and other sources. Image credits identify the photographer or source. We use freely licensed materials and photos shared with permission. The archive is available in Ukrainian and English."
           ]
         },
         {
@@ -561,7 +561,7 @@ export const UI = {
       ]
     },
   },
-} as const satisfies Record<Locale, unknown>;
+} as const satisfies Localized<unknown>;
 
 export function t(locale: Locale) {
   return UI[locale];
@@ -597,7 +597,7 @@ export const HOME_EDITORIAL = {
       },
       {
         "title": "Зміни видно",
-        "text": "Кожне поповнення каталогу чи нову можливість сайту фіксує тримовний журнал оновлень із датою."
+        "text": "Кожне поповнення каталогу чи нову можливість сайту фіксує журнал оновлень із датою."
       }
     ],
     "themes": [
@@ -697,7 +697,7 @@ export const HOME_EDITORIAL = {
       },
       {
         "title": "Changes you can see",
-        "text": "Every new phone or site feature is logged with a date in the trilingual update journal."
+        "text": "Every new phone or site feature is logged with a date in the update journal."
       }
     ],
     "themes": [

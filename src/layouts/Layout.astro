@@ -70,7 +70,7 @@ const siteId = new URL('/#website', Astro.site).toString();
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'WebSite', '@id': siteId, url: new URL('/', Astro.site).toString(), name: t('uk').siteName, alternateName: ['Mobile History', t('ru').siteName], inLanguage: ['uk', 'ru', 'en'] },
+    { '@type': 'WebSite', '@id': siteId, url: new URL('/', Astro.site).toString(), name: t('uk').siteName, alternateName: 'Mobile History', inLanguage: ['uk', 'en'] },
     { '@type': pageType, '@id': `${canonical}#webpage`, url: canonical, name: searchTitle, description: searchDescription, inLanguage: identity.canonicalLocale, isPartOf: { '@id': siteId }, ...(subject ? { about: subject } : {}) },
   ],
 };

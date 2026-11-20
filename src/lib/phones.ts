@@ -19,7 +19,7 @@ async function allPhones(): Promise<PhoneEntry[]> {
 }
 
 // One entry per unique phone, in the locale it should render in for the given target locale —
-// following the uk → ru → en fallback chain. Used for catalog/listing pages.
+// following the fallback chain for the requested language. Used for catalog/listing pages.
 export async function getPhonesForLocale(locale: Locale): Promise<PhoneEntry[]> {
   const entries = await allPhones();
   const bySlug = new Map<string, PhoneEntry>();

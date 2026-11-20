@@ -8,6 +8,19 @@ const env={TELEGRAM_BOT_TOKEN:'test-only-token',TELEGRAM_CHAT_ID:'test-only-chat
 const request=(data=payload,extra={})=>new Request(origin+'/api/feedback',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','CF-Connecting-IP':'192.0.2.1'},body:JSON.stringify(data),...extra});
 const mustNotSend=()=>{throw new Error('unexpected delivery');};
 
+test('archived language URLs keep the Ukrainian path and query', async () => {
+  for (const [from, to] of [
+    ['/ru', '/'],
+    ['/ru/', '/'],
+    ['/ru/brands/siemens/', '/brands/siemens/'],
+    ['/ru/compare/?a=siemens-s55&b=siemens-sk65', '/compare/?a=siemens-s55&b=siemens-sk65'],
+  ]) {
+    const response = await worker.fetch(new Request(origin + from), {});
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get('Location'), origin + to);
+  }
+});
+
 test('valid submission delivers plain text to the configured chat without IP or preview',async()=>{
   let calls=0;
   const result=await handleFeedback(request(),env,async(url,options)=>{

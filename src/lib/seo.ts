@@ -1,6 +1,7 @@
+import type { Localized } from './locales';
 import { LOCALES, type Locale } from './locales';
 
-const OG_LOCALE: Record<Locale, string> = { uk: 'uk_UA', ru: 'ru_RU', en: 'en_US' };
+const OG_LOCALE: Localized<string> = { uk: 'uk_UA', ru: 'ru_RU', en: 'en_US' };
 
 interface AlternateLinksOptions {
   site: URL;
@@ -9,7 +10,7 @@ interface AlternateLinksOptions {
   path: string;
 }
 
-// hreflang alternates so search engines know the uk/ru/en pages are the same content in
+// hreflang alternates so search engines know the Ukrainian and English pages are the same content in
 // different languages, not duplicates — plus an x-default pointing at the base (uk) version.
 export function alternateLinks({ site, path }: AlternateLinksOptions) {
   const links = LOCALES.map((locale) => ({

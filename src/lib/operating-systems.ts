@@ -1,7 +1,8 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
-type Localized = Record<Locale, string>;
-const copy = (uk: string, ru: string, en: string): Localized => ({ uk, ru, en });
+
+const copy = (uk: string, translation: string, archivedEnglish?: string): Localized<string> =>
+  ({ uk, en: archivedEnglish ?? translation });
 
 export const OS_PATH = '/operating-systems/';
 export const OS_COPY = {
@@ -17,10 +18,10 @@ export const OS_COPY = {
 
 interface Platform {
   id: string;
-  name: Localized;
-  summary: Localized;
-  history: Localized;
-  usage: Localized;
+  name: Localized<string>;
+  summary: Localized<string>;
+  history: Localized<string>;
+  usage: Localized<string>;
   sources: readonly { name: string; url: string }[];
   match: RegExp;
 }

@@ -1,4 +1,5 @@
 ---
+import type { Localized } from '../lib/locales';
 import Arrow from './Arrow.astro';
 import LogoMark from './LogoMark.astro';
 import GlobalSearch from './GlobalSearch.astro';
@@ -20,7 +21,7 @@ const { locale, path } = Astro.props;
 const strings = t(locale);
 const settingsCopy = { uk: { style:'Стиль', language:'Мова', theme:'Тема' }, ru: { style:'Стиль', language:'Язык', theme:'Тема' }, en: { style:'Style', language:'Language', theme:'Theme' } }[locale];
 
-const LOCALE_LABEL: Record<Locale, string> = { uk: 'UK', ru: 'RU', en: 'EN' };
+const LOCALE_LABEL: Localized<string> = { uk: 'UK', ru: 'RU', en: 'EN' };
 const isActive = (target: string) =>
   path === target ||
   (target !== '/' && path.startsWith(target)) ||

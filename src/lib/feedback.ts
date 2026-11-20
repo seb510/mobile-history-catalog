@@ -1,4 +1,4 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
 export const FEEDBACK_COPY = {
   uk: {
@@ -37,7 +37,7 @@ export const FEEDBACK_COPY = {
     messageRequired:"Describe your request in at least 10 characters.",
     commentLimit:"Phone comments are limited to 600 characters.",
   },
-} satisfies Record<Locale, object>;
+} satisfies Localized<object>;
 
 // A discovery aid, not a manufacturer-wide database. No specifications or release claims.
 export const SUGGESTED_MODELS: Record<string, string[]> = {

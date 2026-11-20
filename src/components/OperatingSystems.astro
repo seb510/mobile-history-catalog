@@ -64,7 +64,7 @@ if (platform) {
     const os = canonicalOsBySlug.get(slugOf(phone));
     const version = os ? versionFor(platform.id, os) : undefined;
     const id = version?.id ?? 'unspecified';
-    const group = versionGroups.get(id) ?? { id, title: version?.title ?? VERSION_COPY.unspecified[locale], released: version?.released, phones: [] };
+    const group = versionGroups.get(id) ?? { id, title: version?.title ?? VERSION_COPY.unspecified[locale], released: version?.released, phones: [] as typeof models };
     group.phones.push(phone);
     versionGroups.set(id, group);
   }

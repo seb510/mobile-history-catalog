@@ -1,4 +1,4 @@
-import type { Locale } from './locales';
+import type { Localized } from './locales';
 
 export const PHONE_EDITORIAL_LABELS = {
   uk: { highlights: 'Чим запам’ятався', next: 'Продовжити історію', compare: 'Порівняти ці моделі' },
@@ -9,7 +9,7 @@ export const PHONE_EDITORIAL_LABELS = {
 type Editorial = { points: [string, string, string]; next: string; note: string };
 // Editorial observations distilled from the sources linked in each phone's history.
 // These are curated reading routes, not an automatic similarity ranking.
-export const PHONE_EDITORIAL: Record<string, Record<Locale, Editorial>> = {
+export const PHONE_EDITORIAL: Record<string, Localized<Editorial>> = {
   'nokia-6233': {
     uk: { points: ['QVGA-екран і камера 2 МП поєднують мультимедіа зі звичною цифровою клавіатурою.', 'Два стереодинаміки винесені на корпус, а microSD зберігає музику й фото.', 'WCDMA 2100 додає 3G до моноблочного формату Series 40.'], next: 'nokia-n70', note: 'Два 3G-телефони 2005 року з камерою 2 МП: порівняй формат Series 40 із Symbian та дві різні конструкції камери.' },
     ru: { points: ['QVGA-экран и камера 2 МП сочетают мультимедиа с привычной цифровой клавиатурой.', 'Два стереодинамика вынесены на корпус, а microSD хранит музыку и фотографии.', 'WCDMA 2100 добавляет 3G к моноблочному формату Series 40.'], next: 'nokia-n70', note: 'Два 3G-телефона 2005 года с камерой 2 МП: сравни формат Series 40 с Symbian и две разные конструкции камеры.' },

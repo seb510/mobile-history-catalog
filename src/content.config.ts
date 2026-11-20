@@ -94,7 +94,7 @@ const phoneSchema = z.object({
   });
 
 const phones = defineCollection({
-  loader: glob({ pattern: '*/*.md', base: './src/data/phones' }),
+  loader: glob({ pattern: '{uk,en}/*.md', base: './src/data/phones' }),
   schema: phoneSchema.extend({
     // A family variant decorates existing canonical spec rows, without a catalog entry.
     specVariant: z.object({
@@ -108,7 +108,7 @@ const phones = defineCollection({
 // (src/data/brands/<uk|ru|en>/<slug>.md). Body holds a short history blurb. `name` must match
 // the `brand` string used on phone entries exactly — it's how a brand page finds its phones.
 const brands = defineCollection({
-  loader: glob({ pattern: '*/*.md', base: './src/data/brands' }),
+  loader: glob({ pattern: '{uk,en}/*.md', base: './src/data/brands' }),
   schema: z.object({
     name: z.string(),
     founded: z.number().int().optional(),

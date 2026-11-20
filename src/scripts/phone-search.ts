@@ -1,6 +1,7 @@
+import type { Localized } from '../lib/locales';
 import { matchesPhoneSearch, normalizePhoneSearch } from '../lib/phone-search-match';
 
-type Locale = 'uk' | 'ru' | 'en';
+import { LOCALES, type Locale } from '../lib/locales';
 
 interface SearchPhone {
   slug: string;
@@ -10,16 +11,16 @@ interface SearchPhone {
   milestone: string;
 }
 
-type SearchIndex = Record<Locale, SearchPhone[]>;
+type SearchIndex = Localized<SearchPhone[]>;
 
-const INDEX_CACHE_KEY = 'mobile-history:phone-search-index:v1';
+const INDEX_CACHE_KEY = 'mobile-history:phone-search-index:v2';
 const MIN_QUERY_LENGTH = 3;
 const DEBOUNCE_MS = 250;
 let indexPromise: Promise<SearchIndex> | undefined;
 
 function isSearchIndex(value: unknown): value is SearchIndex {
   if (!value || typeof value !== 'object') return false;
-  return (['uk', 'ru', 'en'] as const).every((locale) => {
+  return LOCALES.every((locale) => {
     const records = (value as Record<string, unknown>)[locale];
     return Array.isArray(records) && records.every((record) =>
       record && typeof record.slug === 'string' &&
