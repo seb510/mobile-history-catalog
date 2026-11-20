@@ -1,4 +1,144 @@
 export const releaseExperience: Record<string, { uk: string; en: string }> = {
+  'android-1-0': {
+    uk: "На HTC Dream шторку можна було потягнути вниз і перейти з повідомлення прямо до листа. Для відповіді екран зсували вбік і набирали текст на фізичній клавіатурі.",
+    en: "On the HTC Dream you could pull down the shade and open an email directly from its notification. To reply, you slid the display sideways and typed on the physical keyboard.",
+  },
+  'android-1-1': {
+    uk: "Отриману в MMS фотографію тепер можна було зберегти окремо. Щоб знову її переглянути, вже не потрібно було шукати початкове повідомлення в розмові.",
+    en: "A picture received in an MMS could now be saved separately. You no longer had to find the original message to look at the photo again.",
+  },
+  'android-1-5': {
+    uk: "На телефоні без висувної клавіатури можна було торкнутися поля в браузері й одразу набрати адресу. Розробники також отримали змогу пропонувати власні екранні клавіатури.",
+    en: "On a handset without a slide-out keyboard, tapping a browser field brought up keys for entering an address. Developers could also offer alternative on-screen keyboards.",
+  },
+  'android-1-6': {
+    uk: "У полі пошуку достатньо було почати вводити ім’я: серед підказок з’являлися контакти й результати з програм, які підтримували пошук. Для дзвінка можна було вибрати людину прямо зі списку.",
+    en: "Typing a name into the search box could surface a contact alongside results from participating apps. Selecting the contact saved a separate trip through the address book.",
+  },
+  'android-2-0': {
+    uk: "Значок контакту відкривав панель Quick Contact. З неї можна було подзвонити, написати SMS або листа, залежно від того, які дані були збережені для цієї людини.",
+    en: "Tapping a contact’s picture opened Quick Contact. From there you could call, text or email the person, depending on the details saved in their contact record.",
+  },
+  'android-2-1': {
+    uk: "Живі шпалери відрізнялися від звичайної картинки поведінкою: фон міг рухатися або реагувати на дотик просто за ярликами програм. Для цього не потрібно було відкривати окремий застосунок.",
+    en: "Live wallpaper could animate or react to a touch behind the app shortcuts. The interaction happened on the home screen without opening a separate app.",
+  },
+  'android-2-2': {
+    uk: "У дорозі телефон міг роздати мобільне з’єднання ноутбуку через Wi-Fi. Ноутбук підключався як до звичайної мережі, а трафік проходив через тариф телефона; доступність залежала від пристрою й оператора.",
+    en: "On a trip, a supported phone could share its mobile connection with a laptop over Wi-Fi. The laptop joined it like an ordinary network and used the phone’s data plan, subject to carrier support.",
+  },
+  'android-2-3': {
+    uk: "Щоб виправити адресу в листі, можна було пересунути маркер курсора до потрібної літери. Два маркери виділення дозволяли скопіювати лише фрагмент рядка.",
+    en: "To correct an address in an email, you could drag the cursor handle to a particular letter. Two selection handles let you copy just part of a line.",
+  },
+  'android-2-3-4': {
+    uk: "На сумісних телефонах, зокрема Nexus S, Google Talk отримав відеодзвінки. Контакт зі списку можна було побачити через фронтальну камеру, якщо обидва пристрої та з’єднання підтримували виклик.",
+    en: "On supported phones, including the Nexus S, Google Talk gained video calling. You could start a call from the contact list and use the front camera when both endpoints and the connection supported it.",
+  },
+  'android-3-0': {
+    uk: "На планшеті в пошті вміщалися список листів і відкритий лист поруч. Дотик до наступної теми змінював вміст праворуч, а список залишався перед очима.",
+    en: "A tablet mail app could put the inbox beside the open message. Selecting another subject changed the reading pane while keeping the message list in view.",
+  },
+  'android-3-1': {
+    uk: "Віджет пошти можна було розтягнути на домашньому екрані, щоб бачити більше листів. Зміна розміру працювала у віджетах, для яких її передбачив розробник.",
+    en: "A mail widget could be stretched across the home screen to reveal more messages. Resizing depended on the widget supporting that layout.",
+  },
+  'android-3-2': {
+    uk: "Якщо старий телефонний застосунок займав лише маленьку частину планшетного дисплея, режим сумісності міг збільшити його вікно. Кнопки ставали більшими, але нових деталей у зображенні не з’являлося.",
+    en: "When an older phone app occupied a small area of a tablet, compatibility zoom could enlarge its window. Buttons became bigger without gaining extra image detail.",
+  },
+  'android-4-0': {
+    uk: "У списку останніх програм було видно зменшені копії їхніх екранів. Повертаючись від пошти до браузера, користувач міг упізнати потрібну сторінку за її виглядом.",
+    en: "Recent apps showed previews of their screens. Switching back from mail to the browser, you could recognise the page by its appearance.",
+  },
+  'android-4-1': {
+    uk: "Сповіщення про кілька листів можна було розгорнути й прочитати теми просто у шторці. Які саме дані й кнопки з’являлися там, визначала програма.",
+    en: "A notification covering several emails could expand to show their subjects in the shade. Each app determined which details and actions it supplied.",
+  },
+  'android-4-2': {
+    uk: "На спільному планшеті кожна людина могла мати власний домашній екран, облікові записи та дані програм. Перемикання користувача змінювало все це разом.",
+    en: "People sharing a tablet could have separate home screens, accounts and app data. Switching users changed all three together.",
+  },
+  'android-4-2-2': {
+    uk: "Під час підключення телефона до комп’ютера для USB-налагодження на екрані з’являвся запит довіри до ключа цього комп’ютера. Звичайне заряджання такого підтвердження не потребувало.",
+    en: "Connecting a phone to a computer for USB debugging brought up a prompt to trust that computer’s key. Simply charging the device did not require that approval.",
+  },
+  'android-4-3': {
+    uk: "Сумісний пульсометр міг передавати короткі виміри тренувальній програмі через Bluetooth Low Energy. Для цього потрібна була підтримка і в телефоні, і в самому застосунку.",
+    en: "A compatible heart-rate strap could send small readings to a workout app over Bluetooth Low Energy. Both the handset hardware and the app needed to support it.",
+  },
+  'android-4-4': {
+    uk: "Під час читання книжки програма могла віддати всю площу екрана тексту. Жест від краю тимчасово повертав системні кнопки, щоб вийти з повноекранного режиму.",
+    en: "An ebook reader could give the whole display to the page. Swiping from an edge temporarily revealed the system controls so you could leave the immersive view.",
+  },
+  'android-5-0': {
+    uk: "На заблокованому екрані можна було побачити, від кого надійшло повідомлення. Налаштування приватності дозволяли приховати чутливий текст до розблокування телефона.",
+    en: "The lock screen could show who had sent a message. Privacy settings let you hide sensitive notification content until the phone was unlocked.",
+  },
+  'android-5-1': {
+    uk: "На апараті з двома SIM можна було вибрати, яка картка обслуговуватиме мобільний інтернет, а яку використовувати для дзвінків. Це було зручно для поєднання робочого номера й особистого тарифу.",
+    en: "On a dual-SIM handset you could choose one SIM for mobile data and another for calls, keeping a work number and a personal data plan on the same device.",
+  },
+  'android-6-0': {
+    uk: "Застосунок міг попросити доступ до камери в момент, коли людина натискала «Додати фото». Для програм, що підтримували нову модель дозволів, відмова стосувалася цієї дії, а рештою функцій можна було користуватися далі.",
+    en: "An app could ask for the camera when you tapped Add photo. In apps designed for runtime permissions, declining that request could leave unrelated features available.",
+  },
+  'android-7-0': {
+    uk: "У розділеному екрані можна було тримати лист із адресою поруч із картою та звіряти номер будинку. Такий режим вимагав підтримки багатовіконної роботи від програм.",
+    en: "Split screen let you keep an email beside a map and check the street number without switching back and forth. The apps had to support multi-window use.",
+  },
+  'android-7-1': {
+    uk: "Замість відкривати пошту й шукати кнопку нового листа, можна було затримати палець на ярлику та вибрати дію створення. Набір таких команд задавала сама програма.",
+    en: "Instead of opening mail and finding the compose button, you could hold its launcher icon and choose the compose shortcut. Each app supplied its own set of actions.",
+  },
+  'android-8-0': {
+    uk: "У чаті можна було залишити звук для особистих повідомлень і вимкнути його для інших подій, якщо розробник розподілив їх за каналами. Раніше часто доводилося вимикати сповіщення всієї програми.",
+    en: "A chat app could keep direct messages audible but silence other events if the developer assigned them separate channels. Previously the available switch often silenced the entire app.",
+  },
+  'android-8-1': {
+    uk: "Для сповіщень, що сипалися одне за одним, система обмежила частоту звукових сигналів до одного на секунду від однієї програми. Кілька швидких повідомлень усе ще з’являлися у шторці.",
+    en: "When notifications arrived in rapid succession, Android limited each app to one notification sound per second. The individual messages could still appear in the shade.",
+  },
+  'android-9': {
+    uk: "Після ручного повороту телефона на панелі навігації могла з’явитися кнопка повороту екрана. Вона дозволяла розгорнути одну фотографію горизонтально, залишивши автоматичний поворот вимкненим.",
+    en: "Turning the handset could bring up a rotation button in the navigation bar. You could view one photo in landscape while leaving automatic rotation off.",
+  },
+  'android-10': {
+    uk: "Для карти можна було дозволити визначення місця лише під час користування. Після переходу до іншої програми постійний фоновий доступ вимагав окремого дозволу.",
+    en: "A maps app could receive location access only while in use. Continuous background tracking required a separate grant.",
+  },
+  'android-11': {
+    uk: "Для камери, мікрофона чи геолокації з’явився одноразовий дозвіл. Наприклад, для разового сканування QR-коду можна було відкрити камеру, не надаючи застосунку постійного доступу.",
+    en: "Camera, microphone and location requests gained a one-time option. You could scan a QR code without granting the app lasting camera access.",
+  },
+  'android-12': {
+    uk: "Коли програма використовувала камеру або мікрофон, у верхній частині екрана з’являвся індикатор. Через швидкі налаштування можна було тимчасово вимкнути доступ для програм одразу.",
+    en: "An indicator appeared at the top of the screen while an app used the camera or microphone. Quick Settings let you temporarily disable access across apps.",
+  },
+  'android-12l': {
+    uk: "На розгорнутому складаному телефоні другу програму можна було перетягнути з панелі завдань до краю дисплея. Наприклад, відкрити нотатки поруч із браузером і записувати дані з вебсторінки.",
+    en: "On an unfolded phone you could drag a second app from the taskbar to the edge of the display, putting notes beside the browser to jot down details from a page.",
+  },
+  'android-13': {
+    uk: "На телефоні з українським інтерфейсом можна було залишити окрему програму англійською. Вибір з’являвся для програм, які оголосили підтримувані мови.",
+    en: "A phone using Ukrainian menus could keep an individual app in English. The picker was available for apps that declared their supported languages.",
+  },
+  'android-14': {
+    uk: "Щоб додати до оголошення два фото, можна було надати застосунку доступ лише до цих знімків. Інші фотографії залишалися поза його дозволом.",
+    en: "To attach two pictures to a listing, you could grant the app access to just those images. The rest of the photo library remained outside that permission.",
+  },
+  'android-15': {
+    uk: "У приватному просторі можна було встановити окремий примірник програми й увійти під іншим обліковим записом. Блокування простору приховувало його програми та їхні сповіщення.",
+    en: "Private Space could hold a separate installation of an app signed into another account. Locking the space hid its apps and their notifications.",
+  },
+  'android-16': {
+    uk: "Для поїздки чи доставки програма могла оновлювати одну шкалу перебігу події. Замість відкривати карту після кожного сигналу, людина бачила поточний етап у сповіщенні, якщо сервіс підтримував такий формат.",
+    en: "A ride or delivery app could update one progress notification as the trip advanced. With a service that supported the format, checking the current stage no longer required reopening its map.",
+  },
+  'android-17': {
+    uk: "На сумісному обладнанні застосунок може використовувати надширокосмуговий зв’язок UWB і стаціонарні маяки для позиціювання в приміщенні. Для власника це може означати навігацію всередині великої будівлі, де GPS працює погано; потрібна також інфраструктура самого приміщення.",
+    en: "On supported hardware, an app can use UWB and fixed anchors for indoor positioning. This can help locate a user in a large building where GPS is unreliable, provided the venue has the required infrastructure.",
+  },
   '1st-edition': {
     uk: "На Nokia 6800 коротке SMS можна було набрати великим пальцем на цифрових клавішах. Для довшого листа клавіатуру розкладали: екран опинявся між двома половинами QWERTY, а текст повертався горизонтально. Повідомлення залишалося відкритим, змінювався сам спосіб набору.",
     en: "On the Nokia 6800, the number pad was enough for a quick text. For a longer message you unfolded the keyboard. The display sat between the two halves of the QWERTY layout and switched to landscape, letting you carry on typing with both thumbs.",
