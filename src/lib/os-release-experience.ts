@@ -1,4 +1,28 @@
 export const releaseExperience: Record<string, { uk: string; en: string }> = {
+  'iphone-os-1': {
+    uk: 'На першому iPhone сторінку в Safari можна було посунути пальцем, а подвійним дотиком збільшити потрібну колонку тексту. Акселерометр повертав сторінку разом із телефоном. Щоб повернутися до піктограм, натискали фізичну кнопку Home.',
+    en: 'On the original iPhone, you could pan a webpage with a finger and double-tap a column in Safari to make it readable. Turning the handset rotated the page. Pressing the physical Home button took you back to the app icons.',
+  },
+  'ios-11': {
+    uk: 'На iPhone X короткий рух угору від нижнього краю повертав на головний екран. Якщо затримати палець посеред руху, відкривалися картки останніх програм. На старших моделях із тією самою iOS 11 для цих двох дій використовували одне або два натискання Home.',
+    en: 'On iPhone X, swiping up from the bottom returned you to the Home Screen. Pausing partway through the swipe brought up recent apps. Earlier iPhones running the same iOS 11 used a single or double press of the Home button for those actions.',
+  },
+  'ios-14': {
+    uk: 'На iPhone 12 можна було поставити віджет погоди поруч із календарем і бачити прогноз ще до відкриття програми. Рідко вживані ігри можна було прибрати з головного екрана: вони залишалися встановленими й відкривалися з Бібліотеки програм.',
+    en: 'On iPhone 12, a weather widget beside the calendar let you read the forecast before opening an app. You could clear seldom-played games from the Home Screen and still find them installed in the App Library.',
+  },
+  'ios-15': {
+    uk: 'Режим зосередження дозволяв пропускати під час роботи дзвінки від родини, а решту сповіщень приглушувати. Для вечора можна було встановити інші правила. На iPhone 13 Pro та iPhone SE 2022 це працювало однаково, попри різні розміри екранів і способи розблокування.',
+    en: 'A work Focus could let family calls through while silencing other notifications. A separate evening Focus could allow a different set of people and apps. The same rules worked on iPhone 13 Pro and the 2022 iPhone SE despite their different displays and unlocking methods.',
+  },
+  'ios-26': {
+    uk: 'У груповій розмові iMessage можна було створити опитування, наприклад запропонувати кілька дат зустрічі. Учасники голосували в самій розмові й бачили результат разом, тож організатору вже не доводилося перечитувати відповіді та рахувати голоси вручну.',
+    en: 'In a group iMessage conversation, you could start a poll with a few possible dates for a meetup. Everyone could vote and see the result in the thread, saving the organiser from scrolling back through replies to count them.',
+  },
+  'ios-27': {
+    uk: 'У «Швидких командах» збереження знімка екрана стало подією, яка може запускати автоматизацію. Наприклад, власник може налаштувати власну послідовність дій для роботи зі скриншотами, а не запускати її вручну щоразу після зйомки.',
+    en: 'In Shortcuts, saving a screenshot became an automation trigger. Someone who regularly processes screenshots could set up a personal workflow to start when a capture was saved, instead of launching it manually after every capture.',
+  },
   'android-1-0': {
     uk: "На HTC Dream шторку можна було потягнути вниз і перейти з повідомлення прямо до листа. Для відповіді екран зсували вбік і набирали текст на фізичній клавіатурі.",
     en: "On the HTC Dream you could pull down the shade and open an email directly from its notification. To reply, you slid the display sideways and typed on the physical keyboard.",

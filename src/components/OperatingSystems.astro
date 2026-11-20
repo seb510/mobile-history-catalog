@@ -72,7 +72,8 @@ if (platform) {
 }
 const versions = [...versionGroups.values()];
 if (platform && (platform.id === 'android' || curatedVersions(platform.id).length === 0)) {
-  versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || a.title.localeCompare(b.title, 'en', { numeric: true }));
+  const versionName = (title: string) => platform.id === 'ios' ? title.replace(/^iPhone OS /i, 'iOS ') : title;
+  versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || versionName(a.title).localeCompare(versionName(b.title), 'en', { numeric: true }));
 }
 const hasVersions = versions.some(version => version.id !== 'unspecified');
 const isTimeline = platform?.id === 'android' || platform?.id === 'symbian' || platform?.id === 'series-40' || platform?.id === 'windows-mobile';
