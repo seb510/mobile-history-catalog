@@ -1,4 +1,14 @@
 {
+  "ios-10": {
+    "image": "/images/operating-systems/ios-10.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:IOS_10_Lockscreen.PNG",
+    "license": "CC BY-SA 2.0",
+    "artist": "TheMostAmazingTechnik · фото шпалери Shalom Jacobovitz",
+    "caption": {
+      "uk": "Замкнений екран iOS 10 на iPhone 5s зі шпалерою із серфінгу на хвилях Mavericks.",
+      "en": "The iOS 10 lock screen on an iPhone 5s, with a big-wave surfing photo from Mavericks as the wallpaper."
+    }
+  },
   "ios-13": {
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Apple_News_iOS_13_Dark_Mode.png",
     "source": "https://commons.wikimedia.org/wiki/File:Apple_News_iOS_13_Dark_Mode.png",
