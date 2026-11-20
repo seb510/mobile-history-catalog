@@ -19,6 +19,46 @@
       "en": "Apple News using Dark Mode in iOS 13."
     }
   },
+  "pocket-pc-2000": {
+    "image": "/images/operating-systems/pocket-pc-2000.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:HP_Jornada_525_20080730.jpg",
+    "license": "CC BY 2.0",
+    "artist": "GillyBerlin",
+    "caption": {
+      "uk": "HP Jornada 525 (2000) — один із перших кишенькових комп’ютерів на Pocket PC 2000. Екран вимкнений, не Today-екран.",
+      "en": "The HP Jornada 525 (2000), one of the first Pocket PC 2000 handhelds. The screen is off, not showing the Today screen."
+    }
+  },
+  "pocket-pc-2002": {
+    "image": "/images/operating-systems/pocket-pc-2002.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:DELL_AXIM_PDA_(46677558785).jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Felix Winkelnkemper",
+    "caption": {
+      "uk": "Dell Axim X5 (2003) — перший кишеньковий Dell, стартував із Pocket PC 2002. Екран вимкнений.",
+      "en": "The Dell Axim X5 (2003), Dell’s first handheld, shipped with Pocket PC 2002. The screen is off."
+    }
+  },
+  "windows-mobile-2003": {
+    "image": "/images/operating-systems/windows-mobile-2003.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:HP_Ipaq_5550.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "Axel Schwenke",
+    "caption": {
+      "uk": "HP iPAQ h5550 (2003) — флагманський Pocket PC із заводською Windows Mobile 2003. Екран вимкнений.",
+      "en": "The HP iPAQ h5550 (2003), a flagship Pocket PC that shipped with Windows Mobile 2003. The screen is off."
+    }
+  },
+  "windows-mobile-6": {
+    "image": "/images/operating-systems/windows-mobile-6.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Htc_tytn_ii.jpg",
+    "license": "CC BY 2.0",
+    "artist": "edvvc",
+    "caption": {
+      "uk": "HTC TyTN II (2007) з Windows Mobile 6 Professional. Екран вимкнений.",
+      "en": "The HTC TyTN II (2007), running Windows Mobile 6 Professional. The screen is off."
+    }
+  },
   "windows-mobile-2003-se": {
     "image": "/images/operating-systems/windows-mobile-2003-se.webp",
     "source": "https://commons.wikimedia.org/wiki/File:HP_IPAQ_hx2110_in_landscape_mode,_with_stylus.jpg",
@@ -30,7 +70,7 @@
       "en": "The HP iPAQ hx2110 in landscape — Windows Mobile 2003 SE was the first to add manual screen rotation. This shows Solitaire, not the Today home screen."
     }
   },
-  "windows-mobile-5-0": {
+  "windows-mobile-5": {
     "image": "/images/operating-systems/windows-mobile-5-0.webp",
     "source": "https://commons.wikimedia.org/wiki/File:MioP550_today.jpg",
     "license": "CC BY-SA 4.0",
