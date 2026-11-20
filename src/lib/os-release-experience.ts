@@ -3,9 +3,53 @@ export const releaseExperience: Record<string, { uk: string; en: string }> = {
     uk: 'На першому iPhone сторінку в Safari можна було посунути пальцем, а подвійним дотиком збільшити потрібну колонку тексту. Акселерометр повертав сторінку разом із телефоном. Щоб повернутися до піктограм, натискали фізичну кнопку Home.',
     en: 'On the original iPhone, you could pan a webpage with a finger and double-tap a column in Safari to make it readable. Turning the handset rotated the page. Pressing the physical Home button took you back to the app icons.',
   },
+  'iphone-os-2': {
+    uk: 'Власники першого iPhone отримали це оновлення безкоштовно: з’явився App Store, і через нього можна було встановити гру чи нотатник стороннього розробника, не чекаючи, поки Apple додасть подібну функцію сама. На новому iPhone 3G той самий магазин працював одразу з коробки, разом із підтримкою корпоративної пошти Microsoft Exchange.',
+    en: 'Owners of the original iPhone received this update for free: the App Store appeared, letting them install a third-party game or notepad instead of waiting for Apple to add similar functionality itself. The new iPhone 3G shipped with the same store built in, alongside Microsoft Exchange support for corporate email.',
+  },
+  'iphone-os-3': {
+    uk: 'Відтепер текст можна було виділити двома пальцями й скопіювати в іншу програму — наприклад, перенести адресу з SMS у лист. Це отримав навіть перший iPhone через оновлення. Власники нового iPhone 3GS додатково могли записувати відео штатною камерою та керувати плеєром голосовими командами.',
+    en: 'Text could now be selected with two fingers and copied into another app — for example, carrying an address from an SMS into an email. Even the original iPhone gained this through the update. Owners of the new iPhone 3GS could additionally record video with the stock camera and control the music player with voice commands.',
+  },
+  'ios-4': {
+    uk: 'Подвійне натискання Home відкривало внизу екрана смугу нещодавніх програм — можна було перемкнутися на музичний плеєр, не закриваючи поточний застосунок повністю. Перетягнувши один значок на інший, із них складали папку. На новому iPhone 4 ці оновлення доповнив FaceTime: відеодзвінок через фронтальну камеру по Wi-Fi.',
+    en: 'A double press of the Home button opened a tray of recent apps at the bottom of the screen, letting you switch to the music player without fully closing the app you were in. Dragging one icon onto another combined them into a folder. On the new iPhone 4 these updates were joined by FaceTime: a video call placed over Wi-Fi using the front camera.',
+  },
+  'ios-5': {
+    uk: 'Проведення пальцем від верхнього краю вперше відкривало Центр сповіщень зі списком пропущених подій за весь день. Повідомлення між власниками iPhone через iMessage більше не витрачали SMS-ліміт оператора. На новому iPhone 4S додатково працював голосовий Siri, а налаштувати телефон можна було одразу з коробки, без підключення до комп’ютера з iTunes.',
+    en: 'Swiping down from the top edge opened Notification Center for the first time, listing everything missed during the day in one place. Messages between iPhone owners sent over iMessage no longer used up a carrier’s SMS allowance. The new iPhone 4S additionally ran the Siri voice assistant, and a phone could be set up straight out of the box without first connecting it to a computer running iTunes.',
+  },
+  'ios-6': {
+    uk: 'На новому iPhone 5 замість вбудованого раніше Google Maps з’явився власний застосунок Apple Maps із покроковою голосовою навігацією. Passbook зберігав посадочні талони й купони на одному екрані, тож їх не доводилося шукати серед листів. Режим «Не турбувати» вимикав звук дзвінків і сповіщень на ніч, залишаючи дозволеними виклики від обраних контактів.',
+    en: 'On the new iPhone 5, Apple’s own Maps app, with spoken turn-by-turn directions, replaced the previously built-in Google Maps. Passbook kept boarding passes and coupons on one screen instead of having to dig through email for them. Do Not Disturb silenced calls and notifications overnight while still letting calls from chosen contacts through.',
+  },
+  'ios-7': {
+    uk: 'Проведення пальцем знизу вгору відкривало новий Центр керування: яскравість, Wi-Fi і, наприклад, фонарик для миттєвого увімкнення — без пошуку відповідної програми в меню. AirDrop дозволяв передати фото сусідньому iPhone без листа чи Bluetooth-парування. На новому iPhone 5s той самий екран розблоковували відбитком пальця через Touch ID.',
+    en: 'Swiping up from the bottom opened the new Control Center, with brightness, Wi-Fi and a flashlight toggle available instantly instead of hunting for an app. AirDrop let you send a photo to a nearby iPhone without email or Bluetooth pairing. On the new iPhone 5s, the same lock screen could be unlocked with a fingerprint through Touch ID.',
+  },
+  'ios-8': {
+    uk: 'У вкладці «Сьогодні» центру сповіщень на новому iPhone 6 можна було додати віджет погоди чи календаря й бачити дані одним дотиком зверху, не відкриваючи саму програму. Сторонні розробники вперше могли запропонувати власну екранну клавіатуру замість штатної. Почате на iPhone повідомлення можна було через Handoff одразу продовжити на Mac чи iPad із тим самим Apple ID.',
+    en: 'On the new iPhone 6, the Today tab in Notification Center could hold a weather or calendar widget, so a swipe down showed the information without opening the app itself. Third-party developers could offer a replacement for the stock on-screen keyboard for the first time. An email started on an iPhone could be picked up immediately on a Mac or iPad signed into the same Apple ID, thanks to Handoff.',
+  },
+  'ios-9': {
+    uk: 'На новому iPhone 6s сильніший дотик до значка листа відкривав стислий перегляд без переходу в саму програму — технологія 3D Touch розрізняла звичайний дотик і натискання з силою. На iPad того ж року поруч можна було тримати відкритими дві програми в режимі Split View, а не перемикатися між ними по одній.',
+    en: 'On the new iPhone 6s, pressing harder on a mail icon opened a compact preview without fully opening the app — 3D Touch distinguished a light tap from a firmer press. On the iPad that year, Split View let two apps stay open side by side instead of switching between them one at a time.',
+  },
+  'ios-10': {
+    uk: 'Піднявши iPhone 6s, можна було побачити сповіщення на екрані без натискання кнопки. У «Повідомленнях» для одного SMS можна було вибрати ефект на весь екран, наприклад салют до дня народження, а не лише звичайний текст. Siri вперше відкрили для сторонніх програм: голосом можна було замовити поїздку в таксі-застосунку, якщо розробник додав таку підтримку.',
+    en: 'Raising an iPhone 6s woke the screen enough to show notifications without pressing a button. In Messages, a single text could trigger a full-screen effect, such as fireworks for a birthday, instead of appearing as plain text. Siri opened up to third-party apps for the first time, so a ride could be requested by voice from a taxi app if its developer had added that support.',
+  },
   'ios-11': {
     uk: 'На iPhone X короткий рух угору від нижнього краю повертав на головний екран. Якщо затримати палець посеред руху, відкривалися картки останніх програм. На старших моделях із тією самою iOS 11 для цих двох дій використовували одне або два натискання Home.',
     en: 'On iPhone X, swiping up from the bottom returned you to the Home Screen. Pausing partway through the swipe brought up recent apps. Earlier iPhones running the same iOS 11 used a single or double press of the Home button for those actions.',
+  },
+  'ios-12': {
+    uk: 'На оновленому до iOS 12 iPhone X фронтальна TrueDepth-камера дозволяла створити власного анімованого Memoji й надіслати його в повідомленні. Screen Time щотижня показував, скільки часу пішло на кожну програму, а не лише загальний підсумок. Застосунок «Рулетка» вимірював предмети камерою, додаючи віртуальну лінійку до зображення.',
+    en: 'On an iPhone X updated to iOS 12, the front TrueDepth camera let you create a personalised animated Memoji and send it in a message. Screen Time showed a weekly breakdown of time spent in each app, not just a single overall total. The Measure app used the camera to size up objects by overlaying a virtual ruler on the live image.',
+  },
+  'ios-13': {
+    uk: 'На iPhone X, оновленому до iOS 13, системна темна тема змінювала вигляд одразу в усіх підтримуваних програмах: наприклад, стрічка Apple News показувала текст на темному тлі замість білого. Увійти в застосунок стороннього розробника можна було через Sign in with Apple, без створення й пам’ятання нового пароля. Текст на екранній клавіатурі тепер набирали й одним безперервним проведенням пальця від літери до літери.',
+    en: 'On an iPhone X updated to iOS 13, the system-wide Dark Mode changed the look of every supporting app at once — the Apple News feed, for instance, showed its articles on a dark background instead of white. Signing into a third-party app could be done with Sign in with Apple, without creating and remembering a new password. The on-screen keyboard could also be typed by tracing one continuous finger swipe from letter to letter.',
   },
   'ios-14': {
     uk: 'На iPhone 12 можна було поставити віджет погоди поруч із календарем і бачити прогноз ще до відкриття програми. Рідко вживані ігри можна було прибрати з головного екрана: вони залишалися встановленими й відкривалися з Бібліотеки програм.',
@@ -14,6 +58,18 @@ export const releaseExperience: Record<string, { uk: string; en: string }> = {
   'ios-15': {
     uk: 'Режим зосередження дозволяв пропускати під час роботи дзвінки від родини, а решту сповіщень приглушувати. Для вечора можна було встановити інші правила. На iPhone 13 Pro та iPhone SE 2022 це працювало однаково, попри різні розміри екранів і способи розблокування.',
     en: 'A work Focus could let family calls through while silencing other notifications. A separate evening Focus could allow a different set of people and apps. The same rules worked on iPhone 13 Pro and the 2022 iPhone SE despite their different displays and unlocking methods.',
+  },
+  'ios-16': {
+    uk: 'На iPhone 13 Pro, оновленому до iOS 16, екран блокування можна було налаштувати по-своєму: додати віджет погоди чи годинник іншим шрифтом і кольором. У «Повідомленнях» надіслане повідомлення ще можна було редагувати або відкликати протягом кількох хвилин, якщо в ньому була помилка. Відсоток заряду батареї повернувся до значка акумулятора у верхньому куті.',
+    en: 'On an iPhone 13 Pro updated to iOS 16, the Lock Screen could be customised — adding a weather widget, or a clock in a different font and colour. In Messages, a sent message could still be edited or unsent for a few minutes if it contained a mistake. The battery percentage returned to the battery icon in the corner.',
+  },
+  'ios-17': {
+    uk: 'Поклавши оновлений до iOS 17 iPhone 12 набік на зарядку, екран перетворювався на велике табло з часом і погодою — режим StandBy. Піднісши свій iPhone до чужого, можна було одним дотиком поділитися номером через NameDrop, без пошуку контакту в списку. У застосунку «Телефон» під час дзвінка тепер показувалося фото контакту на весь екран, а не лише ім’я рядком.',
+    en: 'Laid on its side while charging, an iPhone 12 updated to iOS 17 turned its screen into a bedside display with the time and weather — StandBy mode. Holding your iPhone close to someone else’s let you share a number with a tap via NameDrop, without hunting for them in your contacts. The Phone app could also show a contact’s photo full-screen during a call instead of just their name as a line of text.',
+  },
+  'ios-18': {
+    uk: 'На iPhone SE (2022), оновленому до iOS 18, значки на головному екрані вперше можна було розставити довільно, не заповнюючи рядки по порядку, і застосувати до них темний або кольоровий відтінок. Центр керування розбили на кілька сторінок, і кожну кнопку можна було перемістити на власний розсуд. Повідомлення від власників Android через RCS тепер показували статус прочитання й якісніші фото, а не падали назад до звичайного SMS.',
+    en: 'On an iPhone SE (2022) updated to iOS 18, Home Screen icons could for the first time be placed anywhere rather than filling rows in order, and given a dark or tinted appearance. Control Center was split across several pages, and each control could be rearranged to taste. Messages from Android users sent over RCS now showed read receipts and higher-quality photos instead of falling back to plain SMS.',
   },
   'ios-26': {
     uk: 'У груповій розмові iMessage можна було створити опитування, наприклад запропонувати кілька дат зустрічі. Учасники голосували в самій розмові й бачили результат разом, тож організатору вже не доводилося перечитувати відповіді та рахувати голоси вручну.',

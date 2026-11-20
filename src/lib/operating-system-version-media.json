@@ -1,4 +1,14 @@
 {
+  "ios-13": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Apple_News_iOS_13_Dark_Mode.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Apple_News_iOS_13_Dark_Mode.png",
+    "license": "Public domain",
+    "artist": "Apple Inc.",
+    "caption": {
+      "uk": "Apple News у темному оформленні iOS 13.",
+      "en": "Apple News using Dark Mode in iOS 13."
+    }
+  },
   "windows-mobile-2003-se": {
     "image": "/images/operating-systems/windows-mobile-2003-se.webp",
     "source": "https://commons.wikimedia.org/wiki/File:HP_IPAQ_hx2110_in_landscape_mode,_with_stylus.jpg",

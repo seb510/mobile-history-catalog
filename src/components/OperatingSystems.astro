@@ -76,7 +76,7 @@ if (platform && (platform.id === 'android' || curatedVersions(platform.id).lengt
   versions.sort((a, b) => Number(a.id === 'unspecified') - Number(b.id === 'unspecified') || versionName(a.title).localeCompare(versionName(b.title), 'en', { numeric: true }));
 }
 const hasVersions = versions.some(version => version.id !== 'unspecified');
-const isTimeline = platform?.id === 'android' || platform?.id === 'symbian' || platform?.id === 'series-40' || platform?.id === 'windows-mobile';
+const isTimeline = platform?.id === 'ios' || platform?.id === 'android' || platform?.id === 'symbian' || platform?.id === 'series-40' || platform?.id === 'windows-mobile';
 const mediaLicenseUrls: Record<string, string> = {
   'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
   'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/',
@@ -205,7 +205,7 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
                       {' · '}
                       {mediaLicenseUrls[picture.license] ? <a class="underline underline-offset-2" href={mediaLicenseUrls[picture.license]} target="_blank" rel="noopener noreferrer">{picture.license}</a> : picture.license}
                     </>}
-                    {' · WebP'}
+                    {picture.image.endsWith('.webp') && ' · WebP'}
                   </figcaption>
                 </figure>}
               </div>

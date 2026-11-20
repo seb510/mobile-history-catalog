@@ -78,6 +78,15 @@ const androidReleases = [
   ...(released ? { released } : {}),
 }));
 
+// Apple renamed iPhone OS for release 4 and switched to year-based names after 18.
+// The user-facing explanation of the 18 -> 26 jump lives in VERSION_DETAILS['ios-26']
+// (operating-system-version-details.ts), not here, to avoid duplicating that text.
+const iosReleases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 26, 27].map(number => ({
+  id: (number < 4 ? 'iphone-os-' : 'ios-') + number,
+  title: (number < 4 ? 'iPhone OS ' : 'iOS ') + number,
+  released: String(number <= 18 ? 2006 + number : 1999 + number),
+}));
+
 const series40 = [
   { id: '1st-edition', title: 'Series 40 1st Edition', released:'2004' },
   { id: '2nd-edition', title: 'Series 40 2nd Edition', released:'2005' },
@@ -121,6 +130,7 @@ export function formatReleased(released: string, locale: Locale): string {
 }
 
 export function curatedVersions(platform: string): readonly Omit<Version, 'match'>[] {
+  if (platform === 'ios') return iosReleases;
   if (platform === 'symbian') return symbian;
   if (platform === 'windows-mobile') return windowsMobile;
   if (platform === 'windows-phone') return windowsPhone;
