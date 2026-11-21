@@ -2,16 +2,21 @@
 import Arrow from './Arrow.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { evolutionCopy, type EvolutionFrame } from '../lib/evolution';
+import { evolutionYears } from '../lib/evolution-years';
 import { museumImageCredit } from '../lib/image-attribution';
 import { localePath, type Locale } from '../lib/locales';
-import { t } from '../lib/ui-strings';
+import { GALLERY_INTERACTION, t } from '../lib/ui-strings';
 
 interface Props { locale: Locale; stops: EvolutionFrame[]; brand?: string }
 const { locale, stops, brand } = Astro.props;
 const copy = evolutionCopy[locale];
+const spreadCopy = locale === 'uk'
+  ? { style: 'Стиль перегляду', classic: 'Класичний', spread: 'Розворот', details: 'Докладніше про', compare: 'Порівняти з', camera: 'Передня камера праворуч від динаміка.', headline: 'Телефон уже можна тримати екраном до себе' }
+  : { style: 'View style', classic: 'Classic', spread: 'Spread', details: 'Explore', compare: 'Compare with', camera: 'The front camera sits to the right of the earpiece.', headline: 'You could face the screen during a call' };
 const id = brand ? 'brand-evolution' : 'phone-evolution';
 const titleId = `${id}-title`;
 const close = t(locale).gallery.close;
+const zoom = GALLERY_INTERACTION[locale];
 const firstFrameByYear = new Map<number, number>();
 stops.forEach(({ phone }, index) => {
   if (!firstFrameByYear.has(phone.year)) firstFrameByYear.set(phone.year, index);
@@ -28,12 +33,22 @@ const galleryShots: Record<string, string> = {
 ---
 
 <dialog id={id} class="evolution-dialog" data-evolution-dialog aria-labelledby={titleId}>
-  <section class="evolution" data-evolution>
+  <section class="evolution" data-evolution data-view-style="spread">
     <div class="scene" data-evolution-scene>
       <header class="scene-heading">
         <div>
           <h2 id={titleId}>{brand ? `${copy.brandTitle} · ${brand}` : copy.title}</h2>
           {stops.length > 1 && <p>{brand ? copy.brandIntro : copy.intro}</p>}
+        </div>
+        <div class="style-switch" role="group" aria-label={spreadCopy.style}>
+          <button type="button" data-view="classic" aria-label={spreadCopy.classic} aria-pressed="false">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M3 15h18M6 17.5h3m2 0h3"/></svg>
+            <span class="view-tip" aria-hidden="true">{spreadCopy.classic}</span>
+          </button>
+          <button type="button" data-view="spread" aria-label={spreadCopy.spread} aria-pressed="true">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5Q7 2 2 4v15q5-2 10 1 5-3 10-1V4q-5-2-10 1Zm0 0v15m3-11h4m-4 4h4"/></svg>
+            <span class="view-tip" aria-hidden="true">{spreadCopy.spread}</span>
+          </button>
         </div>
         <button class="close-scene" type="button" data-close-evolution aria-label={close} title={close} autofocus>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg>
@@ -46,28 +61,54 @@ const galleryShots: Record<string, string> = {
           const shot = phone.evolutionImage ?? phone.gallery?.find(frame => frame.image === galleryShots[slug]);
           const image = shot?.image ?? phone.image;
           const imageAlt = shot?.alt ?? phone.imageCaption ?? name;
+          const caption = slug === 'samsung-galaxy-s' ? spreadCopy.camera : shot?.alt ?? phone.imageCaption;
+          const prior = stops[index - 1]?.phone;
+          const context = evolutionYears[phone.year];
+          const contextText = context?.[locale];
+          const external = context?.source.startsWith('https://');
+          const priorName = prior && (prior.model.startsWith(prior.brand + ' ') ? prior.model : `${prior.brand} ${prior.model}`);
           const source = shot ? null : museumImageCredit(phone, locale);
           const credit = shot?.imageCredit ?? source?.label ?? phone.imageCredit;
           const creditUrl = shot
             ? shot.imageSourceUrl
             : source?.href ?? phone.imageSourceUrl;
+          const extraPhotos = (phone.gallery ?? []).filter(photo => photo.image !== image && photo.image.startsWith('/images/'));
           return (
             <article class="frame" data-evolution-frame data-evolution-year={phone.year} data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>
               <figure class="artwork">
+                <div class="photo-surface" data-photo-year={phone.year}>
                 {image && <img data-evolution-src={image} alt={imageAlt} class="hidden" decoding="async" />}
                 <div data-image-fallback-placeholder><PlaceholderArt /></div>
+                {image && <button type="button" class="photo-inspect" data-inspect aria-pressed="false" aria-label={zoom.zoomIn} data-zoom-in={zoom.zoomIn} data-zoom-out={zoom.zoomOut}>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6M7 10h6"/><path class="zoom-plus" d="M10 7v6"/></svg>
+                </button>}
+                {image && extraPhotos.length > 0 && <button type="button" class="photo-cycle" data-photo-cycle data-photos={JSON.stringify(extraPhotos)} aria-label={locale === 'uk' ? 'Наступне фото телефона' : 'Next phone photo'}>
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="7" y="7" width="14" height="13" rx="2"/><path d="M3 16V5a2 2 0 0 1 2-2h12M9 17l4-4 3 3 2-2 3 3"/></svg>
+                  <span>{locale === 'uk' ? 'Ще фото' : 'More photos'}</span>
+                  <span data-photo-position>1/{extraPhotos.length + 1}</span>
+                </button>}
+                </div>
+                {image && (caption || credit || extraPhotos.length > 0) && <figcaption class="spread-only" aria-live="polite">
+                  {caption && <span>{caption}</span>}
+                  {credit && <span class="credit">{creditUrl ? <a href={creditUrl} target="_blank" rel="noopener noreferrer">{credit}</a> : credit}</span>}
+                </figcaption>}
               </figure>
               <div class="story">
                 <p class="year">{phone.year}</p>
                 <h3>{name}</h3>
-                {label && <p class="milestone">{label}</p>}
+                {label && <p class="milestone">{slug === 'samsung-galaxy-s' ? <><span class="classic-only">{label}</span><span class="spread-only">{spreadCopy.headline}</span></> : label}</p>}
                 {description && <p class="description">{description}</p>}
+                {context && contextText && <aside class="tech-context">
+                  <p class="tech-date">{locale === 'uk' ? 'Технології року' : 'Technology of the year'} · {phone.year}</p>
+                  <h4><a href={external ? context.source : localePath(locale, context.source)} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>{contextText[0]} <span aria-hidden="true">↗</span></a></h4>
+                  <p>{contextText[1]}</p>
+                </aside>}
                 <div class="scene-links"><a class="details" href={localePath(locale, `/phones/${slug}/`)}>
-                  {copy.details}<span aria-hidden="true">→</span>
+                  <span class="classic-only">{copy.details}</span><span class="spread-only">{spreadCopy.details} {phone.model}</span><span aria-hidden="true">→</span>
                 </a>
-                  {index > 0 && <a class="details" href={`${localePath(locale, '/compare/')}?${new URLSearchParams({ a: stops[index - 1].slug, b: slug })}`}>{ { uk: 'Порівняти з попереднім', ru: 'Сравнить с предыдущим', en: 'Compare with previous' }[locale] }</a>}
+                  {index > 0 && <a class="details" href={`${localePath(locale, '/compare/')}?${new URLSearchParams({ a: stops[index - 1].slug, b: slug })}`}><span class="classic-only">{ { uk: 'Порівняти з попереднім', ru: 'Сравнить с предыдущим', en: 'Compare with previous' }[locale] }</span><span class="spread-only">{spreadCopy.compare} {priorName}</span></a>}
                 </div>
-                {credit && <p class="credit">
+                {credit && <p class="classic-only credit">
                   {creditUrl ? <a href={creditUrl} target="_blank" rel="noopener noreferrer">{credit}</a> : credit}
                 </p>}
               </div>
@@ -81,7 +122,7 @@ const galleryShots: Record<string, string> = {
         <div class="year-rail" data-evolution-rail>
           <nav class="years" data-evolution-years aria-label={copy.timeline}>
             {[...firstFrameByYear].map(([year, index]) => (
-              <button type="button" data-evolution-step={index} data-evolution-year={year}>{year}</button>
+              <button type="button" data-evolution-step={index} data-evolution-year={year} class:list={[year % 10 === 0 && 'decade']}>{year}</button>
             ))}
           </nav>
         </div>
@@ -101,6 +142,113 @@ const galleryShots: Record<string, string> = {
     if (!trigger || !timeline) continue;
     let refresh: (() => void) | undefined;
     let pageScroll = 0;
+    const allowParallax = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+    const resetInspection = () => {
+      const button = timeline.querySelector<HTMLButtonElement>('[data-inspect][aria-pressed="true"]');
+      if (!button) return;
+      button.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-label', button.dataset.zoomIn!);
+    };
+    for (const button of timeline.querySelectorAll<HTMLButtonElement>('[data-inspect]')) {
+      const surface = button.parentElement!;
+      const aim = (x: number, y: number) => {
+        const bounds = surface.getBoundingClientRect();
+        surface.style.setProperty('--inspect-at', `${100 * (x - bounds.left) / bounds.width}% ${100 * (y - bounds.top) / bounds.height}%`);
+      };
+      button.addEventListener('click', event => {
+        const open = button.getAttribute('aria-pressed') === 'false';
+        resetInspection();
+        if (!open) return;
+        if (event.detail) aim(event.clientX, event.clientY);
+        else surface.style.setProperty('--inspect-at', 'center');
+        button.setAttribute('aria-pressed', 'true');
+        button.setAttribute('aria-label', button.dataset.zoomOut!);
+      });
+      button.addEventListener('pointermove', event => {
+        if (event.pointerType !== 'mouse') return;
+        if (button.getAttribute('aria-pressed') === 'true') {
+          aim(event.clientX, event.clientY);
+        } else if (allowParallax.matches) {
+          const bounds = surface.getBoundingClientRect();
+          surface.style.setProperty('--depth-x', `${(event.clientX - bounds.left) / bounds.width * 10 - 5}px`);
+          surface.style.setProperty('--depth-y', `${(event.clientY - bounds.top) / bounds.height * 8 - 4}px`);
+        }
+      });
+      button.addEventListener('pointerleave', () => {
+        surface.style.removeProperty('--depth-x');
+        surface.style.removeProperty('--depth-y');
+      });
+    }
+    timeline.addEventListener('evolution-frame-change', resetInspection);
+    for (const button of timeline.querySelectorAll<HTMLButtonElement>('[data-photo-cycle]')) {
+      const figure = button.closest('figure')!;
+      const photo = figure.querySelector<HTMLImageElement>('img')!;
+      const caption = figure.querySelector('figcaption')!;
+      const originalCaption = [...caption.childNodes];
+      const originalAlt = photo.alt;
+      const originalSrc = photo.dataset.evolutionSrc!;
+      const extra: { image: string; alt: string; caption?: string; imageCredit: string; imageSourceUrl?: string }[] = JSON.parse(button.dataset.photos!);
+      let position = 0;
+      let revision = 0;
+      const fadePhoto = () => {
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          photo.animate([{ opacity: .1 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+        }
+      };
+      const restore = () => {
+        revision++;
+        if (!position) return;
+        position = 0;
+        photo.src = originalSrc;
+        photo.alt = originalAlt;
+        caption.replaceChildren(...originalCaption);
+        button.querySelector('[data-photo-position]')!.textContent = `1/${extra.length + 1}`;
+      };
+      button.addEventListener('click', async () => {
+        resetInspection();
+        const next = (position + 1) % (extra.length + 1);
+        if (!next) { restore(); fadePhoto(); return; }
+        const item = extra[next - 1];
+        const request = ++revision;
+        const preload = new Image();
+        preload.src = item.image;
+        try { await preload.decode(); } catch { return; }
+        if (revision !== request) return;
+        position = next;
+        photo.src = item.image;
+        fadePhoto();
+        photo.alt = item.alt;
+        photo.classList.remove('hidden');
+        figure.querySelector('[data-image-fallback-placeholder]')?.classList.add('hidden');
+        const text = document.createElement('span');
+        text.textContent = item.caption ?? item.alt;
+        const credit = document.createElement('span');
+        credit.className = 'credit';
+        if (item.imageSourceUrl) {
+          const link = document.createElement('a');
+          link.href = item.imageSourceUrl;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = item.imageCredit;
+          credit.append(link);
+        } else credit.textContent = item.imageCredit;
+        caption.replaceChildren(text, credit);
+        button.querySelector('[data-photo-position]')!.textContent = `${next + 1}/${extra.length + 1}`;
+      });
+      timeline.addEventListener('evolution-frame-change', restore);
+      dialog.querySelector('[data-view="classic"]')?.addEventListener('click', restore);
+      dialog.addEventListener('close', restore);
+    }
+    dialog.addEventListener('close', resetInspection);
+    const viewButtons = [...dialog.querySelectorAll<HTMLButtonElement>('[data-view]')];
+    for (const button of viewButtons) {
+      button.addEventListener('click', () => {
+        resetInspection();
+        timeline.dataset.viewStyle = button.dataset.view;
+        for (const option of viewButtons) option.setAttribute('aria-pressed', String(option === button));
+        refresh?.();
+      });
+    }
     trigger.hidden = false;
     trigger.addEventListener('click', () => {
       if (dialog.open) return;
@@ -366,5 +514,119 @@ const galleryShots: Record<string, string> = {
   @media (min-width: 40rem) and (max-height: 42rem) {
     .year { font-size: clamp(2.5rem, 10vh, 4.5rem); }
     .story :is(h2, h3) { font-size: clamp(1.1rem, 4.5vh, 2rem); }
+  }
+</style>
+
+<style>
+  .tech-context { display: none; }
+  .evolution[data-view-style="spread"] {
+    --scene-bg: #0d2028;
+    --scene-text: #f6f9f3;
+    --scene-muted: #c4d6d3;
+    --scene-accent: #95efd4;
+  }
+  [data-view-style="spread"] .scene {
+    width: min(100%, 92rem);
+    background: linear-gradient(118deg,#102b31,#0a1b25 63%,#17303b);
+  }
+  [data-view-style="spread"] .tech-context {
+    display: grid; gap: .25rem; padding: .8rem 1rem;
+    border-inline-start: 3px solid var(--scene-accent);
+    background: #1e3940; color: var(--scene-text);
+    font-size: clamp(.83rem,1.2vw,.96rem); line-height: 1.42;
+  }
+  .tech-context h4 { font-weight: 700; font-size: 1.15em; }
+  .tech-context h4 a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: #759892; }
+  .tech-context .tech-date { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--scene-accent); }
+  [data-view-style="spread"] .frame .photo-surface {
+    overflow: hidden; border-radius: 1.25rem;
+    background: radial-gradient(ellipse at 55% 33%,#f3f4e7,#c3d8d0 62%,#8eada8);
+  }
+  [data-view-style="spread"] .photo-surface::after {
+    content: attr(data-photo-year); position: absolute; inset: auto auto .7rem .7rem; pointer-events: none;
+    background: #0d2028; color: #b8fae7; padding: .22em .55em;
+    font: 700 clamp(1rem,2.3vw,2rem)/1.12 ui-monospace,monospace; border-radius: .3em;
+  }
+  [data-view-style="spread"] .story .year { display: none; }
+  [data-view-style="spread"] .frame .story { gap: .65rem; }
+  [data-view-style="spread"] .story .description { max-inline-size: 52ch; }
+  @media (min-width: 40rem) {
+    [data-view-style="spread"] .frames .frame { grid-template-areas: 'artwork story'; grid-template-columns: minmax(0,1.2fr) minmax(0,.95fr); gap: clamp(1rem,4vw,4rem); }
+    [data-view-style="spread"] .frame .story { align-self: center; padding: 0; min-block-size: 0; }
+    [data-view-style="spread"] .frame .story h3 { font-size: clamp(2rem,4.5vw,4.8rem); letter-spacing: -.045em; }
+  }
+  @media (max-width: 39.99rem) {
+    [data-view-style="spread"][data-scroll] .frames { touch-action: auto; }
+    [data-view-style="spread"][data-scroll] .frame { grid-template-rows: minmax(6rem,.95fr) minmax(0,1.15fr); }
+    [data-view-style="spread"][data-scroll] .frame .story { min-block-size: 0; align-self: stretch; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; }
+  }
+  @media (min-width: 40rem) and (max-height: 43rem) {
+    [data-view-style="spread"][data-scroll] .frame .story { max-block-size: 100%; overflow-y: auto; }
+  }
+  [data-scroll] .frame[data-active] .story { opacity: 1; }
+</style>
+
+<style>
+  .style-switch { margin-inline-start: auto; display: flex; border: 1px solid var(--scene-rule); }
+  .style-switch button { position: relative; display: grid; place-items: center; width: 2.75rem; min-height: 2.75rem; color: var(--scene-muted); }
+  .view-tip { position: absolute; z-index: 4; top: calc(100% + .4rem); left: 50%; transform: translateX(-50%); padding: .3rem .65rem; background: var(--scene-text); color: var(--scene-bg); font-size: .8rem; white-space: nowrap; visibility: hidden; pointer-events: none; }
+  .style-switch button:focus-visible .view-tip { visibility: visible; }
+  @media (hover: hover) and (pointer: fine) { .style-switch button:hover .view-tip { visibility: visible; } }
+  .style-switch button[aria-pressed="true"] { background: var(--scene-text); color: var(--scene-bg); }
+  .photo-surface { display: contents; }
+  .photo-inspect { display: none; }
+  .photo-cycle { display: none; }
+  [data-view-style="spread"] .photo-cycle {
+    position: absolute; inset: .7rem .7rem auto auto; display: flex; align-items: center; gap: .45rem;
+    min-height: 2.75rem; padding: .4rem .75rem; border-radius: 2rem;
+    background: #102b31; color: white; font-size: .8rem; font-weight: 650;
+  }
+  .photo-cycle [data-photo-position] { color: #a5ecd9; font-variant-numeric: tabular-nums; }
+  figcaption :global(.credit) { font-size: .7rem; color: var(--scene-muted); }
+  figcaption :global(.credit a) { text-decoration: underline; }
+  [data-view-style="spread"] .photo-surface:has(img:not(.hidden)) .photo-inspect {
+    display: block; position: absolute; inset: 0; width: 100%; height: 100%; cursor: zoom-in;
+  }
+  .photo-inspect svg { position: absolute; right: .8rem; bottom: .8rem; box-sizing: content-box; padding: .6rem; border-radius: 50%; background: #102b31; color: #fff; }
+  [data-view-style="spread"] .photo-surface:has(img:not(.hidden)) .photo-inspect[aria-pressed="true"] { cursor: zoom-out; }
+  .photo-inspect[aria-pressed="true"] .zoom-plus { display: none; }
+  .scene .photo-inspect:focus-visible { outline-offset: -4px; outline-color: #14766c; }
+  .photo-surface img { transform-origin: var(--inspect-at, center); }
+  .photo-surface:has(.photo-inspect[aria-pressed="true"]) img { transform: scale(2); }
+  @media (prefers-reduced-motion: no-preference) {
+    .photo-surface img { transition: transform .22s ease-out; }
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    [data-view-style="spread"] .photo-surface:has(.photo-inspect[aria-pressed="false"]) img {
+      translate: var(--depth-x, 0px) var(--depth-y, 0px);
+      transition: translate .18s ease-out, transform .22s ease-out;
+    }
+  }
+  [data-view-style="spread"] .frame .photo-surface {
+    background: radial-gradient(circle at center, #86958d55 .7px, transparent 1px) 0 0 / 6px 6px, linear-gradient(145deg,#f9f4e7,#c8d3c9);
+    box-shadow: inset 0 0 0 1px #ffffff55;
+  }
+  .spread-only, [data-view-style="spread"] .classic-only { display: none; }
+  [data-view-style="spread"] .spread-only { display: inline; }
+  [data-view-style="spread"] .artwork { grid-template-rows: minmax(0, 1fr) 3.1rem; place-items: stretch; background: transparent; border: 0; border-radius: 0; }
+  [data-view-style="spread"] .photo-surface { position: relative; display: block; min-height: 0; background: #c5cbd1; }
+  [data-view-style="spread"] .photo-surface :is(img, [data-image-fallback-placeholder]) { inset: 1.5%; width: 97%; height: 97%; }
+  [data-view-style="spread"] figcaption.spread-only { display: grid; align-content: start; overflow-y: auto; gap: .12rem; padding-top: .4rem; color: var(--scene-muted); font-size: .8rem; }
+  [data-view-style="spread"] .year { font-size: 1.35rem; letter-spacing: .06em; }
+  [data-view-style="spread"] .story h3 { font-size: clamp(1.6rem, 4.2vw, 3.6rem); line-height: 1; }
+  [data-view-style="spread"] .scene-links { align-items: center; gap: .25rem .85rem; }
+  [data-view-style="spread"] .details:first-child { background: var(--scene-accent); color: var(--scene-bg); text-decoration: none; padding: .35rem .7rem; font-weight: 650; }
+  .controls .years { gap: 0; }
+  .controls .years button { position: relative; padding: .9rem .5rem .2rem; border-radius: 0; border: 0; background: linear-gradient(var(--scene-rule),var(--scene-rule)) 0 .48rem / 100% 1px no-repeat; }
+  .controls .years button::before { content: ''; position: absolute; left: 50%; top: .29rem; width: 1px; height: .42rem; background: var(--scene-muted); }
+  .controls .years .decade::before { top: .12rem; height: .78rem; width: 2px; }
+  .controls .years button[aria-current="step"] { color: var(--scene-accent); font-weight: 800; background-color: color-mix(in srgb,var(--scene-accent) 13%, transparent); }
+  .controls .years button[aria-current="step"]::before { top: .23rem; width: .55rem; height: .55rem; border-radius: 50%; transform: translateX(-50%); background: var(--scene-accent); }
+  @media (min-width: 40rem) and (min-height: 42rem) {
+    [data-view-style="spread"] .story { align-self: start; padding-top: min(10vh, 6rem); gap: .8rem; }
+  }
+  @media (max-width: 39.99rem) {
+    .scene-heading { flex-wrap: wrap; }
+    .scene-heading > div:first-child { flex: 1 1 8rem; }
   }
 </style>

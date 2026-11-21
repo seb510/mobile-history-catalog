@@ -43,7 +43,8 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
     const item = button.getBoundingClientRect();
     const start = years.scrollLeft > 1 ? viewport.left + 20 : viewport.left;
     const end = years.scrollLeft + years.clientWidth < years.scrollWidth - 1 ? viewport.right - 20 : viewport.right;
-    if (item.left >= start && item.right <= end) return;
+    const centerYear = timeline.dataset.viewStyle === 'spread' && years.scrollWidth > years.clientWidth;
+    if (!centerYear && item.left >= start && item.right <= end) return;
     years.scrollBy({ left: (item.left + item.right - viewport.left - viewport.right) / 2, behavior: reduced.matches ? 'instant' : 'smooth' });
   }
 
@@ -90,9 +91,9 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
     }
 
     frames[current].style.setProperty('--frame-opacity', String(opacity));
-    frames[current].style.setProperty('--frame-caption', String(.68 + .32 * opacity));
 
     if (active === current) return;
+    timeline.dispatchEvent(new Event('evolution-frame-change'));
     loadPhoto(frames[current]);
     loadPhoto(frames[current + 1]);
     loadPhoto(frames[current - 1]);
@@ -128,6 +129,7 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
     timeline.toggleAttribute('data-scroll', !shortViewport.matches);
     controls!.hidden = shortViewport.matches || last === 0;
     updateRail();
+    revealYear(steps.find(button => button.hasAttribute('aria-current')));
     //  Measure the tallest caption at this width so each title shares the same starting point.
     timeline.style.removeProperty('--story-height');
     if (shortViewport.matches) {
@@ -158,6 +160,10 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
 
   dialog.addEventListener('wheel', (event) => {
     if (controls.hidden || event.ctrlKey || event.shiftKey) return;
+    const story = event.target instanceof Element ? event.target.closest<HTMLElement>('.story') : null;
+    if (timeline.dataset.viewStyle === 'spread' && story && story.scrollHeight > story.clientHeight + 1) {
+      if (event.deltaY < 0 ? story.scrollTop > 1 : story.scrollTop + story.clientHeight < story.scrollHeight - 1) return;
+    }
     const vertical = Math.abs(event.deltaY) > Math.abs(event.deltaX);
     if (!vertical && years?.contains(event.target as Node)) return;
     event.preventDefault();
@@ -174,6 +180,11 @@ export function initEvolution(timeline: HTMLElement, dialog: HTMLDialogElement) 
 
   dialog.addEventListener('touchstart', (event) => {
     const point = event.touches[0];
+    const story = event.target instanceof Element ? event.target.closest<HTMLElement>('.story') : null;
+    if (timeline.dataset.viewStyle === 'spread' && story && story.scrollHeight > story.clientHeight + 1) {
+      touchStart = undefined;
+      return;
+    }
     touchStart = !controls.hidden && event.touches.length === 1
       ? { id: point.identifier, x: point.clientX, y: point.clientY }
       : undefined;
