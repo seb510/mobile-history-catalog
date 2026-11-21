@@ -23,19 +23,19 @@ export const evolutionCopy = {
   uk: {
     title: 'Еволюція телефонів', intro: 'Гортай від року до року й дивись, як змінювалися телефони та наші звички.',
     previous: 'Попередня модель', next: 'Наступна модель', timeline: 'Роки випуску', details: 'Сторінка телефона',
-    brandTitle: 'Еволюція бренду', brandIntro: 'Гортай моделі з архіву від найстарішої до найновішої.', modelPicker: 'Перейти до моделі',
+    brandTitle: 'Еволюція бренду', brandIntro: 'Гортай моделі з архіву від найстарішої до найновішої.',
     about: 'Від SMS до складаних смартфонів: на головній можна переглянути по одній моделі з кожного року, представленого в архіві. На сторінці кожного бренду є своя повноекранна хронологія.',
   },
   ru: {
     title: 'Эволюция телефонов', intro: 'Листай год за годом, чтобы увидеть, как менялись телефоны и наши привычки.',
     previous: 'Предыдущая модель', next: 'Следующая модель', timeline: 'Годы выпуска', details: 'Страница телефона',
-    brandTitle: 'Эволюция бренда', brandIntro: 'Листай модели из архива от самых ранних до самых новых.', modelPicker: 'Перейти к модели',
+    brandTitle: 'Эволюция бренда', brandIntro: 'Листай модели из архива от самых ранних до самых новых.',
     about: 'От SMS до складных смартфонов: на главной можно посмотреть по одной модели за каждый год, представленный в архиве. На странице каждого бренда есть своя полноэкранная хронология.',
   },
   en: {
     title: 'The evolution of phones', intro: 'Scroll year by year to see how phones and the ways we used them changed.',
     previous: 'Previous model', next: 'Next model', timeline: 'Release years', details: 'Phone details',
-    brandTitle: 'Brand evolution', brandIntro: 'Scroll through the archive models from earliest to latest.', modelPicker: 'Jump to a model',
+    brandTitle: 'Brand evolution', brandIntro: 'Scroll through the archive models from earliest to latest.',
     about: 'From SMS to foldable smartphones, explore one model for each year represented in the archive. Each brand page has its own full-screen timeline.',
   },
 } satisfies Localized<Record<string, string>>;

@@ -13,7 +13,6 @@ interface SearchPhone {
 
 type SearchIndex = Localized<SearchPhone[]>;
 
-const INDEX_CACHE_KEY = 'mobile-history:phone-search-index:v2';
 const MIN_QUERY_LENGTH = 3;
 const DEBOUNCE_MS = 250;
 let indexPromise: Promise<SearchIndex> | undefined;
@@ -32,37 +31,17 @@ function isSearchIndex(value: unknown): value is SearchIndex {
   });
 }
 
-function readCachedIndex(): SearchIndex | null {
-  try {
-    const cached = sessionStorage.getItem(INDEX_CACHE_KEY);
-    if (!cached) return null;
-    const parsed: unknown = JSON.parse(cached);
-    if (isSearchIndex(parsed)) return parsed;
-    sessionStorage.removeItem(INDEX_CACHE_KEY);
-  } catch {
-    return null;
-  }
-  return null;
-}
-
 async function loadSearchIndex(url: string): Promise<SearchIndex> {
-  if (!indexPromise) {
-    indexPromise = (async () => {
-      const cached = readCachedIndex();
-      if (cached) return cached;
-
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Phone search index request failed: ${response.status}`);
-      const data: unknown = await response.json();
-      if (!isSearchIndex(data)) throw new Error('Phone search index has an invalid shape');
-      try {
-        sessionStorage.setItem(INDEX_CACHE_KEY, JSON.stringify(data));
-      } catch {
-        // The in-memory promise still prevents repeated requests in this page.
-      }
-      return data;
-    })();
-  }
+  indexPromise ??= (async () => {
+    const response = await fetch(url, { cache: 'no-cache' });
+    if (!response.ok) throw new Error(`Phone search index request failed: ${response.status}`);
+    const data: unknown = await response.json();
+    if (!isSearchIndex(data)) throw new Error('Phone search index has an invalid shape');
+    return data;
+  })().catch((error) => {
+    indexPromise = undefined;
+    throw error;
+  });
   return indexPromise;
 }
 

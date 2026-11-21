@@ -5,6 +5,11 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  date: "2026-11-21", phones: ["nokia-6303-classic", "nokia-n97"], changes: {
+    uk: ["Додано Nokia 6303 classic (2009) із відео 2009 року та двома зразками знімків із камери.", "На сторінках брендів моделі йдуть суцільною сіткою з мітками початку кожного року. До потрібного року можна перейти зі списку над моделями або зі стрічки внизу вікна еволюції бренду.", "Доповнено історію Nokia E90 Communicator, додано три фото й відеоогляд 2007 року."],
+    en: ["Added the Nokia 6303 classic (2009) with a video from 2009 and two camera samples.", "Brand pages use a continuous grid with a marker where each year starts. Jump to a year from the index above the models or from the strip at the bottom of the brand evolution window.", "Expanded the Nokia E90 Communicator story and added three photos and a video review from 2007."]
+  }
+}, {
   date: "2026-11-20", phones: [], changes: {
     uk: ["Архів виходить українською та англійською. Доповнили історію Siemens моделями SL45i, S55 і SK65."],
     en: ["The archive is published in Ukrainian and English. The Siemens history now features the SL45i, S55 and SK65."]

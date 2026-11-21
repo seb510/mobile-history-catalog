@@ -5,7 +5,7 @@ import BrandMark from './BrandMark.astro';
 import PhoneCard from './PhoneCard.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import { getPhonesForLocale } from '../lib/phones';
-import { t } from '../lib/ui-strings';
+import { CATALOG_POSITION, t } from '../lib/ui-strings';
 import { localePath, type Locale } from '../lib/locales';
 import { slugOf } from '../lib/phones';
 import BrandComparison from './BrandComparison.astro';
@@ -29,6 +29,8 @@ const startupSound = PHONE_STARTUP_SOUNDS[data.name];
 if (startupSound && !officialSite) throw new Error(`Startup audio requires an official brand or successor link: ${data.name}`);
 
 const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand === data.name).sort((a, b) => a.data.year - b.data.year);
+const phonesByYear = Map.groupBy(phones, (phone) => phone.data.year);
+const yearIndex = CATALOG_POSITION[locale];
 const brandEvolution: EvolutionFrame[] = phones.map((entry) => {
   const phone = entry.data;
   const slug = slugOf(entry);
@@ -158,13 +160,32 @@ const phoneCountText = (count: number) => {
           <EvolutionIcon />
         </button>
       </div>
-      <ul class:list={["brand-phone-grid mt-6 grid grid-cols-2 items-start gap-4", phones.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2", phones.length === 1 && "brand-phone-single"]}>
-        {phones.map((phone) => (
-          <li class="flex min-w-0">
-            <PhoneCard phone={phone} locale={locale} showcase={phones.length === 1} compact={phones.length > 1} />
-          </li>
-        ))}
-      </ul>
+      <div class="mt-6">
+        {phonesByYear.size > 1 && (
+          <details class="catalog-year-index">
+            <summary>
+              <span>{yearIndex.years}</span>
+              <span class="ml-auto text-xs tabular-nums text-neutral-500">{yearRange}</span>
+              <span class="year-index-toggle" aria-hidden="true"><Arrow kind="chevron" direction="down" class="year-index-chevron" size={18} /></span>
+            </summary>
+            <nav aria-label={yearIndex.jump}>
+              {[...phonesByYear.keys()].map((year) => <a href={`#year-${year}`}>{year}</a>)}
+            </nav>
+          </details>
+        )}
+        <ul class:list={["brand-phone-grid grid grid-cols-2 gap-x-4 gap-y-2", phones.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2", phones.length === 1 && "brand-phone-single"]}>
+          {[...phonesByYear].flatMap(([year, yearPhones]) => yearPhones.map((phone, index) => (
+            <li id={index === 0 ? `year-${year}` : undefined} class="brand-phone-cell min-w-0 scroll-mt-32">
+              {index === 0 && (
+                <span class="brand-year-marker">{year}</span>
+              )}
+              <div class="brand-phone-card-wrap flex min-w-0">
+                <PhoneCard phone={phone} locale={locale} showcase={phones.length === 1} compact={phones.length > 1} />
+              </div>
+            </li>
+          )))}
+        </ul>
+      </div>
       <EvolutionScene brand={data.name} locale={locale} stops={brandEvolution} />
     </section>
   )}
@@ -220,6 +241,35 @@ const phoneCountText = (count: number) => {
   @media (hover: hover) and (pointer: fine) { .brand-archive-link:hover { color: var(--color-orange-500); } }
   @media (hover: hover) and (pointer: fine) { .brand-archive-all:hover { color:var(--color-orange-400); } }
   .brand-phone-single { grid-template-columns: minmax(0,1fr); }
+  .brand-phone-cell { position: relative; display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  .brand-phone-cell[id]::before {
+    content: '';
+    position: absolute;
+    inset-block: 0 .5rem;
+    inset-inline-start: -.5625rem;
+    border-inline-start: 2px solid var(--color-orange-500);
+  }
+  .brand-year-marker {
+    display: flex;
+    align-items: center;
+    min-block-size: 2rem;
+    padding-inline: .625rem;
+    border-block-end: 2px solid var(--color-orange-500);
+    background: color-mix(in srgb, var(--color-orange-500) 15%, var(--color-neutral-900));
+    color: var(--color-neutral-100);
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  :global(html[data-design="modern"]) .brand-year-marker {
+    border-start-start-radius: var(--modern-control);
+    border-start-end-radius: var(--modern-control);
+  }
+  .brand-phone-cell:nth-child(2n + 1)::before { display: none; }
+  @media (min-width: 1024px) {
+    .brand-phone-grid.lg\:grid-cols-4 .brand-phone-cell[id]:nth-child(4n + 3)::before { display: block; }
+  }
+  .brand-phone-card-wrap { grid-row: 2; margin-block-end: .5rem; }
   @media (min-width: 1024px) { .brand-phone-single { grid-template-columns: 1fr; } .brand-phone-single :global([data-phone-card]) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); } .brand-phone-single :global(.phone-card-art) { max-height: 19rem; border-bottom: 0; border-right: 1px solid var(--color-neutral-800); } .brand-phone-single :global(.card-copy) { justify-content: center; } }
   @media (min-width:640px) {
     .brand-archive-models { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }

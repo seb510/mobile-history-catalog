@@ -8,6 +8,27 @@ export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: s
      en: 'Unboxing the Xelibri 8, Siemens’ pendant phone.',
    },
  },
+ 'nokia-n97': {
+   id: 'R3AUiVhq7BI', author: 'PhoneArena', label: 'NOKIA · N97', year: 2009,
+   description: {
+     uk: 'Огляд Nokia N97 2009 року від PhoneArena з демонстрацією підйомного екрана й QWERTY-клавіатури.',
+     en: 'PhoneArena’s 2009 review of the Nokia N97 shows its tilting display and QWERTY keyboard.',
+   },
+ },
+ 'nokia-e90': {
+   id: 'CthE-8Poey0', author: 'Mobile Gazette', label: 'NOKIA · E90 COMMUNICATOR', year: 2007,
+   description: {
+     uk: 'Огляд Nokia E90 Communicator 2007 року з порівнянням зі схожими пристроями.',
+     en: 'A 2007 review of the Nokia E90 Communicator, with comparisons to similar devices.',
+   },
+ },
+ 'nokia-6303-classic': {
+   id: '9apx4bfNJ0Q', author: 'Mobile Gazette', label: 'NOKIA · 6303 CLASSIC', year: 2009,
+   description: {
+     uk: 'Відео Mobile Gazette про Nokia 6303 classic, опубліковане в день анонсу моделі.',
+     en: 'Mobile Gazette’s look at the Nokia 6303 classic, published on the day it was announced.',
+   },
+ },
  'nokia-6700-classic': {
    id: 'uOTBwcEAnOo', author: 'TelepolisVideo', label: 'NOKIA · 6700 CLASSIC',
    description: {
@@ -329,7 +350,6 @@ export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: s
 "nokia-3650": {"id":"jCLGAr_KW20","author":"Techformative","label":"NOKIA · 3650","year":2021,"retrospective":true,"description":{"uk":"Ретроогляд Nokia 3650 від Techformative: знайомство з апаратом 2003 року та його незвичною круговою клавіатурою.","ru":"Ретрообзор Nokia 3650 от Techformative: знакомство с аппаратом 2003 года и его необычной круговой клавиатурой.","en":"Techformative revisits the 2003 Nokia 3650 with its distinctive circular keypad."}},
 "nokia-7600": {"id":"YrfuBKFqwxg","author":"G•OLD collection","label":"NOKIA · 7600","year":2025,"demonstration":true,"description":{"uk":"Короткий показ Nokia 7600 від G•OLD collection. Знайомство з незвичним корпусом моделі, а не повний технічний огляд.","ru":"Краткий показ Nokia 7600 от G•OLD collection. Знакомство с необычным корпусом модели, а не полный технический обзор.","en":"A quick look at the Nokia 7600 by G•OLD collection, introducing its unusual body rather than providing a full technical review."}},
 "nokia-n93": {"id":"l35RiIn_Plk","author":"Steve Litchfield","label":"NOKIA · N93","year":2006,"demonstration":true,"description":{"uk":"Архівна інструкція Steve Litchfield 2006 року з використання Nokia N93 як відеокамери. Ролик присвячений оригінальній N93, не N93i.","ru":"Архивная инструкция Steve Litchfield 2006 года по использованию Nokia N93 как видеокамеры. Ролик посвящён оригинальной N93, не N93i.","en":"Steve Litchfield’s 2006 camcorder tutorial for the original Nokia N93, not the later N93i."}},
-"nokia-e90": {"id":"H5-pj9Io6IQ","author":"PhoneArena","label":"NOKIA · E90","year":2007,"demonstration":true,"description":{"uk":"Архівний показ PhoneArena 2007 року: Nokia E90 разом з E61i та E65. Це спільне знайомство з трьома моделями, не окремий повний огляд E90.","ru":"Архивный показ PhoneArena 2007 года: Nokia E90 вместе с E61i и E65. Это совместное знакомство с тремя моделями, не отдельный полный обзор E90.","en":"PhoneArena’s 2007 hands-on with the Nokia E90 alongside the E61i and E65. A three-model introduction, not a dedicated full E90 review."}},
 "sony-ericsson-p800": {"id":"9y100qDkqYY","author":"TECHabros","label":"SONY ERICSSON · P800","year":2020,"retrospective":true,"description":{"uk":"Ретроогляд Sony Ericsson P800 від TECHabros: погляд на ранній смартфон із сенсорним екраном і відкидною клавіатурою.","ru":"Ретрообзор Sony Ericsson P800 от TECHabros: взгляд на ранний смартфон с сенсорным экраном и откидной клавиатурой.","en":"TECHabros revisits the Sony Ericsson P800, an early smartphone with a touchscreen and a flip keypad."}},
 "sony-ericsson-p910i": {"id":"drB7GfqHWGs","author":"MrMobile [Michael Fisher]","label":"SONY ERICSSON · P910I","year":2022,"retrospective":true,"description":{"uk":"Sony Ericsson P910 у серії When Phones Were Fun від MrMobile. В описі автор уточнює, що для ретроогляду використано саме P910i.","ru":"Sony Ericsson P910 в серии When Phones Were Fun от MrMobile. В описании автор уточняет, что для ретрообзора использован именно P910i.","en":"MrMobile revisits the Sony Ericsson P910 in When Phones Were Fun. The creator identifies the review handset as a P910i in the video description."}},
 "sony-ericsson-w900i": {"id":"A0aRWy79pgo","author":"Retro phones & stuff","label":"SONY ERICSSON · W900I","year":2025,"demonstration":true,"description":{"uk":"Коротка презентація Sony Ericsson W900i Walkman від Retro phones & stuff. Це авторський показ моделі, не офіційний рекламний ролик виробника.","ru":"Краткая презентация Sony Ericsson W900i Walkman от Retro phones & stuff. Это авторский показ модели, не официальный рекламный ролик производителя.","en":"A short Sony Ericsson W900i Walkman presentation by Retro phones & stuff. A creator’s demonstration, not an official manufacturer advertisement."}},

@@ -309,7 +309,9 @@ html[data-header-hidden="true"] .catalog-position { top: 0; }
 .phone-story ul { margin-block:1.5rem; padding-left:1.25rem; list-style:disc; }
 .phone-story li { padding-left:.375rem; margin-block:.875rem; line-height:1.8; color:var(--color-neutral-300); }
 .phone-story li::marker { color:var(--color-orange-500); font-size:.8em; }
-.phone-story li strong { color:var(--color-neutral-100); font-weight:650; }
+.phone-story strong { color:var(--color-neutral-100); }
+.phone-story a strong { color:inherit; }
+.phone-story li strong { font-weight:650; }
 html:has([data-gallery-dialog][open]) { overflow: hidden; }
   [data-gallery-open], [data-gallery-surface] { touch-action: pan-y pinch-zoom; }
   [data-gallery-surface].gallery-zoomed { touch-action: none; cursor: grab; }

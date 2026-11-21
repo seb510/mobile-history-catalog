@@ -1,6 +1,5 @@
 ---
 import Arrow from './Arrow.astro';
-import FilterSelect from './FilterSelect.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
 import { evolutionCopy, type EvolutionFrame } from '../lib/evolution';
 import { museumImageCredit } from '../lib/image-attribution';
@@ -13,6 +12,10 @@ const copy = evolutionCopy[locale];
 const id = brand ? 'brand-evolution' : 'phone-evolution';
 const titleId = `${id}-title`;
 const close = t(locale).gallery.close;
+const firstFrameByYear = new Map<number, number>();
+stops.forEach(({ phone }, index) => {
+  if (!firstFrameByYear.has(phone.year)) firstFrameByYear.set(phone.year, index);
+});
 // Use the gallery's localized alt text and attribution with the selected photograph.
 const galleryShots: Record<string, string> = {
   'nokia-3210': '/images/phones/nokia-3210/commons-main.webp',
@@ -49,7 +52,7 @@ const galleryShots: Record<string, string> = {
             ? shot.imageSourceUrl
             : source?.href ?? phone.imageSourceUrl;
           return (
-            <article class="frame" data-evolution-frame data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>
+            <article class="frame" data-evolution-frame data-evolution-year={phone.year} data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>
               <figure class="artwork">
                 {image && <img data-evolution-src={image} alt={imageAlt} class="hidden" decoding="async" />}
                 <div data-image-fallback-placeholder><PlaceholderArt /></div>
@@ -75,18 +78,13 @@ const galleryShots: Record<string, string> = {
 
       <div class="controls" data-evolution-controls hidden>
         <button class="arrow" type="button" data-evolution-prev aria-label={copy.previous} title={copy.previous}><Arrow direction="left" /></button>
-        {brand ? <div class="model-picker-wrap">
-          <FilterSelect name="evolution-model" label={copy.modelPicker} hideLabel opensUp options={stops.map(({ phone }, index) => ({
-            value: String(index),
-            label: `${phone.year} · ${phone.model}`,
-          }))} />
-        </div> : <div class="year-rail" data-evolution-rail>
+        <div class="year-rail" data-evolution-rail>
           <nav class="years" data-evolution-years aria-label={copy.timeline}>
-            {stops.map(({ phone }, index) => (
-              <button type="button" data-evolution-step={index}>{phone.year}</button>
+            {[...firstFrameByYear].map(([year, index]) => (
+              <button type="button" data-evolution-step={index} data-evolution-year={year}>{year}</button>
             ))}
           </nav>
-        </div>}
+        </div>
         <button class="arrow" type="button" data-evolution-next aria-label={copy.next} title={copy.next}><Arrow /></button>
       </div>
       <p class="sr-only" aria-live="polite" data-evolution-status></p>
@@ -203,7 +201,7 @@ const galleryShots: Record<string, string> = {
     grid-template-rows: auto minmax(0, 1fr) auto;
   }
 
-  [data-scroll] :is(.scene-heading, .frames, .controls > :not(.model-picker-wrap)) {
+  [data-scroll] :is(.scene-heading, .frames, .controls > *) {
     touch-action: pan-x pinch-zoom;
   }
 
@@ -337,19 +335,6 @@ const galleryShots: Record<string, string> = {
   }
   .controls .arrow { display: grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; padding: 0; border-color: var(--scene-rule); color: var(--scene-text); }
   .close-scene { display: grid; flex: 0 0 2.75rem; min-height: 2.75rem; place-items: center; border: 1px solid var(--scene-rule); border-radius: .5rem; cursor: pointer; }
-  .model-picker-wrap {
-    --color-neutral-100: var(--scene-text);
-    --color-neutral-300: var(--scene-text);
-    --color-neutral-500: var(--scene-muted);
-    --color-neutral-700: var(--scene-rule);
-    --color-neutral-800: var(--scene-rule);
-    --color-neutral-900: color-mix(in srgb, var(--scene-bg), var(--scene-text) 7%);
-    --color-neutral-950: var(--scene-bg);
-    --color-orange-500: var(--scene-accent);
-    justify-self: center;
-    min-width: 0;
-    width: min(100%, 18rem);
-  }
   .controls .arrow[aria-disabled="true"] { opacity: .45; cursor: default; }
   .controls .years button {
     flex: none;
