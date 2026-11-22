@@ -7,7 +7,12 @@ milestone: The first Google Tensor and a distinctive camera bar
 priceUsdAtLaunch: 599
 chipset: Google Tensor
 os: Android 12
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Google_Pixel_6_Sorta_Seafoam_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_rear.jpg
+evolutionImage:
+  image: /images/phones/google-pixel-6-front.webp
+  alt: Front of the Pixel 6 with its OLED screen on
+  imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
+  imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_front.jpg
+image: /images/phones/google-pixel-6.webp
 imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_rear.jpg
 gallery:
@@ -15,7 +20,7 @@ gallery:
     alt: Rear views of the Pixel 6 in Sorta Seafoam beside a Pixel 8 in Rose
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Google_Pixel_6_Sorta_Seafoam_front.jpg/960px-Google_Pixel_6_Sorta_Seafoam_front.jpg
+  - image: /images/phones/google-pixel-6-front.webp
     alt: Front of a Pixel 6 in Sorta Seafoam
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_front.jpg
@@ -44,6 +49,8 @@ camera:
 priceSourceUrl: https://blog.google/products-and-platforms/devices/pixel/meet-pixel-6-pixel-6-pro/
 priceContext: US, base model
 ---
+
+Live Translate detected the language of an incoming message and offered a translation inside the chat. For supported languages, Tensor processed the text locally. Even offline, you could translate a message you had already received.
 
 Pixel 6 marked a turning point for the series with Google Tensor, Android 12, and a new horizontal camera bar. Computational photography, speech recognition, and on-device machine learning shaped its identity.
 

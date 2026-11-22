@@ -5,6 +5,11 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  date: "2026-11-22", phones: ["samsung-galaxy-z-flip", "apple-iphone-14", "fairphone-gen-6"], changes: {
+    uk: ["В еволюції телефонів оновили ілюстрації до п’яти років. Кадр 2025 року показує знімний дисплей Fairphone, а 2026-й розповідає про шифрування RCS між Android та iPhone.", "Додано відеоогляди Galaxy Z Flip та iPhone 14 і розбирання Fairphone шостого покоління."],
+    en: ["Updated the illustrations for five years in phone evolution. The 2025 frame shows the Fairphone’s removable display, and 2026 covers encrypted RCS between Android and iPhone.", "Added Galaxy Z Flip and iPhone 14 video reviews and a teardown of the sixth-generation Fairphone."]
+  }
+}, {
   date: "2026-11-21", phones: ["nokia-6303-classic", "nokia-n97"], changes: {
     uk: ["Додано Nokia 6303 classic (2009) із відео 2009 року та двома зразками знімків із камери.", "На сторінках брендів моделі йдуть суцільною сіткою з мітками початку кожного року. До потрібного року можна перейти зі списку над моделями або зі стрічки внизу вікна еволюції бренду.", "Доповнено історію Nokia E90 Communicator, додано три фото й відеоогляд 2007 року."],
     en: ["Added the Nokia 6303 classic (2009) with a video from 2009 and two camera samples.", "Brand pages use a continuous grid with a marker where each year starts. Jump to a year from the index above the models or from the strip at the bottom of the brand evolution window.", "Expanded the Nokia E90 Communicator story and added three photos and a video review from 2007."]

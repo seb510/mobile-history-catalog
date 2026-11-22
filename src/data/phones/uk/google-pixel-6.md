@@ -7,7 +7,12 @@ milestone: Перший Google Tensor і нова впізнавана пане�
 priceUsdAtLaunch: 599
 chipset: Google Tensor
 os: Android 12
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Google_Pixel_6_Sorta_Seafoam_rear.jpg/960px-Google_Pixel_6_Sorta_Seafoam_rear.jpg
+evolutionImage:
+  image: /images/phones/google-pixel-6-front.webp
+  alt: Pixel 6 спереду з увімкненим OLED-дисплеєм
+  imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
+  imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_front.jpg
+image: /images/phones/google-pixel-6.webp
 imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_rear.jpg
 gallery:
@@ -15,7 +20,7 @@ gallery:
     alt: Задні панелі Pixel 6 кольору Sorta Seafoam і Pixel 8 кольору Rose поруч
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_and_8_Rose_rear.jpg
-  - image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Google_Pixel_6_Sorta_Seafoam_front.jpg/960px-Google_Pixel_6_Sorta_Seafoam_front.jpg
+  - image: /images/phones/google-pixel-6-front.webp
     alt: Передня сторона Pixel 6 кольору Sorta Seafoam
     imageCredit: IXTA9839, CC BY-SA 4.0, Wikimedia Commons
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:Google_Pixel_6_Sorta_Seafoam_front.jpg
@@ -44,6 +49,8 @@ camera:
 priceSourceUrl: https://blog.google/products-and-platforms/devices/pixel/meet-pixel-6-pixel-6-pro/
 priceContext: США, базова версія
 ---
+
+Під час листування Live Translate розпізнавав мову вхідного повідомлення й пропонував перекласти його прямо в чаті. Для підтримуваних мов Tensor виконував обробку локально. Для вже отриманого повідомлення переклад працював навіть без мережі.
 
 Pixel 6 став переломним поколінням для серії: Google представила власну платформу Tensor, Android 12 і нову горизонтальну панель камер. Пріоритетом були обчислювальна фотографія, розпізнавання мовлення та машинне навчання безпосередньо на пристрої.
 

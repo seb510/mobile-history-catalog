@@ -25,6 +25,10 @@ gallery:
     alt: Samsung Galaxy S26 Ultra рядом с Galaxy Buds4 Pro
     imageCredit: "Фото: Dinkun Chen, CC BY-SA 4.0, Wikimedia Commons"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
+  - image: /images/phones/samsung-galaxy-s26-ultra-privacy-display.webp
+    alt: Privacy Display выключен (слева) и включён (справа) — под углом экран темнеет и текст становится нечитаемым
+    imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_Privacy_display_On%E3%83%BBOFF.jpg
 battery:
   mah: 5000
   removable: false

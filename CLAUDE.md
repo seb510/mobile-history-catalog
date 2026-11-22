@@ -58,7 +58,7 @@ Cloudflare Workers деплой), але інша архітектура — т�
 ## Commands
 
 ```
-npm run dev        # dev server at localhost:4321 (see also "Development" below for background mode)
+npm run dev        # dev server at localhost:8080 (see also "Development" below for background mode)
 npm run build       # type-checks + builds static site to dist/
 npm run preview     # serve the built dist/ locally
 npm run astro check # type-check content frontmatter against the Zod schema without a full build

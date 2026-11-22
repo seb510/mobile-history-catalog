@@ -18,6 +18,7 @@ if (env.SEO_INDEXABLE === 'true' && (siteUrl.protocol !== 'https:' || /(^localho
 
 // https://astro.build/config
 export default defineConfig({
+  server: { port: 8080 },
   site: siteUrl.origin,
   trailingSlash: 'always',
 

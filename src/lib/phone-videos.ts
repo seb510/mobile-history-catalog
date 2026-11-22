@@ -1,5 +1,26 @@
 import type { Localized } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Localized<string> }> = {
+ 'samsung-galaxy-z-flip': {
+   id: 'XIHtB9A7HPU', author: 'GSMArena Official', label: 'SAMSUNG · GALAXY Z FLIP',
+   description: {
+     uk: 'Відеоогляд першої розкладачки Galaxy Z Flip від GSMArena.',
+     en: 'GSMArena reviews the original Galaxy Z Flip clamshell.',
+   },
+ },
+ 'apple-iphone-14': {
+   id: 'Ht90J5MwpUg', author: 'GSMArena Official', label: 'APPLE · IPHONE 14',
+   description: {
+     uk: 'GSMArena оглядає базовий 6,1-дюймовий iPhone 14.',
+     en: 'GSMArena reviews the standard 6.1-inch iPhone 14.',
+   },
+ },
+ 'fairphone-gen-6': {
+   id: 'bXseyTdynCo', author: 'iFixit', label: 'FAIRPHONE · GEN. 6',
+   description: {
+     uk: 'iFixit розбирає Fairphone шостого покоління й показує, які деталі можна замінити окремо.',
+     en: 'iFixit takes apart the sixth-generation Fairphone and shows which components can be replaced individually.',
+   },
+ },
  'siemens-xelibri-8': {
    id: '1QY4VloAPcw', author: 'Mobijunk', label: 'SIEMENS · XELIBRI 8', year: 2026, retrospective: true,
    description: {

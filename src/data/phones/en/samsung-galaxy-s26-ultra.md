@@ -17,14 +17,27 @@ camera:
 network: GSM, UMTS, LTE, 5G Sub-6
 dimensionsMm: 163,6 × 78,1 × 7,9 mm
 weightGrams: 214
+evolutionImage:
+  image: /images/phones/samsung-galaxy-s26-ultra-front.webp
+  alt: Galaxy S26 Ultra showing its home screen
+  imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+  imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_1.jpg
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Galaxy_S26_Ultra_-_2.jpg/960px-Galaxy_S26_Ultra_-_2.jpg
 imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_2.jpg
 gallery:
+  - image: /images/phones/samsung-galaxy-s26-ultra-front.webp
+    alt: Galaxy S26 Ultra showing its home screen
+    imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_1.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg/960px-SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
     alt: Samsung Galaxy S26 Ultra alongside Galaxy Buds4 Pro
     imageCredit: "Photo: Dinkun Chen, CC BY-SA 4.0, Wikimedia Commons"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
+  - image: /images/phones/samsung-galaxy-s26-ultra-privacy-display.webp
+    alt: Privacy Display off (left) and on (right) — viewed at an angle, the screen darkens and the text becomes unreadable
+    imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_Privacy_display_On%E3%83%BBOFF.jpg
 battery:
   mah: 5000
   removable: false
@@ -44,6 +57,8 @@ priceUsdAtLaunch: 1299.99
 priceSourceUrl: https://news.samsung.com/us/samsung-unveils-galaxy-s26-series-most-intuitive-galaxy-ai-phone-yet/
 priceContext: US, base 12/256 GB model
 ---
+
+In May 2026, end-to-end encryption began rolling out between Google Messages on Android and iPhones running iOS 26.5. The Galaxy S26 Ultra illustrates the Android side of the conversation. Availability at launch depended on the app version and carrier support. [Google](https://blog.google/products-and-platforms/platforms/android/android-ios-end-to-end-encrypted-rcs-messaging/)
 
 Privacy Display addresses messages, passwords and phone use on public transport or in crowded places. Samsung explains that it changes how pixels distribute light to restrict side viewing. It can be configured for sensitive input or particular notifications; switching it off restores a shared viewing experience.
 

@@ -28,7 +28,8 @@ const { Content } = await render(brand);
 const startupSound = PHONE_STARTUP_SOUNDS[data.name];
 if (startupSound && !officialSite) throw new Error(`Startup audio requires an official brand or successor link: ${data.name}`);
 
-const phones = (await getPhonesForLocale(locale)).filter((p) => p.data.brand === data.name).sort((a, b) => a.data.year - b.data.year);
+const allPhones = await getPhonesForLocale(locale);
+const phones = allPhones.filter((p) => p.data.brand === data.name).sort((a, b) => a.data.year - b.data.year);
 const phonesByYear = Map.groupBy(phones, (phone) => phone.data.year);
 const yearIndex = CATALOG_POSITION[locale];
 const brandEvolution: EvolutionFrame[] = phones.map((entry) => {
@@ -186,7 +187,7 @@ const phoneCountText = (count: number) => {
           )))}
         </ul>
       </div>
-      <EvolutionScene brand={data.name} locale={locale} stops={brandEvolution} />
+      <EvolutionScene brand={data.name} locale={locale} stops={brandEvolution} phones={allPhones} />
     </section>
   )}
 </div>

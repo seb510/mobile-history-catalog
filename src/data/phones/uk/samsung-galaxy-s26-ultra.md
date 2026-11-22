@@ -17,14 +17,27 @@ camera:
 network: GSM, UMTS, LTE, 5G Sub-6
 dimensionsMm: 163,6 × 78,1 × 7,9 мм
 weightGrams: 214
+evolutionImage:
+  image: /images/phones/samsung-galaxy-s26-ultra-front.webp
+  alt: Galaxy S26 Ultra з відкритим головним екраном
+  imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+  imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_1.jpg
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Galaxy_S26_Ultra_-_2.jpg/960px-Galaxy_S26_Ultra_-_2.jpg
 imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_2.jpg
 gallery:
+  - image: /images/phones/samsung-galaxy-s26-ultra-front.webp
+    alt: Galaxy S26 Ultra з відкритим головним екраном
+    imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_-_1.jpg
   - image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg/960px-SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
     alt: Samsung Galaxy S26 Ultra поруч із Galaxy Buds4 Pro
     imageCredit: "Фото: Dinkun Chen, CC BY-SA 4.0, Wikimedia Commons"
     imageSourceUrl: https://commons.wikimedia.org/wiki/File:SAMSUNG_Galaxy_S26_Ultra_%26_SAMSUNG_Galaxy_Buds4_Pro.jpg
+  - image: /images/phones/samsung-galaxy-s26-ultra-privacy-display.webp
+    alt: Privacy Display вимкнено (зліва) і увімкнено (справа) — під кутом екран темніє і текст стає нечитабельним
+    imageCredit: Kyu3a, CC BY-SA 4.0, Wikimedia Commons
+    imageSourceUrl: https://commons.wikimedia.org/wiki/File:Galaxy_S26_Ultra_Privacy_display_On%E3%83%BBOFF.jpg
 battery:
   mah: 5000
   removable: false
@@ -44,6 +57,8 @@ priceUsdAtLaunch: 1299.99
 priceSourceUrl: https://news.samsung.com/us/samsung-unveils-galaxy-s26-series-most-intuitive-galaxy-ai-phone-yet/
 priceContext: США, базова версія 12/256 ГБ
 ---
+
+У травні 2026 року почалося впровадження наскрізного шифрування RCS між Google Messages на Android і iPhone з iOS 26.5. Galaxy S26 Ultra ілюструє сторону Android. На старті доступ залежав від версії застосунку й підтримки оператора. [Google](https://blog.google/products-and-platforms/platforms/android/android-ios-end-to-end-encrypted-rcs-messaging/)
 
 Практичний контекст Privacy Display — повідомлення, паролі й робота з телефоном у транспорті або інших людних місцях. За поясненням Samsung, функція змінює розподіл світла пікселями, обмежуючи читання збоку. Її можна налаштовувати для чутливого введення чи окремих сповіщень; коли вона вимкнена, екран знову придатний для спільного перегляду.
 

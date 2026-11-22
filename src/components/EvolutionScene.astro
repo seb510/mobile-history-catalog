@@ -1,14 +1,18 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+import { slugOf } from '../lib/phones';
 import Arrow from './Arrow.astro';
 import PlaceholderArt from './PlaceholderArt.astro';
+import EvolutionPrivacy from './EvolutionPrivacy.astro';
 import { evolutionCopy, type EvolutionFrame } from '../lib/evolution';
 import { evolutionYears } from '../lib/evolution-years';
 import { museumImageCredit } from '../lib/image-attribution';
 import { localePath, type Locale } from '../lib/locales';
 import { GALLERY_INTERACTION, t } from '../lib/ui-strings';
 
-interface Props { locale: Locale; stops: EvolutionFrame[]; brand?: string }
-const { locale, stops, brand } = Astro.props;
+interface Props { locale: Locale; stops: EvolutionFrame[]; brand?: string; phones: CollectionEntry<'phones'>[] }
+const { locale, stops, brand, phones } = Astro.props;
+const phonesBySlug = new Map(phones.map(entry => [slugOf(entry), entry.data]));
 const copy = evolutionCopy[locale];
 const spreadCopy = locale === 'uk'
   ? { style: 'Стиль перегляду', classic: 'Класичний', spread: 'Розворот', details: 'Докладніше про', compare: 'Порівняти з', camera: 'Передня камера праворуч від динаміка.', headline: 'Телефон уже можна тримати екраном до себе' }
@@ -65,7 +69,11 @@ const galleryShots: Record<string, string> = {
           const prior = stops[index - 1]?.phone;
           const context = evolutionYears[phone.year];
           const contextText = context?.[locale];
-          const external = context?.source.startsWith('https://');
+          const example = context && context.slug !== slug ? phonesBySlug.get(context.slug) : undefined;
+          const exampleCredit = example && museumImageCredit(example, locale);
+          const exampleShot = example?.evolutionImage;
+          const exampleCreditUrl = exampleShot ? exampleShot.imageSourceUrl : exampleCredit?.href ?? example?.imageSourceUrl;
+          const exampleCreditLabel = exampleShot?.imageCredit ?? exampleCredit?.label ?? example?.imageCredit;
           const priorName = prior && (prior.model.startsWith(prior.brand + ' ') ? prior.model : `${prior.brand} ${prior.model}`);
           const source = shot ? null : museumImageCredit(phone, locale);
           const credit = shot?.imageCredit ?? source?.label ?? phone.imageCredit;
@@ -73,9 +81,15 @@ const galleryShots: Record<string, string> = {
             ? shot.imageSourceUrl
             : source?.href ?? phone.imageSourceUrl;
           const extraPhotos = (phone.gallery ?? []).filter(photo => photo.image !== image && photo.image.startsWith('/images/'));
+          if (shot && phone.image?.startsWith('/images/') && phone.image !== image && !extraPhotos.some(photo => photo.image === phone.image)) {
+            const coverCredit = museumImageCredit(phone, locale);
+            extraPhotos.unshift({ image: phone.image, alt: phone.imageCaption ?? name,
+              imageCredit: coverCredit?.label ?? phone.imageCredit ?? '', imageSourceUrl: coverCredit?.href ?? phone.imageSourceUrl });
+          }
+          const isPrivacyDemo = slug === 'samsung-galaxy-s26-ultra';
           return (
             <article class="frame" data-evolution-frame data-evolution-year={phone.year} data-announcement={[phone.year, name, label ?? description].filter(Boolean).join(' · ')}>
-              <figure class="artwork">
+              {isPrivacyDemo ? <EvolutionPrivacy locale={locale} /> : <figure class="artwork">
                 <div class="photo-surface" data-photo-year={phone.year}>
                 {image && <img data-evolution-src={image} alt={imageAlt} class="hidden" decoding="async" />}
                 <div data-image-fallback-placeholder><PlaceholderArt /></div>
@@ -92,16 +106,23 @@ const galleryShots: Record<string, string> = {
                   {caption && <span>{caption}</span>}
                   {credit && <span class="credit">{creditUrl ? <a href={creditUrl} target="_blank" rel="noopener noreferrer">{credit}</a> : credit}</span>}
                 </figcaption>}
-              </figure>
+              </figure>}
               <div class="story">
                 <p class="year">{phone.year}</p>
                 <h3>{name}</h3>
                 {label && <p class="milestone">{slug === 'samsung-galaxy-s' ? <><span class="classic-only">{label}</span><span class="spread-only">{spreadCopy.headline}</span></> : label}</p>}
                 {description && <p class="description">{description}</p>}
                 {context && contextText && <aside class="tech-context">
-                  <p class="tech-date">{locale === 'uk' ? 'Технології року' : 'Technology of the year'} · {phone.year}</p>
-                  <h4><a href={external ? context.source : localePath(locale, context.source)} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>{contextText[0]} <span aria-hidden="true">↗</span></a></h4>
+                  <p class="tech-date">{locale === 'uk' ? 'Інновація року' : 'Innovation of the year'} · {phone.year}</p>
+                  <h4>{contextText[0]}</h4>
                   <p>{contextText[1]}</p>
+                  {example?.image && <figure class="innovation-example">
+                    <img src={exampleShot?.image ?? example.image} alt={exampleShot?.alt ?? example.imageCaption ?? example.model} loading="lazy" decoding="async" />
+                    <figcaption>
+                      <a href={localePath(locale, `/phones/${context.slug}/`)}>{example.brand} {example.model}</a>
+                      {exampleCreditLabel && <small>{exampleCreditUrl ? <a href={exampleCreditUrl} target="_blank" rel="noopener noreferrer">{exampleCreditLabel}</a> : exampleCreditLabel}</small>}
+                    </figcaption>
+                  </figure>}
                 </aside>}
                 <div class="scene-links"><a class="details" href={localePath(locale, `/phones/${slug}/`)}>
                   <span class="classic-only">{copy.details}</span><span class="spread-only">{spreadCopy.details} {phone.model}</span><span aria-hidden="true">→</span>
@@ -536,6 +557,11 @@ const galleryShots: Record<string, string> = {
     font-size: clamp(.83rem,1.2vw,.96rem); line-height: 1.42;
   }
   .tech-context h4 { font-weight: 700; font-size: 1.15em; }
+  .innovation-example { display: flex; align-items: center; gap: .7rem; margin-top: .35rem; }
+  .innovation-example img { width: 5rem; height: 4.5rem; object-fit: contain; background: #e3e8e5; border-radius: .3rem; }
+  .innovation-example figcaption { min-width: 0; }
+  .innovation-example small { display: block; overflow-wrap: anywhere; color: var(--scene-muted); }
+  .innovation-example a { text-decoration: underline; text-underline-offset: .15em; }
   .tech-context h4 a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: #759892; }
   .tech-context .tech-date { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--scene-accent); }
   [data-view-style="spread"] .frame .photo-surface {
