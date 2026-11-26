@@ -15,7 +15,7 @@ const stops: EvolutionFrame[] = Object.entries(evolutionYears).map(([year, event
   if (!entry || entry.data.year !== Number(year) || !entry.data.image) throw new Error(`Missing evolution illustration for ${year}`);
   const slug = slugOf(entry);
   const [label, description] = curated.get(slug) ?? [];
-  return { slug, phone: entry.data, label, description };
+  return { slug, phone: entry.data, label, description: description ?? entry.data.milestone ?? event[locale][1] };
 });
 ---
 

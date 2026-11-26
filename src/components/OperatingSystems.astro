@@ -163,7 +163,13 @@ const galleryImages = [...galleryMedia.values()].map(picture => ({
           {isTimeline ? VERSION_COPY.title[locale] : `${OS_COPY.models[locale]} · ${models.length}`}
         </h2>
         {hasVersions && <p class="mt-2 text-sm text-neutral-400">{VERSION_COPY[isTimeline ? 'timelineIntro' : 'intro'][locale]}</p>}
-        {hasVersions && <nav class="mt-4 flex flex-wrap gap-2" aria-label={VERSION_COPY.title[locale]}>
+        {hasVersions && versions.length > 8 && <details class="mt-4 sm:hidden" data-version-jump>
+          <summary class="min-h-11 cursor-pointer border border-neutral-700 px-3 py-2 font-semibold">{locale === 'uk' ? 'Перейти до версії' : 'Jump to a version'}</summary>
+          <nav class="mt-2 flex flex-wrap gap-2" aria-label={VERSION_COPY.title[locale]}>
+            {versions.map(version => <a class="platform-link border border-neutral-800 px-3 py-2" href={`#version-${version.id}`}>{version.title}</a>)}
+          </nav>
+        </details>}
+        {hasVersions && <nav class:list={['mt-4 flex-wrap gap-2', versions.length > 8 ? 'hidden sm:flex' : 'flex']} aria-label={VERSION_COPY.title[locale]}>
           {versions.map(version => <a class="platform-link rounded-sm border border-neutral-800 px-3 py-2 text-sm text-orange-500" href={`#version-${version.id}`}>{version.title}</a>)}
         </nav>}
         {versions.map(version => {

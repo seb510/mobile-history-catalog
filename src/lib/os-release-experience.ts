@@ -1,4 +1,12 @@
 export const releaseExperience: Record<string, { uk: string; en: string }> = {
+  'harmonyos-4-2': {
+    uk: 'На першому Mate XT ширину екрана для читання можна було вибирати самим рухом корпуса. Для короткого повідомлення вистачало однієї секції. Відкривши другу, читач отримував ширший рядок, а повністю розгорнута 10,2-дюймова поверхня давала змогу роздивитися таблицю в документі.',
+    en: 'On the original Mate XT, unfolding the handset let you choose a reading width. One section was enough for a short message. Opening a second gave text a wider column, while the full 10.2-inch display made it easier to read a table in a document.',
+  },
+  'harmonyos-7-0': {
+    uk: 'На китайському Mate XT 2 коротку відповідь можна набрати на окремому зовнішньому екрані, поки гнучкий дисплей складений усередину. Для довгого листа з вкладеною схемою можна розгорнути телефон і відкрити вкладення на великому екрані. Такий спосіб роботи визначає конструкція саме цієї моделі.',
+    en: 'On the Chinese Mate XT 2, you can type a quick reply on the separate cover screen while the flexible display stays folded inside. For a longer email with a diagram attached, you can unfold the handset and open the attachment on the larger screen. That choice of displays comes from this particular handset’s design.',
+  },
   'iphone-os-1': {
     uk: 'На першому iPhone сторінку в Safari можна було посунути пальцем, а подвійним дотиком збільшити потрібну колонку тексту. Акселерометр повертав сторінку разом із телефоном. Щоб повернутися до піктограм, натискали фізичну кнопку Home.',
     en: 'On the original iPhone, you could pan a webpage with a finger and double-tap a column in Safari to make it readable. Turning the handset rotated the page. Pressing the physical Home button took you back to the app icons.',
