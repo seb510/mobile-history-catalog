@@ -5,6 +5,11 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  date: "2026-11-26", phones: ["sony-ericsson-p900", "nokia-n91", "motorola-aura"], changes: {
+    uk: ["До архіву додано P900 зі стилусом, музичну Nokia N91 і поворотну Motorola AURA.", "Усі три моделі отримали фото (зокрема знайдений для AURA реальний екземпляр замість заглушки), відеоогляди й повніші технічні портрети з офіційних і перевірених джерел."],
+    en: ["Added the stylus-driven P900, the music-focused Nokia N91 and the swivelling Motorola AURA.", "All three models gained photos (including a real AURA unit found to replace the placeholder), video reviews and fuller spec tables sourced from official and verified references."]
+  }
+}, {
   date: "2026-11-22", phones: ["samsung-galaxy-z-flip", "apple-iphone-14", "fairphone-gen-6"], changes: {
     uk: ["В еволюції телефонів оновили ілюстрації до п’яти років. Кадр 2025 року показує знімний дисплей Fairphone, а 2026-й розповідає про шифрування RCS між Android та iPhone.", "Додано відеоогляди Galaxy Z Flip та iPhone 14 і розбирання Fairphone шостого покоління."],
     en: ["Updated the illustrations for five years in phone evolution. The 2025 frame shows the Fairphone’s removable display, and 2026 covers encrypted RCS between Android and iPhone.", "Added Galaxy Z Flip and iPhone 14 video reviews and a teardown of the sixth-generation Fairphone."]

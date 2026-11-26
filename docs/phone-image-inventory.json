@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-26",
   "method": "Offline Ukrainian canonical inventory; attribution presence and local-file decoding, not remote availability or license verification",
   "summary": {
-    "models": 166,
-    "localPrimary": 97,
-    "remotePrimary": 68,
+    "models": 174,
+    "localPrimary": 106,
+    "remotePrimary": 67,
     "missingPrimary": [
       "huawei-mate-xt-2"
     ],
@@ -27,6 +27,13 @@
     },
     {
       "slug": "apple-iphone-13-pro",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "apple-iphone-14",
       "primary": "local",
       "frames": 2,
       "remoteFrames": 0,
@@ -75,6 +82,13 @@
       "issues": []
     },
     {
+      "slug": "fairphone-gen-6",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "google-pixel-11-pro",
       "primary": "remote",
       "frames": 1,
@@ -83,9 +97,9 @@
     },
     {
       "slug": "google-pixel-6",
-      "primary": "remote",
+      "primary": "local",
       "frames": 3,
-      "remoteFrames": 3,
+      "remoteFrames": 1,
       "issues": []
     },
     {
@@ -176,6 +190,13 @@
       "slug": "microsoft-lumia-950",
       "primary": "local",
       "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "motorola-aura",
+      "primary": "local",
+      "frames": 3,
       "remoteFrames": 0,
       "issues": []
     },
@@ -453,6 +474,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-6303-classic",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-6500-slide",
       "primary": "remote",
       "frames": 2,
@@ -588,7 +616,7 @@
     {
       "slug": "nokia-e90",
       "primary": "local",
-      "frames": 1,
+      "frames": 4,
       "remoteFrames": 0,
       "issues": []
     },
@@ -698,6 +726,13 @@
       "issues": []
     },
     {
+      "slug": "nokia-n91",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
       "slug": "nokia-n93",
       "primary": "local",
       "frames": 2,
@@ -716,6 +751,13 @@
       "primary": "remote",
       "frames": 2,
       "remoteFrames": 2,
+      "issues": []
+    },
+    {
+      "slug": "nokia-n97",
+      "primary": "local",
+      "frames": 3,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -756,7 +798,7 @@
     {
       "slug": "samsung-galaxy-s26-ultra",
       "primary": "remote",
-      "frames": 2,
+      "frames": 4,
       "remoteFrames": 2,
       "issues": []
     },
@@ -772,6 +814,13 @@
       "primary": "remote",
       "frames": 3,
       "remoteFrames": 3,
+      "issues": []
+    },
+    {
+      "slug": "samsung-galaxy-z-flip",
+      "primary": "local",
+      "frames": 2,
+      "remoteFrames": 0,
       "issues": []
     },
     {
@@ -1058,6 +1107,13 @@
       "slug": "sony-ericsson-p800",
       "primary": "local",
       "frames": 1,
+      "remoteFrames": 0,
+      "issues": []
+    },
+    {
+      "slug": "sony-ericsson-p900",
+      "primary": "local",
+      "frames": 2,
       "remoteFrames": 0,
       "issues": []
     },
