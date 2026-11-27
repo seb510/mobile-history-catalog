@@ -5,6 +5,11 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
+  date: "2026-11-27", phones: ["sony-ericsson-w705", "sony-ericsson-c902", "sony-ericsson-xperia-play"], changes: {
+    uk: ["Три способи користуватися Sony Ericsson: слухати музику на W705, фотографувати на C902 і грати на Xperia PLAY."],
+    en: ["Three ways to use a Sony Ericsson: listen on the W705, shoot with the C902 and play on the Xperia PLAY."]
+  }
+}, {
   date: "2026-11-26", phones: ["sony-ericsson-p900", "nokia-n91", "motorola-aura"], changes: {
     uk: ["До архіву додано P900 зі стилусом, музичну Nokia N91 і поворотну Motorola AURA.", "Усі три моделі отримали фото (зокрема знайдений для AURA реальний екземпляр замість заглушки), відеоогляди й повніші технічні портрети з офіційних і перевірених джерел."],
     en: ["Added the stylus-driven P900, the music-focused Nokia N91 and the swivelling Motorola AURA.", "All three models gained photos (including a real AURA unit found to replace the placeholder), video reviews and fuller spec tables sourced from official and verified references."]

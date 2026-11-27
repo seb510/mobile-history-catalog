@@ -67,7 +67,8 @@ const galleryShots: Record<string, string> = {
           const imageAlt = shot?.alt ?? phone.imageCaption ?? name;
           const caption = slug === 'samsung-galaxy-s' ? spreadCopy.camera : shot?.alt ?? phone.imageCaption;
           const prior = stops[index - 1]?.phone;
-          const context = evolutionYears[phone.year];
+          const nextModel = brand ? stops[index + 1] : undefined;
+          const context = brand ? undefined : evolutionYears[phone.year];
           const contextText = context?.[locale];
           const example = context && context.slug !== slug ? phonesBySlug.get(context.slug) : undefined;
           const exampleCredit = example && museumImageCredit(example, locale);
@@ -112,6 +113,11 @@ const galleryShots: Record<string, string> = {
                 <h3>{name}</h3>
                 {label && <p class="milestone">{slug === 'samsung-galaxy-s' ? <><span class="classic-only">{label}</span><span class="spread-only">{spreadCopy.headline}</span></> : label}</p>}
                 {description && <p class="description">{description}</p>}
+                {nextModel && <aside class="tech-context">
+                  <p class="tech-date">{locale === 'uk' ? 'Далі в історії' : 'Next in the history of'} {brand}</p>
+                  <h4>{nextModel.phone.year} · {nextModel.phone.model}</h4>
+                  {nextModel.phone.milestone && <p>{nextModel.phone.milestone}</p>}
+                </aside>}
                 {context && contextText && <aside class="tech-context">
                   <p class="tech-date">{locale === 'uk' ? 'Інновація року' : 'Innovation of the year'} · {phone.year}</p>
                   <h4>{contextText[0]}</h4>
