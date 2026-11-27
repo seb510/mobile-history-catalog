@@ -17,6 +17,12 @@ milestone: "Новий жест RAZR: складаний екран, Alcantara �
 camera:
   rear: 50 Мп основна OIS + 50 Мп надширококутна / Macro Vision
   front: 50 Мп
+gallery:
+  - image: /images/phones/motorola-razr-ultra-2026/press-front.webp
+    alt: Розкладений razr ultra у кольорі Orient Blue, вигляд спереду.
+    caption: Розкладений razr ultra у кольорі Orient Blue, вигляд спереду.
+    imageCredit: "Motorola · Press Box"
+    imageSourceUrl: https://motorolanews.com/pressbox/motorola-razr/motorola-razr-70-ultra-razr-ultra/
 image: /images/phones/motorola-razr-ultra-2026/commons-back.webp
 imageCredit: Maksdroider, CC BY 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Razr_70_Ultra_back.jpg

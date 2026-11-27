@@ -1,5 +1,29 @@
 import type { Localized } from './locales';
 export const PHONE_VIDEOS: Record<string, { id: string; author: string; label: string; year?: number; retrospective?: boolean; demonstration?: boolean; promo?: boolean; walkthrough?: boolean; description: Localized<string> }> = {
+ 'sony-ericsson-z610i': {
+   id: 'RRdPXA41wnk', author: 'SmerFon', label: 'SONY ERICSSON · Z610i', retrospective: true,
+   description: { uk: 'Меню, ігри й мелодії Z610i.', en: 'The menus, games and ringtones of the Z610i.' },
+ },
+ 'sony-ericsson-w350i': {
+   id: 'dMktFWgEhhg', author: 'Adrián Alcón Żurawka (Yadratorex)', label: 'SONY ERICSSON · W350i',
+   description: { uk: 'Відеоогляд кнопкового Walkman W350i.', en: 'A video review of the W350i Walkman phone.' },
+ },
+ 'sony-ericsson-satio': {
+   id: 'kBs7gvGlri8', author: 'PhoneArena', label: 'SONY ERICSSON · SATIO',
+   description: { uk: 'PhoneArena оглядає сенсорний камерофон Satio.', en: 'PhoneArena reviews the touchscreen Satio camera phone.' },
+ },
+ 'sony-ericsson-w705': {
+   id: 'dmUXqb9f8F4', author: 'PhoneArena', label: 'SONY ERICSSON · W705', year: 2009,
+   description: { uk: 'Огляд Sony Ericsson W705 від PhoneArena, 2009 рік.', en: 'PhoneArena reviews the Sony Ericsson W705 in 2009.' },
+ },
+ 'sony-ericsson-c902': {
+   id: 'JL_ZctcbBm0', author: 'Stuff', label: 'SONY ERICSSON · C902', year: 2008,
+   description: { uk: 'Огляд Sony Ericsson C902 від Stuff, 2008 рік.', en: 'Stuff reviews the Sony Ericsson C902 in 2008.' },
+ },
+ 'sony-ericsson-xperia-play': {
+   id: 'snvrJcK4b34', author: 'PhoneArena', label: 'SONY ERICSSON · XPERIA PLAY', year: 2011,
+   description: { uk: 'Огляд Sony Ericsson Xperia PLAY від PhoneArena, 2011 рік.', en: 'PhoneArena reviews the Sony Ericsson Xperia PLAY in 2011.' },
+ },
  'samsung-galaxy-z-flip': {
    id: 'XIHtB9A7HPU', author: 'GSMArena Official', label: 'SAMSUNG · GALAXY Z FLIP',
    description: {

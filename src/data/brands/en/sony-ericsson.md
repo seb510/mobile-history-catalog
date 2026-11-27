@@ -1,7 +1,7 @@
 ---
 name: Sony Ericsson
 founded: 2001
-logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/Sony_Ericsson_wordmark.svg"
+logo: "/images/brands/sony-ericsson.svg"
 logoCredit: "Trademark Sony Ericsson, PD-textlogo (text logo, public domain), via Wikimedia Commons"
 logoSourceUrl: "https://commons.wikimedia.org/wiki/File:Sony_Ericsson_wordmark.svg"
 ---

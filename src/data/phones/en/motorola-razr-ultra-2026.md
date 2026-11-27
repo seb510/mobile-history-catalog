@@ -17,6 +17,12 @@ milestone: A new RAZR gesture with a folding display, Alcantara and wood veneer
 camera:
   rear: 50 MP main OIS + 50 MP ultrawide / Macro Vision
   front: 50 MP
+gallery:
+  - image: /images/phones/motorola-razr-ultra-2026/press-front.webp
+    alt: Unfolded razr ultra in Orient Blue, front view.
+    caption: Unfolded razr ultra in Orient Blue, front view.
+    imageCredit: "Motorola · Press Box"
+    imageSourceUrl: https://motorolanews.com/pressbox/motorola-razr/motorola-razr-70-ultra-razr-ultra/
 image: /images/phones/motorola-razr-ultra-2026/commons-back.webp
 imageCredit: Maksdroider, CC BY 4.0, Wikimedia Commons
 imageSourceUrl: https://commons.wikimedia.org/wiki/File:Motorola_Razr_70_Ultra_back.jpg

@@ -5,9 +5,9 @@ export const UPDATES_COPY = {
 } as const;
 // Curated public changelog. Add completed changes only; no speculative release dates.
 export const UPDATES = [{
-  date: "2026-11-27", phones: ["sony-ericsson-w705", "sony-ericsson-c902", "sony-ericsson-xperia-play"], changes: {
-    uk: ["Три способи користуватися Sony Ericsson: слухати музику на W705, фотографувати на C902 і грати на Xperia PLAY."],
-    en: ["Three ways to use a Sony Ericsson: listen on the W705, shoot with the C902 and play on the Xperia PLAY."]
+  date: "2026-11-27", phones: ["sony-ericsson-z610i", "sony-ericsson-w350i", "sony-ericsson-satio", "sony-ericsson-w705", "sony-ericsson-c902", "sony-ericsson-xperia-play"], changes: {
+    uk: ["До W705, C902 і Xperia PLAY приєдналися дзеркальна розкладачка Z610i, Walkman W350i і камерофон Satio. У галереї razr ultra (2026) з’явився вигляд спереду."],
+    en: ["The mirrored Z610i, Walkman W350i and Satio camera phone join the W705, C902 and Xperia PLAY. The razr ultra (2026) gallery now includes a front view."]
   }
 }, {
   date: "2026-11-26", phones: ["sony-ericsson-p900", "nokia-n91", "motorola-aura"], changes: {
